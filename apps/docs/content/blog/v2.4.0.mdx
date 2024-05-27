@@ -1,0 +1,292 @@
+---
+title: "Introducing v2.4.0"
+description: "NextUI v2.4.0 is here! includes tons of bug fixes, the possibility to globally disable the animations and improvements."
+date: "2024-05-27"
+image: "/blog/v2.4.0.jpg"
+tags: ["nextui", "v2.4.0", "release", "bug fixes", "improvements", "animations"]
+author:
+  name: "WK Wong"
+  username: "@wingkwong"
+  link: "https://github.com/wingkwong"
+  avatar: "https://avatars.githubusercontent.com/u/35857179?v=4"
+---
+
+<img
+  src="/blog/v2.4.0_2x.jpg"
+  width={700}
+  height={350}
+  alt="NextUI v2.4.0"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+We are excited to announce the latest update to NextUI, version **2.4.0**! This release introduces 60+ bug fixes, dependencies upgrades, improvements in API and CLI and more.
+
+## What's New in v2.4.0?
+
+- [Disable Animations Globally](#disable-animations-globally) - Allows users to disable animation globally via NextUIProvider
+- [API Improvements](#api-improvements) - Includes several props like `disableRipple`, `skipFramerMotionAnimations` and `validationBehavior`
+- [CLI Improvements](#cli-improvements) - Includes new command options and optimizes performance
+- [React Aria Packages Upgrades](#react-aria-packages-upgrades) - Upgrades and fixes the exact versions of React Aria
+- [Other Changes](#other-changes) - Includes styling improvements, accessibility, usability enhancements and over 60 bug fixes across different component packages
+
+<Spacer y={4} />
+
+Upgrade today by running one of the following commands:
+
+<Spacer y={4} />
+
+<PackageManagers
+  commands={{
+    cli: "nextui upgrade",
+    npm: "npx nextui-cli@latest upgrade",
+  }}
+/>
+
+
+<Spacer y={4} />
+
+## Disable Animations Globally
+
+NextUI components are animated by default and can be disabled by setting the prop `disableAnimation` individually. Since v2.4.0, you can globally disable the animation by setting `disableAnimation` to `NextUIProvider`.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} disableAnimation>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+<Spacer y={4} />
+
+## API Improvements
+
+### disableRipple
+
+By default, there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `NextUIProvider`.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} disableRipple>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+### skipFramerMotionAnimations
+
+We can control whether `framer-motion` animations are skipped within the application. This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`, effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while using the `disableAnimation` prop for other purposes, set this to `false`. However, note that animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} skipFramerMotionAnimations>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+### validationBehavior
+
+We can set `validationBehavior` to either `native` or `aria` to control whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA. If it is not specified, `aria` will be used by default.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} validationBehavior="native">
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+<Spacer y={4} />
+
+## CLI Improvements
+
+### Package Manager Flag
+
+We've introduced a new flag `-p` (or `--package`) to init command to allow users to choose the package manager to use for the new project. By default, `npm` is used. For example, the following command will initialize a new NextUI project with the app template named my-nextui-app using pnpm package manager.
+
+```bash
+nextui init my-nextui-app -t app -p pnpm
+```
+
+### no-cache Flag
+
+We've introduced a new flag `--no-cache` to allow users to disable the cache. By default, the data will be cached for 30 mins after the first request. It is useful when the data is cached, and you wish to upgrade to the new version just released after the first request. In this way, you can run the following command
+
+```bash
+nextui --no-cache upgrade
+```
+
+### Upgrade Version Output
+
+![image](https://github.com/nextui-org/nextui-cli/assets/96854855/2a5945dd-5187-4e20-81b8-4136e9791dde)
+
+You can now run the upgrade command with option either `--major`, `--minor`, or `--patch`.
+
+- The `major` option detects all updatable versions.
+- The default `minor` option detects all `minor` and `patch` updatable versions.
+- The `patch` option specifically detects `patch` updatable versions.
+
+### Add Vite Template
+
+We've introduced a new Vite template pre-configured with NextUI v2 and TailwindCSS. The following command is to initialize a new Vite project named `my-vite-app`.
+
+```bash
+nextui init my-vite-app -t vite
+```
+
+<Spacer y={4} />
+
+## React Aria Packages Upgrades
+
+We've upgraded and fixed React Aria packages dependencies across our components. This update focuses on enhancing accessibility, ensuring better compatibility with the latest versions of React Aria, and resolving previously reported bugs.
+
+<Spacer y={4} />
+
+## Breaking Changes
+
+### Export improved `cn` utility
+
+> If you are using it from `@nextui-org/react`, no changes are required.
+
+The new `cn` utility exported from the `@nextui-org/theme` package includes `tailwind-merge` to avoid conflicts between tailwindcss classes overrides and includes the config for NextUI custom classes.
+
+If you are using the `cn` utility from the `@nextui-org/system`, 
+
+```diff-tsx
+-import {cn} from "@nextui-org/system"
+```
+
+or `@nextui-org/system-rsc` package,
+
+```diff-tsx
+-import {cn} from "@nextui-org/system-rsc"
+```
+
+you need to update the import as follows:
+
+```diff-tsx
++ import {cn} from "@nextui-org/theme"
+```
+
+<Spacer y={4} />
+
+
+## Other Changes
+
+**Bug Fixes**:
+
+- Fixed popover-based focus behaviours. [PR](https://github.com/nextui-org/nextui/pull/2889) - [@wingkwong](https://github.com/wingkwong)
+- Fixed missing ref to input wrapper. [PR](https://github.com/nextui-org/nextui/pull/3008) - [@wingkwong](https://github.com/wingkwong)
+- Fixed react-hook-form uncontrolled switch component. [PR](https://github.com/nextui-org/nextui/pull/3008) - [@wingkwong](https://github.com/wingkwong)
+- Fixed focus on the first item when pressing Space / Enter key on dropdown menu open. [PR](https://github.com/nextui-org/nextui/pull/2970) - [@wingkwong](https://github.com/wingkwong)
+- Fixed inputting spaces in textarea inside a Table row. [PR](https://github.com/nextui-org/nextui/pull/3020) - [@wingkwong](https://github.com/wingkwong)
+- Fixed incorrect tailwind classnames. [PR](https://github.com/nextui-org/nextui/pull/3018) - [@wingkwong](https://github.com/wingkwong)
+- Fixed onSelectionChange can handle number [PR](https://github.com/nextui-org/nextui/pull/2937) - [@ryo-manba](https://github.com/ryo-manba)
+- Fixed update type definition to prevent primitive values as items [PR](https://github.com/nextui-org/nextui/pull/2938) - [@ryo-manba](https://github.com/ryo-manba)
+- Fixed display placeholder text when unselected for controlled. [PR](https://github.com/nextui-org/nextui/pull/3081) - [@ryo-manba](https://github.com/ryo-manba)
+- Fixed the inert attribute in `CalendarMonth` and `CalendarPicker`. [PR](https://github.com/nextui-org/nextui/pull/3054) - [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)
+- Fixed hiding of unavailable dates in RangeCalendar. [PR](https://github.com/nextui-org/nextui/pull/3054) - [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)
+- Fixed calendar header controlled state on DatePicker. [PR](https://github.com/nextui-org/nextui/pull/2845) - [@chirokas](https://github.com/chirokas)
+- Fixed 'Tap to click' behavior on macOS for Accordion and Tab. [PR](https://github.com/nextui-org/nextui/pull/2725) - [@ericfabreu](https://github.com/ericfabreu)
+- Fixed incorrect margin on labels for RTL required inputs. [PR](https://github.com/nextui-org/nextui/pull/2781) - [@mrbadri](https://github.com/mrbadri)
+- Fixed a type error in the onKeyDown event handler for the menu component. [PR](https://github.com/nextui-org/nextui/pull/3064) - [@Gaic4o](https://github.com/Gaic4o)
+
+**Improvements**
+
+- Added `destroyInactiveTabPanel` prop for Tabs component. [PR](https://github.com/nextui-org/nextui/pull/2973) - [@wingkwong](https://github.com/wingkwong)
+- Added pointer-events-none to skeleton base. [PR](https://github.com/nextui-org/nextui/pull/2972) - [@wingkwong](https://github.com/wingkwong)
+- Revised isInvalid input styles. [PR](https://github.com/nextui-org/nextui/pull/3010) - [@wingkwong](https://github.com/wingkwong)
+- Revised slider styles. [PR](https://github.com/nextui-org/nextui/pull/2883) - [@wingkwong](https://github.com/wingkwong)
+- Removed unnecessary origin-bottom in button. [PR](https://github.com/nextui-org/nextui/pull/2990) - [@wingkwong](https://github.com/wingkwong)
+- Set overflow visible after skeleton loaded. [PR](https://github.com/nextui-org/nextui/pull/2986) - [@wingkwong](https://github.com/wingkwong)
+- Kept date picker style consistent for different variants. [PR](https://github.com/nextui-org/nextui/pull/2901) - [@wingkwong](https://github.com/wingkwong)
+- Calculated the correct value on mark click. [PR](https://github.com/nextui-org/nextui/pull/3017) - [@wingkwong](https://github.com/wingkwong)
+- Removed scrolling display during month change animation. [PR](https://github.com/nextui-org/nextui/pull/2949) - [@novsource](https://github.com/novsource)
+- Added the correct peerDep version [PR](https://github.com/nextui-org/nextui/pull/3014) - [@winchesHe](https://github.com/winchesHe)
+- Added missing export of TableRowProps type. [PR](https://github.com/nextui-org/nextui/pull/2866) - [@sapkra](https://github.com/sapkra)
+- Changed validationBehavior from native to aria by default, with the option to change via props. [PR](https://github.com/nextui-org/nextui/pull/2987) - [@ryo-manba](https://github.com/ryo-manba)
+- Made the VisuallyHidden elementType as span when the default parent element accepts only phrasing elements. [PR](https://github.com/nextui-org/nextui/pull/3013) - [@kosmotema](https://github.com/kosmotema)
+- Refactored the useScrollPosition hook to improve performance and stability by using useCallback for the handler function and useRef for throttleTimeout. [PR](https://github.com/nextui-org/nextui/pull/3049) - [@Gaic4o](https://github.com/Gaic4o)
+
+**Documentation**:
+- Updated documentation to reflect the new features and changes in the components, API references, and CLI.
+
+Special thanks to NextUI Team members [@kuri-sun](https://github.com/kuri-sun), [@ryo-manba](https://github.com/ryo-manba), 
+[@sudongyuer](https://github.com/sudongyuer), [@winchesHe](https://github.com/winchesHe), [@wingkwong](https://github.com/wingkwong), 
+[@tianenpang](https://github.com/tianenpang), [@smultar](https://github.com/smultar) and contributors for their contributions to this release.
+
+For a full list of changes, please refer to the [release notes](https://github.com/nextui-org/nextui/releases/tag/%40nextui-org%2Freact%402.4.0).
+
+<Spacer y={6} />
+
+Thanks for reading and happy coding! 🚀
+
+---
+
+## Community
+
+We're excited to see the community adopt NextUI, raise issues, and provide feedback.
+Whether it's a feature request, bug report, or a project to showcase, please get involved!
+
+<Community />
+
+## Contributing
+
+PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
