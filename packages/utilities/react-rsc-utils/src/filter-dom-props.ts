@@ -37,16 +37,15 @@ const propRe = /^(data-.*)$/;
 const ariaRe = /^(aria-.*)$/;
 const funcRe = /^(on[A-Z].*)$/;
 
+type DOMAndAriaProps = DOMProps & AriaLabelingProps;
+
 /**
  * Filters out all props that aren't valid DOM props or defined via override prop obj.
  * @param props - The component props to be filtered.
  * @param opts - Props to override.
  */
-export function filterDOMProps(
-  props: DOMProps & AriaLabelingProps,
-  opts: Options = {},
-): DOMProps & AriaLabelingProps {
-  let {
+export function filterDOMProps(props: DOMAndAriaProps, opts: Options = {}): DOMAndAriaProps {
+  const {
     labelable = true,
     enabled = true,
     propNames,
@@ -55,7 +54,7 @@ export function filterDOMProps(
     omitDataProps,
     omitEventProps,
   } = opts;
-  let filteredProps = {};
+  const filteredProps: Partial<DOMAndAriaProps> = {};
 
   if (!enabled) {
     return props;
@@ -89,8 +88,7 @@ export function filterDOMProps(
           propRe.test(prop))) ||
       funcRe.test(prop)
     ) {
-      // @ts-ignore
-      filteredProps[prop] = props[prop];
+      filteredProps[prop as keyof DOMAndAriaProps] = props[prop as keyof DOMAndAriaProps];
     }
   }
 
