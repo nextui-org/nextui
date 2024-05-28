@@ -219,11 +219,11 @@ export function useRadio(props: UseRadioProps) {
     (props = {}) => {
       return {
         ref: inputRef,
-        ...mergeProps(props, inputProps, focusProps, {required: isRequired}),
+        ...mergeProps(props, inputProps, focusProps),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
-    [inputProps, focusProps, isRequired, onChange],
+    [inputProps, focusProps, onChange],
   );
 
   const getLabelProps: PropGetter = useCallback(
