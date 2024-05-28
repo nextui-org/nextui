@@ -666,6 +666,7 @@ export const WithErrorMessageFunction = {
         return "Value is required";
       }
     },
+    validationBehavior: "native",
   },
 };
 
