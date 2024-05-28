@@ -196,14 +196,25 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
   );
 
   const getImageProps = useCallback<PropGetter>(
-    (props = {}) => ({
-      ref: imgRef,
-      src: src,
-      disableAnimation,
-      "data-loaded": dataAttr(isImgLoaded),
-      className: slots.img({class: classNames?.img}),
-      ...mergeProps(imgProps, props),
-    }),
+    (props = {}) => {
+      let allowDisableAnimation = false;
+
+      if (
+        typeof ImgComponent !== "string" &&
+        (ImgComponent as any)?.render?.displayName === "NextUI.Image"
+      ) {
+        allowDisableAnimation = true;
+      }
+
+      return {
+        ref: imgRef,
+        src: src,
+        ...(allowDisableAnimation && {disableAnimation}),
+        "data-loaded": dataAttr(isImgLoaded),
+        className: slots.img({class: classNames?.img}),
+        ...mergeProps(imgProps, props),
+      };
+    },
     [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef],
   );
 
