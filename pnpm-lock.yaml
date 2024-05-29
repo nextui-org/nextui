@@ -1628,8 +1628,8 @@ importers:
         specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/link':
-        specifier: 3.6.5
-        version: 3.6.5(react@18.2.0)
+        specifier: 3.7.1
+        version: 3.7.1(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.23.2
         version: 3.23.2(react@18.2.0)
@@ -9766,6 +9766,19 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/focus@3.17.1(react@18.2.0):
+    resolution: {integrity: sha512-FLTySoSNqX++u0nWZJPPN5etXY0WBxaIe/YuL/GTEeuqUIuC/2bJSaw5hlsM6T2yjy6Y/VAxBcKSdAFUlU6njQ==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-aria/interactions': 3.21.3(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
+      '@react-types/shared': 3.23.1(react@18.2.0)
+      '@swc/helpers': 0.5.9
+      clsx: 2.1.0
+      react: 18.2.0
+    dev: false
+
   /@react-aria/form@3.0.3(react@18.2.0):
     resolution: {integrity: sha512-5Q2BHE4TTPDzGY2npCzpRRYshwWUb3SMUA/Cbz7QfEtBk+NYuVaq3KjvqLqgUUdyKtqLZ9Far0kIAexloOC4jw==}
     peerDependencies:
@@ -9830,6 +9843,18 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/interactions@3.21.3(react@18.2.0):
+    resolution: {integrity: sha512-BWIuf4qCs5FreDJ9AguawLVS0lV9UU+sK4CCnbCNNmYqOWY+1+gRXCsnOM32K+oMESBxilAjdHW5n1hsMqYMpA==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-aria/ssr': 3.9.4(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
+      '@react-types/shared': 3.23.1(react@18.2.0)
+      '@swc/helpers': 0.5.9
+      react: 18.2.0
+    dev: false
+
   /@react-aria/label@3.7.6(react@18.2.0):
     resolution: {integrity: sha512-ap9iFS+6RUOqeW/F2JoNpERqMn1PvVIo3tTMrJ1TY1tIwyJOxdCBRgx9yjnPBnr+Ywguep+fkPNNi/m74+tXVQ==}
     peerDependencies:
@@ -9851,6 +9876,20 @@ packages:
       '@react-aria/utils': 3.23.2(react@18.2.0)
       '@react-types/link': 3.5.3(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
+      '@swc/helpers': 0.5.9
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/link@3.7.1(react@18.2.0):
+    resolution: {integrity: sha512-a4IaV50P3fXc7DQvEIPYkJJv26JknFbRzFT5MJOMgtzuhyJoQdILEUK6XHYjcSSNCA7uLgzpojArVk5Hz3lCpw==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-aria/focus': 3.17.1(react@18.2.0)
+      '@react-aria/interactions': 3.21.3(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
+      '@react-types/link': 3.5.5(react@18.2.0)
+      '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
     dev: false
