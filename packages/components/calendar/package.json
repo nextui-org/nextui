@@ -58,7 +58,7 @@
     "@react-stately/utils": "3.9.1",
     "@react-types/calendar": "3.4.4",
     "@react-aria/interactions": "3.21.1",
-    "@react-types/shared": "3.22.1",
+    "@react-types/shared": "3.23.1",
     "scroll-into-view-if-needed": "3.0.10",
     "@types/lodash.debounce": "^4.0.7"
   },

@@ -37,4 +37,4 @@
 "@nextui-org/aria-utils": patch
 ---
 
-bump `@react-aria/utils` version to `3.24.1`
+bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`

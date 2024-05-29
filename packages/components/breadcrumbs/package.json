@@ -47,7 +47,7 @@
     "@react-aria/breadcrumbs": "3.5.11",
     "@react-aria/utils": "3.24.1",
     "@react-types/breadcrumbs": "3.7.3",
-    "@react-types/shared": "3.22.1"
+    "@react-types/shared": "3.23.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

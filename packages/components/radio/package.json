@@ -49,7 +49,7 @@
     "@react-aria/visually-hidden": "3.8.10",
     "@react-stately/radio": "3.10.2",
     "@react-types/radio": "3.7.1",
-    "@react-types/shared": "3.22.1"
+    "@react-types/shared": "3.23.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
