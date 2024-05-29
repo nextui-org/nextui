@@ -45,7 +45,7 @@
     "@nextui-org/use-is-mounted": "workspace:*",
     "@react-aria/i18n": "3.10.2",
     "@react-aria/progress": "3.4.11",
-    "@react-aria/utils": "3.23.2",
+    "@react-aria/utils": "3.24.1",
     "@react-types/progress": "3.5.2"
   },
   "devDependencies": {

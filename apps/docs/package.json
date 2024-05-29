@@ -42,7 +42,7 @@
     "@react-aria/interactions": "^3.21.1",
     "@react-aria/selection": "^3.17.5",
     "@react-aria/ssr": "^3.9.2",
-    "@react-aria/utils": "^3.23.2",
+    "@react-aria/utils": "3.24.1",
     "@react-aria/virtualizer": "^3.9.10",
     "@react-aria/visually-hidden": "^3.8.10",
     "@react-stately/data": "^3.11.2",

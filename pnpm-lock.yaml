@@ -352,8 +352,8 @@ importers:
         specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: ^3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/virtualizer':
         specifier: ^3.9.10
         version: 3.9.10(react-dom@18.2.0)(react@18.2.0)
@@ -641,8 +641,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/tree':
         specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
@@ -735,8 +735,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -882,8 +882,8 @@ importers:
         specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/breadcrumbs':
         specifier: 3.7.3
         version: 3.7.3(react@18.2.0)
@@ -943,8 +943,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/button':
         specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
@@ -1010,8 +1010,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -1089,8 +1089,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/shared':
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
@@ -1153,8 +1153,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -1220,8 +1220,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/checkbox':
         specifier: 3.7.1
         version: 3.7.1(react@18.2.0)
@@ -1450,8 +1450,8 @@ importers:
         specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/menu':
         specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
@@ -1548,8 +1548,8 @@ importers:
         specifier: 3.14.3
         version: 3.14.3(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/utils':
         specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
@@ -1631,8 +1631,8 @@ importers:
         specifier: 3.7.1
         version: 3.7.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/link':
         specifier: 3.5.3
         version: 3.5.3(react@18.2.0)
@@ -1680,8 +1680,8 @@ importers:
         specifier: 3.11.5
         version: 3.11.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/list':
         specifier: 3.10.3
         version: 3.10.3(react@18.2.0)
@@ -1753,8 +1753,8 @@ importers:
         specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/menu':
         specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
@@ -1826,8 +1826,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/overlays':
         specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
@@ -1896,8 +1896,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/toggle':
         specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
@@ -1972,8 +1972,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -2030,8 +2030,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/overlays':
         specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
@@ -2088,8 +2088,8 @@ importers:
         specifier: 3.4.11
         version: 3.4.11(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/progress':
         specifier: 3.5.2
         version: 3.5.2(react@18.2.0)
@@ -2134,8 +2134,8 @@ importers:
         specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -2272,8 +2272,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -2382,8 +2382,8 @@ importers:
         specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -2530,8 +2530,8 @@ importers:
         specifier: 3.6.2
         version: 3.6.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -2591,8 +2591,8 @@ importers:
         specifier: 3.13.5
         version: 3.13.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
         specifier: 3.8.10
         version: 3.8.10(react@18.2.0)
@@ -2682,8 +2682,8 @@ importers:
         specifier: 3.8.5
         version: 3.8.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/tabs':
         specifier: 3.6.4
         version: 3.6.4(react@18.2.0)
@@ -2761,8 +2761,8 @@ importers:
         specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/tooltip':
         specifier: 3.4.7
         version: 3.4.7(react@18.2.0)
@@ -3121,8 +3121,8 @@ importers:
         specifier: 3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/tree':
         specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
@@ -3171,8 +3171,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/button':
         specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
@@ -3196,8 +3196,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/link':
         specifier: 3.5.3
         version: 3.5.3(react@18.2.0)
@@ -3227,8 +3227,8 @@ importers:
         specifier: 3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/collections':
         specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
@@ -3258,8 +3258,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/overlays':
         specifier: 3.6.5
         version: 3.6.5(react@18.2.0)
@@ -3298,8 +3298,8 @@ importers:
         specifier: 3.17.5
         version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/form':
         specifier: 3.0.1
         version: 3.0.1(react@18.2.0)
@@ -3338,8 +3338,8 @@ importers:
         specifier: workspace:*
         version: link:../use-aria-button
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/toggle':
         specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
@@ -3398,8 +3398,8 @@ importers:
         specifier: workspace:*
         version: link:../use-callback-ref
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/utils':
         specifier: 3.9.1
         version: 3.9.1(react@18.2.0)
@@ -3449,8 +3449,8 @@ importers:
         specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-types/shared':
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
@@ -3652,8 +3652,8 @@ importers:
         specifier: workspace:*
         version: link:../../core/system
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
       '@react-stately/collections':
         specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
@@ -9623,7 +9623,7 @@ packages:
     dependencies:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/link': 3.6.5(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-types/breadcrumbs': 3.7.3(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -9637,7 +9637,7 @@ packages:
     dependencies:
       '@react-aria/focus': 3.16.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/toggle': 3.7.2(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
@@ -9655,7 +9655,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/calendar': 3.4.4(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
       '@react-types/calendar': 3.4.4(react@18.2.0)
@@ -9674,7 +9674,7 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
       '@react-aria/toggle': 3.10.2(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/checkbox': 3.6.3(react@18.2.0)
       '@react-stately/form': 3.0.1(react@18.2.0)
       '@react-stately/toggle': 3.7.2(react@18.2.0)
@@ -9697,7 +9697,7 @@ packages:
       '@react-aria/overlays': 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/textfield': 3.14.3(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/combobox': 3.8.2(react@18.2.0)
       '@react-stately/form': 3.0.1(react@18.2.0)
@@ -9724,7 +9724,7 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
       '@react-aria/spinbutton': 3.6.3(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/datepicker': 3.9.2(react@18.2.0)
       '@react-stately/form': 3.0.1(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
@@ -9745,7 +9745,7 @@ packages:
     dependencies:
       '@react-aria/focus': 3.16.2(react@18.2.0)
       '@react-aria/overlays': 3.21.1(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-types/dialog': 3.5.8(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -9759,7 +9759,7 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       clsx: 2.1.0
@@ -9785,7 +9785,7 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/form': 3.0.1(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -9903,7 +9903,7 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
       '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/list': 3.10.3(react@18.2.0)
       '@react-types/listbox': 3.4.7(react@18.2.0)
@@ -9930,7 +9930,7 @@ packages:
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/overlays': 3.21.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/menu': 3.6.1(react@18.2.0)
       '@react-stately/tree': 3.7.6(react@18.2.0)
@@ -9970,7 +9970,7 @@ packages:
     dependencies:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-types/progress': 3.5.2(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -9987,7 +9987,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/radio': 3.10.2(react@18.2.0)
       '@react-types/radio': 3.7.1(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
@@ -10004,7 +10004,7 @@ packages:
       '@react-aria/focus': 3.16.2(react@18.2.0)
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/selection': 3.14.3(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -10021,7 +10021,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/slider': 3.5.2(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@react-types/slider': 3.7.1(react@18.2.0)
@@ -10086,7 +10086,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden': 3.8.10(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/flags': 3.0.1
@@ -10110,7 +10110,7 @@ packages:
       '@react-aria/focus': 3.16.2(react@18.2.0)
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/tabs': 3.6.4(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@react-types/tabs': 3.3.5(react@18.2.0)
@@ -10127,7 +10127,7 @@ packages:
       '@react-aria/focus': 3.16.2(react@18.2.0)
       '@react-aria/form': 3.0.3(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/form': 3.0.1(react@18.2.0)
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
@@ -10157,7 +10157,7 @@ packages:
     dependencies:
       '@react-aria/focus': 3.16.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/tooltip': 3.4.7(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@react-types/tooltip': 3.4.7(react@18.2.0)
@@ -10198,7 +10198,7 @@ packages:
     dependencies:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.1(react@18.2.0)
-      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/virtualizer': 3.6.8(react@18.2.0)
       '@react-types/shared': 3.22.1(react@18.2.0)
       '@swc/helpers': 0.5.9
