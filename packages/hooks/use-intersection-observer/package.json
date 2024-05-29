@@ -34,9 +34,9 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/utils": "3.23.2",
+    "@react-aria/utils": "3.24.1",
     "@react-aria/ssr": "3.9.2",
-    "@react-types/shared": "3.22.1",
+    "@react-types/shared": "3.23.1",
     "@react-aria/interactions": "3.21.1"
   },
   "peerDependencies": {

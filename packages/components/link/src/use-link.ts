@@ -2,7 +2,7 @@ import type {AriaLinkProps} from "@react-types/link";
 import type {LinkVariantProps} from "@nextui-org/theme";
 
 import {link} from "@nextui-org/theme";
-import {useAriaLink} from "@nextui-org/use-aria-link";
+import {useLink as useAriaLink} from "@react-aria/link";
 import {
   HTMLNextUIProps,
   mapPropsVariants,

@@ -54,11 +54,11 @@
     "@react-stately/calendar": "3.4.4",
     "@react-types/button": "3.9.2",
     "@react-aria/visually-hidden": "3.8.10",
-    "@react-aria/utils": "3.23.2",
+    "@react-aria/utils": "3.24.1",
     "@react-stately/utils": "3.9.1",
     "@react-types/calendar": "3.4.4",
     "@react-aria/interactions": "3.21.1",
-    "@react-types/shared": "3.22.1",
+    "@react-types/shared": "3.23.1",
     "scroll-into-view-if-needed": "3.0.10",
     "@types/lodash.debounce": "^4.0.7"
   },

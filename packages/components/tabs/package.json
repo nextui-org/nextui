@@ -50,9 +50,9 @@
     "@react-aria/focus": "3.16.2",
     "@react-aria/interactions": "3.21.1",
     "@react-aria/tabs": "3.8.5",
-    "@react-aria/utils": "3.23.2",
+    "@react-aria/utils": "3.24.1",
     "@react-stately/tabs": "3.6.4",
-    "@react-types/shared": "3.22.1",
+    "@react-types/shared": "3.23.1",
     "@react-types/tabs": "3.3.5",
     "scroll-into-view-if-needed": "3.0.10"
   },
