@@ -1,12 +1,6 @@
 import {AriaLinkProps} from "@react-types/link";
 import {DOMAttributes, FocusableElement} from "@react-types/shared";
-import {
-  filterDOMProps,
-  mergeProps,
-  useRouter,
-  shouldClientNavigate,
-  useLinkProps,
-} from "@react-aria/utils";
+import {filterDOMProps, mergeProps, useRouter, shouldClientNavigate} from "@react-aria/utils";
 import {RefObject} from "react";
 import {useFocusable} from "@react-aria/focus";
 import {usePress} from "@react-aria/interactions";
@@ -60,11 +54,10 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
   let domProps = filterDOMProps(otherProps, {labelable: true, isLink: elementType === "a"});
   let interactionHandlers = mergeProps(focusableProps, pressProps);
   let router = useRouter();
-  let routerLinkProps = useLinkProps(props);
 
   return {
     isPressed, // Used to indicate press state for visual
-    linkProps: mergeProps(domProps, routerLinkProps, {
+    linkProps: mergeProps(domProps, {
       ...interactionHandlers,
       ...linkProps,
       "aria-disabled": isDisabled || undefined,
@@ -82,11 +75,10 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
           e.currentTarget.href &&
           // If props are applied to a router Link component, it may have already prevented default.
           !e.isDefaultPrevented() &&
-          shouldClientNavigate(e.currentTarget, e) &&
-          props.href
+          shouldClientNavigate(e.currentTarget, e)
         ) {
           e.preventDefault();
-          router.open(e.currentTarget, e, props.href, props.routerOptions);
+          router.open(e.currentTarget, e);
         }
       },
     }),
