@@ -270,13 +270,11 @@ in multiple formats into `ZonedDateTime` objects.
 import {
   DateValue,
   now,
-  useLocale,
   startOfWeek,
   startOfMonth,
-  useDateFormatter,
   getLocalTimeZone,
 } from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
+import {useLocale, useDateFormatter} from "@react-aria/i18n";
 ```
 
 <CodeDemo title="Presets" files={dateRangePickerContent.presets} />
