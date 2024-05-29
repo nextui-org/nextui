@@ -1,5 +1,6 @@
 ---
 "@nextui-org/system": patch
+"@nextui-org/link": patch
 ---
 
-bump `@react-aria/utils` version
+Fixed listbox href issue (#3105)
