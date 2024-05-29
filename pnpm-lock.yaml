@@ -3199,8 +3199,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-types/link':
-        specifier: 3.5.3
-        version: 3.5.3(react@18.2.0)
+        specifier: 3.5.5
+        version: 3.5.5(react@18.2.0)
       '@react-types/shared':
         specifier: 3.22.1
         version: 3.22.1(react@18.2.0)
@@ -10613,6 +10613,15 @@ packages:
     dependencies:
       '@react-types/shared': 3.22.1(react@18.2.0)
       react: 18.2.0
+
+  /@react-types/link@3.5.5(react@18.2.0):
+    resolution: {integrity: sha512-G6P5WagHDR87npN7sEuC5IIgL1GsoY4WFWKO4734i2CXRYx24G9P0Su3AX4GA3qpspz8sK1AWkaCzBMmvnunfw==}
+    peerDependencies:
+      react: ^18.2.0
+    dependencies:
+      '@react-types/shared': 3.23.1(react@18.2.0)
+      react: 18.2.0
+    dev: false
 
   /@react-types/listbox@3.4.7(react@18.2.0):
     resolution: {integrity: sha512-68y5H9CVSPFiwO6MOFxTbry9JQMK/Lb1M9i3M8TDyq1AbJxBPpgAvJ9RaqIMCucsnqCzpY/zA3D/X417zByL1w==}
