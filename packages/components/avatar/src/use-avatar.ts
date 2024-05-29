@@ -1,13 +1,8 @@
 import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {DOMElement, DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {avatar} from "@nextui-org/theme";
-import {
-  DOMAttributes,
-  DOMElement,
-  HTMLNextUIProps,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
