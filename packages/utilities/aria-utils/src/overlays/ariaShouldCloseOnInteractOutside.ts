@@ -16,26 +16,30 @@ export const ariaShouldCloseOnInteractOutside = (
   state: any,
   shouldFocus?: MutableRefObject<boolean>,
 ) => {
-  let trigger = ref?.current;
-
-  // check if the click is on the underlay
-  const clickOnUnderlay = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
+  const trigger = ref?.current;
+  const clickOnDialog = element?.children?.[0]?.getAttribute("role") === "dialog";
+  const clickOnOnlistbox = ["listbox", "option"].includes(
+    element?.parentElement?.getAttribute("role") ?? "",
+  );
 
   // if interacting outside the component
   if (!trigger || !trigger.contains(element)) {
     // blur the component (e.g. autocomplete)
     if (shouldFocus) shouldFocus.current = false;
-    // if the click is not on the underlay,
+    // if the click is not on the dialog nor on the listbox,
     // trigger the state close to prevent from opening multiple popovers at the same time
     // e.g. open dropdown1 -> click dropdown2 (dropdown1 should be closed and dropdown2 should be open)
-    if (!clickOnUnderlay) state.close();
+    if (!clickOnDialog && !clickOnOnlistbox) {
+      // TODO: close the inner state only (e.g. popover -> autocomplete (close this one))
+      state.close();
+    }
   } else {
     // otherwise the component (e.g. autocomplete) should keep focused
     if (shouldFocus) shouldFocus.current = true;
   }
 
-  // if the click is on the underlay,
-  // clicking the overlay should close the popover instead of closing the modal
+  // if the click is on the dialog or option,
+  // it should close the popover instead of closing the modal / listbox
   // otherwise, allow interaction with other elements
-  return clickOnUnderlay;
+  return clickOnDialog || clickOnOnlistbox;
 };
