@@ -1,5 +1,23 @@
 # @nextui-org/calendar
 
+## 2.0.5
+
+### Patch Changes
+
+- [#2889](https://github.com/nextui-org/nextui/pull/2889) [`aba1716ed`](https://github.com/nextui-org/nextui/commit/aba1716edc2a85c94e6baeb4acc481f67589d002) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Update React Aria packages
+
+- [#3054](https://github.com/nextui-org/nextui/pull/3054) [`bf68c91b9`](https://github.com/nextui-org/nextui/commit/bf68c91b9a5be2014830859b0be2127d657ba90f) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - revise the inert attribute in `CalendarMonth` and `CalendarPicker`
+
+- [#2906](https://github.com/nextui-org/nextui/pull/2906) [`c83ff382b`](https://github.com/nextui-org/nextui/commit/c83ff382b9e5deaa08ed7e64eee484cc4904704d) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixed hiding of unavailable dates in RangeCalendar (#2890)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#3014](https://github.com/nextui-org/nextui/pull/3014) [`20ba81948`](https://github.com/nextui-org/nextui/commit/20ba81948d86ccc7ea4269cceb06e04899903b0e) Thanks [@winchesHe](https://github.com/winchesHe)! - add the correct peerDep version
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/button@2.0.32
+  - @nextui-org/framer-utils@2.0.19
+
 ## 2.0.4
 
 ### Patch Changes

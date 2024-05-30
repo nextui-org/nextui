@@ -1,5 +1,20 @@
 # @nextui-org/accordion
 
+## 2.0.33
+
+### Patch Changes
+
+- [#2265](https://github.com/nextui-org/nextui/pull/2265) [`10497f1a9`](https://github.com/nextui-org/nextui/commit/10497f1a97c0ecfec1cf699a1cd407be48553754) Thanks [@outputboy](https://github.com/outputboy)! - Make the accordion item heading tag customizable to satisfy a11y needs. Headings on web pages need to be consistent and semantic; this will help all users better find the content they are looking for. (#2950)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2725](https://github.com/nextui-org/nextui/pull/2725) [`8048dcc0c`](https://github.com/nextui-org/nextui/commit/8048dcc0c37455d2574c93d6f9fa505a936aedb5) Thanks [@ericfabreu](https://github.com/ericfabreu)! - Fix 'Tap to click' behavior on macOS for Accordion and Tab
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/framer-utils@2.0.19
+  - @nextui-org/divider@2.0.28
+
 ## 2.0.32
 
 ### Patch Changes
