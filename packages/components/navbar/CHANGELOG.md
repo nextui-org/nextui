@@ -1,5 +1,15 @@
 # @nextui-org/navbar
 
+## 2.0.31
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`fa26ce02f`](https://github.com/nextui-org/nextui/commit/fa26ce02fd84b25fc29925c93462d15de542b847), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/use-scroll-position@2.0.6
+  - @nextui-org/framer-utils@2.0.19
+
 ## 2.0.30
 
 ### Patch Changes

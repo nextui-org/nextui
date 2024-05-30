@@ -11,6 +11,7 @@ export interface AccordionItemProps extends UseAccordionItemProps {}
 const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {
     Component,
+    HeadingComponent,
     classNames,
     slots,
     indicator,
@@ -89,7 +90,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <h2 {...getHeadingProps()}>
+      <HeadingComponent {...getHeadingProps()}>
         <button {...getButtonProps()}>
           {startContent && (
             <div className={slots.startContent({class: classNames?.startContent})}>
@@ -104,7 +105,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
             <span {...getIndicatorProps()}>{indicatorComponent}</span>
           )}
         </button>
-      </h2>
+      </HeadingComponent>
       {content}
     </Component>
   );

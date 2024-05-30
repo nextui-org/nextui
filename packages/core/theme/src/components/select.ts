@@ -208,7 +208,6 @@ const select = tv({
     fullWidth: true,
     isDisabled: false,
     isMultiline: false,
-    disableAnimation: false,
     disableSelectorIconRotation: false,
   },
   compoundVariants: [

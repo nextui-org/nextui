@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput} from "@nextui-org/theme";
+import {dateInput, button} from "@nextui-org/theme";
 import {
   endOfMonth,
   endOfWeek,
@@ -18,7 +18,7 @@ import {DateValue} from "@react-types/datepicker";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {DateRangePicker, DateRangePickerProps} from "../src";
 
@@ -61,6 +61,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (
@@ -77,6 +83,23 @@ const defaultProps = {
 };
 
 const Template = (args: DateRangePickerProps) => <DateRangePicker {...args} />;
+
+const FormTemplate = (args: DateRangePickerProps) => (
+  <form
+    className="flex flex-col gap-2 w-full"
+    onSubmit={(e) => {
+      e.preventDefault();
+      alert(
+        `Submitted: start -> ${e.target["start-date"].value} end -> ${e.target["end-date"].value}`,
+      );
+    }}
+  >
+    <DateRangePicker {...args} endName="end-date" startName="start-date" />
+    <button className={button({className: "max-w-fit"})} type="submit">
+      Submit
+    </button>
+  </form>
+);
 
 const LabelPlacementTemplate = (args: DateRangePickerProps) => (
   <div className="w-full max-w-xl flex flex-col items-start gap-4">
@@ -398,7 +421,7 @@ export const Controlled = {
 };
 
 export const Required = {
-  render: Template,
+  render: FormTemplate,
   args: {
     ...defaultProps,
     isRequired: true,
@@ -577,5 +600,24 @@ export const Presets = {
   args: {
     ...defaultProps,
     visibleMonths: 2,
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (!value || !value.start || !value.end) {
+        return "Please enter a valid date range";
+      }
+      const {start, end} = value;
+
+      if (start.year < 2024 || end.year < 2024) {
+        return "Both start and end dates must be in the year 2024 or later";
+      }
+    },
+    label: "Date Range (Year 2024 or later)",
   },
 };

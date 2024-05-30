@@ -274,18 +274,19 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ### Tab Props
 
-| Attribute             | Type                          | Description                                                                                                                                                                      | Default |
-| --------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children\*            | `ReactNode`                   | The content of the tab.                                                                                                                                                          | -       |
-| title                 | `ReactNode`                   | The title of the tab.                                                                                                                                                            | -       |
-| titleValue            | `string`                      | A string representation of the item's contents. Use this when the `title` is not readable.                                                                                       | -       |
-| href                  | `string`                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
-| target                | `HTMLAttributeAnchorTarget`   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
-| rel                   | `string`                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
-| download              | `boolean` \| `string`         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
-| ping                  | `string`                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
-| referrerPolicy        | `HTMLAttributeReferrerPolicy` | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
-| shouldSelectOnPressUp | `boolean`                     | Whether the tab selection should occur on press up instead of press down.                                                                                                        | -       |
+| Attribute               | Type                          | Description                                                                                                                                                                      | Default |
+|-------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
+| children\*              | `ReactNode`                   | The content of the tab.                                                                                                                                                          | -       |
+| title                   | `ReactNode`                   | The title of the tab.                                                                                                                                                            | -       |
+| titleValue              | `string`                      | A string representation of the item's contents. Use this when the `title` is not readable.                                                                                       | -       |
+| href                    | `string`                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
+| target                  | `HTMLAttributeAnchorTarget`   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
+| rel                     | `string`                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
+| download                | `boolean` \| `string`         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
+| ping                    | `string`                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
+| referrerPolicy          | `HTMLAttributeReferrerPolicy` | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
+| shouldSelectOnPressUp   | `boolean`                     | Whether the tab selection should occur on press up instead of press down.                                                                                                        | -       |
+| destroyInactiveTabPanel | `boolean`                     | Whether to destroy inactive tab panel when switching tabs. Inactive tab panels are inert and cannot be interacted with.                                                          | `true`  |
 
 #### Motion Props
 

@@ -7,13 +7,14 @@ import type {PopoverProps} from "@nextui-org/popover";
 import type {ReactNode} from "react";
 import type {ValueBase} from "@react-types/shared";
 
+import {dataAttr} from "@nextui-org/shared-utils";
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
-import {useState} from "react";
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {useCallback} from "react";
+import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
-import {dataAttr} from "@nextui-org/shared-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
+import {useControlledState} from "@react-stately/utils";
 
 import intlMessages from "../intl/messages";
 
@@ -109,12 +110,12 @@ export type UseDatePickerBaseProps<T extends DateValue> = Props<T> &
     DateInputProps<T>,
     Variants | "ref" | "createCalendar" | "startContent" | "endContent" | "inputRef"
   > &
-  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate" | "validationBehavior">;
+  Omit<AriaDatePickerBaseProps<T>, keyof ValueBase<T> | "validate">;
 
 export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePickerBaseProps<T>) {
-  const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
+  const globalContext = useProviderContext();
 
-  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useState(false);
+  const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
   const {
     as,
@@ -128,7 +129,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     description,
     startContent,
     validationState,
-    // validationBehavior,  TODO: Uncomment this one we support `native` and `aria` validations
+    validationBehavior,
     visibleMonths = 1,
     pageBehavior = "visible",
     calendarWidth = 256,
@@ -144,8 +145,27 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     createCalendar,
   } = props;
 
+  const {
+    isHeaderExpanded,
+    isHeaderDefaultExpanded,
+    onHeaderExpandedChange,
+    ...restUserCalendarProps
+  } = userCalendarProps;
+
+  const handleHeaderExpandedChange = useCallback(
+    (isExpanded: boolean | undefined) => {
+      onHeaderExpandedChange?.(isExpanded || false);
+    },
+    [onHeaderExpandedChange],
+  );
+
+  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useControlledState<
+    boolean | undefined
+  >(isHeaderExpanded, isHeaderDefaultExpanded ?? false, handleHeaderExpandedChange);
+
   const domRef = useDOMRef(ref);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   let stringFormatter = useLocalizedStringFormatter(intlMessages) as any;
 
@@ -191,17 +211,12 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
         pageBehavior,
         isDateUnavailable,
         showMonthAndYearPickers,
+        isHeaderExpanded: isCalendarHeaderExpanded,
         onHeaderExpandedChange: setIsCalendarHeaderExpanded,
-        color:
-          (originalProps.variant === "bordered" || originalProps.variant === "underlined") &&
-          isDefaultColor
-            ? "foreground"
-            : isDefaultColor
-            ? "primary"
-            : originalProps.color,
+        color: isDefaultColor ? "primary" : originalProps.color,
         disableAnimation,
       },
-      userCalendarProps,
+      restUserCalendarProps,
     ),
   };
 
@@ -216,6 +231,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     shouldForceLeadingZeros,
     isInvalid,
     errorMessage,
+    validationBehavior,
     "data-invalid": dataAttr(originalProps?.isInvalid),
   } as DateInputProps;
 
@@ -227,6 +243,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     placeholderValue: timePlaceholder,
     hourCycle: props.hourCycle,
     hideTimeZone: props.hideTimeZone,
+    validationBehavior,
   } as TimeInputProps;
 
   const popoverProps: PopoverProps = {
@@ -248,6 +265,12 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
 
   const selectorIconProps = {
     "data-slot": "selector-icon",
+  };
+
+  const onClose = () => {
+    if (isHeaderExpanded === undefined) {
+      setIsCalendarHeaderExpanded(false);
+    }
   };
 
   return {
@@ -273,6 +296,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    onClose,
   };
 }
 

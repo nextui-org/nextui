@@ -74,7 +74,6 @@ export default {
 
 const defaultProps = {
   ...modal.defaultVariants,
-  disableAnimation: false,
   isDismissable: true,
   isKeyboardDismissDisabled: false,
 };

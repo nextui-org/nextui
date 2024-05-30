@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput} from "@nextui-org/theme";
+import {dateInput, button} from "@nextui-org/theme";
 import {
   DateValue,
   getLocalTimeZone,
@@ -16,7 +16,7 @@ import {
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {DatePicker, DatePickerProps} from "../src";
 
@@ -59,6 +59,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (
@@ -76,6 +82,21 @@ const defaultProps = {
 };
 
 const Template = (args: DatePickerProps) => <DatePicker {...args} />;
+
+const FormTemplate = (args: DatePickerProps) => (
+  <form
+    className="flex flex-col gap-2 w-full"
+    onSubmit={(e) => {
+      e.preventDefault();
+      alert(`Submitted: ${e.target["date"].value}`);
+    }}
+  >
+    <DatePicker {...args} name="date" />
+    <button className={button({className: "max-w-fit"})} type="submit">
+      Submit
+    </button>
+  </form>
+);
 
 const LabelPlacementTemplate = (args: DatePickerProps) => (
   <div className="w-full max-w-xl flex flex-col items-start gap-4">
@@ -331,7 +352,7 @@ export const Controlled = {
 };
 
 export const Required = {
-  render: Template,
+  render: FormTemplate,
   args: {
     ...defaultProps,
     isRequired: true,
@@ -497,5 +518,22 @@ export const Presets = {
   render: PresetsTemplate,
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (!value) {
+        return "Please enter a date";
+      }
+      if (value.year < 2024) {
+        return "Please select a date in the year 2024 or later";
+      }
+    },
+    label: "Date (Year 2024 or later)",
   },
 };

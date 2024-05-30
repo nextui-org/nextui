@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/framer-utils",
-  "version": "2.0.18",
+  "version": "2.0.19",
   "description": "A set of framer motion transitions for react",
   "keywords": [
     "framer-utils"
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=10.17.0"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",

@@ -1,5 +1,16 @@
 # @nextui-org/slider
 
+## 2.2.10
+
+### Patch Changes
+
+- [#3017](https://github.com/nextui-org/nextui/pull/3017) [`5329de42d`](https://github.com/nextui-org/nextui/commit/5329de42d2152424bfb5d5ebbf08a68d557f147f) Thanks [@wingkwong](https://github.com/wingkwong)! - calculate the correct value on mark click (#2980)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/tooltip@2.0.34
+
 ## 2.2.9
 
 ### Patch Changes

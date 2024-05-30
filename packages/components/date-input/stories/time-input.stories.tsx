@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput} from "@nextui-org/theme";
+import {dateInput, button} from "@nextui-org/theme";
 import {ClockCircleLinearIcon} from "@nextui-org/shared-icons";
 import {
   parseAbsoluteToLocal,
@@ -51,6 +51,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
 } as Meta<typeof TimeInput>;
 
@@ -61,12 +67,20 @@ const defaultProps = {
 
 const Template = (args: TimeInputProps) => <TimeInput {...args} />;
 
-export const Default = {
-  render: Template,
-  args: {
-    ...defaultProps,
-  },
-};
+const FormTemplate = (args: TimeInputProps) => (
+  <form
+    className="flex flex-col gap-2"
+    onSubmit={(e) => {
+      e.preventDefault();
+      alert(`Submitted: ${e.target["time"].value}`);
+    }}
+  >
+    <TimeInput {...args} name="time" />
+    <button className={button({className: "max-w-fit"})} type="submit">
+      Submit
+    </button>
+  </form>
+);
 
 const LabelPlacementTemplate = (args: TimeInputProps) => (
   <div className="w-full max-w-xl flex flex-col items-end gap-4">
@@ -126,8 +140,15 @@ const GranularityTemplate = (args: TimeInputProps) => {
   );
 };
 
-export const Required = {
+export const Default = {
   render: Template,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Required = {
+  render: FormTemplate,
   args: {
     ...defaultProps,
     isRequired: true,
@@ -280,5 +301,21 @@ export const HourCycle = {
     hourCycle: 24,
     defaultValue: parseZonedDateTime("2022-11-07T00:45[America/Los_Angeles]"),
     granularity: "minute",
+  },
+};
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (!value) {
+        return "Please enter a time";
+      }
+      if (value.hour < 9) {
+        return "Please select a time at 9 A.M. or later";
+      }
+    },
+    label: "Time (9 A.M. or later)",
   },
 };

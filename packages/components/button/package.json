@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/button",
-  "version": "2.0.31",
+  "version": "2.0.32",
   "description": "Buttons allow users to perform actions and choose with a single tap.",
   "keywords": [
     "button"
@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0",
+    "framer-motion": ">=10.17.0",
     "@nextui-org/theme": ">=2.1.0",
     "@nextui-org/system": ">=2.0.0"
   },
@@ -46,12 +46,12 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/ripple": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
-    "@react-aria/button": "^3.9.3",
-    "@react-aria/interactions": "^3.21.1",
-    "@react-aria/utils": "^3.23.2",
-    "@react-aria/focus": "^3.16.2",
-    "@react-types/shared": "^3.22.1",
-    "@react-types/button": "^3.9.2"
+    "@react-aria/button": "3.9.3",
+    "@react-aria/interactions": "3.21.1",
+    "@react-aria/utils": "3.23.2",
+    "@react-aria/focus": "3.16.2",
+    "@react-types/shared": "3.22.1",
+    "@react-types/button": "3.9.2"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

@@ -219,21 +219,22 @@ Here's an example of how to customize the accordion styles:
 
 ### Accordion Item Props
 
-| Attribute                 | Type                                              | Description                                                                                           | Default |
-| ------------------------- | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
-| children                  | `ReactNode` \| `string`                           | The content of the component.                                                                         |         |
-| title                     | `ReactNode` \| `string`                           | The accordion item title.                                                                             |         |
-| subtitle                  | `ReactNode` \| `string`                           | The accordion item subtitle.                                                                          |         |
-| indicator                 | [IndicatorProps](#accordion-item-indicator-props) | The accordion item `expanded` indicator, usually an arrow icon.                                       |         |
-| startContent              | `ReactNode`                                       | The accordion item start content, usually an icon or avatar.                                          |         |
-| motionProps               | [MotionProps](#motion-props)                      | The props to modify the framer motion animation. Use the `variants` API to create your own animation. |         |
-| isCompact                 | `boolean`                                         | Whether the AccordionItem is compact.                                                                 | `false` |
-| isDisabled                | `boolean`                                         | The current disabled status.                                                                          | `false` |
-| keepContentMounted        | `boolean`                                         | Whether the AccordionItem content is kept mounted when closed.                                        | `false` |
-| hideIndicator             | `boolean`                                         | Whether the AccordionItem indicator is hidden.                                                        | `false` |
-| disableAnimation          | `boolean`                                         | Whether the AccordionItem animation is disabled.                                                      | `false` |
-| disableIndicatorAnimation | `boolean`                                         | Whether the AccordionItem indicator animation is disabled.                                            | `false` |
-| classNames                | [Classnames](#accordion-item-classnames)          | Allows to set custom class names for the accordion item slots.                                        | -       |
+| Attribute                 | Type                                              | Description                                                                                                                  | Default |
+|---------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
+| children                  | `ReactNode` \| `string`                           | The content of the component.                                                                                                |         |
+| title                     | `ReactNode` \| `string`                           | The accordion item title.                                                                                                    |         |
+| subtitle                  | `ReactNode` \| `string`                           | The accordion item subtitle.                                                                                                 |         |
+| indicator                 | [IndicatorProps](#accordion-item-indicator-props) | The accordion item `expanded` indicator, usually an arrow icon.                                                              |         |
+| startContent              | `ReactNode`                                       | The accordion item start content, usually an icon or avatar.                                                                 |         |
+| motionProps               | [MotionProps](#motion-props)                      | The props to modify the framer motion animation. Use the `variants` API to create your own animation.                        |         |
+| isCompact                 | `boolean`                                         | Whether the AccordionItem is compact.                                                                                        | `false` |
+| isDisabled                | `boolean`                                         | The current disabled status.                                                                                                 | `false` |
+| keepContentMounted        | `boolean`                                         | Whether the AccordionItem content is kept mounted when closed.                                                               | `false` |
+| hideIndicator             | `boolean`                                         | Whether the AccordionItem indicator is hidden.                                                                               | `false` |
+| disableAnimation          | `boolean`                                         | Whether the AccordionItem animation is disabled.                                                                             | `false` |
+| disableIndicatorAnimation | `boolean`                                         | Whether the AccordionItem indicator animation is disabled.                                                                   | `false` |
+| HeadingComponent          | `React.ElementType`                               | Customizable heading tag for Web accessibility. Use headings to describe content and use them consistently and semantically. | `h2`    |
+| classNames                | [Classnames](#accordion-item-classnames)          | Allows to set custom class names for the accordion item slots.                                                               | -       |
 
 ### Accordion Item Events
 

@@ -1,7 +1,8 @@
 import * as React from "react";
 import {tv} from "@nextui-org/theme";
+import clsx from "clsx";
 
-import {cn, mapPropsVariants} from "./utils";
+import {mapPropsVariants} from "./utils";
 
 function getSlots(variants) {
   return variants
@@ -65,7 +66,7 @@ function getClassNamesWithProps({
 
   // if no slots, the result is a string
   if (!hasSlots) {
-    newProps.className = cn(result, props.className);
+    newProps.className = clsx(result, props.className);
   }
   // if has slots, the result is an object with keys as slots functions
   else {
@@ -78,7 +79,7 @@ function getClassNamesWithProps({
     });
 
     Object.entries(props.classNames ?? {}).forEach(([key, value]) => {
-      classNames[key] = cn(classNames[key], value);
+      classNames[key] = clsx(classNames[key], value);
     });
   }
 

@@ -119,7 +119,6 @@ const accordionItem = tv({
     radius: "lg",
     isDisabled: false,
     hideIndicator: false,
-    disableAnimation: false,
     disableIndicatorAnimation: false,
   },
 });

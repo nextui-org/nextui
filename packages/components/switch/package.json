@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/switch",
-  "version": "2.0.28",
+  "version": "2.0.29",
   "description": "A switch is similar to a checkbox, but represents on/off values as opposed to selection.",
   "keywords": [
     "switch"
@@ -42,13 +42,14 @@
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/focus": "^3.16.2",
-    "@react-aria/interactions": "^3.21.1",
-    "@react-aria/switch": "^3.6.2",
-    "@react-aria/utils": "^3.23.2",
-    "@react-aria/visually-hidden": "^3.8.10",
-    "@react-stately/toggle": "^3.7.2",
-    "@react-types/shared": "^3.22.1"
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@react-aria/focus": "3.16.2",
+    "@react-aria/interactions": "3.21.1",
+    "@react-aria/switch": "3.6.2",
+    "@react-aria/utils": "3.23.2",
+    "@react-aria/visually-hidden": "3.8.10",
+    "@react-stately/toggle": "3.7.2",
+    "@react-types/shared": "3.22.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
@@ -56,7 +57,8 @@
     "@nextui-org/shared-icons": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.51.3"
   },
   "clean-package": "../../../clean-package.config.json"
 }
