@@ -211,7 +211,7 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
         }),
       ),
     }),
-    [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef, filterDOMProps],
+    [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef, shouldFilterDOMProps],
   );
 
   return {
