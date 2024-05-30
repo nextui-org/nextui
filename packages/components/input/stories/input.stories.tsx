@@ -527,7 +527,6 @@ export const Required = {
   args: {
     ...defaultProps,
     isRequired: true,
-    validationBehavior: "native",
   },
 };
 
@@ -666,7 +665,6 @@ export const WithErrorMessageFunction = {
         return "Value is required";
       }
     },
-    validationBehavior: "native",
   },
 };
 
@@ -684,7 +682,6 @@ export const WithValidation = {
     isRequired: true,
     label: "Number",
     placeholder: "Enter a number(0-100)",
-    validationBehavior: "native",
   },
 };
 
