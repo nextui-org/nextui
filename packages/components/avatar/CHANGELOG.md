@@ -1,5 +1,11 @@
 # @nextui-org/avatar
 
+## 2.0.29
+
+### Patch Changes
+
+- [#3111](https://github.com/nextui-org/nextui/pull/3111) [`cdbc6514f`](https://github.com/nextui-org/nextui/commit/cdbc6514f8024381b778bad72b6a7a87330dab28) Thanks [@wingkwong](https://github.com/wingkwong)! - avoid passing `disableAnimation` prop to a DOM element (#3109)
+
 ## 2.0.28
 
 ### Patch Changes
