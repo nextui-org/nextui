@@ -7,7 +7,6 @@ export default function App() {
       isInvalid
       label="Stay duration" 
       variant="bordered"
-      errorMessage="Please enter your stay duration"
       errorMessage={(value) => {
         if (value.isInvalid) {
           return "Please enter your stay duration";

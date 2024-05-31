@@ -209,12 +209,11 @@ export const WithErrorMessageFunction = {
   args: {
     ...defaultProps,
     isInvalid: true,
-    errorMessage: "Please enter a valid time",
-  },
-  errorMessage: (value: ValidationResult) => {
-    if (value.isInvalid) {
-      return "Please enter a valid date";
-    }
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date";
+      }
+    },
   },
 };
 
