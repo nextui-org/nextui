@@ -77,6 +77,10 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo title="With Error Message" files={datePickerContent.errorMessage} />
 
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult]((https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51)).
+
+<CodeDemo title="With Error Message Function" files={datePickerContent.errorMessageFunction} />
+
 ### With Month and Year Pickers
 
 <CodeDemo title="With Month and Year Pickers" files={datePickerContent.withMonthAndYearPickers} />

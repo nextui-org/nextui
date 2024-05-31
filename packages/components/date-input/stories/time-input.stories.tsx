@@ -9,6 +9,7 @@ import {
   ZonedDateTime,
 } from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
+import {ValidationResult} from "@react-types/shared";
 
 import {TimeInput, TimeInputProps, TimeInputValue as TimeValue} from "../src";
 
@@ -189,6 +190,31 @@ export const WithDescription = {
   args: {
     ...defaultProps,
     description: "Please enter your meeting time",
+  },
+};
+
+export const WithErrorMessage = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: "Please enter a valid time",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: "Please enter a valid time",
+  },
+  errorMessage: (value: ValidationResult) => {
+    if (value.isInvalid) {
+      return "Please enter a valid date";
+    }
   },
 };
 
