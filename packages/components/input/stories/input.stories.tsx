@@ -137,7 +137,7 @@ const PasswordTemplate = (args) => {
 const RegexValidationTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
-  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
 
   const validationState = React.useMemo(() => {
     if (value === "") return undefined;
