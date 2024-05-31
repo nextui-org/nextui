@@ -1,6 +1,6 @@
 const App = `import {DateRangePicker, Radio, RadioGroup, Button, ButtonGroup, cn} from "@nextui-org/react";
-import {today, startOfWeek, startOfMonth, endOfWeek, endOfMonth, useDateFormatter, getLocalTimeZone} from "@internationalized/date";
-import {useLocale} from "@react-aria/i18n";
+import {today, startOfWeek, startOfMonth, endOfWeek, endOfMonth, getLocalTimeZone} from "@internationalized/date";
+import {useLocale, useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
   let defaultDate = {
