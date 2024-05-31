@@ -537,3 +537,18 @@ export const WithValidation = {
     label: "Date (Year 2024 or later)",
   },
 };
+
+export const WithDateInputClassNames = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    dateInputClassNames: {
+      base: "bg-gray-200 p-2 rounded-md",
+      label: "text-blue-400 font-semibold",
+      inputWrapper: "border-3 border-solid border-blue-400 p-2 rounded-md",
+      description: "text-black",
+    },
+    isRequired: true,
+    description: "Please enter your birth date",
+  },
+};
