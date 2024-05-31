@@ -1,11 +1,11 @@
 import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {DOMElement, DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {avatar} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback} from "react";
 import {useImage} from "@nextui-org/use-image";
@@ -141,6 +141,8 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
 
   const isImgLoaded = imageStatus === "loaded";
 
+  const shouldFilterDOMProps = typeof ImgComponent === "string";
+
   /**
    * Fallback avatar applies under 2 conditions:
    * - If `src` was passed and the image has not loaded or failed to load
@@ -199,12 +201,17 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
     (props = {}) => ({
       ref: imgRef,
       src: src,
-      disableAnimation,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
-      ...mergeProps(imgProps, props),
+      ...mergeProps(
+        imgProps,
+        props,
+        filterDOMProps({disableAnimation} as DOMAttributes<DOMElement>, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
     }),
-    [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef],
+    [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef, shouldFilterDOMProps],
   );
 
   return {
