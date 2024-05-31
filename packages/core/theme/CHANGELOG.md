@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.2.5
+
+### Patch Changes
+
+- [#3126](https://github.com/nextui-org/nextui/pull/3126) [`43bef0718`](https://github.com/nextui-org/nextui/commit/43bef07180c5e0bc7d08319f922aa47a63715860) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing pointer event after data loaded (#3125)
+
 ## 2.2.4
 
 ### Patch Changes

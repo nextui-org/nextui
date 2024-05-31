@@ -1,5 +1,13 @@
 # @nextui-org/radio
 
+## 2.1.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- [#3110](https://github.com/nextui-org/nextui/pull/3110) [`41d2eeb20`](https://github.com/nextui-org/nextui/commit/41d2eeb20bde3182306f134ba619942e182d0998) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Remove required attribute for Radio with validationBehavior="aria"
+
 ## 2.1.0
 
 ### Minor Changes

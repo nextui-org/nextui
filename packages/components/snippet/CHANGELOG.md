@@ -1,5 +1,13 @@
 # @nextui-org/snippet
 
+## 2.0.37
+
+### Patch Changes
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/button@2.0.33
+  - @nextui-org/tooltip@2.0.35
+
 ## 2.0.36
 
 ### Patch Changes
