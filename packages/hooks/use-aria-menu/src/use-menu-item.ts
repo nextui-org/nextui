@@ -8,6 +8,7 @@ import {
   KeyboardEvents,
   PressEvent,
   PressEvents,
+  RouterOptions,
 } from "@react-types/shared";
 import {chain, filterDOMProps, mergeProps, useRouter, useSlotId} from "@react-aria/utils";
 import {getItemCount} from "@react-stately/collections";
@@ -139,6 +140,8 @@ export function useMenuItem<T>(
   let isSelected = props.isSelected ?? state.selectionManager.isSelected(key);
   let data = menuData.get(state);
   // @ts-ignore
+  let item = state.collection.getItem(key);
+  // @ts-ignore
   let onClose = props.onClose || data.onClose;
   // @ts-ignore
   let onAction = isTrigger ? () => {} : props.onAction || data.onAction;
@@ -150,7 +153,7 @@ export function useMenuItem<T>(
     }
 
     if (e.target instanceof HTMLAnchorElement) {
-      router.open(e.target, e);
+      router.open(e.target, e, item?.props.href, item?.props.routerOptions as RouterOptions);
     }
   };
 
@@ -183,9 +186,6 @@ export function useMenuItem<T>(
     // @ts-ignore
     ariaProps["aria-checked"] = isSelected;
   }
-
-  // @ts-ignore
-  let item = state.collection.getItem(key);
 
   if (isVirtualized) {
     // @ts-ignore

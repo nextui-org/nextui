@@ -266,6 +266,8 @@ you need to update the import as follows:
 + import {cn} from "@nextui-org/theme"
 ```
 
+<Spacer y={4} />
+
 ### Validation Behavior
 
 Since v2.4.0, we've changed the default validation behavior to `aria` which means no native validation is applied. If you wish to use the native validation, you can set `validationBehavior` to `native` to the input components or set it to the Provider as stated above.
@@ -319,7 +321,6 @@ For those who use `validationBehavior="aria"`, `validate` will be no longer appl
 - Refactored the useScrollPosition hook to improve performance and stability by using useCallback for the handler function and useRef for throttleTimeout. [PR](https://github.com/nextui-org/nextui/pull/3049) - [@Gaic4o](https://github.com/Gaic4o)
 
 **Documentation**:
-
 - Updated documentation to reflect the new features and changes in the components, API references, and CLI.
 
 Special thanks to NextUI Team members [@kuri-sun](https://github.com/kuri-sun), [@ryo-manba](https://github.com/ryo-manba), 

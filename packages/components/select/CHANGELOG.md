@@ -1,5 +1,20 @@
 # @nextui-org/select
 
+## 2.2.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/listbox@2.1.21
+  - @nextui-org/popover@2.1.23
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/use-aria-multiselect@2.2.1
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/scroll-shadow@2.1.16
+  - @nextui-org/spinner@2.0.29
+
 ## 2.2.0
 
 ### Minor Changes
