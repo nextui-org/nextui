@@ -1,5 +1,5 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {act, render, fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
@@ -322,14 +322,11 @@ describe("Tabs", () => {
   test("should destory inactive tab panels", () => {
     const {container} = render(
       <Tabs aria-label="Tabs test (destroyInactiveTabPanel=true)">
-        <Tab key="item1" title="Item 1">
-          <div>Content 1</div>
+        <Tab key="tab1" data-testid="item1" title="Tab 1">
+          <input className="border-2" data-testid="input" id="firstTab" />
         </Tab>
-        <Tab key="item2" title="Item 2">
-          <div>Content 2</div>
-        </Tab>
-        <Tab key="item3" title="Item 3">
-          <div>Content 3</div>
+        <Tab key="tab2" data-testid="item2" title="Tab 2">
+          <p id="secondTab">second tab content</p>
         </Tab>
       </Tabs>,
     );
@@ -337,21 +334,46 @@ describe("Tabs", () => {
     expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(1);
   });
 
-  test("should destory inactive tab panels", () => {
-    const {container} = render(
+  test("should not destory inactive tab panels", async () => {
+    const wrapper = render(
       <Tabs aria-label="Tabs test (destroyInactiveTabPanel=false)" destroyInactiveTabPanel={false}>
-        <Tab key="item1" title="Item 1">
-          <div>Content 1</div>
+        <Tab key="tab1" data-testid="item1" title="Tab 1">
+          <input className="border-2" data-testid="input" id="firstTab" />
         </Tab>
-        <Tab key="item2" title="Item 2">
-          <div>Content 2</div>
-        </Tab>
-        <Tab key="item3" title="Item 3">
-          <div>Content 3</div>
+        <Tab key="tab2" data-testid="item2" title="Tab 2">
+          <p id="secondTab">second tab content</p>
         </Tab>
       </Tabs>,
     );
 
-    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(3);
+    const {container} = wrapper;
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(2);
+
+    const tab1 = wrapper.getByTestId("item1");
+    const tab2 = wrapper.getByTestId("item2");
+    const input = wrapper.getByTestId("input");
+
+    fireEvent.change(input, {target: {value: "23"}});
+
+    expect(input).toHaveValue("23");
+
+    act(() => {
+      focus(tab1);
+    });
+
+    await act(async () => {
+      await userEvent.keyboard("[ArrowRight]");
+    });
+
+    expect(tab2).toHaveFocus();
+
+    await act(async () => {
+      await userEvent.keyboard("[ArrowLeft]");
+    });
+
+    expect(tab1).toHaveFocus();
+
+    expect(input).toHaveValue("23");
   });
 });
