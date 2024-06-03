@@ -239,39 +239,17 @@ Add the theme switcher to your app.
 import {useTheme} from "@nextui-org/use-theme";
 
 export const ThemeSwitcher = () => {
-  const {setLightTheme, setDarkTheme} = useTheme();
+  const { theme, setTheme } = useTheme()
 
   return (
     <div>
-      <button onClick={setLightTheme}>Light Mode</button>
-      <button onClick={setDarkTheme}>Dark Mode</button>
+      The current theme is: {theme}
+      <button onClick={() => setTheme('light')}>Light Mode</button>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
     </div>
   )
 };
 ```
-
-Alternative, you can use `toggleTheme`
-
-```jsx
-// 'use client'; // uncomment this line if you're using Next.js App Directory Setup
-
-// components/ThemeSwitcher.tsx
-import {useTheme} from "@nextui-org/use-theme";
-
-export const ThemeSwitcher = () => {
-  const {toggleTheme} = useTheme();
-
-  return (
-    <div>
-      <button onClick={toggleTheme}>
-        {isLightTheme ? "Light Mode" : "Dark Mode"}
-      </button>
-    </div>
-  )
-};
-```
-
-
 
 > **Note**: You can use any theme name you want, but make sure it exits in your
 `tailwind.config.js` file. See [Create Theme](/docs/customization/create-theme) for more details.
