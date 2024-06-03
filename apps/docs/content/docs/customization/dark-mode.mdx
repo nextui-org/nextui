@@ -191,24 +191,22 @@ export const ThemeSwitcher = () => {
 </Steps>
 
 
-## Using use-dark-mode hook
+## Using use-theme hook
 
 In case you're using plain React with [Vite](/docs/frameworks/vite) or [Create React App](https://create-react-app.dev/) 
-you can use the [use-dark-mode](https://github.com/donavon/use-dark-mode) hook to switch between themes.
+you can use the [@nextui-org/use-theme](https://github.com/nextui-org/nextui/tree/canary/packages/hooks/use-theme) hook to switch between themes.
 
-> See the [use-dark-mode](https://github.com/donavon/use-dark-mode) documentation for more details.
+<Steps> 
 
-<Steps>
+### Install @nextui-org/use-theme
 
-### Install use-dark-mode
-
-Install `use-dark-mode` in your project.
+Install `@nextui-org/use-theme` in your project.
 
 <PackageManagers
   commands={{
-    npm: 'npm install use-dark-mode',
-    yarn: 'yarn add use-dark-mode',
-    pnpm: 'pnpm add use-dark-mode',
+    npm: 'npm install @nextui-org/use-theme',
+    yarn: 'yarn add @nextui-org/use-theme',
+    pnpm: 'pnpm add @nextui-org/use-theme',
   }}
 /> 
 
@@ -217,13 +215,13 @@ Install `use-dark-mode` in your project.
 ```jsx
 // App.tsx or App.jsx
 import React from "react";
-import useDarkMode from "use-dark-mode";
+import {useTheme} from "@nextui-org/use-theme";
 
 export default function App() {
-  const darkMode = useDarkMode(false);
+  const {theme} = useTheme();
 
   return (
-    <main className={`${darkMode.value ? 'dark' : ''} text-foreground bg-background`}>
+    <main className={`${theme} text-foreground bg-background`}>
       <App />
     </main>
   )
@@ -238,15 +236,36 @@ Add the theme switcher to your app.
 // 'use client'; // uncomment this line if you're using Next.js App Directory Setup
 
 // components/ThemeSwitcher.tsx
-import useDarkMode from "use-dark-mode";
+import {useTheme} from "@nextui-org/use-theme";
 
 export const ThemeSwitcher = () => {
-  const darkMode = useDarkMode(false);
+  const {setLightTheme, setDarkTheme} = useTheme();
 
   return (
     <div>
-      <button onClick={darkMode.disable}>Light Mode</button>
-      <button onClick={darkMode.enable}>Dark Mode</button>
+      <button onClick={setLightTheme}>Light Mode</button>
+      <button onClick={setDarkTheme}>Dark Mode</button>
+    </div>
+  )
+};
+```
+
+Alternative, you can use `toggleTheme`
+
+```jsx
+// 'use client'; // uncomment this line if you're using Next.js App Directory Setup
+
+// components/ThemeSwitcher.tsx
+import {useTheme} from "@nextui-org/use-theme";
+
+export const ThemeSwitcher = () => {
+  const {toggleTheme} = useTheme();
+
+  return (
+    <div>
+      <button onClick={toggleTheme}>
+        {isLightTheme ? "Light Mode" : "Dark Mode"}
+      </button>
     </div>
   )
 };

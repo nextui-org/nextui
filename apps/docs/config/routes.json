@@ -112,7 +112,8 @@
         {
           "key": "dark-mode",
           "title": "Dark mode",
-          "path": "/docs/customization/dark-mode.mdx"
+          "path": "/docs/customization/dark-mode.mdx",
+          "updated": true
         },
         {
           "key": "override-styles",
