@@ -21,58 +21,27 @@ import {useTheme} from "@nextui-org/use-theme";
 ### theme
 
 ```tsx
-// `theme` is either `light` or `dark`
+// `theme` is the active theme name
 // by default, it will use the one in localStorage.
 // if it is no such value in localStorage, `light` theme will be used
 const {theme} = useTheme();
 ```
 
-### isDarkTheme
+### setTheme
+
+You can use any theme name you want, but make sure it exits in your 
+`tailwind.config.js` file. See [Create Theme](https://nextui.org/docs/customization/create-theme) for more details.
 
 ```tsx
-// `isDarkTheme` returns if `theme` is `dark`
-const {isDarkTheme} = useTheme();
-// ...
-console.log(isDarkTheme ? "dark" : "light")
+// set `theme` by using `setTheme`
+const {setTheme} = useTheme();
+// setting to light theme
+setTheme('light')
+// setting to dark theme
+setTheme('dark')
+// setting to purple-dark theme
+setTheme('purple-dark')
 ```
-
-### isLightTheme
-
-```tsx
-// `isLightTheme` returns if `theme` is `light`
-const {isLightTheme} = useTheme();
-// ...
-console.log(isLightTheme ? "light" : "dark")
-```
-
-### setLightTheme
-
-```tsx
-// to set `theme` to `light` by using `setLightTheme`
-const {setLightTheme} = useTheme();
-// ...
-setLightTheme()
-```
-
-### setDarkTheme
-
-```tsx
-// to set `theme` to `dark` by using `setDarkTheme`
-const {setDarkTheme} = useTheme();
-// ...
-setDarkTheme()
-```
-
-### toggleTheme
-
-```tsx
-// toggle the existing theme by using `toggleTheme`
-// i.e. `light` -> `dark` or vice versa
-const {toggleTheme} = useTheme();
-// ...
-toggleTheme()
-```
-
 
 ## Contribution
 
