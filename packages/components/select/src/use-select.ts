@@ -377,6 +377,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-has-value": dataAttr(hasValue),
       "data-has-label": dataAttr(hasLabel),
       "data-has-helper": dataAttr(hasHelper),
+      "data-invalid": dataAttr(isInvalid),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
