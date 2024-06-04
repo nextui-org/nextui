@@ -153,6 +153,33 @@ describe("Input", () => {
 
     expect(onClear).toHaveBeenCalledTimes(1);
   });
+
+  it("should not display input with hidden type", async () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-1" type="hidden" />
+        <Input data-testid="input-2" />
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const inputBaseWrappers = container.querySelectorAll("[data-slot='base']");
+
+    expect(inputBaseWrappers).toHaveLength(2);
+
+    const inputs = container.querySelectorAll("input");
+
+    expect(inputs).toHaveLength(2);
+
+    expect(inputBaseWrappers[0]).not.toBeVisible();
+
+    expect(inputBaseWrappers[1]).toBeVisible();
+
+    expect(inputs[0]).not.toBeVisible();
+
+    expect(inputs[1]).toBeVisible();
+  });
 });
 
 describe("Input with React Hook Form", () => {
