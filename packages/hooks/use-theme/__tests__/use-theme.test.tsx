@@ -9,8 +9,12 @@ const TestComponent = ({defaultTheme}: {defaultTheme?: Theme}) => {
   return (
     <div>
       <span data-testid="theme-display">{theme}</span>
-      <button onClick={() => setTheme(ThemeProps.DARK)}>Set Dark</button>
-      <button onClick={() => setTheme(ThemeProps.LIGHT)}>Set Light</button>
+      <button type="button" onClick={() => setTheme(ThemeProps.DARK)}>
+        Set Dark
+      </button>
+      <button type="button" onClick={() => setTheme(ThemeProps.LIGHT)}>
+        Set Light
+      </button>
     </div>
   );
 };
@@ -22,8 +26,12 @@ const localStorageMock = (() => {
 
   return {
     getItem: (key: string) => store[key] || null,
-    setItem: (key: string, value: string) => (store[key] = value),
-    clear: () => (store = {}),
+    setItem: (key: string, value: string) => {
+      store[key] = value;
+    },
+    clear: () => {
+      store = {};
+    },
   };
 })();
 

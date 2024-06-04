@@ -22,7 +22,7 @@ export type Theme = typeof ThemeProps.LIGHT | typeof ThemeProps.DARK | customThe
  */
 export function useTheme(defaultTheme?: Theme) {
   const [theme, setThemeState] = useState<Theme>(() => {
-    let storedTheme;
+    let storedTheme: Theme | undefined;
 
     try {
       storedTheme = localStorage.getItem(ThemeProps.KEY) || undefined;
@@ -43,7 +43,7 @@ export function useTheme(defaultTheme?: Theme) {
     [theme],
   );
 
-  useEffect(() => setTheme(theme), [theme]);
+  +useEffect(() => setTheme(theme), [theme, setTheme]);
 
   return {theme, setTheme};
 }
