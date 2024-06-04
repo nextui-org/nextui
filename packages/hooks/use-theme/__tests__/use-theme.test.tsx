@@ -17,22 +17,26 @@ const TestComponent = ({defaultTheme}: {defaultTheme?: Theme}) => {
 
 TestComponent.displayName = "TestComponent";
 
+const localStorageMock = (() => {
+  let store: {[key: string]: string} = {};
+
+  return {
+    getItem: (key: string) => store[key] || null,
+    setItem: (key: string, value: string) => (store[key] = value),
+    clear: () => (store = {}),
+  };
+})();
+
+Object.defineProperty(window, "localStorage", {
+  value: localStorageMock,
+});
+
 describe("useTheme hook", () => {
   beforeEach(() => {
     jest.clearAllMocks();
 
-    const localStorageMock = (() => {
-      let store: {[key: string]: string} = {};
+    localStorage.clear();
 
-      return {
-        getItem: (key: string) => store[key] || null,
-        setItem: (key: string, value: string) => (store[key] = value),
-      };
-    })();
-
-    Object.defineProperty(window, "localStorage", {
-      value: localStorageMock,
-    });
     document.documentElement.className = "";
   });
 
