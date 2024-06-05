@@ -1176,6 +1176,9 @@ importers:
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
+      react-aria-components:
+        specifier: ^1.2.1
+        version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/chip':
         specifier: workspace:*
@@ -1516,25 +1519,16 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/system':
+        specifier: '>=2.0.0'
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: '>=2.0.0'
+        version: link:../../core/theme
       react-aria-components:
         specifier: ^1.2.1
         version: 1.2.1(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
-      '@nextui-org/checkbox':
-        specifier: workspace:*
-        version: link:../checkbox
-      '@nextui-org/input':
-        specifier: workspace:*
-        version: link:../input
-      '@nextui-org/radio':
-        specifier: workspace:*
-        version: link:../radio
-      '@nextui-org/system':
-        specifier: workspace:*
-        version: link:../../core/system
-      '@nextui-org/theme':
-        specifier: workspace:*
-        version: link:../../core/theme
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -11681,7 +11675,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@react-types/shared': 3.23.1(react@18.2.0)
       react: 18.2.0
     dev: false

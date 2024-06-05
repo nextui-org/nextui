@@ -1,3 +1,10 @@
-export {Form} from "react-aria-components";
-export {FormContext} from "react-aria-components";
-export {useSlottedContext} from "react-aria-components";
+import {Form as AriaForm, FormProps} from "react-aria-components";
+import {useProviderContext} from "@nextui-org/system";
+
+export const Form = (props: FormProps) => {
+  const globalContext = useProviderContext();
+  const validationBehavior =
+    props.validationBehavior ?? globalContext?.validationBehavior ?? "aria";
+
+  return <AriaForm {...props} validationBehavior={validationBehavior} />;
+};

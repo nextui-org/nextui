@@ -4,6 +4,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 import {button} from "@nextui-org/theme";
+import {Form} from "@nextui-org/form";
 
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
 
@@ -135,6 +136,56 @@ const ControlledTemplate = (args: CheckboxGroupProps) => {
   );
 };
 
+const callServer = (data) => {
+  if (data.terms) {
+    return {ok: true};
+  }
+
+  return {
+    errors: {
+      terms: "You must accept the terms.",
+    },
+  };
+};
+
+const ServerValidationTemplate = (args: CheckboxGroupProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const result = callServer(data);
+
+    if (result.ok) {
+      alert("Submitted successfully");
+    }
+    setServerErrors(result.errors ?? {});
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-4"
+      validationErrors={serverErrors ?? undefined}
+      onSubmit={onSubmit}
+    >
+      <CheckboxGroup
+        {...args}
+        label="Agree to the following"
+        name="terms"
+        validationBehavior="native"
+      >
+        <Checkbox value="terms">Terms and conditions</Checkbox>
+        <Checkbox value="cookies">Cookies</Checkbox>
+        <Checkbox value="privacy">Privacy policy</Checkbox>
+      </CheckboxGroup>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Default = {
   render: Template,
 
@@ -250,6 +301,14 @@ export const WithValidation = {
 
       return null;
     },
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
