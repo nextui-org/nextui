@@ -1,5 +1,15 @@
 # @nextui-org/card
 
+## 2.0.30
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/ripple@2.0.29
+
 ## 2.0.29
 
 ### Patch Changes

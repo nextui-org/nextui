@@ -1,5 +1,12 @@
 # @nextui-org/user
 
+## 2.0.30
+
+### Patch Changes
+
+- Updated dependencies [[`cdbc6514f`](https://github.com/nextui-org/nextui/commit/cdbc6514f8024381b778bad72b6a7a87330dab28)]:
+  - @nextui-org/avatar@2.0.29
+
 ## 2.0.29
 
 ### Patch Changes
