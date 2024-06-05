@@ -312,6 +312,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isFilledWithin,
       hasPlaceholder,
       focusWithinProps,
+      isHiddenType,
       originalProps.isReadOnly,
       originalProps.isRequired,
       originalProps.isDisabled,
