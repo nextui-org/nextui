@@ -39,8 +39,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   } = usePopoverContext();
 
   const dialogRef = useRef(null);
-  let {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
-
+  const {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
   const dialogProps = getDialogProps({
     ref: dialogRef,
     ...ariaDialogProps,
