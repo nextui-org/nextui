@@ -13,8 +13,6 @@ Checkboxes allow users to select multiple items from a list of individual items,
 
 ---
 
-
-
 ## Installation
 
 <PackageManagers
@@ -69,6 +67,8 @@ The `isIndeterminate` prop sets a `Checkbox` to an indeterminate state, overridi
 <CodeDemo title="Line Through" files={checkboxContent.lineThrough} />
 
 ### Custom Check Icon
+
+> By default, `IconProps` will be passed to your icon component.  Please make sure that `isSelected`, `isIndeterminate`, and `disableAnimation` are not passed to a DOM element.
 
 <CodeDemo title="Custom Check Icon" files={checkboxContent.customCheckIcon} />
 
