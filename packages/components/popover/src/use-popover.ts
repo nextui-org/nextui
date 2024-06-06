@@ -194,24 +194,22 @@ export function usePopover(originalProps: UsePopoverProps) {
     style: mergeProps(popoverProps.style, otherProps.style, props.style),
   });
 
-  const getDialogProps: PropGetter = (props = {}) => {
-    return {
-      // `ref` and `dialogProps` from `useDialog` are passed from props
-      // see `popover-content.tsx` for more
-      "data-slot": "base",
-      "data-open": dataAttr(state.isOpen),
-      "data-focus": dataAttr(isFocused),
-      "data-arrow": dataAttr(showArrow),
-      "data-focus-visible": dataAttr(isFocusVisible),
-      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-      ...mergeProps(focusProps, dialogPropsProp, props),
-      className: slots.base({class: clsx(baseStyles)}),
-      style: {
-        // this prevent the dialog to have a default outline
-        outline: "none",
-      },
-    };
-  };
+  const getDialogProps: PropGetter = (props = {}) => ({
+    // `ref` and `dialogProps` from `useDialog` are passed from props
+    // if we use `useDialog` here, dialogRef won't be focused on mount
+    "data-slot": "base",
+    "data-open": dataAttr(state.isOpen),
+    "data-focus": dataAttr(isFocused),
+    "data-arrow": dataAttr(showArrow),
+    "data-focus-visible": dataAttr(isFocusVisible),
+    "data-placement": getArrowPlacement(ariaPlacement, placementProp),
+    ...mergeProps(focusProps, dialogPropsProp, props),
+    className: slots.base({class: clsx(baseStyles)}),
+    style: {
+      // this prevent the dialog to have a default outline
+      outline: "none",
+    },
+  });
 
   const getContentProps = useCallback<PropGetter>(
     (props = {}) => ({
