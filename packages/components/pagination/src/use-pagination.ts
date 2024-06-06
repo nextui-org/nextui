@@ -298,7 +298,8 @@ export function usePagination(originalProps: UsePaginationProps) {
     () =>
       pagination({
         ...variantProps,
-        disableCursorAnimation: disableCursorAnimation || disableAnimation,
+        disableAnimation,
+        disableCursorAnimation,
       }),
     [objectToDeps(variantProps), disableCursorAnimation, disableAnimation],
   );

@@ -1,5 +1,11 @@
 # @nextui-org/image
 
+## 2.0.28
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
 ## 2.0.27
 
 ### Patch Changes

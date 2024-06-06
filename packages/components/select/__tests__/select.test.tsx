@@ -506,6 +506,47 @@ describe("Select", () => {
     // assert that the second select listbox is open
     expect(select2).toHaveAttribute("aria-expanded", "true");
   });
+
+  it("should display placeholder text when unselected", async () => {
+    const wrapper = render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        label="Favorite Animal"
+        placeholder="Select an animal"
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("test-select");
+
+    expect(select).toHaveTextContent("Select an animal");
+  });
+
+  it("should display placeholder text when unselected (controlled)", async () => {
+    const onSelectionChange = jest.fn();
+    const wrapper = render(
+      <Select
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        placeholder="Select an animal"
+        selectedKeys={[]}
+        onSelectionChange={onSelectionChange}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("test-select");
+
+    expect(select).toHaveTextContent("Select an animal");
+  });
 });
 
 describe("Select with React Hook Form", () => {
