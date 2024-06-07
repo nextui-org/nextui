@@ -148,9 +148,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
 
-  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "", {
-    hidden: isHiddenType,
-  });
+  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -255,6 +253,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         labelPlacement,
         isClearable,
         disableAnimation,
+        isHiddenType,
       }),
     [
       objectToDeps(variantProps),
@@ -290,9 +289,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-helper": dataAttr(hasHelper),
         "data-has-label": dataAttr(hasLabel),
         "data-has-value": dataAttr(!isPlaceholderShown),
+        "data-hidden": dataAttr(isHiddenType),
         ...focusWithinProps,
         ...props,
-        hidden: isHiddenType,
       };
     },
     [
