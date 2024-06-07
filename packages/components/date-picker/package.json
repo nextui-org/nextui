@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/date-picker",
-  "version": "2.0.7",
+  "version": "2.1.1",
   "description": "A date picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.",
   "keywords": [
     "date-picker"
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.0.0",
-    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.1.0",
+    "@nextui-org/theme": ">=2.2.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
@@ -47,6 +47,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/date-input": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
     "@react-stately/overlays": "3.6.5",
     "@react-stately/utils": "3.9.1",
     "@internationalized/date": "^3.5.2",
@@ -54,7 +55,7 @@
     "@react-aria/i18n": "3.10.2",
     "@react-stately/datepicker": "3.9.2",
     "@react-types/datepicker": "3.7.2",
-    "@react-types/shared": "3.22.1",
+    "@react-types/shared": "3.23.1",
     "@react-aria/utils": "3.23.2"
   },
   "devDependencies": {

@@ -39,6 +39,7 @@ export function useRangeCalendar<T extends DateValue>({
     shouldFilterDOMProps,
     isHeaderExpanded,
     visibleMonths,
+    disableAnimation,
     createCalendar: createCalendarProp,
     baseProps,
     getPrevButtonProps,
@@ -70,7 +71,6 @@ export function useRangeCalendar<T extends DateValue>({
     useAriaRangeCalendar(originalProps, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
-  const disableAnimation = originalProps.disableAnimation ?? false;
 
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {

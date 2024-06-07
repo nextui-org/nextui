@@ -13,14 +13,14 @@ A select displays a collapsible list of options and allows a user to select one 
 
 ---
 
-<CarbonAd />
+
 
 ## Installation
 
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "nextui add select",
+    cli: "npx nextui-cli@latest add select",
     npm: "npm install @nextui-org/select",
     yarn: "yarn add @nextui-org/select",
     pnpm: "pnpm add @nextui-org/select",
@@ -70,7 +70,7 @@ You can use the `selectionMode="multiple"` property to allow multiple selection.
 
 You can disable specific items by using the `disabledKeys` property.
 
-<CodeDemo title="Disabled Items" highlightedLines="8" files={selectContent.disabledItems} />
+<CodeDemo title="Disabled Items" highlightedLines="10" files={selectContent.disabledItems} />
 
 ### Required
 
@@ -81,7 +81,7 @@ the end of the label and the select will be required.
 
 ### Sizes
 
-<CodeDemo title="Sizes" highlightedLines="13,26" files={selectContent.sizes} />
+<CodeDemo title="Sizes" highlightedLines="13,24" files={selectContent.sizes} />
 
 ### Colors
 
@@ -99,7 +99,7 @@ the end of the label and the select will be required.
 
 You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
 
-<CodeDemo title="Label Placements" highlightedLines="20,37" files={selectContent.labelPlacements} />
+<CodeDemo title="Label Placements" highlightedLines="19,37" files={selectContent.labelPlacements} />
 
 > **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
 
@@ -108,7 +108,7 @@ You can change the position of the label by setting the `labelPlacement` propert
 You can use the `startContent` and `endContent` properties to add content to the start and end of
 the select.
 
-<CodeDemo title="Start Content" highlightedLines="9" files={selectContent.startContent} />
+<CodeDemo title="Start Content" highlightedLines="13" files={selectContent.startContent} />
 
 ### Item Start & End Content
 
@@ -188,7 +188,6 @@ Select supports asynchronous loading, in the example below we are using a custom
 The `isLoading` prop is used to show a loading indicator instead of the selector icon when the data is being fetched.
 
 <PackageManagers
-  showGlobalInstallWarning
   commands={{
     npm: "npm install @nextui-org/use-infinite-scroll",
     yarn: "yarn add @nextui-org/use-infinite-scroll",
@@ -286,6 +285,14 @@ the popover and listbox components.
 
 - **data-filled**:
   Indicates if the select has a value, is focused, has start/end content or is open.
+- **data-has-value**:
+  Indicates if the select has selected item(s).
+- **data-has-label**:
+  Indicates if the select has a label. Based on `label` prop.
+- **data-has-helper**:
+  Indicates if the select has helper text. Based on `errorMessage` or `description` prop.
+- **data-invalid**:
+  Indicates if the select is invalid. Based on `isInvalid` prop.
 
 `Select` has the following attributes on the `trigger` element:
 

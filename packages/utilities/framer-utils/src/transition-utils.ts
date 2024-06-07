@@ -59,15 +59,15 @@ export const TRANSITION_VARIANTS: Variants = {
       transition: {
         type: "spring",
         bounce: 0,
-        duration: 0.3,
+        duration: 0.2,
       },
     },
     exit: {
-      transform: "scale(0.6)",
+      transform: "scale(0.85)",
       opacity: 0,
       transition: {
         type: "easeOut",
-        duration: 0.2,
+        duration: 0.15,
       },
     },
   },

@@ -154,7 +154,8 @@
           "key": "badge",
           "title": "Badge",
           "keywords": "badge, markers, status indication, count display",
-          "path": "/docs/components/badge.mdx"
+          "path": "/docs/components/badge.mdx",
+          "updated": true
         },
         {
           "key": "button",
@@ -178,7 +179,8 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx"
+          "path": "/docs/components/checkbox.mdx",
+          "updated": true
         },
         {
           "key": "checkbox-group",
@@ -334,7 +336,8 @@
           "key": "skeleton",
           "title": "Skeleton",
           "keywords": "skeleton, loading state, placeholder, content preview",
-          "path": "/docs/components/skeleton.mdx"
+          "path": "/docs/components/skeleton.mdx",
+          "updated": true
         },
         {
           "key": "snippet",
@@ -415,7 +418,8 @@
           "key": "cli-api",
           "title": "NextUI CLI",
           "keywords": "api references, nextui, api, cli",
-          "path": "/docs/api-references/cli-api.mdx"
+          "path": "/docs/api-references/cli-api.mdx",
+          "updated": true
         },
         {
           "key": "nextui-provider",

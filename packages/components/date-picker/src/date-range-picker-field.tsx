@@ -44,7 +44,6 @@ function DateRangePickerField<T extends DateValue>(
   let state = useDateFieldState({
     ...otherProps,
     locale,
-    validationBehavior: "native",
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"
         ? createCalendar
@@ -74,7 +73,7 @@ function DateRangePickerField<T extends DateValue>(
           state={state}
         />
       ))}
-      <input {...inputProps} />
+      <input {...inputProps} ref={inputRef} />
     </Component>
   );
 }
