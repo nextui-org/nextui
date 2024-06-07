@@ -172,9 +172,9 @@ describe("Input", () => {
 
     expect(inputs).toHaveLength(2);
 
-    expect(inputBaseWrappers[0]).not.toBeVisible();
+    expect(inputBaseWrappers[0]).toHaveAttribute("data-hidden");
 
-    expect(inputBaseWrappers[1]).toBeVisible();
+    expect(inputBaseWrappers[1]).not.toHaveAttribute("data-hidden");
 
     expect(inputs[0]).not.toBeVisible();
 
