@@ -179,7 +179,8 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx"
+          "path": "/docs/components/checkbox.mdx",
+          "updated": true
         },
         {
           "key": "checkbox-group",
