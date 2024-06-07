@@ -236,6 +236,11 @@ const input = tv({
         clearButton: ["transition-opacity", "motion-reduce:transition-none"],
       },
     },
+    isHiddenType: {
+      true: {
+        base: "hidden",
+      },
+    },
   },
   defaultVariants: {
     variant: "flat",
@@ -245,6 +250,7 @@ const input = tv({
     labelPlacement: "inside",
     isDisabled: false,
     isMultiline: false,
+    isHiddenType: false,
   },
   compoundVariants: [
     // flat & color
