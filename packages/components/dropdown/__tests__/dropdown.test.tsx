@@ -667,7 +667,7 @@ describe("Keyboard interactions", () => {
 
     expect(triggerButton).toHaveFocus();
 
-    fireEvent.keyDown(triggerButton, {key: " ", charCode: keyCodes.Space});
+    fireEvent.keyDown(triggerButton, {key: " ", charCode: keyCodes[" "]});
 
     let menu = wrapper.queryByRole("menu");
 
