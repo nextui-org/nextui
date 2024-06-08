@@ -201,6 +201,7 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
     (props = {}) => ({
       ref: imgRef,
       src: src,
+      disableAnimation,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
       ...mergeProps(

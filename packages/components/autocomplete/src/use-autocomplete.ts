@@ -318,7 +318,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       state.setSelectedKey(key);
       state.setInputValue(item.textValue);
     }
-  }, [inputRef.current, state]);
+  }, [inputRef.current]);
 
   // apply the same with to the popover as the select
   useEffect(() => {
