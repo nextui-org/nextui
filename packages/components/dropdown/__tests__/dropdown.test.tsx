@@ -679,4 +679,116 @@ describe("Keyboard interactions", () => {
 
     expect(menuItems[0]).toHaveFocus();
   });
+
+  it("should press the item on keyDown (Enter)", async () => {
+    const user = userEvent.setup();
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" selectionMode="single">
+          <DropdownItem
+            key="new"
+            onPress={() => {
+              /* eslint-disable no-console */
+              console.log("ENTER");
+            }}
+          >
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+
+    const logSpy = jest.spyOn(console, "log");
+
+    await act(async () => {
+      await user.keyboard("[Enter]");
+    });
+
+    expect(logSpy).toHaveBeenCalledWith("ENTER");
+  });
+
+  it("should press the item on keyDown (Space)", async () => {
+    const user = userEvent.setup();
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" selectionMode="single">
+          <DropdownItem
+            key="new"
+            onPress={() => {
+              /* eslint-disable no-console */
+              console.log("SPACE");
+            }}
+          >
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+
+    const logSpy = jest.spyOn(console, "log");
+
+    await act(async () => {
+      await user.keyboard("[Space]");
+    });
+
+    expect(logSpy).toHaveBeenCalledWith("SPACE");
+  });
 });
