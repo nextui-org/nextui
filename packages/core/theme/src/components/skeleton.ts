@@ -22,6 +22,7 @@ const skeleton = tv({
       "pointer-events-none",
       // before
       "before:opacity-100",
+      "before:visible",
       "before:absolute",
       "before:inset-0",
       "before:-translate-x-full",
@@ -35,6 +36,7 @@ const skeleton = tv({
       "before:to-transparent",
       //after
       "after:opacity-100",
+      "after:visible",
       "after:absolute",
       "after:inset-0",
       "after:-z-10",
@@ -44,10 +46,13 @@ const skeleton = tv({
       "data-[loaded=true]:pointer-events-auto",
       "data-[loaded=true]:overflow-visible",
       "data-[loaded=true]:!bg-transparent",
-      "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:animate-none",
-      "data-[loaded=true]:after:opacity-0",
+      "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:invisible data-[loaded=true]:before:animate-none",
+      "data-[loaded=true]:after:opacity-0 data-[loaded=true]:after:invisible",
     ],
-    content: ["opacity-0", "group-data-[loaded=true]:opacity-100"],
+    content: [
+      "opacity-0 invisible",
+      "group-data-[loaded=true]:opacity-100 group-data-[loaded=true]:visible",
+    ],
   },
   variants: {
     disableAnimation: {
@@ -56,8 +61,8 @@ const skeleton = tv({
         content: "transition-none",
       },
       false: {
-        base: "transition-background !duration-300 before:transition-opacity before:!duration-300",
-        content: "transition-opacity motion-reduce:transition-none !duration-300",
+        base: "transition-background !duration-300 before:transition-opacity-visibility before:!duration-300",
+        content: "transition-opacity-visibility motion-reduce:transition-none !duration-300",
       },
     },
   },
