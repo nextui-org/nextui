@@ -335,8 +335,8 @@ you to customize each item individually.
 | shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`     |
 | closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`      |
 | disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`     |
-| classNames             | `Record<"base"｜ "list"｜ "emptyContent", string>`                                                     | Allows to set custom class names for the dropdown menu slots.                                           | -           |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -           |
+| classNames             | `Partial<Record<"base"｜ "list"｜ "emptyContent", string>>`                                                     | Allows to set custom class names for the dropdown menu slots.                                           | -           |
+| itemClasses            | `Partial<Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>>`          | Allows to set custom class names for the dropdown item slots.                                           | -           |
 
 ### DropdownMenu Events
 
@@ -358,8 +358,8 @@ you to customize each item individually.
 | hideSelectedIcon | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                 | `false` |
 | showDivider      | `boolean`                                                                                              | Whether to show the divider between the groups.                                             | `false` |
 | dividerProps     | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
-| classNames       | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
-| itemClasses      | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
+| classNames       | `Partial<Record<"base"｜ "heading"｜ "group"｜ "divider", string>>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
+| itemClasses      | `Partial<Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
 
 ---
 
@@ -388,7 +388,7 @@ you to customize each item individually.
 | isReadOnly       | `boolean`                                                                                     | Whether the dropdown item press events should be ignored.                                                                                                                        | `false` |
 | hideSelectedIcon | `boolean`                                                                                     | Whether to hide the check icon when the item is selected.                                                                                                                        | `false` |
 | closeOnSelect    | `boolean`                                                                                     | Whether the dropdown menu should be closed when the item is selected.                                                                                                            | `true`  |
-| classNames       | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                                                                                    | -       |
+| classNames       | `Partial<Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>>` | Allows to set custom class names for the dropdown item slots.                                                                                                                    | -       |
 
 ### DropdownItem Events
 

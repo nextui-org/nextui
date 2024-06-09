@@ -260,8 +260,8 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 | hideEmptyContent       | `boolean`                                                                                              | Whether to not display the empty content when the collection is empty.                                   | `false`     |
 | hideSelectedIcon       | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                              | `false`     |
 | disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the listbox items.                                                   | `false`     |
-| classNames             | `Record<"base"｜ "list"｜ "emptyContent", string>`                                                     | Allows to set custom class names for the listbox slots.                                                  | -           |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>`                        | Allows to set custom class names for the listbox item slots.                                             | -           |
+| classNames             | `Partial<Record<"base"｜ "list"｜ "emptyContent", string>>`                                                     | Allows to set custom class names for the listbox slots.                                                  | -           |
+| itemClasses            | `Partial<Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "selectedIcon", string>>`                        | Allows to set custom class names for the listbox item slots.                                             | -           |
 
 ### Listbox Events
 
@@ -282,8 +282,8 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 | hideSelectedIcon | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                               | `false` |
 | showDivider      | `boolean`                                                                                              | Whether to show the divider between the groups.                                           | `false` |
 | dividerProps     | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                              | -       |
-| classNames       | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the listbox section slots.                           | -       |
-| itemClasses      | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the listbox item slots.                              | -       |
+| classNames       | `Partial<Record<"base"｜ "heading"｜ "group"｜ "divider", string>>`                                             | Allows to set custom class names for the listbox section slots.                           | -       |
+| itemClasses      | `Partial<Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>>`          | Allows to set custom class names for the listbox item slots.                              | -       |
 
 ---
 
@@ -312,7 +312,7 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
 | isDisabled             | `boolean`                                                                                     | Whether the listbox item should be disabled. (**Deprecated**) pass **disabledKeys** to `Listbox` instead.                                                                        | `false` |
 | isSelected             | `boolean`                                                                                     | Whether the listbox item should be selected. (**Deprecated**) pass **selectedKeys** to `Listbox` instead.                                                                        | `false` |
 | isReadOnly             | `boolean`                                                                                     | Whether the listbox item press events should be ignored.                                                                                                                         | `false` |
-| classNames             | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the listbox item slots.                                                                                                                     | -       |
+| classNames             | `Partial<Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>>` | Allows to set custom class names for the listbox item slots.                                                                                                                     | -       |
 
 ### ListboxItem Events
 

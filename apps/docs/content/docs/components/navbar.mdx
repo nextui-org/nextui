@@ -44,19 +44,19 @@ NextUI exports 7 navbar-related components:
 <ImportTabs
   commands={{
     main: `import {
-  Navbar, 
-  NavbarBrand, 
-  NavbarContent, 
-  NavbarItem, 
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem
 } from "@nextui-org/react";`,
     individual: `import {
-  Navbar, 
-  NavbarBrand, 
-  NavbarContent, 
-  NavbarItem, 
+  Navbar,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
   NavbarMenuItem
@@ -278,7 +278,7 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
 | motionProps          | [MotionProps](#motion-props)                                                                                        | The motion props to control the `visible` / `hidden` animation. This motion is only available if the `shouldHideOnScroll` prop is set to `true`.   | -             |
 | disableScrollHandler | `boolean`                                                                                                           | Whether the navbar parent scroll event should be listened to or not.                                                                                | `false`       |
 | disableAnimation     | `boolean`                                                                                                           | Whether the navbar menu animation should be disabled or not.                                                                                        | `false`       |
-| classNames           | `Record<"base"｜ "wrapper"｜ "brand"｜ "content"｜ "item"｜ "toggle"｜ "toggleIcon"｜ "menu"｜ "menuItem", string>` | Allows to set custom class names for the navbar slots.                                                                                              | -             |
+| classNames           | `Partial<Record<"base"｜ "wrapper"｜ "brand"｜ "content"｜ "item"｜ "toggle"｜ "toggleIcon"｜ "menu"｜ "menuItem", string>>` | Allows to set custom class names for the navbar slots.                                                                                              | -             |
 
 ### Navbar Events
 

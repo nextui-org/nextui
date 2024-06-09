@@ -184,7 +184,7 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 | showFallback | `boolean`                                                                   | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
 | ImgComponent | `React.ElementType`                                                         | The component to be used as the image element.                               | `img`     |
 | imgProps     | `ImgComponentProps`                                                         | Props to be passed to the image element.                                     | -         |
-| classNames   | `Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>`             | Allows to set custom class names for the avatar slots.                       | -         |
+| classNames   | `Partial<Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>>`             | Allows to set custom class names for the avatar slots.                       | -         |
 
 ### Avatar Group Props
 
@@ -199,4 +199,4 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 | isDisabled  | `boolean`                          | Whether the avatars are disabled                    | -       |
 | isBordered  | `boolean`                          | Whether the avatars have a border                   | -       |
 | renderCount | `(count: number) => ReactNode`     | This allows you to render a custom count component. | -       |
-| classNames  | `Record<"base"｜ "count", string>` | Allows to set custom class names for the avatar group slots. | -  |
+| classNames  | `Partial<Record<"base"｜ "count", string>>` | Allows to set custom class names for the avatar group slots. | -  |

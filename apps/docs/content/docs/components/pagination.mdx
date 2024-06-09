@@ -142,7 +142,7 @@ You can customize the `Pagination` component by passing custom Tailwind CSS clas
 In case you need to customize the pagination even further, you can use the `usePagination` hook to create
 your own implementation.
 
-<CodeDemo title="Custom Implementation" files={paginationContent.customImpl} /> 
+<CodeDemo title="Custom Implementation" files={paginationContent.customImpl} />
 
 <Spacer y={4} />
 
@@ -197,7 +197,7 @@ your own implementation.
 | renderItem             | [PaginationItemProps](#pagination-item-props)                                                                                 | The pagination item render function.                                     | -         |
 | getItemAriaLabel       | `(page: string) => string`                                                                                                    | A function that allows you to customize the pagination items aria-label. | -         |
 | disableAnimation       | `boolean`                                                                                                                     | Whether the pagination cursor should be animated.                        | `false`   |
-| classNames             | `Record<"base"｜ "wrapper" ｜ "prev"｜ "next" ｜ "item" ｜ "cursor" ｜ "forwardIcon" ｜ "ellipsis" ｜ "chevronNext", string>` | Allows to set custom class names for the pagination slots.               | -         |
+| classNames             | `Partial<Record<"base"｜ "wrapper" ｜ "prev"｜ "next" ｜ "item" ｜ "cursor" ｜ "forwardIcon" ｜ "ellipsis" ｜ "chevronNext", string>>` | Allows to set custom class names for the pagination slots.               | -         |
 
 ### Pagination Events
 

@@ -55,7 +55,7 @@ Display user information with avatar and name.
 - **name**: The name of the user.
 - **description**: The description of the user.
 
-<Spacer y={4}/>  
+<Spacer y={4}/>
 
 ## Data Attributes
 
@@ -66,7 +66,7 @@ Display user information with avatar and name.
 - **data-focus-visible**:
   When the user is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html)
 
-<Spacer y={4}/>  
+<Spacer y={4}/>
 
 ## API
 
@@ -78,4 +78,4 @@ Display user information with avatar and name.
 | description | `ReactNode`                                                   | The description component.                                                                 | -       |
 | isFocusable | `boolean`                                                     | Whether the user is focusable. This is useful when using `Dropdown` or similar components. | `false` |
 | avatarProps | [AvatarProps](/docs/components/avatar#avatar-props)           | The avatar component props. The `name` is passed by default.                               | -       |
-| classNames  | `Record<"base"｜ "wrapper"｜ "name"｜ "description", string>` | Allows to set custom class names for the user slots.                                       | -       |
+| classNames  | `Partial<Record<"base"｜ "wrapper"｜ "name"｜ "description", string>>` | Allows to set custom class names for the user slots.                                       | -       |
