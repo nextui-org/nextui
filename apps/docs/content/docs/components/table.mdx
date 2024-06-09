@@ -436,7 +436,7 @@ You can customize the `Table` component by passing custom Tailwind CSS classes t
 | allowDuplicateSelectionEvents | `boolean`                                                                                                                                                     | Whether `onSelectionChange` should fire even if the new set of keys is the same as the last.                 | -           |
 | disableAnimation              | `boolean`                                                                                                                                                     | Whether to disable the table and checkbox animations.                                                        | `false`     |
 | checkboxesProps               | [CheckboxProps](/docs/components/checkbox/#checkbox-props)                                                                                                    | Props to be passed to the checkboxes.                                                                        | -           |
-| classNames                    | `Record<"base" ｜ "table" ｜ "thead" ｜ "tbody" ｜ "tfoot" ｜ "emptyWrapper" ｜ "loadingWrapper" ｜ "wrapper" ｜ "tr" ｜ "th" ｜ "td" ｜ "sortIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                | -           |
+| classNames                    | `Partial<Record<"base" ｜ "table" ｜ "thead" ｜ "tbody" ｜ "tfoot" ｜ "emptyWrapper" ｜ "loadingWrapper" ｜ "wrapper" ｜ "tr" ｜ "th" ｜ "td" ｜ "sortIcon", string>>` | Allows to set custom class names for the dropdown item slots.                                                | -           |
 
 ### Table Events
 
