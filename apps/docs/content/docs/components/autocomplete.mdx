@@ -84,7 +84,7 @@ the end of the label and the autocomplete will be required.
 
 ### Read Only
 
-If you pass the `isReadOnly` property to the Autocomplete, the Listbox will open to display 
+If you pass the `isReadOnly` property to the Autocomplete, the Listbox will open to display
 all available options, but users won't be able to select any of the listed options.
 
 <CodeDemo title="Read Only" highlightedLines="8" files={autocompleteContent.readOnly} />
@@ -453,7 +453,7 @@ properties to customize the popover, listbox and input components.
 | disableClearable            | `boolean`                                                                                                                             | Whether the clear button should be hidden. (**Deprecated**) Use `isClearable` instead.                                                                        | `false`                  |
 | disableAnimation            | `boolean`                                                                                                                             | Whether the Autocomplete should be animated.                                                                                                                  | `true`                   |
 | disableSelectorIconRotation | `boolean`                                                                                                                             | Whether the select should disable the rotation of the selector icon.                                                                                          | `false`                  |
-| classNames                  | `Record<"base"｜ "listboxWrapper"｜ "listbox"｜ "popoverContent" ｜ "endContentWrapper"｜ "clearButton" ｜ "selectorButton", string>` | Allows to set custom class names for the Autocomplete slots.                                                                                                  | -                        |
+| classNames                  | `Partial<Record<"base"｜ "listboxWrapper"｜ "listbox"｜ "popoverContent" ｜ "endContentWrapper"｜ "clearButton" ｜ "selectorButton", string>>` | Allows to set custom class names for the Autocomplete slots.                                                                                                  | -                        |
 
 ### Autocomplete Events
 
