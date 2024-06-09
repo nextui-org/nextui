@@ -1,7 +1,9 @@
 import flatten from "flat";
 
-export function swapColorValues<T extends Object>(colors: T) {
-  const swappedColors = {};
+type StringMap = Record<string, string>;
+
+export function swapColorValues<T extends StringMap>(colors: T) {
+  const swappedColors: StringMap = {};
   const keys = Object.keys(colors);
   const length = keys.length;
 
@@ -9,31 +11,26 @@ export function swapColorValues<T extends Object>(colors: T) {
     const key1 = keys[i];
     const key2 = keys[length - 1 - i];
 
-    // @ts-ignore
     swappedColors[key1] = colors[key2];
-    // @ts-ignore
     swappedColors[key2] = colors[key1];
   }
   if (length % 2 !== 0) {
     const middleKey = keys[Math.floor(length / 2)];
 
-    // @ts-ignore
     swappedColors[middleKey] = colors[middleKey];
   }
 
   return swappedColors;
 }
 
-export function removeDefaultKeys<T extends Object>(obj: T) {
-  const newObj = {};
+export function removeDefaultKeys<T extends StringMap>(obj: T): StringMap {
+  const newObj: StringMap = {};
 
   for (const key in obj) {
     if (key.endsWith("-DEFAULT")) {
-      // @ts-ignore
       newObj[key.replace("-DEFAULT", "")] = obj[key];
       continue;
     }
-    // @ts-ignore
     newObj[key] = obj[key];
   }
 
@@ -52,5 +49,5 @@ export const flattenThemeObject = <TTarget>(obj: TTarget) =>
     flatten(obj, {
       safe: true,
       delimiter: "-",
-    }) as Object,
+    }) as StringMap,
   );
