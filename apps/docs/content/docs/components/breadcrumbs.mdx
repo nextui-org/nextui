@@ -226,8 +226,8 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
 | hideSeparator       | `boolean`                                                                      | Whether to hide the separator between breadcrumbs.                              | `false`      |
 | isDisabled          | `boolean`                                                                      | Whether the Breadcrumbs are disabled except the last item.                      | `false`      |
 | disableAnimation    | `boolean`                                                                      | Whether the Breadcrumbs should display animations.                              | `false`      |
-| itemClasses         | `Record<"base"｜ "item"｜ "separator", string>`                                | Allows to set custom class names for the breadcrumbs item slots.                | -            |
-| classNames          | `Record<"base"｜ "list"｜ "ellipsis"｜ "separator", string>`                   | Allows to set custom class names for the breadcrumbs slots.                     | -            |
+| itemClasses         | `Partial<Record<"base"｜ "item"｜ "separator", string>>`                                | Allows to set custom class names for the breadcrumbs item slots.                | -            |
+| classNames          | `Partial<Record<"base"｜ "list"｜ "ellipsis"｜ "separator", string>>`                   | Allows to set custom class names for the breadcrumbs slots.                     | -            |
 
 ### Breadcrumbs Functions
 
@@ -259,7 +259,7 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
 | hideSeparator    | `boolean`                                                                      | Whether to hide the item separator.                       | `false`      |
 | isDisabled       | `boolean`                                                                      | Whether the item is disabled.                             | `false`      |
 | disableAnimation | `boolean`                                                                      | Whether the item should display animations.               | `false`      |
-| classNames       | `Record<"base"｜ "item"｜ "separator", string>`                                | Allows to set custom class names for the item slots.      | -            |
+| classNames       | `Partial<Record<"base"｜ "item"｜ "separator", string>>`                                | Allows to set custom class names for the item slots.      | -            |
 
 ### BreadcrumbItem Events
 
