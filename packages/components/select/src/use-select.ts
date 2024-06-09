@@ -27,7 +27,6 @@ import {
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
@@ -523,7 +522,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             : slotsProps.popoverProps?.offset,
         shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
           ? popoverProps.shouldCloseOnInteractOutside
-          : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+          : () => true,
       } as PopoverProps;
     },
     [

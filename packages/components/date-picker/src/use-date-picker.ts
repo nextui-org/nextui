@@ -15,7 +15,6 @@ import {useDatePickerState} from "@react-stately/datepicker";
 import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 
@@ -182,7 +181,7 @@ export function useDatePicker<T extends DateValue>({
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
+        : () => true,
     };
   };
 
