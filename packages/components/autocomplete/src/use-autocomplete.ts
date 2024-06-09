@@ -18,7 +18,6 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -138,7 +137,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     as,
     label,
     isLoading,
-    menuTrigger = "focus",
+    // TODO: change back to focus later
+    menuTrigger = "manual",
     filterOptions = {
       sensitivity: "base",
     },
@@ -201,9 +201,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const popoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
-
-  // control the input focus behaviours internally
-  const shouldFocus = useRef(false);
 
   const {
     buttonProps,
@@ -331,15 +328,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen]);
 
-  // react aria has different focus strategies internally
-  // hence, handle focus behaviours on our side for better flexibilty
-  useEffect(() => {
-    const action = shouldFocus.current || isOpen ? "focus" : "blur";
-
-    inputRef?.current?.[action]();
-    if (action === "blur") shouldFocus.current = false;
-  }, [shouldFocus.current, isOpen]);
-
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
   // You can use continuePropagation() to revert this behavior.
@@ -466,8 +454,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) =>
-            ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
+        : () => true,
     } as unknown as PopoverProps;
   };
 
