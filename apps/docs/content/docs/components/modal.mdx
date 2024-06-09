@@ -42,18 +42,18 @@ NextUI exports 5 modal-related components:
 <ImportTabs
   commands={{
     main: `import {
-  Modal, 
-  ModalContent, 
-  ModalHeader, 
-  ModalBody, 
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
   ModalFooter
 } from "@nextui-org/react";`,
     individual:
       `import {
-  Modal, 
-  ModalContent, 
-  ModalHeader, 
-  ModalBody, 
+  Modal,
+  ModalContent,
+  ModalHeader,
+  ModalBody,
   ModalFooter
 } from "@nextui-org/modal";`,
   }}
@@ -74,7 +74,7 @@ When the modal opens:
 
 ### Non-dissmissable
 
-By default, the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key. 
+By default, the modal can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.
 You can disable this behavior by setting the following properties:
 
 - Set the `isDismissable` property to `false` to prevent the modal from closing when clicking on the overlay.
@@ -200,7 +200,7 @@ You can customize the `Modal` component by passing custom Tailwind CSS classes t
 | motionProps               | [MotionProps](#motion-props)                                                                        | The props to modify the framer motion animation. Use the `variants` API to create your own animation. |                 |
 | portalContainer           | `HTMLElement`                                                                                       | The container element in which the overlay portal will be placed.                                     | `document.body` |
 | disableAnimation          | `boolean`                                                                                           | Whether the modal should not have animations.                                                         | `false`         |
-| classNames                | `Record<"wrapper"｜ "base"｜ "backdrop"｜ "header" ｜ "body" ｜ "footer" ｜ "closeButton", string>` | Allows to set custom class names for the modal slots.                                                 | -               |
+| classNames                | `Partial<Record<"wrapper"｜ "base"｜ "backdrop"｜ "header" ｜ "body" ｜ "footer" ｜ "closeButton", string>>` | Allows to set custom class names for the modal slots.                                                 | -               |
 
 ### Modal Events
 
