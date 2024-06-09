@@ -122,7 +122,7 @@ const table = tv({
   variants: {
     color: {
       default: {
-        td: "before:bg-default/40 data-[selected=true]:text-default-foreground",
+        td: "before:bg-default/60 data-[selected=true]:text-default-foreground",
       },
       primary: {
         td: "before:bg-primary/20 data-[selected=true]:text-primary",
@@ -265,7 +265,7 @@ const table = tv({
       isStriped: true,
       color: "default",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/40",
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/60",
       },
     },
     {
