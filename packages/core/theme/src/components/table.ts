@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
+import {tv} from "../utils/tv";
 
 /**
  * Table **Tailwind Variants** component
@@ -260,6 +260,50 @@ const table = tv({
     isStriped: false,
     fullWidth: true,
   },
+  compoundVariants: [
+    {
+      isStriped: true,
+      color: "default",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/40",
+      },
+    },
+    {
+      isStriped: true,
+      color: "primary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-primary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "secondary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-secondary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "success",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-success/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "warning",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-warning/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "danger",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-danger/20",
+      },
+    },
+  ],
 });
 
 export type TableVariantProps = VariantProps<typeof table>;
