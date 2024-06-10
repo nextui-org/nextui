@@ -40,7 +40,7 @@
     "@react-aria/focus": "^3.16.2",
     "@react-aria/i18n": "^3.10.2",
     "@react-aria/interactions": "^3.21.1",
-    "@react-aria/selection": "^3.17.5",
+    "@react-aria/selection": "^3.18.1",
     "@react-aria/ssr": "^3.9.2",
     "@react-aria/utils": "3.24.1",
     "@react-aria/virtualizer": "^3.9.10",
