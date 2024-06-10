@@ -137,8 +137,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     as,
     label,
     isLoading,
-    // TODO: change back to focus later
-    menuTrigger = "manual",
+    menuTrigger = "focus",
     filterOptions = {
       sensitivity: "base",
     },
