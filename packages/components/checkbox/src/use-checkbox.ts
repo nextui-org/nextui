@@ -98,7 +98,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     validationState,
     isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
-    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
+    validationBehavior = isInGroup
+      ? groupContext.validationBehavior
+      : formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     defaultSelected,
     classNames,
     className,

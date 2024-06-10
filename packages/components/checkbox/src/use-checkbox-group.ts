@@ -2,10 +2,9 @@ import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
 import type {ReactRef} from "@nextui-org/react-utils";
-import type {CheckboxGroupProps} from "@react-types/checkbox";
 
 import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
-import {useCallback, useMemo, useContext} from "react";
+import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
@@ -13,7 +12,6 @@ import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 import {FormContext, useSlottedContext} from "@nextui-org/form";
-import {FormValidationContext} from "react-aria-components";
 
 import {CheckboxProps} from "./index";
 
@@ -74,9 +72,6 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
   const globalContext = useProviderContext();
   const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
-  const formErrors = useContext(FormValidationContext);
-  const formError = props.name ? formErrors?.[props.name] : undefined;
-
   const {
     as,
     ref,
@@ -87,7 +82,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     value,
     name,
     defaultValue,
-    isInvalid: isInvalidProp = !!formError,
+    isInvalid: isInvalidProp,
     validationState,
     size = "md",
     color = "primary",
@@ -100,7 +95,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
     isRequired,
     onValueChange,
     description,
-    errorMessage = formError,
+    errorMessage,
     className,
     ...otherProps
   } = props;
@@ -110,7 +105,7 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
 
   const domRef = useDOMRef(ref);
 
-  const checkboxGroupProps = useMemo<CheckboxGroupProps>(() => {
+  const checkboxGroupProps = useMemo(() => {
     return {
       ...otherProps,
       value,
@@ -141,7 +136,6 @@ export function useCheckboxGroup(props: UseCheckboxGroupProps) {
   ]);
 
   const groupState = useCheckboxGroupState(checkboxGroupProps);
-
   const {
     labelProps,
     groupProps,
