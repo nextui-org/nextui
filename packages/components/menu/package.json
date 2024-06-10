@@ -51,7 +51,7 @@
     "@react-aria/menu": "3.13.1",
     "@react-aria/utils": "3.24.1",
     "@react-stately/menu": "3.6.1",
-    "@react-stately/tree": "3.7.6",
+    "@react-stately/tree": "3.8.1",
     "@react-types/menu": "3.9.7",
     "@react-types/shared": "3.23.1"
   },

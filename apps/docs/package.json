@@ -47,7 +47,7 @@
     "@react-aria/visually-hidden": "^3.8.10",
     "@react-stately/data": "^3.11.2",
     "@react-stately/layout": "^3.13.7",
-    "@react-stately/tree": "^3.7.6",
+    "@react-stately/tree": "^3.8.1",
     "@rehooks/local-storage": "^2.4.5",
     "@vercel/analytics": "^1.2.2",
     "canvas-confetti": "^1.9.2",

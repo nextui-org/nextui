@@ -367,8 +367,8 @@ importers:
         specifier: ^3.13.7
         version: 3.13.7(react@18.2.0)
       '@react-stately/tree':
-        specifier: ^3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: ^3.8.1
+        version: 3.8.1(react@18.2.0)
       '@rehooks/local-storage':
         specifier: ^2.4.5
         version: 2.4.5(react@18.2.0)
@@ -644,8 +644,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.19
         version: 3.0.0-alpha.19(react@18.2.0)
@@ -1759,8 +1759,8 @@ importers:
         specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/menu':
         specifier: 3.9.7
         version: 3.9.7(react@18.2.0)
@@ -3124,8 +3124,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.19
         version: 3.0.0-alpha.19(react@18.2.0)
@@ -3149,8 +3149,8 @@ importers:
         specifier: 3.16.2
         version: 3.16.2(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -3233,8 +3233,8 @@ importers:
         specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/menu':
         specifier: 3.9.7
         version: 3.9.7(react@18.2.0)
@@ -9987,7 +9987,7 @@ packages:
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/menu': 3.6.1(react@18.2.0)
-      '@react-stately/tree': 3.7.6(react@18.2.0)
+      '@react-stately/tree': 3.8.1(react@18.2.0)
       '@react-types/button': 3.9.2(react@18.2.0)
       '@react-types/menu': 3.9.7(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
@@ -10592,14 +10592,14 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-stately/tree@3.7.6(react@18.2.0):
-    resolution: {integrity: sha512-y8KvEoZX6+YvqjNCVGS3zA/BKw4D3XrUtUKIDme3gu5Mn6z97u+hUXKdXVCniZR7yvV3fHAIXwE5V2K8Oit4aw==}
+  /@react-stately/tree@3.8.1(react@18.2.0):
+    resolution: {integrity: sha512-LOdkkruJWch3W89h4B/bXhfr0t0t1aRfEp+IMrrwdRAl23NaPqwl5ILHs4Xu5XDHqqhg8co73pHrJwUyiTWEjw==}
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-stately/collections': 3.10.5(react@18.2.0)
-      '@react-stately/selection': 3.14.3(react@18.2.0)
-      '@react-stately/utils': 3.9.1(react@18.2.0)
+      '@react-stately/collections': 3.10.7(react@18.2.0)
+      '@react-stately/selection': 3.15.1(react@18.2.0)
+      '@react-stately/utils': 3.10.1(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
