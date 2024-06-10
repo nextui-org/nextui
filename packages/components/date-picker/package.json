@@ -50,7 +50,7 @@
     "@nextui-org/aria-utils": "workspace:*",
     "@react-stately/overlays": "3.6.5",
     "@react-stately/utils": "3.9.1",
-    "@internationalized/date": "^3.5.2",
+    "@internationalized/date": "^3.5.4",
     "@react-aria/datepicker": "3.9.3",
     "@react-aria/i18n": "3.10.2",
     "@react-stately/datepicker": "3.9.2",
