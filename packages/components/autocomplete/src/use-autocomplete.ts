@@ -18,6 +18,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -453,7 +454,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : () => true,
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state),
     } as unknown as PopoverProps;
   };
 
