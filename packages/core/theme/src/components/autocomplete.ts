@@ -39,6 +39,7 @@ const autocomplete = tv({
         selectorButton: "transition-none",
       },
       false: {
+        clearButton: "transition-transform-colors-opacity-visibility",
         selectorButton: "transition-transform duration-150 ease motion-reduce:transition-none",
       },
     },
