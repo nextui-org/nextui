@@ -6,7 +6,12 @@ import {
   useOverlayPosition,
   AriaOverlayProps,
 } from "@react-aria/overlays";
-import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
+import {
+  OverlayPlacement,
+  ariaHideOutside,
+  toReactAriaPlacement,
+  ariaShouldCloseOnInteractOutside,
+} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
@@ -75,36 +80,7 @@ export function useReactAriaPopover(
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside
-        : (element: Element) => {
-            const trigger = triggerRef?.current!;
-
-            if (!trigger || !trigger.contains(element)) {
-              const startElements = document.querySelectorAll("[data-focus-scope-start]");
-              const endElements = document.querySelectorAll("[data-focus-scope-end]");
-              let focusScopeElements = [];
-
-              startElements.forEach((startElement, index) => {
-                if (endElements[index]) {
-                  let currentElement = startElement.nextElementSibling;
-                  let elementsBetween = [];
-
-                  while (currentElement && currentElement !== endElements[index]) {
-                    elementsBetween.push(currentElement);
-                    currentElement = currentElement.nextElementSibling;
-                  }
-                  focusScopeElements.push(elementsBetween);
-                }
-              });
-
-              if (focusScopeElements.length === 1) {
-                state.close();
-
-                return false;
-              }
-            }
-
-            return !trigger || !trigger.contains(element);
-          },
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
     },
     popoverRef,
   );
