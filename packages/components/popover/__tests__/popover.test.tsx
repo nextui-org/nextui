@@ -247,9 +247,7 @@ describe("Popover", () => {
     const wrapper = render(
       <Popover>
         <PopoverTrigger>
-          <Button disableRipple data-testid="trigger-test">
-            Open popover
-          </Button>
+          <Button data-testid="popover-trigger">Open popover</Button>
         </PopoverTrigger>
         <PopoverContent>
           <p>This is the content of the popover.</p>
@@ -257,19 +255,15 @@ describe("Popover", () => {
       </Popover>,
     );
 
-    const trigger = wrapper.getByTestId("trigger-test");
+    const trigger = wrapper.getByTestId("popover-trigger");
 
-    // open popover
     await act(async () => {
+      // open popover
       await userEvent.click(trigger);
-    });
-
-    // close popover
-    await act(async () => {
+      // close popover
       await userEvent.click(trigger);
+      // assert that the focus is restored back to trigger
+      expect(trigger).toHaveFocus();
     });
-
-    // assert that the focus is restored back to trigger
-    expect(trigger).toHaveFocus();
   });
 });
