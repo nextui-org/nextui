@@ -8,6 +8,7 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
@@ -123,7 +124,7 @@ export function useDropdown(props: UseDropdownProps) {
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : () => true,
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
     };
   };
 
