@@ -202,6 +202,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
+  // control the input focus behaviours internally
+  const shouldFocus = useRef(false);
+
   const {
     buttonProps,
     inputProps,
@@ -327,6 +330,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       popover.style.width = rect.width + "px";
     }
   }, [isOpen]);
+
+  // react aria has different focus strategies internally
+  // hence, handle focus behaviours on our side for better flexibilty
+  useEffect(() => {
+    const action = shouldFocus.current || isOpen ? "focus" : "blur";
+
+    inputRef?.current?.[action]();
+    if (action === "blur") shouldFocus.current = false;
+  }, [shouldFocus.current, isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -454,7 +466,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state),
+        : (element: Element) =>
+            ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
     } as unknown as PopoverProps;
   };
 
