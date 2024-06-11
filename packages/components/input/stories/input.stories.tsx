@@ -14,6 +14,7 @@ import {
 } from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -513,6 +514,29 @@ const WithReactHookFormTemplate = (args: InputProps) => {
   );
 };
 
+const ServerValidationTemplate = (args: InputProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      username: "Please provide a valid username.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-4"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Input {...args} label="Username" name="username" />
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -682,6 +706,14 @@ export const WithValidation = {
     isRequired: true,
     label: "Number",
     placeholder: "Enter a number(0-100)",
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
