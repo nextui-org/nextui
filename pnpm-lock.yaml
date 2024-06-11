@@ -2229,6 +2229,9 @@ importers:
 
   packages/components/select:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/listbox':
         specifier: workspace:*
         version: link:../listbox
