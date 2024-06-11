@@ -47,6 +47,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/date-input": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/aria-utils": "workspace:*",
     "@react-stately/overlays": "3.6.5",
     "@react-stately/utils": "3.9.1",
     "@internationalized/date": "^3.5.2",

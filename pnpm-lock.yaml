@@ -686,6 +686,9 @@ importers:
 
   packages/components/autocomplete:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1324,6 +1327,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.2
         version: 3.5.2
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1422,6 +1428,9 @@ importers:
 
   packages/components/dropdown:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/menu':
         specifier: workspace:*
         version: link:../menu
