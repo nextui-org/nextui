@@ -19,9 +19,13 @@ export const ariaShouldCloseOnInteractOutside = (
   const trigger = triggerRef?.current;
 
   if (!trigger || !trigger.contains(element)) {
+    // if clicking outside the trigger,
     // blur the component (e.g. autocomplete)
     if (shouldFocus) shouldFocus.current = false;
 
+    // if there is focus scope block, there will be a pair of span[data-focus-scope-start] and span[data-focus-scope-end]
+    // the element with focus trap resides inbetween these two blocks
+    // we push all the elements in focus scope to `focusScopeElements`
     const startElements = document.querySelectorAll("body > span[data-focus-scope-start]");
     let focusScopeElements: Element[] = [];
 
@@ -29,6 +33,10 @@ export const ariaShouldCloseOnInteractOutside = (
       focusScopeElements.push(startElement.nextElementSibling!);
     });
 
+    // if there is just one focusScopeElement, we close the state
+    // e.g. open a popover A -> click popover B
+    // then popover A should be closed and popover B should be open
+    // TODO: handle cases like modal > popover A -> click modal > popover B
     if (focusScopeElements.length === 1) {
       state.close();
 
