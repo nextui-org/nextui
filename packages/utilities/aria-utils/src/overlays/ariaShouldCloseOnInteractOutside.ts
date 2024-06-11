@@ -16,7 +16,7 @@ export const ariaShouldCloseOnInteractOutside = (
   state: any,
   shouldFocus?: MutableRefObject<boolean>,
 ) => {
-  const trigger = triggerRef?.current!;
+  const trigger = triggerRef?.current;
 
   if (!trigger || !trigger.contains(element)) {
     // blur the component (e.g. autocomplete)
