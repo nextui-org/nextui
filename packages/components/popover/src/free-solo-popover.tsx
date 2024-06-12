@@ -14,6 +14,7 @@ import {domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
+import {useDialog} from "@react-aria/dialog";
 
 import {usePopover, UsePopoverProps, UsePopoverReturn} from "./use-popover";
 
@@ -92,7 +93,6 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
       state,
       placement,
       backdrop,
-      titleProps,
       portalContainer,
       disableAnimation,
       motionProps,
@@ -104,6 +104,13 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
     } = usePopover({
       ...props,
       ref,
+    });
+
+    const dialogRef = React.useRef(null);
+    const {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
+    const dialogProps = getDialogProps({
+      ref: dialogRef,
+      ...ariaDialogProps,
     });
 
     const backdropContent = React.useMemo(() => {
@@ -138,7 +145,7 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
             placement={placement}
             tabIndex={-1}
             transformOrigin={transformOrigin}
-            {...getDialogProps()}
+            {...dialogProps}
           >
             {!isNonModal && <DismissButton onDismiss={state.close} />}
             <div {...getContentProps()}>

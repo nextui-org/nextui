@@ -213,4 +213,63 @@ describe("Popover", () => {
     // assert that the second popover is open
     expect(popover2).toHaveAttribute("aria-expanded", "true");
   });
+
+  it("should focus on dialog when opened", async () => {
+    const wrapper = render(
+      <Popover>
+        <PopoverTrigger>
+          <Button disableRipple data-testid="trigger-test">
+            Open popover
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <p>This is the content of the popover.</p>
+        </PopoverContent>
+      </Popover>,
+    );
+
+    const trigger = wrapper.getByTestId("trigger-test");
+
+    // open popover
+    await act(async () => {
+      await userEvent.click(trigger);
+    });
+
+    const {getByRole} = wrapper;
+
+    let dialog = getByRole("dialog");
+
+    // assert that the focus is on the dialog
+    expect(dialog).toHaveFocus();
+  });
+
+  it("should restore focus on trigger when closed", async () => {
+    const wrapper = render(
+      <Popover>
+        <PopoverTrigger>
+          <Button disableRipple data-testid="trigger-test">
+            Open popover
+          </Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <p>This is the content of the popover.</p>
+        </PopoverContent>
+      </Popover>,
+    );
+
+    const trigger = wrapper.getByTestId("trigger-test");
+
+    // open popover
+    await act(async () => {
+      await userEvent.click(trigger);
+    });
+
+    // close popover
+    await act(async () => {
+      await userEvent.click(trigger);
+    });
+
+    // assert that the focus is restored back to trigger
+    expect(trigger).toHaveFocus();
+  });
 });
