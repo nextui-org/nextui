@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@react-aria/button": "3.9.3",
-    "@react-aria/focus": "3.16.2",
+    "@react-aria/focus": "3.17.1",
     "@react-aria/selection": "3.17.5",
     "@react-aria/utils": "3.24.1",
     "@react-stately/tree": "3.7.6",

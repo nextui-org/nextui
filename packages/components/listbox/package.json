@@ -48,8 +48,8 @@
     "@react-aria/utils": "3.24.1",
     "@react-aria/listbox": "3.11.5",
     "@react-stately/list": "3.10.3",
-    "@react-aria/focus": "3.16.2",
-    "@react-aria/interactions": "3.21.1",
+    "@react-aria/focus": "3.17.1",
+    "@react-aria/interactions": "3.21.3",
     "@react-types/menu": "3.9.7",
     "@react-types/shared": "3.23.1"
   },
