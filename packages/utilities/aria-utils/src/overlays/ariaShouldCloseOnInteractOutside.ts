@@ -37,6 +37,10 @@ export const ariaShouldCloseOnInteractOutside = (
     // e.g. open a popover A -> click popover B
     // then popover A should be closed and popover B should be open
     // TODO: handle cases like modal > popover A -> click modal > popover B
+    // we should close the popover when it is the last opened
+    // however, currently ariaShouldCloseOnInteractOutside is called recursively
+    // and we need a way to check if there is something closed before that (i.e. nested elements)
+    // if so, popover shouldn't be closed in this case
     if (focusScopeElements.length === 1) {
       state.close();
 
