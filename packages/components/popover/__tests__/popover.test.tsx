@@ -4,6 +4,7 @@ import userEvent from "@testing-library/user-event";
 import {Button} from "@nextui-org/button";
 
 import {Popover, PopoverContent, PopoverTrigger} from "../src";
+import {Select, SelectItem} from "../../select/src";
 
 // e.g. console.error Warning: Function components cannot be given refs.
 // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
@@ -265,5 +266,52 @@ describe("Popover", () => {
       // assert that the focus is restored back to trigger
       expect(trigger).toHaveFocus();
     });
+  });
+
+  it("should not close popover if nested select is closed", async () => {
+    const wrapper = render(
+      <Popover>
+        <PopoverTrigger>
+          <Button data-testid="popover">Open popover</Button>
+        </PopoverTrigger>
+        <PopoverContent>
+          <Select data-testid="select" label="Select country">
+            <SelectItem key="argentina">Argentina</SelectItem>
+            <SelectItem key="venezuela">Venezuela</SelectItem>
+            <SelectItem key="brazil">Brazil</SelectItem>
+          </Select>
+        </PopoverContent>
+      </Popover>,
+    );
+
+    const popover = wrapper.getByTestId("popover");
+
+    await act(async () => {
+      // open popover
+      await userEvent.click(popover);
+    });
+
+    // assert that the popover is open
+    expect(popover).toHaveAttribute("aria-expanded", "true");
+
+    const select = wrapper.getByTestId("select");
+
+    await act(async () => {
+      // open select
+      await userEvent.click(select);
+    });
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    await act(async () => {
+      await userEvent.click(document.body);
+    });
+
+    // assert that the select is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the popover is still open
+    expect(popover).toHaveAttribute("aria-expanded", "true");
   });
 });
