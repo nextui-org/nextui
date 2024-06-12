@@ -4,38 +4,52 @@ import {MutableRefObject, RefObject} from "react";
  * Used to handle the outside interaction for popover-based components
  * e.g. dropdown, datepicker, date-range-picker, popover, select, autocomplete etc
  * @param element - the element outside of the popover ref, originally from `shouldCloseOnInteractOutside`
- * @param ref - The popover ref object that will interact outside with
- * @param state - The popover state from the target component
+ * @param triggerRef - The trigger ref object
+ * @param state - The state from the popover component
  * @param shouldFocus - a mutable ref boolean object to control the focus state
  *                      (used in input-based component such as autocomplete)
  * @returns - a boolean value which is same as shouldCloseOnInteractOutside
  */
 export const ariaShouldCloseOnInteractOutside = (
   element: Element,
-  ref: RefObject<Element>,
+  triggerRef: RefObject<Element>,
   state: any,
   shouldFocus?: MutableRefObject<boolean>,
 ) => {
-  let trigger = ref?.current;
+  const trigger = triggerRef?.current;
 
-  // check if the click is on the underlay
-  const clickOnUnderlay = element?.children?.[0]?.getAttribute("role") === "dialog" ?? false;
-
-  // if interacting outside the component
   if (!trigger || !trigger.contains(element)) {
+    // if clicking outside the trigger,
     // blur the component (e.g. autocomplete)
     if (shouldFocus) shouldFocus.current = false;
-    // if the click is not on the underlay,
-    // trigger the state close to prevent from opening multiple popovers at the same time
-    // e.g. open dropdown1 -> click dropdown2 (dropdown1 should be closed and dropdown2 should be open)
-    if (!clickOnUnderlay) state.close();
+
+    // if there is focus scope block, there will be a pair of span[data-focus-scope-start] and span[data-focus-scope-end]
+    // the element with focus trap resides inbetween these two blocks
+    // we push all the elements in focus scope to `focusScopeElements`
+    const startElements = document.querySelectorAll("body > span[data-focus-scope-start]");
+    let focusScopeElements: Element[] = [];
+
+    startElements.forEach((startElement) => {
+      focusScopeElements.push(startElement.nextElementSibling!);
+    });
+
+    // if there is just one focusScopeElement, we close the state
+    // e.g. open a popover A -> click popover B
+    // then popover A should be closed and popover B should be open
+    // TODO: handle cases like modal > popover A -> click modal > popover B
+    // we should close the popover when it is the last opened
+    // however, currently ariaShouldCloseOnInteractOutside is called recursively
+    // and we need a way to check if there is something closed before that (i.e. nested elements)
+    // if so, popover shouldn't be closed in this case
+    if (focusScopeElements.length === 1) {
+      state.close();
+
+      return false;
+    }
   } else {
     // otherwise the component (e.g. autocomplete) should keep focused
     if (shouldFocus) shouldFocus.current = true;
   }
 
-  // if the click is on the underlay,
-  // clicking the overlay should close the popover instead of closing the modal
-  // otherwise, allow interaction with other elements
-  return clickOnUnderlay;
+  return !trigger || !trigger.contains(element);
 };
