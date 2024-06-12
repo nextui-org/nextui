@@ -47,7 +47,7 @@
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/interactions": "3.21.1",
-    "@react-aria/overlays": "3.21.1",
+    "@react-aria/overlays": "3.22.1",
     "@react-aria/tooltip": "3.7.2",
     "@react-aria/utils": "3.24.1",
     "@react-stately/tooltip": "3.4.7",

@@ -1823,8 +1823,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: 3.21.1
-        version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
@@ -1893,8 +1893,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: 3.21.1
-        version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
@@ -2755,8 +2755,8 @@ importers:
         specifier: 3.21.1
         version: 3.21.1(react@18.2.0)
       '@react-aria/overlays':
-        specifier: 3.21.1
-        version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/tooltip':
         specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
@@ -2995,8 +2995,8 @@ importers:
         specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
       '@react-aria/overlays':
-        specifier: 3.21.1
-        version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
@@ -3255,8 +3255,8 @@ importers:
   packages/hooks/use-aria-modal-overlay:
     dependencies:
       '@react-aria/overlays':
-        specifier: 3.21.1
-        version: 3.21.1(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.22.1
+        version: 3.22.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
@@ -9769,7 +9769,7 @@ packages:
       react-dom: ^18.2.0
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.2.0)
-      '@react-aria/overlays': 3.21.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/overlays': 3.22.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-types/dialog': 3.5.8(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
