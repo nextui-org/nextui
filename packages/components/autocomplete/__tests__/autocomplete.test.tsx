@@ -355,8 +355,8 @@ describe("Autocomplete", () => {
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
 
-    // assert that input is not focused
-    expect(autocomplete).not.toHaveFocus();
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
   });
 
   it("should set the input after selection", async () => {
