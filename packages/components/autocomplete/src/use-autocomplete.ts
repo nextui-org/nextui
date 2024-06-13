@@ -319,15 +319,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   useEffect(() => {
     // set input focus
-    if (isOpen) onFocus(true);
+    if (isOpen) {
+      onFocus(true);
 
-    // apply the same with to the popover as the select
-    if (popoverRef.current && inputWrapperRef.current) {
-      let rect = inputWrapperRef.current.getBoundingClientRect();
+      // apply the same with to the popover as the select
+      if (popoverRef.current && inputWrapperRef.current) {
+        let rect = inputWrapperRef.current.getBoundingClientRect();
 
-      let popover = popoverRef.current;
+        let popover = popoverRef.current;
 
-      popover.style.width = rect.width + "px";
+        popover.style.width = rect.width + "px";
+      }
     }
   }, [isOpen]);
 
