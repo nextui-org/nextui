@@ -50,7 +50,7 @@
     "@react-aria/utils": "3.24.1",
     "@react-stately/menu": "3.6.1",
     "@react-aria/focus": "3.17.1",
-    "@react-types/menu": "3.9.7"
+    "@react-types/menu": "3.9.9"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

@@ -42,7 +42,7 @@
     "@react-aria/selection": "3.18.1",
     "@react-aria/utils": "3.24.1",
     "@react-stately/form": "3.0.1",
-    "@react-stately/list": "3.10.3",
+    "@react-stately/list": "3.10.5",
     "@react-stately/menu": "3.6.1",
     "@react-types/button": "3.9.4",
     "@react-types/overlays": "3.8.7",

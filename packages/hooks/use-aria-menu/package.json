@@ -42,11 +42,11 @@
     "@react-types/shared": "3.23.1",
     "@react-aria/menu": "3.13.1",
     "@react-aria/interactions": "3.21.3",
-    "@react-stately/tree": "3.7.6",
+    "@react-stately/tree": "3.8.1",
     "@react-aria/i18n": "3.10.2",
     "@react-aria/selection": "3.18.1",
     "@react-stately/collections": "3.10.7",
-    "@react-types/menu": "3.9.7"
+    "@react-types/menu": "3.9.9"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

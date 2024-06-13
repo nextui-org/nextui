@@ -644,8 +644,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.19
         version: 3.0.0-alpha.19(react@18.2.0)
@@ -1456,8 +1456,8 @@ importers:
         specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-types/menu':
-        specifier: 3.9.7
-        version: 3.9.7(react@18.2.0)
+        specifier: 3.9.9
+        version: 3.9.9(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1683,11 +1683,11 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-stately/list':
-        specifier: 3.10.3
-        version: 3.10.3(react@18.2.0)
+        specifier: 3.10.5
+        version: 3.10.5(react@18.2.0)
       '@react-types/menu':
-        specifier: 3.9.7
-        version: 3.9.7(react@18.2.0)
+        specifier: 3.9.9
+        version: 3.9.9(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -1759,11 +1759,11 @@ importers:
         specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/menu':
-        specifier: 3.9.7
-        version: 3.9.7(react@18.2.0)
+        specifier: 3.9.9
+        version: 3.9.9(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -3124,8 +3124,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/accordion':
         specifier: 3.0.0-alpha.19
         version: 3.0.0-alpha.19(react@18.2.0)
@@ -3149,8 +3149,8 @@ importers:
         specifier: 3.17.1
         version: 3.17.1(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -3233,11 +3233,11 @@ importers:
         specifier: 3.10.7
         version: 3.10.7(react@18.2.0)
       '@react-stately/tree':
-        specifier: 3.7.6
-        version: 3.7.6(react@18.2.0)
+        specifier: 3.8.1
+        version: 3.8.1(react@18.2.0)
       '@react-types/menu':
-        specifier: 3.9.7
-        version: 3.9.7(react@18.2.0)
+        specifier: 3.9.9
+        version: 3.9.9(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -3304,8 +3304,8 @@ importers:
         specifier: 3.0.1
         version: 3.0.1(react@18.2.0)
       '@react-stately/list':
-        specifier: 3.10.3
-        version: 3.10.3(react@18.2.0)
+        specifier: 3.10.5
+        version: 3.10.5(react@18.2.0)
       '@react-stately/menu':
         specifier: 3.6.1
         version: 3.6.1(react@18.2.0)
@@ -9945,7 +9945,7 @@ packages:
       '@react-aria/selection': 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
-      '@react-stately/list': 3.10.3(react@18.2.0)
+      '@react-stately/list': 3.10.5(react@18.2.0)
       '@react-types/listbox': 3.4.7(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -9998,9 +9998,9 @@ packages:
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/menu': 3.6.1(react@18.2.0)
-      '@react-stately/tree': 3.7.6(react@18.2.0)
+      '@react-stately/tree': 3.8.1(react@18.2.0)
       '@react-types/button': 3.9.4(react@18.2.0)
-      '@react-types/menu': 3.9.7(react@18.2.0)
+      '@react-types/menu': 3.9.9(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -10536,19 +10536,6 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@react-stately/list@3.10.3(react@18.2.0):
-    resolution: {integrity: sha512-Ul8el0tQy2Ucl3qMQ0fiqdJ874W1ZNjURVSgSxN+pGwVLNBVRjd6Fl7YwZFCXER2YOlzkwg+Zqozf/ZlS0EdXA==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@react-stately/collections': 3.10.7(react@18.2.0)
-      '@react-stately/selection': 3.14.3(react@18.2.0)
-      '@react-stately/utils': 3.9.1(react@18.2.0)
-      '@react-types/shared': 3.23.1(react@18.2.0)
-      '@swc/helpers': 0.5.9
-      react: 18.2.0
-    dev: false
-
   /@react-stately/list@3.10.5(react@18.2.0):
     resolution: {integrity: sha512-fV9plO+6QDHiewsYIhboxcDhF17GO95xepC5ki0bKXo44gr14g/LSo/BMmsaMnV+1BuGdBunB05bO4QOIaigXA==}
     peerDependencies:
@@ -10568,7 +10555,7 @@ packages:
       react: ^18.2.0
     dependencies:
       '@react-stately/overlays': 3.6.7(react@18.2.0)
-      '@react-types/menu': 3.9.7(react@18.2.0)
+      '@react-types/menu': 3.9.9(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -10682,7 +10669,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-stately/list': 3.10.3(react@18.2.0)
+      '@react-stately/list': 3.10.5(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@react-types/tabs': 3.3.5(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -10902,16 +10889,6 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@react-types/shared': 3.23.1(react@18.2.0)
-      react: 18.2.0
-    dev: false
-
-  /@react-types/menu@3.9.7(react@18.2.0):
-    resolution: {integrity: sha512-K6KhloJVoGsqwkdeez72fkNI9dfrmLI/sNrB4XuOKo2crDQ/eyZYWyJmzz8giz/tHME9w774k487rVoefoFh5w==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@react-types/overlays': 3.8.7(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       react: 18.2.0
     dev: false
