@@ -48,7 +48,7 @@
     "@react-aria/interactions": "3.21.3",
     "@react-aria/slider": "3.7.6",
     "@react-aria/utils": "3.24.1",
-    "@react-aria/visually-hidden": "3.8.10",
+    "@react-aria/visually-hidden": "3.8.12",
     "@react-stately/slider": "3.5.2"
   },
   "devDependencies": {

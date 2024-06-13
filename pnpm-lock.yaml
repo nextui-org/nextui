@@ -346,8 +346,8 @@ importers:
         specifier: 3.21.3
         version: 3.21.3(react@18.2.0)
       '@react-aria/selection':
-        specifier: ^3.17.5
-        version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.18.1
+        version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/ssr':
         specifier: ^3.9.2
         version: 3.9.2(react@18.2.0)
@@ -805,8 +805,8 @@ importers:
         specifier: 3.21.3
         version: 3.21.3(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1013,8 +1013,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-stately/calendar':
         specifier: 3.4.4
         version: 3.4.4(react@18.2.0)
@@ -1156,8 +1156,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-stately/checkbox':
         specifier: 3.6.3
         version: 3.6.3(react@18.2.0)
@@ -2137,8 +2137,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-stately/radio':
         specifier: 3.10.2
         version: 3.10.2(react@18.2.0)
@@ -2275,8 +2275,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -2385,8 +2385,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-stately/slider':
         specifier: 3.5.2
         version: 3.5.2(react@18.2.0)
@@ -2533,8 +2533,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-stately/toggle':
         specifier: 3.7.2
         version: 3.7.2(react@18.2.0)
@@ -2594,8 +2594,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-aria/visually-hidden':
-        specifier: 3.8.10
-        version: 3.8.10(react@18.2.0)
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
       '@react-stately/table':
         specifier: 3.11.6
         version: 3.11.6(react@18.2.0)
@@ -2810,8 +2810,8 @@ importers:
         specifier: 3.17.1
         version: 3.17.1(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.23.2
-        version: 3.23.2(react@18.2.0)
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
     devDependencies:
       '@nextui-org/link':
         specifier: workspace:*
@@ -3118,8 +3118,8 @@ importers:
         specifier: 3.17.1
         version: 3.17.1(react@18.2.0)
       '@react-aria/selection':
-        specifier: 3.17.5
-        version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.18.1
+        version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
@@ -3224,14 +3224,14 @@ importers:
         specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection':
-        specifier: 3.17.5
-        version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.18.1
+        version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       '@react-stately/collections':
-        specifier: 3.10.5
-        version: 3.10.5(react@18.2.0)
+        specifier: 3.10.7
+        version: 3.10.7(react@18.2.0)
       '@react-stately/tree':
         specifier: 3.7.6
         version: 3.7.6(react@18.2.0)
@@ -3295,8 +3295,8 @@ importers:
         specifier: 3.13.1
         version: 3.13.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/selection':
-        specifier: 3.17.5
-        version: 3.17.5(react-dom@18.2.0)(react@18.2.0)
+        specifier: 3.18.1
+        version: 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
@@ -3443,8 +3443,8 @@ importers:
   packages/hooks/use-intersection-observer:
     dependencies:
       '@react-aria/interactions':
-        specifier: 3.21.1
-        version: 3.21.1(react@18.2.0)
+        specifier: 3.21.3
+        version: 3.21.3(react@18.2.0)
       '@react-aria/ssr':
         specifier: 3.9.2
         version: 3.9.2(react@18.2.0)
@@ -9827,7 +9827,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.3(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
-      '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection': 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.7(react@18.2.0)
       '@react-stately/grid': 3.8.5(react@18.2.0)
@@ -9866,18 +9866,6 @@ packages:
       '@internationalized/number': 3.5.3
       '@internationalized/string': 3.2.3
       '@react-aria/ssr': 3.9.4(react@18.2.0)
-      '@react-aria/utils': 3.24.1(react@18.2.0)
-      '@react-types/shared': 3.23.1(react@18.2.0)
-      '@swc/helpers': 0.5.9
-      react: 18.2.0
-    dev: false
-
-  /@react-aria/interactions@3.21.1(react@18.2.0):
-    resolution: {integrity: sha512-AlHf5SOzsShkHfV8GLLk3v9lEmYqYHURKcXWue0JdYbmquMRkUsf/+Tjl1+zHVAQ8lKqRnPYbTmc4AcZbqxltw==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@react-aria/ssr': 3.9.2(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
@@ -9954,7 +9942,7 @@ packages:
     dependencies:
       '@react-aria/interactions': 3.21.3(react@18.2.0)
       '@react-aria/label': 3.7.6(react@18.2.0)
-      '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection': 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/list': 3.10.3(react@18.2.0)
@@ -10006,7 +9994,7 @@ packages:
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.3(react@18.2.0)
       '@react-aria/overlays': 3.21.1(react-dom@18.2.0)(react@18.2.0)
-      '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection': 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/collections': 3.10.5(react@18.2.0)
       '@react-stately/menu': 3.6.1(react@18.2.0)
@@ -10114,23 +10102,6 @@ packages:
       '@react-types/shared': 3.23.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
-    dev: false
-
-  /@react-aria/selection@3.17.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-gO5jBUkc7WdkiFMlWt3x9pTSuj3Yeegsxfo44qU5NPlKrnGtPRZDWrlACNgkDHu645RNNPhlyoX0C+G8mUg1xA==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    dependencies:
-      '@react-aria/focus': 3.17.1(react@18.2.0)
-      '@react-aria/i18n': 3.10.2(react@18.2.0)
-      '@react-aria/interactions': 3.21.3(react@18.2.0)
-      '@react-aria/utils': 3.24.1(react@18.2.0)
-      '@react-stately/selection': 3.14.3(react@18.2.0)
-      '@react-types/shared': 3.23.1(react@18.2.0)
-      '@swc/helpers': 0.5.9
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@react-aria/selection@3.18.1(react-dom@18.2.0)(react@18.2.0):
@@ -10247,7 +10218,7 @@ packages:
     dependencies:
       '@react-aria/focus': 3.17.1(react@18.2.0)
       '@react-aria/i18n': 3.10.2(react@18.2.0)
-      '@react-aria/selection': 3.17.5(react-dom@18.2.0)(react@18.2.0)
+      '@react-aria/selection': 3.18.1(react-dom@18.2.0)(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
       '@react-stately/tabs': 3.6.4(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)

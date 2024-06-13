@@ -49,7 +49,7 @@
     "@react-aria/interactions": "3.21.3",
     "@react-aria/table": "3.13.5",
     "@react-aria/utils": "3.24.1",
-    "@react-aria/visually-hidden": "3.8.10",
+    "@react-aria/visually-hidden": "3.8.12",
     "@react-stately/table": "3.11.6",
     "@react-stately/virtualizer": "3.6.8",
     "@react-types/grid": "3.2.4",
