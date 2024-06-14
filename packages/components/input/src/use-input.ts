@@ -253,7 +253,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         labelPlacement,
         isClearable,
         disableAnimation,
-        isHiddenType,
       }),
     [
       objectToDeps(variantProps),
