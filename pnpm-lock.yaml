@@ -280,8 +280,8 @@ importers:
         specifier: ^4.1.1
         version: 4.1.1(react@18.2.0)
       '@internationalized/date':
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.4
+        version: 3.5.4
       '@mapbox/rehype-prism':
         specifier: ^0.6.0
         version: 0.6.0
@@ -977,8 +977,8 @@ importers:
   packages/components/calendar:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.4
+        version: 3.5.4
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1273,8 +1273,8 @@ importers:
   packages/components/date-input:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.4
+        version: 3.5.4
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1325,8 +1325,8 @@ importers:
   packages/components/date-picker:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.4
+        version: 3.5.4
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
@@ -2983,8 +2983,8 @@ importers:
   packages/core/system:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.5.2
-        version: 3.5.2
+        specifier: ^3.5.4
+        version: 3.5.4
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -6722,8 +6722,8 @@ packages:
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
     dev: false
 
-  /@internationalized/date@3.5.2:
-    resolution: {integrity: sha512-vo1yOMUt2hzp63IutEaTUxROdvQg1qlMRsbCvbay2AK2Gai7wIgCyK5weEX3nHkiLgo4qCXHijFNC/ILhlRpOQ==}
+  /@internationalized/date@3.5.4:
+    resolution: {integrity: sha512-qoVJVro+O0rBaw+8HPjUB1iH8Ihf8oziEnqMnvhJUSuVIrHOuZ6eNLHNvzXJKUvAtaDiqMnRlg8Z2mgh09BlUw==}
     dependencies:
       '@swc/helpers': 0.5.9
 
@@ -9676,7 +9676,7 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@react-aria/i18n': 3.10.2(react@18.2.0)
       '@react-aria/interactions': 3.21.3(react@18.2.0)
       '@react-aria/live-announcer': 3.3.2
@@ -9740,7 +9740,7 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@internationalized/number': 3.5.1
       '@internationalized/string': 3.2.1
       '@react-aria/focus': 3.17.1(react@18.2.0)
@@ -9846,7 +9846,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@internationalized/message': 3.1.2
       '@internationalized/number': 3.5.1
       '@internationalized/string': 3.2.1
@@ -10400,7 +10400,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@react-stately/utils': 3.9.1(react@18.2.0)
       '@react-types/calendar': 3.4.4(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
@@ -10483,7 +10483,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@internationalized/string': 3.2.1
       '@react-stately/form': 3.0.1(react@18.2.0)
       '@react-stately/overlays': 3.6.7(react@18.2.0)
@@ -10840,7 +10840,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@react-types/shared': 3.23.1(react@18.2.0)
       react: 18.2.0
     dev: false
@@ -10868,7 +10868,7 @@ packages:
     peerDependencies:
       react: ^18.2.0
     dependencies:
-      '@internationalized/date': 3.5.2
+      '@internationalized/date': 3.5.4
       '@react-types/calendar': 3.4.4(react@18.2.0)
       '@react-types/overlays': 3.8.5(react@18.2.0)
       '@react-types/shared': 3.23.1(react@18.2.0)
