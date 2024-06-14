@@ -43,7 +43,7 @@ export function useTheme(defaultTheme?: Theme) {
     [theme],
   );
 
-  +useEffect(() => setTheme(theme), [theme, setTheme]);
+  useEffect(() => setTheme(theme), [theme, setTheme]);
 
   return {theme, setTheme};
 }
