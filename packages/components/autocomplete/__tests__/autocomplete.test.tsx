@@ -165,7 +165,7 @@ describe("Autocomplete", () => {
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
-    // assert that input is focused
+    // assert that the autocomplete input is focused
     expect(autocomplete).toHaveFocus();
   });
 
