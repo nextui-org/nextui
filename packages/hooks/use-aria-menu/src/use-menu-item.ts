@@ -98,7 +98,7 @@ export interface AriaMenuItemProps
 
   /**
    * The native button click event handler
-   * @deprecated - use `onPress` instead.
+   * @deprecated - use `onAction` instead.
    */
   onClick?: DOMAttributes["onClick"];
 
