@@ -27,7 +27,7 @@
     "test": "jest --verbose --config ./jest.config.js",
     "typecheck": "turbo typecheck",
     "lint": "pnpm lint:pkg && pnpm lint:docs",
-    "lint:pkg": "eslint -c .eslintrc.json ./packages/**/**/*.{ts,tsx}",
+    "lint:pkg": "eslint -c .eslintrc.json ./packages/**/*.{ts,tsx}",
     "lint:docs": "eslint -c .eslintrc.json ./apps/docs/**/*.{ts,tsx}",
     "lint:fix": "eslint --fix -c .eslintrc.json ./packages/**/**/*.{ts,tsx}",
     "lint:docs-fix": "eslint --fix -c .eslintrc.json ./apps/docs/**/*.{ts,tsx}",
