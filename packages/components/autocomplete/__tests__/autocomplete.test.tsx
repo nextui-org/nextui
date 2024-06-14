@@ -529,7 +529,7 @@ describe("Autocomplete", () => {
           <form data-testid="form">
             <AutocompleteExample
               defaultInputValue="Penguin"
-              validate={(v) => (v === "Penguin" ? "Invalid value" : null)}
+              validate={(v) => (v.inputValue === "Penguin" ? "Invalid value" : null)}
               validationBehavior="aria"
             />
           </form>,
