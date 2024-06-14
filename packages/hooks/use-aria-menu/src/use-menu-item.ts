@@ -328,7 +328,7 @@ export function useMenuItem<T>(
 
   let {focusProps} = useFocus({onBlur, onFocus, onFocusChange});
   // @ts-ignore
-  let domProps = filterDOMProps(item.props, {isLink: !!item?.props?.href});
+  let domProps = filterDOMProps(item.props);
 
   delete domProps.id;
   // @ts-ignore
