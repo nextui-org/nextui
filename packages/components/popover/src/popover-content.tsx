@@ -90,7 +90,6 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
         <LazyMotion features={domAnimation}>
           <m.div
             animate="enter"
-            className="fuckthat"
             exit="exit"
             initial="initial"
             style={{
