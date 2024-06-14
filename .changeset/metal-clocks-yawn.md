@@ -8,9 +8,11 @@
 "@nextui-org/card": patch
 "@nextui-org/checkbox": patch
 "@nextui-org/chip": patch
+"@nextui-org/date-input": patch
 "@nextui-org/date-picker": patch
 "@nextui-org/dropdown": patch
 "@nextui-org/input": patch
+"@nextui-org/kbd": patch
 "@nextui-org/link": patch
 "@nextui-org/listbox": patch
 "@nextui-org/menu": patch
@@ -18,6 +20,7 @@
 "@nextui-org/navbar": patch
 "@nextui-org/pagination": patch
 "@nextui-org/popover": patch
+"@nextui-org/progress": patch
 "@nextui-org/radio": patch
 "@nextui-org/select": patch
 "@nextui-org/slider": patch
@@ -27,6 +30,7 @@
 "@nextui-org/tabs": patch
 "@nextui-org/tooltip": patch
 "@nextui-org/user": patch
+"@nextui-org/react": patch
 "@nextui-org/system": patch
 "@nextui-org/use-aria-accordion": patch
 "@nextui-org/use-aria-accordion-item": patch
@@ -36,7 +40,10 @@
 "@nextui-org/use-aria-modal-overlay": patch
 "@nextui-org/use-aria-multiselect": patch
 "@nextui-org/use-aria-toggle-button": patch
+"@nextui-org/use-disclosure": patch
 "@nextui-org/use-intersection-observer": patch
+"@nextui-org/use-is-mobile": patch
+"@nextui-org/use-pagination": patch
 "@nextui-org/aria-utils": patch
 ---
 
