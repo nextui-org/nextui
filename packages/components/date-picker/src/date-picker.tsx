@@ -12,11 +12,20 @@ import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 
 import {UseDatePickerProps, useDatePicker} from "./use-date-picker";
 
-export interface Props<T extends DateValue> extends UseDatePickerProps<T> {}
+export interface Props<T extends DateValue> extends UseDatePickerProps<T> {
+  /**
+   * The placement of the selector button.
+   * @default "end"
+   */
+  selectorButtonPlacement?: "start" | "end";
+}
 
 function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+  const {selectorButtonPlacement = "end", ...otherProps} = props;
+
   const {
     state,
+    startContent,
     endContent,
     selectorIcon,
     showTimeField,
@@ -30,7 +39,7 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     getCalendarProps,
     CalendarTopContent,
     CalendarBottomContent,
-  } = useDatePicker<T>({...props, ref});
+  } = useDatePicker<T>({...otherProps, ref});
 
   const selectorContent = isValidElement(selectorIcon) ? (
     cloneElement(selectorIcon, getSelectorIconProps())
@@ -67,12 +76,25 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
     </FreeSoloPopover>
   ) : null;
 
+  const dateInputProps = {
+    ...getDateInputProps(),
+    endContent:
+      selectorButtonPlacement === "end" ? (
+        <Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>
+      ) : (
+        endContent
+      ),
+    startContent:
+      selectorButtonPlacement === "start" ? (
+        <Button {...getSelectorButtonProps()}>{startContent || selectorContent}</Button>
+      ) : (
+        startContent
+      ),
+  };
+
   return (
     <>
-      <DateInput
-        {...getDateInputProps()}
-        endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
-      />
+      <DateInput {...dateInputProps} />
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </>
   );

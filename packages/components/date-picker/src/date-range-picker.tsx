@@ -13,12 +13,21 @@ import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 import DateRangePickerField from "./date-range-picker-field";
 import {UseDateRangePickerProps, useDateRangePicker} from "./use-date-range-picker";
 
-export interface Props<T extends DateValue> extends UseDateRangePickerProps<T> {}
+export interface Props<T extends DateValue> extends UseDateRangePickerProps<T> {
+  /**
+   * The placement of the selector button.
+   * @default "end"
+   */
+  selectorButtonPlacement?: "start" | "end";
+}
 
 function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+  const {selectorButtonPlacement = "end", ...otherProps} = props;
+
   const {
     state,
     slots,
+    startContent,
     endContent,
     selectorIcon,
     showTimeField,
@@ -37,7 +46,7 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
     getCalendarProps,
     CalendarTopContent,
     CalendarBottomContent,
-  } = useDateRangePicker<T>({...props, ref});
+  } = useDateRangePicker<T>({...otherProps, ref});
 
   const selectorContent = isValidElement(selectorIcon) ? (
     cloneElement(selectorIcon, getSelectorIconProps())
@@ -77,12 +86,25 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
     </FreeSoloPopover>
   ) : null;
 
+  const dateInputGroupProps = {
+    ...getDateInputGroupProps(),
+    endContent:
+      selectorButtonPlacement === "end" ? (
+        <Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>
+      ) : (
+        endContent
+      ),
+    startContent:
+      selectorButtonPlacement === "start" ? (
+        <Button {...getSelectorButtonProps()}>{startContent || selectorContent}</Button>
+      ) : (
+        startContent
+      ),
+  };
+
   return (
     <>
-      <DateInputGroup
-        {...getDateInputGroupProps()}
-        endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
-      >
+      <DateInputGroup {...dateInputGroupProps}>
         <DateRangePickerField {...getStartDateInputProps()} />
         <span {...getSeparatorProps()} aria-hidden="true" role="separator">
           -
