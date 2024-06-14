@@ -50,8 +50,8 @@
     "@react-aria/interactions": "3.21.3",
     "@react-aria/overlays": "3.22.1",
     "@react-aria/utils": "3.24.1",
-    "@react-stately/toggle": "3.7.2",
-    "@react-stately/utils": "3.9.1",
+    "@react-stately/toggle": "3.7.4",
+    "@react-stately/utils": "3.10.1",
     "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {

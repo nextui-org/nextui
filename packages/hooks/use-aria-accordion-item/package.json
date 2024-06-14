@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/button": "3.9.3",
+    "@react-aria/button": "3.9.5",
     "@react-aria/focus": "3.17.1",
     "@react-stately/tree": "3.8.1",
     "@react-types/shared": "3.23.1"

@@ -46,7 +46,7 @@
     "@react-aria/focus": "3.17.1",
     "@react-aria/interactions": "3.21.3",
     "@react-aria/utils": "3.24.1",
-    "@react-types/checkbox": "3.7.1"
+    "@react-types/checkbox": "3.8.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

@@ -40,7 +40,7 @@
     "@react-aria/focus": "3.17.1",
     "@react-aria/interactions": "3.21.3",
     "@react-aria/utils": "3.24.1",
-    "@react-types/link": "3.5.3",
+    "@react-types/link": "3.5.5",
     "@react-types/shared": "3.23.1"
   },
   "devDependencies": {

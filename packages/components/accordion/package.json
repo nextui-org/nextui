@@ -58,8 +58,8 @@
     "@react-aria/focus": "3.17.1",
     "@react-aria/utils": "3.24.1",
     "@react-stately/tree": "3.8.1",
-    "@react-aria/button": "3.9.3",
-    "@react-types/accordion": "3.0.0-alpha.19",
+    "@react-aria/button": "3.9.5",
+    "@react-types/accordion": "3.0.0-alpha.21",
     "@react-types/shared": "3.23.1"
   },
   "devDependencies": {
