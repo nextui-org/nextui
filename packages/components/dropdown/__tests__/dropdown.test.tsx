@@ -683,6 +683,8 @@ describe("Keyboard interactions", () => {
   it("should press the item on keyDown (Enter)", async () => {
     const user = userEvent.setup();
 
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
     const wrapper = render(
       <Dropdown>
         <DropdownTrigger>
@@ -727,17 +729,19 @@ describe("Keyboard interactions", () => {
 
     expect(menuItems[0]).toHaveFocus();
 
-    const logSpy = jest.spyOn(console, "log");
-
     await act(async () => {
       await user.keyboard("[Enter]");
     });
 
     expect(logSpy).toHaveBeenCalledWith("ENTER");
+
+    logSpy.mockRestore();
   });
 
   it("should press the item on keyDown (Space)", async () => {
     const user = userEvent.setup();
+
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
 
     const wrapper = render(
       <Dropdown>
@@ -783,12 +787,12 @@ describe("Keyboard interactions", () => {
 
     expect(menuItems[0]).toHaveFocus();
 
-    const logSpy = jest.spyOn(console, "log");
-
     await act(async () => {
       await user.keyboard("[Space]");
     });
 
     expect(logSpy).toHaveBeenCalledWith("SPACE");
+
+    logSpy.mockRestore();
   });
 });
