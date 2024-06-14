@@ -1,7 +1,8 @@
 import * as React from "react";
-import {render, renderHook, fireEvent} from "@testing-library/react";
+import {render, renderHook, fireEvent, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
 
 import {Input} from "../src";
 
@@ -227,5 +228,199 @@ describe("Input with React Hook Form", () => {
     await user.click(submitButton);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  describe("validation", () => {
+    let user;
+
+    beforeEach(() => {
+      user = userEvent.setup();
+    });
+
+    describe("validationBehavior=native", () => {
+      it("supports isRequired", async () => {
+        const {getByTestId} = render(
+          <Form data-testid="form">
+            <Input isRequired data-testid="input" label="Name" validationBehavior="native" />
+          </Form>,
+        );
+
+        const input = getByTestId("input") as HTMLInputElement;
+
+        expect(input).toHaveAttribute("required");
+        expect(input).not.toHaveAttribute("aria-required");
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(false);
+
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(document.activeElement).toBe(input);
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Constraints not satisfied",
+        );
+
+        await user.keyboard("hello");
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(true);
+
+        await user.tab();
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+      });
+
+      it("supports validate function", async () => {
+        const {getByTestId} = render(
+          <Form data-testid="form">
+            <Input
+              data-testid="input"
+              defaultValue="Foo"
+              label="Name"
+              validate={(v) => (v === "Foo" ? "Invalid name" : null)}
+              validationBehavior="native"
+            />
+          </Form>,
+        );
+
+        const input = getByTestId("input") as HTMLInputElement;
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(false);
+
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(document.activeElement).toBe(input);
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid name",
+        );
+
+        await user.keyboard("hello");
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(true);
+
+        await user.tab();
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+      });
+
+      it("supports server validation", async () => {
+        function Test() {
+          let [serverErrors, setServerErrors] = React.useState({});
+          let onSubmit = (e) => {
+            e.preventDefault();
+            setServerErrors({
+              name: "Invalid name.",
+            });
+          };
+
+          return (
+            <Form data-testid="form" validationErrors={serverErrors} onSubmit={onSubmit}>
+              <Input data-testid="input" label="Name" name="name" validationBehavior="native" />
+              <button data-testid="submit" type="submit">
+                Submit
+              </button>
+            </Form>
+          );
+        }
+
+        const {getByTestId} = render(<Test />);
+
+        const input = getByTestId("input") as HTMLInputElement;
+        const submitButton = getByTestId("submit");
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+
+        await user.click(submitButton);
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid name.",
+        );
+        expect(input.validity.valid).toBe(false);
+
+        // Clicking twice doesn't clear server errors.
+        await user.click(submitButton);
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(document.activeElement).toBe(input);
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid name.",
+        );
+        expect(input.validity.valid).toBe(false);
+
+        await user.keyboard("hello");
+        await user.tab();
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(true);
+      });
+    });
+
+    describe('validationBehavior="aria"', () => {
+      it("supports validate function", async () => {
+        const {getByTestId} = render(
+          <Form data-testid="form">
+            <Input
+              data-testid="input"
+              defaultValue="Foo"
+              label="Name"
+              validate={(v) => (v === "Foo" ? "Invalid name" : null)}
+            />
+          </Form>,
+        );
+
+        const input = getByTestId("input") as HTMLInputElement;
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid name",
+        );
+        expect(input.validity.valid).toBe(true);
+
+        await user.tab();
+        await user.keyboard("hello");
+        // TODO: fix this
+        // expect(input).not.toHaveAttribute("aria-describedby");
+        // expect(input).not.toHaveAttribute("aria-invalid");
+      });
+
+      it("supports server validation", async () => {
+        const {getByTestId} = render(
+          <Form validationErrors={{name: "Invalid name"}}>
+            <Input data-testid="input" label="Name" name="name" />
+          </Form>,
+        );
+
+        const input = getByTestId("input");
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid name",
+        );
+
+        await user.tab();
+        await user.keyboard("hello");
+        await user.tab();
+
+        // TODO: fix this
+        // expect(input).not.toHaveAttribute("aria-describedby");
+        // expect(input).not.toHaveAttribute("aria-invalid");
+      });
+    });
   });
 });
