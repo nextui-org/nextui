@@ -96,6 +96,10 @@ export interface AriaMenuItemProps
    */
   onAction?: (key: Key) => void;
 
+  /**
+   * The native button click event handler
+   * @deprecated - use `onPress` instead.
+   */
   onClick?: DOMAttributes["onClick"];
 
   /** What kind of popup the item opens. */
