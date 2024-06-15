@@ -48,6 +48,21 @@ const itemsSectionData = [
   },
 ];
 
+
+const ControlledAutocomplete = <T = object>(props: AutocompleteProps<T>) => {
+  const [selectedKey, setSelectedKey] = React.useState<React.Key>("cat");
+
+  return (
+    <Autocomplete
+      {...props}
+      aria-label="Favorite Animal"
+      label="Favorite Animal"
+      selectedKey={selectedKey}
+      onSelectionChange={setSelectedKey}
+    />
+  );
+};
+
 const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
   <Autocomplete label="Favorite Animal" {...props}>
     <AutocompleteItem key="penguin" value="penguin">
@@ -61,6 +76,7 @@ const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
     </AutocompleteItem>
   </Autocomplete>
 );
+
 
 describe("Autocomplete", () => {
   it("should render correctly", () => {
@@ -558,6 +574,60 @@ describe("Autocomplete", () => {
         expect(input).not.toHaveAttribute("aria-invalid");
       });
     });
+  });
+
+  it("should work when key equals textValue", async () => {
+    const wrapper = render(
+      <Autocomplete
+        aria-label="Favorite Animal"
+        data-testid="when-key-equals-textValue"
+        defaultSelectedKey="cat"
+        items={itemsData}
+        label="Favorite Animal"
+      >
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("when-key-equals-textValue");
+
+    const user = userEvent.setup();
+
+    await user.click(autocomplete);
+
+    expect(autocomplete).toHaveValue("cat");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete).toHaveValue("dog");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should work when key equals textValue (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="when-key-equals-textValue" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("when-key-equals-textValue");
+
+    const user = userEvent.setup();
+
+    await user.click(autocomplete);
+
+    expect(autocomplete).toHaveValue("cat");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete).toHaveValue("dog");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
   });
 });
 

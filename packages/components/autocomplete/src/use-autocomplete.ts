@@ -314,7 +314,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     const key = inputRef.current.value;
     const item = state.collection.getItem(key);
 
-    if (item) {
+    if (item && state.inputValue !== item.textValue) {
       state.setSelectedKey(key);
       state.setInputValue(item.textValue);
     }
