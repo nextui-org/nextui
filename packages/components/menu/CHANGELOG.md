@@ -1,5 +1,18 @@
 # @nextui-org/menu
 
+## 2.0.25
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`5b9e317a8`](https://github.com/nextui-org/nextui/commit/5b9e317a80dacad09a3fc3c5b762729cd10b2bb3), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/use-aria-menu@2.0.5
+  - @nextui-org/use-is-mobile@2.0.8
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/divider@2.0.28
+
 ## 2.0.24
 
 ### Patch Changes
