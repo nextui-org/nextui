@@ -14,16 +14,16 @@ const autocomplete = tv({
       "translate-x-1",
       "cursor-text",
       "opacity-0",
-      "invisible",
+      "pointer-events-none",
       "text-default-500",
       "group-data-[invalid=true]:text-danger",
       "data-[visible=true]:opacity-100", // on mobile is always visible when there is a value
-      "data-[visible=true]:visible",
+      "data-[visible=true]:pointer-events-auto",
       "data-[visible=true]:cursor-pointer",
       "sm:data-[visible=true]:opacity-0", // only visible on hover
-      "sm:data-[visible=true]:invisible",
+      "sm:data-[visible=true]:pointer-events-none",
       "sm:group-data-[hover=true]:data-[visible=true]:opacity-100",
-      "sm:group-data-[hover=true]:data-[visible=true]:visible",
+      "sm:group-data-[hover=true]:data-[visible=true]:pointer-events-auto",
     ],
     selectorButton: "text-medium",
   },
@@ -39,7 +39,6 @@ const autocomplete = tv({
         selectorButton: "transition-none",
       },
       false: {
-        clearButton: "transition-transform-colors-opacity-visibility",
         selectorButton: "transition-transform duration-150 ease motion-reduce:transition-none",
       },
     },

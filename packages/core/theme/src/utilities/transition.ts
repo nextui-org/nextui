@@ -57,10 +57,4 @@ export default {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
-  ".transition-transform-colors-opacity-visibility": {
-    "transition-property":
-      "transform, color, background, background-color, border-color, text-decoration-color, fill, stroke, opacity, visibility",
-    "transition-timing-function": "ease",
-    "transition-duration": DEFAULT_TRANSITION_DURATION,
-  },
 };
