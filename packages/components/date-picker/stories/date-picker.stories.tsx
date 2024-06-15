@@ -17,6 +17,7 @@ import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
+import {ValidationResult} from "@react-types/shared";
 
 import {DatePicker, DatePickerProps} from "../src";
 
@@ -424,7 +425,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please enter a valid date",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date";
+      }
+    },
   },
 };
 

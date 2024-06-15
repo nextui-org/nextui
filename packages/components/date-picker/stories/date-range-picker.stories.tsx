@@ -13,7 +13,7 @@ import {
   startOfWeek,
   today,
 } from "@internationalized/date";
-import {RangeValue} from "@react-types/shared";
+import {RangeValue, ValidationResult} from "@react-types/shared";
 import {DateValue} from "@react-types/datepicker";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
@@ -499,7 +499,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
-    errorMessage: "Please enter your stay duration",
+    isInvalid: true,
+    errorMessage: "Please enter a valid date range",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date range";
+      }
+    },
   },
 };
 
