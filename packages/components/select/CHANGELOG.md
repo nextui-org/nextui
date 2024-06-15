@@ -1,5 +1,26 @@
 # @nextui-org/select
 
+## 2.2.2
+
+### Patch Changes
+
+- [#3177](https://github.com/nextui-org/nextui/pull/3177) [`a0d6a77ef`](https://github.com/nextui-org/nextui/commit/a0d6a77efbe917df406bb309cbd1750629534eaf) Thanks [@wingkwong](https://github.com/wingkwong)! - Add missing `data-invalid` attribute (#3149)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3157](https://github.com/nextui-org/nextui/pull/3157) [`a06422f37`](https://github.com/nextui-org/nextui/commit/a06422f373a13a0cf9f5fada394dec4739ee57e3) Thanks [@wingkwong](https://github.com/wingkwong)! - set empty string instead of undefined for unsetting value (#3156)
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/listbox@2.1.22
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/use-aria-multiselect@2.2.2
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/scroll-shadow@2.1.17
+  - @nextui-org/spinner@2.0.30
+
 ## 2.2.1
 
 ### Patch Changes

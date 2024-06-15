@@ -1,5 +1,13 @@
 # @nextui-org/theme
 
+## 2.2.6
+
+### Patch Changes
+
+- [#2900](https://github.com/nextui-org/nextui/pull/2900) [`75d122317`](https://github.com/nextui-org/nextui/commit/75d1223178a8d6f5b68535b54a79efb2d75a31cc) Thanks [@chirokas](https://github.com/chirokas)! - Fix #2886 TableColumn align prop fixed, style improved.
+
+- [#3174](https://github.com/nextui-org/nextui/pull/3174) [`dbb4b8ee5`](https://github.com/nextui-org/nextui/commit/dbb4b8ee564114bfb0ef93467ed9ef6a3ff7e2e7) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix input display with hidden type (#3170)
+
 ## 2.2.5
 
 ### Patch Changes

@@ -547,6 +547,75 @@ describe("Select", () => {
 
     expect(select).toHaveTextContent("Select an animal");
   });
+
+  it("should unset form value", async () => {
+    const logSpy = jest.spyOn(console, "log");
+
+    const user = userEvent.setup();
+
+    const wrapper = render(
+      <form
+        className="w-full max-w-xs items-end flex flex-col gap-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target as HTMLFormElement);
+
+          /* eslint-disable no-console */
+          console.log(JSON.stringify(Object.fromEntries(formData)));
+        }}
+      >
+        <Select data-testid="select" label="test select" name="select" size="sm">
+          <SelectItem key="foo">foo</SelectItem>
+          <SelectItem key="bar">bar</SelectItem>
+        </Select>
+        <button data-testid="submit-button" type="submit">
+          Submit
+        </button>
+      </form>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    expect(select).not.toBeNull();
+
+    await act(async () => {
+      await user.click(select);
+    });
+
+    let listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(2);
+
+    await act(async () => {
+      await user.click(listboxItems[1]);
+    });
+
+    let submitButton = wrapper.getByTestId("submit-button");
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "bar"}));
+
+    await act(async () => {
+      await user.click(select);
+    });
+
+    await act(async () => {
+      await user.click(listboxItems[1]);
+    });
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: ""}));
+  });
 });
 
 describe("Select with React Hook Form", () => {
