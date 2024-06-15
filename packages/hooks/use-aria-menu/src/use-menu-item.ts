@@ -96,6 +96,10 @@ export interface AriaMenuItemProps
    */
   onAction?: (key: Key) => void;
 
+  /**
+   * The native button click event handler
+   * @deprecated - use `onAction` instead.
+   */
   onClick?: DOMAttributes["onClick"];
 
   /** What kind of popup the item opens. */
@@ -324,7 +328,7 @@ export function useMenuItem<T>(
 
   let {focusProps} = useFocus({onBlur, onFocus, onFocusChange});
   // @ts-ignore
-  let domProps = filterDOMProps(item.props, {isLink: !!item?.props?.href});
+  let domProps = filterDOMProps(item.props);
 
   delete domProps.id;
   // @ts-ignore

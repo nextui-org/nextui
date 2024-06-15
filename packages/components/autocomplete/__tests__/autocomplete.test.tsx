@@ -181,7 +181,7 @@ describe("Autocomplete", () => {
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
-    // assert that input is focused
+    // assert that the autocomplete input is focused
     expect(autocomplete).toHaveFocus();
   });
 
@@ -371,8 +371,8 @@ describe("Autocomplete", () => {
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
 
-    // assert that input is not focused
-    expect(autocomplete).not.toHaveFocus();
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
   });
 
   it("should set the input after selection", async () => {
@@ -545,7 +545,7 @@ describe("Autocomplete", () => {
           <form data-testid="form">
             <AutocompleteExample
               defaultInputValue="Penguin"
-              validate={(v) => (v === "Penguin" ? "Invalid value" : null)}
+              validate={(v) => (v.inputValue === "Penguin" ? "Invalid value" : null)}
               validationBehavior="aria"
             />
           </form>,

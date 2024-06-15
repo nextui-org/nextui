@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "@react-aria/utils": "3.24.1",
-    "@react-aria/ssr": "3.9.2",
+    "@react-aria/ssr": "3.9.4",
     "@react-types/shared": "3.23.1",
-    "@react-aria/interactions": "3.21.1"
+    "@react-aria/interactions": "3.21.3"
   },
   "peerDependencies": {
     "react": ">=18"

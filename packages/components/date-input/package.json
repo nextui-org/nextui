@@ -43,12 +43,12 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@internationalized/date": "^3.5.4",
-    "@react-aria/datepicker": "3.9.3",
-    "@react-aria/i18n": "3.10.2",
-    "@react-stately/datepicker": "3.9.2",
-    "@react-types/datepicker": "3.7.2",
+    "@react-aria/datepicker": "3.10.1",
+    "@react-aria/i18n": "3.11.1",
+    "@react-stately/datepicker": "3.9.4",
+    "@react-types/datepicker": "3.7.4",
     "@react-types/shared": "3.23.1",
-    "@react-aria/utils": "3.23.2"
+    "@react-aria/utils": "3.24.1"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
