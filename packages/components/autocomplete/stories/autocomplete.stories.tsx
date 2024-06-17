@@ -17,6 +17,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {PetBoldIcon, SearchLinearIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Button} from "@nextui-org/button";
+import {Form} from "@nextui-org/form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 
@@ -431,9 +432,9 @@ const ItemStartContentTemplate = ({color, variant, ...args}: AutocompleteProps<A
 );
 
 const ControlledTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => {
-  const [value, setValue] = React.useState<Key>("cat");
+  const [value, setValue] = React.useState<Key | null>("cat");
 
-  const handleSelectionChange = (key: Key) => {
+  const handleSelectionChange = (key: Key | null) => {
     setValue(key);
   };
 
@@ -732,6 +733,33 @@ const WithReactHookFormTemplate = (args: AutocompleteProps) => {
   );
 };
 
+const ServerValidationTemplate = (args: AutocompleteProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      animals: "Please select a valid animal.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-4"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Autocomplete {...args} className="max-w-xs" label="Favorite Animal">
+        <AutocompleteItem key="red_panda">Red Panda</AutocompleteItem>
+        <AutocompleteItem key="cat">Cat</AutocompleteItem>
+        <AutocompleteItem key="dog">Dog</AutocompleteItem>
+      </Autocomplete>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -978,6 +1006,14 @@ export const CustomStyles = {
 
 export const CustomStylesWithCustomItems = {
   render: CustomStylesWithCustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
 
   args: {
     ...defaultProps,

@@ -2,6 +2,7 @@ import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../../modal/src";
@@ -570,9 +571,9 @@ describe("Autocomplete", () => {
     describe("validationBehavior=native", () => {
       it("supports isRequired", async () => {
         const {getByTestId, getByRole, findByRole} = render(
-          <form data-testid="form">
+          <Form data-testid="form">
             <AutocompleteExample isRequired validationBehavior="native" />
-          </form>,
+          </Form>,
         );
 
         const input = getByRole("combobox") as HTMLInputElement;
@@ -599,6 +600,62 @@ describe("Autocomplete", () => {
 
         await user.click(items[0]);
         expect(input).toHaveAttribute("aria-describedby");
+      });
+
+      it("supports server validation", async () => {
+        function Test() {
+          const [serverErrors, setServerErrors] = React.useState({});
+          const onSubmit = (e) => {
+            e.preventDefault();
+            setServerErrors({
+              value: "Invalid value.",
+            });
+          };
+
+          return (
+            <Form validationErrors={serverErrors} onSubmit={onSubmit}>
+              <AutocompleteExample data-testid="input" name="value" validationBehavior="native" />
+              <button data-testid="submit" type="submit">
+                Submit
+              </button>
+            </Form>
+          );
+        }
+
+        const {getByTestId, getByRole} = render(<Test />);
+
+        const input = getByTestId("input") as HTMLInputElement;
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+
+        await user.click(getByTestId("submit"));
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid value.",
+        );
+        expect(input.validity.valid).toBe(false);
+
+        await user.tab({shift: true});
+        await user.keyboard("[ArrowRight]Ze");
+
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        const listbox = getByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        expect(input).toHaveAttribute("aria-describedby");
+        await user.tab();
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(true);
       });
     });
 
@@ -633,6 +690,41 @@ describe("Autocomplete", () => {
 
         await user.click(item);
 
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input).not.toHaveAttribute("aria-invalid");
+      });
+
+      it("supports server validation", async () => {
+        const {getByTestId, getByRole} = render(
+          <Form validationErrors={{value: "Invalid value"}}>
+            <AutocompleteExample data-testid="input" name="value" />
+          </Form>,
+        );
+
+        const input = getByTestId("input");
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid value",
+        );
+
+        await user.tab();
+        await user.keyboard("[ArrowRight]Ze");
+
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        const listbox = getByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        await user.tab();
         expect(input).not.toHaveAttribute("aria-describedby");
         expect(input).not.toHaveAttribute("aria-invalid");
       });

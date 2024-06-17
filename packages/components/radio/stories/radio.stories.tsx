@@ -220,7 +220,6 @@ const ServerValidationTemplate = (args: RadioGroupProps) => {
   return (
     <Form
       className="flex flex-col items-start gap-4"
-      validationBehavior="aria"
       validationErrors={serverErrors ?? undefined}
       onSubmit={onSubmit}
     >
