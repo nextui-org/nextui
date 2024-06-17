@@ -594,13 +594,7 @@ const input = tv({
         label: ["group-data-[filled-within=true]:pointer-events-auto"],
       },
     },
-    // labelPlacement=[outside,outside-left]
-    {
-      labelPlacement: ["outside", "outside-left"],
-      class: {
-        input: "h-full",
-      },
-    },
+    // labelPlacement=[outside] & isMultiline
     {
       labelPlacement: "outside",
       isMultiline: false,
