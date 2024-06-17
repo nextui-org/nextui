@@ -147,6 +147,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isFilledWithin = isFilled || isFocusWithin;
   const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
+  const isFileTypeInput = type === "file";
 
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
@@ -191,9 +192,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef,
   );
 
-  if (type === "file") {
+  if (isFileTypeInput) {
     // for input[type="file"], we don't need `value` and `onChange` from `useTextField`
-    // the default value with empty string will block the first attempt of file upload
+    // otherwise, the default value with empty string will block the first attempt of file upload
     // hence, remove `value` and `onChange` attribute here
     delete inputProps.value;
     delete inputProps.onChange;
@@ -220,6 +221,22 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
+    if (isFileTypeInput) {
+      // if `labelPlacement` is not defined, choose `outside` instead
+      // since the default value `inside` is not supported in file input
+      if (!originalProps.labelPlacement) return "outside";
+
+      // throw a warning if `labelPlacement` is `inside`
+      // and change it to `outside`
+      if (originalProps.labelPlacement === "inside") {
+        /* eslint-disable no-console */
+        console.warn(
+          "Input with file type doesn't support inside label. Converting to outside ...",
+        );
+
+        return "outside";
+      }
+    }
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
       return "outside";
     }
@@ -279,10 +296,14 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         className: slots.base({class: baseStyles}),
         "data-slot": "base",
         "data-filled": dataAttr(
-          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown,
+          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown || isFileTypeInput,
         ),
         "data-filled-within": dataAttr(
-          isFilledWithin || hasPlaceholder || hasStartContent || isPlaceholderShown,
+          isFilledWithin ||
+            hasPlaceholder ||
+            hasStartContent ||
+            isPlaceholderShown ||
+            isFileTypeInput,
         ),
         "data-focus-within": dataAttr(isFocusWithin),
         "data-focus-visible": dataAttr(isFocusVisible),
