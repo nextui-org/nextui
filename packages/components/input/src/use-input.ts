@@ -191,6 +191,14 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef,
   );
 
+  if (type === "file") {
+    // for input[type="file"], we don't need `value` and `onChange` from `useTextField`
+    // the default value with empty string will block the first attempt of file upload
+    // hence, remove `value` and `onChange` attribute here
+    delete inputProps.value;
+    delete inputProps.onChange;
+  }
+
   const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
     isTextInput: true,
