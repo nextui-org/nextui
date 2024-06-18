@@ -58,8 +58,11 @@ NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS firs
 [installation guide](https://tailwindcss.com/docs/guides/astro) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.cjs` file:
 
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
 
-```js {8,13-14}
+```js {9,14-15}
 // tailwind.config.cjs
 const { nextui } = require("@nextui-org/react");
 
@@ -67,7 +70,8 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    // make sure it's pointing to the ROOT node_module
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},

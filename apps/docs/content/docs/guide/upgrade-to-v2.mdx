@@ -63,7 +63,7 @@ NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS firs
 the following code to your `tailwind.config.js` file:
 
 
-```js {8,13-14}
+```js {9,14-15}
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
 
@@ -71,6 +71,7 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
@@ -187,7 +188,7 @@ NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS firs
 the following code to your `tailwind.config.js` file:
 
 
-```js {8,13-14}
+```js {9,14-15}
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
 
@@ -195,6 +196,7 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
@@ -288,7 +290,11 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 NextUI v2 now uses Tailwind CSS. Add the NextUI plugin to your `tailwind.config.js` file:
 
-```js {9, 13-14}
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
+
+```js {9,14-15}
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
 
@@ -296,6 +302,7 @@ const { nextui } = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
