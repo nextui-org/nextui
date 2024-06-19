@@ -35,6 +35,8 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   labelProps?: DOMAttributes;
   /** Props for the date field. */
   fieldProps?: DOMAttributes;
+  /** Props for the inner wrapper. */
+  innerWrapperProps?: DOMAttributes;
   /** Props for the description element, if any. */
   descriptionProps?: DOMAttributes;
   /** Props for the error message element, if any. */
@@ -130,6 +132,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     groupProps = {},
     labelProps: labelPropsProp,
     fieldProps: fieldPropsProp,
+    innerWrapperProps: innerWrapperPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
     validationBehavior = globalContext?.validationBehavior ?? "aria",
@@ -246,6 +249,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     return {
       ...props,
       "data-slot": "inner-wrapper",
+      ...mergeProps(innerWrapperPropsProp, props),
       className: slots.innerWrapper({
         class: classNames?.innerWrapper,
       }),
