@@ -218,7 +218,7 @@ export function useDateRangePicker<T extends DateValue>({
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
     } as PopoverProps;
   };
 
