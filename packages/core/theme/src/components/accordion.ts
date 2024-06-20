@@ -14,7 +14,7 @@ import {dataFocusVisibleClasses} from "../utils";
  * </div>
  */
 const accordion = tv({
-  base: "px-2 group/base",
+  base: "px-2",
   variants: {
     variant: {
       light: "",
@@ -56,28 +56,7 @@ const accordion = tv({
  */
 const accordionItem = tv({
   slots: {
-    base: [
-      // splitted
-      "group-data-[variant=splitted]/base:px-4",
-      "group-data-[variant=splitted]/base:bg-content1",
-      "group-data-[variant=splitted]/base:shadow-medium",
-      "group-data-[variant=splitted]/base:rounded-medium",
-      // light
-      "group-data-[variant=light]/base:px-0",
-      "group-data-[variant=light]/base:bg-transparent",
-      "group-data-[variant=light]/base:shadow-none",
-      "group-data-[variant=light]/base:rounded-none",
-      // bordered
-      "group-data-[variant=bordered]/base:px-0",
-      "group-data-[variant=bordered]/base:bg-transparent",
-      "group-data-[variant=bordered]/base:shadow-none",
-      "group-data-[variant=bordered]/base:rounded-none",
-      // shadow
-      "group-data-[variant=shadow]/base:px-0",
-      "group-data-[variant=shadow]/base:bg-transparent",
-      "group-data-[variant=shadow]/base:shadow-none",
-      "group-data-[variant=shadow]/base:rounded-none",
-    ],
+    base: "",
     heading: "",
     trigger: [
       "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
@@ -92,6 +71,11 @@ const accordionItem = tv({
     content: "py-2",
   },
   variants: {
+    variant: {
+      splitted: {
+        base: "px-4 bg-content1 shadow-medium rounded-medium",
+      },
+    },
     isCompact: {
       true: {
         trigger: "py-2",
