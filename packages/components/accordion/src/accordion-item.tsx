@@ -1,3 +1,5 @@
+import type {Variants} from "framer-motion";
+
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
@@ -53,6 +55,18 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
       return <div {...getContentProps()}>{children}</div>;
     }
 
+    const transitionVariants: Variants = {
+      ...TRANSITION_VARIANTS.collapse,
+      exit: {
+        ...TRANSITION_VARIANTS.collapse.exit,
+        overflowY: "hidden",
+      },
+      enter: {
+        ...TRANSITION_VARIANTS.collapse.enter,
+        overflowY: "unset",
+      },
+    };
+
     return keepContentMounted ? (
       <LazyMotion features={domAnimation}>
         <m.section
@@ -60,8 +74,8 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
           animate={isOpen ? "enter" : "exit"}
           exit="exit"
           initial="exit"
-          style={{overflowY: "hidden", willChange}}
-          variants={TRANSITION_VARIANTS.collapse}
+          style={{willChange}}
+          variants={transitionVariants}
           {...motionProps}
         >
           <div {...getContentProps()}>{children}</div>
@@ -76,8 +90,8 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
               animate="enter"
               exit="exit"
               initial="exit"
-              style={{overflowY: "hidden", willChange}}
-              variants={TRANSITION_VARIANTS.collapse}
+              style={{willChange}}
+              variants={transitionVariants}
               {...motionProps}
             >
               <div {...getContentProps()}>{children}</div>
