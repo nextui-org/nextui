@@ -14,13 +14,13 @@ import {dataFocusVisibleClasses} from "../utils";
  * </div>
  */
 const accordion = tv({
-  base: "px-2",
+  base: "px-2 group/base",
   variants: {
     variant: {
       light: "",
       shadow: "px-4 shadow-medium rounded-medium bg-content1",
       bordered: "px-4 border-medium border-divider rounded-medium",
-      splitted: "group is-splitted flex flex-col gap-2", // the classNames are applied in the accordion-item component
+      splitted: "flex flex-col gap-2",
     },
     fullWidth: {
       true: "w-full",
@@ -57,10 +57,26 @@ const accordion = tv({
 const accordionItem = tv({
   slots: {
     base: [
-      "group-[.is-splitted]:px-4",
-      "group-[.is-splitted]:bg-content1",
-      "group-[.is-splitted]:shadow-medium",
-      "group-[.is-splitted]:rounded-medium",
+      // splitted
+      "group-data-[variant=splitted]/base:px-4",
+      "group-data-[variant=splitted]/base:bg-content1",
+      "group-data-[variant=splitted]/base:shadow-medium",
+      "group-data-[variant=splitted]/base:rounded-medium",
+      // light
+      "group-data-[variant=light]/base:px-0",
+      "group-data-[variant=light]/base:bg-transparent",
+      "group-data-[variant=light]/base:shadow-none",
+      "group-data-[variant=light]/base:rounded-none",
+      // bordered
+      "group-data-[variant=bordered]/base:px-0",
+      "group-data-[variant=bordered]/base:bg-transparent",
+      "group-data-[variant=bordered]/base:shadow-none",
+      "group-data-[variant=bordered]/base:rounded-none",
+      // shadow
+      "group-data-[variant=shadow]/base:px-0",
+      "group-data-[variant=shadow]/base:bg-transparent",
+      "group-data-[variant=shadow]/base:shadow-none",
+      "group-data-[variant=shadow]/base:rounded-none",
     ],
     heading: "",
     trigger: [
@@ -73,7 +89,7 @@ const accordionItem = tv({
     titleWrapper: "flex-1 flex flex-col text-start",
     title: "text-foreground text-large",
     subtitle: "text-small text-foreground-500 font-normal",
-    content: "py-2",
+    content: "p-2",
   },
   variants: {
     isCompact: {
