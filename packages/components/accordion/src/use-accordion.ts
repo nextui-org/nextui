@@ -215,6 +215,7 @@ export function useAccordion<T extends object>(props: UseAccordionProps<T>) {
     return {
       ref: domRef,
       className: classNames,
+      "data-variant": variant,
       "data-orientation": "vertical",
       ...mergeProps(
         accordionProps,
