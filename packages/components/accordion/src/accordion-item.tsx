@@ -56,15 +56,8 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
     }
 
     const transitionVariants: Variants = {
-      ...TRANSITION_VARIANTS.collapse,
-      exit: {
-        ...TRANSITION_VARIANTS.collapse.exit,
-        overflowY: "hidden",
-      },
-      enter: {
-        ...TRANSITION_VARIANTS.collapse.enter,
-        overflowY: "unset",
-      },
+      exit: {...TRANSITION_VARIANTS.collapse.exit, overflowY: "hidden"},
+      enter: {...TRANSITION_VARIANTS.collapse.enter, overflowY: "unset"},
     };
 
     return keepContentMounted ? (
