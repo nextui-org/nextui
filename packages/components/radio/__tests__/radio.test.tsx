@@ -214,7 +214,7 @@ describe("Radio", () => {
     expect(radio2).toBeChecked();
   });
 
-  it("should support help text description", function () {
+  it("should support help text description", () => {
     const {getByRole} = render(
       <RadioGroup description="Help text" label="Options">
         <Radio value="1">Option 1</Radio>
@@ -231,7 +231,7 @@ describe("Radio", () => {
     expect(groupDescriptionElement).toHaveTextContent("Help text");
   });
 
-  it("should support help text description for the individual radios", function () {
+  it("should support help text description for the individual radios", () => {
     const {getByLabelText} = render(
       <RadioGroup description="Help text" label="Options">
         <Radio description="Help text for option 1" value="1">
