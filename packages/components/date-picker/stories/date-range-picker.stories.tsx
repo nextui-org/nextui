@@ -383,6 +383,14 @@ export const Default = {
   },
 };
 
+export const WithMonthAndYearPickers = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    showMonthAndYearPickers: true,
+  },
+};
+
 export const VisibleMonths = {
   render: Template,
   args: {
