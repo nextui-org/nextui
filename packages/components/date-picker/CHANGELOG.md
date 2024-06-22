@@ -1,5 +1,24 @@
 # @nextui-org/date-picker
 
+## 2.1.2
+
+### Patch Changes
+
+- [#3146](https://github.com/nextui-org/nextui/pull/3146) [`3da81494c`](https://github.com/nextui-org/nextui/commit/3da81494c37f26e9b0e76745e461ac091e7c03af) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add support for apply styles to DateInput (#2770, #2895, #2998)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3112](https://github.com/nextui-org/nextui/pull/3112) [`df0126f93`](https://github.com/nextui-org/nextui/commit/df0126f93f0f9c2cfa0cbfa44f5abd394ebd48d0) Thanks [@ryo-manba](https://github.com/ryo-manba)! - chore(date): update errorMessageFunction story and docs for date libraries
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`df0126f93`](https://github.com/nextui-org/nextui/commit/df0126f93f0f9c2cfa0cbfa44f5abd394ebd48d0), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/button@2.0.34
+  - @nextui-org/calendar@2.0.7
+  - @nextui-org/date-input@2.1.1
+  - @nextui-org/react-utils@2.0.14
+
 ## 2.1.1
 
 ### Patch Changes

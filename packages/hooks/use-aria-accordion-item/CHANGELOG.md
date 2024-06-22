@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-accordion-item
 
+## 2.0.9
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
 ## 2.0.8
 
 ### Patch Changes

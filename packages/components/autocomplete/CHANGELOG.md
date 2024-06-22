@@ -1,5 +1,29 @@
 # @nextui-org/autocomplete
 
+## 2.1.2
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix popover focus issue (#3171, #2992)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#2969](https://github.com/nextui-org/nextui/pull/2969) [`255c641f9`](https://github.com/nextui-org/nextui/commit/255c641f96903e0d6d29343774e9e7ae67fcdb34) Thanks [@chirokas](https://github.com/chirokas)! - Fix autocomplete controlled state (#2955)
+
+- [#3175](https://github.com/nextui-org/nextui/pull/3175) [`2069a7a9d`](https://github.com/nextui-org/nextui/commit/2069a7a9d00291266fef763c6817b3bdd3ed4707) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix maximum update depth exceeded on Autocomplete component (#3094)
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`dbb4b8ee5`](https://github.com/nextui-org/nextui/commit/dbb4b8ee564114bfb0ef93467ed9ef6a3ff7e2e7), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/button@2.0.34
+  - @nextui-org/input@2.2.2
+  - @nextui-org/listbox@2.1.22
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/scroll-shadow@2.1.17
+  - @nextui-org/spinner@2.0.30
+
 ## 2.1.1
 
 ### Patch Changes
