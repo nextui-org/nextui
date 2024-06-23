@@ -19,6 +19,7 @@ import visibleMonth from "./visible-month";
 import pageBehavior from "./page-behavior";
 import nonContigous from "./non-contiguous";
 import presets from "./presets";
+import customStyles from "./custom-styles";
 
 export const dateRangePickerContent = {
   usage,
@@ -42,4 +43,5 @@ export const dateRangePickerContent = {
   pageBehavior,
   nonContigous,
   presets,
+  customStyles,
 };
