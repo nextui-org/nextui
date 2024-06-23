@@ -83,11 +83,11 @@ function DateRangePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef
         {...getDateInputGroupProps()}
         endContent={<Button {...getSelectorButtonProps()}>{endContent || selectorContent}</Button>}
       >
-        <DateRangePickerField {...getStartDateInputProps()} />
+        <DateRangePickerField {...getStartDateInputProps()} autoCapitalize="off" />
         <span {...getSeparatorProps()} aria-hidden="true" role="separator">
           -
         </span>
-        <DateRangePickerField {...getEndDateInputProps()} />
+        <DateRangePickerField {...getEndDateInputProps()} autoCapitalize="off" />
       </DateInputGroup>
 
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}

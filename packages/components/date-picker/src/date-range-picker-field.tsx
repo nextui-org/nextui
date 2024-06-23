@@ -73,7 +73,7 @@ function DateRangePickerField<T extends DateValue>(
           state={state}
         />
       ))}
-      <input {...inputProps} ref={inputRef} />
+      <input {...inputProps} ref={inputRef} autoCapitalize="off" />
     </Component>
   );
 }
