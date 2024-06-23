@@ -675,8 +675,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -952,7 +952,7 @@ importers:
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
+        specifier: '>=11.0.22'
         version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
@@ -1056,8 +1056,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.18.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1095,7 +1095,7 @@ importers:
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
+        specifier: '>=11.0.22'
         version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
@@ -1487,8 +1487,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1857,8 +1857,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1905,7 +1905,7 @@ importers:
         specifier: 3.10.1
         version: 3.10.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
+        specifier: '>=11.0.22'
         version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
@@ -2061,8 +2061,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2187,8 +2187,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2315,8 +2315,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.28
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2440,7 +2440,7 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
+        specifier: '>=11.0.22'
         version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
@@ -2722,8 +2722,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2786,8 +2786,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.28
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3008,7 +3008,7 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
+        specifier: ^11.1.7
         version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
@@ -3693,8 +3693,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.1.7
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -6124,20 +6124,6 @@ packages:
     requiresBuild: true
     dependencies:
       tslib: 2.6.2
-    dev: true
-    optional: true
-
-  /@emotion/is-prop-valid@0.8.8:
-    resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
-    requiresBuild: true
-    dependencies:
-      '@emotion/memoize': 0.7.4
-    dev: true
-    optional: true
-
-  /@emotion/memoize@0.7.4:
-    resolution: {integrity: sha512-Ja/Vfqe3HpuzRsG1oBtWTHk2PGZ7GR+2Vz5iYGelAw8dx32K0y7PjVuxK6z1nMpZOqAFsRUPCkK1YjJ56qJlgw==}
-    requiresBuild: true
     dev: true
     optional: true
 
@@ -17379,24 +17365,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       map-cache: 0.2.2
-    dev: true
-
-  /framer-motion@10.18.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-oGlDh1Q1XqYPksuTD/usb0I70hq95OUzmL9+6Zd+Hs4XV0oaISBa/UUMSjYiq6m8EUF32132mOJ8xVZS+I0S6w==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.6.2
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
     dev: true
 
   /framer-motion@11.0.28(react-dom@18.2.0)(react@18.2.0):
