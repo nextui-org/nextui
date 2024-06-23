@@ -217,9 +217,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       "data-open": dataAttr(state.isOpen),
       "data-arrow": dataAttr(showArrow),
       "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-      className: slots.content({
-        class: clsx(classNames?.content, props.className),
-      }),
+      className: slots.content({class: clsx(classNames?.content, props.className)}),
     }),
     [slots, state.isOpen, showArrow, ariaPlacement, placementProp, classNames],
   );
