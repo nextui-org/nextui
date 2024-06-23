@@ -6,7 +6,7 @@ import {RefObject, Ref, useEffect} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
+import {ariaHideOutside, useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {
   HTMLNextUIProps,
@@ -217,7 +217,9 @@ export function usePopover(originalProps: UsePopoverProps) {
       "data-open": dataAttr(state.isOpen),
       "data-arrow": dataAttr(showArrow),
       "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-      className: slots.content({class: clsx(classNames?.content, props.className)}),
+      className: slots.content({
+        class: clsx(classNames?.content, props.className),
+      }),
     }),
     [slots, state.isOpen, showArrow, ariaPlacement, placementProp, classNames],
   );
@@ -305,6 +307,10 @@ export function usePopover(originalProps: UsePopoverProps) {
     }
   }, [state.isOpen, domRef]);
 
+  usePreventScroll({
+    isDisabled: !(shouldBlockScroll && state.isOpen),
+  });
+
   return {
     state,
     Component,
@@ -319,7 +325,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,
-    shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "transparent",
     motionProps,
     getBackdropProps,
