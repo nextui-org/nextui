@@ -57,9 +57,4 @@ export default {
     "transition-timing-function": "ease",
     "transition-duration": DEFAULT_TRANSITION_DURATION,
   },
-  ".transition-opacity-visibility": {
-    "transition-property": "opacity, visibility",
-    "transition-timing-function": "ease",
-    "transition-duration": DEFAULT_TRANSITION_DURATION,
-  },
 };
