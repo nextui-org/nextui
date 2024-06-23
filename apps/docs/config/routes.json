@@ -398,7 +398,8 @@
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx"
+          "path": "/docs/components/tooltip.mdx",
+          "updated": true
         },
         {
           "key": "user",

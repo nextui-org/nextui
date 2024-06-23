@@ -1,21 +1,11 @@
 import type {HTMLAttributes, ReactElement, ReactNode} from "react";
-import type {GroupDOMAttributes} from "@react-types/shared";
+import type {GroupDOMAttributes, HelpTextProps, ValidationResult} from "@react-types/shared";
 
 import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {dataAttr} from "@nextui-org/shared-utils";
 
-// TODO: Use HelpTextProps from "@react-types/shared"; once we upgrade react-aria packages to the latest version.
-export interface ValidationResult {
-  /** Whether the input value is invalid. */
-  isInvalid: boolean;
-  /** The current error messages for the input if it is invalid, otherwise an empty array. */
-  validationErrors: string[];
-  /** The native validation details for the input. */
-  validationDetails: ValidityState;
-}
-
-export interface DateInputGroupProps extends ValidationResult {
+export interface DateInputGroupProps extends ValidationResult, HelpTextProps {
   children?: ReactElement | ReactElement[];
   shouldLabelBeOutside?: boolean;
   label?: ReactNode;
@@ -27,10 +17,6 @@ export interface DateInputGroupProps extends ValidationResult {
   labelProps?: HTMLAttributes<HTMLElement>;
   descriptionProps?: HTMLAttributes<HTMLElement>;
   errorMessageProps?: HTMLAttributes<HTMLElement>;
-  /** A description for the field. Provides a hint such as specific requirements for what to choose. */
-  description?: ReactNode;
-  /** An error message for the field. */
-  errorMessage?: ReactNode | ((v: ValidationResult) => ReactNode);
 }
 
 export const DateInputGroup = forwardRef<"div", DateInputGroupProps>((props, ref) => {

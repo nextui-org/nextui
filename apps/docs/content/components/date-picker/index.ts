@@ -6,6 +6,7 @@ import variants from "./variants";
 import labelPlacements from "./label-placements";
 import description from "./description";
 import errorMessage from "./error-message";
+import errorMessageFunction from "./error-message-function";
 import withMonthAndYearPickers from "./with-month-and-year-pickers";
 import withTimeField from "./with-time-field";
 import selectorIcon from "./selector-icon";
@@ -28,6 +29,7 @@ export const datePickerContent = {
   labelPlacements,
   description,
   errorMessage,
+  errorMessageFunction,
   withMonthAndYearPickers,
   withTimeField,
   selectorIcon,

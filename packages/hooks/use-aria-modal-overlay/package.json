@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-modal-overlay",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "A custom implementation of react aria modal overlay, this removes the prevent scroll",
   "keywords": [
     "use-aria-modal-overlay"
@@ -34,9 +34,9 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/overlays": "3.21.1",
+    "@react-aria/overlays": "3.22.1",
     "@react-aria/utils": "3.24.1",
-    "@react-stately/overlays": "3.6.5",
+    "@react-stately/overlays": "3.6.7",
     "@react-types/shared": "3.23.1"
   },
   "peerDependencies": {

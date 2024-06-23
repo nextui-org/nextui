@@ -1,5 +1,11 @@
 # @nextui-org/react-utils
 
+## 2.0.14
+
+### Patch Changes
+
+- [#3098](https://github.com/nextui-org/nextui/pull/3098) [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3) Thanks [@Gaic4o](https://github.com/Gaic4o)! - refactored the assignRef function to remove @ts-ignore and properly handle reference assignment using MutableRefObject
+
 ## 2.0.13
 
 ### Patch Changes

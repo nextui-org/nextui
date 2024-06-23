@@ -155,7 +155,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     minValue,
     maxValue,
     validationBehavior,
-    isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"

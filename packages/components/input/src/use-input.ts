@@ -145,8 +145,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
   const isFilled = !isEmpty(inputValue) || isFilledByDefault;
   const isFilledWithin = isFilled || isFocusWithin;
-  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
+  const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
+
+  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -286,6 +288,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-helper": dataAttr(hasHelper),
         "data-has-label": dataAttr(hasLabel),
         "data-has-value": dataAttr(!isPlaceholderShown),
+        "data-hidden": dataAttr(isHiddenType),
         ...focusWithinProps,
         ...props,
       };
@@ -307,6 +310,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isFilledWithin,
       hasPlaceholder,
       focusWithinProps,
+      isHiddenType,
       originalProps.isReadOnly,
       originalProps.isRequired,
       originalProps.isDisabled,

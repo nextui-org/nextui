@@ -17,6 +17,7 @@ import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
+import {ValidationResult} from "@react-types/shared";
 
 import {DatePicker, DatePickerProps} from "../src";
 
@@ -424,7 +425,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please enter a valid date",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date";
+      }
+    },
   },
 };
 
@@ -535,5 +551,20 @@ export const WithValidation = {
       }
     },
     label: "Date (Year 2024 or later)",
+  },
+};
+
+export const WithDateInputClassNames = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    dateInputClassNames: {
+      base: "bg-gray-200 p-2 rounded-md",
+      label: "text-blue-400 font-semibold",
+      inputWrapper: "border-3 border-solid border-blue-400 p-2 rounded-md",
+      description: "text-black",
+    },
+    isRequired: true,
+    description: "Please enter your birth date",
   },
 };

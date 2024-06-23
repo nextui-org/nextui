@@ -20,7 +20,7 @@ const accordion = tv({
       light: "",
       shadow: "px-4 shadow-medium rounded-medium bg-content1",
       bordered: "px-4 border-medium border-divider rounded-medium",
-      splitted: "group is-splitted flex flex-col gap-2", // the classNames are applied in the accordion-item component
+      splitted: "flex flex-col gap-2",
     },
     fullWidth: {
       true: "w-full",
@@ -56,12 +56,7 @@ const accordion = tv({
  */
 const accordionItem = tv({
   slots: {
-    base: [
-      "group-[.is-splitted]:px-4",
-      "group-[.is-splitted]:bg-content1",
-      "group-[.is-splitted]:shadow-medium",
-      "group-[.is-splitted]:rounded-medium",
-    ],
+    base: "",
     heading: "",
     trigger: [
       "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
@@ -76,6 +71,11 @@ const accordionItem = tv({
     content: "py-2",
   },
   variants: {
+    variant: {
+      splitted: {
+        base: "px-4 bg-content1 shadow-medium rounded-medium",
+      },
+    },
     isCompact: {
       true: {
         trigger: "py-2",

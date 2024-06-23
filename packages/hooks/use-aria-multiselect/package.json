@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-multiselect",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "description": "Provides the behavior and accessibility implementation for a multi-select component.",
   "keywords": [
     "use-aria-multiselect"
@@ -34,19 +34,19 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/i18n": "3.10.2",
-    "@react-aria/interactions": "3.21.1",
-    "@react-aria/label": "3.7.6",
-    "@react-aria/listbox": "3.11.5",
-    "@react-aria/menu": "3.13.1",
-    "@react-aria/selection": "3.17.5",
+    "@react-aria/i18n": "3.11.1",
+    "@react-aria/interactions": "3.21.3",
+    "@react-aria/label": "3.7.8",
+    "@react-aria/listbox": "3.12.1",
+    "@react-aria/menu": "3.14.1",
+    "@react-aria/selection": "3.18.1",
     "@react-aria/utils": "3.24.1",
-    "@react-stately/form": "3.0.1",
-    "@react-stately/list": "3.10.3",
-    "@react-stately/menu": "3.6.1",
-    "@react-types/button": "3.9.2",
-    "@react-types/overlays": "3.8.5",
-    "@react-types/select": "3.9.2",
+    "@react-stately/form": "3.0.3",
+    "@react-stately/list": "3.10.5",
+    "@react-stately/menu": "3.7.1",
+    "@react-types/button": "3.9.4",
+    "@react-types/overlays": "3.8.7",
+    "@react-types/select": "3.9.4",
     "@react-types/shared": "3.23.1"
   },
   "peerDependencies": {

@@ -61,6 +61,10 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     isPressed,
   } = useTab({key, isDisabled: isDisabledProp, shouldSelectOnPressUp}, state, domRef);
 
+  if (props.children == null) {
+    delete tabProps["aria-controls"];
+  }
+
   const isDisabled = isDisabledProp || isDisabledItem;
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();

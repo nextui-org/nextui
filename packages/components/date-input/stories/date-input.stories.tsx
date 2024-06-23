@@ -13,6 +13,7 @@ import {
 } from "@internationalized/date";
 import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 import {useDateFormatter, I18nProvider} from "@react-aria/i18n";
+import {ValidationResult} from "@react-types/shared";
 
 import {DateInput, DateInputProps} from "../src";
 
@@ -254,7 +255,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please enter a valid date",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date";
+      }
+    },
   },
 };
 

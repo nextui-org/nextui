@@ -4,6 +4,8 @@ import disabled from "./disabled";
 import readonly from "./read-only";
 import withoutLabel from "./without-label";
 import withDescription from "./with-description";
+import errorMessage from "./error-message";
+import errorMessageFunction from "./error-message-function";
 import labelPlacement from "./label-placement";
 import startContent from "./start-content";
 import endContent from "./end-content";
@@ -23,6 +25,8 @@ export const timeInputContent = {
   readonly,
   withoutLabel,
   withDescription,
+  errorMessage,
+  errorMessageFunction,
   labelPlacement,
   startContent,
   endContent,

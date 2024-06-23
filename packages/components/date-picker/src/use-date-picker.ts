@@ -49,7 +49,13 @@ interface Props<T extends DateValue>
   classNames?: SlotsToClasses<DatePickerSlots> & DateInputProps<T>["classNames"];
 }
 
-export type UseDatePickerProps<T extends DateValue> = Props<T> & AriaDatePickerProps<T>;
+export type UseDatePickerProps<T extends DateValue> = Props<T> &
+  AriaDatePickerProps<T> & {
+    /**
+     * Classname or List of classes to change the classNames of the date input element.
+     */
+    dateInputClassNames?: DateInputProps<T>["classNames"];
+  };
 
 export function useDatePicker<T extends DateValue>({
   className,
@@ -129,6 +135,7 @@ export function useDatePicker<T extends DateValue>({
   const getDateInputProps = () => {
     return {
       ...dateInputProps,
+      classNames: {...originalProps?.dateInputClassNames},
       groupProps,
       labelProps,
       createCalendar,

@@ -238,6 +238,12 @@ You can customize the autocomplete items by modifying the `AutocompleteItem` chi
 
 <CodeDemo title="Custom Items" files={autocompleteContent.customItems} />
 
+### Custom Empty Content Message
+
+By default, a message `No results found.` will be shown if there is no result matching a query with your filter. You can customize the empty content message by modifying the `emptyContent` in `listboxProps`.
+
+<CodeDemo title="Custom Empty Content Message" files={autocompleteContent.customEmptyContentMessage} />
+
 ### Custom Filtering
 
 By default, `Autocomplete` uses a `"contains"` function from [useFilter](https://react-spectrum.adobe.com/react-aria/useFilter.html) to filter the

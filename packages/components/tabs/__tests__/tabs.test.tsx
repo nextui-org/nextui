@@ -1,5 +1,5 @@
 import * as React from "react";
-import {act, render, fireEvent} from "@testing-library/react";
+import {act, render, fireEvent, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
@@ -11,7 +11,7 @@ type Item = {
   content?: React.ReactNode;
 };
 
-let tabs: Item[] = [
+let defaultItems: Item[] = [
   {
     id: "item1",
     label: "Item1 ",
@@ -76,7 +76,7 @@ describe("Tabs", () => {
 
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
-      <Tabs aria-label="Tabs static test" items={tabs}>
+      <Tabs aria-label="Tabs static test" items={defaultItems}>
         {(item) => (
           <Tab key={item.id} title={item.label}>
             <div>{item.content}</div>
@@ -86,6 +86,40 @@ describe("Tabs", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("renders property", () => {
+    const wrapper = render(
+      <Tabs aria-label="Tabs property test">
+        {defaultItems.map((item) => (
+          <Tab key={item.id} title={item.label}>
+            <div>{item.content}</div>
+          </Tab>
+        ))}
+      </Tabs>,
+    );
+    const tablist = wrapper.getByRole("tablist");
+
+    expect(tablist).toBeTruthy();
+    const tabs = within(tablist).getAllByRole("tab");
+
+    expect(tabs.length).toBe(3);
+
+    for (let tab of tabs) {
+      expect(tab).toHaveAttribute("tabindex");
+      expect(tab).toHaveAttribute("aria-selected");
+      const isSelected = tab.getAttribute("aria-selected") === "true";
+
+      if (isSelected) {
+        expect(tab).toHaveAttribute("aria-controls");
+        const tabpanel = document.getElementById(tab.getAttribute("aria-controls")!);
+
+        expect(tabpanel).toBeTruthy();
+        expect(tabpanel).toHaveAttribute("aria-labelledby", tab.id);
+        expect(tabpanel).toHaveAttribute("role", "tabpanel");
+        expect(tabpanel).toHaveTextContent(defaultItems[0]?.content as string);
+      }
+    }
   });
 
   it("ref should be forwarded", () => {

@@ -37,7 +37,7 @@ const TableColumnHeader = forwardRef<"th", TableColumnHeaderProps>((props, ref) 
 
   const {isFocusVisible, focusProps} = useFocusRing();
   const {isHovered, hoverProps} = useHover({});
-  const {hideHeader, ...columnProps} = node.props;
+  const {hideHeader, align, ...columnProps} = node.props;
 
   const allowsSorting = columnProps.allowsSorting;
 
@@ -57,7 +57,7 @@ const TableColumnHeader = forwardRef<"th", TableColumnHeaderProps>((props, ref) 
         allowsSorting ? hoverProps : {},
         otherProps,
       )}
-      className={slots.th?.({class: thStyles})}
+      className={slots.th?.({align, class: thStyles})}
     >
       {hideHeader ? <VisuallyHidden>{node.rendered}</VisuallyHidden> : node.rendered}
       {allowsSorting && (
