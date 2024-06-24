@@ -6,6 +6,7 @@
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
 import deepMerge from "deepmerge";
+import {omit, kebabCase} from "@nextui-org/shared-utils";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
@@ -22,9 +23,6 @@ const DEFAULT_PREFIX = "nextui";
 const parsedColorsCache: Record<string, number[]> = {};
 
 // @internal
-const kebabCase = (str: string) => {
-  return str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
-};
 
 const resolveConfig = (
   themes: ConfigThemes = {},
@@ -271,8 +269,7 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
   };
 
   // get other themes from the config different from light and dark
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const {light: _light, dark: _dark, ...otherThemes} = themeObject;
+  let otherThemes = omit(themeObject, ["light", "dark"]) || {};
 
   Object.entries(otherThemes).forEach(([themeName, {extend, colors, layout}]) => {
     const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
