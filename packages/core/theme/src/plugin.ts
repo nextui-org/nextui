@@ -5,11 +5,6 @@
 
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
-import get from "lodash.get";
-import omit from "lodash.omit";
-import forEach from "lodash.foreach";
-import mapKeys from "lodash.mapkeys";
-import kebabCase from "lodash.kebabcase";
 import deepMerge from "deepmerge";
 
 import {semanticColors, commonColors} from "./colors";
@@ -27,6 +22,10 @@ const DEFAULT_PREFIX = "nextui";
 const parsedColorsCache: Record<string, number[]> = {};
 
 // @internal
+const kebabCase = (str: string) => {
+  return str.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+};
+
 const resolveConfig = (
   themes: ConfigThemes = {},
   defaultTheme: DefaultThemeType,
@@ -63,7 +62,13 @@ const resolveConfig = (
     // flatten color definitions
     const flatColors = flattenThemeObject(colors) as Record<string, string>;
 
-    const flatLayout = layout ? mapKeys(layout, (value, key) => kebabCase(key)) : {};
+    const flatLayout = layout
+      ? Object.keys(layout).reduce((acc, key) => {
+          acc[kebabCase(key)] = (layout as Record<string, any>)[key];
+
+          return acc;
+        }, {} as Record<string, any>)
+      : {};
 
     // resolved.variants
     resolved.variants.push({
@@ -246,8 +251,8 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
     addCommonColors = false,
   } = config;
 
-  const userLightColors = get(themeObject, "light.colors", {});
-  const userDarkColors = get(themeObject, "dark.colors", {});
+  const userLightColors = themeObject?.light?.colors || {};
+  const userDarkColors = themeObject?.dark?.colors || {};
 
   const defaultLayoutObj =
     userLayout && typeof userLayout === "object"
@@ -266,9 +271,10 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
   };
 
   // get other themes from the config different from light and dark
-  let otherThemes = omit(themeObject, ["light", "dark"]) || {};
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {light: _light, dark: _dark, ...otherThemes} = themeObject;
 
-  forEach(otherThemes, ({extend, colors, layout}, themeName) => {
+  Object.entries(otherThemes).forEach(([themeName, {extend, colors, layout}]) => {
     const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
 
     if (colors && typeof colors === "object") {
@@ -283,12 +289,12 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
   });
 
   const light: ConfigTheme = {
-    layout: deepMerge(baseLayouts.light, get(themeObject, "light.layout", {})),
+    layout: deepMerge(baseLayouts.light, themeObject?.light?.layout || {}),
     colors: deepMerge(semanticColors.light, userLightColors),
   };
 
   const dark = {
-    layout: deepMerge(baseLayouts.dark, get(themeObject, "dark.layout", {})),
+    layout: deepMerge(baseLayouts.dark, themeObject?.dark?.layout || {}),
     colors: deepMerge(semanticColors.dark, userDarkColors),
   };
 
