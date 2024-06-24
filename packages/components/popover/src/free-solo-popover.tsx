@@ -24,7 +24,7 @@ export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> 
     originX?: number;
     originY?: number;
   };
-  skipDialogFocus?: boolean;
+  disableDialogFocus?: boolean;
 }
 
 type FreeSoloPopoverWrapperProps = {
@@ -88,7 +88,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
 FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
-  ({children, transformOrigin, skipDialogFocus = false, ...props}, ref) => {
+  ({children, transformOrigin, disableDialogFocus = false, ...props}, ref) => {
     const {
       Component,
       state,
@@ -110,7 +110,10 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
     const dialogRef = React.useRef(null);
     const {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
     const dialogProps = getDialogProps({
-      ...(!skipDialogFocus && {ref: dialogRef}),
+      // by default, focus is moved into the dialog on mount
+      // we can use `disableDialogFocus` to disable this behaviour
+      // e.g. in autocomplete, the focus should be moved to the input (handled in autocomplete hook) instead of the dialog first
+      ...(!disableDialogFocus && {ref: dialogRef}),
       ...ariaDialogProps,
     });
 
