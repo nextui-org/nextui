@@ -79,3 +79,9 @@ export function objectToDeps(obj: Extractable) {
     return "";
   }
 }
+
+export function isEmpty(obj: Extractable) {
+  return (
+    [Object, Array].includes(((obj || {}) as any).constructor) && !Object.entries(obj || {}).length
+  );
+}
