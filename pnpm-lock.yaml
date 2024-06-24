@@ -402,9 +402,6 @@ importers:
       hast-util-to-html:
         specifier: 7.1.2
         version: 7.1.2
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
       marked:
         specifier: ^5.1.0
         version: 5.1.2
@@ -532,9 +529,6 @@ importers:
       '@types/canvas-confetti':
         specifier: ^1.4.2
         version: 1.6.4
-      '@types/lodash':
-        specifier: ^4.14.194
-        version: 4.17.0
       '@types/marked':
         specifier: ^5.0.0
         version: 5.0.2
@@ -1030,12 +1024,6 @@ importers:
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
-      '@types/lodash.debounce':
-        specifier: ^4.0.7
-        version: 4.0.9
-      lodash.debounce:
-        specifier: ^4.0.8
-        version: 4.0.8
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -3395,13 +3383,6 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-infinite-scroll:
-    dependencies:
-      '@types/lodash.debounce':
-        specifier: ^4.0.7
-        version: 4.0.9
-      lodash.debounce:
-        specifier: ^4.0.8
-        version: 4.0.8
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -12136,14 +12117,9 @@ packages:
       '@types/node': 15.14.9
     dev: true
 
-  /@types/lodash.debounce@4.0.9:
-    resolution: {integrity: sha512-Ma5JcgTREwpLRwMM+XwBR7DaWe96nC38uCBDFKZWbNKD+osjVzdpnUSwBcqCptrp16sSOLBAUb50Car5I0TCsQ==}
-    dependencies:
-      '@types/lodash': 4.17.0
-    dev: false
-
   /@types/lodash@4.17.0:
     resolution: {integrity: sha512-t7dhREVv6dbNj0q17X12j7yDG4bD/DHYX7o5/DbDxobP0HnGPgpRz2Ej77aL7TZT3DSw13fqUTj8J4mMnqa7WA==}
+    dev: true
 
   /@types/marked@5.0.2:
     resolution: {integrity: sha512-OucS4KMHhFzhz27KxmWg7J+kIYqyqoW5kdIEI319hqARQQUTqhao3M/F+uFnDXD0Rg72iDDZxZNxq5gvctmLlg==}
@@ -20321,6 +20297,7 @@ packages:
 
   /lodash@4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: true
 
   /log-symbols@4.1.0:
     resolution: {integrity: sha512-8XPvpAA8uyhfteu8pIvQxpJZ7SYYdpUivZpGy6sFsBuKRY/7rQGavedeB8aK+Zkyq6upMFVL/9AW6vOYzfRyLg==}
