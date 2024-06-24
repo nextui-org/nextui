@@ -4,7 +4,6 @@ import type {PressEvent} from "@react-types/shared";
 import {useDateFormatter} from "@react-aria/i18n";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useCallback, useRef, useEffect} from "react";
-import debounce from "lodash.debounce";
 import {areRectsIntersecting} from "@nextui-org/react-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 
@@ -81,6 +80,25 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     } else {
       map.delete(value);
     }
+  }
+
+  function debounce<F extends (...args: any[]) => void>(func: F, waitMilliseconds: number = 0) {
+    let timeout: ReturnType<typeof setTimeout> | undefined;
+
+    return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+      const context = this;
+
+      const later = () => {
+        timeout = undefined;
+        func.apply(context, args);
+      };
+
+      if (timeout !== undefined) {
+        clearTimeout(timeout);
+      }
+
+      timeout = setTimeout(later, waitMilliseconds);
+    };
   }
 
   const handleListScroll = useCallback(
