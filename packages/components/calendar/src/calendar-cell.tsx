@@ -1,6 +1,7 @@
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
 
+import React from "react";
 import {CalendarDate, getDayOfWeek, isSameDay, isSameMonth, isToday} from "@internationalized/date";
 import {AriaCalendarCellProps, useCalendarCell} from "@react-aria/calendar";
 import {HTMLNextUIProps} from "@nextui-org/system";
@@ -17,12 +18,14 @@ export interface CalendarCellProps extends HTMLNextUIProps<"td">, AriaCalendarCe
   slots?: CalendarReturnType;
   classNames?: SlotsToClasses<CalendarSlots>;
   currentMonth: CalendarDate;
+  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 export function CalendarCell(originalProps: CalendarCellProps) {
-  const {state, slots, isPickerVisible, currentMonth, classNames, ...props} = originalProps;
+  const {state, slots, isPickerVisible, currentMonth, classNames, renderCellContent, ...props} =
+    originalProps;
 
-  const ref = useRef<HTMLButtonElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   const {
     cellProps,
@@ -69,7 +72,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
 
   return (
     <td className={slots?.cell({class: classNames?.cell})} data-slot="cell" {...cellProps}>
-      <span
+      <div
         {...mergeProps(buttonProps, hoverProps, focusProps)}
         ref={ref}
         className={slots?.cellButton({class: classNames?.cellButton})}
@@ -89,8 +92,8 @@ export function CalendarCell(originalProps: CalendarCellProps) {
         data-today={dataAttr(isToday(props.date, state.timeZone))}
         data-unavailable={dataAttr(isUnavailable)}
       >
-        <span>{formattedDate}</span>
-      </span>
+        {renderCellContent ? renderCellContent(props.date) : <span>{formattedDate}</span>}
+      </div>
     </td>
   );
 }

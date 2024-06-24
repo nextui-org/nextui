@@ -17,12 +17,15 @@ type NextUIBaseProps<T extends DateValue> = Omit<
   keyof AriaRangeCalendarProps<T>
 >;
 
-interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBaseProps<T> {}
+interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBaseProps<T> {
+  renderCellContent?: (date: DateValue) => React.ReactNode;
+}
 
 export type UseRangeCalendarProps<T extends DateValue> = Props<T> & AriaRangeCalendarProps<T>;
 
 export function useRangeCalendar<T extends DateValue>({
   className,
+  renderCellContent,
   ...originalProps
 }: UseRangeCalendarProps<T>) {
   const {
@@ -86,6 +89,7 @@ export function useRangeCalendar<T extends DateValue>({
       errorMessageProps: getErrorMessageProps(errorMessageProps),
       className: slots.base({class: baseStyles}),
       errorMessage,
+      renderCellContent,
       ...filterDOMProps(otherProps, {
         enabled: shouldFilterDOMProps,
       }),

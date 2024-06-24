@@ -18,6 +18,7 @@ interface Props extends UseCalendarBaseProps {
    * Props for the button picker, which is used to select the month, year and expand the header.
    */
   buttonPickerProps?: ButtonProps;
+  renderCellContent?: (date: DateValue) => React.ReactNode;
 }
 
 export type UseCalendarProps<T extends DateValue> = Props & AriaCalendarProps<T>;
@@ -25,6 +26,7 @@ export type UseCalendarProps<T extends DateValue> = Props & AriaCalendarProps<T>
 export function useCalendar<T extends DateValue>({
   buttonPickerProps: buttonPickerPropsProp,
   className,
+  renderCellContent,
   ...originalProps
 }: UseCalendarProps<T>) {
   const {
@@ -95,6 +97,7 @@ export function useCalendar<T extends DateValue>({
       errorMessageProps: getErrorMessageProps(errorMessageProps),
       className: slots.base({class: baseStyles}),
       errorMessage,
+      renderCellContent,
       ...filterDOMProps(otherProps, {
         enabled: shouldFilterDOMProps,
       }),
