@@ -10,11 +10,11 @@ type Extractable =
 
 /**
  * Capitalizes the first letter of a string
- * @param {string} text
+ * @param {string} s
  * @returns {string}
  */
-export const capitalize = (text: string) => {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+export const capitalize = (s: string) => {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : "";
 };
 
 export function callAllHandlers<T extends (event: any) => void>(...fns: (T | undefined)[]) {
