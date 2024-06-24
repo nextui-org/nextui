@@ -97,3 +97,25 @@ export function clamp(number: number, boundOne: number, boundTwo: number) {
 
   return number;
 }
+
+export function debounce<F extends (...args: any[]) => void>(
+  func: F,
+  waitMilliseconds: number = 0,
+) {
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    const context = this;
+
+    const later = () => {
+      timeout = undefined;
+      func.apply(context, args);
+    };
+
+    if (timeout !== undefined) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(later, waitMilliseconds);
+  };
+}
