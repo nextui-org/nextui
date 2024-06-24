@@ -13,7 +13,8 @@ import {clsx} from "@nextui-org/shared-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {isAppleDevice, isWebKit} from "@react-aria/utils";
 import {create} from "zustand";
-import {intersectionBy, isEmpty} from "lodash";
+import {intersectionBy} from "lodash";
+import {isEmpty} from "@nextui-org/shared-utils";
 import {writeStorage, useLocalStorage} from "@rehooks/local-storage";
 
 import {

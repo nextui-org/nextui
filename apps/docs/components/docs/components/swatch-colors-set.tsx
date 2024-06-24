@@ -4,7 +4,8 @@ import {commonColors, semanticColors} from "@nextui-org/theme";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useState} from "react";
 import {useTheme} from "next-themes";
-import {get, isEmpty} from "lodash";
+import {get} from "lodash";
+import {isEmpty} from "@nextui-org/shared-utils";
 
 type ColorsItem = {
   color: string;
