@@ -127,3 +127,17 @@ export function uniqBy<T>(arr: T[], iteratee: any) {
 
   return arr.filter((x, i, self) => i === self.findIndex((y) => iteratee(x) === iteratee(y)));
 }
+
+export const omit = <Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<Obj, Keys> => {
+  const res = Object.assign({}, obj);
+
+  keys.forEach((key) => {
+    delete res[key];
+  });
+
+  return res;
+};
+
+export const kebabCase = (s: string) => {
+  return s.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+};
