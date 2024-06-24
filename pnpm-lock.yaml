@@ -3032,6 +3032,9 @@ importers:
 
   packages/core/theme:
     dependencies:
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
