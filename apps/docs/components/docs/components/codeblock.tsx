@@ -1,7 +1,7 @@
 import React, {forwardRef, useEffect} from "react";
 import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
-import {debounce, omit} from "lodash";
+import {debounce} from "@nextui-org/shared-utils";
 
 import defaultTheme from "@/libs/prism-theme";
 
