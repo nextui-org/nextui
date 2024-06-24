@@ -29,7 +29,8 @@ export const DemoCodeModal: FC<DemoCodeModalProps> = ({isOpen, code, title, subt
 
   const isMobile = useIsMobile();
 
-  const fileName = `${title.toLowerCase()}.tsx`;
+  const lowerTitle = title.toLowerCase();
+  const fileName = `${lowerTitle}.tsx`;
 
   return (
     <Modal
