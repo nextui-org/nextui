@@ -52,7 +52,8 @@
     "flat": "^5.0.2",
     "clsx": "^1.2.1",
     "tailwind-variants": "^0.1.20",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^1.14.0",
+    "@nextui-org/shared-utils": "workspace:*"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.4.0"
