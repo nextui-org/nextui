@@ -24,6 +24,7 @@ export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> 
     originX?: number;
     originY?: number;
   };
+  skipDialogFocus?: boolean;
 }
 
 type FreeSoloPopoverWrapperProps = {
@@ -87,7 +88,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
 FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
-  ({children, transformOrigin, ...props}, ref) => {
+  ({children, transformOrigin, skipDialogFocus = false, ...props}, ref) => {
     const {
       Component,
       state,
@@ -109,7 +110,7 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
     const dialogRef = React.useRef(null);
     const {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
     const dialogProps = getDialogProps({
-      ref: dialogRef,
+      ...(!skipDialogFocus && {ref: dialogRef}),
       ...ariaDialogProps,
     });
 
