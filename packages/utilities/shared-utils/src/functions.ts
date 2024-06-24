@@ -119,3 +119,11 @@ export function debounce<F extends (...args: any[]) => void>(
     timeout = setTimeout(later, waitMilliseconds);
   };
 }
+
+export function uniqBy<T>(arr: T[], iteratee: any) {
+  if (typeof iteratee === "string") {
+    iteratee = (item: T) => item[iteratee as keyof T];
+  }
+
+  return arr.filter((x, i, self) => i === self.findIndex((y) => iteratee(x) === iteratee(y)));
+}
