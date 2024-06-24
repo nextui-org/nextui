@@ -460,6 +460,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
         : (element: Element) => ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state),
+      skipDialogFocus: true,
     } as unknown as PopoverProps;
   };
 
