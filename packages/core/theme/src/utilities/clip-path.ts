@@ -1,6 +1,7 @@
 export default {
   /**
-   * Clip Path utilities
+   * Clip Path utilities for popover in every directions.
+   * Additional 5px is added to ensure the box-shadow is not clipped.
    */
   ".clip-path-popover-top": {
     "clip-path":
