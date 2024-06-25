@@ -12,7 +12,8 @@ import {
 import {useFocusRing} from "@react-aria/focus";
 import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
-import {useAriaMenuItem} from "@nextui-org/use-aria-menu";
+import {useMenuItem as useAriaMenuItem} from "@react-aria/menu";
+import {isFocusVisible as AriaIsFocusVisible, useHover} from "@react-aria/interactions";
 import {mergeProps} from "@react-aria/utils";
 import {useIsMobile} from "@nextui-org/use-is-mobile";
 import {filterDOMProps} from "@nextui-org/react-utils";
@@ -44,12 +45,14 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     classNames,
     onAction,
     autoFocus,
-    onClick,
     onPress,
     onPressStart,
     onPressUp,
     onPressEnd,
     onPressChange,
+    onHoverStart: hoverStartProp,
+    onHoverChange,
+    onHoverEnd,
     hideSelectedIcon = false,
     isReadOnly = false,
     closeOnSelect,
@@ -67,7 +70,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const {rendered, key} = item;
 
-  const isDisabled = state.disabledKeys.has(key) || originalProps.isDisabled;
+  const isDisabledProp = state.disabledKeys.has(key) || originalProps.isDisabled;
   const isSelectable = state.selectionManager.selectionMode !== "none";
 
   const isMobile = useIsMobile();
@@ -77,10 +80,10 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
   });
 
   const {
-    isHovered,
     isPressed,
     isFocused,
     isSelected,
+    isDisabled,
     menuItemProps,
     labelProps,
     descriptionProps,
@@ -89,9 +92,8 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     {
       key,
       onClose,
-      isDisabled,
+      isDisabled: isDisabledProp,
       onPress,
-      onClick,
       onPressStart,
       onPressUp,
       onPressEnd,
@@ -104,6 +106,21 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     state,
     domRef,
   );
+
+  // `useMenuItem` from react-aria doesn't expose `isHovered`
+  // hence, cover the logic here
+  let {hoverProps, isHovered} = useHover({
+    isDisabled,
+    onHoverStart(e) {
+      if (!AriaIsFocusVisible()) {
+        state.selectionManager.setFocused(true);
+        state.selectionManager.setFocusedKey(key);
+      }
+      hoverStartProp?.(e);
+    },
+    onHoverChange,
+    onHoverEnd,
+  });
 
   let itemProps = menuItemProps;
 
@@ -131,6 +148,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
         enabled: shouldFilterDOMProps,
       }),
       itemProps,
+      hoverProps,
       props,
     ),
     "data-focus": dataAttr(isFocused),

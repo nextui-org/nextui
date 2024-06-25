@@ -1,7 +1,7 @@
 import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";
-import {useAriaMenu} from "@nextui-org/use-aria-menu";
+import {useMenu as useAriaMenu} from "@react-aria/menu";
 import {menu, MenuVariantProps, SlotsToClasses, MenuSlots} from "@nextui-org/theme";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {ReactRef, filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
