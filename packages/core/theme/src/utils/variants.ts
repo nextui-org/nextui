@@ -59,12 +59,12 @@ const light = {
 };
 
 const ghost = {
-  default: "border-default text-default-foreground hover:!bg-default",
-  primary: "border-primary text-primary hover:!text-primary-foreground hover:!bg-primary",
-  secondary: "border-secondary text-secondary hover:text-secondary-foreground hover:!bg-secondary",
-  success: "border-success text-success hover:!text-success-foreground hover:!bg-success",
-  warning: "border-warning text-warning hover:!text-warning-foreground hover:!bg-warning",
-  danger: "border-danger text-danger hover:!text-danger-foreground hover:!bg-danger",
+  default: "border-default text-default-foreground",
+  primary: "border-primary text-primary",
+  secondary: "border-secondary text-secondary",
+  success: "border-success text-success",
+  warning: "border-warning text-warning",
+  danger: "border-danger text-danger",
   foreground: "border-foreground text-foreground hover:!bg-foreground",
 };
 
