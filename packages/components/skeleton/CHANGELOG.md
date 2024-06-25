@@ -1,5 +1,18 @@
 # @nextui-org/skeleton
 
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies [[`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/react-utils@2.0.14
+
+## 2.0.28
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
 ## 2.0.27
 
 ### Patch Changes

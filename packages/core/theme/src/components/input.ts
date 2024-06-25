@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group flex flex-col data-[hidden=true]:hidden",
     label: [
       "absolute",
       "z-10",
@@ -535,9 +535,9 @@ const input = tv({
       variant: "flat",
       class: {
         inputWrapper: [
-          "bg-danger-50",
-          "data-[hover=true]:bg-danger-100",
-          "group-data-[focus=true]:bg-danger-50",
+          "!bg-danger-50",
+          "data-[hover=true]:!bg-danger-100",
+          "group-data-[focus=true]:!bg-danger-50",
         ],
       },
     },
@@ -545,14 +545,14 @@ const input = tv({
       isInvalid: true,
       variant: "bordered",
       class: {
-        inputWrapper: "!border-danger group-data-[focus=true]:border-danger",
+        inputWrapper: "!border-danger group-data-[focus=true]:!border-danger",
       },
     },
     {
       isInvalid: true,
       variant: "underlined",
       class: {
-        inputWrapper: "after:bg-danger",
+        inputWrapper: "after:!bg-danger",
       },
     },
     // size & labelPlacement

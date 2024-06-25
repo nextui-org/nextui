@@ -61,8 +61,6 @@ const table = tv({
       "group",
       "px-3",
       "h-10",
-      "text-left",
-      "rtl:text-right",
       "align-middle",
       "bg-default-100",
       "whitespace-nowrap",
@@ -249,6 +247,20 @@ const table = tv({
         table: "w-full",
       },
     },
+    align: {
+      start: {
+        th: "text-start",
+        td: "text-start",
+      },
+      center: {
+        th: "text-center",
+        td: "text-center",
+      },
+      end: {
+        th: "text-end",
+        td: "text-end",
+      },
+    },
   },
   defaultVariants: {
     layout: "auto",
@@ -259,6 +271,7 @@ const table = tv({
     hideHeader: false,
     isStriped: false,
     fullWidth: true,
+    align: "start",
   },
 });
 

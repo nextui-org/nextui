@@ -1,5 +1,35 @@
 # @nextui-org/snippet
 
+## 2.0.38
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/button@2.0.34
+  - @nextui-org/tooltip@2.0.36
+  - @nextui-org/react-utils@2.0.14
+
+## 2.0.37
+
+### Patch Changes
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/button@2.0.33
+  - @nextui-org/tooltip@2.0.35
+
+## 2.0.36
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/button@2.0.32
+  - @nextui-org/tooltip@2.0.34
+
 ## 2.0.35
 
 ### Patch Changes

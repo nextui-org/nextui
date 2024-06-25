@@ -132,7 +132,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     shouldForceLeadingZeros = true,
     minValue = globalContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
     maxValue = globalContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
@@ -155,7 +155,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     minValue,
     maxValue,
     validationBehavior,
-    isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"

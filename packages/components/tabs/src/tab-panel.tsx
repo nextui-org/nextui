@@ -47,13 +47,13 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
 
   const domRef = useDOMRef(ref);
 
-  const {tabPanelProps} = useTabPanel(props, state, domRef);
+  const {tabPanelProps} = useTabPanel({...props, id: String(tabKey)}, state, domRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
   const selectedItem = state.selectedItem;
 
-  const content = selectedItem?.props?.children;
+  const content = state.collection.getItem(tabKey)!.props.children;
 
   const tabPanelStyles = clsx(classNames?.panel, className, selectedItem?.props?.className);
 

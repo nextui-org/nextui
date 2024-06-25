@@ -13,7 +13,7 @@ Date Range Picker combines two DateInputs and a RangeCalendar popover to allow u
 
 ---
 
-<CarbonAd />
+
 
 ## Installation
 
@@ -91,6 +91,10 @@ You can add a description to the input by passing the `description` property.
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
 
 <CodeDemo title="With Error Message" files={dateRangePickerContent.errorMessage} />
+
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult]((https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51)).
+
+<CodeDemo title="With Error Message Function" files={dateRangePickerContent.errorMessageFunction} />
 
 ### With Time Fields
 
@@ -270,13 +274,11 @@ in multiple formats into `ZonedDateTime` objects.
 import {
   DateValue,
   now,
-  useLocale,
   startOfWeek,
   startOfMonth,
-  useDateFormatter,
   getLocalTimeZone,
 } from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
+import {useLocale, useDateFormatter} from "@react-aria/i18n";
 ```
 
 <CodeDemo title="Presets" files={dateRangePickerContent.presets} />
@@ -299,6 +301,12 @@ import {I18nProvider} from "@react-aria/i18n";
 - **helperWrapper**: Wraps the `description` and the `errorMessage`.
 - **description**: The description of the date-input.
 - **errorMessage**: The error message of the date-input.
+
+### Custom Styles
+
+You can customize the `DateRangePicker` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={dateRangePickerContent.customStyles} />
 
 <Spacer y={4} />
 
@@ -354,6 +362,8 @@ import {I18nProvider} from "@react-aria/i18n";
 | placeholderValue          | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                         | The placeholder of the date-range-picker.                                                                                                                               | -                                                                    |
 | description               | `ReactNode`                                                                                                                                              | A description for the date-range-picker. Provides a hint such as specific requirements for what to choose.                                                              | -                                                                    |
 | errorMessage              | `ReactNode \| (v: ValidationResult) => ReactNode`                                                                                                        | An error message for the date input.                                                                                                                                    | -                                                                    |
+| validate                  | `(value: RangeValue<MappedDateValue<DateValue>>) => ValidationError ｜ true ｜ null ｜ undefined`                                                         | Validate input values when committing (e.g. on blur), returning error messages for invalid values. Display validation errors upon form submission if `validationBehavior` is set to `native`. For real-time validation, use the `isInvalid` prop.| -                                                                    |
+| validationBehavior        | `native` \| `aria`                                                                                                                                       | Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA.          | `aria`                                                               |
 | startContent              | `ReactNode`                                                                                                                                              | Element to be rendered in the left side of the date-range-picker.                                                                                                       | -                                                                    |
 | endContent                | `ReactNode`                                                                                                                                              | Element to be rendered in the right side of the date-range-picker.                                                                                                      | -                                                                    |
 | startName                 | `string`                                                                                                                                                 | The name of the start date input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname) | -                                                                    |
@@ -367,7 +377,6 @@ import {I18nProvider} from "@react-aria/i18n";
 | isInvalid                 | `boolean`                                                                                                                                                | Whether the date-range-picker is invalid.                                                                                                                               | `false`                                                              |
 | selectorIcon              | `ReactNode`                                                                                                                                              | The icon to toggle the date picker popover. Usually a calendar icon.                                                                                                    |                                                                      |
 | pageBehavior              | `single` \| `visible`                                                                                                                                    | Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.                     | `visible`                                                            |
-| validate                  | `(value: { inputValue: string, selectedKey: React.Key }) => ValidationError ｜ true ｜ null ｜ undefined`                                                | Validate input values when committing (e.g., on blur), and return error messages for invalid values.                                                                    | -                                                                    |
 | visibleMonths             | `number`                                                                                                                                                 | The number of months to display at once. Up to 3 months are supported.                                                                                                  | `1`                                                                  |
 | autoFocus                 | `boolean`                                                                                                                                                | Whether the element should receive focus on render.                                                                                                                     | `false`                                                              |
 | hourCycle                 | `12` \| `24`                                                                                                                                             | Whether to display the time in 12 or 24 hour format. This is determined by the user's locale.                                                                           | -                                                                    |

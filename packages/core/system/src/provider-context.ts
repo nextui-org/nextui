@@ -18,6 +18,15 @@ export type ProviderContextProps = {
    */
   disableRipple?: boolean;
   /**
+   * Whether to use native HTML form validation to prevent form submission
+   * when the value is missing or invalid, or mark the field as required
+   * or invalid via ARIA.
+   * @see https://react-spectrum.adobe.com/react-aria/forms.html
+   *
+   * @default "aria"
+   */
+  validationBehavior?: "aria" | "native";
+  /**
    * The default dates range that can be selected in the calendar.
    */
   defaultDates?: {
@@ -25,7 +34,7 @@ export type ProviderContextProps = {
      * The minimum date that can be selected in the calendar.
      * @see https://react-spectrum.adobe.com/internationalized/date/CalendarDate.html
      *
-     * @default new CalendarDate(1900, 1, 1)
+     * @default CalendarDate(1900, 1, 1)
      *
      */
     minDate?: CalendarDate;

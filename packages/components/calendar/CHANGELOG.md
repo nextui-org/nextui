@@ -1,5 +1,47 @@
 # @nextui-org/calendar
 
+## 2.0.7
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/button@2.0.34
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+
+## 2.0.6
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/button@2.0.33
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/framer-utils@2.0.20
+
+## 2.0.5
+
+### Patch Changes
+
+- [#2889](https://github.com/nextui-org/nextui/pull/2889) [`aba1716ed`](https://github.com/nextui-org/nextui/commit/aba1716edc2a85c94e6baeb4acc481f67589d002) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Update React Aria packages
+
+- [#3054](https://github.com/nextui-org/nextui/pull/3054) [`bf68c91b9`](https://github.com/nextui-org/nextui/commit/bf68c91b9a5be2014830859b0be2127d657ba90f) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - revise the inert attribute in `CalendarMonth` and `CalendarPicker`
+
+- [#2906](https://github.com/nextui-org/nextui/pull/2906) [`c83ff382b`](https://github.com/nextui-org/nextui/commit/c83ff382b9e5deaa08ed7e64eee484cc4904704d) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixed hiding of unavailable dates in RangeCalendar (#2890)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#3014](https://github.com/nextui-org/nextui/pull/3014) [`20ba81948`](https://github.com/nextui-org/nextui/commit/20ba81948d86ccc7ea4269cceb06e04899903b0e) Thanks [@winchesHe](https://github.com/winchesHe)! - add the correct peerDep version
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/button@2.0.32
+  - @nextui-org/framer-utils@2.0.19
+
 ## 2.0.4
 
 ### Patch Changes

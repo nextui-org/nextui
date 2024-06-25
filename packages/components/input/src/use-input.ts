@@ -86,7 +86,7 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
@@ -111,6 +111,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
@@ -144,8 +145,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
   const isFilled = !isEmpty(inputValue) || isFilledByDefault;
   const isFilledWithin = isFilled || isFocusWithin;
-  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
+  const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
+
+  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -174,13 +177,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = useTextField(
     {
       ...originalProps,
-      validationBehavior: "native",
+      validationBehavior,
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
-        originalProps?.["aria-label"],
-        originalProps?.label,
-        originalProps?.placeholder,
+        originalProps["aria-label"],
+        originalProps.label,
+        originalProps.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
       onChange: setInputValue,
@@ -285,6 +288,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-helper": dataAttr(hasHelper),
         "data-has-label": dataAttr(hasLabel),
         "data-has-value": dataAttr(!isPlaceholderShown),
+        "data-hidden": dataAttr(isHiddenType),
         ...focusWithinProps,
         ...props,
       };
@@ -306,6 +310,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isFilledWithin,
       hasPlaceholder,
       focusWithinProps,
+      isHiddenType,
       originalProps.isReadOnly,
       originalProps.isRequired,
       originalProps.isDisabled,
@@ -346,9 +351,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           }),
           props,
         ),
-        required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
-        "aria-required": dataAttr(originalProps.isRequired),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
@@ -470,6 +473,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         role: "button",
         tabIndex: 0,
+        "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
         className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),

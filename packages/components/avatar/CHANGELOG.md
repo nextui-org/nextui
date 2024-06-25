@@ -1,5 +1,26 @@
 # @nextui-org/avatar
 
+## 2.0.30
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/react-utils@2.0.14
+
+## 2.0.29
+
+### Patch Changes
+
+- [#3111](https://github.com/nextui-org/nextui/pull/3111) [`cdbc6514f`](https://github.com/nextui-org/nextui/commit/cdbc6514f8024381b778bad72b6a7a87330dab28) Thanks [@wingkwong](https://github.com/wingkwong)! - avoid passing `disableAnimation` prop to a DOM element (#3109)
+
+## 2.0.28
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
 ## 2.0.27
 
 ### Patch Changes
