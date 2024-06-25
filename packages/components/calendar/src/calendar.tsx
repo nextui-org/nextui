@@ -1,4 +1,4 @@
-import type {DateValue} from "@internationalized/date";
+import type {DateValue, CalendarDate} from "@internationalized/date";
 import type {ForwardedRef, ReactElement, Ref} from "react";
 
 import {forwardRef} from "@nextui-org/system";
@@ -8,7 +8,7 @@ import {CalendarProvider} from "./calendar-context";
 import {CalendarBase} from "./calendar-base";
 
 interface Props<T extends DateValue> extends Omit<UseCalendarProps<T>, "isHeaderWrapperExpanded"> {
-  renderCellContent?: (date: DateValue) => React.ReactNode;
+  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 function Calendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {

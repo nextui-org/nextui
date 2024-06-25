@@ -6,7 +6,7 @@ import {useMemo, useRef} from "react";
 import {filterDOMProps} from "@nextui-org/react-utils";
 import {useRangeCalendar as useAriaRangeCalendar} from "@react-aria/calendar";
 import {useRangeCalendarState} from "@react-stately/calendar";
-import {createCalendar} from "@internationalized/date";
+import {createCalendar, CalendarDate} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
 
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
@@ -18,7 +18,7 @@ type NextUIBaseProps<T extends DateValue> = Omit<
 >;
 
 interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBaseProps<T> {
-  renderCellContent?: (date: DateValue) => React.ReactNode;
+  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 export type UseRangeCalendarProps<T extends DateValue> = Props<T> & AriaRangeCalendarProps<T>;

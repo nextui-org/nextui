@@ -6,7 +6,7 @@ import {useMemo, useRef} from "react";
 import {filterDOMProps} from "@nextui-org/react-utils";
 import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
 import {useCalendarState} from "@react-stately/calendar";
-import {createCalendar} from "@internationalized/date";
+import {createCalendar, CalendarDate} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
 import {chain} from "@react-aria/utils";
 
@@ -18,7 +18,7 @@ interface Props extends UseCalendarBaseProps {
    * Props for the button picker, which is used to select the month, year and expand the header.
    */
   buttonPickerProps?: ButtonProps;
-  renderCellContent?: (date: DateValue) => React.ReactNode;
+  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 export type UseCalendarProps<T extends DateValue> = Props & AriaCalendarProps<T>;
