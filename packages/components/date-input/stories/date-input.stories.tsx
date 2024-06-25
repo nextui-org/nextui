@@ -62,11 +62,18 @@ export default {
       },
       options: ["aria", "native"],
     },
+    format: {
+      control: {
+        type: "select",
+      },
+      options: ["yyyy-mm-dd", "dd-mm-yyyy", "mm-dd-yyyy", "yyyy-dd-mm"],
+    },
   },
 } as Meta<typeof DateInput>;
 
 const defaultProps = {
   label: "Birth date",
+  format: "yyyy-mm-dd",
   ...dateInput.defaultVariants,
 };
 
@@ -170,6 +177,7 @@ export const Default = {
   render: Template,
   args: {
     ...defaultProps,
+    formattedDate: "dd-mm-yyyy",
   },
 };
 
