@@ -1,5 +1,5 @@
 ---
-"@nextui-org/use-scroll-position": minor
+"@nextui-org/use-scroll-position": patch
 ---
 
-clearing throttleTimeout when it is supposed to be null in useScrollPosition
+clearing throttleTimeout when it is supposed to be null in useScrollPosition (#3139)
