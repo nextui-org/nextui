@@ -233,7 +233,7 @@ const navbar = tv({
     },
     disableAnimation: {
       true: {
-        menu: ["hidden", "h-[calc(100dvh_-_var(--navbar-height)_-_1px)]", "data-[open=true]:flex"],
+        menu: ["hidden", "h-[calc(100dvh_-_var(--navbar-height))]", "data-[open=true]:flex"],
       },
     },
   },

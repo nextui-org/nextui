@@ -1,5 +1,13 @@
 # @nextui-org/use-aria-menu
 
+## 2.0.5
+
+### Patch Changes
+
+- [#3229](https://github.com/nextui-org/nextui/pull/3229) [`5b9e317a8`](https://github.com/nextui-org/nextui/commit/5b9e317a80dacad09a3fc3c5b762729cd10b2bb3) Thanks [@wingkwong](https://github.com/wingkwong)! - fix link logic in useMenuItem (#2935)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
 ## 2.0.4
 
 ### Patch Changes

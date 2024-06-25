@@ -36,6 +36,7 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
         <Fragment key={item.key}>
           <AccordionItem
             item={item}
+            variant={props.variant}
             onFocusChange={handleFocusChanged}
             {...values}
             {...item.props}

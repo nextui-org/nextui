@@ -172,6 +172,26 @@ describe("DatePicker", () => {
 
       expect(getByTestId("foo")).toHaveAttribute("role", "group");
     });
+
+    it("should apply custom dateInput classNames", function () {
+      const {getByRole, getByText} = render(
+        <DatePicker
+          dateInputClassNames={{
+            inputWrapper: "border-green-500",
+            label: "text-green-500",
+          }}
+          label="Date"
+        />,
+      );
+
+      const label = getByText("Date");
+
+      expect(label).toHaveClass("text-green-500");
+
+      const inputWrapper = getByRole("group");
+
+      expect(inputWrapper).toHaveClass("border-green-500");
+    });
   });
 
   describe("Events", () => {

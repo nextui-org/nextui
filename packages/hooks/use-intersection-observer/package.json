@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-intersection-observer",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Tracks the intersection of a DOM element and its containing element or the viewport.",
   "keywords": [
     "use-intersection-observer"
@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "@react-aria/utils": "3.24.1",
-    "@react-aria/ssr": "3.9.2",
+    "@react-aria/ssr": "3.9.4",
     "@react-types/shared": "3.23.1",
-    "@react-aria/interactions": "3.21.1"
+    "@react-aria/interactions": "3.21.3"
   },
   "peerDependencies": {
     "react": ">=18"

@@ -47,7 +47,7 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
 
   const domRef = useDOMRef(ref);
 
-  const {tabPanelProps} = useTabPanel(props, state, domRef);
+  const {tabPanelProps} = useTabPanel({...props, id: String(tabKey)}, state, domRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 

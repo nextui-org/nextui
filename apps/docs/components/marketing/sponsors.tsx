@@ -1,7 +1,7 @@
 import {Button, Link} from "@nextui-org/react";
 
 import {sectionWrapper} from "@/components/primitives";
-import {Story2DesignLogo} from "@/components/icons/sponsors";
+import {Story2DesignLogo, ReplexicaLogo, CodeRabbitLogo} from "@/components/icons/sponsors";
 import {HeartFilledIcon} from "@/components/icons";
 import {VercelIcon} from "@/components/icons/social";
 import {siteConfig} from "@/config/site";
@@ -17,6 +17,16 @@ const sponsors: Sponsor[] = [
     name: "story.to.design",
     href: "https://story.to.design?utm_source=nextui&utm_marketing=partnership",
     logo: <Story2DesignLogo className="pt-1" />,
+  },
+  {
+    name: "Replexica",
+    href: "https://replexica.com/?utm_source=nextui&utm_marketing=oss",
+    logo: <ReplexicaLogo />,
+  },
+  {
+    name: "CodeRabbit",
+    href: "https://coderabbit.ai/?utm_source=nextui&utm_marketing=oss",
+    logo: <CodeRabbitLogo />,
   },
 ];
 
