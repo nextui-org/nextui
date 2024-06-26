@@ -1,8 +1,8 @@
 import {
-  ShardSelection,
   useProviderContext,
   type HTMLNextUIProps,
   type PropGetter,
+  type ShardSelection,
 } from "@nextui-org/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";

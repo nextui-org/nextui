@@ -12,6 +12,7 @@ export type {
   Merge,
   HTMLNextUIProps,
   PropGetter,
+  ShardSelection,
 } from "./types";
 
 export {

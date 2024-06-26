@@ -15,6 +15,7 @@ export type {
   ExtendVariantProps,
   ExtendVariantWithSlotsProps,
   ExtendVariants,
+  ShardSelection,
 } from "@nextui-org/system-rsc";
 
 export {
