@@ -96,6 +96,7 @@ export function useImage(originalProps: UseImageProps) {
     srcSet,
     sizes,
     crossOrigin,
+    height,
     ...otherProps
   } = props;
 
@@ -131,6 +132,11 @@ export function useImage(originalProps: UseImageProps) {
     };
   }, [props?.width]);
 
+  const h = useMemo(
+    () => (height ? (typeof height === "number" ? `${height}px` : height) : "auto"),
+    [height],
+  );
+
   const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
   const showSkeleton = isLoading && !disableSkeleton;
 
@@ -159,6 +165,11 @@ export function useImage(originalProps: UseImageProps) {
       sizes,
       crossOrigin,
       ...otherProps,
+      style: {
+        ...(height && {height: h}),
+        ...props.style,
+        ...otherProps.style,
+      },
     };
   };
 
