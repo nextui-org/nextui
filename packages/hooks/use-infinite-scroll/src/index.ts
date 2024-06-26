@@ -1,5 +1,5 @@
 import debounce from "lodash.debounce";
-import {useLayoutEffect, useRef} from "react";
+import {useLayoutEffect, useRef, useCallback} from "react";
 
 export interface UseInfiniteScrollProps {
   /**
@@ -27,13 +27,28 @@ export interface UseInfiniteScrollProps {
 }
 
 export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
-  const {hasMore, distance = 250, isEnabled = true, shouldUseLoader = true, onLoadMore} = props;
+  const {
+    hasMore = true,
+    distance = 250,
+    isEnabled = true,
+    shouldUseLoader = true,
+    onLoadMore,
+  } = props;
 
   const scrollContainerRef = useRef<HTMLElement>(null);
   const loaderRef = useRef<HTMLElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const isLoadingRef = useRef(false);
 
-  const previousY = useRef<number>();
-  const previousRatio = useRef<number>(0);
+  const loadMore = useCallback(() => {
+    if (!isLoadingRef.current && hasMore && onLoadMore) {
+      isLoadingRef.current = true;
+      onLoadMore();
+      setTimeout(() => {
+        isLoadingRef.current = false;
+      }, 100); // Debounce time to prevent multiple calls
+    }
+  }, [hasMore, onLoadMore]);
 
   useLayoutEffect(() => {
     const scrollContainerNode = scrollContainerRef.current;
@@ -48,50 +63,44 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
       const options = {
         root: scrollContainerNode,
         rootMargin: `0px 0px ${distance}px 0px`,
+        threshold: 0.1,
       };
 
-      const listener = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach(({isIntersecting, intersectionRatio, boundingClientRect = {}}) => {
-          const y = boundingClientRect.y || 0;
+      const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
 
-          if (
-            isIntersecting &&
-            intersectionRatio >= previousRatio.current &&
-            (!previousY.current || y < previousY.current)
-          ) {
-            onLoadMore?.();
-          }
-          previousY.current = y;
-          previousRatio.current = intersectionRatio;
-        });
-      };
-
-      const observer = new IntersectionObserver(listener, options);
+        if (entry.isIntersecting) {
+          loadMore();
+        }
+      }, options);
 
       observer.observe(loaderNode);
+      observerRef.current = observer;
 
-      return () => observer.disconnect();
+      return () => {
+        if (observerRef.current) {
+          observerRef.current.disconnect();
+        }
+      };
     } else {
-      const debouncedOnLoadMore = onLoadMore ? debounce(onLoadMore, 200) : undefined;
-
-      const checkIfNearBottom = () => {
+      const debouncedCheckIfNearBottom = debounce(() => {
         if (
           scrollContainerNode.scrollHeight - scrollContainerNode.scrollTop <=
           scrollContainerNode.clientHeight + distance
         ) {
-          debouncedOnLoadMore?.();
+          loadMore();
         }
-      };
+      }, 100);
 
-      scrollContainerNode.addEventListener("scroll", checkIfNearBottom);
+      scrollContainerNode.addEventListener("scroll", debouncedCheckIfNearBottom);
 
       return () => {
-        scrollContainerNode.removeEventListener("scroll", checkIfNearBottom);
+        scrollContainerNode.removeEventListener("scroll", debouncedCheckIfNearBottom);
       };
     }
-  }, [hasMore, distance, isEnabled, onLoadMore, shouldUseLoader]);
+  }, [hasMore, distance, isEnabled, shouldUseLoader, loadMore]);
 
-  return [loaderRef, scrollContainerRef];
+  return [loaderRef, scrollContainerRef] as const;
 }
 
 export type UseInfiniteScrollReturn = ReturnType<typeof useInfiniteScroll>;
