@@ -82,22 +82,22 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
           observerRef.current.disconnect();
         }
       };
-    } else {
-      const debouncedCheckIfNearBottom = debounce(() => {
-        if (
-          scrollContainerNode.scrollHeight - scrollContainerNode.scrollTop <=
-          scrollContainerNode.clientHeight + distance
-        ) {
-          loadMore();
-        }
-      }, 100);
-
-      scrollContainerNode.addEventListener("scroll", debouncedCheckIfNearBottom);
-
-      return () => {
-        scrollContainerNode.removeEventListener("scroll", debouncedCheckIfNearBottom);
-      };
     }
+
+    const debouncedCheckIfNearBottom = debounce(() => {
+      if (
+        scrollContainerNode.scrollHeight - scrollContainerNode.scrollTop <=
+        scrollContainerNode.clientHeight + distance
+      ) {
+        loadMore();
+      }
+    }, 100);
+
+    scrollContainerNode.addEventListener("scroll", debouncedCheckIfNearBottom);
+
+    return () => {
+      scrollContainerNode.removeEventListener("scroll", debouncedCheckIfNearBottom);
+    };
   }, [hasMore, distance, isEnabled, shouldUseLoader, loadMore]);
 
   return [loaderRef, scrollContainerRef] as const;
