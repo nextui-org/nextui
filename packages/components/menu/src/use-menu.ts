@@ -1,4 +1,4 @@
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter, ShardSelection} from "@nextui-org/system";
 import type {AriaMenuProps} from "@react-types/menu";
 
 import {AriaMenuOptions, useMenu as useAriaMenu} from "@react-aria/menu";
@@ -81,11 +81,15 @@ interface Props<T> {
    * The menu items classNames.
    */
   itemClasses?: MenuItemProps["classNames"];
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: ShardSelection) => any;
 }
 
 export type UseMenuProps<T = object> = Props<T> &
   Omit<HTMLNextUIProps<"ul">, keyof AriaMenuProps<T>> &
-  AriaMenuProps<T> &
+  Omit<AriaMenuProps<T>, "onSelectionChange"> &
   MenuVariantProps;
 
 export function useMenu<T extends object>(props: UseMenuProps<T>) {
