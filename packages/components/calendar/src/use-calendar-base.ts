@@ -9,7 +9,7 @@ import type {SupportedCalendars} from "@nextui-org/system";
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {RefObject, ReactNode} from "react";
 
-import {createCalendar, CalendarDate, DateFormatter} from "@internationalized/date";
+import {createCalendar, Calendar, CalendarDate, DateFormatter} from "@internationalized/date";
 import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useCallback, useMemo} from "react";
 import {calendar} from "@nextui-org/theme";
