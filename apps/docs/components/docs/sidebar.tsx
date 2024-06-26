@@ -10,6 +10,7 @@ import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import xyz from "@/config/routes.json";
 import {
   SpacerProps,
   Spacer,
@@ -303,9 +304,62 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
     };
   }, []);
 
+  //  const componentRoutes = xyz.routes.map((route) => {
+  //   const key = route.key;
+  //   if(key == "frameworks"){
+
+  //   }
+  // });
+
+
+  const componentRoutes = xyz.routes.reduce((components, route) => {
+    if (route.key === "components") {
+      components.push(...route.routes);
+    }
+    return components;
+  }, [] as Route[]);
+
+
+  componentRoutes.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+    if (a.title > b.title) {
+      return 1;
+    }
+    return 0;
+  });
+
+  const guideRoutes = xyz.routes.reduce((guides, route) => {
+    if (route.key === "guides") {
+      guides.push(...route.routes);
+    }
+    return guides;
+  }, [] as Route[]);
+
+  guideRoutes.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+    if (a.title > b.title) {
+      return 1;
+    }
+    return 0;
+  });
+
+
+
+
+
+
+
+
+
+
   const treeContent = useMemo(() => {
     return (
-      <Tree defaultExpandedKeys={expandedKeys} items={routes || []}>
+
+      <Tree defaultExpandedKeys={expandedKeys} items={componentRoutes || []}>
         {(route) => (
           <Item
             childItems={route.routes}
