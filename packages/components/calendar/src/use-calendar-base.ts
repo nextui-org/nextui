@@ -9,14 +9,14 @@ import type {SupportedCalendars} from "@nextui-org/system";
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {RefObject, ReactNode} from "react";
 
-import {Calendar, CalendarDate} from "@internationalized/date";
+import {createCalendar, CalendarDate, DateFormatter} from "@internationalized/date";
 import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useCallback, useMemo} from "react";
 import {calendar} from "@nextui-org/theme";
 import {useControlledState} from "@react-stately/utils";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useLocale} from "@react-aria/i18n";
-import {clamp, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clamp, dataAttr, objectToDeps, getGregorianYearOffset} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
 type NextUIBaseProps = Omit<HTMLNextUIProps<"div">, keyof AriaCalendarPropsBase | "onChange">;
@@ -183,6 +183,15 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
 
   const globalContext = useProviderContext();
 
+  const {locale} = useLocale();
+
+  const calendarProp = createCalendar(new DateFormatter(locale).resolvedOptions().calendar);
+
+  // by default, we are using gregorian calendar with possible years in [1900, 2099]
+  // however, some locales such as `th-TH-u-ca-buddhist` using different calendar making the years out of bound
+  // hence, add the corresponding offset to make sure the year is within the bound
+  const gregorianYearOffset = getGregorianYearOffset(calendarProp.identifier);
+
   const {
     ref,
     as,
@@ -198,9 +207,11 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isHeaderExpanded: isHeaderExpandedProp,
     isHeaderDefaultExpanded,
     onHeaderExpandedChange = () => {},
-    minValue = globalContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
-    maxValue = globalContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
     createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
+    minValue = globalContext?.defaultDates?.minDate ??
+      new CalendarDate(calendarProp, 1900 + gregorianYearOffset, 1, 1),
+    maxValue = globalContext?.defaultDates?.maxDate ??
+      new CalendarDate(calendarProp, 2099 + gregorianYearOffset, 12, 31),
     prevButtonProps: prevButtonPropsProp,
     nextButtonProps: nextButtonPropsProp,
     errorMessage,
@@ -238,8 +249,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
   const visibleDuration = useMemo(() => ({months: visibleMonths}), [visibleMonths]);
   const hasMultipleMonths = visibleMonths > 1;
   const shouldFilterDOMProps = typeof Component === "string";
-
-  const {locale} = useLocale();
 
   const slots = useMemo(
     () =>
