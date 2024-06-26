@@ -14,7 +14,7 @@ export type UsePokemonListProps = {
 export function usePokemonList({fetchDelay = 0}: UsePokemonListProps = {}) {
   const [items, setItems] = useState<Pokemon[]>([]);
   const [hasMore, setHasMore] = useState(true);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [offset, setOffset] = useState(0);
   const limit = 20; // Number of items per page, adjust as necessary
 

@@ -10,12 +10,12 @@ Requirements:
 
 - [Next.js 12](https://nextjs.org/) or later
 - [React 18](https://reactjs.org/) or later
-- [Tailwind CSS 3](https://tailwindcss.com/docs/guides/nextjs) or later
-- [Framer Motion 4](https://www.framer.com/motion/) or later
+- [Tailwind CSS 3.4](https://tailwindcss.com/docs/guides/nextjs) or later
+- [Framer Motion 11](https://www.framer.com/motion/) or later
 
 ------
 
-<CarbonAd />
+
 
 To use NextUI in your Next.js project, you need to follow the steps below, depending on your project structure.
 
@@ -24,6 +24,20 @@ To use NextUI in your Next.js project, you need to follow the steps below, depen
 Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
 As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
 directly in your React Server Components (RSC).
+
+### NextUI CLI (recommended)
+
+If you are starting a new project, you can use the NextUI CLI to create a new project with NextUI pre-configured:
+
+```bash
+npm install -g nextui-cli
+```
+
+<Spacer y={4}/>
+
+```bash
+nextui init -t app
+```
 
 ### create-next-app 
 
@@ -36,6 +50,88 @@ If you are starting a new project, you can run one of the following commands to 
     pnpm: 'pnpm create next-app -e https://github.com/nextui-org/next-app-template'
   }}
 />
+
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx {7,9}
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {7,9,11}
+// app/layout.tsx
+
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
 
 ### Manual Installation
 
@@ -50,8 +146,23 @@ In your Next.js project, run one of the following commands to install NextUI:
     npm: 'npm i @nextui-org/react framer-motion',
     yarn: 'yarn add @nextui-org/react framer-motion',
     pnpm: 'pnpm add @nextui-org/react framer-motion',
+    bun: "bun add @nextui-org/react framer-motion"
   }}
 />
+
+### Hoisted Dependencies Setup
+
+<Blockquote color="primary">
+**Note**: This step is only for those who use pnpm to install. If you install NextUI using other package managers, you may skip this step.
+</Blockquote>
+
+If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
+
+```bash
+public-hoist-pattern[]=*@nextui-org/*
+```
+
+After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 ### Tailwind CSS Setup
 
@@ -59,8 +170,11 @@ NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS firs
 [installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
 
-```js {8,13-14}
+```js {9,14-15}
 // tailwind.config.js
 import {nextui} from "@nextui-org/react";
 
@@ -68,6 +182,7 @@ import {nextui} from "@nextui-org/react";
 const config = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
@@ -84,7 +199,7 @@ export default config;
 
 Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
 
-```jsx
+```jsx {8,10}
 // app/providers.tsx
 'use client'
 
@@ -143,22 +258,23 @@ export default function Page() {
 ```
 > **Important 🚨**: Note that you need to import the component from the individual package, not from `@nextui-org/react`. 
 
-### Setup pnpm (optional)
-
-If you are using pnpm, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
-
 </Steps>
 
-<Spacer y={8} />
-
 ## Pages Directory Setup 
+
+### NextUI CLI (recommended)
+
+If you are starting a new project, you can use the NextUI CLI to create a new project with NextUI pre-configured:
+
+```bash
+npm install -g nextui-cli
+```
+
+<Spacer y={4}/>
+
+```bash
+nextui init -t pages
+```
 
 If you are using the `/pages` Next.js project structure, you need to follow the steps below.
 
@@ -174,6 +290,88 @@ If you are starting a new project, you can run one of the following commands to 
   }}
 />
 
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx {7,9}
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {7,9,11}
+// app/layout.tsx
+
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
 ### Manual Installation
 
 <Steps>
@@ -187,8 +385,23 @@ In your Next.js project, run one of the following commands to install NextUI:
     npm: 'npm i @nextui-org/react framer-motion',
     yarn: 'yarn add @nextui-org/react framer-motion',
     pnpm: 'pnpm add @nextui-org/react framer-motion',
+    bun: "bun add @nextui-org/react framer-motion"
   }}
 />
+
+### Hoisted Dependencies Setup
+
+<Blockquote color="primary">
+**Note**: This step is only for those who use pnpm to install. If you install NextUI using other package managers, you may skip this step.
+</Blockquote>
+
+If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
+
+```bash
+public-hoist-pattern[]=*@nextui-org/*
+```
+
+After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 ### Tailwind CSS Setup
 
@@ -196,8 +409,11 @@ NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS firs
 [installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
 
-```js {8,13-14}
+```js {9,14-15}
 // tailwind.config.js
 import {nextui} from "@nextui-org/react";
 
@@ -205,6 +421,7 @@ import {nextui} from "@nextui-org/react";
 const config = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
@@ -221,7 +438,7 @@ export default config;
 
 Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
 
-```jsx
+```jsx {6,8}
 // pages/_app.js
 import {NextUIProvider} from '@nextui-org/react'
 
@@ -240,7 +457,7 @@ export default MyApp;
 
 Now you can import any NextUI component wherever you want:
 
-```jsx
+```jsx {1}
 import {Button} from '@nextui-org/react'
 
 export default function Page() {
@@ -251,17 +468,6 @@ export default function Page() {
   )
 }
 ```
-
-### Setup pnpm (optional)
-
-If you are using pnpm, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you must run `pnpm install` again to ensure the dependencies are installed correctly.
-
 </Steps>
 
 <Blockquote

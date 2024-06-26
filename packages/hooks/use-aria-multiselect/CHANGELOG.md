@@ -1,5 +1,48 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.2.2
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+## 2.2.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+## 2.2.0
+
+### Minor Changes
+
+- [#2987](https://github.com/nextui-org/nextui/pull/2987) [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Change validationBehavior from native to aria by default, with the option to change via props.
+
+### Patch Changes
+
+- [#2953](https://github.com/nextui-org/nextui/pull/2953) [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix update type definition to prevent primitive values as items (#2938)
+
+- [#2937](https://github.com/nextui-org/nextui/pull/2937) [`a2133009f`](https://github.com/nextui-org/nextui/commit/a2133009f73aa728a0e5deeb9b742aa1defd4de2) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix onSelectionChange can handle number (#2926)
+
+## 2.1.5
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2589](https://github.com/nextui-org/nextui/pull/2589) [`a60c2d7b2`](https://github.com/nextui-org/nextui/commit/a60c2d7b22b3335084b4a846f9d39f00751e8c24) Thanks [@wingkwong](https://github.com/wingkwong)! - Handle numeric selectedKeys in Select
+
+- [#2648](https://github.com/nextui-org/nextui/pull/2648) [`abf532b54`](https://github.com/nextui-org/nextui/commit/abf532b548235689fb37a3e79f07776ff52f6caf) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed an issue where a warning was triggered in the Select component when `defaultSelectedKeys` were used and items were still loading (#2605).
+
 ## 2.1.4
 
 ### Patch Changes

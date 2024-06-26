@@ -1,14 +1,14 @@
 "use client";
 
 import NextLink from "next/link";
-import {Button, Link} from "@nextui-org/react";
+import {Button, Link, Chip, Snippet} from "@nextui-org/react";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import dynamic from "next/dynamic";
 
 import {FloatingComponents} from "./floating-components";
 
-import {title, subtitle} from "@/components/primitives";
 import {GithubIcon} from "@/components/icons";
+import {title, subtitle} from "@/components/primitives";
 import {trackEvent} from "@/utils/va";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
@@ -16,32 +16,32 @@ const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper)
 });
 
 export const Hero = () => {
-  // const handlePressAnnouncement = (name: string, url: string) => {
-  //   trackEvent("NavbarItem", {
-  //     name,
-  //     action: "press",
-  //     category: "home - gero",
-  //     data: url,
-  //   });
-  // };
+  const handlePressAnnouncement = (name: string, url: string) => {
+    trackEvent("NavbarItem", {
+      name,
+      action: "press",
+      category: "home - gero",
+      data: url,
+    });
+  };
 
   return (
     <section className="flex relative overflow-hidden lg:overflow-visible w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
       <div className="flex relative z-20 flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
         <div className="w-full flex justify-center md:hidden">
-          {/* <Chip
+          <Chip
             as={NextLink}
-            className="w-full hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
-            color="secondary"
-            href="/blog/v2.2.0"
+            className="bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
+            color="default"
+            href="/blog/v2.3.0"
             variant="dot"
-            onClick={() => handlePressAnnouncement("Introducing v2.2.0", "/blog/v2.2.0")}
+            onClick={() => handlePressAnnouncement("New version v2.4.0", "/blog/v2.4.0")}
           >
-            Introducing v2.2.0&nbsp;
-            <span aria-label="rocket emoji" role="img">
+            New version v2.4.0&nbsp;
+            <span aria-label="emoji" role="img">
               🚀
             </span>
-          </Chip> */}
+          </Chip>
         </div>
         <div className="text-center leading-8 md:leading-10 md:text-left">
           <div className="inline-block">
@@ -56,7 +56,7 @@ export const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}
-            className="w-full md:w-auto"
+            className="w-full md:h-11 md:w-auto"
             color="primary"
             endContent={
               <ArrowRightIcon
@@ -78,12 +78,27 @@ export const Hero = () => {
           >
             Get Started
           </Button>
-
+          <Snippet
+            className="w-full rounded-full hidden md:flex sm:w-auto"
+            copyButtonProps={{
+              radius: "full",
+            }}
+            onCopy={() => {
+              trackEvent("Hero - Copy Install Command", {
+                name: "Copy",
+                action: "click",
+                category: "landing-page",
+                data: "npx nextui-cli@latest init",
+              });
+            }}
+          >
+            npx nextui-cli@latest init
+          </Snippet>
           <Button
             fullWidth
             isExternal
             as={Link}
-            className="w-full md:w-auto"
+            className="w-full md:hidden"
             href="https://github.com/nextui-org/nextui"
             radius="full"
             size="lg"

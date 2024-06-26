@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/shared-utils",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "A set of NextUI utilities",
   "keywords": [
     "system"
@@ -33,12 +33,8 @@
     "prepack": "clean-package",
     "postpack": "clean-package restore"
   },
-  "peerDependencies": {
-    "react": ">=18"
-  },
   "devDependencies": {
-    "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "clean-package": "2.2.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

@@ -1,5 +1,8 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
+import {useForm} from "react-hook-form";
 import {autocomplete, input, button} from "@nextui-org/theme";
 import {
   Pokemon,
@@ -9,6 +12,7 @@ import {
   Animal,
   User,
 } from "@nextui-org/stories-utils";
+import {useAsyncList} from "@react-stately/data";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {PetBoldIcon, SearchLinearIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
@@ -60,6 +64,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (
@@ -69,6 +79,13 @@ export default {
     ),
   ],
 } as Meta<typeof Autocomplete>;
+
+type SWCharacter = {
+  name: string;
+  height: string;
+  mass: string;
+  birth_year: string;
+};
 
 const defaultProps = {
   ...input.defaultVariants,
@@ -119,7 +136,7 @@ const DynamicTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) =
   </Autocomplete>
 );
 
-const RequiredTemplate = ({color, variant, ...args}: AutocompleteProps) => {
+const FormTemplate = ({color, variant, ...args}: AutocompleteProps) => {
   return (
     <form
       className="w-full max-w-xs items-start flex flex-col gap-4"
@@ -129,7 +146,6 @@ const RequiredTemplate = ({color, variant, ...args}: AutocompleteProps) => {
       }}
     >
       <Autocomplete
-        isRequired
         color={color}
         label="Favorite Animal"
         name="favorite-animal"
@@ -233,6 +249,40 @@ const LabelPlacementTemplate = ({color, variant, ...args}: AutocompleteProps) =>
     </div>
   </div>
 );
+
+const AsyncFilteringTemplate = ({color, variant, ...args}: AutocompleteProps<SWCharacter>) => {
+  let list = useAsyncList<SWCharacter>({
+    async load({signal, filterText}) {
+      let res = await fetch(`https://swapi.py4e.com/api/people/?search=${filterText}`, {signal});
+      let json = await res.json();
+
+      return {
+        items: json.results,
+      };
+    },
+  });
+
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      color={color}
+      inputValue={list.filterText}
+      isLoading={list.isLoading}
+      items={list.items}
+      label="Select a character"
+      placeholder="Type to search..."
+      variant={variant}
+      onInputChange={list.setFilterText}
+      {...args}
+    >
+      {(item) => (
+        <AutocompleteItem key={item.name} className="capitalize">
+          {item.name}
+        </AutocompleteItem>
+      )}
+    </Autocomplete>
+  );
+};
 
 const AsyncLoadingTemplate = ({color, variant, ...args}: AutocompleteProps<Pokemon>) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -528,7 +578,7 @@ const CustomStylesTemplate = ({color, variant, ...args}: AutocompleteProps<User>
     <Autocomplete
       className="max-w-xs"
       classNames={{
-        base: "min-h-unit-16",
+        base: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}
       color={color}
@@ -643,6 +693,45 @@ const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps
   );
 };
 
+const WithReactHookFormTemplate = (args: AutocompleteProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "cat",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+      <Autocomplete {...args} {...register("withDefaultValue")}>
+        {items}
+      </Autocomplete>
+      <Autocomplete {...args} {...register("withoutDefaultValue")}>
+        {items}
+      </Autocomplete>
+      <Autocomplete {...args} {...register("requiredField", {required: true})}>
+        {items}
+      </Autocomplete>
+
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -652,10 +741,11 @@ export const Default = {
 };
 
 export const Required = {
-  render: RequiredTemplate,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
+    isRequired: true,
   },
 };
 
@@ -689,17 +779,16 @@ export const DisabledOptions = {
   },
 };
 
-export const WithDescription = {
-  render: MirrorTemplate,
+export const LabelPlacement = {
+  render: LabelPlacementTemplate,
 
   args: {
     ...defaultProps,
-    description: "Select your favorite animal",
   },
 };
 
-export const LabelPlacement = {
-  render: LabelPlacementTemplate,
+export const AsyncFiltering = {
+  render: AsyncFilteringTemplate,
 
   args: {
     ...defaultProps,
@@ -727,6 +816,27 @@ export const EndContent = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const IsInvalid = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    variant: "bordered",
+    defaultSelectedKey: "dog",
+    errorMessage: "Please select a valid animal",
+  },
+};
+
+export const WithDescription = {
+  render: MirrorTemplate,
+
+  args: {
+    ...defaultProps,
+    description: "Select your favorite animal",
   },
 };
 
@@ -762,45 +872,38 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please select an animal",
   },
 };
 
-export const IsInvalid = {
-  render: Template,
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
-    isInvalid: true,
-    variant: "bordered",
-    defaultSelectedKey: "dog",
-    errorMessage: "Please select a valid animal",
+    isRequired: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.valueMissing) {
+        return "Value is required";
+      }
+    },
   },
 };
 
-export const Controlled = {
-  render: ControlledTemplate,
+export const WithValidation = {
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
-  },
-};
+    label: "Select Cat or Dog",
+    validate: (value) => {
+      if (value.selectedKey == null || value.selectedKey === "cat" || value.selectedKey === "dog") {
+        return;
+      }
 
-export const CustomSelectorIcon = {
-  render: Template,
-
-  args: {
-    ...defaultProps,
-    disableSelectorIconRotation: true,
-    selectorIcon: <SelectorIcon />,
-  },
-};
-
-export const CustomItems = {
-  render: CustomItemsTemplate,
-
-  args: {
-    ...defaultProps,
+      return "Please select a valid animal";
+    },
   },
 };
 
@@ -827,6 +930,40 @@ export const WithAriaLabel = {
     ...defaultProps,
     label: "Select an animal 🐹",
     "aria-label": "Select an animal",
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Controlled = {
+  render: ControlledTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomSelectorIcon = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    disableSelectorIconRotation: true,
+    selectorIcon: <SelectorIcon />,
+  },
+};
+
+export const CustomItems = {
+  render: CustomItemsTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

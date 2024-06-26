@@ -1,5 +1,23 @@
 # @nextui-org/use-scroll-position
 
+## 2.0.6
+
+### Patch Changes
+
+- [#3049](https://github.com/nextui-org/nextui/pull/3049) [`fa26ce02f`](https://github.com/nextui-org/nextui/commit/fa26ce02fd84b25fc29925c93462d15de542b847) Thanks [@Gaic4o](https://github.com/Gaic4o)! - WHAT: Refactored the useScrollPosition hook to improve performance and stability by using useCallback for the handler function and useRef for throttleTimeout.
+
+## 2.0.5
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
 ## 2.0.4
 
 ### Patch Changes

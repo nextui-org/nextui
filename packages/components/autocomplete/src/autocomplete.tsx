@@ -15,7 +15,6 @@ interface Props<T> extends UseAutocompleteProps<T> {}
 function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLInputElement>) {
   const {
     Component,
-    state,
     isOpen,
     disableAnimation,
     selectorIcon = <ChevronDownIcon />,
@@ -26,23 +25,21 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getInputProps,
     getListBoxProps,
     getPopoverProps,
+    getEmptyPopoverProps,
     getClearButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
   } = useAutocomplete<T>({...props, ref});
 
   const popoverContent = isOpen ? (
-    <FreeSoloPopover
-      {...getPopoverProps()}
-      // avoid popover closing issue in autocomplete with open modal
-      shouldCloseOnInteractOutside={() => false}
-      state={state}
-    >
+    <FreeSoloPopover {...getPopoverProps()}>
       <ScrollShadow {...getListBoxWrapperProps()}>
         <Listbox {...getListBoxProps()} />
       </ScrollShadow>
     </FreeSoloPopover>
-  ) : null;
+  ) : (
+    <div {...getEmptyPopoverProps()} />
+  );
 
   return (
     <Component {...getBaseProps()}>
@@ -60,10 +57,10 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   );
 }
 
-export type AutocompleteProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+export type AutocompleteProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Autocomplete) as <T = object>(
+export default forwardRef(Autocomplete) as <T extends object>(
   props: AutocompleteProps<T>,
 ) => ReactElement;
 

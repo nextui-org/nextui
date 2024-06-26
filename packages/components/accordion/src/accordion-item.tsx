@@ -1,8 +1,10 @@
+import type {Variants} from "framer-motion";
+
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {AnimatePresence, LazyMotion, domAnimation, m, useWillChange} from "framer-motion";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
@@ -11,6 +13,7 @@ export interface AccordionItemProps extends UseAccordionItemProps {}
 const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {
     Component,
+    HeadingComponent,
     classNames,
     slots,
     indicator,
@@ -52,6 +55,11 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
       return <div {...getContentProps()}>{children}</div>;
     }
 
+    const transitionVariants: Variants = {
+      exit: {...TRANSITION_VARIANTS.collapse.exit, overflowY: "hidden"},
+      enter: {...TRANSITION_VARIANTS.collapse.enter, overflowY: "unset"},
+    };
+
     return keepContentMounted ? (
       <LazyMotion features={domAnimation}>
         <m.section
@@ -59,8 +67,8 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
           animate={isOpen ? "enter" : "exit"}
           exit="exit"
           initial="exit"
-          style={{overflowY: "hidden", willChange}}
-          variants={TRANSITION_VARIANTS.collapse}
+          style={{willChange}}
+          variants={transitionVariants}
           {...motionProps}
         >
           <div {...getContentProps()}>{children}</div>
@@ -75,8 +83,8 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
               animate="enter"
               exit="exit"
               initial="exit"
-              style={{overflowY: "hidden", willChange}}
-              variants={TRANSITION_VARIANTS.collapse}
+              style={{willChange}}
+              variants={transitionVariants}
               {...motionProps}
             >
               <div {...getContentProps()}>{children}</div>
@@ -89,7 +97,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <h2 {...getHeadingProps()}>
+      <HeadingComponent {...getHeadingProps()}>
         <button {...getButtonProps()}>
           {startContent && (
             <div className={slots.startContent({class: classNames?.startContent})}>
@@ -104,7 +112,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
             <span {...getIndicatorProps()}>{indicatorComponent}</span>
           )}
         </button>
-      </h2>
+      </HeadingComponent>
       {content}
     </Component>
   );

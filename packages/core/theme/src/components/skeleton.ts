@@ -19,6 +19,7 @@ const skeleton = tv({
       "relative",
       "overflow-hidden",
       "bg-content3 dark:bg-content2",
+      "pointer-events-none",
       // before
       "before:opacity-100",
       "before:absolute",
@@ -40,17 +41,18 @@ const skeleton = tv({
       "after:bg-content3",
       "dark:after:bg-content2",
       // state
+      "data-[loaded=true]:pointer-events-auto",
+      "data-[loaded=true]:overflow-visible",
       "data-[loaded=true]:!bg-transparent",
       "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:animate-none",
       "data-[loaded=true]:after:opacity-0",
     ],
     content: ["opacity-0", "group-data-[loaded=true]:opacity-100"],
   },
-
   variants: {
     disableAnimation: {
       true: {
-        base: "before:transition-none",
+        base: "before:animate-none before:transition-none after:transition-none",
         content: "transition-none",
       },
       false: {
@@ -59,9 +61,7 @@ const skeleton = tv({
       },
     },
   },
-  defaultVariants: {
-    disableAnimation: false,
-  },
+  defaultVariants: {},
 });
 
 export type SkeletonVariantProps = VariantProps<typeof skeleton>;

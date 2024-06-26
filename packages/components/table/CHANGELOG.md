@@ -1,5 +1,110 @@
 # @nextui-org/table
 
+## 2.0.36
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#2900](https://github.com/nextui-org/nextui/pull/2900) [`75d122317`](https://github.com/nextui-org/nextui/commit/75d1223178a8d6f5b68535b54a79efb2d75a31cc) Thanks [@chirokas](https://github.com/chirokas)! - Fix #2886 TableColumn align prop fixed, style improved.
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/checkbox@2.1.2
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/spacer@2.0.29
+
+## 2.0.35
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/checkbox@2.1.1
+  - @nextui-org/spacer@2.0.28
+
+## 2.0.34
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2866](https://github.com/nextui-org/nextui/pull/2866) [`5f5ad7a1d`](https://github.com/nextui-org/nextui/commit/5f5ad7a1ddae1fb30be4a25e6aad4f87666ee1ce) Thanks [@sapkra](https://github.com/sapkra)! - Add missing export of `TableRowProps` type (#2584)
+
+- [#3020](https://github.com/nextui-org/nextui/pull/3020) [`9d63259ee`](https://github.com/nextui-org/nextui/commit/9d63259eeacfe8b8714629e612a20e00293f0a43) Thanks [@wingkwong](https://github.com/wingkwong)! - set `onKeyDownCapture` to `undefined` so that users can type with spaces in input or textarea inside a table component (#1968)
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2), [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a), [`06ecd213c`](https://github.com/nextui-org/nextui/commit/06ecd213cf85db2dfaa5fc26c1fed62dcb5fbc85)]:
+  - @nextui-org/checkbox@2.1.0
+  - @nextui-org/spacer@2.0.28
+
+## 2.0.33
+
+### Patch Changes
+
+- [#2584](https://github.com/nextui-org/nextui/pull/2584) [`d532a9da7`](https://github.com/nextui-org/nextui/commit/d532a9da7a24d3552ef1bf0706c9fbf984887ddb) Thanks [@sapkra](https://github.com/sapkra)! - Add missing export of TableRowProps type
+
+- Updated dependencies []:
+  - @nextui-org/checkbox@2.0.29
+  - @nextui-org/spacer@2.0.27
+
+## 2.0.32
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/checkbox@2.0.29
+  - @nextui-org/spacer@2.0.27
+
+## 2.0.31
+
+### Patch Changes
+
+- Updated dependencies [[`69f713cb0`](https://github.com/nextui-org/nextui/commit/69f713cb056d1d39db510b75bdd53eb29c459b19)]:
+  - @nextui-org/checkbox@2.0.28
+
+## 2.0.30
+
+### Patch Changes
+
+- [#2747](https://github.com/nextui-org/nextui/pull/2747) [`2126ea186`](https://github.com/nextui-org/nextui/commit/2126ea186317e855bfb8f4a5ad326b4e65293466) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixes adding of empty content at the bottom of the table when rows present in Table (#2742)
+
+- Updated dependencies [[`cadbb30cf`](https://github.com/nextui-org/nextui/commit/cadbb30cfb786d2b54e1cb46ea9319d4cb9ce590)]:
+  - @nextui-org/checkbox@2.0.27
+  - @nextui-org/spacer@2.0.26
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.29
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2509](https://github.com/nextui-org/nextui/pull/2509) [`5ea479f6c`](https://github.com/nextui-org/nextui/commit/5ea479f6c464ab5e9a62a0cb15e034638ea8dfd5) Thanks [@alphaxek](https://github.com/alphaxek)! - Fixed an issue where the `Table` component incorrectly rendered cell contents beneath the stripe when multiple computed values were provided in a `td` (table cell) element.
+
+- [#2472](https://github.com/nextui-org/nextui/pull/2472) [`0443ec1c8`](https://github.com/nextui-org/nextui/commit/0443ec1c878812de465966f2f65e3be56d1be9b5) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the table component.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2502](https://github.com/nextui-org/nextui/pull/2502) [`b0ee8e3fc`](https://github.com/nextui-org/nextui/commit/b0ee8e3fc22634fa8617d1b43f62ec89e87ee137) Thanks [@alphaxek](https://github.com/alphaxek)! - Fixed normal cursor to cursor-not-allowed for disabled rows in Table
+
+- [#2500](https://github.com/nextui-org/nextui/pull/2500) [`ea48ac2d0`](https://github.com/nextui-org/nextui/commit/ea48ac2d08ac641468c4b69e8ecdc0fb16cb5b46) Thanks [@alphaxek](https://github.com/alphaxek)! - fixed `Spinner` loading on top of columns instead of inside `Table` in case of `emptyContent` prop not passed to `Table` body
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`ef6ea6c1f`](https://github.com/nextui-org/nextui/commit/ef6ea6c1ffb57cd30f8994143a48b70f8ad2adeb), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`e4b3c7d1a`](https://github.com/nextui-org/nextui/commit/e4b3c7d1a19bc31c1f69c90a5b467bf8310602dc)]:
+  - @nextui-org/checkbox@2.0.26
+  - @nextui-org/spacer@2.0.25
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.0.28
 
 ### Patch Changes

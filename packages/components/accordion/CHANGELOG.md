@@ -1,5 +1,104 @@
 # @nextui-org/accordion
 
+## 2.0.35
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/use-aria-accordion@2.0.6
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+  - @nextui-org/divider@2.0.28
+
+## 2.0.34
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/use-aria-accordion@2.0.5
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/framer-utils@2.0.20
+  - @nextui-org/divider@2.0.28
+
+## 2.0.33
+
+### Patch Changes
+
+- [#2265](https://github.com/nextui-org/nextui/pull/2265) [`10497f1a9`](https://github.com/nextui-org/nextui/commit/10497f1a97c0ecfec1cf699a1cd407be48553754) Thanks [@outputboy](https://github.com/outputboy)! - Make the accordion item heading tag customizable to satisfy a11y needs. Headings on web pages need to be consistent and semantic; this will help all users better find the content they are looking for. (#2950)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2725](https://github.com/nextui-org/nextui/pull/2725) [`8048dcc0c`](https://github.com/nextui-org/nextui/commit/8048dcc0c37455d2574c93d6f9fa505a936aedb5) Thanks [@ericfabreu](https://github.com/ericfabreu)! - Fix 'Tap to click' behavior on macOS for Accordion and Tab
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/framer-utils@2.0.19
+  - @nextui-org/divider@2.0.28
+
+## 2.0.32
+
+### Patch Changes
+
+- Updated dependencies [[`10f2b8f42`](https://github.com/nextui-org/nextui/commit/10f2b8f42b1d208e4edea366c6bbc37ef8614ef6)]:
+  - @nextui-org/use-aria-accordion@2.0.4
+  - @nextui-org/divider@2.0.27
+
+## 2.0.31
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/aria-utils@2.0.18
+  - @nextui-org/framer-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/divider@2.0.27
+
+## 2.0.30
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.0.17
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/divider@2.0.27
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.29
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2219](https://github.com/nextui-org/nextui/pull/2219) [`2c3be59df`](https://github.com/nextui-org/nextui/commit/2c3be59dfb22a0059b814c63116606d5ec7345a0) Thanks [@ryo-manba](https://github.com/ryo-manba)! - fixed remove dividers from hidden accordion items (#2210)
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/divider@2.0.26
+  - @nextui-org/use-aria-accordion@2.0.3
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/framer-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.0.28
 
 ### Patch Changes
@@ -7,7 +106,7 @@
 - Updated dependencies []:
   - @nextui-org/divider@2.0.25
   - @nextui-org/aria-utils@2.0.15
-  - @nextui-org/framer-transitions@2.0.15
+  - @nextui-org/framer-utils@2.0.15
 
 ## 2.0.27
 
@@ -17,7 +116,7 @@
   - @nextui-org/shared-icons@2.0.6
   - @nextui-org/divider@2.0.24
   - @nextui-org/aria-utils@2.0.14
-  - @nextui-org/framer-transitions@2.0.14
+  - @nextui-org/framer-utils@2.0.14
 
 ## 2.0.26
 
@@ -28,7 +127,7 @@
 - Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
   - @nextui-org/divider@2.0.23
   - @nextui-org/aria-utils@2.0.13
-  - @nextui-org/framer-transitions@2.0.13
+  - @nextui-org/framer-utils@2.0.13
 
 ## 2.0.25
 
@@ -40,7 +139,7 @@
   - @nextui-org/divider@2.0.22
   - @nextui-org/system@2.0.12
   - @nextui-org/aria-utils@2.0.12
-  - @nextui-org/framer-transitions@2.0.12
+  - @nextui-org/framer-utils@2.0.12
 
 ## 2.0.24
 
@@ -55,7 +154,7 @@
   - @nextui-org/use-aria-accordion@2.0.2
   - @nextui-org/use-aria-press@2.0.1
   - @nextui-org/aria-utils@2.0.11
-  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/framer-utils@2.0.11
   - @nextui-org/react-utils@2.0.10
   - @nextui-org/shared-icons@2.0.5
   - @nextui-org/shared-utils@2.0.4
@@ -75,7 +174,7 @@
   - @nextui-org/system@2.0.10
   - @nextui-org/react-utils@2.0.9
   - @nextui-org/aria-utils@2.0.10
-  - @nextui-org/framer-transitions@2.0.10
+  - @nextui-org/framer-utils@2.0.10
 
 ## 2.0.22
 
@@ -89,7 +188,7 @@
   - @nextui-org/theme@2.1.8
   - @nextui-org/use-aria-accordion-item@2.0.5
   - @nextui-org/aria-utils@2.0.9
-  - @nextui-org/framer-transitions@2.0.9
+  - @nextui-org/framer-utils@2.0.9
   - @nextui-org/react-utils@2.0.8
   - @nextui-org/shared-icons@2.0.4
   - @nextui-org/shared-utils@2.0.3
@@ -106,7 +205,7 @@
   - @nextui-org/aria-utils@2.0.8
   - @nextui-org/divider@2.0.18
   - @nextui-org/system@2.0.8
-  - @nextui-org/framer-transitions@2.0.8
+  - @nextui-org/framer-utils@2.0.8
 
 ## 2.0.20
 
@@ -125,7 +224,7 @@
   - @nextui-org/divider@2.0.16
   - @nextui-org/system@2.0.7
   - @nextui-org/aria-utils@2.0.7
-  - @nextui-org/framer-transitions@2.0.7
+  - @nextui-org/framer-utils@2.0.7
 
 ## 2.0.18
 
@@ -136,7 +235,7 @@
   - @nextui-org/system@2.0.6
   - @nextui-org/divider@2.0.15
   - @nextui-org/aria-utils@2.0.6
-  - @nextui-org/framer-transitions@2.0.6
+  - @nextui-org/framer-utils@2.0.6
 
 ## 2.0.17
 
@@ -228,7 +327,7 @@
 
 - Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
   - @nextui-org/use-aria-accordion-item@2.0.3
-  - @nextui-org/framer-transitions@2.0.5
+  - @nextui-org/framer-utils@2.0.5
   - @nextui-org/aria-utils@2.0.5
   - @nextui-org/divider@2.0.7
   - @nextui-org/system@2.0.5
@@ -240,7 +339,7 @@
 - Updated dependencies [[`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d)]:
   - @nextui-org/system@2.0.4
   - @nextui-org/aria-utils@2.0.4
-  - @nextui-org/framer-transitions@2.0.4
+  - @nextui-org/framer-utils@2.0.4
 
 ## 2.0.6
 
@@ -290,7 +389,7 @@
   - @nextui-org/theme@2.0.3
   - @nextui-org/use-aria-accordion-item@2.0.2
   - @nextui-org/aria-utils@2.0.3
-  - @nextui-org/framer-transitions@2.0.3
+  - @nextui-org/framer-utils@2.0.3
   - @nextui-org/shared-icons@2.0.2
   - @nextui-org/shared-utils@2.0.2
 
@@ -303,7 +402,7 @@
   - @nextui-org/divider@2.0.2
   - @nextui-org/system@2.0.2
   - @nextui-org/aria-utils@2.0.2
-  - @nextui-org/framer-transitions@2.0.2
+  - @nextui-org/framer-utils@2.0.2
 
 ## 2.0.1
 
@@ -315,7 +414,7 @@
 
 - Updated dependencies [[`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140), [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140)]:
   - @nextui-org/use-aria-accordion-item@2.0.1
-  - @nextui-org/framer-transitions@2.0.1
+  - @nextui-org/framer-utils@2.0.1
   - @nextui-org/shared-icons@2.0.1
   - @nextui-org/shared-utils@2.0.1
   - @nextui-org/react-utils@2.0.1
