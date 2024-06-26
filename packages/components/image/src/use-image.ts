@@ -166,6 +166,8 @@ export function useImage(originalProps: UseImageProps) {
       crossOrigin,
       ...otherProps,
       style: {
+        // img has `height: auto` by default
+        // passing the custom height here to override if it is specified
         ...(height && {height: h}),
         ...props.style,
         ...otherProps.style,
