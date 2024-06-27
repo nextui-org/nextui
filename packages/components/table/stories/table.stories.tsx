@@ -394,7 +394,7 @@ const CustomCellWithClassnamesTemplate = (args: TableProps) => {
           <User
             avatarProps={{radius: "lg", src: user.avatar}}
             classNames={{
-              description: "text-white/60",
+              description: "text-default-400",
             }}
             description={user.email}
             name={cellValue}
@@ -406,17 +406,12 @@ const CustomCellWithClassnamesTemplate = (args: TableProps) => {
         return (
           <div className="flex flex-col">
             <p className="text-bold text-sm capitalize">{cellValue}</p>
-            <p className="text-bold text-sm capitalize text-white/60">{user.team}</p>
+            <p className="text-bold text-sm capitalize text-default-400">{user.team}</p>
           </div>
         );
       case "status":
         return (
-          <Chip
-            className="capitalize bg-black/20 font-semibold"
-            color={statusColorMap[user.status]}
-            size="sm"
-            variant="light"
-          >
+          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
             {cellValue}
           </Chip>
         );
@@ -424,12 +419,12 @@ const CustomCellWithClassnamesTemplate = (args: TableProps) => {
         return (
           <div className="relative flex items-center gap-2">
             <Tooltip color="foreground" content="Details">
-              <span className="text-lg text-white/70 cursor-pointer active:opacity-50">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EyeIcon />
               </span>
             </Tooltip>
             <Tooltip color="foreground" content="Edit user">
-              <span className="text-lg text-white/70 cursor-pointer active:opacity-50">
+              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EditIcon />
               </span>
             </Tooltip>
@@ -1038,13 +1033,22 @@ export const CustomWithClassNames = {
     ...defaultProps,
     classNames: {
       base: ["max-w-3xl", "bg-gradient-to-br", "from-purple-500", "to-indigo-900/90", "shadow-xl"],
-      th: ["bg-transparent", "text-white/70", "border-b", "border-white/10"],
+      th: [
+        "bg-transparent",
+        "text-black/70",
+        "dark:text-white/70",
+        "border-b",
+        "border-black/10",
+        "dark:border-white/10",
+      ],
       td: [
         "py-4",
         "text-sm",
-        "text-white/90",
+        "text-black/90",
+        "dark:text-white/90",
         "border-b",
-        "border-white/10",
+        "border-black/10",
+        "dark:border-white/10",
         "group-data-[last=true]:border-b-0",
       ],
     },
