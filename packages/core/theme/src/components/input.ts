@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group flex flex-col data-[hidden=true]:hidden",
     label: [
       "absolute",
       "z-10",

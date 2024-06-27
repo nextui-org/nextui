@@ -87,27 +87,33 @@ export function useRadio(props: UseRadioProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const labelId = useId();
+  const descriptionId = useId();
 
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
   const isInvalid = groupContext.isInvalid;
 
   const ariaRadioProps = useMemo(() => {
-    const ariaLabel =
-      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
     const ariaDescribedBy =
-      otherProps["aria-describedby"] || typeof description === "string"
-        ? (description as string)
-        : undefined;
+      [otherProps["aria-describedby"], descriptionId].filter(Boolean).join(" ") || undefined;
 
     return {
       id,
       isRequired,
       isDisabled: isDisabledProp,
-      "aria-label": ariaLabel,
+      "aria-label": otherProps["aria-label"],
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       "aria-describedby": ariaDescribedBy,
     };
-  }, [labelId, id, isDisabledProp, isRequired]);
+  }, [
+    id,
+    isDisabledProp,
+    isRequired,
+    description,
+    otherProps["aria-label"],
+    otherProps["aria-labelledby"],
+    otherProps["aria-describedby"],
+    descriptionId,
+  ]);
 
   const {
     inputProps,
@@ -117,8 +123,7 @@ export function useRadio(props: UseRadioProps) {
   } = useReactAriaRadio(
     {
       value,
-      children,
-      ...groupContext,
+      children: typeof children === "function" ? true : children,
       ...ariaRadioProps,
     },
     groupContext.groupState,
@@ -219,11 +224,11 @@ export function useRadio(props: UseRadioProps) {
     (props = {}) => {
       return {
         ref: inputRef,
-        ...mergeProps(props, inputProps, focusProps, {required: isRequired}),
+        ...mergeProps(props, inputProps, focusProps),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
-    [inputProps, focusProps, isRequired, onChange],
+    [inputProps, focusProps, onChange],
   );
 
   const getLabelProps: PropGetter = useCallback(
@@ -251,22 +256,30 @@ export function useRadio(props: UseRadioProps) {
     [slots, classNames?.control],
   );
 
+  const getDescriptionProps: PropGetter = useCallback(
+    (props = {}) => ({
+      ...props,
+      id: descriptionId,
+      className: slots.description({class: classNames?.description}),
+    }),
+    [slots, classNames?.description],
+  );
+
   return {
     Component,
     children,
-    slots,
-    classNames,
-    description,
     isSelected,
     isDisabled,
     isInvalid,
     isFocusVisible,
+    description,
     getBaseProps,
     getWrapperProps,
     getInputProps,
     getLabelProps,
     getLabelWrapperProps,
     getControlProps,
+    getDescriptionProps,
   };
 }
 

@@ -144,7 +144,7 @@ describe("Radio", () => {
     expect(onFocus).toBeCalled();
   });
 
-  it('should work correctly with "isRequired" prop', () => {
+  it("should have required attribute when isRequired with native validationBehavior", () => {
     const {getByRole, getAllByRole} = render(
       <RadioGroup isRequired label="Options" validationBehavior="native">
         <Radio value="1">Option 1</Radio>
@@ -159,6 +159,23 @@ describe("Radio", () => {
     const radios = getAllByRole("radio");
 
     expect(radios[0]).toHaveAttribute("required");
+  });
+
+  it("should not have required attribute when isRequired with aria validationBehavior", () => {
+    const {getByRole, getAllByRole} = render(
+      <RadioGroup isRequired label="Options" validationBehavior="aria">
+        <Radio value="1">Option 1</Radio>
+        <Radio value="2">Option 2</Radio>
+      </RadioGroup>,
+    );
+
+    const group = getByRole("radiogroup");
+
+    expect(group).toHaveAttribute("aria-required", "true");
+
+    const radios = getAllByRole("radio");
+
+    expect(radios[0]).not.toHaveAttribute("required");
   });
 
   it("should work correctly with controlled value", () => {
@@ -195,6 +212,56 @@ describe("Radio", () => {
     expect(onValueChange).toBeCalled();
 
     expect(radio2).toBeChecked();
+  });
+
+  it("should support help text description", () => {
+    const {getByRole} = render(
+      <RadioGroup description="Help text" label="Options">
+        <Radio value="1">Option 1</Radio>
+      </RadioGroup>,
+    );
+
+    const group = getByRole("radiogroup");
+
+    expect(group).toHaveAttribute("aria-describedby");
+
+    const groupDescriptionId = group.getAttribute("aria-describedby");
+    const groupDescriptionElement = document.getElementById(groupDescriptionId as string);
+
+    expect(groupDescriptionElement).toHaveTextContent("Help text");
+  });
+
+  it("should support help text description for the individual radios", () => {
+    const {getByLabelText} = render(
+      <RadioGroup description="Help text" label="Options">
+        <Radio description="Help text for option 1" value="1">
+          Option 1
+        </Radio>
+        <Radio description="Help text for option 2" value="2">
+          Option 2
+        </Radio>
+      </RadioGroup>,
+    );
+
+    const option1 = getByLabelText("Option 1");
+
+    expect(option1).toHaveAttribute("aria-describedby");
+    const option1Description = option1
+      .getAttribute("aria-describedby")
+      ?.split(" ")
+      .map((d) => document.getElementById(d)?.textContent)
+      .join(" ");
+
+    expect(option1Description).toBe("Help text for option 1 Help text");
+
+    const option2 = getByLabelText("Option 2");
+    const option2Description = option2
+      .getAttribute("aria-describedby")
+      ?.split(" ")
+      .map((d) => document.getElementById(d)?.textContent)
+      .join(" ");
+
+    expect(option2Description).toBe("Help text for option 2 Help text");
   });
 });
 

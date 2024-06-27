@@ -2,4 +2,4 @@
 "@nextui-org/date-picker": patch
 ---
 
-add missing ref to input wrapper (#3008)
+Fix calendar props on date-range-picker

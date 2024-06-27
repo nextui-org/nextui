@@ -1,5 +1,64 @@
 # @nextui-org/date-picker
 
+## 2.1.2
+
+### Patch Changes
+
+- [#3146](https://github.com/nextui-org/nextui/pull/3146) [`3da81494c`](https://github.com/nextui-org/nextui/commit/3da81494c37f26e9b0e76745e461ac091e7c03af) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add support for apply styles to DateInput (#2770, #2895, #2998)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3112](https://github.com/nextui-org/nextui/pull/3112) [`df0126f93`](https://github.com/nextui-org/nextui/commit/df0126f93f0f9c2cfa0cbfa44f5abd394ebd48d0) Thanks [@ryo-manba](https://github.com/ryo-manba)! - chore(date): update errorMessageFunction story and docs for date libraries
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`df0126f93`](https://github.com/nextui-org/nextui/commit/df0126f93f0f9c2cfa0cbfa44f5abd394ebd48d0), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/button@2.0.34
+  - @nextui-org/calendar@2.0.7
+  - @nextui-org/date-input@2.1.1
+  - @nextui-org/react-utils@2.0.14
+
+## 2.1.1
+
+### Patch Changes
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/button@2.0.33
+  - @nextui-org/calendar@2.0.6
+  - @nextui-org/popover@2.1.23
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/date-input@2.1.0
+
+## 2.1.0
+
+### Minor Changes
+
+- [#2987](https://github.com/nextui-org/nextui/pull/2987) [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Change validationBehavior from native to aria by default, with the option to change via props.
+
+### Patch Changes
+
+- [#2889](https://github.com/nextui-org/nextui/pull/2889) [`aba1716ed`](https://github.com/nextui-org/nextui/commit/aba1716edc2a85c94e6baeb4acc481f67589d002) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Update React Aria packages
+
+- [#2854](https://github.com/nextui-org/nextui/pull/2854) [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise popover-based focus behaviours (#2849, #2834, #2779, #2962, #2872, #2974, #1920, #1287, #3060)
+
+- [#3011](https://github.com/nextui-org/nextui/pull/3011) [`ca8554ccf`](https://github.com/nextui-org/nextui/commit/ca8554ccff143c49aea535b98e4ffdbcd0040a26) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing ref to input wrapper (#3008)
+
+- [#2845](https://github.com/nextui-org/nextui/pull/2845) [`6bbd234aa`](https://github.com/nextui-org/nextui/commit/6bbd234aa23fa594a191e39265296c3be09fda7f) Thanks [@chirokas](https://github.com/chirokas)! - Fix calendar header controlled state on DatePicker.
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2908](https://github.com/nextui-org/nextui/pull/2908) [`2a2a0692c`](https://github.com/nextui-org/nextui/commit/2a2a0692ca81ea575d2328d933d775ccbd43ac1c) Thanks [@wingkwong](https://github.com/wingkwong)! - keep date picker style consistent for different variants (#2901)
+
+- [#3014](https://github.com/nextui-org/nextui/pull/3014) [`20ba81948`](https://github.com/nextui-org/nextui/commit/20ba81948d86ccc7ea4269cceb06e04899903b0e) Thanks [@winchesHe](https://github.com/winchesHe)! - add the correct peerDep version
+
+- Updated dependencies [[`aba1716ed`](https://github.com/nextui-org/nextui/commit/aba1716edc2a85c94e6baeb4acc481f67589d002), [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`bf68c91b9`](https://github.com/nextui-org/nextui/commit/bf68c91b9a5be2014830859b0be2127d657ba90f), [`c83ff382b`](https://github.com/nextui-org/nextui/commit/c83ff382b9e5deaa08ed7e64eee484cc4904704d), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2), [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a), [`20ba81948`](https://github.com/nextui-org/nextui/commit/20ba81948d86ccc7ea4269cceb06e04899903b0e)]:
+  - @nextui-org/calendar@2.0.5
+  - @nextui-org/date-input@2.1.0
+  - @nextui-org/popover@2.1.22
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/button@2.0.32
+
 ## 2.0.7
 
 ### Patch Changes

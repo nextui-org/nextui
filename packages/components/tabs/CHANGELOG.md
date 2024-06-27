@@ -1,5 +1,46 @@
 # @nextui-org/tabs
 
+## 2.0.32
+
+### Patch Changes
+
+- [#3164](https://github.com/nextui-org/nextui/pull/3164) [`5c83e9cea`](https://github.com/nextui-org/nextui/commit/5c83e9ceafd014691b0532192bee28dd1cdc503f) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect content in tab panel (#3159)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3246](https://github.com/nextui-org/nextui/pull/3246) [`d8ceab357`](https://github.com/nextui-org/nextui/commit/d8ceab3579e94a68217e5ddb135f256d40281564) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed set tab panel id correctly (#2809)
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+
+## 2.0.31
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/framer-utils@2.0.20
+
+## 2.0.30
+
+### Patch Changes
+
+- [#2953](https://github.com/nextui-org/nextui/pull/2953) [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix update type definition to prevent primitive values as items (#2938)
+
+- [#2973](https://github.com/nextui-org/nextui/pull/2973) [`e34c5e307`](https://github.com/nextui-org/nextui/commit/e34c5e307d1dfa2747e7fd77752983ad30a7e3eb) Thanks [@wingkwong](https://github.com/wingkwong)! - Add `destroyInactiveTabPanel` prop for Tabs component (#1562)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2725](https://github.com/nextui-org/nextui/pull/2725) [`8048dcc0c`](https://github.com/nextui-org/nextui/commit/8048dcc0c37455d2574c93d6f9fa505a936aedb5) Thanks [@ericfabreu](https://github.com/ericfabreu)! - Fix 'Tap to click' behavior on macOS for Accordion and Tab
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/framer-utils@2.0.19
+
 ## 2.0.29
 
 ### Patch Changes

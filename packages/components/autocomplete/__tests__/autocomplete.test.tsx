@@ -48,6 +48,20 @@ const itemsSectionData = [
   },
 ];
 
+const ControlledAutocomplete = <T extends object>(props: AutocompleteProps<T>) => {
+  const [selectedKey, setSelectedKey] = React.useState<React.Key | null>("cat");
+
+  return (
+    <Autocomplete
+      {...props}
+      aria-label="Favorite Animal"
+      label="Favorite Animal"
+      selectedKey={selectedKey}
+      onSelectionChange={setSelectedKey}
+    />
+  );
+};
+
 const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
   <Autocomplete label="Favorite Animal" {...props}>
     <AutocompleteItem key="penguin" value="penguin">
@@ -165,7 +179,7 @@ describe("Autocomplete", () => {
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
-    // assert that input is focused
+    // assert that the autocomplete input is focused
     expect(autocomplete).toHaveFocus();
   });
 
@@ -355,8 +369,8 @@ describe("Autocomplete", () => {
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
 
-    // assert that input is not focused
-    expect(autocomplete).not.toHaveFocus();
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
   });
 
   it("should set the input after selection", async () => {
@@ -529,7 +543,7 @@ describe("Autocomplete", () => {
           <form data-testid="form">
             <AutocompleteExample
               defaultInputValue="Penguin"
-              validate={(v) => (v === "Penguin" ? "Invalid value" : null)}
+              validate={(v) => (v.inputValue === "Penguin" ? "Invalid value" : null)}
               validationBehavior="aria"
             />
           </form>,
@@ -558,6 +572,60 @@ describe("Autocomplete", () => {
         expect(input).not.toHaveAttribute("aria-invalid");
       });
     });
+  });
+
+  it("should work when key equals textValue", async () => {
+    const wrapper = render(
+      <Autocomplete
+        aria-label="Favorite Animal"
+        data-testid="when-key-equals-textValue"
+        defaultSelectedKey="cat"
+        items={itemsData}
+        label="Favorite Animal"
+      >
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("when-key-equals-textValue");
+
+    const user = userEvent.setup();
+
+    await user.click(autocomplete);
+
+    expect(autocomplete).toHaveValue("cat");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete).toHaveValue("dog");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should work when key equals textValue (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="when-key-equals-textValue" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("when-key-equals-textValue");
+
+    const user = userEvent.setup();
+
+    await user.click(autocomplete);
+
+    expect(autocomplete).toHaveValue("cat");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete).toHaveValue("dog");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
   });
 });
 

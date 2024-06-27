@@ -35,11 +35,11 @@ export const Hero = () => {
             color="default"
             href="/blog/v2.3.0"
             variant="dot"
-            onClick={() => handlePressAnnouncement("Introducing v2.3.0", "/blog/v2.3.0")}
+            onClick={() => handlePressAnnouncement("New version v2.4.0", "/blog/v2.4.0")}
           >
-            Introducing v2.3.0&nbsp;
-            <span aria-label="tada emoji" role="img">
-              🎉
+            New version v2.4.0&nbsp;
+            <span aria-label="emoji" role="img">
+              🚀
             </span>
           </Chip>
         </div>

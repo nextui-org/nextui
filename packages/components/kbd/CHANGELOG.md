@@ -1,5 +1,22 @@
 # @nextui-org/kbd
 
+## 2.0.30
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/system-rsc@2.1.2
+
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies [[`e3afa4789`](https://github.com/nextui-org/nextui/commit/e3afa4789a1ac0fa929b2acaca5bd9c520567ab8), [`1109baea6`](https://github.com/nextui-org/nextui/commit/1109baea6ac6aa3feb2be90ef065f61b2c2a06a9)]:
+  - @nextui-org/system-rsc@2.1.2
+
 ## 2.0.28
 
 ### Patch Changes

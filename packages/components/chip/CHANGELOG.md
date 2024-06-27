@@ -1,5 +1,21 @@
 # @nextui-org/chip
 
+## 2.0.30
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/react-utils@2.0.14
+
+## 2.0.29
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
 ## 2.0.28
 
 ### Patch Changes

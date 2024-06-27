@@ -179,7 +179,8 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx"
+          "path": "/docs/components/checkbox.mdx",
+          "updated": true
         },
         {
           "key": "checkbox-group",
@@ -397,7 +398,8 @@
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx"
+          "path": "/docs/components/tooltip.mdx",
+          "updated": true
         },
         {
           "key": "user",

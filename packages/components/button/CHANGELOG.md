@@ -1,5 +1,38 @@
 # @nextui-org/button
 
+## 2.0.34
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/ripple@2.0.30
+  - @nextui-org/spinner@2.0.30
+
+## 2.0.33
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/ripple@2.0.29
+  - @nextui-org/spinner@2.0.29
+
+## 2.0.32
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/ripple@2.0.29
+  - @nextui-org/spinner@2.0.29
+
 ## 2.0.31
 
 ### Patch Changes
