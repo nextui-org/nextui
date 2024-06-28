@@ -104,7 +104,7 @@
     "@react-types/shared": "3.23.1",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
-    "@types/lodash": "^4.14.194",
+    "@types/lodash": "^4.17.5",
     "@types/marked": "^5.0.0",
     "@types/mdx": "^2.0.5",
     "@types/node": "20.2.5",

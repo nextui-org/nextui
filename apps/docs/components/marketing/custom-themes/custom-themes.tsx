@@ -3,7 +3,6 @@
 /* eslint-disable react/display-name */
 import {useMemo, useState} from "react";
 import {Tabs, Tab, Card, CardBody, Image, Button, RadioGroup, Radio} from "@nextui-org/react";
-import get from "lodash/get";
 import NextLink from "next/link";
 import NextImage from "next/image";
 
@@ -238,7 +237,7 @@ export const CustomThemes = () => {
           <CodeWindow
             showWindowIcons
             className="max-h-[440px] min-h-[390px]"
-            highlightLines={get(codeHighlights, selectedTheme)}
+            highlightLines={codeHighlights[selectedTheme]}
             isScrollable={false}
             language="jsx"
             title="tailwind.config.js"
