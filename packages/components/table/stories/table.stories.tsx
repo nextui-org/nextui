@@ -411,7 +411,12 @@ const CustomCellWithClassnamesTemplate = (args: TableProps) => {
         );
       case "status":
         return (
-          <Chip className="capitalize" color={statusColorMap[user.status]} size="sm" variant="flat">
+          <Chip
+            className="capitalize font-semibold"
+            color={statusColorMap[user.status]}
+            size="sm"
+            variant="flat"
+          >
             {cellValue}
           </Chip>
         );
@@ -1033,22 +1038,13 @@ export const CustomWithClassNames = {
     ...defaultProps,
     classNames: {
       base: ["max-w-3xl", "bg-gradient-to-br", "from-purple-500", "to-indigo-900/90", "shadow-xl"],
-      th: [
-        "bg-transparent",
-        "text-black/70",
-        "dark:text-white/70",
-        "border-b",
-        "border-black/10",
-        "dark:border-white/10",
-      ],
+      th: ["bg-transparent", "text-default-700", "border-b", "border-default"],
       td: [
         "py-4",
         "text-sm",
-        "text-black/90",
-        "dark:text-white/90",
+        "text-default-700",
         "border-b",
-        "border-black/10",
-        "dark:border-white/10",
+        "border-default",
         "group-data-[last=true]:border-b-0",
       ],
     },
