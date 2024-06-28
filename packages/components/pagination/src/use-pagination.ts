@@ -16,6 +16,7 @@ import scrollIntoView from "scroll-into-view-if-needed";
 import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {useIntersectionObserver} from "@nextui-org/use-intersection-observer";
 import {PressEvent} from "@react-types/shared";
 
 export type PaginationItemRenderProps = {
@@ -192,6 +193,9 @@ export function usePagination(originalProps: UsePaginationProps) {
   const cursorRef = useRef<HTMLElement>(null);
   const itemsRef = useRef<Map<number, HTMLElement>>();
 
+  const {ref: activeIntersectionRef, isIntersecting: isActiveVisible} = useIntersectionObserver({
+    freezeOnceVisible: true,
+  });
   const cursorTimer = useRef<Timer>();
 
   const {direction} = useLocale();
@@ -221,11 +225,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
   }
 
-  function scrollTo(value: number, skipAnimation: boolean) {
-    const map = getItemsRefMap();
-
-    const node = map.get(value);
-
+  function scrollTo(node: HTMLElement | undefined, skipAnimation: boolean) {
     if (!node || !cursorRef.current) return;
 
     // clean up the previous cursor timer (if any)
@@ -281,12 +281,21 @@ export function usePagination(originalProps: UsePaginationProps) {
   const activePageRef = useRef(activePage);
 
   useEffect(() => {
-    if (activePage && !disableAnimation) {
-      scrollTo(activePage, activePage === activePageRef.current);
+    const map = getItemsRefMap();
+    const node = map.get(activePage);
+
+    activeIntersectionRef(node);
+
+    // Initially, isActiveVisible will be false because initialIsIntersecting
+    // in use-intersection-observer is set to false. Once the node enters the viewport,
+    // isActiveVisible will become true.
+    if (activePage && !disableAnimation && isActiveVisible) {
+      scrollTo(node, activePage === activePageRef.current);
     }
     activePageRef.current = activePage;
   }, [
     activePage,
+    isActiveVisible,
     disableAnimation,
     disableCursorAnimation,
     originalProps.dotsJump,
