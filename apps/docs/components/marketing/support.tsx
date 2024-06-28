@@ -2,7 +2,7 @@
 
 import {FC, useMemo, useRef} from "react";
 import {Avatar, AvatarProps, Button, Spacer, Tooltip} from "@nextui-org/react";
-import {clamp, get} from "lodash";
+import {clamp} from "@nextui-org/shared-utils";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 
@@ -132,9 +132,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
             size={getSponsorSize(sponsor, isMobile)}
             src={sponsor.image}
             style={getSponsorAvatarStyles(index, sponsors)}
-            onClick={() =>
-              handleExternalLinkClick(get(sponsor, "website") || get(sponsor, "profile"))
-            }
+            onClick={() => handleExternalLinkClick(sponsor["website"] || sponsor["profile"])}
           />
         ))}
       </div>

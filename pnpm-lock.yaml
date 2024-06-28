@@ -533,8 +533,8 @@ importers:
         specifier: ^1.4.2
         version: 1.6.4
       '@types/lodash':
-        specifier: ^4.14.194
-        version: 4.17.0
+        specifier: ^4.17.5
+        version: 4.17.5
       '@types/marked':
         specifier: ^5.0.0
         version: 5.0.2
@@ -1030,12 +1030,6 @@ importers:
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
-      '@types/lodash.debounce':
-        specifier: ^4.0.7
-        version: 4.0.9
-      lodash.debounce:
-        specifier: ^4.0.8
-        version: 4.0.8
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -3044,6 +3038,9 @@ importers:
 
   packages/core/theme:
     dependencies:
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -3059,21 +3056,6 @@ importers:
       flat:
         specifier: ^5.0.2
         version: 5.0.2
-      lodash.foreach:
-        specifier: ^4.5.0
-        version: 4.5.0
-      lodash.get:
-        specifier: ^4.4.2
-        version: 4.4.2
-      lodash.kebabcase:
-        specifier: ^4.1.1
-        version: 4.1.1
-      lodash.mapkeys:
-        specifier: ^4.6.0
-        version: 4.6.0
-      lodash.omit:
-        specifier: ^4.5.0
-        version: 4.5.0
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0
@@ -3087,21 +3069,6 @@ importers:
       '@types/flat':
         specifier: ^5.0.2
         version: 5.0.5
-      '@types/lodash.foreach':
-        specifier: ^4.5.7
-        version: 4.5.9
-      '@types/lodash.get':
-        specifier: ^4.4.7
-        version: 4.4.9
-      '@types/lodash.kebabcase':
-        specifier: ^4.1.7
-        version: 4.1.9
-      '@types/lodash.mapkeys':
-        specifier: ^4.6.7
-        version: 4.6.9
-      '@types/lodash.omit':
-        specifier: ^4.5.7
-        version: 4.5.9
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -3425,13 +3392,6 @@ importers:
         version: 18.2.0
 
   packages/hooks/use-infinite-scroll:
-    dependencies:
-      '@types/lodash.debounce':
-        specifier: ^4.0.7
-        version: 4.0.9
-      lodash.debounce:
-        specifier: ^4.0.8
-        version: 4.0.8
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -11034,7 +10994,7 @@ packages:
       '@storybook/preview-api': 7.6.17
       '@storybook/theming': 7.6.17(react-dom@18.2.0)(react@18.2.0)
       '@storybook/types': 7.6.17
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
       color-convert: 2.0.1
       dequal: 2.0.3
       lodash: 4.17.21
@@ -12166,44 +12126,9 @@ packages:
       '@types/node': 15.14.9
     dev: true
 
-  /@types/lodash.debounce@4.0.9:
-    resolution: {integrity: sha512-Ma5JcgTREwpLRwMM+XwBR7DaWe96nC38uCBDFKZWbNKD+osjVzdpnUSwBcqCptrp16sSOLBAUb50Car5I0TCsQ==}
-    dependencies:
-      '@types/lodash': 4.17.0
-    dev: false
-
-  /@types/lodash.foreach@4.5.9:
-    resolution: {integrity: sha512-vmq0p/FK66PsALXRmK/qsnlLlCpnudvozWYrxJImHujHhXMADdeoPEY10zwmu26437w85wCvdxUqpFi+ALtkiQ==}
-    dependencies:
-      '@types/lodash': 4.17.0
+  /@types/lodash@4.17.5:
+    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
     dev: true
-
-  /@types/lodash.get@4.4.9:
-    resolution: {integrity: sha512-J5dvW98sxmGnamqf+/aLP87PYXyrha9xIgc2ZlHl6OHMFR2Ejdxep50QfU0abO1+CH6+ugx+8wEUN1toImAinA==}
-    dependencies:
-      '@types/lodash': 4.17.0
-    dev: true
-
-  /@types/lodash.kebabcase@4.1.9:
-    resolution: {integrity: sha512-kPrrmcVOhSsjAVRovN0lRfrbuidfg0wYsrQa5IYuoQO1fpHHGSme66oyiYA/5eQPVl8Z95OA3HG0+d2SvYC85w==}
-    dependencies:
-      '@types/lodash': 4.17.0
-    dev: true
-
-  /@types/lodash.mapkeys@4.6.9:
-    resolution: {integrity: sha512-6/ERBCabeDI656LsV+oopLjdnJ/x1PCAE6kkkssH8e4i0K7Pw307noxHCbUc6cAVfTo9vx0Z+k3QZwy1IrUZcA==}
-    dependencies:
-      '@types/lodash': 4.17.0
-    dev: true
-
-  /@types/lodash.omit@4.5.9:
-    resolution: {integrity: sha512-zuAVFLUPJMOzsw6yawshsYGgq2hWUHtsZgeXHZmSFhaQQFC6EQ021uDKHkSjOpNhSvtNSU9165/o3o/Q51GpTw==}
-    dependencies:
-      '@types/lodash': 4.17.0
-    dev: true
-
-  /@types/lodash@4.17.0:
-    resolution: {integrity: sha512-t7dhREVv6dbNj0q17X12j7yDG4bD/DHYX7o5/DbDxobP0HnGPgpRz2Ej77aL7TZT3DSw13fqUTj8J4mMnqa7WA==}
 
   /@types/marked@5.0.2:
     resolution: {integrity: sha512-OucS4KMHhFzhz27KxmWg7J+kIYqyqoW5kdIEI319hqARQQUTqhao3M/F+uFnDXD0Rg72iDDZxZNxq5gvctmLlg==}
@@ -20311,12 +20236,9 @@ packages:
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
-  /lodash.foreach@4.5.0:
-    resolution: {integrity: sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==}
-    dev: false
-
   /lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
+    dev: true
 
   /lodash.isfunction@3.0.9:
     resolution: {integrity: sha512-AirXNj15uRIMMPihnkInB4i3NHeb4iBtNg9WRWuK2o31S+ePwwNmDPaTL3o7dTJ+VXNZim7rFs4rxN4YU1oUJw==}
@@ -20328,10 +20250,7 @@ packages:
 
   /lodash.kebabcase@4.1.1:
     resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==}
-
-  /lodash.mapkeys@4.6.0:
-    resolution: {integrity: sha512-0Al+hxpYvONWtg+ZqHpa/GaVzxuN3V7Xeo2p+bY06EaK/n+Y9R7nBePPN2o1LxmL0TWQSwP8LYZ008/hc9JzhA==}
-    dev: false
+    dev: true
 
   /lodash.memoize@4.1.2:
     resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
@@ -20343,10 +20262,6 @@ packages:
   /lodash.mergewith@4.6.2:
     resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
     dev: true
-
-  /lodash.omit@4.5.0:
-    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
-    dev: false
 
   /lodash.snakecase@4.1.1:
     resolution: {integrity: sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw==}

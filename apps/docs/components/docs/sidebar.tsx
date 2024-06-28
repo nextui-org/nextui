@@ -18,7 +18,7 @@ import {
   dataFocusVisibleClasses,
 } from "@nextui-org/react";
 import Link from "next/link";
-import {isEmpty} from "lodash";
+import {isEmpty} from "@nextui-org/shared-utils";
 import {usePathname, useRouter} from "next/navigation";
 
 import {ScrollArea} from "../scroll-area";

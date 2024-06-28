@@ -1,4 +1,3 @@
-import debounce from "lodash.debounce";
 import {useLayoutEffect, useRef} from "react";
 
 export interface UseInfiniteScrollProps {
@@ -24,6 +23,25 @@ export interface UseInfiniteScrollProps {
    * Callback to load more items.
    */
   onLoadMore?: () => void;
+}
+
+function debounce<F extends (...args: any[]) => void>(func: F, waitMilliseconds: number = 0) {
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    const context = this;
+
+    const later = () => {
+      timeout = undefined;
+      func.apply(context, args);
+    };
+
+    if (timeout !== undefined) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(later, waitMilliseconds);
+  };
 }
 
 export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
