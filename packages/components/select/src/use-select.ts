@@ -6,7 +6,7 @@ import {
   HTMLNextUIProps,
   mapPropsVariants,
   PropGetter,
-  ShardSelection,
+  SharedSelection,
   useProviderContext,
 } from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
@@ -132,7 +132,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
   /**
    * Handler that is called when the selection changes.
    */
-  onSelectionChange?: (keys: ShardSelection) => any;
+  onSelectionChange?: (keys: SharedSelection) => any;
 }
 
 interface SelectData {

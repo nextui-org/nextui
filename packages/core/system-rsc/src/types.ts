@@ -82,7 +82,7 @@ export type PropGetter<P = Record<string, unknown>, R = DOMAttributes> = (
   ref?: React.Ref<any>,
 ) => R & React.RefAttributes<any>;
 
-export type ShardSelection = AriaSharedSelection & {
+export type SharedSelection = AriaSharedSelection & {
   anchorKey?: string;
   currentKey?: string;
 };

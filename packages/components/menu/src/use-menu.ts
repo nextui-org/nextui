@@ -2,7 +2,7 @@ import {
   useProviderContext,
   type HTMLNextUIProps,
   type PropGetter,
-  type ShardSelection,
+  type SharedSelection,
 } from "@nextui-org/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";
@@ -89,7 +89,7 @@ interface Props<T> {
   /**
    * Handler that is called when the selection changes.
    */
-  onSelectionChange?: (keys: ShardSelection) => any;
+  onSelectionChange?: (keys: SharedSelection) => any;
 }
 
 export type UseMenuProps<T = object> = Props<T> &
