@@ -132,7 +132,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
   /**
    * Handler that is called when the selection changes.
    */
-  onSelectionChange?: (keys: SharedSelection) => any;
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 
 interface SelectData {

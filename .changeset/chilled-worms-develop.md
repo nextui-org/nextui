@@ -5,4 +5,4 @@
 "@nextui-org/system-rsc": patch
 ---
 
-Fix onSelectionChange type incorrect
+Fix onSelectionChange type incorrect (#2512)
