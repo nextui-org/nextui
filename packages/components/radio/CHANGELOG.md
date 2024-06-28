@@ -1,5 +1,11 @@
 # @nextui-org/radio
 
+## 2.1.3
+
+### Patch Changes
+
+- [#3301](https://github.com/nextui-org/nextui/pull/3301) [`42183353a`](https://github.com/nextui-org/nextui/commit/42183353a1a03c567724e125be3414dc52aad48a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix ensure radio input correctly references description (#2932)
+
 ## 2.1.2
 
 ### Patch Changes

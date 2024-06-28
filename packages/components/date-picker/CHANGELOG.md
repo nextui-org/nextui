@@ -1,5 +1,18 @@
 # @nextui-org/date-picker
 
+## 2.1.3
+
+### Patch Changes
+
+- [#3258](https://github.com/nextui-org/nextui/pull/3258) [`773f3004a`](https://github.com/nextui-org/nextui/commit/773f3004a61966fea2cc14e2f22337ff72365100) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix calendar props on date-range-picker
+
+- Updated dependencies []:
+  - @nextui-org/calendar@2.0.8
+  - @nextui-org/popover@2.1.25
+  - @nextui-org/button@2.0.35
+  - @nextui-org/date-input@2.1.1
+  - @nextui-org/aria-utils@2.0.22
+
 ## 2.1.2
 
 ### Patch Changes

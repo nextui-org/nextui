@@ -1,5 +1,11 @@
 # @nextui-org/chip
 
+## 2.0.31
+
+### Patch Changes
+
+- [#3300](https://github.com/nextui-org/nextui/pull/3300) [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add accessible name to the icon button (#2802, #2808)
+
 ## 2.0.30
 
 ### Patch Changes
