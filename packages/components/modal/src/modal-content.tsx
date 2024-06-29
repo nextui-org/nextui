@@ -6,7 +6,7 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
-import {domAnimation, LazyMotion, m} from "framer-motion";
+import {LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {chain, mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
@@ -84,6 +84,8 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
       return <div {...getBackdropProps()} />;
     }
 
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
     return (
       <LazyMotion features={domAnimation}>
         <m.div
@@ -97,25 +99,33 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
-  const contents = disableAnimation ? (
-    <div className={slots.wrapper({class: classNames?.wrapper})} data-slot="wrapper">
-      {content}
-    </div>
-  ) : (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        animate="enter"
-        className={slots.wrapper({class: classNames?.wrapper})}
-        data-slot="wrapper"
-        exit="exit"
-        initial="exit"
-        variants={scaleInOut}
-        {...motionProps}
-      >
-        {content}
-      </m.div>
-    </LazyMotion>
-  );
+  const contents = useMemo(() => {
+    if (disableAnimation) {
+      return (
+        <div className={slots.wrapper({class: classNames?.wrapper})} data-slot="wrapper">
+          {content}
+        </div>
+      );
+    }
+
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
+    return (
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          className={slots.wrapper({class: classNames?.wrapper})}
+          data-slot="wrapper"
+          exit="exit"
+          initial="exit"
+          variants={scaleInOut}
+          {...motionProps}
+        >
+          {content}
+        </m.div>
+      </LazyMotion>
+    );
+  }, [disableAnimation, classNames, motionProps]);
 
   return (
     <div tabIndex={-1}>
