@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.2.7
+
+### Patch Changes
+
+- [#3291](https://github.com/nextui-org/nextui/pull/3291) [`e9a6a162e`](https://github.com/nextui-org/nextui/commit/e9a6a162e8a26c6507938191c4e0b5bd94bdbf8d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed variants for nested accordions (#3285)
+
 ## 2.2.6
 
 ### Patch Changes

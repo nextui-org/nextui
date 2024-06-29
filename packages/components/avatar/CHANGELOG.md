@@ -1,5 +1,11 @@
 # @nextui-org/avatar
 
+## 2.0.31
+
+### Patch Changes
+
+- [#3260](https://github.com/nextui-org/nextui/pull/3260) [`6951b1fba`](https://github.com/nextui-org/nextui/commit/6951b1fba03652f95babe3a490caa2a061b8cb12) Thanks [@wingkwong](https://github.com/wingkwong)! - Removed extra `disableAnimation` prop in `getImageProps` (#3257)
+
 ## 2.0.30
 
 ### Patch Changes

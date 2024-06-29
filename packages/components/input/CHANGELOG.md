@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.2.3
+
+### Patch Changes
+
+- [#3300](https://github.com/nextui-org/nextui/pull/3300) [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add accessible name to the icon button (#2802, #2808)
+
 ## 2.2.2
 
 ### Patch Changes
