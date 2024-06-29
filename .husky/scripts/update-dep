@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+changed_files="$(git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD)"
+
+check_run() {
+  if (echo "$changed_files" | grep --quiet "$1"); then
+    echo "Detected changes in pnpm-lock.yaml, starting dependency update"
+    eval "$2"
+  fi
+}
+
+check_run pnpm-lock.yaml "pnpm install --color"
