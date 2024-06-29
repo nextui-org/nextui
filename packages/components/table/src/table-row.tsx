@@ -12,16 +12,16 @@ import {useMemo} from "react";
 
 import {ValuesType} from "./use-table";
 
-// @internal
 export interface TableRowProps<T = object> extends Omit<BaseTableRowProps, "children"> {
-  /**
-   * The table row.
-   */
   node: GridNode<T>;
   slots: ValuesType["slots"];
   state: ValuesType["state"];
   isSelectable?: ValuesType["isSelectable"];
-  classNames?: ValuesType["classNames"];
+  classNames?: ValuesType["classNames"] & {
+    trStriped?: string;
+    trSelected?: string;
+    trStripedSelected?: string;
+  };
 }
 
 const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
@@ -34,9 +34,6 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
   const domRef = useDOMRef(ref);
 
   const {rowProps} = useTableRow({node}, state, domRef);
-
-  const trStyles = clsx(classNames?.tr, className, node.props?.className);
-
   const {isFocusVisible, focusProps} = useFocusRing();
 
   const isDisabled = state.disabledKeys.has(node.key);
@@ -58,6 +55,14 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
     };
   }, [node, state.collection]);
 
+  const trStyles = slots.tr?.({
+    class: clsx(classNames?.tr, className, node.props?.className, {
+      [classNames?.trStriped ?? ""]: isOdd,
+      [classNames?.trSelected ?? ""]: isSelected,
+      [classNames?.trStripedSelected ?? ""]: isOdd && isSelected,
+    }),
+  });
+
   return (
     <Component
       ref={domRef}
@@ -78,7 +83,7 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
         }),
         otherProps,
       )}
-      className={slots.tr?.({class: trStyles})}
+      className={trStyles}
     >
       {children}
     </Component>
