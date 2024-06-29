@@ -5,7 +5,7 @@ import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
-import {m, domAnimation, LazyMotion} from "framer-motion";
+import {m, LazyMotion} from "framer-motion";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {RemoveScroll} from "react-remove-scroll";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
@@ -69,6 +69,8 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
       return <div {...getBackdropProps()} />;
     }
 
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
     return (
       <LazyMotion features={domAnimation}>
         <m.div
@@ -82,26 +84,32 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
+  const removeScrollContent = useMemo(() => {
+    if (disableAnimation) return content;
+
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
+    return (
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="initial"
+          style={{
+            ...getTransformOrigins(placement === "center" ? "top" : placement),
+          }}
+          variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+          {...motionProps}
+        >
+          {content}
+        </m.div>
+      </LazyMotion>
+    );
+  }, [disableAnimation, getTransformOrigins]);
+
   const contents = (
     <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-      {disableAnimation ? (
-        content
-      ) : (
-        <LazyMotion features={domAnimation}>
-          <m.div
-            animate="enter"
-            exit="exit"
-            initial="initial"
-            style={{
-              ...getTransformOrigins(placement === "center" ? "top" : placement),
-            }}
-            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-            {...motionProps}
-          >
-            {content}
-          </m.div>
-        </LazyMotion>
-      )}
+      {removeScrollContent}
     </RemoveScroll>
   );
 
