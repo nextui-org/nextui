@@ -1,7 +1,8 @@
+import {useMemo} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {AnimatePresence, domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {ReactElement, useCallback} from "react";
 import {RemoveScroll} from "react-remove-scroll";
@@ -42,24 +43,11 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
     [isMenuOpen],
   );
 
-  const contents = disableAnimation ? (
-    <MenuWrapper>
-      <ul
-        ref={domRef}
-        className={slots.menu?.({class: styles})}
-        data-open={dataAttr(isMenuOpen)}
-        style={{
-          // @ts-expect-error
-          "--navbar-height": height,
-        }}
-        {...otherProps}
-      >
-        {children}
-      </ul>
-    </MenuWrapper>
-  ) : (
-    <AnimatePresence mode="wait">
-      {isMenuOpen ? (
+  const content = useMemo(() => {
+    if (isMenuOpen) {
+      const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
+      return (
         <LazyMotion features={domAnimation}>
           <MenuWrapper>
             <m.ul
@@ -82,8 +70,29 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
             </m.ul>
           </MenuWrapper>
         </LazyMotion>
-      ) : null}
-    </AnimatePresence>
+      );
+    }
+
+    return null;
+  }, [otherProps, motionProps, height, style]);
+
+  const contents = disableAnimation ? (
+    <MenuWrapper>
+      <ul
+        ref={domRef}
+        className={slots.menu?.({class: styles})}
+        data-open={dataAttr(isMenuOpen)}
+        style={{
+          // @ts-expect-error
+          "--navbar-height": height,
+        }}
+        {...otherProps}
+      >
+        {children}
+      </ul>
+    </MenuWrapper>
+  ) : (
+    <AnimatePresence mode="wait">{content}</AnimatePresence>
   );
 
   return <Overlay portalContainer={portalContainer}>{contents}</Overlay>;
