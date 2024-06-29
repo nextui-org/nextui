@@ -254,6 +254,16 @@ describe("Calendar", () => {
       expect(onChange).not.toHaveBeenCalled();
     });
 
+    it("should not open a month & year picker if isDisabled is true", () => {
+      const {container} = render(
+        <Calendar isDisabled showMonthAndYearPickers value={new CalendarDate(2024, 6, 29)} />,
+      );
+
+      const headerButtonPicker = container.querySelector("[data-slot='header']");
+
+      expect(headerButtonPicker).toHaveAttribute("disabled");
+    });
+
     it("should not select a date on click if isReadOnly", () => {
       let onChange = jest.fn();
       let {getByLabelText, getByText} = render(
