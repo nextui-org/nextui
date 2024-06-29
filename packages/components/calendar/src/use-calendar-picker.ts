@@ -115,6 +115,8 @@ export function useCalendarPicker(props: CalendarPickerProps) {
 
   // scroll to the selected month/year when the component is mounted/opened/closed
   useEffect(() => {
+    if (!isHeaderExpanded) return;
+
     scrollTo(date.month, "months", false);
     scrollTo(date.year, "years", false);
   }, [isHeaderExpanded]);
