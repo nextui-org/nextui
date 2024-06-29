@@ -3,7 +3,7 @@ import type {Variants} from "framer-motion";
 import {forwardRef} from "@nextui-org/system";
 import {useMemo, ReactNode} from "react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
-import {AnimatePresence, LazyMotion, domAnimation, m, useWillChange} from "framer-motion";
+import {AnimatePresence, LazyMotion, m, useWillChange} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
@@ -59,6 +59,8 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
       exit: {...TRANSITION_VARIANTS.collapse.exit, overflowY: "hidden"},
       enter: {...TRANSITION_VARIANTS.collapse.enter, overflowY: "unset"},
     };
+
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
     return keepContentMounted ? (
       <LazyMotion features={domAnimation}>
