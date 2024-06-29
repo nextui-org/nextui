@@ -10,7 +10,7 @@ import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
 export interface AccordionItemProps extends UseAccordionItemProps {}
 
-const domAnimation = () => import("./dom-animation").then((res) => res.default);
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {

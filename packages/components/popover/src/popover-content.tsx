@@ -19,7 +19,7 @@ export interface PopoverContentProps
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
-const domAnimation = () => import("./dom-animation").then((res) => res.default);
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const {as, children, className, ...otherProps} = props;

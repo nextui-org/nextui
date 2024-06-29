@@ -21,7 +21,7 @@ export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
-const domAnimation = () => import("./dom-animation").then((res) => res.default);
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;
@@ -86,7 +86,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
       return <div {...getBackdropProps()} />;
     }
 
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+    const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
     return (
       <LazyMotion features={domAnimation}>

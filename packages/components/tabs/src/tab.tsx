@@ -26,7 +26,7 @@ export interface TabItemProps<T extends object = object> extends BaseTabItemProp
   disableCursorAnimation?: ValuesType["disableCursorAnimation"];
 }
 
-const domAnimation = () => import("./dom-animation").then((res) => res.default);
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 /**
  * @internal
