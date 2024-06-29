@@ -39,7 +39,7 @@ export type CodeBlockProps = PreProps & {
  * recursively get all text nodes as an array for a given element
  */
 function getTextNodes(node: any): any[] {
-  let childTextNodes = [];
+  let childTextNodes: React.ReactNode[] = [];
 
   if (!node.hasChildNodes()) return [];
 

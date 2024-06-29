@@ -59,8 +59,8 @@ export function CalendarBase(props: CalendarBaseProps) {
 
   const currentMonth = state.visibleRange.start;
 
-  const headers = [];
-  const calendars = [];
+  const headers: React.ReactNode[] = [];
+  const calendars: React.ReactNode[] = [];
 
   for (let i = 0; i < visibleMonths; i++) {
     let d = currentMonth.add({months: i});

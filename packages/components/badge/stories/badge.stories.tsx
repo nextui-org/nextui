@@ -68,7 +68,7 @@ const defaultProps = {
 const Template = (args: BadgeProps) => (
   <Badge {...args}>
     <Avatar
-      isBordered={args.classNames?.badge?.includes("bottom")}
+      isBordered={(args.classNames?.badge as string)?.includes("bottom")}
       radius={args.shape === "rectangle" ? "lg" : "full"}
       src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
     />

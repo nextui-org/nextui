@@ -41,7 +41,7 @@ export const SonarPulse: FC<SonarPulseProps> = ({
   }, [circlesCount, color]);
 
   const renderCircles = useMemo(() => {
-    const circles = [];
+    const circles: React.ReactNode[] = [];
 
     for (let i = 1; i < circlesCount; i++) {
       circles.push(
