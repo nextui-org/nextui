@@ -125,7 +125,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
         </m.div>
       </LazyMotion>
     );
-  }, [disableAnimation, classNames, motionProps]);
+  }, [disableAnimation, classNames, motionProps, content]);
 
   return (
     <div tabIndex={-1}>
