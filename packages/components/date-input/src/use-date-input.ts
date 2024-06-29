@@ -13,7 +13,12 @@ import {PropGetter, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useDateField as useAriaDateField} from "@react-aria/datepicker";
-import {useDateFieldState} from "@react-stately/datepicker";
+import {
+  DateFieldState,
+  DateSegment,
+  SegmentType,
+  useDateFieldState,
+} from "@react-stately/datepicker";
 import {createCalendar} from "@internationalized/date";
 import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {dateInput} from "@nextui-org/theme";
@@ -23,6 +28,32 @@ type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
   keyof AriaDateFieldProps<T> | "onChange"
 >;
+
+type formatDate = "mm/dd/yyyy" | "dd/mm/yyyy" | "yyyy/mm/dd" | "yyyy/dd/mm";
+
+const formatOrderMap: Record<formatDate, SegmentType[]> = {
+  "mm/dd/yyyy": ["month", "literal", "day", "literal", "year"],
+  "dd/mm/yyyy": ["day", "literal", "month", "literal", "year"],
+  "yyyy/dd/mm": ["year", "literal", "day", "literal", "month"],
+  "yyyy/mm/dd": ["year", "literal", "month", "literal", "day"],
+};
+
+const getSegmentByType = (segments: DateSegment[], type: SegmentType): DateSegment | undefined =>
+  segments.find((segment) => segment.type === type);
+
+const validateSegments = (segments: DateSegment[]): boolean => {
+  const requiredTypes = ["day", "month", "year", "literal"] as SegmentType[];
+
+  return requiredTypes.every((type) => segments.some((segment) => segment.type === type));
+};
+
+const rearrangeSegments = (segments: DateSegment[], format: formatDate): DateSegment[] => {
+  const order = formatOrderMap[format];
+
+  return order
+    .map((type) => getSegmentByType(segments, type))
+    .filter((segment): segment is DateSegment => segment !== undefined);
+};
 
 interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   /**
@@ -105,6 +136,8 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    * ```
    */
   classNames?: SlotsToClasses<DateInputSlots>;
+  /** The format of date. For example : mm/dd/yyyy */
+  format?: formatDate;
 }
 
 export type UseDateInputProps<T extends DateValue> = Props<T> &
@@ -139,6 +172,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
     errorMessage,
+    format,
   } = props;
 
   const domRef = useDOMRef(ref);
@@ -307,8 +341,17 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     } as DateInputGroupProps;
   };
 
+  const orderSegmentsByFormat = (state: DateFieldState, format?: formatDate): DateFieldState => {
+    const {segments} = state;
+
+    if (!format || !validateSegments(segments)) return state;
+    state.segments = rearrangeSegments(segments, format);
+
+    return state;
+  };
+
   return {
-    state,
+    state: orderSegmentsByFormat(state, format),
     domRef,
     slots,
     classNames,
