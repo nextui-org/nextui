@@ -10,6 +10,8 @@ import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
 export interface AccordionItemProps extends UseAccordionItemProps {}
 
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
 const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {
     Component,
@@ -59,8 +61,6 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
       exit: {...TRANSITION_VARIANTS.collapse.exit, overflowY: "hidden"},
       enter: {...TRANSITION_VARIANTS.collapse.enter, overflowY: "unset"},
     };
-
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
     return keepContentMounted ? (
       <LazyMotion features={domAnimation}>
