@@ -616,6 +616,9 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../divider
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -982,6 +985,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -1792,6 +1798,9 @@ importers:
 
   packages/components/modal:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -1871,6 +1880,9 @@ importers:
 
   packages/components/navbar:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -2002,6 +2014,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -2170,6 +2185,9 @@ importers:
 
   packages/components/ripple:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -2657,6 +2675,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -2739,6 +2760,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -3676,6 +3700,15 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+
+  packages/utilities/dom-animation:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      framer-motion:
+        specifier: ^11.0.22
+        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
 
   packages/utilities/framer-utils:
     dependencies:
