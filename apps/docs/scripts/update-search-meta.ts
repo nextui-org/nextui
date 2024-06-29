@@ -96,7 +96,7 @@ async function getSearchMeta(saveMode: "algolia" | "local" = "local") {
       .filter((file: any) => file.endsWith(".mdx"));
 
     for (const file of files) {
-      let result = [];
+      let result: ResultType[] = [];
 
       try {
         result = await getMDXMeta(file);
