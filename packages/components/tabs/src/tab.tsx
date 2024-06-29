@@ -94,9 +94,9 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   };
 
   const cursor = useMemo(() => {
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
     if (isSelected && !disableAnimation && !disableCursorAnimation && isMounted) {
+      const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
       return (
         <LazyMotion features={domAnimation}>
           <m.span
