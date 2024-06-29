@@ -19,6 +19,8 @@ export interface PopoverContentProps
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const {as, children, className, ...otherProps} = props;
 
@@ -69,8 +71,6 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
       return <div {...getBackdropProps()} />;
     }
 
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
     return (
       <LazyMotion features={domAnimation}>
         <m.div
@@ -84,32 +84,26 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
-  const removeScrollContent = useMemo(() => {
-    if (disableAnimation) return content;
-
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-    return (
-      <LazyMotion features={domAnimation}>
-        <m.div
-          animate="enter"
-          exit="exit"
-          initial="initial"
-          style={{
-            ...getTransformOrigins(placement === "center" ? "top" : placement),
-          }}
-          variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-          {...motionProps}
-        >
-          {content}
-        </m.div>
-      </LazyMotion>
-    );
-  }, [disableAnimation, getTransformOrigins]);
-
   const contents = (
     <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-      {removeScrollContent}
+      {disableAnimation ? (
+        content
+      ) : (
+        <LazyMotion features={domAnimation}>
+          <m.div
+            animate="enter"
+            exit="exit"
+            initial="initial"
+            style={{
+              ...getTransformOrigins(placement === "center" ? "top" : placement),
+            }}
+            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+            {...motionProps}
+          >
+            {content}
+          </m.div>
+        </LazyMotion>
+      )}
     </RemoveScroll>
   );
 

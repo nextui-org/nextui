@@ -1,6 +1,5 @@
 import type {TabItemProps as BaseTabItemProps} from "./base/tab-item-base";
 
-import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
@@ -26,6 +25,8 @@ export interface TabItemProps<T extends object = object> extends BaseTabItemProp
   disableAnimation?: ValuesType["disableAnimation"];
   disableCursorAnimation?: ValuesType["disableCursorAnimation"];
 }
+
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
 /**
  * @internal
@@ -93,31 +94,6 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     });
   };
 
-  const cursor = useMemo(() => {
-    if (isSelected && !disableAnimation && !disableCursorAnimation && isMounted) {
-      const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-      return (
-        <LazyMotion features={domAnimation}>
-          <m.span
-            className={slots.cursor({class: classNames?.cursor})}
-            data-slot="cursor"
-            layoutDependency={false}
-            layoutId="cursor"
-            transition={{
-              type: "spring",
-              bounce: 0.15,
-              duration: 0.5,
-            }}
-            {...motionProps}
-          />
-        </LazyMotion>
-      );
-    }
-
-    return null;
-  }, [isSelected, disableAnimation, disableCursorAnimation, isMounted, motionProps]);
-
   return (
     <Component
       ref={domRef}
@@ -147,7 +123,22 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
       title={otherProps?.titleValue}
       type={Component === "button" ? "button" : undefined}
     >
-      {cursor}
+      {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
+        <LazyMotion features={domAnimation}>
+          <m.span
+            className={slots.cursor({class: classNames?.cursor})}
+            data-slot="cursor"
+            layoutDependency={false}
+            layoutId="cursor"
+            transition={{
+              type: "spring",
+              bounce: 0.15,
+              duration: 0.5,
+            }}
+            {...motionProps}
+          />
+        </LazyMotion>
+      ) : null}
       <div
         className={slots.tabContent({
           class: classNames?.tabContent,

@@ -34,6 +34,8 @@ type FreeSoloPopoverWrapperProps = {
   motionProps?: UsePopoverProps["motionProps"];
 } & React.HTMLAttributes<HTMLDivElement>;
 
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
 const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
   (
     {
@@ -62,17 +64,11 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
       };
     }
 
-    if (disableAnimation) {
-      return (
-        <div {...otherProps} ref={ref}>
-          {children}
-        </div>
-      );
-    }
-
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-    return (
+    return disableAnimation ? (
+      <div {...otherProps} ref={ref}>
+        {children}
+      </div>
+    ) : (
       <LazyMotion features={domAnimation}>
         <m.div
           ref={ref}
@@ -127,8 +123,6 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
       if (disableAnimation) {
         return <div {...getBackdropProps()} />;
       }
-
-      const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
       return (
         <LazyMotion features={domAnimation}>

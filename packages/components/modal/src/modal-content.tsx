@@ -21,6 +21,8 @@ export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
 const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;
 
@@ -99,33 +101,25 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
-  const contents = useMemo(() => {
-    if (disableAnimation) {
-      return (
-        <div className={slots.wrapper({class: classNames?.wrapper})} data-slot="wrapper">
-          {content}
-        </div>
-      );
-    }
-
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-    return (
-      <LazyMotion features={domAnimation}>
-        <m.div
-          animate="enter"
-          className={slots.wrapper({class: classNames?.wrapper})}
-          data-slot="wrapper"
-          exit="exit"
-          initial="exit"
-          variants={scaleInOut}
-          {...motionProps}
-        >
-          {content}
-        </m.div>
-      </LazyMotion>
-    );
-  }, [disableAnimation, classNames, motionProps, content]);
+  const contents = disableAnimation ? (
+    <div className={slots.wrapper({class: classNames?.wrapper})} data-slot="wrapper">
+      {content}
+    </div>
+  ) : (
+    <LazyMotion features={domAnimation}>
+      <m.div
+        animate="enter"
+        className={slots.wrapper({class: classNames?.wrapper})}
+        data-slot="wrapper"
+        exit="exit"
+        initial="exit"
+        variants={scaleInOut}
+        {...motionProps}
+      >
+        {content}
+      </m.div>
+    </LazyMotion>
+  );
 
   return (
     <div tabIndex={-1}>

@@ -1,8 +1,7 @@
-import {useMemo} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {AnimatePresence, domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {ReactElement, useCallback} from "react";
 import {RemoveScroll} from "react-remove-scroll";
@@ -24,6 +23,8 @@ export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
   motionProps?: HTMLMotionProps<"ul">;
 }
 
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
 const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
   const domRef = useDOMRef(ref);
@@ -43,11 +44,24 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
     [isMenuOpen],
   );
 
-  const content = useMemo(() => {
-    if (isMenuOpen) {
-      const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-      return (
+  const contents = disableAnimation ? (
+    <MenuWrapper>
+      <ul
+        ref={domRef}
+        className={slots.menu?.({class: styles})}
+        data-open={dataAttr(isMenuOpen)}
+        style={{
+          // @ts-expect-error
+          "--navbar-height": height,
+        }}
+        {...otherProps}
+      >
+        {children}
+      </ul>
+    </MenuWrapper>
+  ) : (
+    <AnimatePresence mode="wait">
+      {isMenuOpen ? (
         <LazyMotion features={domAnimation}>
           <MenuWrapper>
             <m.ul
@@ -70,29 +84,8 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
             </m.ul>
           </MenuWrapper>
         </LazyMotion>
-      );
-    }
-
-    return null;
-  }, [otherProps, motionProps, height, style]);
-
-  const contents = disableAnimation ? (
-    <MenuWrapper>
-      <ul
-        ref={domRef}
-        className={slots.menu?.({class: styles})}
-        data-open={dataAttr(isMenuOpen)}
-        style={{
-          // @ts-expect-error
-          "--navbar-height": height,
-        }}
-        {...otherProps}
-      >
-        {children}
-      </ul>
-    </MenuWrapper>
-  ) : (
-    <AnimatePresence mode="wait">{content}</AnimatePresence>
+      ) : null}
+    </AnimatePresence>
   );
 
   return <Overlay portalContainer={portalContainer}>{contents}</Overlay>;

@@ -3,13 +3,15 @@ import {OverlayContainer} from "@react-aria/overlays";
 import {AnimatePresence, m, LazyMotion} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {warn} from "@nextui-org/shared-utils";
-import {useMemo, Children, cloneElement, isValidElement} from "react";
+import {Children, cloneElement, isValidElement} from "react";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {mergeProps} from "@react-aria/utils";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
 export interface TooltipProps extends Omit<UseTooltipProps, "disableTriggerFocus" | "backdrop"> {}
+
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
 const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   const {
@@ -55,28 +57,24 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
 
   const {ref: tooltipRef, id, style, ...otherTooltipProps} = getTooltipProps();
 
-  const animatedContent = useMemo(() => {
-    const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-    return (
-      <div ref={tooltipRef} id={id} style={style}>
-        <LazyMotion features={domAnimation}>
-          <m.div
-            animate="enter"
-            exit="exit"
-            initial="exit"
-            variants={TRANSITION_VARIANTS.scaleSpring}
-            {...mergeProps(motionProps, otherTooltipProps)}
-            style={{
-              ...getTransformOrigins(placement),
-            }}
-          >
-            <Component {...getTooltipContentProps()}>{content}</Component>
-          </m.div>
-        </LazyMotion>
-      </div>
-    );
-  }, [motionProps, otherTooltipProps, getTransformOrigins, getTooltipContentProps]);
+  const animatedContent = (
+    <div ref={tooltipRef} id={id} style={style}>
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.scaleSpring}
+          {...mergeProps(motionProps, otherTooltipProps)}
+          style={{
+            ...getTransformOrigins(placement),
+          }}
+        >
+          <Component {...getTooltipContentProps()}>{content}</Component>
+        </m.div>
+      </LazyMotion>
+    </div>
+  );
 
   return (
     <>

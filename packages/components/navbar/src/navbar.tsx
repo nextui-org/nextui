@@ -1,7 +1,6 @@
-import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
-import {LazyMotion, m} from "framer-motion";
+import {LazyMotion, domAnimation, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 
 import {hideOnScrollVariants} from "./navbar-transitions";
@@ -12,6 +11,8 @@ import NavbarMenu from "./navbar-menu";
 export interface NavbarProps extends Omit<UseNavbarProps, "hideOnScroll"> {
   children?: React.ReactNode | React.ReactNode[];
 }
+
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
 const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   const {children, ...otherProps} = props;
@@ -29,11 +30,9 @@ const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
     </>
   );
 
-  const contents = useMemo(() => {
-    if (context.shouldHideOnScroll) {
-      const domAnimation = () => import("./dom-animation").then((res) => res.default);
-
-      return (
+  return (
+    <NavbarProvider value={context}>
+      {context.shouldHideOnScroll ? (
         <LazyMotion features={domAnimation}>
           <m.nav
             animate={context.isHidden ? "hidden" : "visible"}
@@ -44,19 +43,11 @@ const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
             {content}
           </m.nav>
         </LazyMotion>
-      );
-    }
-
-    return <Component {...context.getBaseProps()}>{content}</Component>;
-  }, [
-    context.shouldHideOnScroll,
-    context.motionProps,
-    context.isHidden,
-    context.getBaseProps,
-    content,
-  ]);
-
-  return <NavbarProvider value={context}>{contents}</NavbarProvider>;
+      ) : (
+        <Component {...context.getBaseProps()}>{content}</Component>
+      )}
+    </NavbarProvider>
+  );
 });
 
 Navbar.displayName = "NextUI.Navbar";

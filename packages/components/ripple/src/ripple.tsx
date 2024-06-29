@@ -14,10 +14,10 @@ export interface RippleProps extends HTMLNextUIProps<"span"> {
   onClear: (key: React.Key) => void;
 }
 
+const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
 const Ripple: FC<RippleProps> = (props) => {
   const {ripples = [], motionProps, color = "currentColor", style, onClear} = props;
-
-  const domAnimation = () => import("./dom-animation").then((res) => res.default);
 
   return (
     <>
