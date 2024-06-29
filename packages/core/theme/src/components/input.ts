@@ -43,6 +43,7 @@ const input = tv({
       "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
+      "file:cursor-pointer file:bg-transparent file:border-0",
     ],
     clearButton: [
       "p-2",
@@ -594,13 +595,7 @@ const input = tv({
         label: ["group-data-[filled-within=true]:pointer-events-auto"],
       },
     },
-    // labelPlacement=[outside,outside-left]
-    {
-      labelPlacement: ["outside", "outside-left"],
-      class: {
-        input: "h-full",
-      },
-    },
+    // labelPlacement=[outside] & isMultiline
     {
       labelPlacement: "outside",
       isMultiline: false,
