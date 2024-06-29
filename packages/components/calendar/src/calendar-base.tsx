@@ -3,13 +3,12 @@ import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
-import {Fragment} from "react";
-import {useState} from "react";
+import {Fragment, useState, useMemo} from "react";
 import {useLocale} from "@react-aria/i18n";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
-import {AnimatePresence, LazyMotion, domAnimation, MotionConfig} from "framer-motion";
+import {AnimatePresence, LazyMotion, MotionConfig} from "framer-motion";
 import {ResizablePanel} from "@nextui-org/framer-utils";
 
 import {ChevronLeftIcon} from "./chevron-left";
@@ -133,6 +132,34 @@ export function CalendarBase(props: CalendarBaseProps) {
     </>
   );
 
+  const content = useMemo(() => {
+    if (disableAnimation) {
+      return (
+        <div className={slots?.content({class: classNames?.content})} data-slot="content">
+          {calendarContent}
+        </div>
+      );
+    }
+
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
+    return (
+      <ResizablePanel
+        data-
+        className={slots?.content({class: classNames?.content})}
+        data-slot="content"
+      >
+        <AnimatePresence custom={direction} initial={false} mode="popLayout">
+          <>
+            <MotionConfig transition={transition}>
+              <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
+            </MotionConfig>
+          </>
+        </AnimatePresence>
+      </ResizablePanel>
+    );
+  }, [direction, transition, calendarContent]);
+
   return (
     <Component {...mergeProps(calendarProps, otherProps)} ref={ref}>
       {topContent}
@@ -144,24 +171,7 @@ export function CalendarBase(props: CalendarBaseProps) {
       <VisuallyHidden>
         <h2>{calendarProps["aria-label"]}</h2>
       </VisuallyHidden>
-      {disableAnimation ? (
-        <div className={slots?.content({class: classNames?.content})} data-slot="content">
-          {calendarContent}
-        </div>
-      ) : (
-        <ResizablePanel
-          className={slots?.content({class: classNames?.content})}
-          data-slot="content"
-        >
-          <AnimatePresence custom={direction} initial={false} mode="popLayout">
-            <>
-              <MotionConfig transition={transition}>
-                <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
-              </MotionConfig>
-            </>
-          </AnimatePresence>
-        </ResizablePanel>
-      )}
+      {content}
       {/* For touch screen readers, add a visually hidden next button after the month grid
        * so it's easy to navigate after reaching the end without going all the way
        * back to the start of the month. */}
