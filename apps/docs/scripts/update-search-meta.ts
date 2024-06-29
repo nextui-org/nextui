@@ -54,7 +54,7 @@ async function getMDXMeta(file: string) {
 
 
   const result:ResultType[] = [];
-  const title = !!frontMatter.title ? frontMatter.title : "";
+  const title = frontMatter.title ? frontMatter.title : "";
 
   result.push({
     content: title,
