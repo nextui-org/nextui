@@ -1,5 +1,6 @@
 import type {TabItemProps as BaseTabItemProps} from "./base/tab-item-base";
 
+import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
@@ -9,7 +10,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
-import {m, domMax, LazyMotion} from "framer-motion";
+import {m, LazyMotion} from "framer-motion";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
@@ -92,6 +93,31 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     });
   };
 
+  const cursor = useMemo(() => {
+    const domAnimation = () => import("./dom-animation").then((res) => res.default);
+
+    if (isSelected && !disableAnimation && !disableCursorAnimation && isMounted) {
+      return (
+        <LazyMotion features={domAnimation}>
+          <m.span
+            className={slots.cursor({class: classNames?.cursor})}
+            data-slot="cursor"
+            layoutDependency={false}
+            layoutId="cursor"
+            transition={{
+              type: "spring",
+              bounce: 0.15,
+              duration: 0.5,
+            }}
+            {...motionProps}
+          />
+        </LazyMotion>
+      );
+    }
+
+    return null;
+  }, [isSelected, disableAnimation, disableCursorAnimation, isMounted, motionProps]);
+
   return (
     <Component
       ref={domRef}
@@ -121,22 +147,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
       title={otherProps?.titleValue}
       type={Component === "button" ? "button" : undefined}
     >
-      {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
-        <LazyMotion features={domMax}>
-          <m.span
-            className={slots.cursor({class: classNames?.cursor})}
-            data-slot="cursor"
-            layoutDependency={false}
-            layoutId="cursor"
-            transition={{
-              type: "spring",
-              bounce: 0.15,
-              duration: 0.5,
-            }}
-            {...motionProps}
-          />
-        </LazyMotion>
-      ) : null}
+      {cursor}
       <div
         className={slots.tabContent({
           class: classNames?.tabContent,
