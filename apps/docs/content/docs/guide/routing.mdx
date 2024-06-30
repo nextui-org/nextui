@@ -197,6 +197,31 @@ export default function App() {
 ```
 
 
+### TanStack
+
+With TanStack Router, you can utilize `useNavigate` hook from `tanstack/react-router` returns a `navigate` function that can be used to perform navigation.
+
+Go to the `App` file commonly called `App.jsx` or `App.tsx`, import the `useNavigate` hook and create the 
+`direct` function and passingto the `NextUIProvider`:
+
+```tsx {10}
+// app/root.tsx
+import {useNavigate} from "@tanstack/react-router";
+import {NextUIProvider} from '@nextui-org/react';
+
+export default function App() {
+  const navigate = useNavigate();
+  const direct = (route: string) => navigate({ to: route });
+
+  return (
+    <NextUIProvider navigate={direct}>
+      {/* You app here... */}
+    </NextUIProvider>
+  );
+}
+```
+
+
 ### Usage examples
 
 Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`, 
