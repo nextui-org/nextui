@@ -473,6 +473,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         role: "button",
         tabIndex: 0,
+        "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
         className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),

@@ -20,6 +20,7 @@ import pageBehavior from "./page-behavior";
 import nonContigous from "./non-contiguous";
 import presets from "./presets";
 import withMonthAndYearPickers from "./with-month-and-year-pickers";
+import customStyles from "./custom-styles";
 
 export const dateRangePickerContent = {
   usage,
@@ -44,4 +45,5 @@ export const dateRangePickerContent = {
   nonContigous,
   presets,
   withMonthAndYearPickers,
+  customStyles,
 };
