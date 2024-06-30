@@ -564,7 +564,12 @@ describe("Select", () => {
           console.log(JSON.stringify(Object.fromEntries(formData)));
         }}
       >
-        <Select data-testid="select" label="test select" name="select" size="sm">
+        <Select
+          data-testid="select"
+          defaultSelectedKeys={["foo"]}
+          label="test select"
+          name="select"
+        >
           <SelectItem key="foo">foo</SelectItem>
           <SelectItem key="bar">bar</SelectItem>
         </Select>
@@ -574,6 +579,14 @@ describe("Select", () => {
       </form>,
     );
 
+    const submitButton = wrapper.getByTestId("submit-button");
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "foo"}));
+
     const select = wrapper.getByTestId("select");
 
     expect(select).not.toBeNull();
@@ -582,32 +595,16 @@ describe("Select", () => {
       await user.click(select);
     });
 
-    let listbox = wrapper.getByRole("listbox");
+    const listbox = wrapper.getByRole("listbox");
 
     expect(listbox).toBeTruthy();
 
-    let listboxItems = wrapper.getAllByRole("option");
+    const listboxItems = wrapper.getAllByRole("option");
 
     expect(listboxItems.length).toBe(2);
 
     await act(async () => {
-      await user.click(listboxItems[1]);
-    });
-
-    let submitButton = wrapper.getByTestId("submit-button");
-
-    await act(async () => {
-      await user.click(submitButton);
-    });
-
-    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "bar"}));
-
-    await act(async () => {
-      await user.click(select);
-    });
-
-    await act(async () => {
-      await user.click(listboxItems[1]);
+      await user.click(listboxItems[0]);
     });
 
     await act(async () => {
