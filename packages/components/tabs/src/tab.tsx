@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
-import {m, domMax, LazyMotion} from "framer-motion";
+import {m, LazyMotion, domMax} from "framer-motion";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
@@ -122,6 +122,8 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
       type={Component === "button" ? "button" : undefined}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
+        // use synchronous loading for domMax here
+        // since lazy loading produces different behaviour
         <LazyMotion features={domMax}>
           <m.span
             className={slots.cursor({class: classNames?.cursor})}
