@@ -19,10 +19,10 @@ describe("User", () => {
   });
 
   it("should have the passed name", () => {
-    const {container} = render(<User name="Test" />);
-    const name = container.querySelector("span");
+    const {getByText} = render(<User name="Test" />);
+    const name = getByText("Test");
 
-    expect(name).toHaveTextContent("Test");
+    expect(name).toBeInTheDocument();
   });
 
   it("should have the passed description", () => {
