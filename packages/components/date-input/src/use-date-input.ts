@@ -16,7 +16,7 @@ import {useDateField as useAriaDateField} from "@react-aria/datepicker";
 import {useDateFieldState} from "@react-stately/datepicker";
 import {createCalendar} from "@internationalized/date";
 import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
-import {dateInput} from "@nextui-org/theme";
+import {dateInput, cn} from "@nextui-org/theme";
 import {useMemo} from "react";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
@@ -35,6 +35,8 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   labelProps?: DOMAttributes;
   /** Props for the date field. */
   fieldProps?: DOMAttributes;
+  /** Props for the inner wrapper. */
+  innerWrapperProps?: DOMAttributes;
   /** Props for the description element, if any. */
   descriptionProps?: DOMAttributes;
   /** Props for the error message element, if any. */
@@ -130,6 +132,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     groupProps = {},
     labelProps: labelPropsProp,
     fieldProps: fieldPropsProp,
+    innerWrapperProps: innerWrapperPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
     validationBehavior = globalContext?.validationBehavior ?? "aria",
@@ -243,11 +246,13 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   };
 
   const getInnerWrapperProps: PropGetter = (props) => {
+    const innerWrapperProps = mergeProps(innerWrapperPropsProp, props);
+
     return {
-      ...props,
+      ...innerWrapperProps,
       "data-slot": "inner-wrapper",
       className: slots.innerWrapper({
-        class: classNames?.innerWrapper,
+        class: cn(classNames?.innerWrapper, innerWrapperProps?.className),
       }),
     };
   };
