@@ -1,8 +1,9 @@
 import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import React, {Key, useCallback} from "react";
 import {TreeState, useTreeState} from "@react-stately/tree";

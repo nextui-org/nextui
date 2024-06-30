@@ -1,4 +1,6 @@
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+
+import {useProviderContext} from "@nextui-org/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";
 import {useAriaMenu} from "@nextui-org/use-aria-menu";
