@@ -2,7 +2,6 @@ import type {SandpackInitMode} from "@codesandbox/sandpack-react";
 
 import * as React from "react";
 import {FileTabs, useSandpack, useActiveCode, SandpackStack} from "@codesandbox/sandpack-react";
-import {clsx} from "@nextui-org/shared-utils";
 import {Language} from "prism-react-renderer";
 
 import {HighlightedLines} from "./types";
@@ -31,8 +30,6 @@ export interface CodeViewerProps {
   containerRef?: React.RefObject<HTMLDivElement>;
 }
 
-// const INITIAL_HEIGHT = "200px";
-
 export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
   ({showTabs, code: propCode, highlightedLines, containerRef}, ref) => {
     const {sandpack} = useSandpack();
@@ -44,11 +41,11 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
     // hack to make sure we re-render the code editor and change current file
     // TODO: open an issue on sandpack-react
     // const [internalKey, setInternalKey] = React.useState(() => id);
-    const lineCountRef = React.useRef<{[key: string]: number}>({});
+    // const lineCountRef = React.useRef<{[key: string]: number}>({});
 
-    if (!lineCountRef.current[activeFile]) {
-      lineCountRef.current[activeFile] = code.split("\n").length;
-    }
+    // if (!lineCountRef.current[activeFile]) {
+    //   lineCountRef.current[activeFile] = code.split("\n").length;
+    // }
 
     const shouldShowTabs = showTabs ?? sandpack.visibleFilesFromProps.length > 1;
 
@@ -57,18 +54,12 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
     // const isAppFile = activeFile.includes("App");
 
     // React.useEffect(() => {
-    //   if (containerRef && containerRef?.current !== null) {
-    //     containerRef.current.style.height = INITIAL_HEIGHT;
-    //   }
-    // }, [containerRef]);
-
-    // React.useEffect(() => {
     //   setInternalKey(getId());
     // }, [propCode, code]);
 
     React.useEffect(() => {
-      if (containerRef && containerRef?.current !== null) {
-        const container = containerRef?.current;
+      if (containerRef && containerRef.current !== null) {
+        const container = containerRef.current;
 
         container.style.height = "auto";
       }
@@ -79,7 +70,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
         <div className="h-full">
           <SandpackStack>
             {shouldShowTabs ? <FileTabs /> : null}
-            <div className={clsx("sp-code-viewer max-h-[600px] overflow-y-scroll")}>
+            <div className="sp-code-viewer max-h-[600px] overflow-y-scroll">
               {/*
                * Disabled in favor of Codeblock due to performance issues & font size on ios 
                *   
@@ -97,7 +88,7 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
               /> */}
               <Codeblock
                 ref={ref}
-                className={"pb-2"}
+                className="pb-2"
                 codeString={propCode || code}
                 language={fileExt}
                 metastring={highlightedLines && `{${highlightedLines}}`}
