@@ -71,7 +71,7 @@
     "@nextui-org/stories-utils": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@react-stately/data": "3.11.4",
-    "framer-motion": "^11.0.28",
+    "framer-motion": "^11.2.12",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

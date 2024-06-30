@@ -64,7 +64,7 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/card": "workspace:*",
-    "framer-motion": "^11.1.7",
+    "framer-motion": "^11.2.12",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
