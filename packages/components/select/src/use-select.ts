@@ -524,7 +524,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             : slotsProps.popoverProps?.offset,
         shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
           ? popoverProps.shouldCloseOnInteractOutside
-          : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+          : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
       } as PopoverProps;
     },
     [
@@ -544,7 +544,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorIcon({class: classNames?.selectorIcon}),
     }),
-    [slots, classNames?.selectorIcon, state?.isOpen],
+    [slots, classNames?.selectorIcon, state.isOpen],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(
