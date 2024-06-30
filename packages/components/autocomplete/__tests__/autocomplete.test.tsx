@@ -48,9 +48,8 @@ const itemsSectionData = [
   },
 ];
 
-
-const ControlledAutocomplete = <T = object>(props: AutocompleteProps<T>) => {
-  const [selectedKey, setSelectedKey] = React.useState<React.Key>("cat");
+const ControlledAutocomplete = <T extends object>(props: AutocompleteProps<T>) => {
+  const [selectedKey, setSelectedKey] = React.useState<React.Key | null>("cat");
 
   return (
     <Autocomplete
@@ -76,7 +75,6 @@ const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
     </AutocompleteItem>
   </Autocomplete>
 );
-
 
 describe("Autocomplete", () => {
   it("should render correctly", () => {
