@@ -60,13 +60,13 @@ export function useUser(props: UseUserProps) {
     className,
     classNames,
     isFocusable = false,
-    avatarProps: userAvatarProps = {},
+    avatarProps: userAvatarProps = {name},
     ...otherProps
   } = props;
 
   const avatarProps = {
     isFocusable: false,
-    name: typeof name === "string" ? name : undefined,
+    name: typeof name === "string" ? name : "",
     ...userAvatarProps,
   };
 
