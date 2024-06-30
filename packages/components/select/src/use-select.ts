@@ -6,6 +6,7 @@ import {
   HTMLNextUIProps,
   mapPropsVariants,
   PropGetter,
+  SharedSelection,
   useProviderContext,
 } from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
@@ -128,6 +129,10 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Classes object to style the select and its children.
    */
   classNames?: SlotsToClasses<SelectSlots>;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 
 interface SelectData {
@@ -139,8 +144,11 @@ interface SelectData {
 
 export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
 
-export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
-  MultiSelectProps<T> &
+export type UseSelectProps<T> = Omit<
+  Props<T>,
+  keyof Omit<MultiSelectProps<T>, "onSelectionChange">
+> &
+  Omit<MultiSelectProps<T>, "onSelectionChange"> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
