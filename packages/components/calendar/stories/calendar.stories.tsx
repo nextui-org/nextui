@@ -348,3 +348,20 @@ export const Presets = {
     ...defaultProps,
   },
 };
+
+export const CustomCellContent = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    classNames: {
+      cell: "h-12",
+      cellButton: "w-12 h-full rounded-xl",
+    },
+    renderCellContent: (date) => (
+      <div className="flex flex-col gap-0">
+        {date.day}
+        <span className="text-tiny text-default-500 text-center">•</span>
+      </div>
+    ),
+  },
+};

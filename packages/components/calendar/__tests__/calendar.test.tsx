@@ -419,4 +419,27 @@ describe("Calendar", () => {
       expect(description).toBe("Selected date unavailable.");
     });
   });
+  describe("Custom cell content", () => {
+    it("should render custom content in the calendar cells", () => {
+      const renderCellContent = (date: CalendarDate) => (
+        <div>
+          {date.day}
+          <span>*</span>
+        </div>
+      );
+
+      const wrapper = render(
+        <Calendar
+          defaultValue={new CalendarDate(2024, 3, 31)}
+          renderCellContent={renderCellContent}
+        />,
+      );
+
+      const gridCells = wrapper.getAllByRole("gridcell");
+      const customContentCell = gridCells.find((cell) => cell.textContent === "31*");
+
+      expect(customContentCell).not.toBeNull();
+      expect(customContentCell).toHaveTextContent("31*");
+    });
+  });
 });
