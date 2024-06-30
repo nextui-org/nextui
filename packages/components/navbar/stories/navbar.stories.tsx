@@ -176,7 +176,7 @@ const WithMenuTemplate = (args: NavbarProps) => {
             <p className="font-bold hidden sm:block text-inherit">ACME</p>
           </NavbarBrand>
         </NavbarContent>
-        <NavbarContent className="hidden sm:flex">
+        <NavbarContent className="hidden md:flex">
           <NavbarItem>
             <Link color="foreground" href="#">
               Features
