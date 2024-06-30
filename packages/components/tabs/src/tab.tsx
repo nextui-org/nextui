@@ -26,7 +26,7 @@ export interface TabItemProps<T extends object = object> extends BaseTabItemProp
   disableCursorAnimation?: ValuesType["disableCursorAnimation"];
 }
 
-const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+const domMax = () => import("./dom-max").then((res) => res.default);
 
 /**
  * @internal
@@ -124,7 +124,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
       type={Component === "button" ? "button" : undefined}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
-        <LazyMotion features={domAnimation}>
+        <LazyMotion features={domMax}>
           <m.span
             className={slots.cursor({class: classNames?.cursor})}
             data-slot="cursor"
