@@ -8,7 +8,7 @@ export const FloatingTabs: React.FC<{}> = () => {
       aria-label="Floating tabs example"
       className=""
       classNames={{
-        base: "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s]",
+        base: "absolute left-[170px] -top-[160px] h-10 animate-[levitate_17s_ease_infinite_1s] lg:max-2xl:-top-[100px]",
         tabList: "max-w-[200px] shadow-sm",
       }}
       radius="full"
