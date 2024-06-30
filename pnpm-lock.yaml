@@ -2669,9 +2669,6 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
-      '@nextui-org/dom-animation':
-        specifier: workspace:*
-        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
