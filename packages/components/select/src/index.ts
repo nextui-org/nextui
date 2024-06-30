@@ -16,5 +16,4 @@ export type {UseSelectProps} from "./use-select";
 export {useSelect} from "./use-select";
 
 // export component
-export {Select, ListboxItem as SelectItem, ListboxSection as SelectSection};
-export {HiddenSelect};
+export {Select, HiddenSelect, ListboxItem as SelectItem, ListboxSection as SelectSection};
