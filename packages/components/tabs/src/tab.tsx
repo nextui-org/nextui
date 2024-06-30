@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
-import {m, LazyMotion} from "framer-motion";
+import {m, LazyMotion, domMax} from "framer-motion";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
@@ -25,8 +25,6 @@ export interface TabItemProps<T extends object = object> extends BaseTabItemProp
   disableAnimation?: ValuesType["disableAnimation"];
   disableCursorAnimation?: ValuesType["disableCursorAnimation"];
 }
-
-const domMax = () => import("./dom-max").then((res) => res.default);
 
 /**
  * @internal
