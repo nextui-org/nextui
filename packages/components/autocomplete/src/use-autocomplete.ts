@@ -415,8 +415,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }),
     } as ButtonProps);
 
-  const getInputProps = () =>
-    ({
+  const getInputProps = () => {
+    // TODO(wkw): add comments
+    delete inputProps["name"];
+
+    return {
       ...otherProps,
       ...inputProps,
       ...slotsProps.inputProps,
@@ -427,7 +430,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ? errorMessage({isInvalid, validationErrors, validationDetails})
           : errorMessage || validationErrors?.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
-    } as unknown as InputProps);
+    } as unknown as InputProps;
+  };
 
   const getListBoxProps = () =>
     ({
@@ -495,6 +499,24 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     },
   });
 
+  const getHiddenInputProps = useCallback(
+    (props = {}) => ({
+      state,
+      name: originalProps?.name,
+      isRequired: originalProps?.isRequired,
+      autoComplete: originalProps?.autoComplete,
+      isDisabled: originalProps?.isDisabled,
+      ...props,
+    }),
+    [
+      state,
+      originalProps?.name,
+      originalProps?.autoComplete,
+      originalProps?.autoComplete,
+      originalProps?.isDisabled,
+    ],
+  );
+
   return {
     Component,
     inputRef,
@@ -519,6 +541,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     getSelectorButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
+    getHiddenInputProps,
   };
 }
 
