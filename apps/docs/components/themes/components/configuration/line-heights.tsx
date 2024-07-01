@@ -1,7 +1,7 @@
 import {useContext} from "react";
 
 import {setCssLineHeight} from "../../css-vars";
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
@@ -11,7 +11,7 @@ interface LineHeightsProps {
 }
 
 export function LineHeights({config}: LineHeightsProps) {
-  const {setLineHeight} = useContext(ConfigContext);
+  const {setLineHeight} = useContext(ThemeBuilderContext);
 
   return (
     <ConfigSection title="Line height (rem)">

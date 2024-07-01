@@ -31,7 +31,7 @@ export function Actions({theme, onCopy, onResetTheme, onToggleTheme}: ActionsPro
     <div className="flex gap-2">
       <Tooltip content={isLight ? "Dark" : "Light"}>
         <Button isIconOnly color="secondary" size="sm" variant="flat" onClick={onToggleTheme}>
-          {isLight ? <MoonIcon className="text-xl" /> : <SunIcon className="text-xl" />}
+          {isLight ? <MoonIcon className="text-lg" /> : <SunIcon className="text-lg" />}
         </Button>
       </Tooltip>
       <Tooltip content="Reset theme">
@@ -41,7 +41,7 @@ export function Actions({theme, onCopy, onResetTheme, onToggleTheme}: ActionsPro
       </Tooltip>
       <Tooltip content="Copy configuration">
         <Button isIconOnly color="secondary" size="sm" variant="flat" onClick={handleCopyConfig}>
-          {copied ? <TickBoldIcon /> : <CopyIcon className="text-xl" />}
+          {copied ? <TickBoldIcon /> : <CopyIcon className="text-lg" />}
         </Button>
       </Tooltip>
     </div>

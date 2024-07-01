@@ -1,12 +1,10 @@
-"use client";
-
 import {useContext, useEffect, useState} from "react";
 import {Card, CardBody, Switch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
 import {useLocalStorage} from "usehooks-ts";
 import {MoonIcon} from "@nextui-org/shared-icons";
 
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config, Template, ThemeType} from "../../types";
 import {configKey, syncThemesKey, initialConfig} from "../../constants";
 import {SelectTemplate} from "../select-template";
@@ -28,7 +26,7 @@ import usePrevious from "@/hooks/use-previous";
 export default function Configuration() {
   const [syncThemes, setSyncThemes] = useState(true);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
-  const {config, resetConfig, setConfiguration} = useContext(ConfigContext);
+  const {config, resetConfig, setConfiguration} = useContext(ThemeBuilderContext);
   const themeProps = useTheme();
   const theme = themeProps.theme as ThemeType;
   const prevTheme = usePrevious(theme);

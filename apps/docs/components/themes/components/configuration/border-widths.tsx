@@ -1,7 +1,7 @@
 import {useContext} from "react";
 
 import {setCssBorderWidth} from "../../css-vars";
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
@@ -11,7 +11,7 @@ interface BorderWidthsProps {
 }
 
 export function BorderWidths({config}: BorderWidthsProps) {
-  const {setBorderWidth} = useContext(ConfigContext);
+  const {setBorderWidth} = useContext(ThemeBuilderContext);
 
   return (
     <ConfigSection cols={3} title="Border width (px)">

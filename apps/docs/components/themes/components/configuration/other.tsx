@@ -1,7 +1,7 @@
 import {useContext} from "react";
 
 import {setOtherCssParams} from "../../css-vars";
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
@@ -11,7 +11,7 @@ interface OtherProps {
 }
 
 export function Other({config}: OtherProps) {
-  const {setOtherParams} = useContext(ConfigContext);
+  const {setOtherParams} = useContext(ThemeBuilderContext);
 
   return (
     <ConfigSection cols={1} title="Other">

@@ -1,5 +1,3 @@
-"use client";
-
 import {showcaseId} from "../../constants";
 
 import {Avatar} from "./avatar";

@@ -2,7 +2,7 @@ import {useContext} from "react";
 
 import {colorsId} from "../../constants";
 import {setCssColor} from "../../css-vars";
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config, ThemeType} from "../../types";
 import {ColorPicker} from "../color-picker";
 import {ConfigSection} from "../config-section";
@@ -15,7 +15,7 @@ interface BrandColorsProps {
 }
 
 export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsProps) {
-  const {setBrandColor} = useContext(ConfigContext);
+  const {setBrandColor} = useContext(ThemeBuilderContext);
 
   return (
     <ConfigSection id={colorsId} title="Brand colors">

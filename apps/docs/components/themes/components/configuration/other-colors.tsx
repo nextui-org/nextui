@@ -1,7 +1,7 @@
 import {useContext} from "react";
 
 import {otherColorsId} from "../../constants";
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config, ThemeType} from "../../types";
 import {ColorPicker} from "../color-picker";
 import {ConfigSection} from "../config-section";
@@ -15,7 +15,7 @@ interface OtherColorsProps {
 }
 
 export function OtherColors({config, syncIcon, syncThemes, theme}: OtherColorsProps) {
-  const {setOtherColor} = useContext(ConfigContext);
+  const {setOtherColor} = useContext(ThemeBuilderContext);
 
   return (
     <ConfigSection id={otherColorsId} title="Other colors">

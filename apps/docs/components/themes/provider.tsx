@@ -4,7 +4,7 @@ import {useLocalStorage} from "usehooks-ts";
 import {configKey, initialConfig} from "./constants";
 import {ConfigColors, Config, ConfigLayout, ThemeType} from "./types";
 
-export interface ConfigProviderI {
+export interface ThemeBuilderProviderI {
   config: Config;
   resetConfig: (theme: ThemeType, sync: boolean) => Config;
   setBaseColor: (newConfig: Partial<ConfigColors["baseColor"]>, theme: ThemeType) => void;
@@ -26,7 +26,7 @@ export interface ConfigProviderI {
   setRadius: (newConfig: Partial<ConfigLayout["radius"]>) => void;
 }
 
-export const ConfigContext = createContext<ConfigProviderI>({
+export const ThemeBuilderContext = createContext<ThemeBuilderProviderI>({
   config: initialConfig,
   resetConfig: () => initialConfig,
   setBaseColor: () => {},
@@ -40,11 +40,11 @@ export const ConfigContext = createContext<ConfigProviderI>({
   setRadius: () => {},
 });
 
-interface ConfigProviderProps {
+interface ThemeBuilderProviderProps {
   children: React.ReactNode;
 }
 
-export default function ConfigProvider({children}: ConfigProviderProps) {
+export default function ThemeBuilderProvider({children}: ThemeBuilderProviderProps) {
   // ASK: There are 3 local storage imports. Which one should I use?
   const [lsConfig] = useLocalStorage<Config>(configKey, initialConfig);
   const [config, setConfig] = useState<Config>(lsConfig);
@@ -270,5 +270,7 @@ export default function ConfigProvider({children}: ConfigProviderProps) {
     ],
   );
 
-  return <ConfigContext.Provider value={contextValue}>{children}</ConfigContext.Provider>;
+  return (
+    <ThemeBuilderContext.Provider value={contextValue}>{children}</ThemeBuilderContext.Provider>
+  );
 }

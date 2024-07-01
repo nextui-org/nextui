@@ -2,7 +2,7 @@ import {useContext} from "react";
 
 import {baseColorsId} from "../../constants";
 import {setCssBackground, setCssColor, setCssContentColor} from "../../css-vars";
-import {ConfigContext} from "../../provider";
+import {ThemeBuilderContext} from "../../provider";
 import {Config, ThemeType} from "../../types";
 import {ColorPicker} from "../color-picker";
 import {ConfigSection} from "../config-section";
@@ -13,7 +13,7 @@ interface BaseColorsProps {
 }
 
 export function BaseColors({config, theme}: BaseColorsProps) {
-  const {setBaseColor} = useContext(ConfigContext);
+  const {setBaseColor} = useContext(ThemeBuilderContext);
 
   return (
     <ConfigSection id={baseColorsId} title="Base colors">
