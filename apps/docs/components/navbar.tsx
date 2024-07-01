@@ -236,6 +236,17 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             >
               Figma
             </NextLink>
+          </NavbarItem>{" "}
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={includes(pathname, "themes")}
+              href="/themes"
+              onClick={() => handlePressNavbarItem("Figma", "/themes")}
+            >
+              Themes
+            </NextLink>
           </NavbarItem>
           {/* hide feedback and changelog at this moment */}
           {/* <NavbarItem>
