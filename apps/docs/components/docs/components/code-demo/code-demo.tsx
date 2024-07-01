@@ -40,7 +40,6 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   displayMode?: "always" | "visible";
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
-  defaultExpanded?: boolean;
   previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
   className?: string;
@@ -61,7 +60,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   typescriptStrict = false,
   showOpenInCodeSandbox,
   isGradientBox = false,
-  defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
   displayMode = "always",
@@ -138,7 +136,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
 
     const content = (
       <DynamicSandpack
-        defaultExpanded={defaultExpanded}
         files={files}
         highlightedLines={highlightedLines}
         showEditor={showEditor}
@@ -155,7 +152,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     isInView,
     files,
     highlightedLines,
-    defaultExpanded,
     showPreview,
     showSandpackPreview,
     showOpenInCodeSandbox,
