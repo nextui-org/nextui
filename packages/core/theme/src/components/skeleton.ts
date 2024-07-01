@@ -44,7 +44,7 @@ const skeleton = tv({
       "data-[loaded=true]:pointer-events-auto",
       "data-[loaded=true]:overflow-visible",
       "data-[loaded=true]:!bg-transparent",
-      "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:animate-none",
+      "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:-z-10 data-[loaded=true]:before:animate-none",
       "data-[loaded=true]:after:opacity-0",
     ],
     content: ["opacity-0", "group-data-[loaded=true]:opacity-100"],
