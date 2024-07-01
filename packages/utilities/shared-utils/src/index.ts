@@ -7,3 +7,4 @@ export * from "./functions";
 export * from "./numbers";
 export * from "./console";
 export * from "./types";
+export * from "./dates";
