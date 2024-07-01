@@ -1,4 +1,5 @@
 import usage from "./usage";
+import mouseEnter from "./mouse-enter";
 import dynamic from "./dynamic";
 import disabledKeys from "./disabled-keys";
 import action from "./action";
@@ -16,6 +17,7 @@ import customItemsStyles from "./custom-items-styles";
 
 export const dropdownContent = {
   usage,
+  mouseEnter,
   dynamic,
   disabledKeys,
   action,
