@@ -41,11 +41,6 @@ export const SandpackCodeViewer = React.forwardRef<any, CodeViewerProps>(
     // hack to make sure we re-render the code editor and change current file
     // TODO: open an issue on sandpack-react
     // const [internalKey, setInternalKey] = React.useState(() => id);
-    // const lineCountRef = React.useRef<{[key: string]: number}>({});
-
-    // if (!lineCountRef.current[activeFile]) {
-    //   lineCountRef.current[activeFile] = code.split("\n").length;
-    // }
 
     const shouldShowTabs = showTabs ?? sandpack.visibleFilesFromProps.length > 1;
 
