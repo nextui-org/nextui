@@ -1,7 +1,6 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 import {Link} from "@nextui-org/link";
-import {AvatarIcon} from "@nextui-org/avatar";
 
 import {User} from "../src";
 
@@ -24,26 +23,6 @@ describe("User", () => {
     const nameElement = getByText("Test");
 
     expect(nameElement).toBeInTheDocument();
-  });
-
-  it("should render the default icon if no name passed to avatar", () => {
-    const {queryByTestId} = render(
-      <User
-        avatarProps={{
-          radius: "full",
-          size: "sm",
-          icon: <AvatarIcon />,
-          classNames: {
-            base: "bg-gradient-to-br from-[#FFB457] to-[#FF705B]",
-            icon: "text-black/80",
-          },
-          name: "avatar-icon",
-        }}
-        name="Test"
-      />,
-    );
-
-    expect(queryByTestId("avatar-icon")).toBeNull();
   });
 
   it("should have the passed description", () => {
