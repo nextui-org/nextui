@@ -3567,6 +3567,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
+  packages/hooks/use-theme:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+
   packages/hooks/use-update-effect:
     devDependencies:
       clean-package:
