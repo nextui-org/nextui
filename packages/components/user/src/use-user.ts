@@ -66,7 +66,6 @@ export function useUser(props: UseUserProps) {
 
   const avatarProps = {
     isFocusable: false,
-    name: typeof name === "string" ? name : undefined,
     ...userAvatarProps,
   };
 
