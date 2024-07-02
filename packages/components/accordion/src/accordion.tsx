@@ -19,6 +19,7 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
     disableAnimation,
     handleFocusChanged: handleFocusChangedProps,
     itemClasses,
+    dividerProps,
   } = useAccordion({
     ...props,
     ref,
@@ -45,7 +46,7 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
           {!item.props.hidden &&
             !isSplitted &&
             showDivider &&
-            index < state.collection.size - 1 && <Divider />}
+            index < state.collection.size - 1 && <Divider {...dividerProps} />}
         </Fragment>
       );
     });
