@@ -307,4 +307,23 @@ describe("Accordion", () => {
     expect(item1.querySelector("[role='region']")).toBeInTheDocument();
     expect(item2.querySelector("[role='region']")).toBeInTheDocument();
   });
+
+  it("should pass dividerProps to divider", () => {
+    const {getByRole} = render(
+      <Accordion
+        dividerProps={{
+          className: "bg-rose-500",
+        }}
+      >
+        <AccordionItem key="1" data-testid="item-1" title="Accordion Item 1">
+          Accordion Item 1 description
+        </AccordionItem>
+        <AccordionItem key="2" data-testid="item-2" title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    expect(getByRole("separator")).toHaveClass("bg-rose-500");
+  });
 });
