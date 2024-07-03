@@ -1,10 +1,13 @@
 import {useState} from "react";
 import {Button, Tooltip} from "@nextui-org/react";
-import {CopyIcon, MoonIcon, SunIcon} from "@nextui-org/shared-icons";
+import {Icon} from "@iconify/react/dist/offline";
+import SunIcon from "@iconify/icons-solar/sun-linear";
+import MoonIcon from "@iconify/icons-solar/moon-linear";
+import CopyIcon from "@iconify/icons-solar/copy-linear";
+import UndoLeftIcon from "@iconify/icons-solar/undo-left-linear";
+import CheckCircleIcon from "@iconify/icons-solar/check-circle-linear";
 
 import {ThemeType} from "../../types";
-
-import {TickBoldIcon} from "@/components/icons/tick-bold";
 
 interface ActionsProps {
   theme: ThemeType;
@@ -31,17 +34,25 @@ export function Actions({theme, onCopy, onResetTheme, onToggleTheme}: ActionsPro
     <div className="flex gap-2">
       <Tooltip content={isLight ? "Dark" : "Light"}>
         <Button isIconOnly color="secondary" size="sm" variant="flat" onClick={onToggleTheme}>
-          {isLight ? <MoonIcon className="text-lg" /> : <SunIcon className="text-lg" />}
+          {isLight ? (
+            <Icon className="text-lg" icon={MoonIcon} />
+          ) : (
+            <Icon className="text-lg" icon={SunIcon} />
+          )}
         </Button>
       </Tooltip>
       <Tooltip content="Reset theme">
         <Button isIconOnly color="secondary" size="sm" variant="flat" onClick={onResetTheme}>
-          <MoonIcon />
+          <Icon className="text-lg" icon={UndoLeftIcon} />
         </Button>
       </Tooltip>
       <Tooltip content="Copy configuration">
         <Button isIconOnly color="secondary" size="sm" variant="flat" onClick={handleCopyConfig}>
-          {copied ? <TickBoldIcon /> : <CopyIcon className="text-lg" />}
+          {copied ? (
+            <Icon className="text-lg" icon={CheckCircleIcon} />
+          ) : (
+            <Icon className="text-lg" icon={CopyIcon} />
+          )}
         </Button>
       </Tooltip>
     </div>

@@ -2,7 +2,7 @@ import {NextUIPluginConfig} from "@nextui-org/theme";
 import {readableColor} from "color2k";
 
 import {Config} from "../types";
-import {defaultDarkColorWeight} from "../constants";
+import {defaultDarkColorWeight, defaultLightColorWeight} from "../constants";
 
 import {generateThemeColor} from "./colors";
 
@@ -45,7 +45,7 @@ export function generatePluginConfig(config: Config): NextUIPluginConfig {
           default: generateThemeColor(
             config.light.brandColor.default,
             "light",
-            defaultDarkColorWeight,
+            defaultLightColorWeight,
           ),
           primary: generateThemeColor(config.light.brandColor.primary, "light"),
           secondary: generateThemeColor(config.light.brandColor.secondary, "light"),
@@ -77,7 +77,11 @@ export function generatePluginConfig(config: Config): NextUIPluginConfig {
       },
       dark: {
         colors: {
-          default: generateThemeColor(config.dark.brandColor.default, "dark"),
+          default: generateThemeColor(
+            config.dark.brandColor.default,
+            "dark",
+            defaultDarkColorWeight,
+          ),
           primary: generateThemeColor(config.dark.brandColor.primary, "dark"),
           secondary: generateThemeColor(config.dark.brandColor.secondary, "dark"),
           success: generateThemeColor(config.dark.brandColor.success, "dark"),

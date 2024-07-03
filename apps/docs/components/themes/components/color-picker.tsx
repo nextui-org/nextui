@@ -3,11 +3,12 @@ import {Button, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react
 import {HexColorInput, HexColorPicker} from "react-colorful";
 import Values from "values.js";
 import {readableColor} from "color2k";
-import {MoonIcon} from "@nextui-org/shared-icons";
+import waterDrop from "@iconify/icons-solar/waterdrop-linear";
+import {Icon} from "@iconify/react/dist/offline";
+import {useTheme} from "next-themes";
 
-import {colorWeight} from "../constants";
-import {ColorPickerType} from "../types";
-import {colorValuesToRgb} from "../utils/colors";
+import {ColorPickerType, ThemeType} from "../types";
+import {colorValuesToRgb, getColorWeight} from "../utils/colors";
 
 interface ColorPickerProps {
   hexColor: string;
@@ -20,6 +21,8 @@ interface ColorPickerProps {
 
 export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: ColorPickerProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const theme = useTheme().theme as ThemeType;
+  const colorWeight = getColorWeight(type, theme);
   const [colorValues, setColorValues] = useState<Values[]>(new Values(hexColor).all(colorWeight));
   const initialized = useRef(false);
   const selectedColor = useRef(hexColor);
@@ -57,7 +60,7 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
                 : undefined,
             }}
           >
-            <MoonIcon />
+            <Icon className="text-lg" icon={waterDrop} />
             {label} {icon}
           </Button>
         </PopoverTrigger>

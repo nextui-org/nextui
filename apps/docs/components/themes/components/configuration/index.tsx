@@ -2,7 +2,8 @@ import {useContext, useEffect, useState} from "react";
 import {Card, CardBody, Switch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
 import {useLocalStorage} from "usehooks-ts";
-import {MoonIcon} from "@nextui-org/shared-icons";
+import {Icon} from "@iconify/react/dist/offline";
+import LinkSquareIcon from "@iconify/icons-solar/link-square-linear";
 
 import {ThemeBuilderContext} from "../../provider";
 import {Config, Template, ThemeType} from "../../types";
@@ -34,7 +35,7 @@ export default function Configuration() {
   const [, setLsConfig] = useLocalStorage<Config>(configKey, initialConfig);
   const [lsSyncThemes, setLsSyncThemes] = useLocalStorage<boolean>(syncThemesKey, true);
   const isLight = theme === "light";
-  const syncIcon = syncThemes ? <MoonIcon /> : null;
+  const syncIcon = syncThemes ? <Icon icon={LinkSquareIcon} /> : null;
 
   /**
    * Set the sync themes value from the local storage on mount.
@@ -103,7 +104,7 @@ export default function Configuration() {
             color="secondary"
             isSelected={syncThemes}
             size="sm"
-            startContent={<MoonIcon />}
+            startContent={<Icon icon={LinkSquareIcon} />}
             onValueChange={handleThemeSyncing}
           >
             Sync dark and light themes

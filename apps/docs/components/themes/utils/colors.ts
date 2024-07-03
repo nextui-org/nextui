@@ -2,8 +2,8 @@ import {swapColorValues} from "@nextui-org/theme/src/utils/object";
 import {readableColor} from "color2k";
 import Values from "values.js";
 
-import {ColorShades, ThemeType, ThemeColor} from "../types";
-import {colorWeight} from "../constants";
+import {ColorShades, ThemeType, ThemeColor, ColorPickerType} from "../types";
+import {colorWeight, defaultDarkColorWeight, defaultLightColorWeight} from "../constants";
 
 /**
  * Convert color values to RGB
@@ -15,9 +15,9 @@ export function colorValuesToRgb(value: Values) {
 /**
  * Generate theme color
  */
-export function generateThemeColor(color: string, theme: ThemeType, weight?: number): ThemeColor {
+export function generateThemeColor(color: string, theme: ThemeType, weight: number): ThemeColor {
   const values = new Values(color);
-  const colorValues = values.all(weight ?? colorWeight);
+  const colorValues = values.all(weight);
   let shades = colorValues.slice(0, colorValues.length - 1).reduce((acc, shadeValue, index) => {
     (acc as any)[index === 0 ? 50 : index * 100] = rgbToHex(shadeValue.rgb);
 
@@ -79,6 +79,17 @@ export function hexToHsl(hex: string) {
   if (hue < 0) hue += 360;
 
   return `${hue} ${(saturation * 100).toFixed(2)}% ${(lightness * 100).toFixed(2)}%`;
+}
+
+/**
+ * Get the color weight
+ */
+export function getColorWeight(colorType: ColorPickerType, theme: ThemeType) {
+  if (colorType === "default") {
+    return theme === "dark" ? defaultDarkColorWeight : defaultLightColorWeight;
+  }
+
+  return colorWeight;
 }
 
 /**

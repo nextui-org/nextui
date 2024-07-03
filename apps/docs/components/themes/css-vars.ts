@@ -1,29 +1,15 @@
 import {readableColor} from "color2k";
 
-import {
-  colorsId,
-  baseColorsId,
-  showcaseId,
-  otherColorsId,
-  defaultDarkColorWeight,
-  defaultLightColorWeight,
-} from "./constants";
+import {colorsId, baseColorsId, showcaseId, otherColorsId} from "./constants";
 import {ColorPickerType, Config, ConfigLayout, ThemeType, ThemeColor} from "./types";
-import {generateThemeColor, hexToHsl} from "./utils/colors";
+import {generateThemeColor, getColorWeight, hexToHsl} from "./utils/colors";
 
 export function setCssColor(colorType: ColorPickerType, value: string, theme: ThemeType) {
   const brandColorsEl = document.getElementById(colorsId);
   const commonColorsEl = document.getElementById(baseColorsId);
   const showcaseEl = document.getElementById(showcaseId);
-  const themeColor = generateThemeColor(
-    value,
-    theme,
-    colorType === "default"
-      ? theme === "dark"
-        ? defaultDarkColorWeight
-        : defaultLightColorWeight
-      : undefined,
-  );
+  const colorWeight = getColorWeight(colorType, theme);
+  const themeColor = generateThemeColor(value, theme, colorWeight);
 
   if (!brandColorsEl || !commonColorsEl || !showcaseEl) return;
 

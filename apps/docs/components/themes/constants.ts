@@ -4,7 +4,7 @@ import {ConfigColors, Config, ConfigLayout} from "./types";
 
 // Colors
 export const defaultDarkColorWeight = 22.5;
-export const defaultLightColorWeight = 5;
+export const defaultLightColorWeight = 17.5;
 export const colorWeight = 17.5;
 
 // Regex
