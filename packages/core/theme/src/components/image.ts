@@ -22,7 +22,7 @@ const image = tv({
   slots: {
     wrapper: "relative shadow-black/5",
     zoomedWrapper: "relative overflow-hidden rounded-inherit",
-    img: "relative z-10 opacity-0 shadow-black/5 data-[loaded=true]:opacity-100",
+    img: "relative z-0 opacity-0 shadow-black/5 data-[loaded=true]:opacity-100",
     blurredImg: [
       "absolute",
       "z-0",
