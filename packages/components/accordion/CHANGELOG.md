@@ -1,5 +1,16 @@
 # @nextui-org/accordion
 
+## 2.0.36
+
+### Patch Changes
+
+- [#3291](https://github.com/nextui-org/nextui/pull/3291) [`e9a6a162e`](https://github.com/nextui-org/nextui/commit/e9a6a162e8a26c6507938191c4e0b5bd94bdbf8d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed variants for nested accordions (#3285)
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.29
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/framer-utils@2.0.22
+
 ## 2.0.35
 
 ### Patch Changes
