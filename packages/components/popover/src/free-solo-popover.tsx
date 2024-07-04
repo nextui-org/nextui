@@ -10,7 +10,7 @@
 import * as React from "react";
 import {DismissButton, Overlay} from "@react-aria/overlays";
 import {forwardRef} from "@nextui-org/system";
-import {domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
@@ -33,6 +33,8 @@ type FreeSoloPopoverWrapperProps = {
   placement: UsePopoverReturn["placement"];
   motionProps?: UsePopoverProps["motionProps"];
 } & React.HTMLAttributes<HTMLDivElement>;
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
   (
