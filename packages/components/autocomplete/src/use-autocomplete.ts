@@ -416,13 +416,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     } as ButtonProps);
 
   const getInputProps = () => {
-    // TODO(wkw): add comments
-    delete inputProps["name"];
+    const props = mergeProps(otherProps, inputProps, slotsProps.inputProps);
+
+    // `name` will be in the hidden input
+    // so that users can get the value of the input instead of label in form
+    delete props["name"];
 
     return {
-      ...otherProps,
-      ...inputProps,
-      ...slotsProps.inputProps,
+      ...props,
       isInvalid,
       validationBehavior,
       errorMessage:
@@ -430,7 +431,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ? errorMessage({isInvalid, validationErrors, validationDetails})
           : errorMessage || validationErrors?.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
-    } as unknown as InputProps;
+    } as InputProps;
   };
 
   const getListBoxProps = () =>
