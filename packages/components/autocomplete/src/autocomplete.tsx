@@ -9,6 +9,7 @@ import {ForwardedRef, ReactElement, Ref} from "react";
 import {AnimatePresence} from "framer-motion";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
+import {HiddenInput} from "./hidden-input";
 
 interface Props<T> extends UseAutocompleteProps<T> {}
 
@@ -29,6 +30,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getClearButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
+    getHiddenInputProps,
   } = useAutocomplete<T>({...props, ref});
 
   const popoverContent = isOpen ? (
@@ -43,6 +45,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
 
   return (
     <Component {...getBaseProps()}>
+      <HiddenInput {...getHiddenInputProps()} />
       <Input
         {...getInputProps()}
         endContent={
