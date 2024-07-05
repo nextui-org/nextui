@@ -8,13 +8,13 @@ export interface AriaHiddenInputProps<T> {
    * See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefautocomplete).
    */
   autoComplete?: string;
-  /** The text label for the select. */
+  /** The text label for the input. */
   label?: ReactNode;
   /** HTML form input name. */
   name?: string;
-  /** Sets the disabled state of the select and input. */
+  /** Sets the disabled state of the input. */
   isDisabled?: boolean;
-  /** Whether the select is required. */
+  /** Whether the input is required. */
   isRequired?: boolean;
   /** State for the input. */
   state: ComboBoxState<T>;
