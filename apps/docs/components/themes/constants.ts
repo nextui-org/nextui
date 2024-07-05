@@ -24,7 +24,7 @@ export const syncThemesKey = "sync-themes";
 // Theme configuration
 export const initialLightTheme: ConfigColors = {
   brandColor: {
-    default: colors.zinc[500],
+    default: "#d4d4d8",
     primary: colors.blue[500],
     secondary: colors.purple[500],
     success: colors.green[500],

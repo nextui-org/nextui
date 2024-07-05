@@ -6,7 +6,7 @@ import {Config} from "../types";
 export const coffee: Config = {
   light: {
     brandColor: {
-      default: "#bb9058",
+      default: "#b4afa8",
       primary: "#db924b",
       secondary: "#5a8486",
       success: "#9db787",
@@ -15,7 +15,7 @@ export const coffee: Config = {
     },
     baseColor: {
       foreground: "#a27225",
-      background: "#fff2e1",
+      background: "#fffbf6",
       content1: "#fff2e0",
       content2: "#ffe9cc",
       content3: "#ffe0b8",

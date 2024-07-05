@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useState} from "react";
 import {Button, Popover, PopoverContent, PopoverTrigger} from "@nextui-org/react";
 import {HexColorInput, HexColorPicker} from "react-colorful";
 import Values from "values.js";
@@ -20,35 +20,35 @@ interface ColorPickerProps {
 }
 
 export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: ColorPickerProps) {
+  const [selectedColor, setSelectedColor] = useState(hexColor);
+
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme().theme as ThemeType;
-  const colorWeight = getColorWeight(type, theme);
-  const [colorValues, setColorValues] = useState<Values[]>(new Values(hexColor).all(colorWeight));
-  const initialized = useRef(false);
-  const selectedColor = useRef(hexColor);
+  const selectedColorWeight = getColorWeight(type, theme);
+  const selectedColorValues = new Values(selectedColor).all(selectedColorWeight);
 
-  function handleChange(hexColor: string) {
-    const values = new Values(hexColor);
-
-    onChange(hexColor);
-    selectedColor.current = hexColor;
-    setColorValues(values.all(colorWeight));
+  function handleChange(updatedHexColor: string) {
+    onChange(updatedHexColor);
+    setSelectedColor(updatedHexColor);
   }
 
+  /**
+   * Update the selected color when the popover is opened.
+   */
   useEffect(() => {
-    if (isOpen && !initialized.current) {
-      setColorValues(new Values(hexColor).all(colorWeight));
-      initialized.current = true;
+    if (isOpen) {
+      setSelectedColor(hexColor);
     }
-    if (!isOpen && initialized.current) {
-      onClose(selectedColor.current);
-      initialized.current = false;
-    }
-  }, [isOpen, hexColor, onClose]);
+  }, [hexColor, isOpen]);
 
   return (
     <div>
-      <Popover isOpen={isOpen} placement="bottom" onOpenChange={setIsOpen}>
+      <Popover
+        isOpen={isOpen}
+        placement="bottom"
+        onClose={() => onClose(selectedColor)}
+        onOpenChange={setIsOpen}
+      >
         <PopoverTrigger>
           <Button
             fullWidth
@@ -56,7 +56,7 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
             size="sm"
             style={{
               color: ["background", "foreground", "focus", "overlay"].includes(type)
-                ? readableColor(hexColor)
+                ? readableColor(selectedColor)
                 : undefined,
             }}
           >
@@ -67,21 +67,23 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
         <PopoverContent>
           <div className="flex flex-col gap-2 max-w-48 my-2">
             <div className="grid grid-cols-5 gap-2">
-              {colorValues?.slice(0, colorValues.length - 1).map((colorValue, index: number) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div
-                    className="h-6 w-6 rounded"
-                    style={{backgroundColor: colorValuesToRgb(colorValue)}}
-                  />
-                  <span className="text-xs mt-1">{index === 0 ? 50 : index * 100}</span>
-                </div>
-              ))}
+              {selectedColorValues
+                ?.slice(0, selectedColorValues.length - 1)
+                .map((colorValue, index: number) => (
+                  <div key={index} className="flex flex-col items-center">
+                    <div
+                      className="h-6 w-6 rounded"
+                      style={{backgroundColor: colorValuesToRgb(colorValue)}}
+                    />
+                    <span className="text-xs mt-1">{index === 0 ? 50 : index * 100}</span>
+                  </div>
+                ))}
             </div>
-            <HexColorPicker className="!w-full" color={hexColor} onChange={handleChange} />
+            <HexColorPicker className="!w-full" color={selectedColor} onChange={handleChange} />
             <HexColorInput
               prefixed
               className="px-2 py-1 w-full rounded-md"
-              color={hexColor}
+              color={selectedColor}
               onChange={handleChange}
             />
           </div>

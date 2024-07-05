@@ -25,7 +25,6 @@ import {Actions} from "./actions";
 import usePrevious from "@/hooks/use-previous";
 
 export default function Configuration() {
-  const [syncThemes, setSyncThemes] = useState(true);
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
   const {config, resetConfig, setConfiguration} = useContext(ThemeBuilderContext);
   const themeProps = useTheme();
@@ -33,16 +32,9 @@ export default function Configuration() {
   const prevTheme = usePrevious(theme);
   const {setTheme} = themeProps;
   const [, setLsConfig] = useLocalStorage<Config>(configKey, initialConfig);
-  const [lsSyncThemes, setLsSyncThemes] = useLocalStorage<boolean>(syncThemesKey, true);
+  const [syncThemes, setSyncThemes] = useLocalStorage<boolean>(syncThemesKey, true);
   const isLight = theme === "light";
   const syncIcon = syncThemes ? <Icon icon={LinkSquareIcon} /> : null;
-
-  /**
-   * Set the sync themes value from the local storage on mount.
-   */
-  useEffect(() => {
-    setSyncThemes(lsSyncThemes);
-  }, []);
 
   /**
    * Update the CSS variables and the configuration when the theme changes.
@@ -64,7 +56,6 @@ export default function Configuration() {
    */
   function handleThemeSyncing(isSyncing: boolean) {
     setSyncThemes(isSyncing);
-    setLsSyncThemes(isSyncing);
   }
 
   /**
