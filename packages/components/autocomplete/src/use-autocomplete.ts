@@ -5,7 +5,7 @@ import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
-import {FilterFn, useComboBoxState} from "@react-stately/combobox";
+import {ComboBoxState, FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
@@ -111,6 +111,14 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    */
   onClose?: () => void;
 }
+interface InputData {
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  name?: string;
+  validationBehavior?: "aria" | "native";
+}
+
+export const inputData = new WeakMap<ComboBoxState<any>, InputData>();
 
 export type UseAutocompleteProps<T> = Props<T> &
   Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
@@ -234,7 +242,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     inputProps: mergeProps(
       {
         label,
-        ref: inputRef,
+        // ref: inputRef,
         wrapperRef: inputWrapperRef,
         onClick: () => {
           if (!state.isOpen && !!state.selectedItem) {
@@ -503,6 +511,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getHiddenInputProps = useCallback(
     (props = {}) => ({
       state,
+      inputRef,
       name: originalProps?.name,
       isRequired: originalProps?.isRequired,
       autoComplete: originalProps?.autoComplete,
@@ -515,8 +524,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       originalProps?.autoComplete,
       originalProps?.autoComplete,
       originalProps?.isDisabled,
+      inputRef,
     ],
   );
+
+  // store the data to be used in useHiddenInput
+  inputData.set(state, {
+    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps?.isRequired,
+    name: originalProps?.name,
+    // TODO: Future enhancement to support "aria" validation behavior.
+    validationBehavior: "native",
+  });
 
   return {
     Component,
