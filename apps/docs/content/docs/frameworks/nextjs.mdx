@@ -99,7 +99,7 @@ Filtered results for: Enter something to filter
 
 You still need to add the provider to your app manually (we are working on automating this step).
 
-```jsx {7,9}
+```jsx {3,7,9}
 // app/providers.tsx
 
 import {NextUIProvider} from '@nextui-org/react'
@@ -115,7 +115,7 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 <Spacer y={4} />
 
-```jsx {7,9,11}
+```jsx {3,7,9,11}
 // app/layout.tsx
 
 import {Providers} from "./providers";
@@ -174,7 +174,7 @@ the following code to your `tailwind.config.js` file:
 **Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
 </Blockquote>
 
-```js {9,14-15}
+```js {2,9,14-15}
 // tailwind.config.js
 import {nextui} from "@nextui-org/react";
 
@@ -199,7 +199,7 @@ export default config;
 
 Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
 
-```jsx {8,10}
+```jsx {4,8,10}
 // app/providers.tsx
 'use client'
 
@@ -218,7 +218,7 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 Now, Go to your `root` layout page and wrap it with the `Providers`:
 
-```jsx {6,8,10}
+```jsx {2,6,8,10,12}
 // app/layout.tsx
 import {Providers} from "./providers";
 
@@ -244,7 +244,7 @@ of them by adding the `dark`/`light` class to the `html` tag. See the [theme doc
 Now you can import any NextUI component directly in your Server Components without needing to use
 the `use client;` directive:
 
-```jsx {2}
+```jsx {2,7}
 // app/page.tsx
 import {Button} from '@nextui-org/button'; 
 
@@ -338,7 +338,7 @@ Filtered results for: Enter something to filter
 
 You still need to add the provider to your app manually (we are working on automating this step).
 
-```jsx {7,9}
+```jsx {3,7,9}
 // app/providers.tsx
 
 import {NextUIProvider} from '@nextui-org/react'
@@ -354,7 +354,7 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 <Spacer y={4} />
 
-```jsx {7,9,11}
+```jsx {3,7,9,11,13}
 // app/layout.tsx
 
 import {Providers} from "./providers";
@@ -413,7 +413,7 @@ the following code to your `tailwind.config.js` file:
 **Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
 </Blockquote>
 
-```js {9,14-15}
+```js {2,9,14-15}
 // tailwind.config.js
 import {nextui} from "@nextui-org/react";
 
@@ -438,7 +438,7 @@ export default config;
 
 Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
 
-```jsx {6,8}
+```jsx {2,6,8}
 // pages/_app.js
 import {NextUIProvider} from '@nextui-org/react'
 
@@ -457,7 +457,7 @@ export default MyApp;
 
 Now you can import any NextUI component wherever you want:
 
-```jsx {1}
+```jsx {1,6}
 import {Button} from '@nextui-org/react'
 
 export default function Page() {
