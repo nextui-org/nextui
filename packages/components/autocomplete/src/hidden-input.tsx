@@ -21,7 +21,15 @@ export interface AriaHiddenInputProps<T> {
 }
 
 export function HiddenInput<T>(props: AriaHiddenInputProps<T>) {
-  const {state, ...otherProps} = props;
+  const {state, isDisabled, isRequired, ...otherProps} = props;
 
-  return <input {...otherProps} type="hidden" value={state.selectedKey || ""} />;
+  return (
+    <input
+      {...otherProps}
+      disabled={isDisabled}
+      required={isRequired}
+      type="hidden"
+      value={state.selectedKey || ""}
+    />
+  );
 }
