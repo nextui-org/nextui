@@ -675,5 +675,27 @@ describe("DatePicker", () => {
       expect(month).toHaveAttribute("data-value", "6");
       expect(year).toHaveAttribute("data-value", "2567");
     });
+
+    it("should open and close popover after clicking selector button", () => {
+      const {getByRole} = render(<DatePicker data-testid="datepicker" label="Date" />);
+
+      const selectorButton = getByRole("button");
+
+      expect(selectorButton).not.toBeNull();
+
+      // open the datepicker dialog by clicking selector button
+      triggerPress(selectorButton);
+
+      let dialog = getByRole("dialog");
+
+      // assert that the datepicker dialog is open
+      expect(dialog).toBeVisible();
+
+      // click the selector button again
+      triggerPress(selectorButton);
+
+      // assert that the datepicker dialog is closed
+      expect(dialog).not.toBeVisible();
+    });
   });
 });
