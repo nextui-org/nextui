@@ -13,7 +13,7 @@ import {
   InvalidCardIcon,
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
-import {Input} from "@nextui-org/input";
+import {Input, Textarea} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 
 import {Accordion, AccordionProps, AccordionItem, AccordionItemProps} from "../src";
@@ -354,7 +354,7 @@ const WithFormTemplate = (args: AccordionProps) => {
         }
       />
       <Input isRequired label="Password" placeholder="Enter your password" type="password" />
-
+      <Textarea label="Message" placeholder="Enter your message" />
       <div className="flex gap-2 justify-end">
         <button className={button({color: "primary"})}>Login</button>
       </div>
