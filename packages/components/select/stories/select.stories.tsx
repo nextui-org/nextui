@@ -627,6 +627,71 @@ const WithReactHookFormTemplate = (args: SelectProps) => {
   );
 };
 
+const ScrollableContainerTemplate = (args: SelectProps) => {
+  const categories = [
+    {
+      target: "Animals",
+      items: [
+        {name: "Lion", emoji: "🦁"},
+        {name: "Tiger", emoji: "🐅"},
+        {name: "Elephant", emoji: "🐘"},
+        {name: "Kangaroo", emoji: "🦘"},
+        {name: "Panda", emoji: "🐼"},
+        {name: "Giraffe", emoji: "🦒"},
+        {name: "Zebra", emoji: "🦓"},
+        {name: "Cheetah", emoji: "🐆"},
+      ],
+    },
+    {
+      target: "Birds",
+      items: [
+        {name: "Eagle", emoji: "🦅"},
+        {name: "Parrot", emoji: "🦜"},
+        {name: "Penguin", emoji: "🐧"},
+        {name: "Ostrich", emoji: "🦢"},
+        {name: "Peacock", emoji: "🦚"},
+        {name: "Swan", emoji: "🦢"},
+        {name: "Falcon", emoji: "🦅"},
+        {name: "Flamingo", emoji: "🦩"},
+      ],
+    },
+  ];
+  const DEFAULT_CATEGORY = "Animals";
+
+  return (
+    <>
+      <form className="h-full overflow-auto">
+        <div className="flex justify-between h-[1500px]">
+          <div className="flex items-center gap-2">
+            <div className="flex w-full flex-wrap gap-4 md:flex-nowrap">
+              <Select
+                aria-label="Favourite Animals"
+                className="w-52"
+                defaultSelectedKeys={[DEFAULT_CATEGORY]}
+                label="Category"
+                name="Category"
+                {...args}
+              >
+                {categories.map((category, idx, arr) => (
+                  <SelectSection
+                    key={category.target}
+                    showDivider={idx !== arr.length - 1}
+                    title={category.target}
+                  >
+                    {category.items.map((item) => (
+                      <SelectItem key={item.name}>{`${item.emoji} ${item.name}`}</SelectItem>
+                    ))}
+                  </SelectSection>
+                ))}
+              </Select>
+            </div>
+          </div>
+        </div>
+      </form>
+    </>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -833,6 +898,14 @@ export const WithAriaLabel = {
 
 export const WithReactHookForm = {
   render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithScrollableContainer = {
+  render: ScrollableContainerTemplate,
 
   args: {
     ...defaultProps,
