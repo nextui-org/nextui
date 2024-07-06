@@ -167,7 +167,7 @@ export function useImage(originalProps: UseImageProps) {
       style: {
         // img has `height: auto` by default
         // passing the custom height here to override if it is specified
-        ...(props?.height && {height: h}),
+        ...(otherProps?.height && {height: h}),
         ...props.style,
         ...otherProps.style,
       },
