@@ -271,7 +271,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     style: {
       // @ts-ignore
       "--visible-months": visibleMonths,
-      "--calendar-width": calendarWidth,
+      "--calendar-width": typeof calendarWidth === "number" ? `${calendarWidth}px` : calendarWidth,
     } as React.CSSProperties,
   };
 
