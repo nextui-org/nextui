@@ -4,6 +4,7 @@ import {render, act, fireEvent} from "@testing-library/react";
 import {CalendarDate, isWeekend} from "@internationalized/date";
 import {triggerPress, keyCodes} from "@nextui-org/test-utils";
 import {useLocale} from "@react-aria/i18n";
+import {NextUIProvider} from "@nextui-org/system";
 
 import {Calendar as CalendarBase, CalendarProps} from "../src";
 
@@ -15,6 +16,20 @@ const Calendar = React.forwardRef((props: CalendarProps, ref: React.Ref<HTMLDivE
 });
 
 Calendar.displayName = "Calendar";
+
+const CalendarWithLocale = React.forwardRef(
+  (props: CalendarProps & {locale: string}, ref: React.Ref<HTMLDivElement>) => {
+    const {locale, ...otherProps} = props;
+
+    return (
+      <NextUIProvider locale={locale}>
+        <CalendarBase {...otherProps} ref={ref} disableAnimation />
+      </NextUIProvider>
+    );
+  },
+);
+
+CalendarWithLocale.displayName = "CalendarWithLocale";
 
 describe("Calendar", () => {
   beforeAll(() => {
@@ -254,6 +269,16 @@ describe("Calendar", () => {
       expect(onChange).not.toHaveBeenCalled();
     });
 
+    it("should not open a month & year picker if isDisabled is true", () => {
+      const {container} = render(
+        <Calendar isDisabled showMonthAndYearPickers value={new CalendarDate(2024, 6, 29)} />,
+      );
+
+      const headerButtonPicker = container.querySelector("[data-slot='header']");
+
+      expect(headerButtonPicker).toHaveAttribute("disabled");
+    });
+
     it("should not select a date on click if isReadOnly", () => {
       let onChange = jest.fn();
       let {getByLabelText, getByText} = render(
@@ -417,6 +442,26 @@ describe("Calendar", () => {
       }
 
       expect(description).toBe("Selected date unavailable.");
+    });
+
+    it("should display the correct year and month in showMonthAndYearPickers with locale", () => {
+      const {getByRole} = render(
+        <CalendarWithLocale
+          showMonthAndYearPickers
+          defaultValue={new CalendarDate(2024, 6, 26)}
+          locale="th-TH-u-ca-buddhist"
+        />,
+      );
+
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      triggerPress(header);
+
+      const month = getByRole("button", {name: "มิถุนายน"});
+      const year = getByRole("button", {name: "พ.ศ. 2567"});
+
+      expect(month).toHaveAttribute("data-value", "6");
+      expect(year).toHaveAttribute("data-value", "2567");
     });
   });
 });

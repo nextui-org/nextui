@@ -4,6 +4,7 @@ import {render, act, fireEvent, waitFor} from "@testing-library/react";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 import {CalendarDate, CalendarDateTime} from "@internationalized/date";
+import {NextUIProvider} from "@nextui-org/system";
 
 import {DatePicker as DatePickerBase, DatePickerProps} from "../src";
 
@@ -23,6 +24,26 @@ const DatePicker = React.forwardRef((props: DatePickerProps, ref: React.Ref<HTML
 });
 
 DatePicker.displayName = "DatePicker";
+
+const DatePickerWithLocale = React.forwardRef(
+  (props: DatePickerProps & {locale: string}, ref: React.Ref<HTMLDivElement>) => {
+    const {locale, ...otherProps} = props;
+
+    return (
+      <NextUIProvider locale={locale}>
+        <DatePickerBase
+          {...otherProps}
+          ref={ref}
+          disableAnimation
+          labelPlacement="outside"
+          shouldForceLeadingZeros={false}
+        />
+      </NextUIProvider>
+    );
+  },
+);
+
+DatePickerWithLocale.displayName = "DatePickerWithLocale";
 
 function getTextValue(el: any) {
   if (
@@ -625,6 +646,34 @@ describe("DatePicker", () => {
 
       // assert that the second datepicker dialog is open
       expect(dialog).toBeVisible();
+    });
+
+    it("should display the correct year and month in showMonthAndYearPickers with locale", () => {
+      const {getByRole} = render(
+        <DatePickerWithLocale
+          showMonthAndYearPickers
+          defaultValue={new CalendarDate(2024, 6, 26)}
+          label="Date"
+          locale="th-TH-u-ca-buddhist"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      expect(dialog).toBeVisible();
+
+      triggerPress(header);
+
+      const month = getByRole("button", {name: "มิถุนายน"});
+      const year = getByRole("button", {name: "พ.ศ. 2567"});
+
+      expect(month).toHaveAttribute("data-value", "6");
+      expect(year).toHaveAttribute("data-value", "2567");
     });
   });
 });

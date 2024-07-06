@@ -3,6 +3,7 @@ import {render} from "@testing-library/react";
 import {Link} from "@nextui-org/link";
 
 import {User} from "../src";
+import {AvatarIcon} from "../../avatar/src";
 
 describe("User", () => {
   it("should render correctly", () => {
@@ -20,9 +21,11 @@ describe("User", () => {
 
   it("should have the passed name", () => {
     const {container} = render(<User name="Test" />);
-    const name = container.querySelector("span");
+    const spans = container.querySelectorAll("span");
 
-    expect(name).toHaveTextContent("Test");
+    expect(spans).toHaveLength(4);
+
+    expect(spans[2]).toHaveTextContent("Test");
   });
 
   it("should have the passed description", () => {
@@ -71,5 +74,32 @@ describe("User", () => {
     );
 
     expect(wrapper.getByTestId("test-user-link")).toBeInTheDocument();
+  });
+
+  it("should render avatar icon", () => {
+    const {container} = render(
+      <User
+        avatarProps={{
+          icon: <AvatarIcon />,
+        }}
+        name="test"
+      />,
+    );
+
+    expect(container.querySelector("svg")).toBeInTheDocument();
+  });
+
+  it("should display initials in avatar if name is specified", () => {
+    const {getByRole} = render(
+      <User
+        avatarProps={{
+          icon: <AvatarIcon />,
+          name: "WK",
+        }}
+        name="test"
+      />,
+    );
+
+    expect(getByRole("img")).toHaveTextContent("WK");
   });
 });
