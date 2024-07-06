@@ -13,7 +13,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel, warn} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -229,10 +229,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       // throw a warning if `labelPlacement` is `inside`
       // and change it to `outside`
       if (originalProps.labelPlacement === "inside") {
-        /* eslint-disable no-console */
-        console.warn(
-          "Input with file type doesn't support inside label. Converting to outside ...",
-        );
+        warn("Input with file type doesn't support inside label. Converting to outside ...");
 
         return "outside";
       }
