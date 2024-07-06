@@ -41,13 +41,17 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
   const isLoadingRef = useRef(false);
 
   const loadMore = useCallback(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
     if (!isLoadingRef.current && hasMore && onLoadMore) {
       isLoadingRef.current = true;
       onLoadMore();
-      setTimeout(() => {
+      timer = setTimeout(() => {
         isLoadingRef.current = false;
       }, 100); // Debounce time to prevent multiple calls
     }
+
+    return () => clearTimeout(timer);
   }, [hasMore, onLoadMore]);
 
   useLayoutEffect(() => {
