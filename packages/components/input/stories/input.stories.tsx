@@ -90,6 +90,13 @@ const MirrorTemplate = (args) => (
   </div>
 );
 
+const FileTypeTemplate = (args) => (
+  <div className="w-full max-w-xl flex flex-row items-end gap-4">
+    <Input {...args} label="Single File" />
+    <Input {...args} multiple label="Multiple Files" />
+  </div>
+);
+
 const FormTemplate = (args) => (
   <form
     className="w-full max-w-xl flex flex-row items-end gap-4"
@@ -580,6 +587,15 @@ export const Password = {
     label: "Password",
     placeholder: "Enter your password",
     variant: "bordered",
+  },
+};
+
+export const FileType = {
+  render: FileTypeTemplate,
+
+  args: {
+    ...defaultProps,
+    type: "file",
   },
 };
 
