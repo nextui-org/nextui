@@ -87,6 +87,7 @@
         "prev": ["const", "let", "var"],
         "next": ["const", "let", "var"]
       }
-    ]
+    ],
+    "import/consistent-type-specifier-style": ["error", "prefer-top-level"]
   }
 }
