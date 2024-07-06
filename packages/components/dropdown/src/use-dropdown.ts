@@ -1,8 +1,9 @@
 import type {PopoverProps} from "@nextui-org/popover";
 import type {MenuTriggerType} from "@react-types/menu";
 import type {Ref} from "react";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {useMenuTriggerState} from "@react-stately/menu";
 import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";

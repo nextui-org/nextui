@@ -1,9 +1,11 @@
+import type {SelectProps} from "../src";
+
 import * as React from "react";
 import {render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
-import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
+import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
 
 type Item = {
@@ -564,7 +566,12 @@ describe("Select", () => {
           console.log(JSON.stringify(Object.fromEntries(formData)));
         }}
       >
-        <Select data-testid="select" label="test select" name="select" size="sm">
+        <Select
+          data-testid="select"
+          defaultSelectedKeys={["foo"]}
+          label="test select"
+          name="select"
+        >
           <SelectItem key="foo">foo</SelectItem>
           <SelectItem key="bar">bar</SelectItem>
         </Select>
@@ -574,6 +581,14 @@ describe("Select", () => {
       </form>,
     );
 
+    const submitButton = wrapper.getByTestId("submit-button");
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "foo"}));
+
     const select = wrapper.getByTestId("select");
 
     expect(select).not.toBeNull();
@@ -582,32 +597,16 @@ describe("Select", () => {
       await user.click(select);
     });
 
-    let listbox = wrapper.getByRole("listbox");
+    const listbox = wrapper.getByRole("listbox");
 
     expect(listbox).toBeTruthy();
 
-    let listboxItems = wrapper.getAllByRole("option");
+    const listboxItems = wrapper.getAllByRole("option");
 
     expect(listboxItems.length).toBe(2);
 
     await act(async () => {
-      await user.click(listboxItems[1]);
-    });
-
-    let submitButton = wrapper.getByTestId("submit-button");
-
-    await act(async () => {
-      await user.click(submitButton);
-    });
-
-    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "bar"}));
-
-    await act(async () => {
-      await user.click(select);
-    });
-
-    await act(async () => {
-      await user.click(listboxItems[1]);
+      await user.click(listboxItems[0]);
     });
 
     await act(async () => {
@@ -615,6 +614,42 @@ describe("Select", () => {
     });
 
     expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: ""}));
+  });
+
+  it("should close listbox by clicking selector button again", async () => {
+    const wrapper = render(
+      <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    expect(select).not.toBeNull();
+
+    // open the select listbox by clicking selector button
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select listbox is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // open the select listbox by clicking selector button
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select listbox is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
   });
 });
 

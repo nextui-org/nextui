@@ -69,6 +69,9 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
           initial="exit"
           style={{willChange}}
           variants={transitionVariants}
+          onKeyDown={(e) => {
+            e.stopPropagation();
+          }}
           {...motionProps}
         >
           <div {...getContentProps()}>{children}</div>
@@ -85,6 +88,9 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
               initial="exit"
               style={{willChange}}
               variants={transitionVariants}
+              onKeyDown={(e) => {
+                e.stopPropagation();
+              }}
               {...motionProps}
             >
               <div {...getContentProps()}>{children}</div>
