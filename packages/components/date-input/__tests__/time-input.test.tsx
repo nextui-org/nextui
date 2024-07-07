@@ -180,6 +180,32 @@ describe("TimeInput", () => {
         }
       }
     });
+
+    it("should support error message (with isInvalid)", function () {
+      const {getAllByRole, getByRole} = render(
+        <TimeInput isInvalid errorMessage="Error message" label="Time" />,
+      );
+
+      const group = getByRole("group");
+
+      expect(group).toHaveAttribute("aria-describedby");
+
+      if (group) {
+        const descById = group.getAttribute("aria-describedby");
+        const description = descById && document.getElementById(descById);
+
+        expect(description).toHaveTextContent("Error message");
+
+        const segments = getAllByRole("spinbutton");
+
+        for (const segment of segments) {
+          expect(segment).toHaveAttribute(
+            "aria-describedby",
+            group.getAttribute("aria-describedby"),
+          );
+        }
+      }
+    });
   });
 
   describe("Events", function () {
