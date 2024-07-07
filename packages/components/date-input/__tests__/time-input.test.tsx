@@ -354,4 +354,18 @@ describe("TimeInput", () => {
       expect(input).toHaveValue("08:30:00");
     });
   });
+
+  describe(`Validation (validationBehavior="aria")`, () => {
+    it("should display an errorMessage when timeValue is less than the minimum", () => {
+      render(<TimeInput label="Time" minValue={new Time(9)} value={new Time(8)} />);
+
+      expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
+    });
+
+    it("should display an errorMessage when timeValue is greater than the maximum", () => {
+      render(<TimeInput label="Time" maxValue={new Time(17)} value={new Time(18)} />);
+
+      expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
+    });
+  });
 });

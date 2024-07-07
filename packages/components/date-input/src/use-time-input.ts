@@ -115,7 +115,6 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     minValue,
     maxValue,
     validationBehavior,
-    isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
   });
 
