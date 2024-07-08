@@ -1,5 +1,6 @@
 import Input from "./input";
 import Textarea from "./textarea";
+import "./input.css";
 
 // export types
 export type {InputProps} from "./input";
