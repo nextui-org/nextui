@@ -50,7 +50,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         />
 
         <Input
-          className="absolute -top-[60px] -right-[90px] animate-[levitate_10s_ease_infinite] w-[200px]"
+          className="absolute -top-[60px] -right-[80px] animate-[levitate_10s_ease_infinite] w-[200px]"
           color="secondary"
           defaultValue="NextUI"
           label="Input"
@@ -82,7 +82,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         <UserTwitterCard className="absolute left-[30px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
         <Card
-          className="absolute right-[160px] -top-[50px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
+          className="absolute right-[150px] -top-[50px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
           shadow="lg"
         >
           <CardBody>
@@ -115,7 +115,7 @@ export const FloatingComponents: React.FC<{}> = () => {
             }}
           >
             <Button
-              className="absolute  lg:left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
+              className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
               color="secondary"
               size="sm"
               variant="flat"
