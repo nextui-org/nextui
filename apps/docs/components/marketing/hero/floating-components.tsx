@@ -38,7 +38,7 @@ export const FloatingComponents: React.FC<{}> = () => {
       <>
         <Switch
           classNames={{
-            base: "absolute -top-[220px] -right-[40px] animate-[levitate_13s_ease_infinite_1s_reverse]",
+            base: "absolute -top-[220px] -right-[40px]  animate-[levitate_13s_ease_infinite_1s_reverse]",
             wrapper: "shadow-sm",
             startContent: "text-white",
           }}
@@ -50,7 +50,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         />
 
         <Input
-          className="absolute -top-[130px] -right-[120px] animate-[levitate_10s_ease_infinite] w-[200px]"
+          className="absolute -top-[60px] -right-[90px] animate-[levitate_10s_ease_infinite] w-[200px]"
           color="secondary"
           defaultValue="NextUI"
           label="Input"
@@ -61,13 +61,13 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <Card
           isFooterBlurred
-          className="absolute -top-[260px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+          className="absolute -top-[270px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         >
           <Image
             alt="Professional camera"
             as={NextImage}
             className="object-cover -translate-y-12 h-[100%]"
-            height={120}
+            height={180}
             src="/images/card-example-6.webp"
             width={120}
           />
@@ -79,10 +79,10 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <FloatingTabs />
 
-        <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
+        <UserTwitterCard className="absolute left-[30px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
         <Card
-          className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
+          className="absolute right-[160px] -top-[50px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
           shadow="lg"
         >
           <CardBody>
@@ -90,7 +90,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           </CardBody>
         </Card>
 
-        <div className="absolute z-10 -top-[40px] -right-[230px] animate-[levitate_14s_ease_infinite_1s]">
+        <div className="absolute z-10 -top-[120px] -right-[90px] animate-[levitate_14s_ease_infinite_1s]">
           <Pagination
             isCompact
             showControls
@@ -115,7 +115,7 @@ export const FloatingComponents: React.FC<{}> = () => {
             }}
           >
             <Button
-              className="absolute left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
+              className="absolute  lg:left-[200px] top-[160px] max-w-fit animate-[levitate_14s_ease_infinite_0.5s]"
               color="secondary"
               size="sm"
               variant="flat"
@@ -136,7 +136,7 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <Card
           isFooterBlurred
-          className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+          className="absolute lg:right-[60px] right-[20px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         >
           <Image
             alt="Woman listing to music"
