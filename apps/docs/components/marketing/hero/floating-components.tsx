@@ -136,7 +136,7 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <Card
           isFooterBlurred
-          className="absolute lg:right-[60px] right-[20px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+          className="absolute right-[60px] top-[100px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         >
           <Image
             alt="Woman listing to music"
