@@ -2,7 +2,7 @@ const App = `import {Popover, PopoverTrigger, PopoverContent, Button} from "@nex
 
 export default function App() {
   return (
-    <Popover placement="right">
+    <Popover placement="top">
       <PopoverTrigger>
         <Button>Open Popover</Button>
       </PopoverTrigger>
