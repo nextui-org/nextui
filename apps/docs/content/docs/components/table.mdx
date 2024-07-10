@@ -149,8 +149,11 @@ provide a default set of selected rows.
 
 <CodeDemo title="Single Row Selection" files={tableContent.singleSelection} />
 
-> **Note**: The value of the selected keys must match the key prop of the row.
+> **Note**:
+> - The value of the selected keys must match the `key` prop of the row.
+> - React keys are automatically converted to strings. When using the `Table` component, ensure that all keys (e.g., row IDs) are treated as strings to avoid type mismatch issues. For more information, refer to the [React documentation on keys](https://reactjs.org/docs/lists-and-keys.html#keys)
 
+This format makes it clear and easy to follow.
 ### Multiple Row Selection
 
 You can also select multiple rows by using the `selectionMode="multiple"` prop. Use `defaultSelectedKeys` to
