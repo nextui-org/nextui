@@ -12,7 +12,6 @@ import {fontSans} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";
 import {Footer} from "@/components/footer";
 import {ProBanner} from "@/components/pro-banner";
-import {ScriptProviders} from "@/components/scripts/script-providers";
 
 export const metadata: Metadata = {
   title: {
@@ -77,7 +76,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           </div>
           <Cmdk />
         </Providers>
-        <ScriptProviders />
       </body>
     </html>
   );
