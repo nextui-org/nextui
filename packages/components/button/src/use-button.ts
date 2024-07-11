@@ -2,8 +2,9 @@ import type {ButtonVariantProps} from "@nextui-org/theme";
 import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 import type {ReactNode} from "react";
 import type {RippleProps} from "@nextui-org/ripple";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {MouseEventHandler, useCallback} from "react";

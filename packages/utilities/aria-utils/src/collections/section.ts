@@ -7,4 +7,4 @@ import {HTMLNextUIProps, As} from "@nextui-org/system";
  *
  */
 export type SectionProps<Type extends As = "div", T extends object = {}> = BaseSectionProps<T> &
-  HTMLNextUIProps<Type>;
+  Omit<HTMLNextUIProps<Type>, "children">;
