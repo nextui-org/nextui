@@ -117,8 +117,7 @@ describe("Select", () => {
             items={section.children}
             title={section.title}
           >
-            {/* @ts-ignore TODO: fix section children types*/}
-            {(item: Item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+            {(item: Item) => <SelectItem key={item.key}>{item.label}</SelectItem>}
           </SelectSection>
         )}
       </Select>,
@@ -365,7 +364,8 @@ describe("Select", () => {
         label="Test with ID"
         onSelectionChange={onSelectionChangeId}
       >
-        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
+        {/* @ts-ignore */}
+        {(item) => <SelectItem>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -392,9 +392,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item keys upon selection", async () => {
     const itemsWithKey = [
-      {key: 1, value: "penguin"},
-      {key: 2, value: "zebra"},
-      {key: 3, value: "shark"},
+      {key: "1", value: "penguin"},
+      {key: "2", value: "zebra"},
+      {key: "3", value: "shark"},
     ];
 
     const onSelectionChangeKey = jest.fn();
@@ -560,6 +560,7 @@ describe("Select", () => {
           const formData = new FormData(e.target as HTMLFormElement);
 
           /* eslint-disable no-console */
+          // @ts-ignore
           console.log(JSON.stringify(Object.fromEntries(formData)));
         }}
       >
