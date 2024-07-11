@@ -170,12 +170,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
           {rendered}
         </span>
         {isUpdated && (
-          <Chip
-            className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
-            color="default"
-            size="sm"
-            variant="flat"
-          >
+          <Chip className="ml-1 py-1 text-tiny" color="success" size="sm" variant="flat">
             Updated
           </Chip>
         )}
@@ -185,7 +180,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
           </Chip>
         )}
         {item.props?.comingSoon && (
-          <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
+          <Chip className="ml-1 py-1 text-tiny" color="secondary" size="sm" variant="flat">
             Coming soon
           </Chip>
         )}
