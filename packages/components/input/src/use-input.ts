@@ -137,7 +137,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value?.toString() ?? undefined,
+    props.value?.toString(),
     props.defaultValue?.toString() ?? "",
     handleValueChange,
   );
