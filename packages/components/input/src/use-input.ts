@@ -80,7 +80,7 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
   /**
    * React aria onChange event.
    */
-  onValueChange?: (value: string) => void;
+  onValueChange?: (value: string | number) => void;
 }
 
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
@@ -118,7 +118,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = props;
 
   const handleValueChange = useCallback(
-    (value: string | undefined) => {
+    (value: string | number | undefined) => {
       onValueChange(value ?? "");
     },
     [onValueChange],
@@ -137,8 +137,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const [inputValue, setInputValue] = useControlledState<string | undefined>(
-    props.value,
-    props.defaultValue ?? "",
+    props.value?.toString() ?? undefined,
+    props.defaultValue?.toString() ?? "",
     handleValueChange,
   );
 
