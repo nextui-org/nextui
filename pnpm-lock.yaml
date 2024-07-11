@@ -1950,6 +1950,18 @@ importers:
 
   packages/components/pagination:
     dependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
+      '@nextui-org/chip':
+        specifier: workspace:*
+        version: link:../chip
+      '@nextui-org/dropdown':
+        specifier: workspace:*
+        version: link:../dropdown
+      '@nextui-org/input':
+        specifier: workspace:*
+        version: link:../input
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -1959,12 +1971,21 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/table':
+        specifier: workspace:*
+        version: link:../table
+      '@nextui-org/tabs':
+        specifier: workspace:*
+        version: link:../tabs
       '@nextui-org/use-intersection-observer':
         specifier: workspace:*
         version: link:../../hooks/use-intersection-observer
       '@nextui-org/use-pagination':
         specifier: workspace:*
         version: link:../../hooks/use-pagination
+      '@nextui-org/user':
+        specifier: workspace:*
+        version: link:../user
       '@react-aria/focus':
         specifier: 3.17.1
         version: 3.17.1(react@18.2.0)
@@ -2618,9 +2639,6 @@ importers:
       '@nextui-org/chip':
         specifier: workspace:*
         version: link:../chip
-      '@nextui-org/pagination':
-        specifier: workspace:*
-        version: link:../pagination
       '@nextui-org/spinner':
         specifier: workspace:*
         version: link:../spinner
