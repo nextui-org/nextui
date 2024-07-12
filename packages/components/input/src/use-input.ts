@@ -19,6 +19,9 @@ import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
+// definfing the type of value
+type Value = string | number | undefined;
+
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
   extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
   /**
@@ -118,7 +121,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = props;
 
   const handleValueChange = useCallback(
-    (value: string | number | undefined) => {
+    (value: Value) => {
       onValueChange(value ?? "");
     },
     [onValueChange],
@@ -136,7 +139,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
-  const [inputValue, setInputValue] = useControlledState<string | undefined>(
+  const [inputValue, setInputValue] = useControlledState<Value>(
     props.value?.toString(),
     props.defaultValue?.toString() ?? "",
     handleValueChange,
@@ -180,7 +183,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       ...originalProps,
       validationBehavior,
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
-      value: inputValue,
+      value: inputValue?.toString(),
       "aria-label": safeAriaLabel(
         originalProps["aria-label"],
         originalProps.label,
