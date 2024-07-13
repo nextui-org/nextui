@@ -2,11 +2,11 @@ import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-or
 import type {HTMLMotionProps} from "framer-motion";
 import type {PressEvent} from "@react-types/shared";
 
-import {RefObject, Ref, useEffect} from "react";
+import {RefObject, Ref} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
+import {useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {
   HTMLNextUIProps,
@@ -297,12 +297,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     }),
     [slots, state.isOpen, classNames, underlayProps],
   );
-
-  useEffect(() => {
-    if (state.isOpen && domRef?.current) {
-      return ariaHideOutside([domRef?.current]);
-    }
-  }, [state.isOpen, domRef]);
 
   return {
     state,
