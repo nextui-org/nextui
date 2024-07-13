@@ -14,7 +14,11 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
     children,
     childCount,
     itemProps,
-    separator = <ChevronRightIcon />,
+    separator = (
+      <div className="rtl:transform rtl:rotate-180">
+        <ChevronRightIcon />
+      </div>
+    ),
     maxItems,
     itemsBeforeCollapse,
     itemsAfterCollapse,
