@@ -3332,6 +3332,31 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  packages/hooks/use-aria-overlay:
+    dependencies:
+      '@react-aria/focus':
+        specifier: 3.17.1
+        version: 3.17.1(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: 3.21.3
+        version: 3.21.3(react@18.2.0)
+      '@react-aria/overlays':
+        specifier: 3.22.1
+        version: 3.22.1(react-dom@18.2.0)(react@18.2.0)
+      '@react-types/shared':
+        specifier: 3.23.1
+        version: 3.23.1(react@18.2.0)
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+
   packages/hooks/use-aria-toggle-button:
     dependencies:
       '@nextui-org/use-aria-button':
