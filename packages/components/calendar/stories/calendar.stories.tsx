@@ -13,6 +13,7 @@ import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
+import {NextUIProvider, NextUIProviderProps} from "@nextui-org/system";
 
 import {Calendar, CalendarProps, DateValue} from "../src";
 
@@ -37,6 +38,11 @@ export default {
         type: "select",
       },
       options: ["narrow", "short", "long"],
+    },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
     },
   },
 } as Meta<typeof Calendar>;
@@ -257,6 +263,30 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
   );
 };
 
+const ReducedMotionTemplate = (args: CalendarProps) => {
+  const [reducedMotion, setReducedMotion] =
+    React.useState<NextUIProviderProps["reducedMotion"]>("never");
+
+  return (
+    <NextUIProvider reducedMotion={reducedMotion}>
+      <RadioGroup
+        className="mb-4"
+        defaultValue={reducedMotion}
+        label="Reduced motion"
+        orientation="horizontal"
+        onValueChange={(value) => {
+          setReducedMotion(value as NextUIProviderProps["reducedMotion"]);
+        }}
+      >
+        <Radio value="user">user</Radio>
+        <Radio value="always">always</Radio>
+        <Radio value="never">never</Radio>
+      </RadioGroup>
+      <Calendar {...args} />
+    </NextUIProvider>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -371,6 +401,12 @@ export const Presets = {
 
 export const CalendarWidth = {
   render: CalendarWidthTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+export const ReducedMotion = {
+  render: ReducedMotionTemplate,
   args: {
     ...defaultProps,
   },
