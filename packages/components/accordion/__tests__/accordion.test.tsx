@@ -1,7 +1,8 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
 import {focus} from "@nextui-org/test-utils";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
+import {Input} from "@nextui-org/input";
 
 import {Accordion, AccordionItem} from "../src";
 
@@ -10,6 +11,12 @@ import {Accordion, AccordionItem} from "../src";
 const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Accordion", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -115,7 +122,7 @@ describe("Accordion", () => {
     expect(button).toHaveAttribute("aria-expanded", "false");
 
     await act(async () => {
-      await userEvent.click(button);
+      await user.click(button);
     });
 
     expect(button).toHaveAttribute("aria-expanded", "true");
@@ -161,12 +168,12 @@ describe("Accordion", () => {
     });
 
     await act(async () => {
-      await userEvent.keyboard("[ArrowDown]");
+      await user.keyboard("[ArrowDown]");
     });
     expect(secondButton).toHaveFocus();
 
     await act(async () => {
-      await userEvent.keyboard("[ArrowUp]");
+      await user.keyboard("[ArrowUp]");
     });
     expect(firstButton).toHaveFocus();
   });
@@ -194,12 +201,12 @@ describe("Accordion", () => {
     });
 
     await act(async () => {
-      await userEvent.keyboard("[Home]");
+      await user.keyboard("[Home]");
     });
     expect(firstButton).toHaveFocus();
 
     await act(async () => {
-      await userEvent.keyboard("[End]");
+      await user.keyboard("[End]");
     });
     expect(secondButton).toHaveFocus();
   });
@@ -227,7 +234,7 @@ describe("Accordion", () => {
     });
 
     await act(async () => {
-      await userEvent.keyboard("[Tab]");
+      await user.keyboard("[Tab]");
     });
     expect(secondButton).toHaveFocus();
   });
@@ -270,7 +277,7 @@ describe("Accordion", () => {
     expect(button).toHaveAttribute("aria-expanded", "false");
 
     await act(async () => {
-      await userEvent.click(button);
+      await user.click(button);
     });
 
     expect(button).toHaveAttribute("aria-expanded", "true");
@@ -294,17 +301,78 @@ describe("Accordion", () => {
     expect(item1.querySelector("[role='region']")).toBeInTheDocument();
 
     await act(async () => {
-      await userEvent.click(button);
+      await user.click(button);
     });
 
     const item2 = wrapper.getByTestId("item-2");
     const button2 = item2.querySelector("button") as HTMLElement;
 
     await act(async () => {
-      await userEvent.click(button2);
+      await user.click(button2);
     });
 
     expect(item1.querySelector("[role='region']")).toBeInTheDocument();
     expect(item2.querySelector("[role='region']")).toBeInTheDocument();
+  });
+
+  it("should handle arrow key navigation within Input inside AccordionItem", async () => {
+    const wrapper = render(
+      <Accordion defaultExpandedKeys={["1"]}>
+        <AccordionItem key="1" title="Accordion Item 1">
+          <Input label="name" type="text" />
+        </AccordionItem>
+        <AccordionItem key="2" title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    const input = wrapper.getByLabelText("name");
+
+    const firstButton = await wrapper.getByRole("button", {name: "Accordion Item 1"});
+
+    await act(() => {
+      focus(firstButton);
+    });
+    await act(async () => {
+      await user.keyboard("[Tab]");
+    });
+    expect(input).toHaveFocus();
+
+    await act(async () => {
+      await user.keyboard("aaa");
+    });
+    expect(input).toHaveValue("aaa");
+
+    await act(async () => {
+      await user.keyboard("[ArrowLeft]");
+      await user.keyboard("b");
+    });
+    expect(input).toHaveValue("aaba");
+
+    await act(async () => {
+      await user.keyboard("[ArrowRight]");
+      await user.keyboard("c");
+    });
+    expect(input).toHaveValue("aabac");
+  });
+
+  it("should pass dividerProps to divider", () => {
+    const {getByRole} = render(
+      <Accordion
+        dividerProps={{
+          className: "bg-rose-500",
+        }}
+      >
+        <AccordionItem key="1" data-testid="item-1" title="Accordion Item 1">
+          Accordion Item 1 description
+        </AccordionItem>
+        <AccordionItem key="2" data-testid="item-2" title="Accordion Item 2">
+          Accordion Item 2 description
+        </AccordionItem>
+      </Accordion>,
+    );
+
+    expect(getByRole("separator")).toHaveClass("bg-rose-500");
   });
 });
