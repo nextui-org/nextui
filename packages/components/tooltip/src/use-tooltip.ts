@@ -4,7 +4,7 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
-import {ReactNode, Ref, useId, useImperativeHandle} from "react";
+import {ReactNode, Ref, useId, useImperativeHandle, useMemo, useRef, useCallback} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -17,9 +17,7 @@ import {
 } from "@nextui-org/system";
 import {popover} from "@nextui-org/theme";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {createDOMRef} from "@nextui-org/react-utils";
-import {useMemo, useRef, useCallback} from "react";
+import {ReactRef, mergeRefs, createDOMRef} from "@nextui-org/react-utils";
 import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
@@ -82,6 +80,10 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    * ```
    */
   classNames?: SlotsToClasses<"base" | "arrow" | "content">;
+  /**
+   * shouldBlockScroll to stop scrolling when tooltip is open.
+   */
+  shouldBlockScroll?: boolean;
 }
 
 export type UseTooltipProps = Props &
@@ -123,6 +125,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     onClose,
     motionProps,
     classNames,
+    shouldBlockScroll = false,
     ...otherProps
   } = props;
 
@@ -247,6 +250,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
       style: mergeProps(positionProps.style, otherProps.style, props.style),
       className: slots.base({class: classNames?.base}),
       id: tooltipId,
+      shouldBlockScroll,
     }),
     [
       slots,
@@ -261,6 +265,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
       positionProps,
       props,
       tooltipId,
+      shouldBlockScroll,
     ],
   );
 

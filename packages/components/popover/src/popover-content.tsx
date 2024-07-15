@@ -2,11 +2,10 @@ import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {m, domAnimation, LazyMotion} from "framer-motion";
-import {HTMLNextUIProps} from "@nextui-org/system";
 import {RemoveScroll} from "react-remove-scroll";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";

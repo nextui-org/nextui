@@ -38,6 +38,11 @@ export default {
         type: "boolean",
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
     placement: {
       control: {
         type: "select",
@@ -283,6 +288,13 @@ export const WithArrow = {
   },
 };
 
+export const DisbaleScrollbar = {
+  args: {
+    ...defaultProps,
+    shouldBlockScroll: false,
+  },
+};
+
 export const OpenChange = {
   render: OpenChangeTemplate,
 
@@ -380,6 +392,7 @@ export const AlwaysOpen = {
     ...defaultProps,
     isOpen: true,
     showArrow: true,
+    shouldBlockScroll: true,
     content: (
       <div className="px-1 py-2">
         <div className="text-sm font-bold">Custom Content</div>

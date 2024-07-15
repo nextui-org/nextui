@@ -6,6 +6,7 @@ import {warn} from "@nextui-org/shared-utils";
 import {Children, cloneElement, isValidElement} from "react";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {mergeProps} from "@react-aria/utils";
+import {RemoveScroll} from "react-remove-scroll";
 
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
@@ -53,7 +54,7 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     warn("Tooltip must have only one child node. Please, check your code.");
   }
 
-  const {ref: tooltipRef, id, style, ...otherTooltipProps} = getTooltipProps();
+  const {ref: tooltipRef, id, style, shouldBlockScroll, ...otherTooltipProps} = getTooltipProps();
 
   const animatedContent = (
     <div ref={tooltipRef} id={id} style={style}>
@@ -75,7 +76,7 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   );
 
   return (
-    <>
+    <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
       {trigger}
       {disableAnimation && isOpen ? (
         <OverlayContainer portalContainer={portalContainer}>
@@ -90,7 +91,7 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
           ) : null}
         </AnimatePresence>
       )}
-    </>
+    </RemoveScroll>
   );
 });
 
