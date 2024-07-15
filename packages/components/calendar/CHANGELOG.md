@@ -1,13 +1,5 @@
 # @nextui-org/calendar
 
-## 2.0.8
-
-### Patch Changes
-
-- Updated dependencies []:
-  - @nextui-org/button@2.0.35
-  - @nextui-org/framer-utils@2.0.22
-
 ## 2.0.7
 
 ### Patch Changes
