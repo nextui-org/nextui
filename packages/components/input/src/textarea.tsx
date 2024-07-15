@@ -3,6 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
+import {CloseFilledIcon} from "@nextui-org/shared-icons";
 
 import {UseInputProps, useInput} from "./use-input";
 
@@ -88,6 +89,8 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
+      isClearable,
+      getClearButtonProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
@@ -122,13 +125,21 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       />
     );
 
+    const end = useMemo(() => {
+      if (isClearable) {
+        return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
+      }
+
+      return endContent;
+    }, [isClearable, getClearButtonProps]);
+
     const innerWrapper = useMemo(() => {
-      if (startContent || endContent) {
+      if (startContent || end) {
         return (
           <div {...getInnerWrapperProps()}>
             {startContent}
             {content}
-            {endContent}
+            {end}
           </div>
         );
       }

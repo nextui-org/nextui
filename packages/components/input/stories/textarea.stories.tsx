@@ -302,3 +302,15 @@ export const IsInvalid = {
     errorMessage: "Please enter a valid description",
   },
 };
+
+export const Clearable = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    placeholder: "Enter your description",
+    defaultValue: "junior@nextui.org",
+    // eslint-disable-next-line no-console
+    onClear: () => console.log("textarea cleared"),
+  },
+};
