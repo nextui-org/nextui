@@ -88,6 +88,7 @@ export function useDatePicker<T extends DateValue>({
     selectorButtonProps,
     selectorIconProps,
     onClose,
+    onOpenChange,
   } = useDatePickerBase({...originalProps, validationBehavior});
 
   let state: DatePickerState = useDatePickerState({
@@ -95,6 +96,7 @@ export function useDatePicker<T extends DateValue>({
     validationBehavior,
     shouldCloseOnSelect: () => !state.hasTime,
     onOpenChange: (isOpen) => {
+      onOpenChange?.(isOpen);
       if (!isOpen) {
         onClose();
       }
@@ -228,6 +230,8 @@ export function useDatePicker<T extends DateValue>({
 
   return {
     state,
+    isOpen: state.isOpen,
+    onOpenChange,
     endContent,
     selectorIcon,
     showTimeField,

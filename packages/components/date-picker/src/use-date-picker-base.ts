@@ -143,6 +143,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     CalendarTopContent,
     CalendarBottomContent,
     createCalendar,
+    onOpenChange,
   } = props;
 
   const {
@@ -297,6 +298,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     selectorButtonProps,
     selectorIconProps,
     onClose,
+    onOpenChange,
   };
 }
 
