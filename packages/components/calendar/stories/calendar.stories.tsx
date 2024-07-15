@@ -13,7 +13,7 @@ import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
-import {NextUIProvider, NextUIProviderProps} from "@nextui-org/system";
+import {NextUIProvider} from "@nextui-org/system";
 
 import {Calendar, CalendarProps, DateValue} from "../src";
 
@@ -247,7 +247,6 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
   return (
     <div className="flex gap-4">
       <div className="flex flex-col items-center gap-4">
-        <p>calendarWidth: 300</p>
         <p className="text-small text-default-600">calendarWidth: 300</p>
         <Calendar {...args} calendarWidth={300} />
       </div>
@@ -264,26 +263,27 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
 };
 
 const ReducedMotionTemplate = (args: CalendarProps) => {
-  const [reducedMotion, setReducedMotion] =
-    React.useState<NextUIProviderProps["reducedMotion"]>("never");
-
   return (
-    <NextUIProvider reducedMotion={reducedMotion}>
-      <RadioGroup
-        className="mb-4"
-        defaultValue={reducedMotion}
-        label="Reduced motion"
-        orientation="horizontal"
-        onValueChange={(value) => {
-          setReducedMotion(value as NextUIProviderProps["reducedMotion"]);
-        }}
-      >
-        <Radio value="user">user</Radio>
-        <Radio value="always">always</Radio>
-        <Radio value="never">never</Radio>
-      </RadioGroup>
-      <Calendar {...args} />
-    </NextUIProvider>
+    <div className="flex gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">reducedMotion: never</p>
+        <NextUIProvider reducedMotion="never">
+          <Calendar {...args} />
+        </NextUIProvider>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">reducedMotion: always</p>
+        <NextUIProvider reducedMotion="always">
+          <Calendar {...args} />
+        </NextUIProvider>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">reducedMotion: user</p>
+        <NextUIProvider reducedMotion="user">
+          <Calendar {...args} />
+        </NextUIProvider>
+      </div>
+    </div>
   );
 };
 
@@ -405,6 +405,7 @@ export const CalendarWidth = {
     ...defaultProps,
   },
 };
+
 export const ReducedMotion = {
   render: ReducedMotionTemplate,
   args: {
