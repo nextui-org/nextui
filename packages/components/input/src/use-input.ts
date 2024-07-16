@@ -205,7 +205,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     isTextInput: true,
   });
 
-  const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
+  const {isHovered, hoverProps} = useHover({
+    isDisabled: !!originalProps?.isDisabled,
+    onHoverStart: () => {
+      if (!domRef.current) return;
+      setInputValue(domRef.current.value);
+    },
+  });
 
   const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
 
