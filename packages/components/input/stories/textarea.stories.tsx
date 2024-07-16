@@ -310,6 +310,7 @@ export const Clearable = {
     ...defaultProps,
     placeholder: "Enter your description",
     defaultValue: "junior@nextui.org",
+    // isClearable: true,
     // eslint-disable-next-line no-console
     onClear: () => console.log("textarea cleared"),
   },
