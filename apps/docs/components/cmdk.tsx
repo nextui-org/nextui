@@ -63,6 +63,7 @@ const cmdk = tv({
       "outline-none",
       "rounded-none",
       "bg-transparent",
+      "dark:bg-black/50",
       "text-default-700",
       "placeholder-default-500",
       "dark:text-default-500",
@@ -386,7 +387,7 @@ export const Cmdk: FC<{}> = () => {
   return (
     <Modal
       hideCloseButton
-      backdrop="opaque"
+      backdrop="blur"
       classNames={{
         base: [
           "mt-[20vh]",
@@ -397,7 +398,7 @@ export const Cmdk: FC<{}> = () => {
           "supports-[backdrop-filter]:backdrop-blur-md",
           "supports-[backdrop-filter]:backdrop-saturate-150",
         ],
-        backdrop: ["bg-black/80"],
+        backdrop: ["bg-black/15", "dark:bg-black/50"],
       }}
       isOpen={isOpen && shouldOpen}
       motionProps={{
