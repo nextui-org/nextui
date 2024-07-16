@@ -38,11 +38,6 @@ export default {
         type: "boolean",
       },
     },
-    shouldBlockScroll: {
-      control: {
-        type: "boolean",
-      },
-    },
     placement: {
       control: {
         type: "select",
@@ -285,13 +280,6 @@ export const WithArrow = {
   args: {
     ...defaultProps,
     showArrow: true,
-  },
-};
-
-export const DisableScrollbar = {
-  args: {
-    ...defaultProps,
-    shouldBlockScroll: true,
   },
 };
 
