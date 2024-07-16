@@ -288,10 +288,10 @@ export const WithArrow = {
   },
 };
 
-export const DisbaleScrollbar = {
+export const DisableScrollbar = {
   args: {
     ...defaultProps,
-    shouldBlockScroll: false,
+    shouldBlockScroll: true,
   },
 };
 
