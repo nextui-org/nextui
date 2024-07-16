@@ -189,11 +189,12 @@ describe("Input", () => {
     const input = inputBase && inputBase.querySelector("input");
     const user = userEvent.setup();
 
-    if (!input) throw new Error("input is null");
-    if (!ref.current) throw new Error("ref is null");
+    expect(inputBase).not.toBeNull();
+    expect(input).not.toBeNull();
+    expect(ref.current).not.toBeNull();
 
-    ref.current.value = "new value";
-    await user.hover(inputBase);
+    ref.current!.value = "new value";
+    await user.hover(inputBase!);
 
     expect(input).toHaveValue("new value");
   });
