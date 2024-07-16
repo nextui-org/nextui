@@ -180,6 +180,23 @@ describe("Input", () => {
 
     expect(inputs[1]).toBeVisible();
   });
+
+  it("should sync ref.current.value with input's value after hovering over the input", async () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {container} = render(<Input ref={ref} value="value" />);
+    const inputBase = container.querySelector("[data-slot='base']");
+    const input = inputBase && inputBase.querySelector("input");
+    const user = userEvent.setup();
+
+    if (!input) throw new Error("input is null");
+    if (!ref.current) throw new Error("ref is null");
+
+    ref.current.value = "new value";
+    await user.hover(inputBase);
+
+    expect(input).toHaveValue("new value");
+  });
 });
 
 describe("Input with React Hook Form", () => {
