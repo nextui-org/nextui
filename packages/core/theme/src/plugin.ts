@@ -184,6 +184,9 @@ const corePlugin = (
           height: {
             divider: `var(--${prefix}-divider-weight)`,
           },
+          maxHeight: {
+            inherit: "inherit",
+          },
           width: {
             divider: `var(--${prefix}-divider-weight)`,
           },
