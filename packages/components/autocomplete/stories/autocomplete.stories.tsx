@@ -3,6 +3,7 @@ import type {ValidationResult} from "@react-types/shared";
 import React, {Key} from "react";
 import {Meta} from "@storybook/react";
 import {useForm} from "react-hook-form";
+import {useFilter} from "@react-aria/i18n";
 import {autocomplete, input, button} from "@nextui-org/theme";
 import {
   Pokemon,
@@ -158,6 +159,76 @@ const FormTemplate = ({color, variant, ...args}: AutocompleteProps) => {
         Submit
       </button>
     </form>
+  );
+};
+
+const FullyControlledTemplate = () => {
+  // Store Autocomplete input value, selected option, open state, and items
+  // in a state tracker
+  const [fieldState, setFieldState] = React.useState({
+    selectedKey: "",
+    inputValue: "",
+    items: animalsData,
+  });
+
+  // Implement custom filtering logic and control what items are
+  // available to the Autocomplete.
+  const {startsWith} = useFilter({sensitivity: "base"});
+
+  // Specify how each of the Autocomplete values should change when an
+  // option is selected from the list box
+  const onSelectionChange = (key) => {
+    // eslint-disable-next-line no-console
+    console.log(`onSelectionChange ${key}`);
+    setFieldState((prevState) => {
+      let selectedItem = prevState.items.find((option) => option.value === key);
+
+      return {
+        inputValue: selectedItem?.label || "",
+        selectedKey: key,
+        items: animalsData.filter((item) => startsWith(item.label, selectedItem?.label || "")),
+      };
+    });
+  };
+
+  // Specify how each of the Autocomplete values should change when the input
+  // field is altered by the user
+  const onInputChange = (value) => {
+    // eslint-disable-next-line no-console
+    console.log(`onInputChange ${value}`);
+    setFieldState((prevState: any) => ({
+      inputValue: value,
+      selectedKey: value === "" ? null : prevState.selectedKey,
+      items: animalsData.filter((item) => startsWith(item.label, value)),
+    }));
+  };
+
+  // Show entire list if user opens the menu manually
+  const onOpenChange = (isOpen, menuTrigger) => {
+    if (menuTrigger === "manual" && isOpen) {
+      setFieldState((prevState) => ({
+        inputValue: prevState.inputValue,
+        selectedKey: prevState.selectedKey,
+        items: animalsData,
+      }));
+    }
+  };
+
+  return (
+    <Autocomplete
+      className="max-w-xs"
+      inputValue={fieldState.inputValue}
+      items={fieldState.items}
+      label="Favorite Animal"
+      placeholder="Search an animal"
+      selectedKey={fieldState.selectedKey}
+      variant="bordered"
+      onInputChange={onInputChange}
+      onOpenChange={onOpenChange}
+      onSelectionChange={onSelectionChange}
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>
   );
 };
 
@@ -979,6 +1050,13 @@ export const CustomStyles = {
 export const CustomStylesWithCustomItems = {
   render: CustomStylesWithCustomItemsTemplate,
 
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const FullyControlled = {
+  render: FullyControlledTemplate,
   args: {
     ...defaultProps,
   },
