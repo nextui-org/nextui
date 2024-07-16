@@ -186,7 +186,8 @@ describe("Input", () => {
 
     const {container} = render(<Input ref={ref} value="value" />);
     const inputBase = container.querySelector("[data-slot='base']");
-    const input = inputBase && inputBase.querySelector("input");
+    const input = inputBase?.querySelector("input");
+
     const user = userEvent.setup();
 
     expect(inputBase).not.toBeNull();
