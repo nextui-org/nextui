@@ -392,7 +392,6 @@ export const AlwaysOpen = {
     ...defaultProps,
     isOpen: true,
     showArrow: true,
-    shouldBlockScroll: true,
     content: (
       <div className="px-1 py-2">
         <div className="text-sm font-bold">Custom Content</div>
