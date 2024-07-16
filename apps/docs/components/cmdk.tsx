@@ -319,7 +319,7 @@ export const Cmdk: FC<{}> = () => {
         <Button
           isIconOnly
           className={clsx(
-            "border data-[hover=true]:bg-content2 border-default-400 dark:border-default-100",
+            "border data-[hover=true]:bg-content2 border-default-400 dark:border-default-700",
             className,
           )}
           radius="full"
@@ -391,7 +391,7 @@ export const Cmdk: FC<{}> = () => {
         base: [
           "mt-[20vh]",
           "border-small",
-          "dark:border-default-100",
+          "dark:border-default-700",
           "supports-[backdrop-filter]:bg-background/80",
           "dark:supports-[backdrop-filter]:bg-background/30",
           "supports-[backdrop-filter]:backdrop-blur-md",
