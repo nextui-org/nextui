@@ -1,5 +1,15 @@
 # @nextui-org/navbar
 
+## 2.0.34
+
+### Patch Changes
+
+- Updated dependencies [[`35e709de7`](https://github.com/nextui-org/nextui/commit/35e709de7d3300c2de0b9158d098b10ef185d6ca), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/use-scroll-position@2.0.7
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.33
 
 ### Patch Changes

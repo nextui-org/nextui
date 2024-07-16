@@ -1,5 +1,22 @@
 # @nextui-org/accordion
 
+## 2.0.36
+
+### Patch Changes
+
+- [#3419](https://github.com/nextui-org/nextui/pull/3419) [`106752aae`](https://github.com/nextui-org/nextui/commit/106752aaefa4ef8bc7b7b1e97a7edcff13722ff6) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed cursor navigation within text (#2152, #3364)
+
+- [#3392](https://github.com/nextui-org/nextui/pull/3392) [`8dce94e5f`](https://github.com/nextui-org/nextui/commit/8dce94e5f03e1ac044bedd05b268b964f37316a7) Thanks [@chirokas](https://github.com/chirokas)! - Pass missing `dividerProps` to Divider (#3390)
+
+- [#3291](https://github.com/nextui-org/nextui/pull/3291) [`e9a6a162e`](https://github.com/nextui-org/nextui/commit/e9a6a162e8a26c6507938191c4e0b5bd94bdbf8d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed variants for nested accordions (#3285)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/divider@2.0.29
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.35
 
 ### Patch Changes
