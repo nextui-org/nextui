@@ -1,5 +1,21 @@
 # @nextui-org/date-input
 
+## 2.1.2
+
+### Patch Changes
+
+- [#3376](https://github.com/nextui-org/nextui/pull/3376) [`3cdfb2afc`](https://github.com/nextui-org/nextui/commit/3cdfb2afca15a49bed06356c42bd80036cb99387) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Removed autoCapitalize to prevent warnings (#3297)
+
+- [#3426](https://github.com/nextui-org/nextui/pull/3426) [`c1f05ecb4`](https://github.com/nextui-org/nextui/commit/c1f05ecb4646fe99684efd88b9adb1abb7c709f7) Thanks [@chirokas](https://github.com/chirokas)! - Fix minValue and maxValue validation (#3424)
+
+- [#3331](https://github.com/nextui-org/nextui/pull/3331) [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect year in `showMonthAndYearPickers` with different locales
+
+- [#3283](https://github.com/nextui-org/nextui/pull/3283) [`a164c26e9`](https://github.com/nextui-org/nextui/commit/a164c26e96ac8d899ec457e35e22d9b22829c0fa) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed date picker closing issue after pressing selector button (#3282)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.1.1
 
 ### Patch Changes

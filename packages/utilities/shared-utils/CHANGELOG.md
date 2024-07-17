@@ -1,5 +1,11 @@
 # @nextui-org/shared-utils
 
+## 2.0.6
+
+### Patch Changes
+
+- [#3331](https://github.com/nextui-org/nextui/pull/3331) [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect year in `showMonthAndYearPickers` with different locales
+
 ## 2.0.5
 
 ### Patch Changes

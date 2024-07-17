@@ -1,5 +1,12 @@
 # @nextui-org/use-data-scroll-overflow
 
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+
 ## 2.1.4
 
 ### Patch Changes

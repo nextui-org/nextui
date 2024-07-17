@@ -1,5 +1,11 @@
 # @nextui-org/use-infinite-scroll
 
+## 2.1.4
+
+### Patch Changes
+
+- [#3332](https://github.com/nextui-org/nextui/pull/3332) [`049d23685`](https://github.com/nextui-org/nextui/commit/049d23685f9c60b6f38e4c2ae59da4b66ed3e0cc) Thanks [@abhisektomar1](https://github.com/abhisektomar1)! - fix(table): resolve double fetch issue in useInfiniteScroll hook (#3251)
+
 ## 2.1.3
 
 ### Patch Changes
