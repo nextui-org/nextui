@@ -74,7 +74,6 @@ const table = tv({
       "rtl:last:rounded-l-lg",
       "rtl:last:rounded-r-[unset]",
       "outline-none",
-      "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
       "data-[hover=true]:text-foreground-400",
       ...dataFocusVisibleClasses,
