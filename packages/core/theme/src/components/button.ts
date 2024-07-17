@@ -86,7 +86,8 @@ const button = tv({
     },
     disableAnimation: {
       true: "!transition-none",
-      false: "transition-transform-colors-opacity motion-reduce:transition-none",
+      false:
+        "data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none",
     },
   },
   defaultVariants: {
