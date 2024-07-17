@@ -85,7 +85,7 @@ describe("Select", () => {
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" items={itemsData} label="Favorite Animal">
-        {(item) => <SelectItem>{item.label}</SelectItem>}
+        {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
       </Select>,
     );
 
@@ -112,7 +112,7 @@ describe("Select", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" items={itemsSectionData} label="Favorite Animal">
         {(section) => (
-          <SelectSection<Item>
+          <SelectSection<(typeof itemsSectionData)[0]["children"][0]>
             aria-label={section.title}
             items={section.children}
             title={section.title}
@@ -352,9 +352,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item ids upon selection", async () => {
     const itemsWithId = [
-      {id: 1, value: "penguin"},
-      {id: 2, value: "zebra"},
-      {id: 3, value: "shark"},
+      {id: "1", value: "penguin"},
+      {id: "2", value: "zebra"},
+      {id: "3", value: "shark"},
     ];
 
     const onSelectionChangeId = jest.fn();
@@ -365,7 +365,7 @@ describe("Select", () => {
         label="Test with ID"
         onSelectionChange={onSelectionChangeId}
       >
-        {(item) => <SelectItem>{item.value}</SelectItem>}
+        {(item) => <SelectItem key={item.id}>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -392,9 +392,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item keys upon selection", async () => {
     const itemsWithKey = [
-      {key: 1, value: "penguin"},
-      {key: 2, value: "zebra"},
-      {key: 3, value: "shark"},
+      {key: "1", value: "penguin"},
+      {key: "2", value: "zebra"},
+      {key: "3", value: "shark"},
     ];
 
     const onSelectionChangeKey = jest.fn();
@@ -405,7 +405,7 @@ describe("Select", () => {
         label="Test with Key"
         onSelectionChange={onSelectionChangeKey}
       >
-        {(item) => <SelectItem>{item.value}</SelectItem>}
+        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -563,6 +563,7 @@ describe("Select", () => {
           const formData = new FormData(e.target as HTMLFormElement);
 
           /* eslint-disable no-console */
+          // @ts-ignore
           console.log(JSON.stringify(Object.fromEntries(formData)));
         }}
       >
@@ -683,11 +684,11 @@ describe("Select with React Hook Form", () => {
     wrapper = render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Select data-testid="select-1" items={itemsData} {...register("withDefaultValue")}>
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         <Select data-testid="select-2" items={itemsData} {...register("withoutDefaultValue")}>
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         <Select
@@ -695,7 +696,7 @@ describe("Select with React Hook Form", () => {
           items={itemsData}
           {...register("requiredField", {required: true})}
         >
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         {errors.requiredField && <span className="text-danger">This field is required</span>}
