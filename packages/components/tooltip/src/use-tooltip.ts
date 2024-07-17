@@ -82,7 +82,7 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
   classNames?: SlotsToClasses<"base" | "arrow" | "content">;
   /**
    * shouldBlockScroll to stop scrolling when tooltip is open.
-   *  @default true
+   * @default true
    */
   shouldBlockScroll?: boolean;
 }
