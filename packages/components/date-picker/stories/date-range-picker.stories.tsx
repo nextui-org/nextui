@@ -349,7 +349,7 @@ const PresetsTemplate = (args: DateRangePickerProps) => {
           </ButtonGroup>
         }
         calendarProps={{
-          focusedValue: value.start,
+          focusedValue: value?.start,
           onFocusChange: (val) => setValue({...value, start: val}),
           nextButtonProps: {
             variant: "bordered",
@@ -634,5 +634,40 @@ export const WithValidation = {
       }
     },
     label: "Date Range (Year 2024 or later)",
+  },
+};
+
+export const CustomStyles = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    className: "max-w-xs",
+    calendarProps: {
+      classNames: {
+        base: "bg-background",
+        headerWrapper: "pt-4 bg-background",
+        prevButton: "border-1 border-default-200 rounded-small",
+        nextButton: "border-1 border-default-200 rounded-small",
+        gridHeader: "bg-background shadow-none border-b-1 border-default-100",
+        cellButton: [
+          "data-[today=true]:bg-default-100 data-[selected=true]:bg-transparent rounded-small",
+          // start (pseudo)
+          "data-[range-start=true]:before:rounded-l-small",
+          "data-[selection-start=true]:before:rounded-l-small",
+
+          // end (pseudo)
+          "data-[range-end=true]:before:rounded-r-small",
+          "data-[selection-end=true]:before:rounded-r-small",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:rounded-small",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:rounded-small",
+        ],
+      },
+    },
   },
 };
