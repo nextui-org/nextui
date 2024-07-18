@@ -1,5 +1,5 @@
 import * as React from "react";
-import {render, renderHook, fireEvent} from "@testing-library/react";
+import {render, renderHook, fireEvent, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
@@ -182,20 +182,26 @@ describe("Input", () => {
   });
 
   it("should sync ref.current.value with input's value after clicking the input", async () => {
+    const user = userEvent.setup();
     const ref = React.createRef<HTMLInputElement>();
 
     const {container} = render(<Input ref={ref} value="value" />);
-    const inputBase = container.querySelector("[data-slot='base']");
-    const input = inputBase?.querySelector("input");
 
-    const user = userEvent.setup();
-
-    expect(inputBase).not.toBeNull();
-    expect(input).not.toBeNull();
     expect(ref.current).not.toBeNull();
 
+    const inputBase = container.querySelector("[data-slot='base']");
+
+    expect(inputBase).not.toBeNull();
+
+    const input = container.querySelector("input");
+
+    expect(input).not.toBeNull();
+
     ref.current!.value = "new value";
-    await user.click(inputBase!);
+
+    await act(async () => {
+      await user.click(inputBase!);
+    });
     expect(input).toHaveValue("new value");
   });
 });
