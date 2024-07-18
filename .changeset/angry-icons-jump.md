@@ -2,4 +2,4 @@
 "@nextui-org/input": patch
 ---
 
-sync the inputValue with domRef.current.value when hovering the input (#3024, #3436)
+sync the inputValue with domRef.current.value when hovering or tabbing the input (#3024, #3436)
