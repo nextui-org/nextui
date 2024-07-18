@@ -36,13 +36,13 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=10.17.0"
+    "framer-motion": ">=11.0.22"
   },
   "devDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "clean-package": "2.2.0",
-    "framer-motion": "^11.2.12"
+    "framer-motion": "^11.3.6"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

@@ -391,8 +391,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -678,8 +678,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -778,8 +778,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1056,8 +1056,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1487,8 +1487,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1860,8 +1860,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2070,8 +2070,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2199,8 +2199,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2327,8 +2327,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2734,8 +2734,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2801,8 +2801,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3023,8 +3023,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3664,8 +3664,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
 
   packages/utilities/framer-utils:
     dependencies:
@@ -3683,8 +3683,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.2.12
-        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^11.3.6
+        version: 11.3.6(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -17339,9 +17339,29 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tslib: 2.6.2
+    dev: false
 
   /framer-motion@11.2.12(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-lCjkV4nA9rWOy2bhR4RZzkp2xpB++kFmUZ6D44V9VQaxk+JDmbDd5lq+u58DjJIIllE8AZEXp9OG/TyDN4FB/w==}
+    peerDependencies:
+      '@emotion/is-prop-valid': '*'
+      react: ^18.2.0
+      react-dom: ^18.2.0
+    peerDependenciesMeta:
+      '@emotion/is-prop-valid':
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+    dev: false
+
+  /framer-motion@11.3.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-olpX48qfoSIDjhw0RbolhOGBQmdMAXHHpSI0PFdTj5LeXChcf5F4ApShs0mQ6FPEPOj7dnEvSyB07UgRK5G9Jw==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.2.0
