@@ -1,5 +1,53 @@
 # @nextui-org/react
 
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/code@2.0.31
+  - @nextui-org/divider@2.0.30
+  - @nextui-org/kbd@2.0.32
+  - @nextui-org/spacer@2.0.31
+  - @nextui-org/spinner@2.0.32
+  - @nextui-org/system@2.2.4
+  - @nextui-org/card@2.0.32
+  - @nextui-org/accordion@2.0.37
+  - @nextui-org/listbox@2.1.24
+  - @nextui-org/menu@2.0.27
+  - @nextui-org/table@2.0.38
+  - @nextui-org/autocomplete@2.1.4
+  - @nextui-org/button@2.0.36
+  - @nextui-org/select@2.2.4
+  - @nextui-org/avatar@2.0.31
+  - @nextui-org/badge@2.0.30
+  - @nextui-org/breadcrumbs@2.0.11
+  - @nextui-org/calendar@2.0.9
+  - @nextui-org/checkbox@2.1.3
+  - @nextui-org/chip@2.0.31
+  - @nextui-org/date-input@2.1.2
+  - @nextui-org/date-picker@2.1.4
+  - @nextui-org/dropdown@2.1.28
+  - @nextui-org/image@2.0.30
+  - @nextui-org/input@2.2.3
+  - @nextui-org/link@2.0.33
+  - @nextui-org/modal@2.0.38
+  - @nextui-org/navbar@2.0.35
+  - @nextui-org/pagination@2.0.34
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/progress@2.0.32
+  - @nextui-org/radio@2.1.3
+  - @nextui-org/ripple@2.0.31
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/skeleton@2.0.30
+  - @nextui-org/slider@2.2.14
+  - @nextui-org/snippet@2.0.40
+  - @nextui-org/switch@2.0.32
+  - @nextui-org/tabs@2.0.34
+  - @nextui-org/tooltip@2.0.38
+  - @nextui-org/user@2.0.32
+  - @nextui-org/framer-utils@2.0.23
+
 ## 2.4.3
 
 ### Patch Changes
