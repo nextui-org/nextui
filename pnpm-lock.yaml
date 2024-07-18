@@ -3019,6 +3019,9 @@ importers:
 
   packages/core/system-rsc:
     dependencies:
+      '@react-types/shared':
+        specifier: 3.23.1
+        version: 3.23.1(react@18.2.0)
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
