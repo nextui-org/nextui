@@ -38,6 +38,7 @@ const modal = tv({
       "flex-col",
       "relative",
       "bg-white",
+      "dark:bg-default-200",
       "z-50",
       "w-full",
       "box-border",
