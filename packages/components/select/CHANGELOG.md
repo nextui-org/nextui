@@ -1,5 +1,16 @@
 # @nextui-org/select
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/spinner@2.0.32
+  - @nextui-org/listbox@2.1.24
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/aria-utils@2.0.23
+
 ## 2.2.3
 
 ### Patch Changes
