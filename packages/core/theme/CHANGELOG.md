@@ -1,5 +1,17 @@
 # @nextui-org/theme
 
+## 2.2.8
+
+### Patch Changes
+
+- [#3499](https://github.com/nextui-org/nextui/pull/3499) [`59428b183`](https://github.com/nextui-org/nextui/commit/59428b183deceacd0db246e129de5ed8b0200d37) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed button scaling when `disableAnimation` is `true` (#3489)
+
+- [#3495](https://github.com/nextui-org/nextui/pull/3495) [`8b193072e`](https://github.com/nextui-org/nextui/commit/8b193072e5d77d722825bc89700055ce24ee0fb3) Thanks [@abhinandan-verma](https://github.com/abhinandan-verma)! - fixed the issue of double scrollbar in modal with inside `scrollBehavior` (#3942)
+
+- [#3505](https://github.com/nextui-org/nextui/pull/3505) [`1fdbf2ad2`](https://github.com/nextui-org/nextui/commit/1fdbf2ad2020d91f257029e6a3f81406d5da109c) Thanks [@abhinandan-verma](https://github.com/abhinandan-verma)! - Fixed the calendarContent width as per visible month
+
+- [#3491](https://github.com/nextui-org/nextui/pull/3491) [`46edcca95`](https://github.com/nextui-org/nextui/commit/46edcca954b3a3e16c83d117c27cf39a59474548) Thanks [@abhinandan-verma](https://github.com/abhinandan-verma)! - fixed the slow color change of sortable table header during theme change (#3488)
+
 ## 2.2.7
 
 ### Patch Changes

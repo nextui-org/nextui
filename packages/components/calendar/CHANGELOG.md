@@ -1,5 +1,14 @@
 # @nextui-org/calendar
 
+## 2.0.10
+
+### Patch Changes
+
+- [#3505](https://github.com/nextui-org/nextui/pull/3505) [`1fdbf2ad2`](https://github.com/nextui-org/nextui/commit/1fdbf2ad2020d91f257029e6a3f81406d5da109c) Thanks [@abhinandan-verma](https://github.com/abhinandan-verma)! - Fixed the calendarContent width as per visible month
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.36
+
 ## 2.0.9
 
 ### Patch Changes
