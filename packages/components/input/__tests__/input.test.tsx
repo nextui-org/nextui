@@ -15,7 +15,7 @@ describe("Input", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    render(<Input ref={ref} label="test input" />);
+    render(<Input ref={ref} label="test should clear the valueinput" />);
     expect(ref.current).not.toBeNull();
   });
 
@@ -181,7 +181,7 @@ describe("Input", () => {
     expect(inputs[1]).toBeVisible();
   });
 
-  it("should sync ref.current.value with input's value after hovering over the input", async () => {
+  it("should sync ref.current.value with input's value after clicking the input", async () => {
     const ref = React.createRef<HTMLInputElement>();
 
     const {container} = render(<Input ref={ref} value="value" />);
@@ -195,8 +195,7 @@ describe("Input", () => {
     expect(ref.current).not.toBeNull();
 
     ref.current!.value = "new value";
-    await user.hover(inputBase!);
-
+    await user.click(inputBase!);
     expect(input).toHaveValue("new value");
   });
 });
