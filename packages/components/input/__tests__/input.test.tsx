@@ -15,7 +15,7 @@ describe("Input", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    render(<Input ref={ref} label="test should clear the valueinput" />);
+    render(<Input ref={ref} label="test input" />);
     expect(ref.current).not.toBeNull();
   });
 
