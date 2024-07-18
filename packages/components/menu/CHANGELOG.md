@@ -1,5 +1,17 @@
 # @nextui-org/menu
 
+## 2.0.26
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/divider@2.0.29
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.25
 
 ### Patch Changes

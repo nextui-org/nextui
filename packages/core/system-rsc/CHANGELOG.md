@@ -1,5 +1,13 @@
 # @nextui-org/system-rsc
 
+## 2.1.3
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- [#3299](https://github.com/nextui-org/nextui/pull/3299) [`f785d1fb0`](https://github.com/nextui-org/nextui/commit/f785d1fb0460df73912bcd6614bc78d46db14e6b) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed `extendVariants` when having `defaultVariants` (#3009)
+
 ## 2.1.2
 
 ### Patch Changes

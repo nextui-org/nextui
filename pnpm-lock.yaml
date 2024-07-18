@@ -340,8 +340,8 @@ importers:
         specifier: 3.17.1
         version: 3.17.1(react@18.2.0)
       '@react-aria/i18n':
-        specifier: ^3.10.2
-        version: 3.10.2(react@18.2.0)
+        specifier: 3.11.1
+        version: 3.11.1(react@18.2.0)
       '@react-aria/interactions':
         specifier: 3.21.3
         version: 3.21.3(react@18.2.0)
@@ -392,7 +392,7 @@ importers:
         version: 2.30.0
       framer-motion:
         specifier: ^11.1.7
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -534,7 +534,7 @@ importers:
         version: 1.6.4
       '@types/lodash':
         specifier: ^4.14.194
-        version: 4.17.0
+        version: 4.17.5
       '@types/marked':
         specifier: ^5.0.0
         version: 5.0.2
@@ -676,7 +676,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -776,7 +776,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.28
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -953,7 +953,7 @@ importers:
         version: 3.23.1(react@18.2.0)
       framer-motion:
         specifier: '>=10.17.0'
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1096,7 +1096,7 @@ importers:
         version: 3.23.1(react@18.2.0)
       framer-motion:
         specifier: '>=10.17.0'
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1488,7 +1488,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1858,7 +1858,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1906,7 +1906,7 @@ importers:
         version: 3.10.1(react@18.2.0)
       framer-motion:
         specifier: '>=10.17.0'
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.9(@types/react@18.2.8)(react@18.2.0)
@@ -2059,7 +2059,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2185,7 +2185,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2313,7 +2313,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.28
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2438,7 +2438,7 @@ importers:
         version: 3.24.1(react@18.2.0)
       framer-motion:
         specifier: '>=10.17.0'
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2720,7 +2720,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2784,7 +2784,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.28
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2965,7 +2965,7 @@ importers:
         version: 3.8.12(react@18.2.0)
       framer-motion:
         specifier: '>=10.17.0'
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3006,7 +3006,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.1.7(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3691,7 +3691,7 @@ importers:
         version: 2.2.0
       framer-motion:
         specifier: ^11.0.22
-        version: 11.0.28(react-dom@18.2.0)(react@18.2.0)
+        version: 11.2.12(react-dom@18.2.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -6728,35 +6728,16 @@ packages:
     dependencies:
       '@swc/helpers': 0.5.9
 
-  /@internationalized/message@3.1.2:
-    resolution: {integrity: sha512-MHAWsZWz8jf6jFPZqpTudcCM361YMtPIRu9CXkYmKjJ/0R3pQRScV5C0zS+Qi50O5UAm8ecKhkXx6mWDDcF6/g==}
-    dependencies:
-      '@swc/helpers': 0.5.9
-      intl-messageformat: 10.5.11
-    dev: false
-
   /@internationalized/message@3.1.4:
     resolution: {integrity: sha512-Dygi9hH1s7V9nha07pggCkvmRfDd3q2lWnMGvrJyrOwYMe1yj4D2T9BoH9I6MGR7xz0biQrtLPsqUkqXzIrBOw==}
     dependencies:
       '@swc/helpers': 0.5.9
       intl-messageformat: 10.5.11
 
-  /@internationalized/number@3.5.1:
-    resolution: {integrity: sha512-N0fPU/nz15SwR9IbfJ5xaS9Ss/O5h1sVXMZf43vc9mxEG48ovglvvzBjF53aHlq20uoR6c+88CrIXipU/LSzwg==}
-    dependencies:
-      '@swc/helpers': 0.5.9
-    dev: false
-
   /@internationalized/number@3.5.3:
     resolution: {integrity: sha512-rd1wA3ebzlp0Mehj5YTuTI50AQEx80gWFyHcQu+u91/5NgdwBecO8BH6ipPfE+lmQ9d63vpB3H9SHoIUiupllw==}
     dependencies:
       '@swc/helpers': 0.5.9
-
-  /@internationalized/string@3.2.1:
-    resolution: {integrity: sha512-vWQOvRIauvFMzOO+h7QrdsJmtN1AXAFVcaLWP9AseRN2o7iHceZ6bIXhBD4teZl8i91A3gxKnWBlGgjCwU6MFQ==}
-    dependencies:
-      '@swc/helpers': 0.5.9
-    dev: false
 
   /@internationalized/string@3.2.3:
     resolution: {integrity: sha512-9kpfLoA8HegiWTeCbR2livhdVeKobCnVv8tlJ6M2jF+4tcMqDo94ezwlnrUANBWPgd8U7OXIHCk2Ov2qhk4KXw==}
@@ -9823,22 +9804,6 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@react-aria/i18n@3.10.2(react@18.2.0):
-    resolution: {integrity: sha512-Z1ormoIvMOI4mEdcFLYsoJy9w/EzBdBmgfLP+S/Ah+1xwQOXpgwZxiKOhYHpWa0lf6hkKJL34N9MHJvCJ5Crvw==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      '@internationalized/date': 3.5.4
-      '@internationalized/message': 3.1.2
-      '@internationalized/number': 3.5.1
-      '@internationalized/string': 3.2.1
-      '@react-aria/ssr': 3.9.4(react@18.2.0)
-      '@react-aria/utils': 3.24.1(react@18.2.0)
-      '@react-types/shared': 3.23.1(react@18.2.0)
-      '@swc/helpers': 0.5.9
-      react: 18.2.0
-    dev: false
-
   /@react-aria/i18n@3.11.1(react@18.2.0):
     resolution: {integrity: sha512-vuiBHw1kZruNMYeKkTGGnmPyMnM5T+gT8bz97H1FqIq1hQ6OPzmtBZ6W6l6OIMjeHI5oJo4utTwfZl495GALFQ==}
     peerDependencies:
@@ -11035,7 +11000,7 @@ packages:
       '@storybook/preview-api': 7.6.17
       '@storybook/theming': 7.6.17(react-dom@18.2.0)(react@18.2.0)
       '@storybook/types': 7.6.17
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
       color-convert: 2.0.1
       dequal: 2.0.3
       lodash: 4.17.21
@@ -12170,41 +12135,41 @@ packages:
   /@types/lodash.debounce@4.0.9:
     resolution: {integrity: sha512-Ma5JcgTREwpLRwMM+XwBR7DaWe96nC38uCBDFKZWbNKD+osjVzdpnUSwBcqCptrp16sSOLBAUb50Car5I0TCsQ==}
     dependencies:
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
     dev: false
 
   /@types/lodash.foreach@4.5.9:
     resolution: {integrity: sha512-vmq0p/FK66PsALXRmK/qsnlLlCpnudvozWYrxJImHujHhXMADdeoPEY10zwmu26437w85wCvdxUqpFi+ALtkiQ==}
     dependencies:
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
     dev: true
 
   /@types/lodash.get@4.4.9:
     resolution: {integrity: sha512-J5dvW98sxmGnamqf+/aLP87PYXyrha9xIgc2ZlHl6OHMFR2Ejdxep50QfU0abO1+CH6+ugx+8wEUN1toImAinA==}
     dependencies:
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
     dev: true
 
   /@types/lodash.kebabcase@4.1.9:
     resolution: {integrity: sha512-kPrrmcVOhSsjAVRovN0lRfrbuidfg0wYsrQa5IYuoQO1fpHHGSme66oyiYA/5eQPVl8Z95OA3HG0+d2SvYC85w==}
     dependencies:
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
     dev: true
 
   /@types/lodash.mapkeys@4.6.9:
     resolution: {integrity: sha512-6/ERBCabeDI656LsV+oopLjdnJ/x1PCAE6kkkssH8e4i0K7Pw307noxHCbUc6cAVfTo9vx0Z+k3QZwy1IrUZcA==}
     dependencies:
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
     dev: true
 
   /@types/lodash.omit@4.5.9:
     resolution: {integrity: sha512-zuAVFLUPJMOzsw6yawshsYGgq2hWUHtsZgeXHZmSFhaQQFC6EQ021uDKHkSjOpNhSvtNSU9165/o3o/Q51GpTw==}
     dependencies:
-      '@types/lodash': 4.17.0
+      '@types/lodash': 4.17.5
     dev: true
 
-  /@types/lodash@4.17.0:
-    resolution: {integrity: sha512-t7dhREVv6dbNj0q17X12j7yDG4bD/DHYX7o5/DbDxobP0HnGPgpRz2Ej77aL7TZT3DSw13fqUTj8J4mMnqa7WA==}
+  /@types/lodash@4.17.5:
+    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
 
   /@types/marked@5.0.2:
     resolution: {integrity: sha512-OucS4KMHhFzhz27KxmWg7J+kIYqyqoW5kdIEI319hqARQQUTqhao3M/F+uFnDXD0Rg72iDDZxZNxq5gvctmLlg==}
@@ -17400,27 +17365,8 @@ packages:
       '@emotion/is-prop-valid': 0.8.8
     dev: true
 
-  /framer-motion@11.0.28(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-j/vNYTCH5MX5sY/3dwMs00z1+qAqKX3iIHF762bwqlU814ooD5dDbuj3pA0LmIT5YqyryCkXEb/q+zRblin0lw==}
-    peerDependencies:
-      '@emotion/is-prop-valid': '*'
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    peerDependenciesMeta:
-      '@emotion/is-prop-valid':
-        optional: true
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      tslib: 2.6.2
-    dev: true
-
-  /framer-motion@11.1.7(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-cW11Pu53eDAXUEhv5hEiWuIXWhfkbV32PlgVISn7jRdcAiVrJ1S03YQQ0/DzoswGYYwKi4qYmHHjCzAH52eSdQ==}
+  /framer-motion@11.2.12(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-lCjkV4nA9rWOy2bhR4RZzkp2xpB++kFmUZ6D44V9VQaxk+JDmbDd5lq+u58DjJIIllE8AZEXp9OG/TyDN4FB/w==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.2.0

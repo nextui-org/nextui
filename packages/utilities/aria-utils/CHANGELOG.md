@@ -1,5 +1,15 @@
 # @nextui-org/aria-utils
 
+## 2.0.22
+
+### Patch Changes
+
+- [#3362](https://github.com/nextui-org/nextui/pull/3362) [`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix tsc error (#2365, #2314, #2505)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/system@2.2.3
+  - @nextui-org/shared-utils@2.0.6
+
 ## 2.0.21
 
 ### Patch Changes

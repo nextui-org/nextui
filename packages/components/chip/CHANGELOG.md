@@ -1,5 +1,15 @@
 # @nextui-org/chip
 
+## 2.0.31
+
+### Patch Changes
+
+- [#3300](https://github.com/nextui-org/nextui/pull/3300) [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add accessible name to the icon button (#2802, #2808)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.30
 
 ### Patch Changes

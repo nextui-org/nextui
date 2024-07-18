@@ -102,7 +102,7 @@ export function useReactAriaPopover(
     containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
-    onClose: () => {},
+    onClose: isNonModal ? state.close : () => {},
   });
 
   useSafeLayoutEffect(() => {

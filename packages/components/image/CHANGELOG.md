@@ -1,5 +1,17 @@
 # @nextui-org/image
 
+## 2.0.30
+
+### Patch Changes
+
+- [#3420](https://github.com/nextui-org/nextui/pull/3420) [`a3a77bfc3`](https://github.com/nextui-org/nextui/commit/a3a77bfc372470c1f7b7ddefc4b19b0d9a23ad43) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed missing required `height` property issue
+
+- [#3327](https://github.com/nextui-org/nextui/pull/3327) [`57f7c9555`](https://github.com/nextui-org/nextui/commit/57f7c9555e3b0e3779883bb3761cf256d98bba65) Thanks [@wingkwong](https://github.com/wingkwong)! - override default auto height (#3325)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.29
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nextui-org/use-scroll-position
 
+## 2.0.7
+
+### Patch Changes
+
+- [#3315](https://github.com/nextui-org/nextui/pull/3315) [`35e709de7`](https://github.com/nextui-org/nextui/commit/35e709de7d3300c2de0b9158d098b10ef185d6ca) Thanks [@pratyush3124](https://github.com/pratyush3124)! - clearing throttleTimeout when it is supposed to be null in useScrollPosition (#3139)
+
 ## 2.0.6
 
 ### Patch Changes
