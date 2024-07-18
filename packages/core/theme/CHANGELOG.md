@@ -1,5 +1,17 @@
 # @nextui-org/theme
 
+## 2.2.7
+
+### Patch Changes
+
+- [#3221](https://github.com/nextui-org/nextui/pull/3221) [`b4c046fe8`](https://github.com/nextui-org/nextui/commit/b4c046fe8ba7b26d60e6b1463101e35f3f9f1ce8) Thanks [@sjoerdvanBommel](https://github.com/sjoerdvanBommel)! - Differentiate selected bg color from striped bg color (#1602)
+
+- [#3291](https://github.com/nextui-org/nextui/pull/3291) [`e9a6a162e`](https://github.com/nextui-org/nextui/commit/e9a6a162e8a26c6507938191c4e0b5bd94bdbf8d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed variants for nested accordions (#3285)
+
+- [#3268](https://github.com/nextui-org/nextui/pull/3268) [`93f178781`](https://github.com/nextui-org/nextui/commit/93f17878154a6351c38c8ef4806b5fb20e4fa217) Thanks [@wingkwong](https://github.com/wingkwong)! - revised styles and logic for input with file type (#2397, #2311, #2965)
+
+- [#3430](https://github.com/nextui-org/nextui/pull/3430) [`2333c3987`](https://github.com/nextui-org/nextui/commit/2333c39870bcad597c6901b6d2575f157b064d7b) Thanks [@abhinandan-verma](https://github.com/abhinandan-verma)! - fixed the input background change by autofill in Chrome (#1346)
+
 ## 2.2.6
 
 ### Patch Changes

@@ -31,14 +31,15 @@ function getClassNamesWithProps({
   hasSlots,
   opts,
 }) {
-  // Do not apply default variants when the props variant is different
+  const keys = [];
+
   if (defaultVariants && typeof defaultVariants === "object") {
     for (const key in defaultVariants) {
       const value = defaultVariants[key];
       const propValue = props?.[key];
 
       if (propValue && propValue !== value) {
-        delete defaultVariants[key];
+        keys.push(key);
       }
     }
   }
@@ -46,7 +47,14 @@ function getClassNamesWithProps({
   const customTv = tv(
     {
       variants,
-      defaultVariants,
+      // Do not apply default variants when the props variant is different
+      defaultVariants: Object.keys(defaultVariants)
+        .filter((k) => !keys.includes(k))
+        .reduce((o, k) => {
+          o[k] = defaultVariants[k];
+
+          return o;
+        }, []),
       compoundVariants,
       ...(hasSlots && {slots}),
     },

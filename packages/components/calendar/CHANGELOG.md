@@ -1,5 +1,23 @@
 # @nextui-org/calendar
 
+## 2.0.8
+
+### Patch Changes
+
+- [#3358](https://github.com/nextui-org/nextui/pull/3358) [`fd4b7200d`](https://github.com/nextui-org/nextui/commit/fd4b7200dd26eae53ce50e06610b34388e3fdc08) Thanks [@wingkwong](https://github.com/wingkwong)! - disable button picker in calendar if `isDisabled` is true (#3357)
+
+- [#3331](https://github.com/nextui-org/nextui/pull/3331) [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect year in `showMonthAndYearPickers` with different locales
+
+- [#3088](https://github.com/nextui-org/nextui/pull/3088) [`134f37184`](https://github.com/nextui-org/nextui/commit/134f371843e90f23c3f1816e8b9df328e21d6827) Thanks [@KumJungMin](https://github.com/KumJungMin)! - fix hours, month clear issue in `showMonthAndYearPickers` mode (#3072).
+
+- [#3416](https://github.com/nextui-org/nextui/pull/3416) [`5652e7bdd`](https://github.com/nextui-org/nextui/commit/5652e7bddc498c7f7420a68c58f207ba4cbe3933) Thanks [@abhinandan-verma](https://github.com/abhinandan-verma)! - Fixed calendar clipping issue on zoom (#2978)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/button@2.0.35
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.7
 
 ### Patch Changes

@@ -1,5 +1,24 @@
 # @nextui-org/date-picker
 
+## 2.1.3
+
+### Patch Changes
+
+- [#3258](https://github.com/nextui-org/nextui/pull/3258) [`773f3004a`](https://github.com/nextui-org/nextui/commit/773f3004a61966fea2cc14e2f22337ff72365100) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix calendar props on date-range-picker
+
+- [#3283](https://github.com/nextui-org/nextui/pull/3283) [`a164c26e9`](https://github.com/nextui-org/nextui/commit/a164c26e96ac8d899ec457e35e22d9b22829c0fa) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed date picker closing issue after pressing selector button (#3282)
+
+- [#3088](https://github.com/nextui-org/nextui/pull/3088) [`134f37184`](https://github.com/nextui-org/nextui/commit/134f371843e90f23c3f1816e8b9df328e21d6827) Thanks [@KumJungMin](https://github.com/KumJungMin)! - fix hours, month clear issue in `showMonthAndYearPickers` mode (#3072).
+
+- Updated dependencies [[`3cdfb2afc`](https://github.com/nextui-org/nextui/commit/3cdfb2afca15a49bed06356c42bd80036cb99387), [`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`fd4b7200d`](https://github.com/nextui-org/nextui/commit/fd4b7200dd26eae53ce50e06610b34388e3fdc08), [`c1f05ecb4`](https://github.com/nextui-org/nextui/commit/c1f05ecb4646fe99684efd88b9adb1abb7c709f7), [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49), [`444d320db`](https://github.com/nextui-org/nextui/commit/444d320dbc146399eb937c219ce983d427675425), [`a164c26e9`](https://github.com/nextui-org/nextui/commit/a164c26e96ac8d899ec457e35e22d9b22829c0fa), [`134f37184`](https://github.com/nextui-org/nextui/commit/134f371843e90f23c3f1816e8b9df328e21d6827), [`5652e7bdd`](https://github.com/nextui-org/nextui/commit/5652e7bddc498c7f7420a68c58f207ba4cbe3933)]:
+  - @nextui-org/date-input@2.1.2
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/calendar@2.0.8
+  - @nextui-org/popover@2.1.25
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/button@2.0.35
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.1.2
 
 ### Patch Changes
