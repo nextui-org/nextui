@@ -48,6 +48,7 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-aria-modal-overlay": "workspace:*",
+    "@nextui-org/dom-animation": "workspace:*",
     "@react-aria/dialog": "3.5.14",
     "@react-aria/focus": "3.17.1",
     "@react-aria/interactions": "3.21.3",

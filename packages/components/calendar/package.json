@@ -46,6 +46,7 @@
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/button": "workspace:*",
+    "@nextui-org/dom-animation": "workspace:*",
     "@internationalized/date": "^3.5.4",
     "@react-aria/calendar": "3.5.8",
     "@react-aria/focus": "3.17.1",
