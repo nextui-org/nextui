@@ -10,11 +10,11 @@ type Extractable =
 
 /**
  * Capitalizes the first letter of a string
- * @param {string} text
+ * @param {string} s
  * @returns {string}
  */
-export const capitalize = (text: string) => {
-  return text.charAt(0).toUpperCase() + text.slice(1);
+export const capitalize = (s: string) => {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : "";
 };
 
 export function callAllHandlers<T extends (event: any) => void>(...fns: (T | undefined)[]) {
@@ -79,3 +79,47 @@ export function objectToDeps(obj: Extractable) {
     return "";
   }
 }
+
+export function debounce<F extends (...args: any[]) => void>(
+  func: F,
+  waitMilliseconds: number = 0,
+) {
+  let timeout: ReturnType<typeof setTimeout> | undefined;
+
+  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
+    const context = this;
+
+    const later = () => {
+      timeout = undefined;
+      func.apply(context, args);
+    };
+
+    if (timeout !== undefined) {
+      clearTimeout(timeout);
+    }
+
+    timeout = setTimeout(later, waitMilliseconds);
+  };
+}
+
+export function uniqBy<T>(arr: T[], iteratee: any) {
+  if (typeof iteratee === "string") {
+    iteratee = (item: T) => item[iteratee as keyof T];
+  }
+
+  return arr.filter((x, i, self) => i === self.findIndex((y) => iteratee(x) === iteratee(y)));
+}
+
+export const omit = <Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<Obj, Keys> => {
+  const res = Object.assign({}, obj);
+
+  keys.forEach((key) => {
+    delete res[key];
+  });
+
+  return res;
+};
+
+export const kebabCase = (s: string) => {
+  return s.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
+};
