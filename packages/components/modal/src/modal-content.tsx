@@ -6,7 +6,7 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
-import {domAnimation, LazyMotion, m} from "framer-motion";
+import {LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {chain, mergeProps} from "@react-aria/utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
@@ -20,6 +20,8 @@ type KeysToOmit = "children" | "role";
 export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div", KeysToOmit> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;

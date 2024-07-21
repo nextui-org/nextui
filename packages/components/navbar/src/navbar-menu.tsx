@@ -1,7 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {AnimatePresence, domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {ReactElement, useCallback} from "react";
 import {RemoveScroll} from "react-remove-scroll";
@@ -22,6 +22,8 @@ export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
    */
   motionProps?: HTMLMotionProps<"ul">;
 }
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
