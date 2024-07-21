@@ -52,7 +52,7 @@ const navbar = tv({
       "flex",
       "z-40",
       "w-full",
-      "max-h-[var(--navbar-height)]",
+      "h-auto",
       "items-center",
       "justify-center",
       "data-[menu-open=true]:border-none",
