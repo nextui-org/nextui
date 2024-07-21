@@ -1,5 +1,5 @@
 import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@nextui-org/theme";
-import type {Key, ReactNode, Ref} from "react";
+import type {Key, ReactNode, Ref, RefObject} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {objectToDeps, Timer} from "@nextui-org/shared-utils";
@@ -113,6 +113,12 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
    * Ref to the DOM node.
    */
   ref?: Ref<HTMLElement>;
+
+  /**
+   * Ref to the <ul> container element.
+   */
+  ulElemRef?: RefObject<HTMLElement>;
+
   /**
    * Number of pages that are added or subtracted on the '...' button.
    * @default 5
@@ -171,6 +177,7 @@ export function usePagination(originalProps: UsePaginationProps) {
   const {
     as,
     ref,
+    ulElemRef,
     classNames,
     dotsJump = 5,
     loop = false,
@@ -225,7 +232,11 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
   }
 
-  function scrollTo(node: HTMLElement | undefined, skipAnimation: boolean) {
+  function scrollTo(value: number, skipAnimation: boolean) {
+    const map = getItemsRefMap();
+
+    const node = map.get(value);
+
     if (!node || !cursorRef.current) return;
 
     // clean up the previous cursor timer (if any)
@@ -281,16 +292,16 @@ export function usePagination(originalProps: UsePaginationProps) {
   const activePageRef = useRef(activePage);
 
   useEffect(() => {
-    const map = getItemsRefMap();
-    const node = map.get(activePage);
+    // Setting intersectionObserver to ulELement
+    if (!!ulElemRef?.current) activeIntersectionRef(ulElemRef.current);
+  }, [ulElemRef?.current]);
 
-    activeIntersectionRef(node);
-
+  useEffect(() => {
     // Initially, isActiveVisible will be false because initialIsIntersecting
-    // in use-intersection-observer is set to false. Once the node enters the viewport,
+    // in use-intersection-observer is set to false. Once the <ul> enters the viewport,
     // isActiveVisible will become true.
     if (activePage && !disableAnimation && isActiveVisible) {
-      scrollTo(node, activePage === activePageRef.current);
+      scrollTo(activePage, activePage === activePageRef.current);
     }
     activePageRef.current = activePage;
   }, [
