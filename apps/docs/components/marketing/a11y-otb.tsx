@@ -7,7 +7,6 @@ import {
   Link as NextUILink,
   Dropdown,
   DropdownSection,
-  DropdownTrigger,
   DropdownMenu,
   DropdownItem,
   Tooltip,
@@ -22,7 +21,7 @@ import {
 } from "@nextui-org/shared-icons";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import {useEffect, useRef, useState} from "react";
+import {Fragment, useEffect, useRef, useState} from "react";
 
 import {FeaturesGrid} from "./features-grid";
 
@@ -78,6 +77,8 @@ export const A11yOtb = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const ref = useRef<any>(null);
+
+  const triggerRef = useRef<HTMLButtonElement>(null);
 
   const isMobile = useIsMobile();
 
@@ -155,6 +156,15 @@ export const A11yOtb = () => {
                 <InfoBoldIcon className="rotate-180" />
               </Button>
             </Tooltip>
+            <Button
+              ref={triggerRef}
+              className="bg-success-50"
+              color="success"
+              variant="flat"
+              onPress={() => setIsDropdownOpen((prevOpenState) => !prevOpenState)}
+            >
+              {isMobile ? "Click me" : "Actions"}
+            </Button>
             {ref.current && (
               <Dropdown
                 className="shadow-xl"
@@ -164,13 +174,9 @@ export const A11yOtb = () => {
                 portalContainer={ref.current}
                 shouldBlockScroll={false}
                 shouldFlip={isMobile}
-                onOpenChange={(open) => setIsDropdownOpen(open)}
+                triggerRef={triggerRef}
               >
-                <DropdownTrigger>
-                  <Button className="bg-success-50" color="success" variant="flat">
-                    {isMobile ? "Click me" : "Actions"}
-                  </Button>
-                </DropdownTrigger>
+                <Fragment />
                 <DropdownMenu
                   aria-label="Actions"
                   closeOnSelect={true}
