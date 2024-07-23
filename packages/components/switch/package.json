@@ -43,13 +43,13 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/interactions": "3.21.3",
-    "@react-aria/switch": "3.6.4",
-    "@react-aria/utils": "3.24.1",
-    "@react-aria/visually-hidden": "3.8.12",
-    "@react-stately/toggle": "3.7.4",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/focus": "3.18.0",
+    "@react-aria/interactions": "3.22.0",
+    "@react-aria/switch": "3.6.5",
+    "@react-aria/utils": "3.25.0",
+    "@react-aria/visually-hidden": "3.8.13",
+    "@react-stately/toggle": "3.7.5",
+    "@react-types/shared": "3.24.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

@@ -43,9 +43,9 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-image": "workspace:*",
-    "@react-aria/interactions": "3.21.3",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/utils": "3.24.1"
+    "@react-aria/interactions": "3.22.0",
+    "@react-aria/focus": "3.18.0",
+    "@react-aria/utils": "3.25.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

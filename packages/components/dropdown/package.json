@@ -46,11 +46,11 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/aria-utils": "workspace:*",
-    "@react-aria/menu": "3.14.1",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/menu": "3.7.1",
-    "@react-aria/focus": "3.17.1",
-    "@react-types/menu": "3.9.9"
+    "@react-aria/menu": "3.15.0",
+    "@react-aria/utils": "3.25.0",
+    "@react-stately/menu": "3.8.0",
+    "@react-aria/focus": "3.18.0",
+    "@react-types/menu": "3.9.10"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
