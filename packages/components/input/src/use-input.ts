@@ -15,7 +15,7 @@ import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
 import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel, warn} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, useCallback, useState} from "react";
+import {useMemo, Ref, useCallback, useState, useImperativeHandle, useRef} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
@@ -131,7 +131,43 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
-  const domRef = useDOMRef<T>(ref);
+  const domRef = useRef<T>(null);
+
+  let proxy: any = undefined;
+
+  useImperativeHandle(
+    ref,
+    () => {
+      if (proxy === undefined) {
+        proxy = new Proxy(domRef.current!, {
+          get(target, prop) {
+            const value = target[prop];
+
+            if (value instanceof Function) {
+              return value.bind(target);
+            }
+
+            return value;
+          },
+          set(target, prop, value) {
+            target[prop] = value;
+
+            if (prop === "value") {
+              setInputValue(value);
+            }
+
+            return true;
+          },
+        });
+      }
+
+      return proxy;
+    },
+    [domRef.current],
+  );
+
+  //const domRef = useDOMRef<T>(ref);
+
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
