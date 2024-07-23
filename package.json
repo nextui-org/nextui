@@ -141,7 +141,8 @@
   "pnpm": {
     "overrides": {
       "react": "^18.2.0",
-      "react-dom": "^18.2.0"
+      "react-dom": "^18.2.0",
+      "@react-aria/utils": "3.24.1"
     }
   },
   "engines": {
