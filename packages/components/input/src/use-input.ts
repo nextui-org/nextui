@@ -166,8 +166,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [domRef.current],
   );
 
-  //const domRef = useDOMRef<T>(ref);
-
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
