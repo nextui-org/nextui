@@ -58,7 +58,6 @@ const table = tv({
     tbody: "",
     tr: ["group", "outline-none", ...dataFocusVisibleClasses],
     th: [
-      "group",
       "px-3",
       "h-10",
       "align-middle",
