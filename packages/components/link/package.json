@@ -44,10 +44,10 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-aria-link": "workspace:*",
-    "@react-aria/link": "3.7.1",
-    "@react-aria/utils": "3.24.1",
-    "@react-aria/focus": "3.17.1",
-    "@react-types/link": "3.5.5"
+    "@react-aria/link": "3.7.2",
+    "@react-aria/utils": "3.25.0",
+    "@react-aria/focus": "3.18.0",
+    "@react-types/link": "3.5.6"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

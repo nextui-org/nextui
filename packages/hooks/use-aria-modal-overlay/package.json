@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/overlays": "3.22.1",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/overlays": "3.6.7",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/overlays": "3.23.0",
+    "@react-aria/utils": "3.25.0",
+    "@react-stately/overlays": "3.6.8",
+    "@react-types/shared": "3.24.0"
   },
   "peerDependencies": {
     "react": ">=18",

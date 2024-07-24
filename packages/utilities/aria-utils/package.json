@@ -41,11 +41,11 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-rsc-utils": "workspace:*",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/collections": "3.10.7",
-    "@react-stately/overlays": "3.6.7",
-    "@react-types/overlays": "3.8.7",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/utils": "3.25.0",
+    "@react-stately/collections": "3.10.8",
+    "@react-stately/overlays": "3.6.8",
+    "@react-types/overlays": "3.8.8",
+    "@react-types/shared": "3.24.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

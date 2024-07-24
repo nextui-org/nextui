@@ -43,10 +43,10 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
-    "@react-aria/i18n": "3.11.1",
-    "@react-aria/progress": "3.4.13",
-    "@react-aria/utils": "3.24.1",
-    "@react-types/progress": "3.5.4"
+    "@react-aria/i18n": "3.12.0",
+    "@react-aria/progress": "3.4.14",
+    "@react-aria/utils": "3.25.0",
+    "@react-types/progress": "3.5.5"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

@@ -46,12 +46,12 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/ripple": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
-    "@react-aria/button": "3.9.5",
-    "@react-aria/interactions": "3.21.3",
-    "@react-aria/utils": "3.24.1",
-    "@react-aria/focus": "3.17.1",
-    "@react-types/shared": "3.23.1",
-    "@react-types/button": "3.9.4"
+    "@react-aria/button": "3.9.6",
+    "@react-aria/interactions": "3.22.0",
+    "@react-aria/utils": "3.25.0",
+    "@react-aria/focus": "3.18.0",
+    "@react-types/shared": "3.24.0",
+    "@react-types/button": "3.9.5"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

@@ -123,7 +123,7 @@ interface Props<T> extends HTMLNextUIProps<"table"> {
 
 export type UseTableProps<T = object> = Props<T> &
   TableStateProps<T> &
-  Omit<AriaTableProps<T>, "layout"> &
+  Omit<AriaTableProps, "layout"> &
   TableVariantProps;
 
 export type ValuesType<T = object> = {
