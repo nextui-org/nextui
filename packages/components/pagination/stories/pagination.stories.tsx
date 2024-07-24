@@ -1,10 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 import {Meta} from "@storybook/react";
 import {button, pagination} from "@nextui-org/theme";
 import {cn} from "@nextui-org/theme";
 import {ChevronIcon} from "@nextui-org/shared-icons";
+import {Tabs, Tab} from "@nextui-org/tabs";
 
 import {Pagination, PaginationItemRenderProps, PaginationItemType, usePagination} from "../src";
+
+import TableData from "./table/index";
 
 export default {
   title: "Components/Pagination",
@@ -70,10 +73,52 @@ const defaultProps = {
   initialPage: 1,
 };
 
+const SubTabs = () => {
+  const [active, setActive] = useState("222");
+  const tabs = [
+    {
+      key: "222",
+      title: "222",
+      component: <div>222</div>,
+    },
+    {
+      key: "111",
+      title: "111",
+      component: <TableData />,
+    },
+  ];
+
+  return (
+    <div>
+      <div className="flex justify-center my-2 sticky z-20">
+        <Tabs
+          aria-label="Options2"
+          selectedKey={active}
+          onSelectionChange={(key) => {
+            setActive(key as string);
+          }}
+        >
+          {tabs?.map((tab) => (
+            <Tab key={tab.key} title={tab.title} />
+          ))}
+        </Tabs>
+      </div>
+      <div className="max-w-[900px] mx-auto">
+        {tabs?.map((tab) => (
+          <div key={tab.key} className={active === tab.key ? "" : "hidden"}>
+            {tab.component}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 export const Default = {
   args: {
     ...defaultProps,
   },
+  render: SubTabs,
 };
 
 export const WithControls = {

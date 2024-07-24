@@ -1,5 +1,5 @@
 import {PaginationItemValue} from "@nextui-org/use-pagination";
-import {useCallback} from "react";
+import {useCallback, useRef} from "react";
 import {useLocale} from "@react-aria/i18n";
 import {forwardRef} from "@nextui-org/system";
 import {PaginationItemType} from "@nextui-org/use-pagination";
@@ -13,6 +13,8 @@ import PaginationCursor from "./pagination-cursor";
 export interface PaginationProps extends UsePaginationProps {}
 
 const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
+  const ulElemRef = useRef<HTMLUListElement>(null);
+
   const {
     Component,
     dotsJump,
@@ -34,7 +36,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
     getWrapperProps,
     getItemProps,
     getCursorProps,
-  } = usePagination({...props, ref});
+  } = usePagination({...props, ulElemRef, ref});
 
   const {direction} = useLocale();
 
@@ -196,7 +198,7 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <ul {...getWrapperProps()}>
+      <ul {...getWrapperProps()} ref={ulElemRef}>
         {!disableCursorAnimation && !disableAnimation && <PaginationCursor {...getCursorProps()} />}
         {range.map(renderItem)}
       </ul>
