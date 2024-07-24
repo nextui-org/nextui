@@ -58,7 +58,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   isPreviewCentered = false,
   // when false .js files will be used
   typescriptStrict = false,
-  showOpenInCodeSandbox,
+  showOpenInCodeSandbox = true,
   isGradientBox = false,
   previewHeight = "auto",
   overflow = "visible",
@@ -139,7 +139,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
         files={files}
         highlightedLines={highlightedLines}
         showEditor={showEditor}
-        showOpenInCodeSandbox={showOpenInCodeSandbox || showPreview}
+        showOpenInCodeSandbox={showOpenInCodeSandbox}
         showPreview={showSandpackPreview}
         typescriptStrict={typescriptStrict}
       />
