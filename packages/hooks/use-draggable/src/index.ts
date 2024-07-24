@@ -30,7 +30,7 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
   const boundary = useRef({minLeft: 0, minTop: 0, maxLeft: 0, maxTop: 0});
   let transform = {offsetX: 0, offsetY: 0};
 
-  const onMoveStart = () => {
+  const onMoveStart = useCallback(() => {
     const {offsetX, offsetY} = transform;
 
     const targetRect = targetRef?.current?.getBoundingClientRect();
@@ -53,31 +53,34 @@ export function useDraggable(props: UseDraggableProps): MoveResult {
       maxLeft,
       maxTop,
     };
-  };
+  }, [transform, targetRef?.current]);
 
-  const onMove = (e: MoveMoveEvent) => {
-    if (isDisabled) {
-      return;
-    }
-    const {offsetX, offsetY} = transform;
-    const {minLeft, minTop, maxLeft, maxTop} = boundary.current;
-    let moveX = offsetX + e.deltaX;
-    let moveY = offsetY + e.deltaY;
+  const onMove = useCallback(
+    (e: MoveMoveEvent) => {
+      if (isDisabled) {
+        return;
+      }
+      const {offsetX, offsetY} = transform;
+      const {minLeft, minTop, maxLeft, maxTop} = boundary.current;
+      let moveX = offsetX + e.deltaX;
+      let moveY = offsetY + e.deltaY;
 
-    if (!canOverflow) {
-      moveX = Math.min(Math.max(moveX, minLeft), maxLeft);
-      moveY = Math.min(Math.max(moveY, minTop), maxTop);
-    }
+      if (!canOverflow) {
+        moveX = Math.min(Math.max(moveX, minLeft), maxLeft);
+        moveY = Math.min(Math.max(moveY, minTop), maxTop);
+      }
 
-    transform = {
-      offsetX: moveX,
-      offsetY: moveY,
-    };
+      transform = {
+        offsetX: moveX,
+        offsetY: moveY,
+      };
 
-    if (targetRef?.current) {
-      targetRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
-    }
-  };
+      if (targetRef?.current) {
+        targetRef.current.style.transform = `translate(${moveX}px, ${moveY}px)`;
+      }
+    },
+    [isDisabled, transform, boundary.current, canOverflow, targetRef?.current],
+  );
 
   const {moveProps} = useMove({
     onMoveStart,
