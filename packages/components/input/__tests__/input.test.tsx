@@ -126,6 +126,26 @@ describe("Input", () => {
     expect(ref.current?.value)?.toBe(value);
   });
 
+  it("setting ref should sync the internal value", () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {container} = render(<Input ref={ref} type="text" />);
+
+    if (!ref.current) {
+      throw new Error("ref is null");
+    }
+
+    ref.current!.value = "value";
+
+    const input = container.querySelector("input")!;
+
+    input.focus();
+
+    const internalValue = input.value;
+
+    expect(ref.current?.value)?.toBe(internalValue);
+  });
+
   it("should clear the value and onClear is triggered", async () => {
     const onClear = jest.fn();
 
