@@ -197,6 +197,7 @@ const PresetsTemplate = (args: DatePickerProps) => {
   let defaultDate = today(getLocalTimeZone());
 
   const [value, setValue] = React.useState<DateValue>(defaultDate);
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   let {locale} = useLocale();
   let formatter = useDateFormatter({dateStyle: "full"});
@@ -256,9 +257,30 @@ const PresetsTemplate = (args: DatePickerProps) => {
             size="sm"
             variant="bordered"
           >
-            <Button onPress={() => setValue(now)}>Today</Button>
-            <Button onPress={() => setValue(nextWeek)}>Next week</Button>
-            <Button onPress={() => setValue(nextMonth)}>Next month</Button>
+            <Button
+              onPress={() => {
+                setValue(now);
+                setIsOpen(false);
+              }}
+            >
+              Today
+            </Button>
+            <Button
+              onPress={() => {
+                setValue(nextWeek);
+                setIsOpen(false);
+              }}
+            >
+              Next week
+            </Button>
+            <Button
+              onPress={() => {
+                setValue(nextMonth);
+                setIsOpen(false);
+              }}
+            >
+              Next month
+            </Button>
           </ButtonGroup>
         }
         calendarProps={{
@@ -271,8 +293,10 @@ const PresetsTemplate = (args: DatePickerProps) => {
             variant: "bordered",
           },
         }}
+        isOpen={isOpen}
         value={value}
         onChange={setValue}
+        onOpenChange={setIsOpen}
         {...args}
         label="Event date"
       />
