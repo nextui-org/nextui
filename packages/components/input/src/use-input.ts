@@ -158,6 +158,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef.current?.focus();
   }, [setInputValue, onClear]);
 
+  const syncRefValueToInputValue = () => {
+    setInputValue(domRef.current?.value);
+  };
+
   // if we use `react-hook-form`, it will set the input value using the ref in register
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
@@ -205,7 +209,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     isTextInput: true,
   });
 
-  const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
+  const {isHovered, hoverProps} = useHover({
+    isDisabled: !!originalProps?.isDisabled,
+    onHoverStart: syncRefValueToInputValue,
+  });
 
   const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
 
@@ -216,6 +223,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {pressProps: clearPressProps} = usePress({
     isDisabled: !!originalProps?.isDisabled,
     onPress: handleClear,
+    onPressStart: syncRefValueToInputValue,
   });
 
   const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
