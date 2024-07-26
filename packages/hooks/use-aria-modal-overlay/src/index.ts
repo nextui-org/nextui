@@ -1,8 +1,8 @@
+import {useAriaOverlay} from "@nextui-org/use-aria-overlay";
 import {
   ariaHideOutside,
   AriaModalOverlayProps,
   ModalOverlayAria,
-  useOverlay,
   usePreventScroll,
   useOverlayFocusContain,
 } from "@react-aria/overlays";
@@ -21,7 +21,7 @@ export function useAriaModalOverlay(
   state: OverlayTriggerState,
   ref: RefObject<HTMLElement>,
 ): ModalOverlayAria {
-  let {overlayProps, underlayProps} = useOverlay(
+  let {overlayProps, underlayProps} = useAriaOverlay(
     {
       ...props,
       isOpen: state.isOpen,

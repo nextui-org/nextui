@@ -1,20 +1,15 @@
 import {RefObject, useEffect} from "react";
 import {
   AriaPopoverProps,
-  useOverlay,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,
 } from "@react-aria/overlays";
-import {
-  OverlayPlacement,
-  ariaHideOutside,
-  toReactAriaPlacement,
-  ariaShouldCloseOnInteractOutside,
-} from "@nextui-org/aria-utils";
+import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {useAriaOverlay} from "@nextui-org/use-aria-overlay";
 
 export interface Props {
   /**
@@ -71,16 +66,14 @@ export function useReactAriaPopover(
 
   const isNonModal = isNonModalProp ?? true;
 
-  const {overlayProps, underlayProps} = useOverlay(
+  const {overlayProps, underlayProps} = useAriaOverlay(
     {
       isOpen: state.isOpen,
       onClose: state.close,
       shouldCloseOnBlur,
       isDismissable,
       isKeyboardDismissDisabled,
-      shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
-        ? shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+      shouldCloseOnInteractOutside,
     },
     popoverRef,
   );
