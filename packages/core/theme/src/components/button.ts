@@ -85,7 +85,7 @@ const button = tv({
       false: "[&>svg]:max-w-[theme(spacing.8)]",
     },
     disableAnimation: {
-      true: "!transition-none",
+      true: "!transition-none data-[pressed=true]:scale-100",
       false: "transition-transform-colors-opacity motion-reduce:transition-none",
     },
   },

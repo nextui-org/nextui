@@ -61,7 +61,7 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     ...props,
   });
 
-  const {ripples} = getRippleProps();
+  const {ripples, onClear} = getRippleProps();
 
   return (
     <button ref={domRef} {...getButtonProps()}>
@@ -70,7 +70,7 @@ const MyButton = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       {children}
       {isLoading && spinnerPlacement === "end" && spinner}
       {endContent}
-      {!disableRipple && <Ripple ripples={ripples} />}
+      {!disableRipple && <Ripple ripples={ripples} onClear={onClear} />}
     </button>
   );
 });

@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
+import {tv} from "../utils/tv";
 
 /**
  * Table **Tailwind Variants** component
@@ -74,7 +74,6 @@ const table = tv({
       "rtl:last:rounded-l-lg",
       "rtl:last:rounded-r-[unset]",
       "outline-none",
-      "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
       "data-[hover=true]:text-foreground-400",
       ...dataFocusVisibleClasses,
@@ -120,7 +119,7 @@ const table = tv({
   variants: {
     color: {
       default: {
-        td: "before:bg-default/40 data-[selected=true]:text-default-foreground",
+        td: "before:bg-default/60 data-[selected=true]:text-default-foreground",
       },
       primary: {
         td: "before:bg-primary/20 data-[selected=true]:text-primary",
@@ -273,6 +272,50 @@ const table = tv({
     fullWidth: true,
     align: "start",
   },
+  compoundVariants: [
+    {
+      isStriped: true,
+      color: "default",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/60",
+      },
+    },
+    {
+      isStriped: true,
+      color: "primary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-primary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "secondary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-secondary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "success",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-success/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "warning",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-warning/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "danger",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-danger/20",
+      },
+    },
+  ],
 });
 
 export type TableVariantProps = VariantProps<typeof table>;
