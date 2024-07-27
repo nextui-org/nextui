@@ -199,22 +199,20 @@ export default function App() {
 
 ### TanStack
 
-With TanStack Router, you can utilize `useNavigate` hook from `tanstack/react-router` returns a `navigate` function that can be used to perform navigation.
-
-Go to the `App` file commonly called `App.jsx` or `App.tsx`, import the `useNavigate` hook and create the 
-`direct` function and passingto the `NextUIProvider`:
+To use [TanStack Router](https://tanstack.com/router/latest) with React Aria, render React Aria's RouterProvider inside your root route. Use router.navigate in the navigate prop, and router.buildLocation in the useHref prop. You can also configure TypeScript to get autocomplete for the href prop by declaring the RouterConfig type using the types provided by TanStack Router.
 
 ```tsx {10}
 // app/root.tsx
-import {useNavigate} from "@tanstack/react-router";
 import {NextUIProvider} from '@nextui-org/react';
 
-export default function App() {
-  const navigate = useNavigate();
-  const direct = (route: string) => navigate({ to: route });
+function RootRoute() {
+  let router = useRouter();
 
   return (
-    <NextUIProvider navigate={direct}>
+    <NextUIProvider 
+      navigate={(to, options) => router.navigate({ to, ...options })}
+      useHref={(to) => router.buildLocation(to).href}
+    >
       {/* You app here... */}
     </NextUIProvider>
   );
