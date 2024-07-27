@@ -205,7 +205,7 @@ const WithFormTemplate = (args: TabsProps) => {
 
   return (
     <div className="flex flex-col justify-center items-center w-full h-screen">
-      <Card className="w-full w-[340px] h-[400px]">
+      <Card className="w-[340px] h-[400px]">
         <CardBody>
           <Tabs
             aria-label="Tabs form"
