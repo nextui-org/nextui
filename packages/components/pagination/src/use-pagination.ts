@@ -117,7 +117,7 @@ interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
   /**
    * Ref to the <ul> container element.
    */
-  ulElemRef?: RefObject<HTMLElement>;
+  ulElemRef?: RefObject<HTMLUListElement>;
 
   /**
    * Number of pages that are added or subtracted on the '...' button.
@@ -293,7 +293,7 @@ export function usePagination(originalProps: UsePaginationProps) {
 
   useEffect(() => {
     // Setting intersectionObserver to ulELement
-    if (!!ulElemRef?.current) activeIntersectionRef(ulElemRef.current);
+    if (ulElemRef?.current) activeIntersectionRef(ulElemRef.current);
   }, [ulElemRef?.current]);
 
   useEffect(() => {
