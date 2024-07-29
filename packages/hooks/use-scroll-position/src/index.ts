@@ -77,6 +77,7 @@ export const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue 
       target.removeEventListener("scroll", handleScroll);
       if (throttleTimeout.current) {
         clearTimeout(throttleTimeout.current);
+        throttleTimeout.current = null;
       }
     };
   }, [elementRef?.current, delay, handler, isEnabled]);
