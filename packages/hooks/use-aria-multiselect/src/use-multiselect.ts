@@ -64,7 +64,7 @@ export function useMultiSelect<T>(
 
           const key =
             state.selectedKeys.size > 0
-              ? delegate.getKeyAbove(state.selectedKeys.values().next().value || "")
+              ? delegate.getKeyAbove(state.selectedKeys.values().next().value as Key)
               : delegate.getFirstKey();
 
           if (key) {
