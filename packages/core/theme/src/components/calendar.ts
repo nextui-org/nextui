@@ -6,9 +6,10 @@ import {tv} from "../utils/tv";
 const calendar = tv({
   slots: {
     base: [
-      "relative w-fit max-w-full shadow-small inline-block overflow-y-hidden",
-      "rounded-large overflow-x-auto bg-default-50 dark:bg-background",
-      "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+      "relative w-fit max-w-full shadow-small inline-block overflow-x-hidden md:overflow-y-hidden",
+      "rounded-large overflow-y-auto md:overflow-x-auto bg-default-50 dark:bg-background",
+      "w-[var(--calendar-width)] md:w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+      "h-[calc(var(--calendar-height)_*_var(--visible-months))] md:h-[var(--calendar-height)]",
     ],
     prevButton: [],
     nextButton: [],
@@ -23,8 +24,12 @@ const calendar = tv({
     ],
     header: "flex w-full items-center justify-center gap-2 z-10",
     title: "text-default-500 text-small font-medium",
-    content: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
-    gridWrapper: "flex max-w-full overflow-hidden pb-2 h-auto relative",
+    content: [
+      "w-[var(--calendar-width)] md:w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+      "h-[calc(var(--calendar-height)_*_var(--visible-months))] md:h-[var(--calendar-height)]",
+    ],
+    gridWrapper:
+      "flex flex-col md:flex-row max-w-full overflow-hidden pb-2 h-auto relative gap-2 md:gap-0",
     grid: "w-full border-collapse z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "px-4 pb-2 flex justify-center text-default-400",
