@@ -16,7 +16,7 @@ export interface UseSandpackProps {
 
 const importReact = 'import React from "react";';
 
-// to check if the currebt file has `.jsx` or `.tsx` extension
+// to check if the current file has `.jsx` or `.tsx` extension
 function isReactFile(key: string) {
   return key.endsWith(".jsx") || key.endsWith(".tsx");
 }
@@ -27,7 +27,6 @@ export const useSandpack = ({
   template = "vite-react",
   highlightedLines,
 }: UseSandpackProps) => {
-  debugger;
   // once the user select a template we store it in local storage
   const [currentTemplate, setCurrentTemplate] = useLocalStorage<SandpackPredefinedTemplate>(
     "currentTemplate",
