@@ -16,12 +16,18 @@ export interface UseSandpackProps {
 
 const importReact = 'import React from "react";';
 
+// to check if the currebt file has `.jsx` or `.tsx` extension
+function isReactFile(key: string) {
+  return key.endsWith(".jsx") || key.endsWith(".tsx");
+}
+
 export const useSandpack = ({
   files = {},
   typescriptStrict = false,
   template = "vite-react",
   highlightedLines,
 }: UseSandpackProps) => {
+  debugger;
   // once the user select a template we store it in local storage
   const [currentTemplate, setCurrentTemplate] = useLocalStorage<SandpackPredefinedTemplate>(
     "currentTemplate",
@@ -99,14 +105,20 @@ export const useSandpack = ({
     .reduce((acc, key) => {
       let fileContent = files[key] as string;
 
+      const isReact = isReactFile(key);
+
       // Check if the file content includes 'React' import statements, if not, add it
-      if (!fileContent.includes("from 'react'") && !fileContent.includes('from "react"')) {
+      if (
+        isReact &&
+        !fileContent.includes("from 'react'") &&
+        !fileContent.includes('from "react"')
+      ) {
         fileContent = `${importReact}\n${fileContent}\n`;
       }
 
       // Check if file content includes any other dependencies, if yes, add it to dependencies
       const importRegex = /import .* from ["'](.*)["']/g;
-      let match;
+      let match: RegExpExecArray | null;
 
       while ((match = importRegex.exec(fileContent)) !== null) {
         const dependencyName = match[1];
