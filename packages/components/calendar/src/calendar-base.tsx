@@ -11,6 +11,7 @@ import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
 import {AnimatePresence, LazyMotion, domAnimation, MotionConfig} from "framer-motion";
 import {ResizablePanel} from "@nextui-org/framer-utils";
+import {useIsMobile} from "@nextui-org/use-is-mobile";
 
 import {ChevronLeftIcon} from "./chevron-left";
 import {ChevronRightIcon} from "./chevron-right";
@@ -62,6 +63,8 @@ export function CalendarBase(props: CalendarBaseProps) {
   const headers: React.ReactNode[] = [];
   const calendars: React.ReactNode[] = [];
 
+  const isMobile = useIsMobile();
+
   for (let i = 0; i < visibleMonths; i++) {
     let d = currentMonth.add({months: i});
 
@@ -93,13 +96,42 @@ export function CalendarBase(props: CalendarBaseProps) {
     );
 
     const calendarMonthContent = (
-      <CalendarMonth
-        {...props}
-        key={`calendar-month-${i}`}
-        currentMonth={currentMonth.month}
-        direction={direction}
-        startDate={d}
-      />
+      <div className="flex flex-col gap-0">
+        {isMobile && (
+          <Fragment key={`calendar-header-${i}`}>
+            {i === 0 && (
+              <div className="w-full flex items-center justify-between">
+                <Button
+                  {...prevButtonProps}
+                  onPress={chain(prevButtonProps.onPress, () => setDirection(-1))}
+                >
+                  {rtlDirection === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+                </Button>
+
+                <Button
+                  {...nextButtonProps}
+                  onPress={chain(nextButtonProps.onPress, () => setDirection(1))}
+                >
+                  {rtlDirection === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                </Button>
+              </div>
+            )}
+            <CalendarHeader
+              buttonPickerProps={buttonPickerProps}
+              currentMonth={currentMonth}
+              date={d}
+              direction={direction}
+            />
+          </Fragment>
+        )}
+        <CalendarMonth
+          {...props}
+          key={`calendar-month-${i}`}
+          currentMonth={currentMonth.month}
+          direction={direction}
+          startDate={d}
+        />
+      </div>
     );
 
     calendars.push(
@@ -116,13 +148,15 @@ export function CalendarBase(props: CalendarBaseProps) {
 
   const calendarContent = (
     <>
-      <div
-        key="header-wrapper"
-        className={slots?.headerWrapper({class: classNames?.headerWrapper})}
-        data-slot="header-wrapper"
-      >
-        {headers}
-      </div>
+      {!isMobile && (
+        <div
+          key="header-wrapper"
+          className={slots?.headerWrapper({class: classNames?.headerWrapper})}
+          data-slot="header-wrapper"
+        >
+          {headers}
+        </div>
+      )}
       <div
         key="grid-wrapper"
         className={slots?.gridWrapper({class: classNames?.gridWrapper})}

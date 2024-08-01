@@ -49,6 +49,13 @@ interface Props extends NextUIBaseProps {
    */
   calendarWidth?: number | string;
   /**
+   * The height to be applied to the calendar component. This value is multiplied by the number
+   * of visible months to determine the total height of the calendar.
+   *
+   * @default 274
+   */
+  calendarHeight?: number | string;
+  /**
    * Props for the navigation button, prev button and next button.
    */
   navButtonProps?: ButtonProps;
@@ -201,6 +208,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     bottomContent,
     showHelper = true,
     calendarWidth = 256,
+    calendarHeight = 274,
     visibleMonths: visibleMonthsProp = 1,
     weekdayStyle = "narrow",
     navButtonProps = {},
@@ -281,6 +289,8 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
       // @ts-ignore
       "--visible-months": typeof visibleMonths === "number" ? `${visibleMonths}` : visibleMonths,
       "--calendar-width": typeof calendarWidth === "number" ? `${calendarWidth}px` : calendarWidth,
+      "--calendar-height":
+        typeof calendarHeight === "number" ? `${calendarHeight}px` : calendarHeight,
     } as React.CSSProperties,
   };
 

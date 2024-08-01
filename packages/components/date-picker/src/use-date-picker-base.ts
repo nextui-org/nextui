@@ -47,6 +47,12 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
    */
   calendarWidth?: number;
   /**
+   * The height to be applied to the calendar component.
+   *
+   * @default 274
+   */
+  calendarHeight?: number;
+  /**
    * Top content to be rendered in the calendar component.
    */
   CalendarTopContent?: CalendarProps["topContent"];
@@ -133,6 +139,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     visibleMonths = 1,
     pageBehavior = "visible",
     calendarWidth = 256,
+    calendarHeight = 274,
     isDateUnavailable,
     shouldForceLeadingZeros,
     showMonthAndYearPickers = false,
@@ -255,6 +262,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
   const calendarProps = {
     ...slotsProps.calendarProps,
     calendarWidth,
+    calendarHeight,
     "data-slot": "calendar",
   } as CalendarProps;
 

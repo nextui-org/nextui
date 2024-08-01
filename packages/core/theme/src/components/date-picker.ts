@@ -13,8 +13,14 @@ const datePicker = tv({
     selectorButton: "-mr-2 text-inherit",
     selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
-    calendar: "w-[calc(var(--visible-months)_*_var(--calendar-width))] shadow-none",
-    calendarContent: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+    calendar: [
+      "w-[var(--calendar-width)] md:w-[calc(var(--visible-months)_*_var(--calendar-width))] shadow-none",
+      "h-[calc(var(--visible-months)_*_var(--calendar-height))] md:h-[var(--calendar-height)] overflow-y-scroll",
+    ],
+    calendarContent: [
+      "w-[var(--calendar-width)] md:w-[calc(var(--visible-months)_*_var(--calendar-width))]",
+      "h-[calc(var(--visible-months)_*_var(--calendar-height))] md:h-[var(--calendar-height)]",
+    ],
     timeInputLabel: "font-medium",
     timeInput: "px-5 pb-4 flex-wrap gap-x-6",
   },
