@@ -16,11 +16,6 @@ export interface UseSandpackProps {
 
 const importReact = 'import React from "react";';
 
-// to check if the current file has `.jsx` or `.tsx` extension
-function isReactFile(key: string) {
-  return key.endsWith(".jsx") || key.endsWith(".tsx");
-}
-
 export const useSandpack = ({
   files = {},
   typescriptStrict = false,
@@ -104,11 +99,9 @@ export const useSandpack = ({
     .reduce((acc, key) => {
       let fileContent = files[key] as string;
 
-      const isReact = isReactFile(key);
-
       // Check if the file content includes 'React' import statements, if not, add it
       if (
-        isReact &&
+        fileContent.includes("React.") &&
         !fileContent.includes("from 'react'") &&
         !fileContent.includes('from "react"')
       ) {
