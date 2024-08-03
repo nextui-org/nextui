@@ -315,9 +315,9 @@ describe("Popover", () => {
     expect(popover).toHaveAttribute("aria-expanded", "true");
   });
 
-  it("should close popover on scroll when shouldCloseOnScroll is true", async () => {
+  it("should close popover on scroll", async () => {
     const wrapper = render(
-      <Popover shouldCloseOnScroll>
+      <Popover>
         <PopoverTrigger>
           <Button data-testid="popover">Open popover</Button>
         </PopoverTrigger>
@@ -347,4 +347,37 @@ describe("Popover", () => {
     // assert that the popover is closed
     expect(popover).toHaveAttribute("aria-expanded", "false");
   });
+});
+
+it("should close popover on scroll when shouldCloseOnScroll is false", async () => {
+  const wrapper = render(
+    <Popover shouldCloseOnScroll={false}>
+      <PopoverTrigger>
+        <Button data-testid="popover">Open popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <Select data-testid="select" label="Select country">
+          <SelectItem key="argentina">Argentina</SelectItem>
+          <SelectItem key="venezuela">Venezuela</SelectItem>
+          <SelectItem key="brazil">Brazil</SelectItem>
+        </Select>
+      </PopoverContent>
+    </Popover>,
+  );
+
+  const popover = wrapper.getByTestId("popover");
+
+  // open popover
+  await act(async () => {
+    await userEvent.click(popover);
+  });
+
+  // assert that the popover is open
+  expect(popover).toHaveAttribute("aria-expanded", "true");
+
+  // scroll it
+  fireEvent.scroll(document.body);
+
+  // assert that the popover is still open
+  expect(popover).toHaveAttribute("aria-expanded", "true");
 });
