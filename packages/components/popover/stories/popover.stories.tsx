@@ -81,6 +81,11 @@ export default {
         type: "boolean",
       },
     },
+    shouldCloseOnScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
     disableAnimation: {
       control: {
         type: "boolean",
@@ -450,6 +455,15 @@ export const DisableAnimation = {
   args: {
     ...defaultProps,
     disableAnimation: true,
+  },
+};
+
+export const ShouldNotCloseOnScroll = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    shouldCloseOnScroll: false,
   },
 };
 

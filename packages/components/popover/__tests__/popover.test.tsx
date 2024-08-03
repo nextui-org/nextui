@@ -315,9 +315,9 @@ describe("Popover", () => {
     expect(popover).toHaveAttribute("aria-expanded", "true");
   });
 
-  it("should close popover on scroll", async () => {
+  it("should close popover on scroll when shouldCloseOnScroll is true", async () => {
     const wrapper = render(
-      <Popover>
+      <Popover shouldCloseOnScroll>
         <PopoverTrigger>
           <Button data-testid="popover">Open popover</Button>
         </PopoverTrigger>
