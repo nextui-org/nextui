@@ -458,15 +458,6 @@ export const DisableAnimation = {
   },
 };
 
-export const ShouldNotCloseOnScroll = {
-  render: Template,
-
-  args: {
-    ...defaultProps,
-    shouldCloseOnScroll: false,
-  },
-};
-
 export const NonDismissable = {
   render: Template,
 
