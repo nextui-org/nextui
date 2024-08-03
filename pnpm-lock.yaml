@@ -3710,6 +3710,9 @@ importers:
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/utilities/react-utils:
     dependencies:
