@@ -469,9 +469,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }),
       ...labelProps,
       ...props,
-      onClick: (e: React.MouseEvent<HTMLLabelElement>) => {
-        e.preventDefault();
-      },
     }),
     [slots, classNames?.label, labelProps],
   );

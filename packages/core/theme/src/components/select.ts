@@ -539,7 +539,7 @@ const select = tv({
     {
       labelPlacement: ["inside", "outside"],
       class: {
-        label: ["group-data-[filled=true]:pointer-events-auto"],
+        label: ["group-data-[filled=false]:pointer-events-auto"],
       },
     },
     {
