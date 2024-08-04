@@ -535,13 +535,6 @@ const select = tv({
         trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },
-    //  labelPlacement=[inside, outside]
-    {
-      labelPlacement: ["inside", "outside"],
-      class: {
-        label: ["group-data-[filled=false]:pointer-events-auto"],
-      },
-    },
     {
       labelPlacement: "outside",
       isMultiline: false,
