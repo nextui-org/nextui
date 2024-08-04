@@ -50,7 +50,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
         data-open={dataAttr(isMenuOpen)}
         style={{
           // @ts-expect-error
-          "--navbar-height": height,
+          "--navbar-height": typeof height === "number" ? `${height}px` : height,
         }}
         {...otherProps}
       >
@@ -72,7 +72,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
               initial="exit"
               style={{
                 // @ts-expect-error
-                "--navbar-height": height,
+                "--navbar-height": typeof height === "number" ? `${height}px` : height,
                 ...style,
               }}
               variants={menuVariants}

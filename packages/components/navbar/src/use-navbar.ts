@@ -198,7 +198,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     ref: domRef,
     className: slots.base({class: clsx(baseStyles, props?.className)}),
     style: {
-      "--navbar-height": height,
+      "--navbar-height": typeof height === "number" ? `${height}px` : height,
       ...otherProps?.style,
       ...props?.style,
     },
