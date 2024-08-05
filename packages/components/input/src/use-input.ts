@@ -207,6 +207,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
 
+  const {isHovered: isLabelHovered, hoverProps: labelHoverProps} = useHover({
+    isDisabled: !!originalProps?.isDisabled,
+  });
+
   const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
 
   const {focusWithinProps} = useFocusWithin({
@@ -306,7 +310,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-readonly": dataAttr(originalProps.isReadOnly),
         "data-focus": dataAttr(isFocused),
-        "data-hover": dataAttr(isHovered),
+        "data-hover": dataAttr(isHovered || isLabelHovered),
         "data-required": dataAttr(originalProps.isRequired),
         "data-invalid": dataAttr(isInvalid),
         "data-disabled": dataAttr(originalProps.isDisabled),
@@ -325,6 +329,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isFilled,
       isFocused,
       isHovered,
+      isLabelHovered,
       isInvalid,
       hasHelper,
       hasLabel,
@@ -348,11 +353,10 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         "data-slot": "label",
         className: slots.label({class: classNames?.label}),
-        ...labelProps,
-        ...props,
+        ...mergeProps(labelProps, labelHoverProps, props),
       };
     },
-    [slots, labelProps, classNames?.label],
+    [slots, isLabelHovered, labelProps, classNames?.label],
   );
 
   const getInputProps: PropGetter = useCallback(
@@ -403,7 +407,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ref: inputWrapperRef,
         "data-slot": "input-wrapper",
-        "data-hover": dataAttr(isHovered),
+        "data-hover": dataAttr(isHovered || isLabelHovered),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
@@ -421,7 +425,15 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         },
       };
     },
-    [slots, isHovered, isFocusVisible, isFocused, inputValue, classNames?.inputWrapper],
+    [
+      slots,
+      isHovered,
+      isLabelHovered,
+      isFocusVisible,
+      isFocused,
+      inputValue,
+      classNames?.inputWrapper,
+    ],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(
