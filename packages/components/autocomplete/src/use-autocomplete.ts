@@ -202,9 +202,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
-  // control the input focus behaviours internally
-  const shouldFocus = useRef(false);
-
   const {
     buttonProps,
     inputProps,
@@ -314,31 +311,27 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     const key = inputRef.current.value;
     const item = state.collection.getItem(key);
 
-    if (item) {
+    if (item && state.inputValue !== item.textValue) {
       state.setSelectedKey(key);
       state.setInputValue(item.textValue);
     }
-  }, [inputRef.current, state]);
+  }, [inputRef.current]);
 
-  // apply the same with to the popover as the select
   useEffect(() => {
-    if (isOpen && popoverRef.current && inputWrapperRef.current) {
-      let rect = inputWrapperRef.current.getBoundingClientRect();
+    // set input focus
+    if (isOpen) {
+      onFocus(true);
 
-      let popover = popoverRef.current;
+      // apply the same with to the popover as the select
+      if (popoverRef.current && inputWrapperRef.current) {
+        let rect = inputWrapperRef.current.getBoundingClientRect();
 
-      popover.style.width = rect.width + "px";
+        let popover = popoverRef.current;
+
+        popover.style.width = rect.width + "px";
+      }
     }
   }, [isOpen]);
-
-  // react aria has different focus strategies internally
-  // hence, handle focus behaviours on our side for better flexibilty
-  useEffect(() => {
-    const action = shouldFocus.current || isOpen ? "focus" : "blur";
-
-    inputRef?.current?.[action]();
-    if (action === "blur") shouldFocus.current = false;
-  }, [shouldFocus.current, isOpen]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -371,7 +364,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const onClear = useCallback(() => {
     state.setInputValue("");
     state.setSelectedKey(null);
-    state.close();
   }, [state]);
 
   const onFocus = useCallback(
@@ -466,8 +458,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) =>
-            ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state, shouldFocus),
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state),
+      // when the popover is open, the focus should be on input instead of dialog
+      // therefore, we skip dialog focus here
+      disableDialogFocus: true,
     } as unknown as PopoverProps;
   };
 

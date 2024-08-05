@@ -130,6 +130,7 @@ export function useChip(originalProps: UseChipProps) {
       role: "button",
       tabIndex: 0,
       className: slots.closeButton({class: classNames?.closeButton}),
+      "aria-label": "close chip",
       ...mergeProps(closePressProps, closeFocusProps),
     };
   };

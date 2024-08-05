@@ -1,5 +1,95 @@
 # @nextui-org/autocomplete
 
+## 2.1.5
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/button@2.0.37
+  - @nextui-org/input@2.2.4
+  - @nextui-org/listbox@2.1.25
+  - @nextui-org/popover@2.1.27
+  - @nextui-org/scroll-shadow@2.1.19
+  - @nextui-org/spinner@2.0.33
+  - @nextui-org/use-aria-button@2.0.10
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/spinner@2.0.32
+  - @nextui-org/listbox@2.1.24
+  - @nextui-org/button@2.0.36
+  - @nextui-org/input@2.2.3
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/aria-utils@2.0.23
+
+## 2.1.3
+
+### Patch Changes
+
+- [#3311](https://github.com/nextui-org/nextui/pull/3311) [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc) Thanks [@wingkwong](https://github.com/wingkwong)! - add `disableDialogFocus` to free-solo-popover (#3225, #3124, #3203)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54), [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49), [`93f178781`](https://github.com/nextui-org/nextui/commit/93f17878154a6351c38c8ef4806b5fb20e4fa217), [`444d320db`](https://github.com/nextui-org/nextui/commit/444d320dbc146399eb937c219ce983d427675425)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/input@2.2.3
+  - @nextui-org/popover@2.1.25
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/button@2.0.35
+  - @nextui-org/listbox@2.1.23
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/spinner@2.0.31
+  - @nextui-org/react-utils@2.0.15
+
+## 2.1.2
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix popover focus issue (#3171, #2992)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#2969](https://github.com/nextui-org/nextui/pull/2969) [`255c641f9`](https://github.com/nextui-org/nextui/commit/255c641f96903e0d6d29343774e9e7ae67fcdb34) Thanks [@chirokas](https://github.com/chirokas)! - Fix autocomplete controlled state (#2955)
+
+- [#3175](https://github.com/nextui-org/nextui/pull/3175) [`2069a7a9d`](https://github.com/nextui-org/nextui/commit/2069a7a9d00291266fef763c6817b3bdd3ed4707) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix maximum update depth exceeded on Autocomplete component (#3094)
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`dbb4b8ee5`](https://github.com/nextui-org/nextui/commit/dbb4b8ee564114bfb0ef93467ed9ef6a3ff7e2e7), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/button@2.0.34
+  - @nextui-org/input@2.2.2
+  - @nextui-org/listbox@2.1.22
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/scroll-shadow@2.1.17
+  - @nextui-org/spinner@2.0.30
+
+## 2.1.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/button@2.0.33
+  - @nextui-org/input@2.2.1
+  - @nextui-org/listbox@2.1.21
+  - @nextui-org/popover@2.1.23
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/scroll-shadow@2.1.16
+  - @nextui-org/spinner@2.0.29
+
 ## 2.1.0
 
 ### Minor Changes
