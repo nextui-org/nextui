@@ -29,28 +29,35 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
     setCopyTimeout(setTimeout(() => setCopied(false), timeout));
     setCopied(value);
   };
-  
-  const compatibilityCopy=(text: string)=>{
-    const input = document.createElement('input');
-    input.setAttribute('value', text);
+
+  const compatibilityCopy = (text: string) => {
+    const input = document.createElement("input");
+
+    input.setAttribute("value", text);
+    input.style.position = "absolute";
+    input.style.left = "-9999px";
     document.body.appendChild(input);
     input.select();
     try {
-      let result = document.execCommand('copy'); 
+      let result = document.execCommand("copy");
+
       setCopied(result);
     } catch (err) {
       setCopied(false);
       setError(new Error("useClipboard: document.execCommand is not supported"));
     }
     document.body.removeChild(input);
-  }
+  };
 
   const copy = (valueToCopy: any) => {
     if ("clipboard" in navigator) {
       navigator.clipboard
         .writeText(valueToCopy)
         .then(() => handleCopyResult(true))
-        .catch((err) => setError(err));
+        .catch((err) => {
+          setError(err);
+          compatibilityCopy(valueToCopy);
+        });
     } else {
       setError(new Error("useClipboard: navigator.clipboard is not supported"));
       compatibilityCopy(valueToCopy);
