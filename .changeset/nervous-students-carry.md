@@ -1,5 +1,5 @@
 ---
-"@nextui-org/use-clipboard": major
+"@nextui-org/use-clipboard": patch
 ---
 
 fix: useClipboard compatibility fix, added compatibilityCopy
