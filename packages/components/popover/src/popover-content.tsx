@@ -5,7 +5,7 @@ import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
-import {m, domAnimation, LazyMotion} from "framer-motion";
+import {m, LazyMotion} from "framer-motion";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {RemoveScroll} from "react-remove-scroll";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
@@ -18,6 +18,8 @@ export interface PopoverContentProps
     Omit<HTMLNextUIProps, "children" | "role"> {
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   const {as, children, className, ...otherProps} = props;

@@ -1,17 +1,19 @@
-import {get} from "lodash";
-
 import {FileCode} from "./types";
 
 const importRegex = /^(import)\s(?!type(of\s|\s)(?!from)).*?$/gm;
 
 const exportDefaultRegex = /export\s+default\s+function\s+\w+\s*\(\s*\)\s*\{/;
 
-export const transformCode = (code: string, imports = {}, compName = "App") => {
+export const transformCode = (
+  code: string,
+  imports: {[key: string]: any} = {},
+  compName = "App",
+) => {
   let cleanedCode = code
     .replace(importRegex, (match) => {
       // get component name from the match ex. "import { Table } from '@nextui-org/react'"
       const componentName = match.match(/\w+/g)?.[1] || "";
-      const matchingImport = get(imports, componentName);
+      const matchingImport = imports[componentName] || {};
 
       if (matchingImport) {
         // remove the matching import
