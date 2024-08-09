@@ -1,5 +1,42 @@
 # @nextui-org/date-picker
 
+## 2.1.6
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/button@2.0.37
+  - @nextui-org/calendar@2.0.11
+  - @nextui-org/date-input@2.1.3
+  - @nextui-org/popover@2.1.27
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.1.5
+
+### Patch Changes
+
+- Updated dependencies [[`1fdbf2ad2`](https://github.com/nextui-org/nextui/commit/1fdbf2ad2020d91f257029e6a3f81406d5da109c)]:
+  - @nextui-org/calendar@2.0.10
+  - @nextui-org/button@2.0.36
+  - @nextui-org/date-input@2.1.2
+  - @nextui-org/popover@2.1.26
+
+## 2.1.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.36
+  - @nextui-org/calendar@2.0.9
+  - @nextui-org/date-input@2.1.2
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/aria-utils@2.0.23
+
 ## 2.1.3
 
 ### Patch Changes

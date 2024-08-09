@@ -1,5 +1,23 @@
 # @nextui-org/slider
 
+## 2.2.15
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/tooltip@2.0.39
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.2.14
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/tooltip@2.0.38
+
 ## 2.2.13
 
 ### Patch Changes

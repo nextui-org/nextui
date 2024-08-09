@@ -1,5 +1,17 @@
 # @nextui-org/system-rsc
 
+## 2.1.5
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.1.4
+
+### Patch Changes
+
+- [#3503](https://github.com/nextui-org/nextui/pull/3503) [`5591138bf`](https://github.com/nextui-org/nextui/commit/5591138bff4a393f614c4cb0d505901560c4ceea) Thanks [@wingkwong](https://github.com/wingkwong)! - handled defaultVariants null case in extendVariants (#3502)
+
 ## 2.1.3
 
 ### Patch Changes

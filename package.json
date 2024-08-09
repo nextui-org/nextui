@@ -37,7 +37,7 @@
     "format:write": "prettier --write packages/**/**/src --cache",
     "turbo:clean": "turbo clean && rimraf ./node_modules/.cache/turbo",
     "turbo:graph": "pnpm build --graph=dependency-graph.png",
-    "clean": "pnpm turbo:clean && pnpm clean:jest && pnpm clean:node-modules && pnpm clean:lock && pnpm install --hoist",
+    "clean": "pnpm turbo:clean && pnpm clean:jest && pnpm clean:lock && pnpm clean:node-modules && pnpm install --hoist",
     "clean:node-modules": "rimraf ./apps/**/node_modules && rimraf ./packages/**/**/node_modules && rimraf ./node_modules",
     "clean:changelogs": "rimraf ./packages/**/**/CHANGELOG.md",
     "clean:lock": "rimraf ./pnpm-lock.yaml",
@@ -146,7 +146,7 @@
   },
   "engines": {
     "node": ">=16.x",
-    "pnpm": ">=8.x"
+    "pnpm": ">=9.x"
   },
-  "packageManager": "pnpm@8.7.0"
+  "packageManager": "pnpm@9.6.0"
 }

@@ -1,5 +1,29 @@
 # @nextui-org/accordion
 
+## 2.0.38
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/divider@2.0.31
+  - @nextui-org/use-aria-accordion@2.0.7
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/framer-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.37
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.30
+  - @nextui-org/aria-utils@2.0.23
+  - @nextui-org/framer-utils@2.0.23
+
 ## 2.0.36
 
 ### Patch Changes
