@@ -250,16 +250,16 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     onSelectionChange: (keys) => {
       onSelectionChange?.(keys);
-      if (onChange && typeof onChange === "function" && domRef.current) {
-        const event = {
+      if (onChange && typeof onChange === "function") {
+        onChange({
           target: {
-            ...domRef.current,
+            ...(domRef.current && {
+              ...domRef.current,
+              name: domRef.current.name,
+            }),
             value: Array.from(keys).join(","),
-            name: domRef.current.name,
           },
-        } as React.ChangeEvent<HTMLSelectElement>;
-
-        onChange(event);
+        } as React.ChangeEvent<HTMLSelectElement>);
       }
     },
   });

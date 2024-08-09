@@ -652,6 +652,74 @@ describe("Select", () => {
     // assert that the select listbox is closed
     expect(select).toHaveAttribute("aria-expanded", "false");
   });
+
+  it("should work with onChange (< 300 select items)", async () => {
+    const onChange = jest.fn();
+
+    let options = new Array(10).fill("");
+
+    options = options.map((_, i) => {
+      return `option ${i}`;
+    });
+
+    const wrapper = render(
+      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+        {options.map((o) => (
+          <SelectItem key={o} value={o}>
+            {o}
+          </SelectItem>
+        ))}
+      </Select>,
+    );
+
+    let listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(10);
+
+    await act(async () => {
+      await user.click(listboxItems[1]);
+
+      expect(onChange).toBeCalledTimes(1);
+    });
+  });
+
+  it("should work with onChange (>= 300 select items)", async () => {
+    let onChange = jest.fn();
+
+    let options = new Array(300).fill("");
+
+    options = options.map((_, i) => {
+      return `option ${i}`;
+    });
+
+    const wrapper = render(
+      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+        {options.map((o) => (
+          <SelectItem key={o} value={o}>
+            {o}
+          </SelectItem>
+        ))}
+      </Select>,
+    );
+
+    let listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(300);
+
+    await act(async () => {
+      await user.click(listboxItems[1]);
+
+      expect(onChange).toBeCalledTimes(1);
+    });
+  });
 });
 
 describe("Select with React Hook Form", () => {
