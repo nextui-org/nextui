@@ -56,9 +56,8 @@ const table = tv({
     table: "min-w-full h-auto",
     thead: "[&>tr]:first:rounded-lg",
     tbody: "",
-    tr: ["group", "outline-none", ...dataFocusVisibleClasses],
+    tr: ["outline-none", ...dataFocusVisibleClasses],
     th: [
-      "group",
       "px-3",
       "h-10",
       "align-middle",
