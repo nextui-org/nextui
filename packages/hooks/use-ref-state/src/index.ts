@@ -1,4 +1,12 @@
-import {Dispatch, MutableRefObject, SetStateAction, useEffect, useRef, useState} from "react";
+import {
+  Dispatch,
+  MutableRefObject,
+  SetStateAction,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 
 export type CurrentStateType<S> = [S, Dispatch<SetStateAction<S>>, MutableRefObject<S>];
 
@@ -15,12 +23,12 @@ export function useRefState<S>(initialState: S | (() => S)) {
     ref.current = state;
   }, [state]);
 
-  const setValue = (val: SetStateAction<S>) => {
+  const setValue = useCallback((val: SetStateAction<S>) => {
     const result = typeof val === "function" ? (val as (prevState: S) => S)(ref.current) : val;
 
     ref.current = result;
     setState(result);
-  };
+  }, []);
 
   return [state, setValue, ref] as CurrentStateType<S>;
 }
