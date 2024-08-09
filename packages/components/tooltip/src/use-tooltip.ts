@@ -8,7 +8,12 @@ import {ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
-import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
+import {
+  useOverlayPosition,
+  useOverlay,
+  AriaOverlayProps,
+  usePreventScroll,
+} from "@react-aria/overlays";
 import {
   HTMLNextUIProps,
   mapPropsVariants,
@@ -82,6 +87,11 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    * ```
    */
   classNames?: SlotsToClasses<"base" | "arrow" | "content">;
+  /**
+   * Whether to block scrolling outside the tooltip.
+   * @default true
+   */
+  shouldBlockScroll?: boolean;
 }
 
 export type UseTooltipProps = Props &
@@ -123,6 +133,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     onClose,
     motionProps,
     classNames,
+    shouldBlockScroll = true,
     ...otherProps
   } = props;
 
@@ -157,6 +168,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
     // @ts-ignore
     createDOMRef(overlayRef),
   );
+
+  usePreventScroll({isDisabled: !(shouldBlockScroll && isOpen)});
 
   const {triggerProps, tooltipProps: triggerTooltipProps} = useTooltipTrigger(
     {
