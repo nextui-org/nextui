@@ -224,12 +224,33 @@ export function usePagination(originalProps: UsePaginationProps) {
   function scrollTo(value: number, skipAnimation: boolean) {
     const map = getItemsRefMap();
 
+    if (value <= 0) {
+      if (cursorRef.current) {
+        // Reset the cursor position and style
+        cursorRef.current.setAttribute("data-moving", "false");
+        cursorRef.current.style.visibility = "hidden";
+        cursorRef.current.style.transform = `translateX(0px) scale(1)`;
+        cursorRef.current.style.transition = skipAnimation
+          ? "none"
+          : `transform ${CURSOR_TRANSITION_TIMEOUT}ms`;
+
+        // Ensure that the cursor style is reset after the transition
+        cursorTimer.current = setTimeout(() => {
+          cursorRef.current?.setAttribute("data-moving", "false");
+          cursorTimer.current && clearTimeout(cursorTimer.current);
+        }, CURSOR_TRANSITION_TIMEOUT);
+      }
+
+      return;
+    }
+
     const node = map.get(value);
 
     if (!node || !cursorRef.current) return;
 
     // clean up the previous cursor timer (if any)
     cursorTimer.current && clearTimeout(cursorTimer.current);
+    cursorRef.current && (cursorRef.current.style.visibility = "visible");
 
     // scroll parent to the item
     scrollIntoView(node, {
@@ -286,6 +307,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     }
     activePageRef.current = activePage;
   }, [
+    total,
     activePage,
     disableAnimation,
     disableCursorAnimation,

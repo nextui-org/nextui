@@ -55,7 +55,11 @@ export function usePagination(props: UsePaginationProps) {
     showControls = false,
     onChange,
   } = props;
-  const [activePage, setActivePage] = useState(page || initialPage);
+  let [activePage, setActivePage] = useState(page || initialPage);
+
+  if (activePage > total) {
+    activePage = total;
+  }
 
   const {direction} = useLocale();
 

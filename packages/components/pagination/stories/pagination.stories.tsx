@@ -266,3 +266,31 @@ export const CustomWithHooks = () => {
     </div>
   );
 };
+
+export const DynamicTotal = () => {
+  const [total, setTotal] = React.useState(0);
+  const [currentPage, setCurrentPage] = React.useState(3);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setTotal((prev) => (prev === 7 ? 0 : prev + 1));
+    }, 1000);
+
+    return () => clearInterval(interval);
+  });
+
+  return (
+    <div>
+      <Pagination
+        showControls
+        showShadow
+        color="secondary"
+        page={currentPage}
+        total={total}
+        onChange={setCurrentPage}
+      />
+      <p>Current page: {currentPage}</p>
+      <p>Total: {total}</p>
+    </div>
+  );
+};
