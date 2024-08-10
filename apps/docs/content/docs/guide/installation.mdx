@@ -39,14 +39,17 @@ You will be prompted to configure your project:
 ```
 
 Install the dependencies to start the local server:
-```codeBlock bash
-cd my-nextui-app && npm install
-```
+
 
 Start the local server:
-```codeBlock bash
-npm run dev
-```
+<PackageManagers
+  commands={{
+    npm: "npm run dev",
+    yarn: "yarn run dev",
+    pnpm: "pnpm run dev",
+    bun: "bun run dev",
+  }}
+/>
 
 Once your NextUI project is ready to develop, you can add individual components using the CLI. For example, to add a button component:
 
