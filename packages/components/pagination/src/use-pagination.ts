@@ -250,7 +250,9 @@ export function usePagination(originalProps: UsePaginationProps) {
 
     // clean up the previous cursor timer (if any)
     cursorTimer.current && clearTimeout(cursorTimer.current);
-    cursorRef.current && (cursorRef.current.style.visibility = "visible");
+    if (cursorRef.current) {
+      cursorRef.current.style.visibility = "visible";
+    }
 
     // scroll parent to the item
     scrollIntoView(node, {

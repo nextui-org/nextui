@@ -57,9 +57,11 @@ export function usePagination(props: UsePaginationProps) {
   } = props;
   let [activePage, setActivePage] = useState(page || initialPage);
 
-  if (activePage > total) {
-    activePage = total;
-  }
+  useEffect(() => {
+    if (activePage > total) {
+      setActivePage(total);
+    }
+  }, [total]);
 
   const {direction} = useLocale();
 
