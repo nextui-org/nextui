@@ -245,7 +245,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     typeof props.errorMessage === "function"
       ? props.errorMessage({isInvalid, validationErrors, validationDetails})
       : props.errorMessage || validationErrors?.join(" ");
-  const isClearable = !!onClear || originalProps.isClearable;
+  const isClearable = !originalProps.isReadOnly && (!!onClear || originalProps.isClearable);
   const hasElements = !!label || !!description || !!errorMessage;
   const hasPlaceholder = !!props.placeholder;
   const hasLabel = !!label;
