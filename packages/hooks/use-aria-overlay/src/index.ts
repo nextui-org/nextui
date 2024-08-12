@@ -6,6 +6,17 @@ import {isElementInChildOfActiveScope} from "@react-aria/focus";
 import {useFocusWithin, useInteractOutside} from "@react-aria/interactions";
 import {useEffect} from "react";
 
+export interface UseAriaOverlayProps extends AriaOverlayProps {
+  /**
+   * When `true`, `click/focus` interactions will be disabled on elements outside
+   * the `Overlay`. Users need to click twice on outside elements to interact with them:
+   * once to close the overlay, and again to trigger the element.
+   *
+   * @default true
+   */
+  disableOutsideEvents?: boolean;
+}
+
 const visibleOverlays: RefObject<Element | null>[] = [];
 
 /**
@@ -13,8 +24,9 @@ const visibleOverlays: RefObject<Element | null>[] = [];
  * Hides the overlay when the user interacts outside it, when the Escape key is pressed,
  * or optionally, on blur. Only the top-most overlay will close at once.
  */
-export function useAriaOverlay(props: AriaOverlayProps, ref: RefObject<Element>): OverlayAria {
+export function useAriaOverlay(props: UseAriaOverlayProps, ref: RefObject<Element>): OverlayAria {
   const {
+    disableOutsideEvents = true,
     isDismissable = false,
     isKeyboardDismissDisabled = false,
     isOpen,
@@ -48,15 +60,30 @@ export function useAriaOverlay(props: AriaOverlayProps, ref: RefObject<Element>)
   const onInteractOutsideStart = (e: PointerEvent) => {
     if (!shouldCloseOnInteractOutside || shouldCloseOnInteractOutside(e.target as Element)) {
       if (visibleOverlays[visibleOverlays.length - 1] === ref) {
-        disableOutsidePointerEvents(e);
+        if (disableOutsideEvents) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
+      }
+
+      // For consistency with React Aria, toggle the combobox/menu on mouse down, but touch up.
+      if (e.pointerType !== "touch") {
+        onHide();
       }
     }
   };
 
   const onInteractOutside = (e: PointerEvent) => {
+    if (e.pointerType !== "touch") {
+      return;
+    }
+
     if (!shouldCloseOnInteractOutside || shouldCloseOnInteractOutside(e.target as Element)) {
       if (visibleOverlays[visibleOverlays.length - 1] === ref) {
-        disableOutsidePointerEvents(e);
+        if (disableOutsideEvents) {
+          e.stopPropagation();
+          e.preventDefault();
+        }
       }
 
       onHide();
@@ -74,7 +101,8 @@ export function useAriaOverlay(props: AriaOverlayProps, ref: RefObject<Element>)
 
   // Handle clicking outside the overlay to close it
   useInteractOutside({
-    onInteractOutside: isDismissable && isOpen ? onInteractOutside : undefined,
+    isDisabled: !(isDismissable && isOpen),
+    onInteractOutside,
     onInteractOutsideStart,
     ref,
   });
@@ -99,7 +127,7 @@ export function useAriaOverlay(props: AriaOverlayProps, ref: RefObject<Element>)
         !shouldCloseOnInteractOutside ||
         shouldCloseOnInteractOutside(e.relatedTarget as Element)
       ) {
-        onClose?.();
+        onHide();
       }
     },
   });
@@ -120,26 +148,4 @@ export function useAriaOverlay(props: AriaOverlayProps, ref: RefObject<Element>)
       onPointerDown: onPointerDownUnderlay,
     },
   };
-}
-
-function isInteractive(target: Element): boolean {
-  return !!target.closest(':is([aria-haspopup]):not([aria-haspopup="false"], [disabled])');
-}
-
-/**
- * Users need to click twice on outside elements to interact with them:
- * once to close the overlay, and again to trigger the element.
- */
-function disableOutsidePointerEvents(event: Event) {
-  // This is a backwards compatibility check so that you can open
-  // a <Popover /> and click on another <Popover /> which should
-  // close Popover A and open Popover B.
-  if (!isInteractive(event.target as Element)) {
-    event.stopPropagation();
-  }
-
-  // This is important because we want to only close the overlay when it gets blur
-  // OR it finished the click event (mouseup/touchend). However, if you perform a `click`,
-  // then you will first get the `blur` and then get the `click` event.
-  event.preventDefault();
 }

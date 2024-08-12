@@ -73,7 +73,9 @@ export function useReactAriaPopover(
       shouldCloseOnBlur,
       isDismissable,
       isKeyboardDismissDisabled,
-      shouldCloseOnInteractOutside,
+      shouldCloseOnInteractOutside:
+        shouldCloseOnInteractOutside || ((el) => !triggerRef.current?.contains(el)),
+      disableOutsideEvents: !isNonModal,
     },
     popoverRef,
   );

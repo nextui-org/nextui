@@ -6,6 +6,7 @@
 "@nextui-org/popover": patch
 "@nextui-org/select": patch
 "@nextui-org/use-aria-modal-overlay": patch
+"@nextui-org/use-aria-multiselect": patch
 "@nextui-org/use-aria-overlay": patch
 "@nextui-org/aria-utils": patch
 ---
