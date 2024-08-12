@@ -180,6 +180,26 @@ describe("Input", () => {
 
     expect(inputs[1]).toBeVisible();
   });
+
+  it("should not show clear button when isReadOnly is true", () => {
+    const {queryByRole} = render(
+      <Input isClearable isReadOnly defaultValue='This is "isReadOnly"' label="test input" />,
+    );
+
+    const clearButton = queryByRole("button");
+
+    expect(clearButton).toBeNull();
+  });
+
+  it("should show clear button when isReadOnly is false", () => {
+    const {getByRole} = render(
+      <Input isClearable defaultValue='This is "isReadOnly"' label="test input" />,
+    );
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).not.toBeNull();
+  });
 });
 
 describe("Input with React Hook Form", () => {
