@@ -14,7 +14,7 @@ export function useRealShape<T extends HTMLElement>(ref: RefObject<T | null>) {
     const {width, height} = getRealShape(ref.current);
 
     setState({width, height});
-  }, [ref]);
+  }, []);
 
   useEffect(() => updateShape(), [updateShape]);
 
