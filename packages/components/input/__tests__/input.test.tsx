@@ -181,24 +181,31 @@ describe("Input", () => {
     expect(inputs[1]).toBeVisible();
   });
 
-  it("should not show clear button when isReadOnly is true", () => {
-    const {queryByRole} = render(
-      <Input isClearable isReadOnly defaultValue='This is "isReadOnly"' label="test input" />,
-    );
+  it("should disable clear button when isReadOnly is true", async () => {
+    const onClear = jest.fn();
 
-    const clearButton = queryByRole("button");
+    const ref = React.createRef<HTMLInputElement>();
 
-    expect(clearButton).toBeNull();
-  });
-
-  it("should show clear button when isReadOnly is false", () => {
     const {getByRole} = render(
-      <Input isClearable defaultValue='This is "isReadOnly"' label="test input" />,
+      <Input
+        ref={ref}
+        isClearable
+        isReadOnly
+        defaultValue="readOnly test for clear button"
+        label="test input"
+        onClear={onClear}
+      />,
     );
 
     const clearButton = getByRole("button");
 
     expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(onClear).toHaveBeenCalledTimes(0);
   });
 });
 
