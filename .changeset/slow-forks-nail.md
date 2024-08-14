@@ -1,5 +1,6 @@
 ---
 "@nextui-org/calendar": patch
+"@nextui-org/theme": patch
 ---
 
-fix arrow keys order when html has dir="rtl"
+fixed arrow keys order when html has dir="rtl" (#3641, #3642)
