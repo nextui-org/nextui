@@ -21,7 +21,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const checkbox = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2",
+    base: "group/checkbox relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2",
     wrapper: [
       "relative",
       "inline-flex",
@@ -44,14 +44,14 @@ const checkbox = tv({
       "after:scale-50",
       "after:opacity-0",
       "after:origin-center",
-      "group-data-[selected=true]:after:scale-100",
-      "group-data-[selected=true]:after:opacity-100",
+      "group-data-[selected=true]/checkbox:after:scale-100",
+      "group-data-[selected=true]/checkbox:after:opacity-100",
       // hover
-      "group-data-[hover=true]:before:bg-default-100",
+      "group-data-[hover=true]/checkbox:before:bg-default-100",
       // focus ring
       ...groupDataFocusVisibleClasses,
     ],
-    icon: "z-10 w-4 h-3 opacity-0 group-data-[selected=true]:opacity-100",
+    icon: "z-10 w-4 h-3 opacity-0 group-data-[selected=true]/checkbox:opacity-100",
     label: "relative text-foreground select-none",
   },
   variants: {
@@ -147,8 +147,8 @@ const checkbox = tv({
           "before:bg-foreground",
           "before:w-0",
           "before:h-0.5",
-          "group-data-[selected=true]:opacity-60",
-          "group-data-[selected=true]:before:w-full",
+          "group-data-[selected=true]/checkbox:opacity-60",
+          "group-data-[selected=true]/checkbox:before:w-full",
         ],
       },
     },
@@ -172,7 +172,7 @@ const checkbox = tv({
       false: {
         wrapper: [
           "before:transition-colors",
-          "group-data-[pressed=true]:scale-95",
+          "group-data-[pressed=true]/checkbox:scale-95",
           "transition-transform",
           "after:transition-transform-opacity",
           "after:!ease-linear",
