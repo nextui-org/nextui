@@ -170,6 +170,12 @@ const input = tv({
       outside: {
         mainWrapper: "flex flex-col",
       },
+      "outside-top": {
+        base: "flex-col items-center flex-nowrap data-[has-helper=true]:items-start",
+        inputWrapper: "flex-1",
+        mainWrapper: "flex flex-col",
+        label: "relative text-foreground pb-2",
+      },
       "outside-left": {
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",

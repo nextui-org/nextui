@@ -17,6 +17,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     labelPlacement,
     hasHelper,
     isOutsideLeft,
+    isOutsideTop,
     shouldLabelBeOutside,
     errorMessage,
     isInvalid,
@@ -48,9 +49,13 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     return (
       <div {...getHelperWrapperProps()}>
         {isInvalid && errorMessage ? (
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
+          <div className="bg-green-500" {...getErrorMessageProps()}>
+            {errorMessage}
+          </div>
         ) : description ? (
-          <div {...getDescriptionProps()}>{description}</div>
+          <div className="bg-green-500" {...getDescriptionProps()}>
+            {description}
+          </div>
         ) : null}
       </div>
     );
@@ -66,7 +71,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
   const innerWrapper = useMemo(() => {
     return (
-      <div {...getInnerWrapperProps()}>
+      <div className="bg-yellow-700" {...getInnerWrapperProps()}>
         {startContent}
         <input {...getInputProps()} />
         {end}
@@ -77,9 +82,9 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
   const mainWrapper = useMemo(() => {
     if (shouldLabelBeOutside) {
       return (
-        <div {...getMainWrapperProps()}>
+        <div className="bg-pink-600" {...getMainWrapperProps()}>
           <div {...getInputWrapperProps()}>
-            {!isOutsideLeft ? labelContent : null}
+            {!isOutsideLeft && !isOutsideTop ? labelContent : null}
             {innerWrapper}
           </div>
           {helperWrapper}
@@ -89,7 +94,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
     return (
       <>
-        <div {...getInputWrapperProps()}>
+        <div className="bg-blue-900" {...getInputWrapperProps()}>
           {labelContent}
           {innerWrapper}
         </div>
@@ -112,7 +117,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      {isOutsideLeft ? labelContent : null}
+      {isOutsideLeft || isOutsideTop ? labelContent : null}
       {mainWrapper}
     </Component>
   );

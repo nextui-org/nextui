@@ -49,7 +49,7 @@ export default {
       control: {
         type: "select",
       },
-      options: ["inside", "outside", "outside-left"],
+      options: ["inside", "outside", "outside-left", "outside-top"],
     },
     isDisabled: {
       control: {
@@ -178,6 +178,7 @@ const LabelPlacementTemplate = (args) => (
         <Input {...args} description="inside" />
         <Input {...args} description="outside" labelPlacement="outside" />
         <Input {...args} description="outside-left" labelPlacement="outside-left" />
+        <Input {...args} description="outside-top" labelPlacement="outside-top" />
       </div>
     </div>
     <div className="flex flex-col gap-3">
@@ -194,6 +195,12 @@ const LabelPlacementTemplate = (args) => (
           {...args}
           description="outside-left"
           labelPlacement="outside-left"
+          placeholder="Enter your email"
+        />
+        <Input
+          {...args}
+          description="outside-top"
+          labelPlacement="outside-top"
           placeholder="Enter your email"
         />
       </div>
