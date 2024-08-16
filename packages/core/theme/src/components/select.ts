@@ -59,6 +59,7 @@ const select = tv({
           "data-[focus=true]:border-default-foreground",
           "data-[focus=true]:border-default-foreground",
         ],
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       underlined: {
         trigger: [
@@ -84,7 +85,7 @@ const select = tv({
           "data-[open=true]:after:w-full",
           "data-[focus=true]:after:w-full",
         ],
-        label: "group-data-[filled=true]:text-foreground",
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
     },
     color: {
