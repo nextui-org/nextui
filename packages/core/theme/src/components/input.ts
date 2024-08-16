@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group flex flex-col data-[hidden=true]:hidden",
     label: [
       "absolute",
       "z-10",
@@ -43,6 +43,8 @@ const input = tv({
       "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
+      "file:cursor-pointer file:bg-transparent file:border-0",
+      "autofill:bg-transparent bg-clip-text",
     ],
     clearButton: [
       "p-2",
@@ -245,7 +247,6 @@ const input = tv({
     labelPlacement: "inside",
     isDisabled: false,
     isMultiline: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // flat & color
@@ -536,9 +537,9 @@ const input = tv({
       variant: "flat",
       class: {
         inputWrapper: [
-          "bg-danger-50",
-          "data-[hover=true]:bg-danger-100",
-          "group-data-[focus=true]:bg-danger-50",
+          "!bg-danger-50",
+          "data-[hover=true]:!bg-danger-100",
+          "group-data-[focus=true]:!bg-danger-50",
         ],
       },
     },
@@ -546,14 +547,14 @@ const input = tv({
       isInvalid: true,
       variant: "bordered",
       class: {
-        inputWrapper: "!border-danger group-data-[focus=true]:border-danger",
+        inputWrapper: "!border-danger group-data-[focus=true]:!border-danger",
       },
     },
     {
       isInvalid: true,
       variant: "underlined",
       class: {
-        inputWrapper: "after:bg-danger",
+        inputWrapper: "after:!bg-danger",
       },
     },
     // size & labelPlacement
@@ -595,13 +596,7 @@ const input = tv({
         label: ["group-data-[filled-within=true]:pointer-events-auto"],
       },
     },
-    // labelPlacement=[outside,outside-left]
-    {
-      labelPlacement: ["outside", "outside-left"],
-      class: {
-        input: "h-full",
-      },
-    },
+    // labelPlacement=[outside] & isMultiline
     {
       labelPlacement: "outside",
       isMultiline: false,

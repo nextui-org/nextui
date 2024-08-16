@@ -37,10 +37,17 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
-  it("should have required attribute when isRequired", () => {
-    const {container} = render(<Input isRequired label="test input" />);
+  it("should have required attribute when isRequired with native validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
     expect(container.querySelector("input")).toHaveAttribute("required");
+    expect(container.querySelector("input")).not.toHaveAttribute("aria-required");
+  });
+
+  it("should have aria-required attribute when isRequired with aria validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="aria" />);
+
+    expect(container.querySelector("input")).not.toHaveAttribute("required");
     expect(container.querySelector("input")).toHaveAttribute("aria-required", "true");
   });
 
@@ -145,6 +152,33 @@ describe("Input", () => {
     expect(ref.current?.value)?.toBe("");
 
     expect(onClear).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not display input with hidden type", async () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-1" type="hidden" />
+        <Input data-testid="input-2" />
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const inputBaseWrappers = container.querySelectorAll("[data-slot='base']");
+
+    expect(inputBaseWrappers).toHaveLength(2);
+
+    const inputs = container.querySelectorAll("input");
+
+    expect(inputs).toHaveLength(2);
+
+    expect(inputBaseWrappers[0]).toHaveAttribute("data-hidden");
+
+    expect(inputBaseWrappers[1]).not.toHaveAttribute("data-hidden");
+
+    expect(inputs[0]).not.toBeVisible();
+
+    expect(inputs[1]).toBeVisible();
   });
 });
 

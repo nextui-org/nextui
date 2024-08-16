@@ -1,7 +1,8 @@
 import type {HTMLNextUIProps} from "../src/types";
+import type {VariantProps} from "@nextui-org/theme";
 
 import React, {useMemo} from "react";
-import {SlotsToClasses, tv, type VariantProps} from "@nextui-org/theme";
+import {SlotsToClasses, tv} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {objectToDeps} from "@nextui-org/shared-utils";
 import clsx from "clsx";
@@ -15,7 +16,7 @@ const card = tv({
       "flex-col",
       "relative",
       "overflow-hidden",
-      "height-auto",
+      "h-auto",
       "outline-none",
       "text-foreground",
       "box-border",

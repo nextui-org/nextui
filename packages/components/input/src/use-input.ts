@@ -1,14 +1,19 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel, warn} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -81,11 +86,13 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
 
 export type UseInputProps<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement> =
-  Props<T> & Omit<AriaTextFieldProps, "onChange" | "validationBehavior"> & InputVariantProps;
+  Props<T> & Omit<AriaTextFieldProps, "onChange"> & InputVariantProps;
 
 export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>(
   originalProps: UseInputProps<T>,
 ) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
 
   const {
@@ -104,6 +111,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
@@ -120,6 +128,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const Component = as || "div";
 
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
   const domRef = useDOMRef<T>(ref);
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
@@ -134,8 +145,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isFilledByDefault = ["date", "time", "month", "week", "range"].includes(type!);
   const isFilled = !isEmpty(inputValue) || isFilledByDefault;
   const isFilledWithin = isFilled || isFocusWithin;
-  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
+  const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
+  const isFileTypeInput = type === "file";
+
+  const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
   const handleClear = useCallback(() => {
     setInputValue("");
@@ -164,19 +178,27 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   } = useTextField(
     {
       ...originalProps,
-      validationBehavior: "native",
+      validationBehavior,
       autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
       value: inputValue,
       "aria-label": safeAriaLabel(
-        originalProps?.["aria-label"],
-        originalProps?.label,
-        originalProps?.placeholder,
+        originalProps["aria-label"],
+        originalProps.label,
+        originalProps.placeholder,
       ),
       inputElementType: isMultiline ? "textarea" : "input",
       onChange: setInputValue,
     },
     domRef,
   );
+
+  if (isFileTypeInput) {
+    // for input[type="file"], we don't need `value` and `onChange` from `useTextField`
+    // otherwise, the default value with empty string will block the first attempt of file upload
+    // hence, remove `value` and `onChange` attribute here
+    delete inputProps.value;
+    delete inputProps.onChange;
+  }
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
@@ -199,6 +221,19 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
+    if (isFileTypeInput) {
+      // if `labelPlacement` is not defined, choose `outside` instead
+      // since the default value `inside` is not supported in file input
+      if (!originalProps.labelPlacement) return "outside";
+
+      // throw a warning if `labelPlacement` is `inside`
+      // and change it to `outside`
+      if (originalProps.labelPlacement === "inside") {
+        warn("Input with file type doesn't support inside label. Converting to outside ...");
+
+        return "outside";
+      }
+    }
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
       return "outside";
     }
@@ -239,8 +274,16 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         isInvalid,
         labelPlacement,
         isClearable,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, isClearable, hasStartContent],
+    [
+      objectToDeps(variantProps),
+      isInvalid,
+      labelPlacement,
+      isClearable,
+      hasStartContent,
+      disableAnimation,
+    ],
   );
 
   const getBaseProps: PropGetter = useCallback(
@@ -250,10 +293,14 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         className: slots.base({class: baseStyles}),
         "data-slot": "base",
         "data-filled": dataAttr(
-          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown,
+          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown || isFileTypeInput,
         ),
         "data-filled-within": dataAttr(
-          isFilledWithin || hasPlaceholder || hasStartContent || isPlaceholderShown,
+          isFilledWithin ||
+            hasPlaceholder ||
+            hasStartContent ||
+            isPlaceholderShown ||
+            isFileTypeInput,
         ),
         "data-focus-within": dataAttr(isFocusWithin),
         "data-focus-visible": dataAttr(isFocusVisible),
@@ -267,6 +314,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-helper": dataAttr(hasHelper),
         "data-has-label": dataAttr(hasLabel),
         "data-has-value": dataAttr(!isPlaceholderShown),
+        "data-hidden": dataAttr(isHiddenType),
         ...focusWithinProps,
         ...props,
       };
@@ -288,6 +336,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       isFilledWithin,
       hasPlaceholder,
       focusWithinProps,
+      isHiddenType,
       originalProps.isReadOnly,
       originalProps.isRequired,
       originalProps.isDisabled,
@@ -328,9 +377,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           }),
           props,
         ),
-        required: originalProps.isRequired,
         "aria-readonly": dataAttr(originalProps.isReadOnly),
-        "aria-required": dataAttr(originalProps.isRequired),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
@@ -452,6 +499,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         role: "button",
         tabIndex: 0,
+        "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
         className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),

@@ -6,13 +6,13 @@ import type {Preview} from "@storybook/react";
 import "./style.css";
 
 const decorators: Preview["decorators"] = [
-  (Story, {globals: {locale}}) => {
+  (Story, {globals: {locale, disableAnimation}}) => {
     const direction =
       // @ts-ignore
       locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
     return (
-      <NextUIProvider locale={locale}>
+      <NextUIProvider locale={locale} disableAnimation={disableAnimation}>
         <div className="bg-dark" lang={locale} dir={direction}>
           <Story />
         </div>
@@ -113,6 +113,17 @@ const globalTypes: Preview["globalTypes"] = {
         // @ts-ignore
         right: new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "Right to Left" : undefined,
       })),
+    },
+  },
+  disableAnimation: {
+    name: "Disable Animation",
+    description: "Disable all animations in the stories",
+    toolbar: {
+      icon: "photodrag",
+      items: [
+        {value: true, title: "True"},
+        {value: false, title: "False"},
+      ],
     },
   },
 };

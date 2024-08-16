@@ -9,11 +9,11 @@ Requirements:
 
 - [React 18](https://reactjs.org/) or later
 - [Tailwind CSS 3.4](https://tailwindcss.com/) or later
-- [Framer Motion 4](https://www.framer.com/motion/) or later
+- [Framer Motion 11](https://www.framer.com/motion/) or later
 
 ---
 
-<CarbonAd />
+
 
 ## Automatic Installation
 
@@ -32,11 +32,10 @@ nextui init my-nextui-app
 You will be prompted to configure your project:
 
 ```codeBlock bash
-? Select a template › - Use arrow-keys. Return to submit.
-❯   App
-    A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.
-    Pages
-    A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.
+◇  Select a template (Enter to select)
+│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
 ```
 
 Install the dependencies to start the local server:
@@ -95,11 +94,11 @@ Filtered results for: Enter something to filter
 
 ## Manual Installation
 
-If you prefer not to use the CLI, follow these steps to manually set up NextUI in your project:
+If you prefer not to use the CLI, you may try either global installation or individual installation to set up NextUI in your project:
 
 ### Global Installation
 
-The easiest way to get started with NextUI is to use the global installation. Which means
+The easiest way to get started with NextUI is to use the global installation, which means
 that all the components are imported from a single package.
 
 Follow the steps below to install all NextUI components:
@@ -119,13 +118,31 @@ To install NextUI, run one of the following commands in your terminal:
   }}
 />
 
+#### Hoisted Dependencies Setup
+
+<Blockquote color="primary">
+**Note**: This step is only for those who use pnpm to install. If you install NextUI using other package managers, you may skip this step.
+</Blockquote>
+
+If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
+
+```bash
+public-hoist-pattern[]=*@nextui-org/*
+```
+
+After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
+
 #### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
 [installation guide](https://tailwindcss.com/docs/installation) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
 
-```js {8,13-14}
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
+
+```js {9,14-15}
 // tailwind.config.js
 const {nextui} = require("@nextui-org/react");
 
@@ -133,6 +150,7 @@ const {nextui} = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -163,16 +181,6 @@ function App() {
 }
 ```
 
-#### Setup pnpm (optional)
-
-If you are using pnpm, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
 </Steps>
 
 ### Individual Installation
@@ -181,7 +189,9 @@ NextUI is also available as individual packages. You can install each package se
 is useful if you want to reduce the size of your CSS bundle as it will only include styles for the components
 you're actually using.
 
-> **Note**: JavaScript bundle size will not change due to tree shaking support in NextUI.
+<Blockquote color="primary">
+**Note**: JavaScript bundle size will not change due to tree shaking support in NextUI.
+</Blockquote>
 
 Follow the steps below to install each package separately:
 
@@ -217,6 +227,20 @@ in your terminal:
     bun: "bun add @nextui-org/button"
   }}
 />
+
+#### Hoisted Dependencies Setup
+
+<Blockquote color="primary">
+**Note**: This step is only for those who use pnpm to install. If you install NextUI using other package managers, you may skip this step.
+</Blockquote>
+
+If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
+
+```bash
+public-hoist-pattern[]=*@nextui-org/*
+```
+
+After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 #### Tailwind CSS Setup
 
@@ -279,18 +303,6 @@ function App() {
   );
 }
 ```
-
-
-#### Setup pnpm (optional)
-
-If you are using pnpm, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
-
 </Steps>
 
 <Blockquote color="warning">

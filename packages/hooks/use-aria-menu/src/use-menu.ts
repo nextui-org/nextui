@@ -2,7 +2,7 @@
 import {AriaMenuProps} from "@react-types/menu";
 import {DOMAttributes, Key, KeyboardDelegate, KeyboardEvents} from "@react-types/shared";
 import {filterDOMProps, mergeProps} from "@react-aria/utils";
-import {RefObject} from "react";
+import {RefObject, KeyboardEvent as ReactKeyboardEvent} from "react";
 import {TreeState} from "@react-stately/tree";
 import {useSelectableList} from "@react-aria/selection";
 
@@ -46,7 +46,6 @@ export function useMenu<T>(
     console.warn("An aria-label or aria-labelledby prop is required for accessibility.");
   }
 
-  // @ts-ignore
   let domProps = filterDOMProps(props, {labelable: true});
   let {listProps} = useSelectableList({
     ...otherProps,
@@ -70,12 +69,12 @@ export function useMenu<T>(
       {
         role: "menu",
         ...listProps,
-        // @ts-ignore
-        onKeyDown: (e) => {
+        onKeyDown: (event: ReactKeyboardEvent<HTMLElement>) => {
           // don't clear the menu selected keys if the user is presses escape since escape closes the menu
-          if (e.key !== "Escape") {
-            // @ts-ignore
-            listProps.onKeyDown(e);
+          if (event.key !== "Escape") {
+            if (listProps.onKeyDown) {
+              listProps.onKeyDown(event);
+            }
           }
         },
       },

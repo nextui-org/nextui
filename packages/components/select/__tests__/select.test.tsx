@@ -1,30 +1,32 @@
+import type {SelectProps} from "../src";
+
 import * as React from "react";
 import {render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
-import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
+import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
 
 type Item = {
   label: string;
-  value: string;
+  id: string;
 };
 
 const itemsData: Item[] = [
-  {label: "Cat", value: "cat"},
-  {label: "Dog", value: "dog"},
-  {label: "Elephant", value: "elephant"},
-  {label: "Lion", value: "lion"},
-  {label: "Tiger", value: "tiger"},
-  {label: "Giraffe", value: "giraffe"},
-  {label: "Dolphin", value: "dolphin"},
-  {label: "Penguin", value: "penguin"},
-  {label: "Zebra", value: "zebra"},
-  {label: "Shark", value: "shark"},
-  {label: "Whale", value: "whale"},
-  {label: "Otter", value: "otter"},
-  {label: "Crocodile", value: "crocodile"},
+  {label: "Cat", id: "cat"},
+  {label: "Dog", id: "dog"},
+  {label: "Elephant", id: "elephant"},
+  {label: "Lion", id: "lion"},
+  {label: "Tiger", id: "tiger"},
+  {label: "Giraffe", id: "giraffe"},
+  {label: "Dolphin", id: "dolphin"},
+  {label: "Penguin", id: "penguin"},
+  {label: "Zebra", id: "zebra"},
+  {label: "Shark", id: "shark"},
+  {label: "Whale", id: "whale"},
+  {label: "Otter", id: "otter"},
+  {label: "Crocodile", id: "crocodile"},
 ];
 
 const itemsSectionData = [
@@ -49,18 +51,18 @@ const itemsSectionData = [
 ];
 
 describe("Select", () => {
+  let user;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" label="Favorite Animal">
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -72,15 +74,9 @@ describe("Select", () => {
 
     render(
       <Select ref={ref} aria-label="Favorite Animal" label="Favorite Animal">
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
     expect(ref.current).not.toBeNull();
@@ -89,7 +85,7 @@ describe("Select", () => {
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" items={itemsData} label="Favorite Animal">
-        {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+        {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
       </Select>,
     );
 
@@ -100,17 +96,11 @@ describe("Select", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" label="Favorite Animal">
         <SelectSection title="Birds">
-          <SelectItem key="penguin" value="penguin">
-            Penguin
-          </SelectItem>
+          <SelectItem key="penguin">Penguin</SelectItem>
         </SelectSection>
         <SelectSection title="Mammals">
-          <SelectItem key="zebra" value="zebra">
-            Zebra
-          </SelectItem>
-          <SelectItem key="shark" value="shark">
-            Shark
-          </SelectItem>
+          <SelectItem key="zebra">Zebra</SelectItem>
+          <SelectItem key="shark">Shark</SelectItem>
         </SelectSection>
       </Select>,
     );
@@ -122,7 +112,7 @@ describe("Select", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" items={itemsSectionData} label="Favorite Animal">
         {(section) => (
-          <SelectSection<Item>
+          <SelectSection<(typeof itemsSectionData)[0]["children"][0]>
             aria-label={section.title}
             items={section.children}
             title={section.title}
@@ -147,18 +137,11 @@ describe("Select", () => {
         aria-label="Favorite Animal"
         label="Favorite Animal"
         selectionMode="single"
-        value="penguin"
         onSelectionChange={onSelectionChange}
       >
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -171,7 +154,7 @@ describe("Select", () => {
     expect(listboxItems.length).toBe(3);
 
     await act(async () => {
-      await userEvent.click(listboxItems[1]);
+      await user.click(listboxItems[1]);
 
       expect(onSelectionChange).toBeCalledTimes(1);
     });
@@ -189,15 +172,9 @@ describe("Select", () => {
         selectionMode="multiple"
         onSelectionChange={onSelectionChange}
       >
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -210,8 +187,8 @@ describe("Select", () => {
     expect(listboxItems.length).toBe(3);
 
     await act(async () => {
-      await userEvent.click(listboxItems[1]);
-      await userEvent.click(listboxItems[2]);
+      await user.click(listboxItems[1]);
+      await user.click(listboxItems[2]);
 
       expect(onSelectionChange).toBeCalledTimes(2);
     });
@@ -232,15 +209,9 @@ describe("Select", () => {
           placeholder={placeholder}
           renderValue={renderValue}
         >
-          <SelectItem key="penguin" value="penguin">
-            Penguin
-          </SelectItem>
-          <SelectItem key="zebra" value="zebra">
-            Zebra
-          </SelectItem>
-          <SelectItem key="shark" value="shark">
-            Shark
-          </SelectItem>
+          <SelectItem key="penguin">Penguin</SelectItem>
+          <SelectItem key="zebra">Zebra</SelectItem>
+          <SelectItem key="shark">Shark</SelectItem>
         </Select>
       );
     };
@@ -256,13 +227,13 @@ describe("Select", () => {
     const select = wrapper.getByTestId("render-selected-item-test");
 
     await act(async () => {
-      await userEvent.click(select);
+      await user.click(select);
     });
 
     const listboxItems = wrapper.getAllByRole("option");
 
     await act(async () => {
-      await userEvent.click(listboxItems[0]);
+      await user.click(listboxItems[0]);
     });
 
     expect(select).toHaveTextContent("Penguin");
@@ -286,15 +257,9 @@ describe("Select", () => {
         data-testid="close-when-clicking-outside-test"
         label="Favorite Animal"
       >
-        <SelectItem key="penguin" value="penguin">
-          Penguin
-        </SelectItem>
-        <SelectItem key="zebra" value="zebra">
-          Zebra
-        </SelectItem>
-        <SelectItem key="shark" value="shark">
-          Shark
-        </SelectItem>
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
       </Select>,
     );
 
@@ -302,7 +267,7 @@ describe("Select", () => {
 
     // open the select dropdown
     await act(async () => {
-      await userEvent.click(select);
+      await user.click(select);
     });
 
     // assert that the select is open
@@ -310,7 +275,7 @@ describe("Select", () => {
 
     // click outside the select component
     await act(async () => {
-      await userEvent.click(document.body);
+      await user.click(document.body);
     });
 
     // assert that the select is closed
@@ -328,15 +293,9 @@ describe("Select", () => {
               data-testid="close-when-clicking-outside-test"
               label="Favorite Animal"
             >
-              <SelectItem key="penguin" value="penguin">
-                Penguin
-              </SelectItem>
-              <SelectItem key="zebra" value="zebra">
-                Zebra
-              </SelectItem>
-              <SelectItem key="shark" value="shark">
-                Shark
-              </SelectItem>
+              <SelectItem key="penguin">Penguin</SelectItem>
+              <SelectItem key="zebra">Zebra</SelectItem>
+              <SelectItem key="shark">Shark</SelectItem>
             </Select>
           </ModalBody>
           <ModalFooter>Modal footer</ModalFooter>
@@ -348,7 +307,7 @@ describe("Select", () => {
 
     // open the select dropdown
     await act(async () => {
-      await userEvent.click(select);
+      await user.click(select);
     });
 
     // assert that the select is open
@@ -356,7 +315,7 @@ describe("Select", () => {
 
     // click outside the select component
     await act(async () => {
-      await userEvent.click(document.body);
+      await user.click(document.body);
     });
 
     // assert that the select is closed
@@ -373,9 +332,294 @@ describe("Select", () => {
         data-testid="test-select"
         label="Favorite Animal"
         selectionMode="single"
-        value="penguin"
         onSelectionChange={onSelectionChange}
       >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+    const select = wrapper.getByTestId("test-select");
+
+    await act(async () => {
+      await user.click(document.body);
+      await user.tab();
+      await user.type(select, "z", {skipClick: true});
+
+      expect(onSelectionChange).toBeCalledTimes(0);
+    });
+  });
+
+  it("onSelectionChange should be called with a Set of item ids upon selection", async () => {
+    const itemsWithId = [
+      {id: "1", value: "penguin"},
+      {id: "2", value: "zebra"},
+      {id: "3", value: "shark"},
+    ];
+
+    const onSelectionChangeId = jest.fn();
+    const wrapperWithId = render(
+      <Select
+        isOpen
+        items={itemsWithId}
+        label="Test with ID"
+        onSelectionChange={onSelectionChangeId}
+      >
+        {(item) => <SelectItem key={item.id}>{item.value}</SelectItem>}
+      </Select>,
+    );
+
+    const listbox = wrapperWithId.getByRole("listbox");
+
+    expect(listbox).toBeInTheDocument();
+
+    // Select item and check the correct ID is passed to the callback
+    await act(async () => {
+      await user.click(wrapperWithId.getByRole("option", {name: itemsWithId[0].value}));
+    });
+    expect(onSelectionChangeId).toHaveBeenCalled();
+    let selectionArg = onSelectionChangeId.mock.calls[0][0];
+
+    expect([...selectionArg]).toEqual([itemsWithId[0].id]);
+
+    await act(async () => {
+      await user.click(wrapperWithId.getByRole("option", {name: itemsWithId[1].value}));
+    });
+    expect(onSelectionChangeId).toHaveBeenCalledTimes(2);
+    selectionArg = onSelectionChangeId.mock.calls[1][0];
+    expect([...selectionArg]).toEqual([itemsWithId[1].id]);
+  });
+
+  it("onSelectionChange should be called with a Set of item keys upon selection", async () => {
+    const itemsWithKey = [
+      {key: "1", value: "penguin"},
+      {key: "2", value: "zebra"},
+      {key: "3", value: "shark"},
+    ];
+
+    const onSelectionChangeKey = jest.fn();
+    const wrapperWithKey = render(
+      <Select
+        isOpen
+        items={itemsWithKey}
+        label="Test with Key"
+        onSelectionChange={onSelectionChangeKey}
+      >
+        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
+      </Select>,
+    );
+
+    const listbox = wrapperWithKey.getByRole("listbox");
+
+    expect(listbox).toBeInTheDocument();
+
+    // Select item and check the correct key is passed to the callback
+    await act(async () => {
+      await user.click(wrapperWithKey.getByRole("option", {name: itemsWithKey[0].value}));
+    });
+    expect(onSelectionChangeKey).toHaveBeenCalled();
+    let selectionArg = onSelectionChangeKey.mock.calls[0][0];
+
+    expect([...selectionArg]).toEqual([itemsWithKey[0].key]);
+
+    await act(async () => {
+      await user.click(wrapperWithKey.getByRole("option", {name: itemsWithKey[1].value}));
+    });
+    expect(onSelectionChangeKey).toHaveBeenCalledTimes(2);
+    selectionArg = onSelectionChangeKey.mock.calls[1][0];
+    expect([...selectionArg]).toEqual([itemsWithKey[1].key]);
+  });
+
+  it("should display selected items as comma-separated string inside the select", async () => {
+    const wrapper = render(
+      <Select
+        isDisabled
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        selectedKeys={["penguin", "zebra"]}
+        selectionMode="multiple"
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+    const select = wrapper.getByTestId("test-select");
+    const displayedText = select?.textContent?.trim();
+
+    expect(displayedText).toBe("Penguin, Zebra");
+  });
+
+  it("should close listbox by clicking another select", async () => {
+    const wrapper = render(
+      <>
+        <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
+          <SelectItem key="penguin" value="penguin">
+            Penguin
+          </SelectItem>
+          <SelectItem key="zebra" value="zebra">
+            Zebra
+          </SelectItem>
+          <SelectItem key="shark" value="shark">
+            Shark
+          </SelectItem>
+        </Select>
+        <Select aria-label="Favorite Animal" data-testid="select2" label="Favorite Animal">
+          <SelectItem key="penguin" value="penguin">
+            Penguin
+          </SelectItem>
+          <SelectItem key="zebra" value="zebra">
+            Zebra
+          </SelectItem>
+          <SelectItem key="shark" value="shark">
+            Shark
+          </SelectItem>
+        </Select>
+      </>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    const select2 = wrapper.getByTestId("select2");
+
+    expect(select).not.toBeNull();
+
+    expect(select2).not.toBeNull();
+
+    // open the select listbox by clicking selector button in the first select
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the first select listbox is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // assert that the second select listbox is close
+    expect(select2).toHaveAttribute("aria-expanded", "false");
+
+    // close the select listbox by clicking the second select
+    await act(async () => {
+      await userEvent.click(select2);
+    });
+
+    // assert that the first select listbox is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the second select listbox is open
+    expect(select2).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("should display placeholder text when unselected", async () => {
+    const wrapper = render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        label="Favorite Animal"
+        placeholder="Select an animal"
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("test-select");
+
+    expect(select).toHaveTextContent("Select an animal");
+  });
+
+  it("should display placeholder text when unselected (controlled)", async () => {
+    const onSelectionChange = jest.fn();
+    const wrapper = render(
+      <Select
+        isOpen
+        aria-label="Favorite Animal"
+        data-testid="test-select"
+        placeholder="Select an animal"
+        selectedKeys={[]}
+        onSelectionChange={onSelectionChange}
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("test-select");
+
+    expect(select).toHaveTextContent("Select an animal");
+  });
+
+  it("should unset form value", async () => {
+    const logSpy = jest.spyOn(console, "log");
+
+    const user = userEvent.setup();
+
+    const wrapper = render(
+      <form
+        className="w-full max-w-xs items-end flex flex-col gap-4"
+        onSubmit={(e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target as HTMLFormElement);
+
+          /* eslint-disable no-console */
+          // @ts-ignore
+          console.log(JSON.stringify(Object.fromEntries(formData)));
+        }}
+      >
+        <Select
+          data-testid="select"
+          defaultSelectedKeys={["foo"]}
+          label="test select"
+          name="select"
+        >
+          <SelectItem key="foo">foo</SelectItem>
+          <SelectItem key="bar">bar</SelectItem>
+        </Select>
+        <button data-testid="submit-button" type="submit">
+          Submit
+        </button>
+      </form>,
+    );
+
+    const submitButton = wrapper.getByTestId("submit-button");
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "foo"}));
+
+    const select = wrapper.getByTestId("select");
+
+    expect(select).not.toBeNull();
+
+    await act(async () => {
+      await user.click(select);
+    });
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(2);
+
+    await act(async () => {
+      await user.click(listboxItems[0]);
+    });
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: ""}));
+  });
+
+  it("should close listbox by clicking selector button again", async () => {
+    const wrapper = render(
+      <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
         <SelectItem key="penguin" value="penguin">
           Penguin
         </SelectItem>
@@ -387,15 +631,26 @@ describe("Select", () => {
         </SelectItem>
       </Select>,
     );
-    const select = wrapper.getByTestId("test-select");
 
+    const select = wrapper.getByTestId("select");
+
+    expect(select).not.toBeNull();
+
+    // open the select listbox by clicking selector button
     await act(async () => {
-      await userEvent.click(document.body);
-      await userEvent.tab();
-      await userEvent.type(select, "z", {skipClick: true});
-
-      expect(onSelectionChange).toBeCalledTimes(0);
+      await userEvent.click(select);
     });
+
+    // assert that the select listbox is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // open the select listbox by clicking selector button
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select listbox is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
   });
 });
 
@@ -429,11 +684,11 @@ describe("Select with React Hook Form", () => {
     wrapper = render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Select data-testid="select-1" items={itemsData} {...register("withDefaultValue")}>
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         <Select data-testid="select-2" items={itemsData} {...register("withoutDefaultValue")}>
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         <Select
@@ -441,7 +696,7 @@ describe("Select with React Hook Form", () => {
           items={itemsData}
           {...register("requiredField", {required: true})}
         >
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         {errors.requiredField && <span className="text-danger">This field is required</span>}

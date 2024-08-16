@@ -13,21 +13,20 @@ Tooltips display a brief, informative message that appears when a user interacts
 
 ---
 
-<CarbonAd />
+
 
 ## Installation
 
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "nextui add tooltip",
+    cli: "npx nextui-cli@latest add tooltip",
     npm: "npm install @nextui-org/tooltip",
     yarn: "yarn add @nextui-org/tooltip",
     pnpm: "pnpm add @nextui-org/tooltip",
     bun: "bun add @nextui-org/tooltip"
   }}
 />
-
 
 ## Import
 
@@ -37,6 +36,8 @@ Tooltips display a brief, informative message that appears when a user interacts
     individual: 'import {Tooltip} from "@nextui-org/tooltip";',
   }}
 />
+
+> For individual installation, please note that you should add `./node_modules/@nextui-org/theme/dist/components/popover.js` to your `tailwind.config.js` file instead since tooltip reuses popover styles.
 
 ## Usage
 

@@ -1,5 +1,17 @@
 # @nextui-org/shared-icons
 
+## 2.0.9
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.0.8
+
+### Patch Changes
+
+- [#3199](https://github.com/nextui-org/nextui/pull/3199) [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12) Thanks [@wingkwong](https://github.com/wingkwong)! - avoid passing non-DOM attributes to svg (#3184)
+
 ## 2.0.7
 
 ### Patch Changes

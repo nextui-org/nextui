@@ -37,6 +37,7 @@ const button = tv({
     "subpixel-antialiased",
     "overflow-hidden",
     "tap-highlight-transparent",
+    "data-[pressed=true]:scale-[0.97]",
     // focus ring
     ...dataFocusVisibleClasses,
   ],
@@ -84,9 +85,8 @@ const button = tv({
       false: "[&>svg]:max-w-[theme(spacing.8)]",
     },
     disableAnimation: {
-      true: "!transition-none",
-      false:
-        "data-[pressed=true]:scale-[0.97] transition-transform-colors-opacity motion-reduce:transition-none",
+      true: "!transition-none data-[pressed=true]:scale-100",
+      false: "transition-transform-colors-opacity motion-reduce:transition-none",
     },
   },
   defaultVariants: {
@@ -96,7 +96,6 @@ const button = tv({
     fullWidth: false,
     isDisabled: false,
     isInGroup: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // solid / color

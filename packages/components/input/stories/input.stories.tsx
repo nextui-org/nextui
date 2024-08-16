@@ -56,6 +56,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (
@@ -131,7 +137,7 @@ const PasswordTemplate = (args) => {
 const RegexValidationTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
-  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
 
   const validationState = React.useMemo(() => {
     if (value === "") return undefined;
@@ -337,6 +343,8 @@ const InputTypesTemplate = (args) => (
     <Input {...args} label="Month" placeholder="Enter your month" type="month" />
     <Input {...args} label="Week" placeholder="Enter your week" type="week" />
     <Input {...args} label="Range" placeholder="Enter your range" type="range" />
+    <Input {...args} label="Single File" type="file" />
+    <Input {...args} multiple label="Multiple Files" type="file" />
   </div>
 );
 

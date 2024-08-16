@@ -2,6 +2,7 @@ import {Image} from "@nextui-org/react";
 
 import manifest from "@/config/routes.json";
 import {DocsSidebar} from "@/components/docs/sidebar";
+import {ScriptProviders} from "@/components/scripts/script-providers";
 
 interface DocsLayoutProps {
   children: React.ReactNode;
@@ -30,6 +31,8 @@ export default function DocsLayout({children}: DocsLayoutProps) {
       >
         <Image removeWrapper alt="docs right background" src="/gradients/docs-right.png" />
       </div>
+
+      <ScriptProviders />
     </>
   );
 }
