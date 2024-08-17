@@ -1,5 +1,5 @@
 ---
-"@nextui-org/input": major
+"@nextui-org/input": minor
 "@nextui-org/theme": patch
 ---
 
