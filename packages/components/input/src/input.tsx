@@ -49,13 +49,9 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     return (
       <div {...getHelperWrapperProps()}>
         {isInvalid && errorMessage ? (
-          <div className="bg-green-500" {...getErrorMessageProps()}>
-            {errorMessage}
-          </div>
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
-          <div className="bg-green-500" {...getDescriptionProps()}>
-            {description}
-          </div>
+          <div {...getDescriptionProps()}>{description}</div>
         ) : null}
       </div>
     );
@@ -71,7 +67,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
   const innerWrapper = useMemo(() => {
     return (
-      <div className="bg-yellow-700" {...getInnerWrapperProps()}>
+      <div {...getInnerWrapperProps()}>
         {startContent}
         <input {...getInputProps()} />
         {end}
@@ -82,7 +78,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
   const mainWrapper = useMemo(() => {
     if (shouldLabelBeOutside) {
       return (
-        <div className="bg-pink-600" {...getMainWrapperProps()}>
+        <div {...getMainWrapperProps()}>
           <div {...getInputWrapperProps()}>
             {!isOutsideLeft && !isOutsideTop ? labelContent : null}
             {innerWrapper}
@@ -94,7 +90,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
     return (
       <>
-        <div className="bg-blue-900" {...getInputWrapperProps()}>
+        <div {...getInputWrapperProps()}>
           {labelContent}
           {innerWrapper}
         </div>
