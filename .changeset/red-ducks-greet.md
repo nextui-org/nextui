@@ -2,4 +2,4 @@
 "@nextui-org/link": patch
 ---
 
-fixed the warning of deprecated onClick(#3196)
+use `@nextui-org/use-aria-link` to suppress onClick deprecation warning (#3196)
