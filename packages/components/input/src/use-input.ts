@@ -252,7 +252,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const hasHelper = !!description || !!errorMessage;
 
   /*
-    outside -> label is outside only when some placeholder is there
+    outside -> label is outside only when some gplaceholder is there
     outside-top, outside-left-> label is outside regardless of placeholder
   */
   const shouldLabelBeOutside =
