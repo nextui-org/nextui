@@ -123,7 +123,7 @@ export const AnimatedLoad = {
   },
 };
 
-export const Fallback = {
+export const Loading = {
   render: LoadingTemplate,
 
   args: {
@@ -131,6 +131,19 @@ export const Fallback = {
     width: 300,
     radius: "lg",
     src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
+    loadingSrc: "/images/placeholder_300x450.png",
+  },
+};
+
+export const Fallback = {
+  render: LoadingTemplate,
+
+  args: {
+    ...defaultProps,
+    width: 300,
+    height: 450,
+    radius: "lg",
+    src: "wrong-src",
     fallbackSrc: "/images/placeholder_300x450.png",
   },
 };
@@ -145,5 +158,19 @@ export const Skeleton = {
     radius: "lg",
     src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
     disableSkeleton: false,
+  },
+};
+
+export const LoadingAndFallback = {
+  render: LoadingTemplate,
+
+  args: {
+    ...defaultProps,
+    width: 300,
+    height: 450,
+    radius: "lg",
+    src: "wrong-src",
+    loadingSrc: "/images/placeholder_300x450.png",
+    fallbackSrc: "/images/local-image-small.jpg",
   },
 };
