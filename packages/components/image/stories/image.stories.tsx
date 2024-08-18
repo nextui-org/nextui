@@ -114,6 +114,19 @@ export const Shadow = {
   },
 };
 
+export const Skeleton = {
+  render: LoadingTemplate,
+
+  args: {
+    ...defaultProps,
+    width: 300,
+    height: 450,
+    radius: "lg",
+    src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    disableSkeleton: false,
+  },
+};
+
 export const AnimatedLoad = {
   args: {
     ...defaultProps,
@@ -123,7 +136,7 @@ export const AnimatedLoad = {
   },
 };
 
-export const Loading = {
+export const CustomLoading = {
   render: LoadingTemplate,
 
   args: {
@@ -145,23 +158,11 @@ export const Fallback = {
     radius: "lg",
     src: "wrong-src",
     fallbackSrc: "/images/placeholder_300x450.png",
-  },
-};
-
-export const Skeleton = {
-  render: LoadingTemplate,
-
-  args: {
-    ...defaultProps,
-    width: 300,
-    height: 450,
-    radius: "lg",
-    src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1494790108377-be9c29b29330",
     disableSkeleton: false,
   },
 };
 
-export const LoadingAndFallback = {
+export const CustomLoadingAndFallback = {
   render: LoadingTemplate,
 
   args: {

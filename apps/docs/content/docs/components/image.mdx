@@ -63,16 +63,25 @@ Image component has a built-in `skeleton` animation to indicate the image is loa
 
 > **Note**: The `URL` uses `https://app.requestly.io/delay` to simulate a slow network.
 
+### Custom Loading Image
+
+You can use the `loadingSrc` prop to display a loading image when the image provided in `src` is still loading.
+
+<CodeDemo displayMode="visible" title="Custom Loading" files={imageContent.customLoading} />
+
+> **Note**: The `URL` uses `https://app.requestly.io/delay` to simulate a slow network.
+
 ### Image with fallback
 
 You can use the `fallbackSrc` prop to display a fallback image when:
 
 - The `fallbackSrc` prop is provided.
-- The image provided in `src` is still loading.
 - The image provided in `src` fails to load.
 - The image provided in `src` is not found.
 
 <CodeDemo displayMode="visible" title="Image with fallback" files={imageContent.fallback} />
+
+> **Note**: You can have both `loadingSrc` and `fallbackSrc` props to cover multiple possibilities while loading and handling image errors.
 
 ### With Next.js Image
 
