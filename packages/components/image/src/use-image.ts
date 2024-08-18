@@ -94,7 +94,7 @@ export function useImage(originalProps: UseImageProps) {
     loadingSrc,
     fallbackSrc,
     isLoading: isLoadingProp,
-    disableSkeleton = !!fallbackSrc,
+    disableSkeleton = !!loadingSrc,
     removeWrapper = false,
     onError,
     onLoad,
@@ -186,7 +186,7 @@ export function useImage(originalProps: UseImageProps) {
       ? {
           backgroundImage: `url(${loadingSrc})`,
         }
-      : showFallback
+      : showFallback && !showSkeleton
       ? {
           backgroundImage: `url(${fallbackSrc})`,
         }
@@ -199,7 +199,15 @@ export function useImage(originalProps: UseImageProps) {
         maxWidth: w,
       },
     };
-  }, [slots, showLoading, showFallback, loadingSrc, fallbackSrc, classNames?.wrapper]);
+  }, [
+    slots,
+    showLoading,
+    showFallback,
+    showSkeleton,
+    loadingSrc,
+    fallbackSrc,
+    classNames?.wrapper,
+  ]);
 
   const getBlurredImgProps = useCallback<PropGetter>(() => {
     return {
