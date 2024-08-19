@@ -1,6 +1,6 @@
 import type {ImageVariantProps, SlotsToClasses, ImageSlots} from "@nextui-org/theme";
 
-import React, {ImgHTMLAttributes, useCallback} from "react";
+import {ImgHTMLAttributes, useCallback} from "react";
 import {
   HTMLNextUIProps,
   mapPropsVariants,
