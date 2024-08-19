@@ -1,6 +1,6 @@
 import type {ImageVariantProps, SlotsToClasses, ImageSlots} from "@nextui-org/theme";
 
-import {ImgHTMLAttributes, useCallback} from "react";
+import React, {ImgHTMLAttributes, useCallback} from "react";
 import {
   HTMLNextUIProps,
   mapPropsVariants,
@@ -29,6 +29,9 @@ interface Props extends HTMLNextUIProps<"img"> {
    * A fallback image.
    */
   fallbackSrc?: React.ReactNode;
+
+  errorFallbackSrc?: React.ReactNode; // fallback to display during error state
+  loadingFallbackSrc?: React.ReactNode; // fallback to display during loading state
   /**
    * Whether to disable the loading skeleton.
    * @default false
@@ -88,6 +91,8 @@ export function useImage(originalProps: UseImageProps) {
     loading,
     isBlurred,
     fallbackSrc,
+    errorFallbackSrc,
+    loadingFallbackSrc,
     isLoading: isLoadingProp,
     disableSkeleton = !!fallbackSrc,
     removeWrapper = false,
@@ -115,6 +120,7 @@ export function useImage(originalProps: UseImageProps) {
 
   const isImgLoaded = imageStatus === "loaded" && !isLoadingProp;
   const isLoading = imageStatus === "loading" || isLoadingProp;
+  const isThereError: boolean = imageStatus === "failed";
   const isZoomed = originalProps.isZoomed;
 
   const Component = as || "img";
@@ -137,7 +143,13 @@ export function useImage(originalProps: UseImageProps) {
   }, [props?.width, props?.height]);
 
   const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
-  const showSkeleton = isLoading && !disableSkeleton;
+  // true only if image is not loaded and loadingFalllbackSrc is provided
+  const showLoadingFallback = src && !isImgLoaded && !!loadingFallbackSrc;
+  /*
+    show skeleton only when image is loading and we are not showing loading fallbak
+  */
+  const showErrorFallback = (!src || isThereError) && !!errorFallbackSrc;
+  const showSkeleton = isLoading && !disableSkeleton && !showLoadingFallback;
 
   const slots = useMemo(
     () =>
@@ -175,11 +187,17 @@ export function useImage(originalProps: UseImageProps) {
   };
 
   const getWrapperProps = useCallback<PropGetter>(() => {
-    const fallbackStyle = showFallback
-      ? {
-          backgroundImage: `url(${fallbackSrc})`,
-        }
-      : {};
+    const fallbackUrl = showErrorFallback
+      ? errorFallbackSrc
+      : showLoadingFallback
+      ? loadingFallbackSrc
+      : fallbackSrc;
+    const fallbackStyle =
+      showFallback || showErrorFallback || showLoadingFallback
+        ? {
+            backgroundImage: `url(${fallbackUrl})`,
+          }
+        : {};
 
     return {
       className: slots.wrapper({class: classNames?.wrapper}),

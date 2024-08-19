@@ -68,10 +68,18 @@ Image component has a built-in `skeleton` animation to indicate the image is loa
 You can use the `fallbackSrc` prop to display a fallback image when:
 
 - The `fallbackSrc` prop is provided.
-- The image provided in `src` is still loading.
-- The image provided in `src` fails to load.
-- The image provided in `src` is not found.
+  - The image provided in `src` is still loading and `loadingFallbackSrc` is not provided.
+  - The image provided in `src` fails to load.
+  - The image provided in `src` is not found.
 
+ Image provided in `fallbackSrc` is used as fallback during second and third case only 
+ if `errorFallbackSrc` is not provided
+
+- `errorFallbackSrc` prop is used to display a fallback image when:
+  - The image provided in `src` fails to load or there is some error or `src` is not found
+
+- `loadingFallbackSrc` prop is used to display a fallback image when:
+  - The image provided in `src` is still loading
 <CodeDemo displayMode="visible" title="Image with fallback" files={imageContent.fallback} />
 
 ### With Next.js Image
@@ -107,6 +115,8 @@ you can use it with NextUI `Image` component as well.
 | shadow          | `none` \| `sm` \| `md` \| `lg`                                       | The image shadow.                                                                                                                                                                                           | `none`  |
 | loading         | `eager` \| `lazy`                                                    | A loading strategy to use for the image.                                                                                                                                                                    | -       |
 | fallbackSrc     | `string`                                                             | The fallback image source.                                                                                                                                                                                  | -       |
+| errorFallbackSrc| `string`                                                             | Fallback to display when image fails to load due to some error                                                                                                                                              | -
+| loadingFallbackSrc | `string`                                                          | Fallback to display when image is still loading                                                                                                                                                             | -
 | isBlurred       | `boolean`                                                            | Whether the image should have a duplicated blurred image at the background.                                                                                                                                 | `false` |
 | isZoomed        | `boolean`                                                            | Whether the image should be zoomed when hovered.                                                                                                                                                            | `false` |
 | removeWrapper   | `boolean`                                                            | Whether to remove the wrapper element. This will cause the image to be rendered as a direct child of the parent element. If you set this prop as `true` neither the skeleton nor the zoom effect will work. | `false` |

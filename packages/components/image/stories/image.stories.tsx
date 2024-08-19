@@ -132,6 +132,8 @@ export const Fallback = {
     radius: "lg",
     src: "https://app.requestly.io/delay/3000/https://images.unsplash.com/photo-1539571696357-5a69c17a67c6",
     fallbackSrc: "/images/placeholder_300x450.png",
+    errorFallbackSrc: "/images/placeholder_450x500.png",
+    loadingFallbackSrc: "/images/placeholder_500x550.png",
   },
 };
 

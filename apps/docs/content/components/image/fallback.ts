@@ -7,6 +7,8 @@ export default function App() {
       height={200}
       src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
       fallbackSrc="https://via.placeholder.com/300x200"
+      errorFallbackSrc="https://via.placeholder.com/250x300"
+      loadingFallbackSrc="https://via.placeholder.com/300x300"
       alt="NextUI Image with fallback"
     />
   );
