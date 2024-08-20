@@ -476,19 +476,19 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     className: slots.endContentWrapper({
       class: clsx(classNames?.endContentWrapper, props?.className),
     }),
-    onPointerDown: (e) => {
+    onPointerDown: chain(props.onPointerDown, (e: React.PointerEvent) => {
       if (e.button === 0 && e.currentTarget === e.target) {
         inputRef.current?.focus();
       }
-    },
-    onMouseDown: (e) => {
+    }),
+    onMouseDown: chain(props.onMouseDown, (e: React.MouseEvent) => {
       if (e.button === 0 && e.currentTarget === e.target) {
         // Chrome and Firefox on touch Windows devices require mouse down events
         // to be canceled in addition to pointer events, or an extra asynchronous
         // focus event will be fired.
         e.preventDefault();
       }
-    },
+    }),
   });
 
   return {
