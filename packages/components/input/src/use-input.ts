@@ -133,7 +133,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
 
   const domRef = useRef<T>(null);
 
-  let proxy: any = undefined;
+  let proxy: T | undefined = undefined;
 
   useImperativeHandle(
     ref,
