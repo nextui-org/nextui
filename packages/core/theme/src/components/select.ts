@@ -44,6 +44,7 @@ const select = tv({
       faded: {
         trigger: [
           "bg-default-100",
+          "data-[hover=true]:bg-default-200",
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
@@ -218,6 +219,7 @@ const select = tv({
       color: "default",
       class: {
         value: "group-data-[has-value=true]:text-default-foreground",
+        trigger: ["bg-default-100", "data-[hover=true]:bg-default-50"],
       },
     },
     {
@@ -225,9 +227,9 @@ const select = tv({
       color: "primary",
       class: {
         trigger: [
-          "bg-primary-50",
+          "bg-primary-100",
           "text-primary",
-          "data-[hover=true]:bg-primary-100",
+          "data-[hover=true]:bg-primary-50",
           "group-data-[focus=true]:bg-primary-50",
         ],
         value: "text-primary",
@@ -239,9 +241,9 @@ const select = tv({
       color: "secondary",
       class: {
         trigger: [
-          "bg-secondary-50",
+          "bg-secondary-100",
           "text-secondary",
-          "data-[hover=true]:bg-secondary-100",
+          "data-[hover=true]:bg-secondary-50",
           "group-data-[focus=true]:bg-secondary-50",
         ],
         value: "text-secondary",
@@ -253,10 +255,10 @@ const select = tv({
       color: "success",
       class: {
         trigger: [
-          "bg-success-50",
+          "bg-success-100",
           "text-success-600",
           "dark:text-success",
-          "data-[hover=true]:bg-success-100",
+          "data-[hover=true]:bg-success-50",
           "group-data-[focus=true]:bg-success-50",
         ],
         value: "text-success-600 dark:text-success",
@@ -268,10 +270,10 @@ const select = tv({
       color: "warning",
       class: {
         trigger: [
-          "bg-warning-50",
+          "bg-warning-100",
           "text-warning-600",
           "dark:text-warning",
-          "data-[hover=true]:bg-warning-100",
+          "data-[hover=true]:bg-warning-50",
           "group-data-[focus=true]:bg-warning-50",
         ],
         value: "text-warning-600 dark:text-warning",
@@ -283,10 +285,10 @@ const select = tv({
       color: "danger",
       class: {
         trigger: [
-          "bg-danger-50",
+          "bg-danger-100",
           "text-danger",
           "dark:text-danger-500",
-          "data-[hover=true]:bg-danger-100",
+          "data-[hover=true]:bg-danger-50",
           "group-data-[focus=true]:bg-danger-50",
         ],
         value: "text-danger dark:text-danger-500",
