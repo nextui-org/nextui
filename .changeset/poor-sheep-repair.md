@@ -1,6 +1,6 @@
 ---
-"@nextui-org/alert": patch
-"@nextui-org/theme": patch
+"@nextui-org/alert": minor
+"@nextui-org/theme": minor
 ---
 
 introduced Alert component (#2250)
