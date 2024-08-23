@@ -1,6 +1,6 @@
 {
     "name": "@nextui-org/alert",
-    "version": "1.0.0",
+    "version": "2.0.0",
     "description": "Alert component is used to display important messages or notifications to users. It appears as a banner or popup that overlays the main content of a webpage.",
     "keywords": [
       "alert"
