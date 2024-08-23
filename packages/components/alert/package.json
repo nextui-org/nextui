@@ -5,7 +5,11 @@
     "keywords": [
       "alert"
     ],
-    "author": "Abhinav Agarwal <abhinavagrawl700@gmail.com>",
+    "author": "Junior Garcia <jrgarciadev@gmail.com>",
+    "contributors": [
+      "Abhinav Agarwal <abhinavagrawl700@gmail.com>",
+      "WK Wong <wingkwong.code@gmail.com>"
+    ],
     "homepage": "https://nextui.org",
     "license": "MIT",
     "main": "src/index.ts",
