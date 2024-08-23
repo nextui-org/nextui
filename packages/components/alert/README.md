@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/autocompl
 ## Installation
 
 ```sh
-yarn add @nextui-org/autocomplete
+yarn add @nextui-org/alert
 # or
-npm i @nextui-org/autocomplete
+npm i @nextui-org/alert
 ```
 
 ## Contribution
