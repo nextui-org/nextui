@@ -1,15 +1,15 @@
-# @nextui-org/autocomplete
+# @nextui-org/alert
 
-An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
+Alerts are temporary notifications that provide concise feedback about an action or event.
 
-Please refer to the [documentation](https://nextui.org/docs/components/autocomplete) for more information.
+Please refer to the [documentation](https://nextui.org/docs/components/alert) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/autocomplete
+yarn add @nextui-org/alert
 # or
-npm i @nextui-org/autocomplete
+npm i @nextui-org/alert
 ```
 
 ## Contribution
