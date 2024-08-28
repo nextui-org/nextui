@@ -11,8 +11,8 @@ import {AriaListBoxOptions} from "@react-aria/listbox";
 import {useMenuTrigger} from "@react-aria/menu";
 import {ListKeyboardDelegate, useTypeSelect} from "@react-aria/selection";
 import {chain, filterDOMProps, mergeProps, useId} from "@react-aria/utils";
-import {FocusEvent, HTMLAttributes, RefObject, useMemo} from "react";
-import {ValidationResult} from "@react-types/shared";
+import {FocusEvent, HTMLAttributes, RefObject, useMemo, useState} from "react";
+import {PressEvent, ValidationResult} from "@react-types/shared";
 
 export type MultiSelectProps<T> = MultiSelectStateProps<T>;
 
@@ -29,6 +29,36 @@ export interface MultiSelectAria<T> extends ValidationResult {
   descriptionProps: HTMLAttributes<HTMLElement>;
   /** Props for the select's error message element, if any. */
   errorMessageProps: HTMLAttributes<HTMLElement>;
+}
+
+/**
+ * Debounces press events to prevent rapid successive triggers.
+ * @param {function} fn - The original event handler function.
+ * @returns {function} - A wrapped event handler with debounce functionality.
+ */
+function useAvoidQuickPress(fn: ((e: PressEvent) => void) | undefined) {
+  const [isPressAllowed, setIsPressAllowed] = useState(true);
+
+  if (!fn) {
+    return fn;
+  }
+  const nullifiedQuickPress = (e: PressEvent) => {
+    if (!isPressAllowed) {
+      return;
+    }
+
+    setIsPressAllowed(false);
+    fn(e);
+    const timeout = setTimeout(() => {
+      setIsPressAllowed(true);
+    }, 500);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  };
+
+  return nullifiedQuickPress;
 }
 
 export function useMultiSelect<T>(
@@ -52,6 +82,8 @@ export function useMultiSelect<T>(
     state,
     ref,
   );
+
+  menuTriggerProps.onPressStart = useAvoidQuickPress(menuTriggerProps.onPressStart);
 
   const triggerOnKeyDown = (e: KeyboardEvent) => {
     // Select items when trigger has focus - imitating default `<select>` behavior.
