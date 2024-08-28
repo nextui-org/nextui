@@ -5,7 +5,7 @@ import {Alert} from "../src";
 
 export default {
   title: "Components/Alert",
-  Component: Alert,
+  component: Alert,
 } as Meta<typeof Alert>;
 
 const defaultProps = {
