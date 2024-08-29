@@ -42,7 +42,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
         </div>
       )
     );
-  }, [startContent, endContent, mainWrapper]);
+  }, [startContent, endContent, mainWrapper, isCloseable]);
 
   return <>{baseWrapper}</>;
 });
