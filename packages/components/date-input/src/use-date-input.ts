@@ -189,9 +189,11 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
       Number(validationDetails.badInput) +
       Number(validationDetails.customError) +
       Number(validationDetails.patternMismatch);
-    const minValueDate = new Intl.DateTimeFormat(locale).format(
-      new Date(minValue.year, minValue.month, minValue.day),
-    );
+    const minValueDate = new Date(
+      minValue.year,
+      minValue.month - 1,
+      minValue.day,
+    ).toLocaleDateString(locale);
     const timeZone =
       state.segments.filter((segment) => segment.type === "timeZoneName")[0]?.text ?? "";
     const rangeUnderflow = `Value must be ${minValueDate} ${timeZone} or later`;
@@ -205,9 +207,11 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
       Number(validationDetails.customError) +
       Number(validationDetails.patternMismatch) +
       Number(validationDetails.rangeUnderflow);
-    const maxValueDate = new Intl.DateTimeFormat(locale).format(
-      new Date(maxValue.year, maxValue.month, maxValue.day),
-    );
+    const maxValueDate = new Date(
+      maxValue.year,
+      maxValue.month - 1,
+      maxValue.day,
+    ).toLocaleDateString(locale);
     const timeZone =
       state.segments.filter((segment) => segment.type === "timeZoneName")[0]?.text ?? "";
     const rangeOverflow = `Value must be ${maxValueDate} ${timeZone} or earlier`;
