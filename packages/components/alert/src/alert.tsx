@@ -10,47 +10,39 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
   const {
     title,
     description,
+    isCloseable,
     startContent,
     endContent,
     visible,
     handleHide,
     domRef,
     getBaseProps,
-    getHelperWrapperProps,
-    getInnerWrapperProps,
+    getMainWrapperProps,
     getDescriptionProps,
     getTitleProps,
   } = useAlert({...props, ref});
 
-  const helperWrapper = useMemo(() => {
+  const mainWrapper = useMemo(() => {
     return (
-      <div {...getHelperWrapperProps()}>
+      <div {...getMainWrapperProps()}>
         <div {...getTitleProps()}>{title}</div>
         <div {...getDescriptionProps()}>{description}</div>
       </div>
     );
-  }, [title, description, getHelperWrapperProps, getTitleProps, getDescriptionProps]);
-
-  const innerWrapper = useMemo(() => {
-    return (
-      <div {...getInnerWrapperProps()}>
-        {startContent}
-        {helperWrapper}
-        {endContent}
-      </div>
-    );
-  }, [startContent, endContent, helperWrapper]);
+  }, [title, description, getMainWrapperProps, getTitleProps, getDescriptionProps]);
 
   const baseWrapper = useMemo(() => {
     return (
       visible && (
         <div ref={domRef} {...getBaseProps()}>
-          {innerWrapper}
-          <CloseIcon onClick={handleHide} />
+          {startContent}
+          {mainWrapper}
+          {endContent}
+          {isCloseable && <CloseIcon onClick={handleHide} />}
         </div>
       )
     );
-  }, [innerWrapper, domRef, getBaseProps, visible, handleHide]);
+  }, [startContent, endContent, mainWrapper]);
 
   return <>{baseWrapper}</>;
 });

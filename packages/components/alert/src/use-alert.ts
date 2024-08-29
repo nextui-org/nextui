@@ -16,6 +16,9 @@ interface Props extends HTMLNextUIProps<"div"> {
   title: string;
   description: ReactNode;
 
+  // whether the alert can be closed by user
+  isCloseable: boolean;
+
   // content to be displayed on the left side of inner wrapper
   startContent?: ReactNode;
 
@@ -30,8 +33,9 @@ interface Props extends HTMLNextUIProps<"div"> {
    * ```ts
    * <Alert classNames={{
    *    base:"base-classes", // image classes
-   *    innerWrapper: "innerWrapper-classes", // this is a cloned version of the img
-   *    helperWrapper: "helperWrapper-classes"
+   *    mainWrapper: "mainWrapper-classes"
+   *    description: "description-classes"
+   *    title: "title-classes"
    * }} />
    * ```
    */
@@ -41,7 +45,7 @@ export type UseAlertProps = Props & AlertVariantProps;
 
 export function useAlert(originalProps: UseAlertProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, alert.variantKeys);
-  const {title, description, startContent, endContent, ref, classNames} = props;
+  const {title, description, isCloseable, startContent, endContent, ref, classNames} = props;
 
   const [visible, setVisible] = useState(true);
   const handleHide = () => {
@@ -54,21 +58,15 @@ export function useAlert(originalProps: UseAlertProps) {
 
   const getBaseProps = useCallback<PropGetter>(() => {
     return {
-      className: slots.innerWrapper({class: classNames?.base}),
+      className: slots.base({class: classNames?.base}),
     };
   }, [slots, classNames?.base]);
 
-  const getInnerWrapperProps = useCallback<PropGetter>(() => {
+  const getMainWrapperProps = useCallback<PropGetter>(() => {
     return {
-      className: slots.innerWrapper({class: classNames?.innerWrapper}),
+      className: slots.mainWrapper({class: classNames?.mainWrapper}),
     };
-  }, [slots, classNames?.innerWrapper]);
-
-  const getHelperWrapperProps = useCallback<PropGetter>(() => {
-    return {
-      className: slots.helperWrapper({class: classNames?.helperWrapper}),
-    };
-  }, [slots, classNames?.helperWrapper]);
+  }, [slots, classNames?.mainWrapper]);
 
   const getDescriptionProps = useCallback<PropGetter>(() => {
     return {
@@ -85,14 +83,14 @@ export function useAlert(originalProps: UseAlertProps) {
   return {
     title,
     description,
+    isCloseable,
     startContent,
     endContent,
     visible,
     handleHide,
     domRef,
     getBaseProps,
-    getHelperWrapperProps,
-    getInnerWrapperProps,
+    getMainWrapperProps,
     getDescriptionProps,
     getTitleProps,
   };
