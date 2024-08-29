@@ -184,6 +184,35 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     isInvalid: ariaIsInvalid,
   } = useAriaDateField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
+  if (props.minValue != undefined && validationDetails.rangeUnderflow) {
+    const indexInValidationDetails: number =
+      Number(validationDetails.badInput) +
+      Number(validationDetails.customError) +
+      Number(validationDetails.patternMismatch);
+    const minValueDate = new Intl.DateTimeFormat(locale).format(
+      new Date(minValue.year, minValue.month, minValue.day),
+    );
+    const timeZone = state.segments.filter((seg) => seg.type === "timeZoneName")[0]?.text ?? "";
+    const rangeUnderflow = `Value must be ${minValueDate} ${timeZone} or later`;
+
+    validationErrors.splice(indexInValidationDetails, 1, rangeUnderflow);
+  }
+
+  if (props.maxValue != undefined && validationDetails.rangeOverflow) {
+    const indexInValidationDetails: number =
+      Number(validationDetails.badInput) +
+      Number(validationDetails.customError) +
+      Number(validationDetails.patternMismatch) +
+      Number(validationDetails.rangeUnderflow);
+    const maxValueDate = new Intl.DateTimeFormat(locale).format(
+      new Date(maxValue.year, maxValue.month, maxValue.day),
+    );
+    const timeZone = state.segments.filter((seg) => seg.type === "timeZoneName")[0]?.text ?? "";
+    const rangeOverflow = `Value must be ${maxValueDate} ${timeZone} or earlier`;
+
+    validationErrors.splice(indexInValidationDetails, 1, rangeOverflow);
+  }
+
   const baseStyles = clsx(classNames?.base, className);
 
   const isInvalid = isInvalidProp || ariaIsInvalid;
