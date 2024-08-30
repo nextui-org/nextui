@@ -43,6 +43,11 @@
       "@nextui-org/theme": ">=2.1.0",
       "@nextui-org/system": ">=2.0.0"
     },
+    "dependencies": {
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*"
+    },
     "devDependencies": {
       "@nextui-org/system": "workspace:*",
       "@nextui-org/theme": "workspace:*",
