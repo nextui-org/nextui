@@ -47,4 +47,6 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
   return <>{baseWrapper}</>;
 });
 
+Alert.displayName = "NextUI.Alert";
+
 export default Alert;

@@ -11,13 +11,14 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
+
   ref?: ReactRef<HTMLImageElement | null>;
 
   title: string;
   description: ReactNode;
 
   // whether the alert can be closed by user
-  isCloseable: boolean;
+  isCloseable?: boolean;
 
   // content to be displayed on the left side of inner wrapper
   startContent?: ReactNode;
@@ -45,7 +46,12 @@ export type UseAlertProps = Props & AlertVariantProps;
 
 export function useAlert(originalProps: UseAlertProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, alert.variantKeys);
-  const {title, description, isCloseable, startContent, endContent, ref, classNames} = props;
+
+  //isCloseable is true by default if not provided in props
+  const {title, description, isCloseable, startContent, endContent, ref, classNames} = {
+    isCloseable: true,
+    ...props,
+  };
 
   const [visible, setVisible] = useState(true);
   const handleHide = () => {
