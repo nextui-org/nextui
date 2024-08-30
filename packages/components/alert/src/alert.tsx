@@ -14,12 +14,13 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
     startContent,
     endContent,
     visible,
-    handleHide,
+    handleClose,
     domRef,
     getBaseProps,
     getMainWrapperProps,
     getDescriptionProps,
     getTitleProps,
+    getCloseButtonProps,
   } = useAlert({...props, ref});
 
   const mainWrapper = useMemo(() => {
@@ -38,11 +39,15 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
           {startContent}
           {mainWrapper}
           {endContent}
-          {isCloseable && <CloseIcon onClick={handleHide} />}
+          {isCloseable && (
+            <button onClick={handleClose} {...getCloseButtonProps()}>
+              <CloseIcon />
+            </button>
+          )}
         </div>
       )
     );
-  }, [startContent, endContent, mainWrapper, isCloseable]);
+  }, [startContent, endContent, mainWrapper, isCloseable, getCloseButtonProps]);
 
   return <>{baseWrapper}</>;
 });

@@ -54,7 +54,7 @@ export function useAlert(originalProps: UseAlertProps) {
   };
 
   const [visible, setVisible] = useState(true);
-  const handleHide = () => {
+  const handleClose = () => {
     setVisible(() => false);
   };
 
@@ -86,6 +86,12 @@ export function useAlert(originalProps: UseAlertProps) {
     };
   }, [slots, classNames?.title]);
 
+  const getCloseButtonProps = useCallback<PropGetter>(() => {
+    return {
+      className: slots.closeButton({class: classNames?.closeButton}),
+    };
+  }, [slots, classNames?.closeButton]);
+
   return {
     title,
     description,
@@ -93,11 +99,12 @@ export function useAlert(originalProps: UseAlertProps) {
     startContent,
     endContent,
     visible,
-    handleHide,
+    handleClose,
     domRef,
     getBaseProps,
     getMainWrapperProps,
     getDescriptionProps,
     getTitleProps,
+    getCloseButtonProps,
   };
 }
