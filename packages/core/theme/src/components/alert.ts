@@ -6,7 +6,7 @@ import {tv} from "../utils/tv";
  *
  * @example
  * ```js
- * const {base, helperWrapper, innerWrapper, title, description} = input({...})
+ * const {base, mainWrapper, title, description} = input({...})
  *
  * <div className={base())}>
  *     // start content comes here if present
@@ -21,19 +21,34 @@ import {tv} from "../utils/tv";
  */
 const alert = tv({
   slots: {
-    base: ["group flex flex-row items-start data-[hidden=true]:hidden"],
-    title: ["text-medium font-medium text-foreground-600 block"],
-    description: ["text-small text-foreground-400 block"],
-    mainWrapper: ["w-full flex flex-col h-full items-center box-border"],
+    base: ["w-6 group flex flex-row items-start data-[hidden=true]:hidden px-4 py-3"],
+    title: ["text-medium  font-medium text-foreground-100 block"],
+    description: ["text-small text-foreground-100 block"],
+    mainWrapper: ["w-full px-3 flex flex-col h-full box-border items-start justify-center"],
+    closeButton: [],
   },
   variants: {
     color: {
-      default: {},
-      primary: {},
-      secondary: {},
-      success: {},
-      warning: {},
-      danger: {},
+      default: {
+        base: ["bg-default-200", "border-default-200"],
+        title: ["text-white"],
+        description: ["text-white"],
+      },
+      primary: {
+        base: ["bg-primary-100", "border-primary-200"],
+      },
+      secondary: {
+        base: ["bg-secondary-100", "border-secondary-200"],
+      },
+      success: {
+        base: ["bg-success-100", "border-success-200"],
+      },
+      warning: {
+        base: ["bg-warning-100", "border-warning-200"],
+      },
+      danger: {
+        base: ["bg-danger-100", "border-danger-200"],
+      },
     },
     radius: {
       none: {
@@ -52,6 +67,10 @@ const alert = tv({
         base: "rounded-full",
       },
     },
+  },
+  defaultVariants: {
+    color: "default",
+    size: "lg",
   },
 });
 
