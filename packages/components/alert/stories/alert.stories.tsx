@@ -44,8 +44,43 @@ const Template = (args) => (
   </div>
 );
 
+const ColorTemplate = (args) => {
+  return (
+    <div className="w-full flex flex-col max-w-[240px]">
+      {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
+        <div key={color} className="w-full max-w-[240px] my-2">
+          <Alert {...args} color={color} />
+        </div>
+      ))}
+    </div>
+  );
+};
+const RadiusTemplate = (args) => {
+  return (
+    <div className="w-full flex flex-col max-w-[240px]">
+      {["none", "sm", "md", "lg", "full"].map((radius) => (
+        <div key={radius} className="w-full max-w-[240px] my-2">
+          <Alert {...args} radius={radius} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
+  args: {
+    ...defaultProps,
+  },
+};
+export const Color = {
+  render: ColorTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+export const Radius = {
+  render: RadiusTemplate,
   args: {
     ...defaultProps,
   },

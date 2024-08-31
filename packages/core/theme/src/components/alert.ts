@@ -21,7 +21,7 @@ import {tv} from "../utils/tv";
  */
 const alert = tv({
   slots: {
-    base: ["w-6 group flex flex-row items-start data-[hidden=true]:hidden px-4 py-3"],
+    base: ["group flex flex-row justify-start items-start data-[hidden=true]:hidden px-4 py-3"],
     title: ["text-medium  font-medium text-foreground-100 block"],
     description: ["text-small text-foreground-100 block"],
     mainWrapper: ["w-full px-3 flex flex-col h-full box-border items-start justify-center"],
@@ -35,19 +35,29 @@ const alert = tv({
         description: ["text-white"],
       },
       primary: {
-        base: ["bg-primary-100", "border-primary-200"],
+        base: ["bg-primary-50", "border-primary-200"],
+        title: ["text-primary-200"],
+        description: ["text-primary-200"],
       },
       secondary: {
-        base: ["bg-secondary-100", "border-secondary-200"],
+        base: ["bg-secondary-50", "border-secondary-200"],
+        title: ["text-secondary-200"],
+        description: ["text-secondary-200"],
       },
       success: {
-        base: ["bg-success-100", "border-success-200"],
+        base: ["bg-success-50", "border-success-200"],
+        title: ["text-success-200"],
+        description: ["text-success-200"],
       },
       warning: {
-        base: ["bg-warning-100", "border-warning-200"],
+        base: ["bg-warning-50", "border-warning-200"],
+        title: ["text-warning-200"],
+        description: ["text-warning-200"],
       },
       danger: {
-        base: ["bg-danger-100", "border-danger-200"],
+        base: ["bg-danger-50", "border-danger-200"],
+        title: ["text-danger-200"],
+        description: ["text-danger-200"],
       },
     },
     radius: {
@@ -70,7 +80,6 @@ const alert = tv({
   },
   defaultVariants: {
     color: "default",
-    size: "lg",
   },
 });
 
