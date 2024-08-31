@@ -38,17 +38,14 @@ const defaultProps = {
   startContent: <InfoIcon />,
 };
 
-const Template = (args) => (
-  <div className="w-full max-w-[240px]">
-    <Alert {...args} />
-  </div>
-);
+const Template = (args) => <Alert {...args} />;
 
 const ColorTemplate = (args) => {
   return (
-    <div className="w-full flex flex-col max-w-[240px]">
+    <div className="flex flex-col">
       {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
-        <div key={color} className="w-full max-w-[240px] my-2">
+        <div key={color} className="w-full flex justify-between items-center my-3">
+          <h4 className="h4 mr-4 ">{color}</h4>
           <Alert {...args} color={color} />
         </div>
       ))}
@@ -57,12 +54,28 @@ const ColorTemplate = (args) => {
 };
 const RadiusTemplate = (args) => {
   return (
-    <div className="w-full flex flex-col max-w-[240px]">
+    <div className="flex flex-col">
       {["none", "sm", "md", "lg", "full"].map((radius) => (
-        <div key={radius} className="w-full max-w-[240px] my-2">
+        <div key={radius} className="w-full flex justify-between items-center my-3">
+          <h4 className="h4 mr-4 ">{radius}</h4>
           <Alert {...args} radius={radius} />
         </div>
       ))}
+    </div>
+  );
+};
+
+const IsCloseableTemplate = (args) => {
+  return (
+    <div className="flex flex-col">
+      <div className="w-full flex-col items-center my-3">
+        <h2 className="my-2 h2">isCloseable = true</h2>
+        <Alert {...args} isCloseable={true} />
+      </div>
+      <div className="w-full flex-col items-center my-3">
+        <h2 className="my-2 h2">isCloseable = false</h2>
+        <Alert {...args} isCloseable={false} />
+      </div>
     </div>
   );
 };
@@ -81,6 +94,12 @@ export const Color = {
 };
 export const Radius = {
   render: RadiusTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+export const IsCloseable = {
+  render: IsCloseableTemplate,
   args: {
     ...defaultProps,
   },
