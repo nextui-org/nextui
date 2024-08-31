@@ -2,7 +2,7 @@ import type {AriaLinkProps} from "@react-types/link";
 import type {LinkVariantProps} from "@nextui-org/theme";
 
 import {link} from "@nextui-org/theme";
-import {useLink as useAriaLink} from "@react-aria/link";
+import {useAriaLink} from "@nextui-org/use-aria-link";
 import {
   HTMLNextUIProps,
   mapPropsVariants,
@@ -67,6 +67,7 @@ export function useLink(originalProps: UseLinkProps) {
   const disableAnimation =
     originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
+  // use `@nextui-org/use-aria-link` to suppress onClick deprecation warning
   const {linkProps} = useAriaLink(
     {
       ...otherProps,

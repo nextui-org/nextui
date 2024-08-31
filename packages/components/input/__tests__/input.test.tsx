@@ -126,6 +126,26 @@ describe("Input", () => {
     expect(ref.current?.value)?.toBe(value);
   });
 
+  it("setting ref should sync the internal value", () => {
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {container} = render(<Input ref={ref} type="text" />);
+
+    if (!ref.current) {
+      throw new Error("ref is null");
+    }
+
+    ref.current!.value = "value";
+
+    const input = container.querySelector("input")!;
+
+    input.focus();
+
+    const internalValue = input.value;
+
+    expect(ref.current?.value)?.toBe(internalValue);
+  });
+
   it("should clear the value and onClear is triggered", async () => {
     const onClear = jest.fn();
 
@@ -152,6 +172,33 @@ describe("Input", () => {
     expect(ref.current?.value)?.toBe("");
 
     expect(onClear).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not display input with hidden type", async () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-1" type="hidden" />
+        <Input data-testid="input-2" />
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const inputBaseWrappers = container.querySelectorAll("[data-slot='base']");
+
+    expect(inputBaseWrappers).toHaveLength(2);
+
+    const inputs = container.querySelectorAll("input");
+
+    expect(inputs).toHaveLength(2);
+
+    expect(inputBaseWrappers[0]).toHaveAttribute("data-hidden");
+
+    expect(inputBaseWrappers[1]).not.toHaveAttribute("data-hidden");
+
+    expect(inputs[0]).not.toBeVisible();
+
+    expect(inputs[1]).toBeVisible();
   });
 });
 

@@ -6,7 +6,6 @@ import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
 import {useMemo} from "react";
-import {CalendarDate} from "@internationalized/date";
 import {MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
@@ -52,10 +51,9 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   skipFramerMotionAnimations = disableAnimation,
   validationBehavior = "aria",
   locale = "en-US",
-  defaultDates = {
-    minDate: new CalendarDate(1900, 1, 1),
-    maxDate: new CalendarDate(2099, 12, 31),
-  },
+  // if minDate / maxDate are not specified in `defaultDates`
+  // then they will be set in `use-date-input.ts` or `use-calendar-base.ts`
+  defaultDates,
   createCalendar,
   ...otherProps
 }) => {
