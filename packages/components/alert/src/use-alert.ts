@@ -97,6 +97,7 @@ export function useAlert(originalProps: UseAlertProps) {
     getMainWrapperProps,
     getDescriptionProps,
     getTitleProps,
+    color: variantProps["color"],
     getCloseButtonProps,
   };
 }
