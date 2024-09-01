@@ -33,6 +33,7 @@ export default {
 const defaultProps = {
   ...alert.defaultVariants,
   title: "Email Sent!!",
+  description: "You will get a reply soon",
 };
 
 const Template = (args) => <Alert {...args} />;
