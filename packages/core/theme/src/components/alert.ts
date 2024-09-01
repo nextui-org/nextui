@@ -9,18 +9,12 @@ import {tv} from "../utils/tv";
  * const {base, mainWrapper, title, description} = input({...})
  *
  * <div className={base())}>
- *    <div className = {icon()}>
  *    // icon
- *     </div>
  *
- *    <div className = "innerwrapper">
- *        // start content comes here if present
- *         <div classsName ={mainWrapper()}>
- *           <div className={title()}>Title</div>
- *           <div className={description()}>Description</div>
- *        </div>
- *       // end content comes here if present
- *     </div>
+ *    <div classsName ={mainWrapper()}>
+ *       <div className={title()}>Title</div>
+ *       <div className={description()}>Description</div>
+ *   </div>
  *
  *    <button>
  *      // close button
