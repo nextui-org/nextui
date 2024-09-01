@@ -11,8 +11,6 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
     title,
     description,
     isCloseable,
-    startContent,
-    endContent,
     visible,
     handleClose,
     domRef,
@@ -36,9 +34,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
     return (
       visible && (
         <div ref={domRef} {...getBaseProps()}>
-          {startContent}
           {mainWrapper}
-          {endContent}
           {isCloseable && (
             <button onClick={handleClose} {...getCloseButtonProps()}>
               <CloseIcon />
@@ -47,7 +43,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
         </div>
       )
     );
-  }, [startContent, endContent, mainWrapper, isCloseable, getCloseButtonProps]);
+  }, [mainWrapper, isCloseable, getCloseButtonProps]);
 
   return <>{baseWrapper}</>;
 });

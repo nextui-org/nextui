@@ -1,7 +1,6 @@
+import React from "react";
 import {Meta} from "@storybook/react";
 import {alert} from "@nextui-org/theme";
-import React from "react";
-import {InfoIcon} from "@nextui-org/shared-icons";
 
 import {Alert} from "../src";
 
@@ -34,8 +33,6 @@ export default {
 const defaultProps = {
   ...alert.defaultVariants,
   title: "Email Sent!!",
-  description: "You will get a reply soon",
-  startContent: <InfoIcon />,
 };
 
 const Template = (args) => <Alert {...args} />;
@@ -45,7 +42,7 @@ const ColorTemplate = (args) => {
     <div className="flex flex-col">
       {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
         <div key={color} className="w-full flex justify-between items-center my-3">
-          <h4 className="h4 mr-4 ">{color}</h4>
+          <h4 className="h4 mr-4 text-md">{color}</h4>
           <Alert {...args} color={color} />
         </div>
       ))}
@@ -57,7 +54,7 @@ const RadiusTemplate = (args) => {
     <div className="flex flex-col">
       {["none", "sm", "md", "lg", "full"].map((radius) => (
         <div key={radius} className="w-full flex justify-between items-center my-3">
-          <h4 className="h4 mr-4 ">{radius}</h4>
+          <h4 className="h4 mr-4 text-md">{radius}</h4>
           <Alert {...args} radius={radius} />
         </div>
       ))}

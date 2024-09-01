@@ -20,12 +20,6 @@ interface Props extends HTMLNextUIProps<"div"> {
   // whether the alert can be closed by user
   isCloseable?: boolean;
 
-  // content to be displayed on the left side of inner wrapper
-  startContent?: ReactNode;
-
-  // content to be displayed on the right side of inner wrapper
-  endContent?: ReactNode;
-
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -48,7 +42,7 @@ export function useAlert(originalProps: UseAlertProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, alert.variantKeys);
 
   //isCloseable is true by default if not provided in props
-  const {title, description, isCloseable, startContent, endContent, ref, classNames} = {
+  const {title, description, isCloseable, ref, classNames} = {
     isCloseable: true,
     ...props,
   };
@@ -96,8 +90,6 @@ export function useAlert(originalProps: UseAlertProps) {
     title,
     description,
     isCloseable,
-    startContent,
-    endContent,
     visible,
     handleClose,
     domRef,
