@@ -232,6 +232,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const triggerRef = useRef<HTMLElement>(null);
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
+  const baseRef = useRef<HTMLDivElement>(null);
 
   let state = useMultiSelectState<T>({
     ...props,
@@ -380,6 +381,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => ({
+      ref: baseRef,
       "data-slot": "base",
       "data-filled": dataAttr(isFilled),
       "data-has-value": dataAttr(hasValue),
@@ -391,7 +393,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       }),
       ...props,
     }),
-    [slots, hasHelper, hasValue, hasLabel, isFilled, baseStyles],
+    [baseRef, slots, hasHelper, hasValue, hasLabel, isFilled, baseStyles],
   );
 
   const getTriggerProps: PropGetter = useCallback(
@@ -519,6 +521,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         "data-slot": "popover",
         scrollRef: listBoxRef,
         triggerType: "listbox",
+        portalContainer: baseRef.current ?? undefined,
         classNames: {
           content: slots.popoverContent({
             class: clsx(classNames?.popoverContent, props.className),
@@ -540,6 +543,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       classNames?.popoverContent,
       slotsProps.popoverProps,
       triggerRef,
+      listBoxRef,
+      baseRef,
       state,
       state.selectedItems,
     ],
