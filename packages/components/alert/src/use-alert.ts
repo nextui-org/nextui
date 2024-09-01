@@ -12,7 +12,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    * Ref to the DOM node.
    */
 
-  ref?: ReactRef<HTMLImageElement | null>;
+  ref?: ReactRef<HTMLDivElement | null>;
 
   title: string;
   description: ReactNode;
