@@ -32,6 +32,7 @@ const modal = tv({
       "z-50",
       "overflow-x-auto",
       "justify-center",
+      "h-[--visual-viewport-height]",
     ],
     base: [
       "flex",
