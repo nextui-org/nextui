@@ -29,6 +29,11 @@ interface Props extends HTMLNextUIProps<"div"> {
   isCloseable?: boolean;
 
   /**
+   * function which is called when close button is clicked
+   */
+  onClose?: () => void;
+
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -49,15 +54,22 @@ export type UseAlertProps = Props & AlertVariantProps;
 export function useAlert(originalProps: UseAlertProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, alert.variantKeys);
 
-  // isCloseable is true by default if not provided in props
-  const {title, description, isCloseable, ref, classNames} = {
-    isCloseable: true,
-    ...props,
-  };
-
   const [isVisible, setIsVisible] = useState(true);
   const handleClose = () => {
     setIsVisible(() => false);
+  };
+
+  const {title, description, onClose, isCloseable, ref, classNames} = {
+    /**
+     *  isCloseable is true by default if not provided in props
+     */
+    isCloseable: true,
+
+    /**
+     * By default, onClose simply closes the alert
+     */
+    onClose: handleClose,
+    ...props,
   };
 
   const domRef = useDOMRef(ref);
@@ -99,7 +111,7 @@ export function useAlert(originalProps: UseAlertProps) {
     description,
     isCloseable,
     isVisible,
-    handleClose,
+    onClose,
     domRef,
     getBaseProps,
     getMainWrapperProps,

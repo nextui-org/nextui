@@ -12,7 +12,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
     description,
     isCloseable,
     isVisible,
-    handleClose,
+    onClose,
     domRef,
     getBaseProps,
     getMainWrapperProps,
@@ -38,7 +38,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
           <AlertIcon color={color} />
           {mainWrapper}
           {isCloseable && (
-            <button onClick={handleClose} {...getCloseButtonProps()}>
+            <button onClick={onClose} {...getCloseButtonProps()}>
               <AlertCloseIcon color={color} />
             </button>
           )}
