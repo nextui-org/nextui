@@ -32,6 +32,7 @@ const modal = tv({
       "z-50",
       "overflow-x-auto",
       "justify-center",
+      "h-[--visual-viewport-height]",
     ],
     base: [
       "flex",
@@ -157,7 +158,7 @@ const modal = tv({
         base: "overflow-y-hidden",
       },
       inside: {
-        base: "max-h-[calc(100%_-_7.5rem)]",
+        base: "max-h-[calc(100%_-_8rem)]",
         body: "overflow-y-auto",
       },
       outside: {

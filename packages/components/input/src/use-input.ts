@@ -13,9 +13,9 @@ import {useFocusRing} from "@react-aria/focus";
 import {input} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel, warn} from "@nextui-org/shared-utils";
 import {useControlledState} from "@react-stately/utils";
-import {useMemo, Ref, useCallback, useState} from "react";
+import {useMemo, Ref, useCallback, useState, useImperativeHandle, useRef} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
 
@@ -131,7 +131,41 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
-  const domRef = useDOMRef<T>(ref);
+  const domRef = useRef<T>(null);
+
+  let proxy: T | undefined = undefined;
+
+  useImperativeHandle(
+    ref,
+    () => {
+      if (proxy === undefined) {
+        proxy = new Proxy(domRef.current!, {
+          get(target, prop) {
+            const value = target[prop];
+
+            if (value instanceof Function) {
+              return value.bind(target);
+            }
+
+            return value;
+          },
+          set(target, prop, value) {
+            target[prop] = value;
+
+            if (prop === "value") {
+              setInputValue(value);
+            }
+
+            return true;
+          },
+        });
+      }
+
+      return proxy;
+    },
+    [domRef.current],
+  );
+
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
@@ -147,6 +181,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isFilledWithin = isFilled || isFocusWithin;
   const isHiddenType = type === "hidden";
   const isMultiline = originalProps.isMultiline;
+  const isFileTypeInput = type === "file";
 
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
@@ -191,6 +226,14 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef,
   );
 
+  if (isFileTypeInput) {
+    // for input[type="file"], we don't need `value` and `onChange` from `useTextField`
+    // otherwise, the default value with empty string will block the first attempt of file upload
+    // hence, remove `value` and `onChange` attribute here
+    delete inputProps.value;
+    delete inputProps.onChange;
+  }
+
   const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
     isTextInput: true,
@@ -205,13 +248,26 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   });
 
   const {pressProps: clearPressProps} = usePress({
-    isDisabled: !!originalProps?.isDisabled,
+    isDisabled: !!originalProps?.isDisabled || !!originalProps?.isReadOnly,
     onPress: handleClear,
   });
 
   const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
+    if (isFileTypeInput) {
+      // if `labelPlacement` is not defined, choose `outside` instead
+      // since the default value `inside` is not supported in file input
+      if (!originalProps.labelPlacement) return "outside";
+
+      // throw a warning if `labelPlacement` is `inside`
+      // and change it to `outside`
+      if (originalProps.labelPlacement === "inside") {
+        warn("Input with file type doesn't support inside label. Converting to outside ...");
+
+        return "outside";
+      }
+    }
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
       return "outside";
     }
@@ -271,10 +327,14 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         className: slots.base({class: baseStyles}),
         "data-slot": "base",
         "data-filled": dataAttr(
-          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown,
+          isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown || isFileTypeInput,
         ),
         "data-filled-within": dataAttr(
-          isFilledWithin || hasPlaceholder || hasStartContent || isPlaceholderShown,
+          isFilledWithin ||
+            hasPlaceholder ||
+            hasStartContent ||
+            isPlaceholderShown ||
+            isFileTypeInput,
         ),
         "data-focus-within": dataAttr(isFocusWithin),
         "data-focus-visible": dataAttr(isFocusVisible),

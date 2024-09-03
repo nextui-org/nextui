@@ -1,7 +1,12 @@
 import {Button, Link} from "@nextui-org/react";
 
 import {sectionWrapper} from "@/components/primitives";
-import {Story2DesignLogo, ReplexicaLogo, CodeRabbitLogo} from "@/components/icons/sponsors";
+import {
+  Story2DesignLogo,
+  ReplexicaLogo,
+  CodeRabbitLogo,
+  ScrumbuissLogo,
+} from "@/components/icons/sponsors";
 import {HeartFilledIcon} from "@/components/icons";
 import {siteConfig} from "@/config/site";
 import {Sponsor, SponsorItem} from "@/components/marketing/sponsor-item";
@@ -21,6 +26,11 @@ const sponsors: Sponsor[] = [
     name: "CodeRabbit",
     href: "https://coderabbit.ai/?utm_source=nextui&utm_marketing=oss",
     logo: <CodeRabbitLogo />,
+  },
+  {
+    name: "Scrumbuiss",
+    href: "https://www.scrumbuiss.com/?utm_source=nextui&utm_marketing=oss",
+    logo: <ScrumbuissLogo />,
   },
 ];
 

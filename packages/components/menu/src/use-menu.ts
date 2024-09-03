@@ -1,4 +1,6 @@
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter, SharedSelection} from "@nextui-org/system";
+
+import {useProviderContext} from "@nextui-org/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";
 import {useAriaMenu} from "@nextui-org/use-aria-menu";
@@ -81,11 +83,15 @@ interface Props<T> {
    * The menu items classNames.
    */
   itemClasses?: MenuItemProps["classNames"];
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 
 export type UseMenuProps<T = object> = Props<T> &
   Omit<HTMLNextUIProps<"ul">, keyof AriaMenuProps<T>> &
-  AriaMenuProps<T> &
+  Omit<AriaMenuProps<T>, "onSelectionChange"> &
   MenuVariantProps;
 
 export function useMenu<T extends object>(props: UseMenuProps<T>) {
