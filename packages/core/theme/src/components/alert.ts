@@ -55,13 +55,13 @@ const alert = tv({
       },
       warning: {
         base: ["bg-warning-50"],
-        title: ["text-[#F7B750]"],
-        description: ["text-[#F7B750]"],
+        title: ["text-warning-foreground"],
+        description: ["text-warning-foreground"],
       },
       danger: {
-        base: ["bg-danger-50 "],
-        title: ["text-[#F31260]"],
-        description: ["text-[#F31260]"],
+        base: ["bg-danger-50"],
+        title: ["text-danger-foreground"],
+        description: ["text-danger-foreground"],
       },
     },
     radius: {

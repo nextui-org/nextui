@@ -25,6 +25,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
-, "content/docs/components/alert.mdx"  ],
+  ],
   "exclude": ["node_modules", "next-redirect.js"]
 }
