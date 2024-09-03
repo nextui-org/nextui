@@ -200,6 +200,33 @@ describe("Input", () => {
 
     expect(inputs[1]).toBeVisible();
   });
+
+  it("should disable clear button when isReadOnly is true", async () => {
+    const onClear = jest.fn();
+
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {getByRole} = render(
+      <Input
+        ref={ref}
+        isClearable
+        isReadOnly
+        defaultValue="readOnly test for clear button"
+        label="test input"
+        onClear={onClear}
+      />,
+    );
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(onClear).toHaveBeenCalledTimes(0);
+  });
 });
 
 describe("Input with React Hook Form", () => {

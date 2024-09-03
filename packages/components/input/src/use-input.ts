@@ -248,7 +248,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   });
 
   const {pressProps: clearPressProps} = usePress({
-    isDisabled: !!originalProps?.isDisabled,
+    isDisabled: !!originalProps?.isDisabled || !!originalProps?.isReadOnly,
     onPress: handleClear,
   });
 
