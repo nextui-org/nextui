@@ -2,7 +2,7 @@ import {NextUIPluginConfig} from "@nextui-org/theme";
 import {readableColor} from "color2k";
 
 import {Config} from "../types";
-import {defaultDarkColorWeight, defaultLightColorWeight} from "../constants";
+import {colorWeight, defaultDarkColorWeight, defaultLightColorWeight} from "../constants";
 
 import {generateThemeColor} from "./colors";
 
@@ -47,13 +47,13 @@ export function generatePluginConfig(config: Config): NextUIPluginConfig {
             "light",
             defaultLightColorWeight,
           ),
-          primary: generateThemeColor(config.light.brandColor.primary, "light"),
-          secondary: generateThemeColor(config.light.brandColor.secondary, "light"),
-          success: generateThemeColor(config.light.brandColor.success, "light"),
-          warning: generateThemeColor(config.light.brandColor.warning, "light"),
-          danger: generateThemeColor(config.light.brandColor.danger, "light"),
+          primary: generateThemeColor(config.light.brandColor.primary, "light", colorWeight),
+          secondary: generateThemeColor(config.light.brandColor.secondary, "light", colorWeight),
+          success: generateThemeColor(config.light.brandColor.success, "light", colorWeight),
+          warning: generateThemeColor(config.light.brandColor.warning, "light", colorWeight),
+          danger: generateThemeColor(config.light.brandColor.danger, "light", colorWeight),
           background: config.light.baseColor.background,
-          foreground: generateThemeColor(config.light.baseColor.foreground, "light"),
+          foreground: generateThemeColor(config.light.baseColor.foreground, "light", colorWeight),
           content1: {
             DEFAULT: config.light.baseColor.content1,
             foreground: readableColor(config.light.baseColor.content1),
@@ -82,13 +82,13 @@ export function generatePluginConfig(config: Config): NextUIPluginConfig {
             "dark",
             defaultDarkColorWeight,
           ),
-          primary: generateThemeColor(config.dark.brandColor.primary, "dark"),
-          secondary: generateThemeColor(config.dark.brandColor.secondary, "dark"),
-          success: generateThemeColor(config.dark.brandColor.success, "dark"),
-          warning: generateThemeColor(config.dark.brandColor.warning, "dark"),
-          danger: generateThemeColor(config.dark.brandColor.danger, "dark"),
+          primary: generateThemeColor(config.dark.brandColor.primary, "dark", colorWeight),
+          secondary: generateThemeColor(config.dark.brandColor.secondary, "dark", colorWeight),
+          success: generateThemeColor(config.dark.brandColor.success, "dark", colorWeight),
+          warning: generateThemeColor(config.dark.brandColor.warning, "dark", colorWeight),
+          danger: generateThemeColor(config.dark.brandColor.danger, "dark", colorWeight),
           background: config.dark.baseColor.background,
-          foreground: generateThemeColor(config.dark.baseColor.foreground, "dark"),
+          foreground: generateThemeColor(config.dark.baseColor.foreground, "dark", colorWeight),
           content1: {
             DEFAULT: config.dark.baseColor.content1,
             foreground: readableColor(config.dark.baseColor.content1),

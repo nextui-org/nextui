@@ -78,7 +78,7 @@ export function hexToHsl(hex: string) {
   hue *= 60;
   if (hue < 0) hue += 360;
 
-  return `${hue} ${(saturation * 100).toFixed(2)}% ${(lightness * 100).toFixed(2)}%`;
+  return `${hue.toFixed(2)} ${(saturation * 100).toFixed(2)}% ${(lightness * 100).toFixed(2)}%`;
 }
 
 /**
