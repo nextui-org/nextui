@@ -36,9 +36,7 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
    * Update the selected color when the popover is opened.
    */
   useEffect(() => {
-    if (isOpen) {
-      setSelectedColor(hexColor);
-    }
+    setSelectedColor(hexColor);
   }, [hexColor, isOpen]);
 
   return (
