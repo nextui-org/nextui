@@ -1,9 +1,9 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {act, render} from "@testing-library/react";
 
 import {Alert} from "../src";
 
-const title = "Testing title";
+const title = "Testing Title";
 const description = "Testing Description";
 
 describe("Alert", () => {
@@ -26,8 +26,8 @@ describe("Alert", () => {
     const titleElement = wrapper.getByText(title);
     const descriptionElement = wrapper.getByText(description);
 
-    expect(titleElement).toEqual(title);
-    expect(descriptionElement).toEqual(description);
+    expect(titleElement).toContainHTML(title);
+    expect(descriptionElement).toContainHTML(description);
   });
 
   it("should show close button when is Closeable", () => {
@@ -38,11 +38,22 @@ describe("Alert", () => {
   });
 
   it("should not show close button when not is Closeable", () => {
-    const {getByRole} = render(
-      <Alert description={description} isCloseable={false} title={title} />,
-    );
-    const button = getByRole("button");
+    const wrapper = render(<Alert description={description} isCloseable={false} title={title} />);
+    const button = wrapper.queryByRole("button");
 
     expect(button).toBeNull();
+  });
+
+  it("should call the onClose function when clicking on close button", async () => {
+    const onClose = jest.fn();
+
+    const wrapper = render(<Alert description={description} title={title} onClose={onClose} />);
+    const button = wrapper.getByRole("button");
+
+    act(() => {
+      button.click();
+    });
+
+    expect(onClose).toHaveBeenCalled();
   });
 });
