@@ -69,7 +69,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const isDisabled = state.disabledKeys.has(key) || originalProps.isDisabled;
   const isSelectable = state.selectionManager.selectionMode !== "none";
-
   const isMobile = useIsMobile();
 
   const {isFocusVisible, focusProps} = useFocusRing({
@@ -106,6 +105,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
   );
 
   let itemProps = menuItemProps;
+  let isFocusActive = isHovered && (isFocused || isFocusVisible);
 
   const slots = useMemo(
     () =>
@@ -133,13 +133,13 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
       itemProps,
       props,
     ),
-    "data-focus": dataAttr(isFocused),
+    "data-focus": dataAttr(isFocusActive),
     "data-selectable": dataAttr(isPressed ? isSelectable : false),
     "data-hover": dataAttr(isMobile ? isHovered || isPressed : isHovered),
     "data-disabled": dataAttr(isDisabled),
     "data-selected": dataAttr(isSelected),
     "data-pressed": dataAttr(isPressed),
-    "data-focus-visible": dataAttr(isFocusVisible),
+    "data-focus-visible": dataAttr(isFocusActive),
     className: slots.base({class: clsx(baseStyles, props.className)}),
   });
 
