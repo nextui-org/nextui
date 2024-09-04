@@ -134,7 +134,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
       props,
     ),
     "data-focus": dataAttr(isFocused),
-    "data-selectable": dataAttr(isSelectable),
+    "data-selectable": dataAttr(isPressed ? isSelectable : false),
     "data-hover": dataAttr(isMobile ? isHovered || isPressed : isHovered),
     "data-disabled": dataAttr(isDisabled),
     "data-selected": dataAttr(isSelected),
