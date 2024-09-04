@@ -1,6 +1,5 @@
-import React from "react";
-
 import {IconSvgProps} from "./types";
+
 export const WarningIcon = (
   props: IconSvgProps & {
     className?: string;

@@ -63,16 +63,16 @@ const RadiusTemplate = (args) => {
   );
 };
 
-const IsCloseableTemplate = (args) => {
+const isClosableTemplate = (args) => {
   return (
     <div className="flex flex-col">
       <div className="w-full flex-col items-center my-3">
-        <h2 className="my-2 h2">isCloseable = true</h2>
-        <Alert {...args} isCloseable={true} />
+        <h2 className="my-2 h2">isClosable = true</h2>
+        <Alert {...args} isClosable={true} />
       </div>
       <div className="w-full flex-col items-center my-3">
-        <h2 className="my-2 h2">isCloseable = false</h2>
-        <Alert {...args} isCloseable={false} />
+        <h2 className="my-2 h2">isClosable = false</h2>
+        <Alert {...args} isClosable={false} />
       </div>
     </div>
   );
@@ -96,8 +96,8 @@ export const Radius = {
     ...defaultProps,
   },
 };
-export const IsCloseable = {
-  render: IsCloseableTemplate,
+export const isClosable = {
+  render: isClosableTemplate,
   args: {
     ...defaultProps,
   },

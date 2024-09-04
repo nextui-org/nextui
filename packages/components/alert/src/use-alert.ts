@@ -16,7 +16,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * title of the alert message
    */
-  title: string;
+  title?: string;
 
   /**
    * Main body of the alert message
@@ -26,7 +26,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    *  whether the alert can be closed by user
    */
-  isCloseable?: boolean;
+  isClosable?: boolean;
 
   /**
    * function which is called when close button is clicked
@@ -40,7 +40,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    * @example
    * ```ts
    * <Alert classNames={{
-   *    base:"base-classes", // image classes
+   *    base:"base-classes",
    *    mainWrapper: "mainWrapper-classes"
    *    description: "description-classes"
    *    title: "title-classes"
@@ -49,6 +49,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   classNames?: SlotsToClasses<AlertSlots>;
 }
+
 export type UseAlertProps = Props & AlertVariantProps;
 
 export function useAlert(originalProps: UseAlertProps) {
@@ -59,18 +60,8 @@ export function useAlert(originalProps: UseAlertProps) {
     setIsVisible(() => false);
   };
 
-  const {title, description, onClose, isCloseable, ref, classNames} = {
-    /**
-     *  isCloseable is true by default if not provided in props
-     */
-    isCloseable: true,
-
-    /**
-     * By default, onClose simply closes the alert
-     */
-    onClose: handleClose,
-    ...props,
-  };
+  // By Default, isClosable is condsidered true and onClose simply closes the alert
+  const {title, description, onClose = handleClose, isClosable = true, ref, classNames} = props;
 
   const domRef = useDOMRef(ref);
 
@@ -109,7 +100,7 @@ export function useAlert(originalProps: UseAlertProps) {
   return {
     title,
     description,
-    isCloseable,
+    isClosable,
     isVisible,
     onClose,
     domRef,

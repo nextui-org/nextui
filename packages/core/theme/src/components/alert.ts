@@ -25,11 +25,11 @@ import {tv} from "../utils/tv";
 
 const alert = tv({
   slots: {
-    base: ["group flex flex-row w-[342px] h-[68px]  p-[12px]"],
-    title: ["text-medium font-normal block h-[24px]"],
-    description: ["text-small font-normal h-[20px]"],
-    mainWrapper: ["w-[268px] h-[44px] ml-[20px] flex flex-col box-border items-start"],
-    closeButton: ["w-[24px h-[24px] cursor-pointer relative"],
+    base: ["flex flex-row w-[342px] h-17  p-3"],
+    title: ["text-medium font-normal block h-6"],
+    description: ["text-small font-normal h-5"],
+    mainWrapper: ["w-[268px]  h-11 ml-5 flex flex-col box-border items-start"],
+    closeButton: ["w-6 h-6 cursor-pointer relative"],
   },
   variants: {
     color: {
@@ -69,16 +69,16 @@ const alert = tv({
         base: "rounded-none",
       },
       sm: {
-        base: "rounded-[12px]",
+        base: "rounded-small",
       },
       md: {
-        base: "rounded-[16px]",
+        base: "rounded-medium",
       },
       lg: {
-        base: "rounded-[22px]",
+        base: "rounded-large",
       },
       full: {
-        base: "rounded-[9999px]",
+        base: "rounded-full",
       },
     },
   },

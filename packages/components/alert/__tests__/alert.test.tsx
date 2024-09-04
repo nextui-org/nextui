@@ -38,7 +38,7 @@ describe("Alert", () => {
   });
 
   it("should not show close button when not is Closeable", () => {
-    const wrapper = render(<Alert description={description} isCloseable={false} title={title} />);
+    const wrapper = render(<Alert description={description} isClosable={false} title={title} />);
     const button = wrapper.queryByRole("button");
 
     expect(button).toBeNull();

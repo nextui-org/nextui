@@ -1,6 +1,5 @@
-import React from "react";
-
 import {IconSvgProps} from "./types";
+
 export const DangerIcon = (
   props: IconSvgProps & {
     className?: string;

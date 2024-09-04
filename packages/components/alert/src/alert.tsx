@@ -1,4 +1,4 @@
-import React, {useMemo} from "react";
+import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 
 import {useAlert, UseAlertProps} from "./use-alert";
@@ -10,7 +10,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
   const {
     title,
     description,
-    isCloseable,
+    isClosable,
     isVisible,
     onClose,
     domRef,
@@ -25,7 +25,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
   const mainWrapper = useMemo(() => {
     return (
       <div {...getMainWrapperProps()}>
-        <div {...getTitleProps()}>{title}</div>
+        {title && <div {...getTitleProps()}>{title}</div>}
         <div {...getDescriptionProps()}>{description}</div>
       </div>
     );
@@ -37,7 +37,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
         <div ref={domRef} {...getBaseProps()}>
           <AlertIcon color={color} />
           {mainWrapper}
-          {isCloseable && (
+          {isClosable && (
             <button onClick={onClose} {...getCloseButtonProps()}>
               <AlertCloseIcon color={color} />
             </button>
@@ -45,7 +45,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
         </div>
       )
     );
-  }, [mainWrapper, isCloseable, getCloseButtonProps]);
+  }, [mainWrapper, isClosable, getCloseButtonProps]);
 
   return <>{baseWrapper}</>;
 });

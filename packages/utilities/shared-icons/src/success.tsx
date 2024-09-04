@@ -1,6 +1,5 @@
-import React from "react";
-
 import {IconSvgProps} from "./types";
+
 export const SuccessIcon = (
   props: IconSvgProps & {
     className?: string;
