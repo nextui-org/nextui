@@ -5,7 +5,7 @@ export default function App() {
   const description ="You will get a reply soon";
 
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
+    <div className="flex items-center justify-center w-screen h-[400px]">
         <div className="flex flex-col">
 
             <div className="w-full flex-col items-center my-3">

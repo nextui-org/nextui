@@ -34,7 +34,7 @@ Alerts are temporary notifications that provide concise feedback about an action
 <ImportTabs
   commands={{
     main: 'import {Alert} from "@nextui-org/react";',
-    individual: 'import {Alert} from "@nextui-org/button";',
+    individual: 'import {Alert} from "@nextui-org/alert";',
   }}
 />
 
@@ -70,12 +70,12 @@ It is set to true by default.
 | ---------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
 | title            | `string`                                                                     | Title for alert                                              | -         |
 | description      | `ReactNode`                                                                  | Description for alert message                                | -         |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The button color theme.                                      | `default` |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The button border radius.                                    | `md`      |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The alert color theme.                                       | `default` |
+| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The alert border radius.                                     | `md`      |
 | isCloseable      | `boolean`                                                                    | Whether the close button should be displayed.                | `true`    |
 
 ### Alert Events
 
 | Attribute    | Type                        | Description                                                 |
 | ------------ | --------------------------- | ----------------------------------------------------------- |
-| onClose      | `() => void`                | Handler that is called when the modal is closed.            |
+| onClose      | `() => void`                | Handler that is called when the close button is clicked.    |
