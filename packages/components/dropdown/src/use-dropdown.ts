@@ -148,7 +148,17 @@ export function useDropdown(props: UseDropdownProps) {
       menuProps,
       closeOnSelect,
       ...mergeProps(props, {
-        onAction: () => onMenuAction(props?.closeOnSelect),
+        onAction: (key: any) => {
+          // @ts-ignore
+          const item = props?.children?.find((item) => item.key === key);
+
+          if (item?.props?.closeOnSelect === false) {
+            onMenuAction(false);
+
+            return;
+          }
+          onMenuAction(props?.closeOnSelect);
+        },
         onClose: state.close,
       }),
     } as MenuProps;

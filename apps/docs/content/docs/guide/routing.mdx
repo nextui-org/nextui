@@ -197,6 +197,29 @@ export default function App() {
 ```
 
 
+### TanStack
+
+To use [TanStack Router](https://tanstack.com/router/latest) with NextUI, render NextUI's RouterProvider inside your root route. Use `router.navigate` in the `navigate` prop, and `router.buildLocation` in the `useHref` prop. 
+
+```tsx {9,10}
+// app/root.tsx
+import {NextUIProvider} from '@nextui-org/react';
+
+function RootRoute() {
+  let router = useRouter();
+
+  return (
+    <NextUIProvider 
+      navigate={(to, options) => router.navigate({ to, ...options })}
+      useHref={(to) => router.buildLocation(to).href}
+    >
+      {/* You app here... */}
+    </NextUIProvider>
+  );
+}
+```
+
+
 ### Usage examples
 
 Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`, 
