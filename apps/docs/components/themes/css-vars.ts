@@ -11,7 +11,12 @@ export function setCssColor(colorType: ColorPickerType, value: string, theme: Th
   const colorWeight = getColorWeight(colorType, theme);
   const themeColor = generateThemeColor(value, theme, colorWeight);
 
-  if (!brandColorsEl || !commonColorsEl || !showcaseEl) return;
+  if (!brandColorsEl || !commonColorsEl || !showcaseEl) {
+    // eslint-disable-next-line no-console
+    console.error("One or more required elements are missing from the DOM.");
+
+    return;
+  }
 
   Object.keys(themeColor).forEach((key) => {
     const value = hexToHsl(themeColor[key as keyof ThemeColor]);
@@ -106,6 +111,13 @@ export function setOtherCssParams(type: keyof ConfigLayout["otherParams"], value
 }
 
 export function setAllCssVars(config: Config, theme: ThemeType) {
+  if (!config[theme] || !config[theme].brandColor || !config[theme].baseColor || !config.layout) {
+    // eslint-disable-next-line no-console
+    console.error("Invalid configuration or theme provided.");
+
+    return;
+  }
+
   setCssColor("default", config[theme].brandColor.default, theme);
   setCssColor("primary", config[theme].brandColor.primary, theme);
   setCssColor("secondary", config[theme].brandColor.secondary, theme);

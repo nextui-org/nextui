@@ -13,31 +13,27 @@ interface BorderWidthsProps {
 export function BorderWidths({config}: BorderWidthsProps) {
   const {setBorderWidth} = useContext(ThemeBuilderContext);
 
+  const handleChange = (key: keyof Config["layout"]["borderWidth"], value: string) => {
+    setBorderWidth({[key]: value});
+    setCssBorderWidth(key, value);
+  };
+
   return (
     <ConfigSection cols={3} title="Border width (px)">
       <NumberInput
         label="Small"
         value={config.layout.borderWidth.small}
-        onChange={(value) => {
-          setBorderWidth({small: value});
-          setCssBorderWidth("small", value);
-        }}
+        onChange={(value) => handleChange("small", value)}
       />
       <NumberInput
         label="Medium"
         value={config.layout.borderWidth.medium}
-        onChange={(value) => {
-          setBorderWidth({medium: value});
-          setCssBorderWidth("medium", value);
-        }}
+        onChange={(value) => handleChange("medium", value)}
       />
       <NumberInput
         label="Large"
         value={config.layout.borderWidth.large}
-        onChange={(value) => {
-          setBorderWidth({large: value});
-          setCssBorderWidth("large", value);
-        }}
+        onChange={(value) => handleChange("large", value)}
       />
     </ConfigSection>
   );

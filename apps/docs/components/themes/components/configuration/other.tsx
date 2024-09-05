@@ -13,31 +13,27 @@ interface OtherProps {
 export function Other({config}: OtherProps) {
   const {setOtherParams} = useContext(ThemeBuilderContext);
 
+  const handleChange = (key: keyof Config["layout"]["otherParams"], value: string) => {
+    setOtherParams({[key]: value});
+    setOtherCssParams(key, value);
+  };
+
   return (
     <ConfigSection cols={1} title="Other">
       <NumberInput
         label="Disabled opacity (0-1)"
         value={config.layout.otherParams.disabledOpacity}
-        onChange={(value) => {
-          setOtherParams({disabledOpacity: value});
-          setOtherCssParams("disabledOpacity", value);
-        }}
+        onChange={(value) => handleChange("disabledOpacity", value)}
       />
       <NumberInput
         label="Divider weight (px)"
         value={config.layout.otherParams.dividerWeight}
-        onChange={(value) => {
-          setOtherParams({dividerWeight: value});
-          setOtherCssParams("dividerWeight", value);
-        }}
+        onChange={(value) => handleChange("dividerWeight", value)}
       />
       <NumberInput
         label="Hover opacity (0-1)"
         value={config.layout.otherParams.hoverOpacity}
-        onChange={(value) => {
-          setOtherParams({hoverOpacity: value});
-          setOtherCssParams("hoverOpacity", value);
-        }}
+        onChange={(value) => handleChange("hoverOpacity", value)}
       />
     </ConfigSection>
   );

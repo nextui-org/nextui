@@ -13,6 +13,9 @@ interface ShowcaseComponentProps {
   variants?: NextUIVariant[];
 }
 
+/**
+ * Showcase component that renders various UI components for theme preview.
+ */
 export function ShowcaseComponent({
   children,
   defaultVariant,
