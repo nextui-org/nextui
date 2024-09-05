@@ -1,6 +1,6 @@
 import colors from "./colors";
 import usage from "./usage";
-import isCloseable from "./isCloseable";
+import isCloseable from "./isClosable";
 import radius from "./radius";
 
 export const alertContent = {
