@@ -47,6 +47,7 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
+    "@nextui-org/use-aria-overlay": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/dialog": "3.5.14",
     "@react-aria/focus": "3.17.1",
