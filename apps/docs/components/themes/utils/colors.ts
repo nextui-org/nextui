@@ -15,9 +15,14 @@ export function colorValuesToRgb(value: Values) {
 /**
  * Generate theme color
  */
-export function generateThemeColor(color: string, theme: ThemeType, weight: number): ThemeColor {
+export function generateThemeColor(
+  color: string,
+  type: ColorPickerType,
+  theme: ThemeType,
+): ThemeColor {
   const values = new Values(color);
-  const colorValues = values.all(weight);
+  const colorWeight = getColorWeight(type, theme);
+  const colorValues = values.all(colorWeight);
   let shades = colorValues.slice(0, colorValues.length - 1).reduce((acc, shadeValue, index) => {
     (acc as any)[index === 0 ? 50 : index * 100] = rgbToHex(shadeValue.rgb);
 

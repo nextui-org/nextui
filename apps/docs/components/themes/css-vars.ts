@@ -2,14 +2,13 @@ import {readableColor} from "color2k";
 
 import {colorsId, baseColorsId, showcaseId, otherColorsId} from "./constants";
 import {ColorPickerType, Config, ConfigLayout, ThemeType, ThemeColor} from "./types";
-import {generateThemeColor, getColorWeight, hexToHsl} from "./utils/colors";
+import {generateThemeColor, hexToHsl} from "./utils/colors";
 
 export function setCssColor(colorType: ColorPickerType, value: string, theme: ThemeType) {
   const brandColorsEl = document.getElementById(colorsId);
   const commonColorsEl = document.getElementById(baseColorsId);
   const showcaseEl = document.getElementById(showcaseId);
-  const colorWeight = getColorWeight(colorType, theme);
-  const themeColor = generateThemeColor(value, theme, colorWeight);
+  const themeColor = generateThemeColor(value, colorType, theme);
 
   if (!brandColorsEl || !commonColorsEl || !showcaseEl) {
     // eslint-disable-next-line no-console

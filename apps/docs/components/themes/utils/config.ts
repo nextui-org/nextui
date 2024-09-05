@@ -2,7 +2,6 @@ import {NextUIPluginConfig} from "@nextui-org/theme";
 import {readableColor} from "color2k";
 
 import {Config} from "../types";
-import {colorWeight, defaultDarkColorWeight, defaultLightColorWeight} from "../constants";
 
 import {generateThemeColor} from "./colors";
 
@@ -42,18 +41,14 @@ export function generatePluginConfig(config: Config): NextUIPluginConfig {
     themes: {
       light: {
         colors: {
-          default: generateThemeColor(
-            config.light.brandColor.default,
-            "light",
-            defaultLightColorWeight,
-          ),
-          primary: generateThemeColor(config.light.brandColor.primary, "light", colorWeight),
-          secondary: generateThemeColor(config.light.brandColor.secondary, "light", colorWeight),
-          success: generateThemeColor(config.light.brandColor.success, "light", colorWeight),
-          warning: generateThemeColor(config.light.brandColor.warning, "light", colorWeight),
-          danger: generateThemeColor(config.light.brandColor.danger, "light", colorWeight),
+          default: generateThemeColor(config.light.brandColor.default, "default", "light"),
+          primary: generateThemeColor(config.light.brandColor.primary, "primary", "light"),
+          secondary: generateThemeColor(config.light.brandColor.secondary, "secondary", "light"),
+          success: generateThemeColor(config.light.brandColor.success, "success", "light"),
+          warning: generateThemeColor(config.light.brandColor.warning, "warning", "light"),
+          danger: generateThemeColor(config.light.brandColor.danger, "danger", "light"),
           background: config.light.baseColor.background,
-          foreground: generateThemeColor(config.light.baseColor.foreground, "light", colorWeight),
+          foreground: generateThemeColor(config.light.baseColor.foreground, "foreground", "light"),
           content1: {
             DEFAULT: config.light.baseColor.content1,
             foreground: readableColor(config.light.baseColor.content1),
@@ -77,18 +72,14 @@ export function generatePluginConfig(config: Config): NextUIPluginConfig {
       },
       dark: {
         colors: {
-          default: generateThemeColor(
-            config.dark.brandColor.default,
-            "dark",
-            defaultDarkColorWeight,
-          ),
-          primary: generateThemeColor(config.dark.brandColor.primary, "dark", colorWeight),
-          secondary: generateThemeColor(config.dark.brandColor.secondary, "dark", colorWeight),
-          success: generateThemeColor(config.dark.brandColor.success, "dark", colorWeight),
-          warning: generateThemeColor(config.dark.brandColor.warning, "dark", colorWeight),
-          danger: generateThemeColor(config.dark.brandColor.danger, "dark", colorWeight),
+          default: generateThemeColor(config.dark.brandColor.default, "default", "dark"),
+          primary: generateThemeColor(config.dark.brandColor.primary, "primary", "dark"),
+          secondary: generateThemeColor(config.dark.brandColor.secondary, "secondary", "dark"),
+          success: generateThemeColor(config.dark.brandColor.success, "success", "dark"),
+          warning: generateThemeColor(config.dark.brandColor.warning, "warning", "dark"),
+          danger: generateThemeColor(config.dark.brandColor.danger, "danger", "dark"),
           background: config.dark.baseColor.background,
-          foreground: generateThemeColor(config.dark.baseColor.foreground, "dark", colorWeight),
+          foreground: generateThemeColor(config.dark.baseColor.foreground, "foreground", "dark"),
           content1: {
             DEFAULT: config.dark.baseColor.content1,
             foreground: readableColor(config.dark.baseColor.content1),
