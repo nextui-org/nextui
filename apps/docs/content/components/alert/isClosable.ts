@@ -7,14 +7,17 @@ export default function App() {
   return (
     <div className="flex items-center justify-center w-screen h-[400px]">
         <div className="flex flex-col">
+
             <div className="w-full flex-col items-center my-3">
-                <h2 className="my-2 h2">isClosable = true</h2>
-                <Alert title = {title} description = {description} isClosable={true} />
+                <h2 className="my-2 h2">isCloseable = true</h2>
+                <Alert title = {title} description = {description} isCloseable={true} />
             </div>
+
             <div className="w-full flex-col items-center my-3">
-                <h2 className="my-2 h2">isClosable = false</h2>
-                <Alert title = {title} description = {description} isClosable={false} />
+                <h2 className="my-2 h2">isCloseable = false</h2>
+                <Alert title = {title} description = {description} isCloseable={false} />
             </div>
+            
         </div>
     </div>
   );
