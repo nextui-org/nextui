@@ -1,0 +1,83 @@
+---
+title: "Alert"
+description: "Alerts are temporary notifications that provide concise feedback about an action or event."
+---
+
+import {alertContent} from "@/content/components/alert";
+
+# Alert
+
+Alerts are temporary notifications that provide concise feedback about an action or event.
+
+<ComponentLinks component="alert"/>
+
+---
+
+
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add alert",
+    npm: "npm install @nextui-org/alert",
+    yarn: "yarn add @nextui-org/alert",
+    pnpm: "pnpm add @nextui-org/alert",
+    bun: "bun add @nextui-org/alert"
+  }}
+/>
+
+## Import
+
+
+<ImportTabs
+  commands={{
+    main: 'import {Alert} from "@nextui-org/react";',
+    individual: 'import {Alert} from "@nextui-org/alert";',
+  }}
+/>
+
+## Usage
+- It accepts `title` and `description` as props for the alert message.
+- `title` is a optional property.
+
+<CodeDemo title="Usage" files={alertContent.usage} />
+
+### Radius
+
+<CodeDemo title="Radius" files={alertContent.radius} />
+
+### Colors
+
+<CodeDemo title="Colors" files={alertContent.colors} />
+
+
+### isClosable
+
+If `isClosable` is true, a close button appear on alert which can be used to close it.
+It is set to true by default.
+
+<CodeDemo title="Loading" files={alertContent.isClosable} />
+
+
+<Spacer y={4} />
+
+
+## API
+
+### Alert Props
+
+| Attribute        | Type                                                                         | Description                                                  | Default   |
+| ---------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
+| title            | `string`                                                                     | Title for alert                                              | -         |
+| description      | `ReactNode`                                                                  | Description for alert message                                | -         |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The alert color theme.                                       | `default` |
+| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The alert border radius.                                     | `md`      |
+| isClosable      | `boolean`                                                                    | Whether the close button should be displayed.                | `true`    |
+
+### Alert Events
+
+| Attribute    | Type                        | Description                                                 |
+| ------------ | --------------------------- | ----------------------------------------------------------- |
+| onClose      | `() => void`                | Handler that is called when the close button is clicked.    |
