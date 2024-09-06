@@ -684,6 +684,34 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  packages/components/alert:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+    devDependencies:
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+
   packages/components/autocomplete:
     dependencies:
       '@nextui-org/button':
