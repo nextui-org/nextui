@@ -1950,6 +1950,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@nextui-org/use-intersection-observer':
+        specifier: workspace:*
+        version: link:../../hooks/use-intersection-observer
       '@nextui-org/use-pagination':
         specifier: workspace:*
         version: link:../../hooks/use-pagination

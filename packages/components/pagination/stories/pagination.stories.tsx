@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import {Meta} from "@storybook/react";
 import {button, pagination} from "@nextui-org/theme";
 import {cn} from "@nextui-org/theme";
@@ -135,6 +135,31 @@ export const Controlled = () => {
       </div>
     </div>
   );
+};
+
+const ToggleDisplay = () => {
+  const [showPagination, setShowPagination] = useState(false);
+
+  return (
+    <div>
+      <button onClick={() => setShowPagination(!showPagination)}>Toggle Pagination</button>
+      <div className={showPagination ? "block" : "hidden"}>
+        <Pagination
+          {...defaultProps}
+          isCompact
+          showControls
+          showShadow
+          color="primary"
+          initialPage={4}
+          total={10}
+        />
+      </div>
+    </div>
+  );
+};
+
+export const TogglePagination = {
+  render: ToggleDisplay,
 };
 
 export const CustomItems = () => {
