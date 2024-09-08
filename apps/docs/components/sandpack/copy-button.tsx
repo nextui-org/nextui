@@ -3,7 +3,6 @@ import {useSandpack} from "@codesandbox/sandpack-react";
 import {Tooltip, Button} from "@nextui-org/react";
 import {useClipboard} from "@nextui-org/use-clipboard";
 
-import {trackEvent} from "@/utils/va";
 import {CopyLinearIcon} from "@/components/icons";
 
 export const CopyButton = () => {
@@ -15,13 +14,6 @@ export const CopyButton = () => {
     const code = sandpack.files[sandpack.activeFile].code;
 
     copy(code);
-
-    trackEvent("CopyButton - Sandpack", {
-      name: "sandpack - copy code",
-      action: "press",
-      category: "docs",
-      data: sandpack.activeFile,
-    });
   };
 
   return (

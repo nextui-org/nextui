@@ -1,4 +1,5 @@
 import type {ReactNode} from "react";
+import type {SlotsToClasses, AvatarGroupSlots, AvatarGroupVariantProps} from "@nextui-org/theme";
 
 import {avatarGroup} from "@nextui-org/theme";
 import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
@@ -31,9 +32,23 @@ interface Props extends HTMLNextUIProps<"div"> {
    * This allows you to render a custom count component.
    */
   renderCount?: (count: number) => ReactNode;
+  /**
+   * Classname or List of classes to change the classNames of the avatar group.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <AvatarGroup classNames={{
+   *    base: "base-classes",
+   *    count: "count-classes"
+   * }} />
+   * ```
+   */
+  classNames?: SlotsToClasses<AvatarGroupSlots>;
 }
 
 export type UseAvatarGroupProps = Props &
+  Omit<AvatarGroupVariantProps, "children" | "isGrid"> &
   Partial<Pick<AvatarProps, "size" | "color" | "radius" | "isDisabled" | "isBordered">>;
 
 export type ContextType = {
@@ -60,6 +75,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps = {}) {
     isGrid,
     renderCount,
     className,
+    classNames,
     ...otherProps
   } = props;
 
@@ -78,7 +94,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps = {}) {
     }),
     [size, color, radius, isGrid, isBordered, isDisabled],
   );
-  const classNames = useMemo(() => avatarGroup({className, isGrid}), [className, isGrid]);
+  const slots = useMemo(() => avatarGroup({className, isGrid}), [className, isGrid]);
 
   const validChildren = getValidChildren(children);
   const childrenWithinMax = max ? validChildren.slice(0, max) : validChildren;
@@ -102,10 +118,20 @@ export function useAvatarGroup(props: UseAvatarGroupProps = {}) {
   const getAvatarGroupProps: PropGetter = () => {
     return {
       ref: domRef,
-      className: classNames,
+      className: slots.base({
+        class: clsx(classNames?.base, className),
+      }),
       role: "group",
       ...otherProps,
     };
+  };
+
+  const getAvatarGroupCountProps = () => {
+    return {
+      className: slots.count({
+        class: classNames?.count,
+      }),
+    } as AvatarProps;
   };
 
   return {
@@ -115,6 +141,7 @@ export function useAvatarGroup(props: UseAvatarGroupProps = {}) {
     clones,
     renderCount,
     getAvatarGroupProps,
+    getAvatarGroupCountProps,
   };
 }
 

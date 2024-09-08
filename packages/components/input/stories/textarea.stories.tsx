@@ -1,7 +1,10 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 import {SendFilledIcon, PlusFilledIcon} from "@nextui-org/shared-icons";
+import {button} from "@nextui-org/theme";
 
 import {Textarea, TextAreaProps} from "../src";
 
@@ -48,6 +51,12 @@ export default {
       control: {
         type: "boolean",
       },
+    },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
     },
   },
   decorators: [
@@ -99,6 +108,24 @@ const MaxRowsTemplate = (args: TextAreaProps) => (
   </div>
 );
 
+const FormTemplate = (args: TextAreaProps) => (
+  <form
+    className="w-full max-w-xl flex flex-row items-end gap-4"
+    onSubmit={(e) => {
+      alert(`Submitted value: ${e.target["textarea"].value}`);
+      e.preventDefault();
+    }}
+  >
+    <div className="w-full max-w-[440px]">
+      <Textarea name="textarea" {...args} />
+    </div>
+
+    <button className={button({color: "primary"})} type="submit">
+      Submit
+    </button>
+  </form>
+);
+
 export const Default = {
   render: Template,
 
@@ -125,7 +152,7 @@ export const FullRounded = {
 };
 
 export const Required = {
-  render: Template,
+  render: FormTemplate,
 
   args: {
     ...defaultProps,
@@ -217,7 +244,51 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    IsInvalid: true,
     errorMessage: "Please enter a valid description",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    minLength: "10",
+    maxLength: "",
+    label: "Comment",
+    placeholder: "Enter your comment (10-100 characters)",
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.tooLong) {
+        return "Comment is too short. Min 10 characters.";
+      }
+      if (value.validationDetails.tooShort) {
+        return "Comment is too long. Max 100 characters.";
+      }
+      if (value.validationDetails.valueMissing) {
+        return "Comment is required";
+      }
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (value.length < 10) {
+        return "Comment is too short. Min 10 characters.";
+      }
+      if (value.length > 100) {
+        return "Comment is too long. Max 100 characters.";
+      }
+    },
+    isRequired: true,
+    label: "Comment",
+    placeholder: "Enter your comment (10-100 characters)",
   },
 };
 

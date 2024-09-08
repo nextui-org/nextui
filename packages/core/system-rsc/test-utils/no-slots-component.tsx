@@ -1,8 +1,10 @@
 import type {HTMLNextUIProps} from "../src/types";
+import type {VariantProps} from "@nextui-org/theme";
 
 import React, {useMemo} from "react";
-import {tv, type VariantProps} from "@nextui-org/theme";
+import {tv} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {objectToDeps} from "@nextui-org/shared-utils";
 
 import {mapPropsVariants} from "../src/utils";
 import {forwardRef} from "../src/utils";
@@ -26,9 +28,9 @@ const button = tv({
       foreground: "bg-foreground text-background",
     },
     size: {
-      sm: "px-unit-3 min-w-unit-16 h-unit-8 text-tiny gap-unit-2 rounded-small",
-      md: "px-unit-4 min-w-unit-20 h-unit-10 text-small gap-unit-2 rounded-medium",
-      lg: "px-unit-6 min-w-unit-24 h-unit-12 text-medium gap-unit-3 rounded-large",
+      sm: "px-3 min-w-16 h-8 text-tiny gap-2 rounded-small",
+      md: "px-4 min-w-20 h-10 text-small gap-2 rounded-medium",
+      lg: "px-6 min-w-24 h-12 text-medium gap-3 rounded-large",
     },
     isDisabled: {
       true: "opacity-disabled pointer-events-none",
@@ -65,7 +67,7 @@ export const Button = forwardRef<"button", ButtonProps>((originalProps, ref) => 
 
   const styles = useMemo(
     () => button({...variantProps, className: originalProps?.className}),
-    [...Object.values(variantProps), props.className],
+    [objectToDeps(variantProps), props.className],
   );
 
   const domRef = useDOMRef(ref);

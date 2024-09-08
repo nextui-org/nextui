@@ -20,13 +20,7 @@
   </a>
 </p>
 
-<p align="center">
-  <a rel="noopener noreferrer" target="_blank" href="https://www.vercel.com?utm_source=nextui&utm_marketing=oss">
-    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/deployed-on-vercel.svg" alt="Deployed on vercel">
-  </a>
-</p>
-
-> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
+> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com).
 
 ## Getting Started
 
@@ -36,7 +30,18 @@ Visit <a aria-label="nextui learn" href="https://nextui.org/learn">https://nextu
 
 Visit [https://nextui.org/docs](https://nextui.org/docs) to view the full documentation.
 
-### Community
+## Storybook
+
+Visit [https://storybook.nextui.org](https://storybook.nextui.org/) to view the storybook for all components.
+
+## Canary Release
+
+Canary versions are available after every merge into `canary` branch. You can install the packages with the tag `canary` in npm to use the latest changes before the next production release.
+
+- [Documentation](https://canary.nextui.org/docs)
+- [Storybook](https://canary-storybook.nextui.org)
+
+## Community
 
 We're excited to see the community adopt NextUI, raise issues, and provide feedback.
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
@@ -49,7 +54,7 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 Contributions are always welcome!
 
-See [CONTRIBUTING.md](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) for ways to get started.
+See [CONTRIBUTING.md](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) for ways to get started.
 
 Please adhere to this project's [CODE_OF_CONDUCT](https://github.com/nextui-org/nextui/blob/main/CODE_OF_CONDUCT.md).
 

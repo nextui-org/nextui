@@ -47,6 +47,7 @@ export const DOMPropNames = new Set([
   "draggable",
   "dropzone",
   "encType",
+  "enterKeyHint",
   "for",
   "form",
   "formAction",
