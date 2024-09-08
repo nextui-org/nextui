@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput} from "@nextui-org/theme";
+import {dateInput, button} from "@nextui-org/theme";
 import {
   CalendarDate,
   DateValue,
@@ -13,6 +13,7 @@ import {
 } from "@internationalized/date";
 import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 import {useDateFormatter, I18nProvider} from "@react-aria/i18n";
+import {ValidationResult} from "@react-types/shared";
 
 import {DateInput, DateInputProps} from "../src";
 
@@ -55,6 +56,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
 } as Meta<typeof DateInput>;
 
@@ -65,6 +72,21 @@ const defaultProps = {
 
 const Template = (args: DateInputProps) => (
   <DateInput {...args} placeholderValue={new CalendarDate(1995, 11, 6)} />
+);
+
+const FormTemplate = (args: DateInputProps) => (
+  <form
+    className="flex flex-col gap-2"
+    onSubmit={(e) => {
+      e.preventDefault();
+      alert(`Submitted: ${e.target["date"].value}`);
+    }}
+  >
+    <DateInput {...args} name="date" />
+    <button className={button({className: "max-w-fit"})} type="submit">
+      Submit
+    </button>
+  </form>
 );
 
 const LabelPlacementTemplate = (args: DateInputProps) => (
@@ -152,7 +174,7 @@ export const Default = {
 };
 
 export const Required = {
-  render: Template,
+  render: FormTemplate,
   args: {
     ...defaultProps,
     isRequired: true,
@@ -233,7 +255,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
+    isInvalid: true,
     errorMessage: "Please enter a valid date",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date";
+      }
+    },
   },
 };
 
@@ -335,5 +372,37 @@ export const HourCycle = {
     hourCycle: 24,
     defaultValue: parseZonedDateTime("2022-11-07T00:45[America/Los_Angeles]"),
     granularity: "minute",
+  },
+};
+
+export const UnavailableDates = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    label: "Appointment date (Unavailable: Jan 1 - Jan 8, 2024)",
+    isDateUnavailable: (date) => {
+      return (
+        date.compare(new CalendarDate(2024, 1, 1)) >= 0 &&
+        date.compare(new CalendarDate(2024, 1, 8)) <= 0
+      );
+    },
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (!value) {
+        return "Please enter a date";
+      }
+      if (value.year < 2024) {
+        return "Please select a date in the year 2024 or later";
+      }
+    },
+    label: "Date (Year 2024 or later)",
   },
 };

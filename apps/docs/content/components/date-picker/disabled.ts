@@ -1,5 +1,4 @@
 const App = `import {DatePicker} from "@nextui-org/react";
-import {CalendarDate, parseDate} from "@internationalized/date";
 
 export default function App() {
   return (
@@ -7,7 +6,7 @@ export default function App() {
         <DatePicker 
           label="Birth date"
           className="max-w-[284px]"
-          isReadOnly
+          isDisabled
         />
     </div>
   );

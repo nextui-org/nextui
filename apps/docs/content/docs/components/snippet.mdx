@@ -13,13 +13,14 @@ Snippet is a component that can be used to display inline or multiline code snip
 
 ---
 
-<CarbonAd/>
+
 
 ## Installation
 
 <PackageManagers
+  showGlobalInstallWarning
   commands={{
-    cli: "nextui add snippet",
+    cli: "npx nextui-cli@latest add snippet",
     npm: "npm install @nextui-org/snippet",
     yarn: "yarn add @nextui-org/snippet",
     pnpm: "pnpm add @nextui-org/snippet",
@@ -91,7 +92,7 @@ You can customize the copy and copied icons by using the `copyIcon` and `checkIc
 - **copyIcon**: The copy icon slot.
 - **checkIcon**: The check icon slot.
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## API
 
@@ -103,7 +104,7 @@ You can customize the copy and copied icons by using the `copyIcon` and `checkIc
 | size             | `sm` \| `md` \| `lg`                                                            | The size of the snippet.                                                                       | `md`    |
 | radius           | `none` \| `sm` \| `md` \| `lg`                                                  | The radius of the snippet.                                                                     | `lg`    |
 | symbol           | `string` \| `ReactNode`                                                         | The symbol to show before the snippet.                                                         | `$`     |
-| timeout          | `number`                                                                        | he time in milliseconds to wait before resetting the clipboard.                                | `2000`  |
+| timeout          | `number`                                                                        | The time in milliseconds to wait before resetting the clipboard.                                | `2000`  |
 | codeString       | `string`                                                                        | The code string to copy. if `codeString` is passed, it will be copied instead of the children. | -       |
 | tooltipProps     | [TooltipProps](/docs/components/tooltip#tooltip-props)                          | The props of the tooltip.                                                                      | -       |
 | copyIcon         | `ReactNode`                                                                     | The copy icon.                                                                                 | -       |

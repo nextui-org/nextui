@@ -28,6 +28,7 @@ Usage: nextui [command]
 
 Options:
   -v, --version  Show the version number
+  --no-cache     Disable cache, by default data will be cached for 30m after the first request
   -h, --help     Display help for commands
 
 Commands:
@@ -51,11 +52,45 @@ nextui init [projectName] [options]
 ### Options
 
 - `-t --template [string]` The template to use for the new project e.g. app, pages
+- `-p --package [string]` The package manager to use for the new project (default: `npm`)
 
 ### Example
 
 ```codeBlock bash
 nextui init my-nextui-app -t app
+```
+
+output:
+
+```codeBlock bash
+NextUI CLI v0.2.1
+
+┌  Create a new project
+│
+◇  Select a template (Enter to select)
+│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
+│
+◇  New project name (Enter to skip with default name)
+│  my-nextui-app
+│
+◇  Select a package manager (Enter to select)
+│  ● npm
+│  ○ yarn
+│  ○ pnpm
+│  ○ bun
+│
+◇  Template created successfully!
+│
+◇  Next steps ───────╮
+│                    │
+│  cd my-nextui-app  │
+│  npm install       │
+│                    │
+├────────────────────╯
+│
+└  🚀 Get started with npm run dev
 ```
 
 ## add
@@ -79,7 +114,6 @@ nextui add [components...] [options]
 - `--prettier` [boolean] Add prettier format in the add content which required installed prettier - (default: false)
 - `--addApp` [boolean] Add App.tsx file content which required provider (default: `false`)
 
-
 ### Example
 
 Without setting a specific component, the `add` command will show a list of available components.
@@ -91,27 +125,22 @@ nextui add
 Output:
 
 ```codeBlock bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
-? Which components would you like to add? › - Space to select. Return to submit
-Instructions:
-    ↑/↓: Highlight option
-    ←/→/[space]: Toggle selection
-    [a,b,c]/delete: Filter choices
-    enter/return: Complete answer
+? Which components would you like to add? › - Space to select. Return to submit 
 
 Filtered results for: Enter something to filter
 
-◉  accordion
-◯  autocomplete
-◯  avatar
-◯  badge
-◯  breadcrumbs
-◯  button
-◯  card
-◯  checkbox
-◯  chip
-◯  code
+◯   accordion
+◯   autocomplete
+◯   avatar
+◯   badge
+◯   breadcrumbs
+◯   button
+◯   calendar
+◯   card
+◯   checkbox
+◯ ↓ chip
 ```
 
 If you want to add a specific component, you can specify the component name.
@@ -123,7 +152,7 @@ nextui add button input
 Output:
 
 ```bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
 Adding the required dependencies: @nextui-org/button
 
@@ -142,7 +171,6 @@ Tailwind CSS settings have been updated in: /project-path/tailwind.config.js
 ✅ Components added successfully
 ```
 
-
 ## upgrade
 
 Upgrade the NextUI components to the latest version.
@@ -157,27 +185,33 @@ nextui upgrade [components...] [options]
 - `-a --all` [boolean] Upgrade all the NextUI components (default: `false`).
 - `-h, --help` Display help for commands.
 
-
 ### Example
 
 ```codeBlock bash
 nextui upgrade button
 ```
 
-
 Output:
 
 ```bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
-╭───────────────────────────────────────────────────────────╮
-│  @nextui-org/button              2.0.24  ->  2.0.27   │
-╰───────────────────────────────────────────────────────────╯
+╭───────────────────────── Component ─────────────────────────╮
+│  @nextui-org/button              ^2.0.11  ->  ^2.0.31       │
+╰─────────────────────────────────────────────────────────────╯
+
+Required min version: @nextui-org/theme>=2.1.0, tailwindcss>=3.4.0
+╭───────────────────── PeerDependencies ─────────────────────╮
+│  @nextui-org/theme               2.0.1    ->  2.1.0        │
+│  tailwindcss                     ^3.2.3   ->  ^3.4.0       │
+╰────────────────────────────────────────────────────────────╯
+2 minor, 1 patch
+
 ? Would you like to proceed with the upgrade? › - Use arrow-keys. Return to submit.
 ❯   Yes
     No
 
-pnpm add  @nextui-org/button@2.0.27
+pnpm add @nextui-org/button@2.0.31 @nextui-org/theme@2.1.0 tailwindcss@3.4.0
 Already up to date
 Progress: resolved 474, reused 465, downloaded 0, added 0, done
 Done in 2.9s
@@ -194,7 +228,6 @@ Remove NextUI components from your project.
   ```codeBlock bash
   nextui remove [components...] [options]
   ```
-
 
 ### Options
 
@@ -213,7 +246,7 @@ nextui remove button
 Output:
 
 ```bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
 ❗️ Components slated for removal:
 ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
@@ -249,8 +282,8 @@ nextui list [options]
 
 ### Options
 
-- `-p --packagePath` [string] The path to the package.json file.
-- `-c --current` List the current installed components.
+- `-p --packagePath` [string] The path to the package.json file
+- `-r --remote` List all components available remotely
 
 ### Example
 
@@ -261,7 +294,7 @@ nextui list
 Output:
 
 ```codeBlock bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
 Current installed components:
 
@@ -283,6 +316,7 @@ Diagnose problems in your project.
 > 2. Check whether the NextUI components `required dependencies are installed` in the project
 > 3. Check the required `tailwind.config.js` file and the content is correct
 > 4. Check `.npmrc` is correct when using `pnpm`
+> 5. Check `peerDependencies with required version` are installed in the project
 
 ```codeBlock bash
 nextui doctor [options]
@@ -310,7 +344,7 @@ Output:
 If there is a problem in your project, the `doctor` command will display the problem information.
 
 ```codeBlock bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
 NextUI CLI: ❌ Your project has 1 issue that require attention
 
@@ -322,7 +356,7 @@ Missing tailwind.config.(j|t)s file. To set up, visit: https://nextui.org/docs/g
 Otherwise, the `doctor` command will display the following message.
 
 ```codeBlock bash
-NextUI CLI v0.1.2
+NextUI CLI v0.2.1
 
 ✅ Your project has no detected issues.
 ```
@@ -348,7 +382,7 @@ nextui env
 Output:
 
 ```codeBlock bash
-NextUI CLI 0.1.0
+NextUI CLI 0.2.1
 
 Current installed components:
 

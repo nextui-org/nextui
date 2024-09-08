@@ -2,7 +2,7 @@ import type {ProgressVariantProps, SlotsToClasses, ProgressSlots} from "@nextui-
 import type {PropGetter} from "@nextui-org/system";
 import type {AriaProgressBarProps} from "@react-types/progress";
 
-import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {progress} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clampPercentage, clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -44,6 +44,7 @@ interface Props extends HTMLNextUIProps<"div"> {
 export type UseProgressProps = Props & AriaProgressBarProps & ProgressVariantProps;
 
 export function useProgress(originalProps: UseProgressProps) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, progress.variantKeys);
 
   const {
@@ -73,7 +74,11 @@ export function useProgress(originalProps: UseProgressProps) {
     rerender: true,
     delay: 100,
   });
+
   const isIndeterminate = originalProps.isIndeterminate;
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const {progressBarProps, labelProps} = useAriaProgress({
     id,
@@ -92,11 +97,12 @@ export function useProgress(originalProps: UseProgressProps) {
     () =>
       progress({
         ...variantProps,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps)],
+    [objectToDeps(variantProps), disableAnimation],
   );
 
-  const selfMounted = originalProps.disableAnimation ? true : isMounted;
+  const selfMounted = disableAnimation ? true : isMounted;
 
   // Calculate the width of the progress bar as a percentage
   const percentage = useMemo(

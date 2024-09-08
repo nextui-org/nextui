@@ -1,14 +1,14 @@
 "use client";
 
 import NextLink from "next/link";
-import {Button, Link, Chip} from "@nextui-org/react";
+import {Button, Link, Chip, Snippet} from "@nextui-org/react";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import dynamic from "next/dynamic";
 
 import {FloatingComponents} from "./floating-components";
 
-import {title, subtitle} from "@/components/primitives";
 import {GithubIcon} from "@/components/icons";
+import {title, subtitle} from "@/components/primitives";
 import {trackEvent} from "@/utils/va";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
@@ -35,11 +35,11 @@ export const Hero = () => {
             color="default"
             href="/blog/v2.3.0"
             variant="dot"
-            onClick={() => handlePressAnnouncement("Introducing v2.3.0", "/blog/v2.3.0")}
+            onClick={() => handlePressAnnouncement("New version v2.4.0", "/blog/v2.4.0")}
           >
-            Introducing v2.3.0&nbsp;
-            <span aria-label="tada emoji" role="img">
-              🎉
+            New version v2.4.0&nbsp;
+            <span aria-label="emoji" role="img">
+              🚀
             </span>
           </Chip>
         </div>
@@ -56,7 +56,7 @@ export const Hero = () => {
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}
-            className="w-full md:w-auto"
+            className="w-full md:h-11 md:w-auto"
             color="primary"
             endContent={
               <ArrowRightIcon
@@ -78,12 +78,27 @@ export const Hero = () => {
           >
             Get Started
           </Button>
-
+          <Snippet
+            className="w-full rounded-full hidden md:flex sm:w-auto"
+            copyButtonProps={{
+              radius: "full",
+            }}
+            onCopy={() => {
+              trackEvent("Hero - Copy Install Command", {
+                name: "Copy",
+                action: "click",
+                category: "landing-page",
+                data: "npx nextui-cli@latest init",
+              });
+            }}
+          >
+            npx nextui-cli@latest init
+          </Snippet>
           <Button
             fullWidth
             isExternal
             as={Link}
-            className="w-full md:w-auto"
+            className="w-full md:hidden"
             href="https://github.com/nextui-org/nextui"
             radius="full"
             size="lg"
@@ -98,7 +113,7 @@ export const Hero = () => {
               });
             }}
           >
-            Github
+            GitHub
           </Button>
         </div>
       </div>

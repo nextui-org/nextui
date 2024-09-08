@@ -55,7 +55,7 @@ export default function App() {
 
 const react = {
   "/App.jsx": App,
-  "/MailIcon.jsx": CalendarIcon,
+  "/CalendarIcon.jsx": CalendarIcon,
 };
 
 export default {

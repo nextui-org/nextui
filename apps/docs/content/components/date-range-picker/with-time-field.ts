@@ -1,4 +1,6 @@
 const App = `import {DateRangePicker} from "@nextui-org/react";
+import {parseZonedDateTime} from "@internationalized/date";
+
 export default function App() {
   return (
     <div className="w-full max-w-xl flex flex-row gap-4">

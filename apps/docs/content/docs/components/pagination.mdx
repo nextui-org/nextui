@@ -13,13 +13,14 @@ The Pagination component allows you to display active page and navigate between 
 
 ---
 
-<CarbonAd/>
+
 
 ## Installation
 
 <PackageManagers
+  showGlobalInstallWarning
   commands={{
-    cli: "nextui add pagination",
+    cli: "npx nextui-cli@latest add pagination",
     npm: "npm install @nextui-org/pagination",
     yarn: "yarn add @nextui-org/pagination",
     pnpm: "pnpm add @nextui-org/pagination",
@@ -125,7 +126,7 @@ You can use the `renderItem` property to customize the pagination items.
 - **prev**: The previous button slot.
 - **next**: The next button slot.
 - **item**: The pagination item slot, applied to the middle items.
-- **cursor**: The current page slot. Available only when `disableCursorAnimation` is `false` and `disableAnimation` is `false.
+- **cursor**: The current page slot. Available only when `disableCursorAnimation` is `false` and `disableAnimation` is `false`.
 - **forwardIcon**: The forward icon slot. The one that appears when hovering the ellipsis button.
 - **ellipsis**: The ellipsis slot.
 - **chevronNext**: The chevron next icon slot.

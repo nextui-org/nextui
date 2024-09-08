@@ -8,8 +8,18 @@ import {ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
-import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  useOverlayPosition,
+  useOverlay,
+  AriaOverlayProps,
+  usePreventScroll,
+} from "@react-aria/overlays";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {popover} from "@nextui-org/theme";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
@@ -77,6 +87,11 @@ interface Props extends Omit<HTMLNextUIProps, "content"> {
    * ```
    */
   classNames?: SlotsToClasses<"base" | "arrow" | "content">;
+  /**
+   * Whether to block scrolling outside the tooltip.
+   * @default true
+   */
+  shouldBlockScroll?: boolean;
 }
 
 export type UseTooltipProps = Props &
@@ -87,6 +102,7 @@ export type UseTooltipProps = Props &
   PopoverVariantProps;
 
 export function useTooltip(originalProps: UseTooltipProps) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
 
   const {
@@ -117,10 +133,14 @@ export function useTooltip(originalProps: UseTooltipProps) {
     onClose,
     motionProps,
     classNames,
+    shouldBlockScroll = true,
     ...otherProps
   } = props;
 
   const Component = as || "div";
+
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const state = useTooltipTriggerState({
     delay,
@@ -148,6 +168,8 @@ export function useTooltip(originalProps: UseTooltipProps) {
     // @ts-ignore
     createDOMRef(overlayRef),
   );
+
+  usePreventScroll({isDisabled: !(shouldBlockScroll && isOpen)});
 
   const {triggerProps, tooltipProps: triggerTooltipProps} = useTooltipTrigger(
     {
@@ -203,11 +225,18 @@ export function useTooltip(originalProps: UseTooltipProps) {
     () =>
       popover({
         ...variantProps,
+        disableAnimation,
         radius: originalProps?.radius ?? "md",
         size: originalProps?.size ?? "md",
         shadow: originalProps?.shadow ?? "sm",
       }),
-    [objectToDeps(variantProps), originalProps?.radius, originalProps?.size, originalProps?.shadow],
+    [
+      objectToDeps(variantProps),
+      disableAnimation,
+      originalProps?.radius,
+      originalProps?.size,
+      originalProps?.shadow,
+    ],
   );
 
   const getTriggerProps = useCallback<PropGetter>(
@@ -269,7 +298,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     showArrow,
     portalContainer,
     placement: placementProp,
-    disableAnimation: originalProps?.disableAnimation,
+    disableAnimation,
     isDisabled,
     motionProps,
     getTooltipContentProps,

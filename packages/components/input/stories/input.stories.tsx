@@ -13,6 +13,7 @@ import {
   CloseFilledIcon,
 } from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
+import {useForm} from "react-hook-form";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -54,6 +55,12 @@ export default {
       control: {
         type: "boolean",
       },
+    },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
     },
   },
   decorators: [
@@ -130,7 +137,7 @@ const PasswordTemplate = (args) => {
 const RegexValidationTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
-  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+.[A-Z]{2,4}$/i);
+  const validateEmail = (value) => value.match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i);
 
   const validationState = React.useMemo(() => {
     if (value === "") return undefined;
@@ -336,6 +343,8 @@ const InputTypesTemplate = (args) => (
     <Input {...args} label="Month" placeholder="Enter your month" type="month" />
     <Input {...args} label="Week" placeholder="Enter your week" type="week" />
     <Input {...args} label="Range" placeholder="Enter your range" type="range" />
+    <Input {...args} label="Single File" type="file" />
+    <Input {...args} multiple label="Multiple Files" type="file" />
   </div>
 );
 
@@ -471,6 +480,38 @@ const CustomWithHooksTemplate = (args: InputProps) => {
         {errorMessage && <div {...getErrorMessageProps()}>{errorMessage}</div>}
       </Component>
     </div>
+  );
+};
+
+const WithReactHookFormTemplate = (args: InputProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "wkw",
+      withoutDefaultValue: "",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <Input isClearable label="With default value" {...register("withDefaultValue")} />
+      <Input {...args} label="Without default value" {...register("withoutDefaultValue")} />
+      <Input {...args} label="Required" {...register("requiredField", {required: true})} />
+      {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
@@ -704,5 +745,13 @@ export const CustomWithHooks = {
     startContent: (
       <SearchIcon className="text-black/50 mb-0.5 dark:text-white/90 text-slate-400 pointer-events-none flex-shrink-0" />
     ),
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

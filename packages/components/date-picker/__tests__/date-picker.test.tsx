@@ -4,6 +4,7 @@ import {render, act, fireEvent, waitFor} from "@testing-library/react";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 import {CalendarDate, CalendarDateTime} from "@internationalized/date";
+import {NextUIProvider} from "@nextui-org/system";
 
 import {DatePicker as DatePickerBase, DatePickerProps} from "../src";
 
@@ -23,6 +24,26 @@ const DatePicker = React.forwardRef((props: DatePickerProps, ref: React.Ref<HTML
 });
 
 DatePicker.displayName = "DatePicker";
+
+const DatePickerWithLocale = React.forwardRef(
+  (props: DatePickerProps & {locale: string}, ref: React.Ref<HTMLDivElement>) => {
+    const {locale, ...otherProps} = props;
+
+    return (
+      <NextUIProvider locale={locale}>
+        <DatePickerBase
+          {...otherProps}
+          ref={ref}
+          disableAnimation
+          labelPlacement="outside"
+          shouldForceLeadingZeros={false}
+        />
+      </NextUIProvider>
+    );
+  },
+);
+
+DatePickerWithLocale.displayName = "DatePickerWithLocale";
 
 function getTextValue(el: any) {
   if (
@@ -171,6 +192,26 @@ describe("DatePicker", () => {
       let {getByTestId} = render(<DatePicker data-testid="foo" label="Date" />);
 
       expect(getByTestId("foo")).toHaveAttribute("role", "group");
+    });
+
+    it("should apply custom dateInput classNames", function () {
+      const {getByRole, getByText} = render(
+        <DatePicker
+          dateInputClassNames={{
+            inputWrapper: "border-green-500",
+            label: "text-green-500",
+          }}
+          label="Date"
+        />,
+      );
+
+      const label = getByText("Date");
+
+      expect(label).toHaveClass("text-green-500");
+
+      const inputWrapper = getByRole("group");
+
+      expect(inputWrapper).toHaveClass("border-green-500");
     });
   });
 
@@ -372,8 +413,17 @@ describe("DatePicker", () => {
   describe("Calendar popover", function () {
     it("should emit onChange when selecting a date in the calendar in controlled mode", function () {
       let onChange = jest.fn();
+      const consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
+      const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
+
       let {getByRole, getAllByRole, queryByLabelText} = render(
-        <DatePicker label="Date" value={new CalendarDate(2019, 2, 3)} onChange={onChange} />,
+        <DatePicker
+          hideTimeZone
+          isRequired
+          label="Date"
+          value={new CalendarDate(2019, 2, 3)}
+          onChange={onChange}
+        />,
       );
 
       let combobox = getAllByRole("group")[0];
@@ -406,6 +456,11 @@ describe("DatePicker", () => {
       expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
       expect(getTextValue(combobox)).toBe("2/3/2019"); // controlled
+
+      expect(consoleWarnSpy).not.toHaveBeenCalled();
+      expect(consoleErrorSpy).not.toHaveBeenCalled();
+      consoleWarnSpy.mockRestore();
+      consoleErrorSpy.mockRestore();
     });
 
     it("should emit onChange when selecting a date in the calendar in uncontrolled mode", function () {
@@ -442,6 +497,227 @@ describe("DatePicker", () => {
       expect(onChange).toHaveBeenCalledTimes(1);
       expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
       expect(getTextValue(combobox)).toBe("2/4/2019"); // uncontrolled
+    });
+
+    it("should keep the selected date when the picker is opened, in showMonthAndYearPickers mode", function () {
+      const {getByRole, getAllByRole} = render(
+        <DatePicker showMonthAndYearPickers label="Date" value={new CalendarDate(2024, 5, 1)} />,
+      );
+
+      let combobox = getAllByRole("group")[0];
+
+      expect(getTextValue(combobox)).toBe("5/1/2024");
+
+      let button = getByRole("button");
+
+      triggerPress(button);
+
+      let dialog = getByRole("dialog");
+
+      expect(dialog).toBeVisible();
+
+      const content = getByRole("application");
+
+      expect(content).toHaveAttribute("aria-label", "May 2024");
+    });
+  });
+
+  describe("Month and Year Picker", () => {
+    const onHeaderExpandedChangeSpy = jest.fn();
+
+    afterEach(() => {
+      onHeaderExpandedChangeSpy.mockClear();
+    });
+
+    it("should show the month and year picker (uncontrolled)", () => {
+      const {getByRole} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          calendarProps={{
+            onHeaderExpandedChange: onHeaderExpandedChangeSpy,
+          }}
+          defaultValue={new CalendarDate(2024, 4, 26)}
+          label="Date"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      expect(dialog).toBeVisible();
+      expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+
+      triggerPress(header);
+
+      const month = getByRole("button", {name: "April"});
+      const year = getByRole("button", {name: "2024"});
+
+      expect(month).toHaveAttribute("data-value", "4");
+      expect(year).toHaveAttribute("data-value", "2024");
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledTimes(1);
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledWith(true);
+
+      triggerPress(button);
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledTimes(2);
+      expect(onHeaderExpandedChangeSpy).toHaveBeenCalledWith(false);
+    });
+
+    it("should show the month and year picker (controlled)", () => {
+      const {getByRole} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          calendarProps={{
+            isHeaderExpanded: true,
+            onHeaderExpandedChange: onHeaderExpandedChangeSpy,
+          }}
+          defaultValue={new CalendarDate(2024, 4, 26)}
+          label="Date"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+      const month = getByRole("button", {name: "April"});
+      const year = getByRole("button", {name: "2024"});
+
+      expect(dialog).toBeVisible();
+      expect(month).toHaveAttribute("data-value", "4");
+      expect(year).toHaveAttribute("data-value", "2024");
+      expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+
+      triggerPress(button);
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it("CalendarBottomContent should render correctly", () => {
+      const {getByRole, getByTestId} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          CalendarBottomContent={<div data-testid="calendar-bottom-content" />}
+          label="Date"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      let dialog = getByRole("dialog");
+      let calendarBottomContent = getByTestId("calendar-bottom-content");
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      expect(dialog).toBeVisible();
+      expect(calendarBottomContent).toBeVisible();
+
+      triggerPress(header);
+
+      expect(dialog).toBeVisible();
+      expect(calendarBottomContent).not.toBeInTheDocument();
+
+      triggerPress(button); // close date picker
+
+      expect(dialog).not.toBeInTheDocument();
+      expect(calendarBottomContent).not.toBeInTheDocument();
+
+      triggerPress(button);
+
+      dialog = getByRole("dialog");
+      calendarBottomContent = getByTestId("calendar-bottom-content");
+
+      expect(dialog).toBeVisible();
+      expect(calendarBottomContent).toBeVisible();
+    });
+
+    it("should close listbox by clicking another datepicker", async () => {
+      const {getByRole, getAllByRole} = render(
+        <>
+          <DatePicker data-testid="datepicker" label="Date" />
+          <DatePicker data-testid="datepicker2" label="Date" />
+        </>,
+      );
+
+      const dateButtons = getAllByRole("button");
+
+      expect(dateButtons[0]).not.toBeNull();
+
+      expect(dateButtons[1]).not.toBeNull();
+
+      // open the datepicker dialog by clicking datepicker button in the first datepicker
+      triggerPress(dateButtons[0]);
+
+      let dialog = getByRole("dialog");
+
+      // assert that the first datepicker dialog is open
+      expect(dialog).toBeVisible();
+
+      // close the datepicker dialog by clicking the second datepicker
+      triggerPress(dateButtons[1]);
+
+      dialog = getByRole("dialog");
+
+      // assert that the second datepicker dialog is open
+      expect(dialog).toBeVisible();
+    });
+
+    it("should display the correct year and month in showMonthAndYearPickers with locale", () => {
+      const {getByRole} = render(
+        <DatePickerWithLocale
+          showMonthAndYearPickers
+          defaultValue={new CalendarDate(2024, 6, 26)}
+          label="Date"
+          locale="th-TH-u-ca-buddhist"
+        />,
+      );
+
+      const button = getByRole("button");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+      const header = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
+
+      expect(dialog).toBeVisible();
+
+      triggerPress(header);
+
+      const month = getByRole("button", {name: "มิถุนายน"});
+      const year = getByRole("button", {name: "พ.ศ. 2567"});
+
+      expect(month).toHaveAttribute("data-value", "6");
+      expect(year).toHaveAttribute("data-value", "2567");
+    });
+
+    it("should open and close popover after clicking selector button", () => {
+      const {getByRole} = render(<DatePicker data-testid="datepicker" label="Date" />);
+
+      const selectorButton = getByRole("button");
+
+      expect(selectorButton).not.toBeNull();
+
+      // open the datepicker dialog by clicking selector button
+      triggerPress(selectorButton);
+
+      let dialog = getByRole("dialog");
+
+      // assert that the datepicker dialog is open
+      expect(dialog).toBeVisible();
+
+      // click the selector button again
+      triggerPress(selectorButton);
+
+      // assert that the datepicker dialog is closed
+      expect(dialog).not.toBeVisible();
     });
   });
 });

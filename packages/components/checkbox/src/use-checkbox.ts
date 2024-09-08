@@ -2,6 +2,7 @@ import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-
 import type {AriaCheckboxProps} from "@react-types/checkbox";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
+import {useProviderContext} from "@nextui-org/system";
 import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
@@ -68,10 +69,11 @@ interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProp
 }
 
 export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
-  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange" | "validationBehavior"> &
+  Omit<AriaCheckboxProps, keyof CheckboxVariantProps | "onChange"> &
   CheckboxVariantProps;
 
 export function useCheckbox(props: UseCheckboxProps = {}) {
+  const globalContext = useProviderContext();
   const groupContext = useCheckboxGroupContext();
   const isInGroup = !!groupContext;
 
@@ -86,15 +88,16 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isReadOnly: isReadOnlyProp = false,
     autoFocus = false,
     isSelected: isSelectedProp,
-    validationState,
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     radius = groupContext?.radius,
     lineThrough = groupContext?.lineThrough ?? false,
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    disableAnimation = groupContext?.disableAnimation ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
+    validationState,
     isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
+    validationBehavior = groupContext?.validationBehavior ?? "aria",
     defaultSelected,
     classNames,
     className,
@@ -144,6 +147,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       children,
       autoFocus,
       defaultSelected,
+      validationBehavior,
       isIndeterminate,
       isRequired,
       isInvalid,
@@ -166,6 +170,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isReadOnlyProp,
     isSelectedProp,
     defaultSelected,
+    validationBehavior,
     otherProps["aria-label"],
     otherProps["aria-labelledby"],
     onValueChange,
@@ -181,22 +186,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isPressed: isPressedKeyboard,
   } = isInGroup
     ? // eslint-disable-next-line
-      useReactAriaCheckboxGroupItem(
-        {
-          ...ariaCheckboxProps,
-          isInvalid,
-          validationBehavior: "native",
-        },
-        groupContext.groupState,
-        inputRef,
-      )
+      useReactAriaCheckboxGroupItem({...ariaCheckboxProps}, groupContext.groupState, inputRef)
     : // eslint-disable-next-line
-      useReactAriaCheckbox(
-        {...ariaCheckboxProps, validationBehavior: "native"},
-        // eslint-disable-next-line
-        toggleState,
-        inputRef,
-      );
+      useReactAriaCheckbox({...ariaCheckboxProps}, toggleState, inputRef);
 
   const isInteractionDisabled = isDisabled || isReadOnly;
 
@@ -218,10 +210,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   });
 
   const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
-
-  if (isRequired) {
-    inputProps.required = true;
-  }
 
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
@@ -334,9 +322,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
   const getIconProps = useCallback(
     () =>
       ({
-        isSelected: isSelected,
-        isIndeterminate: !!isIndeterminate,
-        disableAnimation: !!disableAnimation,
+        isSelected,
+        isIndeterminate,
+        disableAnimation,
         className: slots.icon({class: classNames?.icon}),
       } as CheckboxIconProps),
     [slots, classNames?.icon, isSelected, isIndeterminate, disableAnimation],

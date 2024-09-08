@@ -1,5 +1,65 @@
 # @nextui-org/input
 
+## 2.2.4
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.2.3
+
+### Patch Changes
+
+- [#3300](https://github.com/nextui-org/nextui/pull/3300) [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add accessible name to the icon button (#2802, #2808)
+
+- [#3268](https://github.com/nextui-org/nextui/pull/3268) [`93f178781`](https://github.com/nextui-org/nextui/commit/93f17878154a6351c38c8ef4806b5fb20e4fa217) Thanks [@wingkwong](https://github.com/wingkwong)! - revised styles and logic for input with file type (#2397, #2311, #2965)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
+## 2.2.2
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3174](https://github.com/nextui-org/nextui/pull/3174) [`dbb4b8ee5`](https://github.com/nextui-org/nextui/commit/dbb4b8ee564114bfb0ef93467ed9ef6a3ff7e2e7) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix input display with hidden type (#3170)
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/react-utils@2.0.14
+
+## 2.2.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+## 2.2.0
+
+### Minor Changes
+
+- [#2987](https://github.com/nextui-org/nextui/pull/2987) [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Change validationBehavior from native to aria by default, with the option to change via props.
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+## 2.1.21
+
+### Patch Changes
+
+- [#2796](https://github.com/nextui-org/nextui/pull/2796) [`355235320`](https://github.com/nextui-org/nextui/commit/35523532030468837939d127b68bee30bbc4e2b0) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes the isClearable function in the input component (#2791)
+
+- [#2072](https://github.com/nextui-org/nextui/pull/2072) [`1dacf52f3`](https://github.com/nextui-org/nextui/commit/1dacf52f305a410cbf59d067d1977024d982ad03) Thanks [@black197](https://github.com/black197)! - Fix #2069 keep input component's position steady
+
 ## 2.1.20
 
 ### Patch Changes

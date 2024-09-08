@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput} from "@nextui-org/theme";
+import {dateInput, button} from "@nextui-org/theme";
 import {
   endOfMonth,
   endOfWeek,
@@ -13,12 +13,12 @@ import {
   startOfWeek,
   today,
 } from "@internationalized/date";
-import {RangeValue} from "@react-types/shared";
+import {RangeValue, ValidationResult} from "@react-types/shared";
 import {DateValue} from "@react-types/datepicker";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {DateRangePicker, DateRangePickerProps} from "../src";
 
@@ -61,6 +61,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
   decorators: [
     (Story) => (
@@ -77,6 +83,23 @@ const defaultProps = {
 };
 
 const Template = (args: DateRangePickerProps) => <DateRangePicker {...args} />;
+
+const FormTemplate = (args: DateRangePickerProps) => (
+  <form
+    className="flex flex-col gap-2 w-full"
+    onSubmit={(e) => {
+      e.preventDefault();
+      alert(
+        `Submitted: start -> ${e.target["start-date"].value} end -> ${e.target["end-date"].value}`,
+      );
+    }}
+  >
+    <DateRangePicker {...args} endName="end-date" startName="start-date" />
+    <button className={button({className: "max-w-fit"})} type="submit">
+      Submit
+    </button>
+  </form>
+);
 
 const LabelPlacementTemplate = (args: DateRangePickerProps) => (
   <div className="w-full max-w-xl flex flex-col items-start gap-4">
@@ -138,6 +161,7 @@ const TimeZonesTemplate = (args: DateRangePickerProps) => (
     />
     <DateRangePicker
       // {...args}
+      aria-label="Event date"
       className="max-w-xs"
       defaultValue={{
         start: parseAbsoluteToLocal("2024-04-01T07:45:00Z"),
@@ -325,7 +349,7 @@ const PresetsTemplate = (args: DateRangePickerProps) => {
           </ButtonGroup>
         }
         calendarProps={{
-          focusedValue: value.start,
+          focusedValue: value?.start,
           onFocusChange: (val) => setValue({...value, start: val}),
           nextButtonProps: {
             variant: "bordered",
@@ -397,7 +421,7 @@ export const Controlled = {
 };
 
 export const Required = {
-  render: Template,
+  render: FormTemplate,
   args: {
     ...defaultProps,
     isRequired: true,
@@ -475,7 +499,22 @@ export const WithErrorMessage = {
 
   args: {
     ...defaultProps,
-    errorMessage: "Please enter your stay duration",
+    isInvalid: true,
+    errorMessage: "Please enter a valid date range",
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    isInvalid: true,
+    errorMessage: (value: ValidationResult) => {
+      if (value.isInvalid) {
+        return "Please enter a valid date range";
+      }
+    },
   },
 };
 
@@ -576,5 +615,59 @@ export const Presets = {
   args: {
     ...defaultProps,
     visibleMonths: 2,
+  },
+};
+
+export const WithValidation = {
+  render: FormTemplate,
+
+  args: {
+    ...defaultProps,
+    validate: (value) => {
+      if (!value || !value.start || !value.end) {
+        return "Please enter a valid date range";
+      }
+      const {start, end} = value;
+
+      if (start.year < 2024 || end.year < 2024) {
+        return "Both start and end dates must be in the year 2024 or later";
+      }
+    },
+    label: "Date Range (Year 2024 or later)",
+  },
+};
+
+export const CustomStyles = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    variant: "bordered",
+    className: "max-w-xs",
+    calendarProps: {
+      classNames: {
+        base: "bg-background",
+        headerWrapper: "pt-4 bg-background",
+        prevButton: "border-1 border-default-200 rounded-small",
+        nextButton: "border-1 border-default-200 rounded-small",
+        gridHeader: "bg-background shadow-none border-b-1 border-default-100",
+        cellButton: [
+          "data-[today=true]:bg-default-100 data-[selected=true]:bg-transparent rounded-small",
+          // start (pseudo)
+          "data-[range-start=true]:before:rounded-l-small",
+          "data-[selection-start=true]:before:rounded-l-small",
+
+          // end (pseudo)
+          "data-[range-end=true]:before:rounded-r-small",
+          "data-[selection-end=true]:before:rounded-r-small",
+
+          // start (selected)
+          "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:rounded-small",
+
+          // end (selected)
+          "data-[selected=true]:data-[selection-end=true]:data-[range-selection=true]:rounded-small",
+        ],
+      },
+    },
   },
 };

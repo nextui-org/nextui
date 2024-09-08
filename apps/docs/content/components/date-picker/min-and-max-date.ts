@@ -1,5 +1,5 @@
 const App = `import {DatePicker} from "@nextui-org/react";
-import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
+import {getLocalTimeZone, today} from "@internationalized/date";
 
 export default function App() {
   return (

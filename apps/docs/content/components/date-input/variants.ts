@@ -1,4 +1,5 @@
 const App = `import {DateInput} from "@nextui-org/react";
+import {CalendarDate} from "@internationalized/date";
 
 export default function App() {
   const variants = ["flat", "bordered", "underlined", "faded"];
