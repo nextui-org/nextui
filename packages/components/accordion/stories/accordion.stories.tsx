@@ -13,7 +13,7 @@ import {
   InvalidCardIcon,
 } from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
-import {Input} from "@nextui-org/input";
+import {Input, Textarea} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 
 import {Accordion, AccordionProps, AccordionItem, AccordionItemProps} from "../src";
@@ -139,7 +139,7 @@ const TemplateWithStartContent = (args: AccordionProps) => (
       }
       subtitle={
         <p className="flex">
-          2 issues to&nbsp;<p className="text-primary">fix now</p>
+          2 issues to&nbsp;<span className="text-primary">fix now</span>
         </p>
       }
       title="Zoey Lang"
@@ -294,7 +294,7 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         startContent={<MonitorMobileIcon className="text-primary" />}
         subtitle={
           <p className="flex">
-            2 issues to&nbsp;<p className="text-primary">fix now</p>
+            2 issues to&nbsp;<span className="text-primary">fix now</span>
           </p>
         }
         title="Connected devices"
@@ -330,7 +330,7 @@ const CustomWithClassNamesTemplate = (args: AccordionProps) => {
         title={
           <p className="flex gap-1 items-center">
             Card expired
-            <p className="text-default-400 text-sm">*4812</p>
+            <span className="text-default-400 text-sm">*4812</span>
           </p>
         }
       >
@@ -354,7 +354,7 @@ const WithFormTemplate = (args: AccordionProps) => {
         }
       />
       <Input isRequired label="Password" placeholder="Enter your password" type="password" />
-
+      <Textarea label="Message" placeholder="Enter your message" />
       <div className="flex gap-2 justify-end">
         <button className={button({color: "primary"})}>Login</button>
       </div>

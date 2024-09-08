@@ -14,7 +14,7 @@ Hello!, I am very excited that you are interested in contributing with Next UI. 
 ### Tooling
 
 - [PNPM](https://pnpm.io/) to manage packages and dependencies
-- [Tsup](https://tsup.egoist.sh/) to bundle packages
+- [Tsup](https://tsup.egoist.dev/) to bundle packages
 - [Storybook](https://storybook.js.org/) for rapid UI component development and
   testing
 - [Testing Library](https://testing-library.com/) for testing components and
@@ -57,7 +57,7 @@ https://www.conventionalcommits.org/ or check out the
 
 ## Pull Request Guidelines
 
-- The `main` branch is basically a snapshot of the latest stable version. All development must be done in dedicated branches.
+- The `main` branch is basically a snapshot of the latest production version. All development must be done in dedicated branches and will be merged to `canary` branch.
 - Make sure that Github Actions are green
 - It is good to have multiple small commits while working on the PR. We'll let GitHub squash it automatically before the merge.
 - If you add a new feature:
@@ -73,14 +73,14 @@ https://www.conventionalcommits.org/ or check out the
 
 1. Fork of the nextui repository and clone your fork
 
-2. Create a new branch out of the `main` branch. We follow the convention
+2. Create a new branch out of the `canary` branch. We follow the convention
    `[type/scope]`. For example `fix/dropdown-hook` or `docs/menu-typo`. `type`
    can be either `docs`, `fix`, `feat`, `build`, or any other conventional
    commit type. `scope` is just a short id that describes the scope of work.
 
 3. Make and commit your changes following the
    [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
-   As you develop, you can run `pnpm build --filter=<module>` and
+   As you canary, you can run `pnpm build --filter=<module>` and
    `pnpm test packages/<module>/<pkg>` e.g. `pnpm build --filter=avatar & pnpm test packages/components/avatar` to make sure everything works as expected.
 
    > To know more about the `--filter` option, please check the turborepo [docs](https://turborepo.org/docs/core-concepts/filtering).
@@ -118,12 +118,13 @@ We use [Turbo Repo](https://turborepo.org/) for the project management.
 
 ```bash
 ## Start the dev babel server of NextUI core components
-pnpm dev:nextui
+pnpm dev
 
 ## optional
-pnpm dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
 
-pnpm start:sb ## this will start the storybook server for a faster development and testing.
+pnpm sb ## this will start the storybook server for a faster development and testing.
+
+pnpm dev:docs ## this will start the documentation next.js server and it will automatically detect the changes in the components.
 ```
 
 - If you will be working just on the documentation source code / mdx, you can use the following commands to build
@@ -131,7 +132,7 @@ pnpm start:sb ## this will start the storybook server for a faster development a
 
 ```bash
 ## Build NextUI source components
-pnpm build:nextui
+pnpm build
 
 ## Start the next.js documentation dev server
 pnpm dev:docs
@@ -141,10 +142,6 @@ pnpm dev:docs
 
 ```bash
 pnpm sb
-
-#or
-
-pnpm start:sb
 ```
 
 Remember that these commands must be executed in the root folder of the project.
@@ -166,29 +163,46 @@ git checkout -b fix/something
 All commits that fix bugs or add features need a test.
 You can run the nest command for component specific tests.
 
-```
+```bash
 # Test current code
-pnpm test:update # or npm run test:update
 
+pnpm test
+
+# or
+
+npm run test
+```
+
+```bash
 # Test isolated component code
-pnpm test:update src/button  # or npm run test:update src/button
+
+pnpm test button
+
+# or
+
+npm run test button
 
 ```
 
 5. Be sure the package builds.
 
-```
+```bash
 # Build current code
-pnpm build # or npm run build
+
+pnpm build
+
+# or
+
+npm run build
 ```
 
 > Note: ensure that you have at least Node.js 20.x as well as pnpm 9.1.0 or higher installed on your machine to run the scripts
 
 6. Send your pull request:
 
-- Send your pull request to the `main` branch
+- Send your pull request to the `canary` branch
 - Your pull request will be reviewed by the maintainers and the maintainers will decide if it is accepted or not
-- Once the pull request is accepted, the maintainers will merge it to the `main` branch
+- Once the pull request is accepted, the maintainers will merge it to the `canary` branch
 
 ## Visual Changes
 

@@ -1,37 +1,38 @@
 import {Button, Link} from "@nextui-org/react";
 
 import {sectionWrapper} from "@/components/primitives";
-import {RelumeLogo} from "@/components/icons/sponsors";
+import {
+  Story2DesignLogo,
+  ReplexicaLogo,
+  CodeRabbitLogo,
+  ScrumbuissLogo,
+} from "@/components/icons/sponsors";
 import {HeartFilledIcon} from "@/components/icons";
-import {VercelIcon} from "@/components/icons/social";
 import {siteConfig} from "@/config/site";
-
-type Sponsor = {
-  name: string;
-  href: string;
-  logo: React.ReactNode;
-};
+import {Sponsor, SponsorItem} from "@/components/marketing/sponsor-item";
 
 const sponsors: Sponsor[] = [
   {
-    name: "Relume",
-    href: "https://library.relume.io/ai-site-builder?via=nextui",
-    logo: <RelumeLogo className="text-black dark:text-white" />,
+    name: "story.to.design",
+    href: "https://story.to.design?utm_source=nextui&utm_marketing=partnership",
+    logo: <Story2DesignLogo className="pt-1" />,
   },
   {
-    name: "Vercel",
-    href: "https://www.vercel.com?utm_source=nextui&utm_marketing=oss",
-    logo: <VercelIcon className="text-black dark:text-white" height={24} />,
+    name: "Replexica",
+    href: "https://replexica.com/?utm_source=nextui&utm_marketing=oss",
+    logo: <ReplexicaLogo />,
+  },
+  {
+    name: "CodeRabbit",
+    href: "https://coderabbit.ai/?utm_source=nextui&utm_marketing=oss",
+    logo: <CodeRabbitLogo />,
+  },
+  {
+    name: "Scrumbuiss",
+    href: "https://www.scrumbuiss.com/?utm_source=nextui&utm_marketing=oss",
+    logo: <ScrumbuissLogo />,
   },
 ];
-
-const SponsorItem = ({href, logo}: Sponsor) => {
-  return (
-    <Link isExternal className="flex flex-col items-center justify-center" href={href}>
-      {logo}
-    </Link>
-  );
-};
 
 export const Sponsors = () => {
   return (

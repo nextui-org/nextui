@@ -6,7 +6,7 @@ on:
       - ".changeset/**"
       - "packages/**"
     branches:
-      - main
+      - canary
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -41,12 +41,21 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Create @dev release
+      - name: Sync files from canary to main branch if a publish happens
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          curl -X POST \
+            -H "Accept: application/vnd.github.v3+json" \
+            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            https://api.github.com/repos/owner/repo/dispatches \
+            -d '{"event_type":"sync-canary-to-main"}'
+
+      - name: Create canary release
         if: steps.changesets.outputs.published != 'true'
         run: |
-          git checkout main
-          pnpm version:dev
-          pnpm release:dev
+          git checkout canary
+          pnpm version:canary
+          pnpm release:canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

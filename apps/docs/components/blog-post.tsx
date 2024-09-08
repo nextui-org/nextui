@@ -57,7 +57,7 @@ const BlogPostCard = (post: BlogPost) => {
             </CardBody>
             <CardFooter className="flex justify-between items-center">
               <time className="block text-small text-default-500" dateTime={post.date}>
-                {format(parseISO(post.date), "LLLL d, yyyy")}
+                {format(parseISO(post.date), "LLLL d, yyyy")} {post?.draft && " (Draft)"}
               </time>
               <Avatar size="sm" src={post.author?.avatar} />
             </CardFooter>

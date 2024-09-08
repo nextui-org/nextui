@@ -4,7 +4,7 @@ import {Meta} from "@storybook/react";
 import {slider} from "@nextui-org/theme";
 import {InfoIcon, VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
 import {Tooltip} from "@nextui-org/tooltip";
-import {cn} from "@nextui-org/system";
+import {cn} from "@nextui-org/theme";
 
 import {Slider, SliderProps, SliderValue} from "../src";
 
@@ -315,7 +315,24 @@ export const ThumbHidden = {
     "aria-label": "Player progress",
     color: "foreground",
     hideThumb: true,
-    defaultValue: 20,
+    maxValue: 1,
+    minValue: 0,
+    step: 0.1,
+    marks: [
+      {
+        value: 0.2,
+        label: "20%",
+      },
+      {
+        value: 0.5,
+        label: "50%",
+      },
+      {
+        value: 0.8,
+        label: "80%",
+      },
+    ],
+    defaultValue: 0.2,
   },
 };
 
