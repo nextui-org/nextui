@@ -1,5 +1,5 @@
 "use client";
-// only for developments, client directive  this is removed in production builds
+// only for development purpose, this directive is added by tsup at build time
 
 export * from "@nextui-org/system";
 export * from "@nextui-org/theme";
@@ -40,8 +40,16 @@ export * from "@nextui-org/ripple";
 export * from "@nextui-org/slider";
 export * from "@nextui-org/breadcrumbs";
 export * from "@nextui-org/autocomplete";
+export * from "@nextui-org/calendar";
+export * from "@nextui-org/date-input";
+export * from "@nextui-org/date-picker";
 
 /**
  * React Aria - Exports
  */
 export {VisuallyHidden} from "@react-aria/visually-hidden";
+
+/**
+ * Individual exports
+ */
+export {ResizablePanel} from "@nextui-org/framer-utils";

@@ -1,19 +1,25 @@
-import {Tabs, Tab, Snippet} from "@nextui-org/react";
-import {Key} from "react";
-import {useLocalStorage} from "usehooks-ts";
+import {Tabs, Tab, Snippet, Code} from "@nextui-org/react";
+import {Key, useState} from "react";
 
 import Codeblock from "./codeblock";
+import {Blockquote} from "./blockquote";
 
-import {YarnIcon, NpmSmallIcon, PnpmIcon, BunIcon} from "@/components/icons";
+import {YarnIcon, NpmSmallIcon, PnpmIcon, BunIcon, CLIBoldIcon} from "@/components/icons";
 
-type PackageManagerName = "npm" | "yarn" | "pnpm" | "bun";
+type PackageManagerName = "cli" | "npm" | "yarn" | "pnpm" | "bun";
 
 type PackageManager = {
   icon: JSX.Element;
   name: PackageManagerName;
+  label?: string;
 };
 
 const packageManagers: PackageManager[] = [
+  {
+    name: "cli",
+    label: "CLI",
+    icon: <CLIBoldIcon className="text-lg text-default-600 dark:text-default-400" />,
+  },
   {
     name: "npm",
     icon: <NpmSmallIcon className="text-[#E53E3E]" />,
@@ -28,18 +34,21 @@ const packageManagers: PackageManager[] = [
   },
   {
     name: "bun",
-    icon: <BunIcon className="text-[#FBF0DF]" />,
+    icon: <BunIcon className="text-lg text-[#FBF0DF]" />,
   },
 ];
 
 export interface PackageManagersProps {
   commands: Partial<Record<PackageManagerName, React.Key>>;
+  showGlobalInstallWarning?: boolean;
 }
 
-export const PackageManagers = ({commands}: PackageManagersProps) => {
-  const [selectedManager, setSelectedManager] = useLocalStorage<PackageManagerName>(
-    "selectedPackageManager",
-    "npm",
+export const PackageManagers = ({
+  commands,
+  showGlobalInstallWarning = false,
+}: PackageManagersProps) => {
+  const [selectedManager, setSelectedManager] = useState<PackageManagerName>(
+    commands.cli ? "cli" : "npm",
   );
 
   const handleSelectionChange = (tabKey: Key) => {
@@ -47,44 +56,52 @@ export const PackageManagers = ({commands}: PackageManagersProps) => {
   };
 
   return (
-    <Tabs
-      aria-label="NextUI installation commands"
-      classNames={{
-        base: "group mt-4",
-        tabList: "h-10",
-      }}
-      selectedKey={selectedManager}
-      variant="underlined"
-      onSelectionChange={handleSelectionChange}
-    >
-      {packageManagers.map(({name, icon}) => {
-        if (!commands[name]) return null;
+    <>
+      <Tabs
+        aria-label="NextUI installation commands"
+        classNames={{
+          base: "group mt-4 min-w-[300px] w-full overflow-x-auto",
+          tabList: "h-10",
+        }}
+        selectedKey={selectedManager}
+        variant="underlined"
+        onSelectionChange={handleSelectionChange}
+      >
+        {packageManagers.map(({name, label, icon}) => {
+          if (!commands[name]) return null;
 
-        return (
-          <Tab
-            key={name}
-            title={
-              <div className="flex items-center space-x-2">
-                {icon}
-                <span>{name}</span>
-              </div>
-            }
-          >
-            <Snippet
-              disableTooltip
-              fullWidth
-              hideSymbol
-              classNames={{
-                base: "bg-code-background text-code-foreground",
-                pre: "font-light text-base",
-                copyButton: "text-lg text-zinc-500 mr-2",
-              }}
+          return (
+            <Tab
+              key={name}
+              title={
+                <div className="flex items-center space-x-2">
+                  {icon}
+                  <span>{label || name}</span>
+                </div>
+              }
             >
-              <Codeblock removeIndent codeString={commands[name] as string} language="bash" />
-            </Snippet>
-          </Tab>
-        );
-      })}
-    </Tabs>
+              <Snippet
+                disableTooltip
+                fullWidth
+                hideSymbol
+                classNames={{
+                  base: "bg-code-background text-code-foreground",
+                  pre: "font-light text-base",
+                  copyButton: "text-lg text-zinc-500 mr-2",
+                }}
+              >
+                <Codeblock removeIndent codeString={commands[name] as string} language="bash" />
+              </Snippet>
+            </Tab>
+          );
+        })}
+      </Tabs>
+      {showGlobalInstallWarning && (
+        <Blockquote className="my-2" color="warning">
+          The above command is for individual installation only. You may skip this step if{" "}
+          <Code>@nextui-org/react</Code> is already installed globally.
+        </Blockquote>
+      )}
+    </>
   );
 };

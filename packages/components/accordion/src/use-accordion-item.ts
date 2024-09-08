@@ -1,14 +1,15 @@
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {AccordionItemVariantProps} from "@nextui-org/theme";
+
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
-import {clsx, callAllHandlers, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, callAllHandlers, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {NodeWithProps} from "@nextui-org/aria-utils";
 import {useReactAriaAccordionItem} from "@nextui-org/use-aria-accordion";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {TreeState} from "@react-stately/tree";
 
 import {AccordionItemBaseProps} from "./base/accordion-item-base";
@@ -37,9 +38,12 @@ export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
 }
 
 export type UseAccordionItemProps<T extends object = {}> = Props<T> &
+  AccordionItemVariantProps &
   Omit<AccordionItemBaseProps, "onFocusChange">;
 
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
+  const globalContext = useProviderContext();
+
   const {ref, as, item, onFocusChange} = props;
 
   const {
@@ -52,13 +56,15 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     startContent,
     motionProps,
     focusedKey,
+    variant,
     isCompact = false,
     classNames: classNamesProp = {},
     isDisabled: isDisabledProp = false,
     hideIndicator = false,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     keepContentMounted = false,
     disableIndicatorAnimation = false,
+    HeadingComponent = as || "h2",
     onPress,
     onPressStart,
     onPressEnd,
@@ -112,7 +118,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     () => ({
       ...classNamesProp,
     }),
-    [...Object.values(classNamesProp)],
+    [objectToDeps(classNamesProp)],
   );
 
   const slots = useMemo(
@@ -123,8 +129,9 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         hideIndicator,
         disableAnimation,
         disableIndicatorAnimation,
+        variant,
       }),
-    [isCompact, isDisabled, hideIndicator, disableAnimation, disableIndicatorAnimation],
+    [isCompact, isDisabled, hideIndicator, disableAnimation, disableIndicatorAnimation, variant],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -170,8 +177,9 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         otherProps.onBlur,
         item.props?.onBlur,
       ),
-      ...mergeProps(buttonProps, hoverProps, pressProps, props),
-      onClick: chain(pressProps.onClick, onClick),
+      ...mergeProps(buttonProps, hoverProps, pressProps, props, {
+        onClick: chain(pressProps.onClick, onClick),
+      }),
     };
   };
 
@@ -238,6 +246,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
 
   return {
     Component,
+    HeadingComponent,
     item,
     slots,
     classNames,

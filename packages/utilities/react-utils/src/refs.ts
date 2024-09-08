@@ -1,5 +1,6 @@
 import * as React from "react";
 import {isFunction} from "@nextui-org/shared-utils";
+import {MutableRefObject} from "react";
 
 export type ReactRef<T> = React.RefObject<T> | React.MutableRefObject<T> | React.Ref<T>;
 
@@ -19,8 +20,7 @@ export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T) {
   }
 
   try {
-    // @ts-ignore
-    ref.current = value;
+    (ref as MutableRefObject<T>).current = value;
   } catch (error) {
     throw new Error(`Cannot assign value '${value}' to ref '${ref}'`);
   }

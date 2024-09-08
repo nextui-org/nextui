@@ -35,7 +35,7 @@ const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden>
+      <VisuallyHidden elementType="span">
         <input {...getInputProps()} />
       </VisuallyHidden>
       <span {...getWrapperProps()}>

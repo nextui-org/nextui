@@ -12,7 +12,7 @@ export default function App() {
             <DropdownTrigger>
               <Button
                 isIconOnly
-                className="min-w-unit-6 w-unit-6 h-unit-6"
+                className="min-w-6 w-6 h-6"
                 size="sm"
                 variant="flat"
               >

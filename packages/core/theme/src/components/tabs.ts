@@ -68,9 +68,11 @@ const tabs = tv({
       "py-3",
       "px-1",
       "outline-none",
+      "data-[inert=true]:hidden",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
+    wrapper: [],
   },
   variants: {
     variant: {
@@ -159,6 +161,22 @@ const tabs = tv({
         tabContent: "transition-none",
       },
     },
+    placement: {
+      top: {},
+      start: {
+        tabList: "flex-col",
+        panel: "py-0 px-3",
+        wrapper: "flex",
+      },
+      end: {
+        tabList: "flex-col",
+        panel: "py-0 px-3",
+        wrapper: "flex flex-row-reverse",
+      },
+      bottom: {
+        wrapper: "flex flex-col-reverse",
+      },
+    },
   },
   defaultVariants: {
     color: "default",
@@ -166,7 +184,6 @@ const tabs = tv({
     size: "md",
     fullWidth: false,
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     /**

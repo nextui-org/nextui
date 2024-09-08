@@ -162,7 +162,7 @@ const popover = tv({
         base: "animate-none",
       },
     },
-    isDropdownDisabled: {
+    isTriggerDisabled: {
       true: {
         trigger: "opacity-disabled pointer-events-none",
       },
@@ -175,7 +175,6 @@ const popover = tv({
     size: "md",
     shadow: "md",
     backdrop: "transparent",
-    disableAnimation: false,
     triggerScaleOnOpen: true,
   },
   compoundVariants: [
