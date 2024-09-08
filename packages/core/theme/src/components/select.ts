@@ -22,8 +22,8 @@ const select = tv({
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
-    selectorIcon: "absolute end-3 left-[unset] w-4 h-4",
-    spinner: "absolute end-3 left-[unset]",
+    selectorIcon: "absolute end-3 w-4 h-4",
+    spinner: "absolute end-3",
     value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
@@ -135,7 +135,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative pr-2 pe-[unset] ps-2 text-foreground",
+        label: "relative pe-2 ps-2 text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -543,14 +543,7 @@ const select = tv({
       isMultiline: false,
       class: {
         base: "group relative justify-end",
-        label: [
-          "pb-0",
-          "z-20",
-          "top-1/2",
-          "-translate-y-1/2",
-          "group-data-[filled=true]:start-0",
-          "group-data-[filled=true]:end-[unset]",
-        ],
+        label: ["pb-0", "z-20", "top-1/2", "-translate-y-1/2", "group-data-[filled=true]:start-0"],
       },
     },
     // labelPlacement=[inside]
@@ -676,7 +669,6 @@ const select = tv({
       class: {
         label: [
           "start-2",
-          "end-[unset]"
           "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
@@ -690,7 +682,6 @@ const select = tv({
       class: {
         label: [
           "start-3",
-          "right-[unset],
           "text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -704,7 +695,6 @@ const select = tv({
       class: {
         label: [
           "start-3",
-          "right-[unset],
           "text-medium",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
