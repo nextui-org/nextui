@@ -196,7 +196,7 @@ pnpm build
 npm run build
 ```
 
-> Note: ensure that you have at least Node.js 20.x as well as pnpm 9.1.0 or higher installed on your machine to run the scripts
+> Note: ensure that you have at least Node.js 20.x as well as pnpm 9.6.0 or higher installed on your machine to run the scripts
 
 6. Send your pull request:
 
