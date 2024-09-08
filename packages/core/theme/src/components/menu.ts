@@ -71,7 +71,7 @@ const menuItem = tv({
       "data-[focus-visible=true]:dark:ring-offset-background-content1",
     ],
     wrapper: "w-full flex flex-col items-start justify-center",
-    title: "flex-1 text-small font-normal truncate",
+    title: "flex-1 text-small font-normal",
     description: ["w-full", "text-tiny", "text-foreground-500", "group-hover:text-current"],
     selectedIcon: ["text-inherit", "w-3", "h-3", "flex-shrink-0"],
     shortcut: [
