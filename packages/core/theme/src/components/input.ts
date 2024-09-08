@@ -23,7 +23,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const input = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group flex flex-col data-[hidden=true]:hidden",
     label: [
       "absolute",
       "z-10",
@@ -43,6 +43,8 @@ const input = tv({
       "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
+      "file:cursor-pointer file:bg-transparent file:border-0",
+      "autofill:bg-transparent bg-clip-text",
     ],
     clearButton: [
       "p-2",
@@ -51,6 +53,8 @@ const input = tv({
       "hidden",
       "absolute",
       "end-3",
+      "end-auto",
+      "start-3",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -130,17 +134,17 @@ const input = tv({
     size: {
       sm: {
         label: "text-tiny",
-        inputWrapper: "h-unit-8 min-h-unit-8 px-2 rounded-small",
+        inputWrapper: "h-8 min-h-8 px-2 rounded-small",
         input: "text-small",
         clearButton: "text-medium",
       },
       md: {
-        inputWrapper: "h-unit-10 min-h-unit-10 rounded-medium",
+        inputWrapper: "h-10 min-h-10 rounded-medium",
         input: "text-small",
         clearButton: "text-large",
       },
       lg: {
-        inputWrapper: "h-unit-12 min-h-unit-12 rounded-large",
+        inputWrapper: "h-12 min-h-12 rounded-large",
         input: "text-medium",
         clearButton: "text-large",
       },
@@ -170,7 +174,7 @@ const input = tv({
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "relative text-foreground pe-2",
+        label: "relative text-foreground pe-2 ps-2 pointer-events-auto",
       },
       inside: {
         label: "text-tiny cursor-text",
@@ -185,7 +189,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6",
+        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
@@ -204,7 +208,8 @@ const input = tv({
     },
     isRequired: {
       true: {
-        label: "after:content-['*'] after:text-danger after:ml-0.5",
+        label:
+          "after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5",
       },
     },
     isMultiline: {
@@ -242,7 +247,6 @@ const input = tv({
     labelPlacement: "inside",
     isDisabled: false,
     isMultiline: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     // flat & color
@@ -533,9 +537,9 @@ const input = tv({
       variant: "flat",
       class: {
         inputWrapper: [
-          "bg-danger-50",
-          "data-[hover=true]:bg-danger-100",
-          "group-data-[focus=true]:bg-danger-50",
+          "!bg-danger-50",
+          "data-[hover=true]:!bg-danger-100",
+          "group-data-[focus=true]:!bg-danger-50",
         ],
       },
     },
@@ -543,14 +547,14 @@ const input = tv({
       isInvalid: true,
       variant: "bordered",
       class: {
-        inputWrapper: "!border-danger group-data-[focus=true]:border-danger",
+        inputWrapper: "!border-danger group-data-[focus=true]:!border-danger",
       },
     },
     {
       isInvalid: true,
       variant: "underlined",
       class: {
-        inputWrapper: "after:bg-danger",
+        inputWrapper: "after:!bg-danger",
       },
     },
     // size & labelPlacement
@@ -592,13 +596,7 @@ const input = tv({
         label: ["group-data-[filled-within=true]:pointer-events-auto"],
       },
     },
-    // labelPlacement=[outside,outside-left]
-    {
-      labelPlacement: ["outside", "outside-left"],
-      class: {
-        input: "h-full",
-      },
-    },
+    // labelPlacement=[outside] & isMultiline
     {
       labelPlacement: "outside",
       isMultiline: false,
@@ -773,6 +771,8 @@ const input = tv({
       class: {
         label: [
           "start-3",
+          "start-auto",
+          "end-3",
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -786,6 +786,8 @@ const input = tv({
       class: {
         label: [
           "start-3",
+          "start-auto",
+          "end-3",
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],

@@ -60,7 +60,11 @@ into React Server Components issues.
 NextUI v2.0 comes with a TailwindCSS plugin that enables the customization and addition of default themes.
 This plugin allows you to customize colors and layouts tokens that are used by NextUI components.
 
-```js {8,13-14}
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
+
+```js {9,14-15}
 // tailwind.config.js
 const {nextui} = require("@nextui-org/react");
 
@@ -68,6 +72,7 @@ const {nextui} = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -322,4 +327,4 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 ## Contributing
 
-PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.MD) to learn how you can contribute to this project.
+PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.

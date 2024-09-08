@@ -1,7 +1,8 @@
 import * as React from "react";
 import {tv} from "@nextui-org/theme";
+import clsx from "clsx";
 
-import {cn, mapPropsVariants} from "./utils";
+import {mapPropsVariants} from "./utils";
 
 function getSlots(variants) {
   return variants
@@ -30,14 +31,15 @@ function getClassNamesWithProps({
   hasSlots,
   opts,
 }) {
-  // Do not apply default variants when the props variant is different
+  const keys = [];
+
   if (defaultVariants && typeof defaultVariants === "object") {
     for (const key in defaultVariants) {
       const value = defaultVariants[key];
       const propValue = props?.[key];
 
       if (propValue && propValue !== value) {
-        delete defaultVariants[key];
+        keys.push(key);
       }
     }
   }
@@ -45,7 +47,17 @@ function getClassNamesWithProps({
   const customTv = tv(
     {
       variants,
-      defaultVariants,
+      defaultVariants:
+        defaultVariants && typeof defaultVariants === "object"
+          ? // Do not apply default variants when the props variant is different
+            Object.keys(defaultVariants)
+              .filter((k) => !keys.includes(k))
+              .reduce((o, k) => {
+                o[k] = defaultVariants[k];
+
+                return o;
+              }, [])
+          : defaultVariants,
       compoundVariants,
       ...(hasSlots && {slots}),
     },
@@ -65,7 +77,7 @@ function getClassNamesWithProps({
 
   // if no slots, the result is a string
   if (!hasSlots) {
-    newProps.className = cn(result, props.className);
+    newProps.className = clsx(result, props.className);
   }
   // if has slots, the result is an object with keys as slots functions
   else {
@@ -78,7 +90,7 @@ function getClassNamesWithProps({
     });
 
     Object.entries(props.classNames ?? {}).forEach(([key, value]) => {
-      classNames[key] = cn(classNames[key], value);
+      classNames[key] = clsx(classNames[key], value);
     });
   }
 

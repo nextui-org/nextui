@@ -12,8 +12,9 @@ const AvatarGroup = forwardRef<"div", AvatarGroupProps>((props, ref) => {
     clones,
     context,
     remainingCount,
-    renderCount = (count) => <Avatar className="hover:-translate-x-0" name={`+${count}`} />,
+    getAvatarGroupCountProps,
     getAvatarGroupProps,
+    renderCount = (count) => <Avatar {...getAvatarGroupCountProps()} name={`+${count}`} />,
   } = useAvatarGroup({
     ...props,
     ref,

@@ -1,7 +1,6 @@
 import type {As, RightJoinProps, PropsOf, InternalForwardRefRenderFunction} from "./types";
 
 import * as React from "react";
-import clsx from "clsx";
 import {forwardRef as baseForwardRef} from "react";
 
 export function forwardRef<
@@ -97,6 +96,10 @@ export const mapPropsVariantsWithCommon = <
 };
 
 /**
- * Classnames utility
+ * Checks if a component is a NextUI component.
+ * @param component - The component to check.
+ * @returns `true` if the component is a NextUI component, `false` otherwise.
  */
-export const cn = clsx;
+export const isNextUIEl = (component: React.ReactComponentElement<any>) => {
+  return !!component.type?.render?.displayName?.includes("NextUI");
+};
