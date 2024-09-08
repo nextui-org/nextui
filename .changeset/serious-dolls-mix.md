@@ -1,5 +1,4 @@
 ---
-"@nextui-org/select": patch
 "@nextui-org/theme": patch
 ---
 
