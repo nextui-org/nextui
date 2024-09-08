@@ -105,7 +105,7 @@ const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
           colSpan={collection.columnCount}
           role="gridcell"
         >
-          {bodyProps.emptyContent}
+          {!isLoading && bodyProps.emptyContent}
         </td>
       </tr>
     );
@@ -121,6 +121,9 @@ const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
         >
           {bodyProps.loadingContent}
         </td>
+        {!emptyContent && collection.size === 0 ? (
+          <td className={slots?.emptyWrapper({class: classNames?.emptyWrapper})} />
+        ) : null}
       </tr>
     );
   }

@@ -2,6 +2,13 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
+    "source.fixAll.eslint": "explicit"
+  },
+  "tailwindCSS.experimental.configFile": {
+    "packages/storybook/tailwind.config.js": ["packages/core/theme/**/*", "packages/components/**/*"],
+    "apps/docs/tailwind.config.js": "apps/docs/**/*"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
+  ]
 }

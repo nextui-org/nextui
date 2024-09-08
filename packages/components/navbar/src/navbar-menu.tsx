@@ -1,7 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {AnimatePresence, HTMLMotionProps, motion} from "framer-motion";
+import {AnimatePresence, domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {ReactElement, useCallback} from "react";
 import {RemoveScroll} from "react-remove-scroll";
@@ -50,7 +50,7 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
         data-open={dataAttr(isMenuOpen)}
         style={{
           // @ts-expect-error
-          "--navbar-height": height,
+          "--navbar-height": typeof height === "number" ? `${height}px` : height,
         }}
         {...otherProps}
       >
@@ -60,26 +60,28 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   ) : (
     <AnimatePresence mode="wait">
       {isMenuOpen ? (
-        <MenuWrapper>
-          <motion.ul
-            ref={domRef}
-            layoutScroll
-            animate="enter"
-            className={slots.menu?.({class: styles})}
-            data-open={dataAttr(isMenuOpen)}
-            exit="exit"
-            initial="exit"
-            style={{
-              // @ts-expect-error
-              "--navbar-height": height,
-              ...style,
-            }}
-            variants={menuVariants}
-            {...mergeProps(motionProps, otherProps)}
-          >
-            {children}
-          </motion.ul>
-        </MenuWrapper>
+        <LazyMotion features={domAnimation}>
+          <MenuWrapper>
+            <m.ul
+              ref={domRef}
+              layoutScroll
+              animate="enter"
+              className={slots.menu?.({class: styles})}
+              data-open={dataAttr(isMenuOpen)}
+              exit="exit"
+              initial="exit"
+              style={{
+                // @ts-expect-error
+                "--navbar-height": typeof height === "number" ? `${height}px` : height,
+                ...style,
+              }}
+              variants={menuVariants}
+              {...mergeProps(motionProps, otherProps)}
+            >
+              {children}
+            </m.ul>
+          </MenuWrapper>
+        </LazyMotion>
       ) : null}
     </AnimatePresence>
   );

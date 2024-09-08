@@ -16,3 +16,4 @@ export * from "./hash";
 export * from "./more-square";
 export * from "./play";
 export * from "./pause";
+export * from "./cli";

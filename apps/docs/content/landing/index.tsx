@@ -335,7 +335,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               }}
               height={200}
               shadow="lg"
-              src="/images/album-cover.png"
+              src="https://nextui.org/images/album-cover.png"
               width="100%"
             />
           </div>

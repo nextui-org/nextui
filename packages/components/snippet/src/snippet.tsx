@@ -3,6 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {Tooltip} from "@nextui-org/tooltip";
 import {CopyLinearIcon, CheckLinearIcon} from "@nextui-org/shared-icons";
 import {Button} from "@nextui-org/button";
+import {objectToDeps} from "@nextui-org/shared-utils";
 
 import {useSnippet, UseSnippetProps} from "./use-snippet";
 
@@ -37,7 +38,7 @@ const Snippet = forwardRef<"div", SnippetProps>((props, ref) => {
         {children}
       </Tooltip>
     ),
-    [...Object.values(tooltipProps)],
+    [objectToDeps(tooltipProps)],
   );
 
   const contents = useMemo(() => {

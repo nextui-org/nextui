@@ -17,10 +17,7 @@ const Checkbox = forwardRef<"input", CheckboxProps>((props, ref) => {
     getInputProps,
     getIconProps,
     getLabelProps,
-  } = useCheckbox({
-    ...props,
-    ref,
-  });
+  } = useCheckbox({...props, ref});
 
   const clonedIcon =
     typeof icon === "function"
@@ -29,7 +26,7 @@ const Checkbox = forwardRef<"input", CheckboxProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden>
+      <VisuallyHidden elementType="span">
         <input {...getInputProps()} />
       </VisuallyHidden>
       <span {...getWrapperProps()}>{clonedIcon}</span>

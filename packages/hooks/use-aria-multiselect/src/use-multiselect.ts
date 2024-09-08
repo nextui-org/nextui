@@ -12,10 +12,11 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {ListKeyboardDelegate, useTypeSelect} from "@react-aria/selection";
 import {chain, filterDOMProps, mergeProps, useId} from "@react-aria/utils";
 import {FocusEvent, HTMLAttributes, RefObject, useMemo} from "react";
+import {ValidationResult} from "@react-types/shared";
 
 export type MultiSelectProps<T> = MultiSelectStateProps<T>;
 
-export interface MultiSelectAria<T> {
+export interface MultiSelectAria<T> extends ValidationResult {
   /** Props for the label element. */
   labelProps: HTMLAttributes<HTMLElement>;
   /** Props for the popup trigger element. */
@@ -99,14 +100,23 @@ export function useMultiSelect<T>(
       state.setSelectedKeys([key]);
     },
   });
+  const {isInvalid, validationErrors, validationDetails} = state.displayValidation;
 
   const {labelProps, fieldProps, descriptionProps, errorMessageProps} = useField({
     ...props,
     labelElementType: "span",
+    isInvalid,
+    errorMessage: props.errorMessage || validationErrors,
   });
 
   typeSelectProps.onKeyDown = typeSelectProps.onKeyDownCapture;
   delete typeSelectProps.onKeyDownCapture;
+
+  menuTriggerProps.onPressStart = (e) => {
+    if (e.pointerType !== "touch" && e.pointerType !== "keyboard" && !isDisabled) {
+      state.toggle(e.pointerType === "virtual" ? "first" : null);
+    }
+  };
 
   const domProps = filterDOMProps(props, {labelable: true});
   const triggerProps = mergeProps(typeSelectProps, menuTriggerProps, fieldProps);
@@ -190,5 +200,8 @@ export function useMultiSelect<T>(
     },
     descriptionProps,
     errorMessageProps,
+    isInvalid,
+    validationErrors,
+    validationDetails,
   };
 }

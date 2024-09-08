@@ -119,7 +119,6 @@ const progress = tv(
       isStriped: false,
       isIndeterminate: false,
       isDisabled: false,
-      disableAnimation: false,
     },
     compoundVariants: [
       // disableAnimation && !isIndeterminate
@@ -133,7 +132,7 @@ const progress = tv(
     ],
   },
   {
-    twMerge: false,
+    twMerge: true,
   },
 );
 
