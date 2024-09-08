@@ -1,5 +1,4 @@
 ---
-"@nextui-org/input": patch
 "@nextui-org/theme": patch
 ---
 
