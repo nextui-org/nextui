@@ -1,9 +1,10 @@
 import flatten from "flat";
 
-type StringMap = Record<string, string>;
+type ColorValue = string | boolean;
+type ColorMap = Record<string, ColorValue>;
 
-export function swapColorValues<T extends StringMap>(colors: T) {
-  const swappedColors: StringMap = {};
+export function swapColorValues<T extends ColorMap>(colors: T) {
+  const swappedColors: ColorMap = {};
   const keys = Object.keys(colors);
   const length = keys.length;
 
@@ -23,8 +24,8 @@ export function swapColorValues<T extends StringMap>(colors: T) {
   return swappedColors;
 }
 
-export function removeDefaultKeys<T extends StringMap>(obj: T): StringMap {
-  const newObj: StringMap = {};
+export function removeDefaultKeys<T extends ColorMap>(obj: T): ColorMap {
+  const newObj: ColorMap = {};
 
   for (const key in obj) {
     if (key.endsWith("-DEFAULT")) {
@@ -49,5 +50,5 @@ export const flattenThemeObject = <TTarget>(obj: TTarget) =>
     flatten(obj, {
       safe: true,
       delimiter: "-",
-    }) as StringMap,
+    }) as ColorMap,
   );
