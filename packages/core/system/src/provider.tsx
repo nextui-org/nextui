@@ -31,6 +31,15 @@ export interface NextUIProviderProps
    * Link, Menu, Tabs, Table, etc.
    */
   navigate?: (path: string) => void;
+  /**
+   * different options related to warnings displayed using console.warn
+   *  {
+   *    showAriaWarning -> Show warnings related to aria props if set to true. it is true by default.
+   *  }
+   */
+  warningOptions?: {
+    showAriaWarning?: boolean;
+  };
 }
 
 export const NextUIProvider: React.FC<NextUIProviderProps> = ({
@@ -45,6 +54,9 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   // then they will be set in `use-date-input.ts` or `use-calendar-base.ts`
   defaultDates,
   createCalendar,
+  warningOptions = {
+    showAriaWarning: true,
+  },
   ...otherProps
 }) => {
   let contents = children;
@@ -64,6 +76,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
       disableAnimation,
       disableRipple,
       validationBehavior,
+      warningOptions,
     };
   }, [
     createCalendar,
@@ -72,6 +85,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
     disableAnimation,
     disableRipple,
     validationBehavior,
+    warningOptions,
   ]);
 
   return (

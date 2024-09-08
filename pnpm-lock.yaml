@@ -3236,6 +3236,9 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
       clean-package:
         specifier: 2.2.0
         version: 2.2.0

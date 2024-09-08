@@ -5,6 +5,7 @@ import {filterDOMProps, mergeProps} from "@react-aria/utils";
 import {RefObject, KeyboardEvent as ReactKeyboardEvent} from "react";
 import {TreeState} from "@react-stately/tree";
 import {useSelectableList} from "@react-aria/selection";
+import {useProviderContext} from "@nextui-org/system";
 
 export interface MenuAria {
   /** Props for the menu element. */
@@ -42,7 +43,13 @@ export function useMenu<T>(
 ): MenuAria {
   let {shouldFocusWrap = true, onKeyDown, onKeyUp, ...otherProps} = props;
 
-  if (!props["aria-label"] && !props["aria-labelledby"]) {
+  const globalContext = useProviderContext();
+
+  if (
+    globalContext?.warningOptions?.showAriaWarning &&
+    !props["aria-label"] &&
+    !props["aria-labelledby"]
+  ) {
     console.warn("An aria-label or aria-labelledby prop is required for accessibility.");
   }
 
