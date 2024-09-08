@@ -32,10 +32,9 @@ export interface NextUIProviderProps
    */
   navigate?: (path: string) => void;
   /**
-   * different options related to warnings displayed using console.warn
-   *  {
-   *    showAriaWarning -> Show warnings related to aria props if set to true. it is true by default.
-   *  }
+   * options related to warnings which are displayed using console.warn
+   *
+   * @property {boolean} [showAriaWarning=true] - Controls whether warnings related to ARIA properties are shown.
    */
   warningOptions?: {
     showAriaWarning?: boolean;

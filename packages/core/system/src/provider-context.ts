@@ -80,11 +80,9 @@ export type ProviderContextProps = {
    */
   createCalendar?: (calendar: SupportedCalendars) => Calendar | null;
   /**
-   * different options related to warnings displayed using console.warn
-   *  {
-   *    @default true
-   *    showAriaWarning -> Show warnings related to aria props if set to true. it is true by default.
-   *  }
+   * options related to warnings which are displayed using console.warn
+   *
+   * @property {boolean} [showAriaWarning=true] - Controls whether warnings related to ARIA properties are shown.
    */
   warningOptions?: {
     showAriaWarning?: boolean;
