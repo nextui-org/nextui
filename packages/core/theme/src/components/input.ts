@@ -53,8 +53,7 @@ const input = tv({
       "hidden",
       "absolute",
       "end-3",
-      "end-auto",
-      "start-3",
+      "start-auto",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -771,8 +770,7 @@ const input = tv({
       class: {
         label: [
           "start-3",
-          "start-auto",
-          "end-3",
+          "end-auto",
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -786,8 +784,7 @@ const input = tv({
       class: {
         label: [
           "start-3",
-          "start-auto",
-          "end-3",
+          "end-auto",
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
