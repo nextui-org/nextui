@@ -135,7 +135,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative pe-2 ps-2 text-foreground",
+        label: "relative pe-2 text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
