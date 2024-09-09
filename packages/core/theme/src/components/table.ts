@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
+import {tv} from "../utils/tv";
 
 /**
  * Table **Tailwind Variants** component
@@ -61,8 +61,7 @@ const table = tv({
       "group",
       "px-3",
       "h-10",
-      "text-left",
-      "rtl:text-right",
+      "text-start",
       "align-middle",
       "bg-default-100",
       "whitespace-nowrap",
@@ -72,7 +71,6 @@ const table = tv({
       "first:rounded-s-lg",
       "last:rounded-e-lg",
       "outline-none",
-      "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
       "data-[hover=true]:text-foreground-400",
       ...dataFocusVisibleClasses,
@@ -98,6 +96,7 @@ const table = tv({
       "data-[selected=true]:before:opacity-100",
       // disabled
       "group-data-[disabled=true]:text-foreground-300",
+      "group-data-[disabled=true]:cursor-not-allowed",
     ],
     tfoot: "",
     sortIcon: [
@@ -117,7 +116,7 @@ const table = tv({
   variants: {
     color: {
       default: {
-        td: "before:bg-default/40 data-[selected=true]:text-default-foreground",
+        td: "before:bg-default/60 data-[selected=true]:text-default-foreground",
       },
       primary: {
         td: "before:bg-primary/20 data-[selected=true]:text-primary",
@@ -181,6 +180,7 @@ const table = tv({
         td: [
           "group-data-[odd=true]:before:bg-default-100",
           "group-data-[odd=true]:before:opacity-100",
+          "group-data-[odd=true]:before:-z-10",
         ],
       },
     },
@@ -228,6 +228,20 @@ const table = tv({
         table: "w-full",
       },
     },
+    align: {
+      start: {
+        th: "text-start",
+        td: "text-start",
+      },
+      center: {
+        th: "text-center",
+        td: "text-center",
+      },
+      end: {
+        th: "text-end",
+        td: "text-end",
+      },
+    },
   },
   defaultVariants: {
     layout: "auto",
@@ -238,8 +252,52 @@ const table = tv({
     hideHeader: false,
     isStriped: false,
     fullWidth: true,
-    disableAnimation: false,
+    align: "start",
   },
+  compoundVariants: [
+    {
+      isStriped: true,
+      color: "default",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/60",
+      },
+    },
+    {
+      isStriped: true,
+      color: "primary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-primary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "secondary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-secondary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "success",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-success/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "warning",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-warning/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "danger",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-danger/20",
+      },
+    },
+  ],
 });
 
 export type TableVariantProps = VariantProps<typeof table>;

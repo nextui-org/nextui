@@ -4,6 +4,7 @@ import type {
   SlotsToClasses,
 } from "@nextui-org/theme";
 
+import {As} from "@nextui-org/system";
 import {ItemProps, BaseItem} from "@nextui-org/aria-utils";
 import {FocusableProps, PressEvents} from "@react-types/shared";
 import {ReactNode, MouseEventHandler} from "react";
@@ -85,6 +86,12 @@ export interface Props<T extends object = {}>
    * ```
    */
   classNames?: SlotsToClasses<AccordionItemSlots>;
+  /**
+   * Customizable heading tag for Web accessibility:
+   * use headings to describe content and use them consistently and semantically.
+   * This will help all users to better find the content they are looking for.
+   */
+  HeadingComponent?: As;
 }
 
 export type AccordionItemBaseProps<T extends object = {}> = Props<T> & AccordionItemVariantProps;

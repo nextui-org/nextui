@@ -69,7 +69,7 @@ export default function App() {
       variant="bordered"
       placeholder="Enter your password"
       endContent={
-        <button className="focus:outline-none" type="button" onClick={toggleVisibility}>
+        <button className="focus:outline-none" type="button" onClick={toggleVisibility} aria-label="toggle password visibility">
           {isVisible ? (
             <EyeSlashFilledIcon className="text-2xl text-default-400 pointer-events-none" />
           ) : (

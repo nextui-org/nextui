@@ -1,5 +1,74 @@
 # @nextui-org/badge
 
+## 2.0.31
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.30
+
+### Patch Changes
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies [[`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/react-utils@2.0.14
+
+## 2.0.28
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+## 2.0.27
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/system-rsc@2.1.1
+
+## 2.0.26
+
+### Patch Changes
+
+- Updated dependencies [[`74eda3128`](https://github.com/nextui-org/nextui/commit/74eda312883b2e17df26f71442aba9fb3cd240be)]:
+  - @nextui-org/system-rsc@2.1.1
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.25
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2541](https://github.com/nextui-org/nextui/pull/2541) [`26a3a7d2c`](https://github.com/nextui-org/nextui/commit/26a3a7d2c6433c3bdd2aa6e6200077a57fdd94f4) Thanks [@withden](https://github.com/withden)! - Removing the `children` type from BadgeProps, as the already extended UseBadgeProps has a `children` prop.
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9)]:
+  - @nextui-org/system-rsc@2.1.0
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.0.24
 
 ### Patch Changes
