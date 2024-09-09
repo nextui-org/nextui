@@ -1,7 +1,7 @@
 import type {SelectProps} from "../src";
 
 import * as React from "react";
-import {render, renderHook, act} from "@testing-library/react";
+import {render, renderHook, act, fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
@@ -719,6 +719,47 @@ describe("Select", () => {
 
       expect(onChange).toBeCalledTimes(1);
     });
+  });
+
+  it("should not close when parent is scrollable", async () => {
+    const wrapper = render(
+      <div className="h-screen w-screen m-10">
+        <Select
+          aria-label="Favorite Animal"
+          className="fixed bottom-2"
+          data-testid="select"
+          label="Favorite Animal"
+        >
+          {itemsData.map((item) => (
+            <SelectItem key={item.id} value={item.label}>
+              {item.label}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    expect(select).not.toBeNull();
+
+    // open the select listbox by clicking selector button
+    fireEvent.click(select);
+
+    // assert that the select listbox is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(13);
+
+    await act(async () => {
+      await user.click(listboxItems[12]);
+    });
+
+    fireEvent.click(select);
+    // asserting that the click is able to open the pop-over(not getting closed due to the scroll)
+    expect(select).toHaveAttribute("aria-expanded", "true");
   });
 });
 
