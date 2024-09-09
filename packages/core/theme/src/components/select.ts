@@ -543,7 +543,13 @@ const select = tv({
       isMultiline: false,
       class: {
         base: "group relative justify-end",
-        label: ["pb-0", "z-20", "top-1/2", "-translate-y-1/2", "group-data-[filled=true]/select:start-0"],
+        label: [
+          "pb-0",
+          "z-20",
+          "top-1/2",
+          "-translate-y-1/2",
+          "group-data-[filled=true]/select:start-0",
+        ],
       },
     },
     // labelPlacement=[inside]
