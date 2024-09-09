@@ -6,7 +6,7 @@ import type {ReactRef} from "@nextui-org/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {DateInputGroupProps} from "./date-input-group";
 
-import {useLocale} from "@react-aria/i18n";
+import {useLocale, useLocalizedStringFormatter} from "@react-aria/i18n";
 import {createCalendar, CalendarDate, DateFormatter} from "@internationalized/date";
 import {mergeProps} from "@react-aria/utils";
 import {PropGetter, useProviderContext} from "@nextui-org/system";
@@ -17,6 +17,8 @@ import {useDateFieldState} from "@react-stately/datepicker";
 import {objectToDeps, clsx, dataAttr, getGregorianYearOffset} from "@nextui-org/shared-utils";
 import {dateInput, cn} from "@nextui-org/theme";
 import {useMemo} from "react";
+
+import intlMessages from "../intl/messages";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -184,6 +186,8 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     isInvalid: ariaIsInvalid,
   } = useAriaDateField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
+  const stringFormatter = useLocalizedStringFormatter(intlMessages) as any;
+
   if (props.minValue != undefined && validationDetails.rangeUnderflow) {
     const indexInValidationErrors: number =
       Number(validationDetails.badInput) +
@@ -196,7 +200,9 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     ).toLocaleDateString(locale);
     const timeZone =
       state.segments.filter((segment) => segment.type === "timeZoneName")[0]?.text ?? "";
-    const rangeUnderflow = `Value must be ${minValueDate} ${timeZone} or later`;
+    const rangeUnderflow = stringFormatter
+      .format("minValidationMessage")
+      .replace("{date}", `${minValueDate} ${timeZone}`);
 
     validationErrors.splice(indexInValidationErrors, 1, rangeUnderflow);
   }
@@ -214,7 +220,10 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     ).toLocaleDateString(locale);
     const timeZone =
       state.segments.filter((segment) => segment.type === "timeZoneName")[0]?.text ?? "";
-    const rangeOverflow = `Value must be ${maxValueDate} ${timeZone} or earlier`;
+
+    const rangeOverflow = stringFormatter
+      .format("maxValidationMessage")
+      .replace("{date}", `${maxValueDate} ${timeZone}`);
 
     validationErrors.splice(indexInValidationErrors, 1, rangeOverflow);
   }
