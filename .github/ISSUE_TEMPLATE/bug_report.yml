@@ -105,6 +105,6 @@ body:
         - "Safari"
         - "Edge"
         - "Opera"
-        - "Other (add additonal context)"
+        - "Other (add additional context)"
     validations:
       required: true
