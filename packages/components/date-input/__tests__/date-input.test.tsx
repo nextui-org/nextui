@@ -1,9 +1,16 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {act, fireEvent, render} from "@testing-library/react";
-import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
+import {
+  CalendarDate,
+  CalendarDateTime,
+  DateValue,
+  ZonedDateTime,
+  parseDate,
+} from "@internationalized/date";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
+import {I18nProvider} from "@react-aria/i18n";
 
 import {DateInput as DateInputBase, DateInputProps} from "../src";
 
@@ -173,6 +180,52 @@ describe("DateInput", () => {
           );
         }
       }
+    });
+
+    it("should support error message with MinDateValue according to locale", function () {
+      const minValue = "2024-04-04";
+      const locale = "hi-IN-u-ca-indian";
+      let {getByRole} = render(
+        <I18nProvider locale={locale}>
+          <DateInput
+            defaultValue={parseDate("2024-04-03")}
+            label="Date"
+            minValue={parseDate(minValue)}
+          />
+        </I18nProvider>,
+      );
+
+      let group = getByRole("group");
+
+      expect(group).toHaveAttribute("aria-describedby");
+
+      const errorComponent = document.querySelector("[data-slot=error-message]");
+      const localeBasedDate = new Date(minValue).toLocaleDateString(locale);
+
+      expect(errorComponent).toHaveTextContent(localeBasedDate);
+    });
+
+    it("should support error message with MaxDateValue according to locale", function () {
+      const maxValue = "2024-04-04";
+      const locale = "hi-IN-u-ca-indian";
+      let {getByRole} = render(
+        <I18nProvider locale={locale}>
+          <DateInput
+            defaultValue={parseDate("2024-04-05")}
+            label="Date"
+            maxValue={parseDate(maxValue)}
+          />
+        </I18nProvider>,
+      );
+
+      let group = getByRole("group");
+
+      expect(group).toHaveAttribute("aria-describedby");
+
+      const errorComponent = document.querySelector("[data-slot=error-message]");
+      const localeBasedDate = new Date(maxValue).toLocaleDateString(locale);
+
+      expect(errorComponent).toHaveTextContent(localeBasedDate);
     });
   });
 
