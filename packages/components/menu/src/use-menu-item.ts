@@ -69,6 +69,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const isDisabled = state.disabledKeys.has(key) || originalProps.isDisabled;
   const isSelectable = state.selectionManager.selectionMode !== "none";
+
   const isMobile = useIsMobile();
 
   const {isFocusVisible, focusProps} = useFocusRing({
@@ -139,9 +140,9 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     "data-selected": dataAttr(isSelected),
     "data-pressed": dataAttr(isPressed),
     "data-focus-visible": dataAttr(isFocusVisible),
-
     className: slots.base({class: clsx(baseStyles, props.className)}),
   });
+
   const getLabelProps: PropGetter = (props = {}) => ({
     ...mergeProps(labelProps, props),
     className: slots.title({class: classNames?.title}),
