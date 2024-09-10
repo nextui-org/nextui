@@ -19,12 +19,21 @@ Requirements:
 
 Using the CLI is now the easiest way to start a NextUI project. You can initialize your project and add components directly via the CLI:
 
-```codeBlock bash
-npm install -g nextui-cli
-```
+<Steps>
 
-<Spacer y={4}/>
+### Installation 
+Execute one of the following commands in your terminal:
+<PackageManagers
+  commands={{
+    npm: "npm install -g nextui-cli",
+    yarn: "yarn add -g nextui-cli",
+    pnpm: "pnpm add -g nextui-cli",
+    bun: "bun add -g nextui-cli",
+  }}
+/>
 
+### Initialization and Starting the App
+Initialize the project by using the `init` command. 
 ```codeBlock bash
 nextui init my-nextui-app
 ```
@@ -48,6 +57,7 @@ Start the local server:
 npm run dev
 ```
 
+### Adding the Components
 Once your NextUI project is ready to develop, you can add individual components using the CLI. For example, to add a button component:
 
 ```codeBlock bash
@@ -91,6 +101,8 @@ Filtered results for: Enter something to filter
 ◯  chip
 ◯  code
 ```
+
+</Steps>
 
 ## Manual Installation
 
