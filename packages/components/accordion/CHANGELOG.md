@@ -1,5 +1,87 @@
 # @nextui-org/accordion
 
+## 2.0.38
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/divider@2.0.31
+  - @nextui-org/use-aria-accordion@2.0.7
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/framer-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.37
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.30
+  - @nextui-org/aria-utils@2.0.23
+  - @nextui-org/framer-utils@2.0.23
+
+## 2.0.36
+
+### Patch Changes
+
+- [#3419](https://github.com/nextui-org/nextui/pull/3419) [`106752aae`](https://github.com/nextui-org/nextui/commit/106752aaefa4ef8bc7b7b1e97a7edcff13722ff6) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed cursor navigation within text (#2152, #3364)
+
+- [#3392](https://github.com/nextui-org/nextui/pull/3392) [`8dce94e5f`](https://github.com/nextui-org/nextui/commit/8dce94e5f03e1ac044bedd05b268b964f37316a7) Thanks [@chirokas](https://github.com/chirokas)! - Pass missing `dividerProps` to Divider (#3390)
+
+- [#3291](https://github.com/nextui-org/nextui/pull/3291) [`e9a6a162e`](https://github.com/nextui-org/nextui/commit/e9a6a162e8a26c6507938191c4e0b5bd94bdbf8d) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed variants for nested accordions (#3285)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/divider@2.0.29
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
+## 2.0.35
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/use-aria-accordion@2.0.6
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+  - @nextui-org/divider@2.0.28
+
+## 2.0.34
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/use-aria-accordion@2.0.5
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/framer-utils@2.0.20
+  - @nextui-org/divider@2.0.28
+
+## 2.0.33
+
+### Patch Changes
+
+- [#2265](https://github.com/nextui-org/nextui/pull/2265) [`10497f1a9`](https://github.com/nextui-org/nextui/commit/10497f1a97c0ecfec1cf699a1cd407be48553754) Thanks [@outputboy](https://github.com/outputboy)! - Make the accordion item heading tag customizable to satisfy a11y needs. Headings on web pages need to be consistent and semantic; this will help all users better find the content they are looking for. (#2950)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#2725](https://github.com/nextui-org/nextui/pull/2725) [`8048dcc0c`](https://github.com/nextui-org/nextui/commit/8048dcc0c37455d2574c93d6f9fa505a936aedb5) Thanks [@ericfabreu](https://github.com/ericfabreu)! - Fix 'Tap to click' behavior on macOS for Accordion and Tab
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/framer-utils@2.0.19
+  - @nextui-org/divider@2.0.28
+
 ## 2.0.32
 
 ### Patch Changes

@@ -9,11 +9,12 @@ import type {ValueBase} from "@react-types/shared";
 
 import {dataAttr} from "@nextui-org/shared-utils";
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
-import {useState} from "react";
+import {useCallback} from "react";
 import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
+import {useControlledState} from "@react-stately/utils";
 
 import intlMessages from "../intl/messages";
 
@@ -116,8 +117,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
 
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
-  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useState(false);
-
   const {
     as,
     ref,
@@ -145,6 +144,24 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     CalendarBottomContent,
     createCalendar,
   } = props;
+
+  const {
+    isHeaderExpanded,
+    isHeaderDefaultExpanded,
+    onHeaderExpandedChange,
+    ...restUserCalendarProps
+  } = userCalendarProps;
+
+  const handleHeaderExpandedChange = useCallback(
+    (isExpanded: boolean | undefined) => {
+      onHeaderExpandedChange?.(isExpanded || false);
+    },
+    [onHeaderExpandedChange],
+  );
+
+  const [isCalendarHeaderExpanded, setIsCalendarHeaderExpanded] = useControlledState<
+    boolean | undefined
+  >(isHeaderExpanded, isHeaderDefaultExpanded ?? false, handleHeaderExpandedChange);
 
   const domRef = useDOMRef(ref);
   const disableAnimation =
@@ -194,11 +211,12 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
         pageBehavior,
         isDateUnavailable,
         showMonthAndYearPickers,
+        isHeaderExpanded: isCalendarHeaderExpanded,
         onHeaderExpandedChange: setIsCalendarHeaderExpanded,
         color: isDefaultColor ? "primary" : originalProps.color,
         disableAnimation,
       },
-      userCalendarProps,
+      restUserCalendarProps,
     ),
   };
 
@@ -249,6 +267,12 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     "data-slot": "selector-icon",
   };
 
+  const onClose = () => {
+    if (isHeaderExpanded === undefined) {
+      setIsCalendarHeaderExpanded(false);
+    }
+  };
+
   return {
     domRef,
     endContent,
@@ -272,6 +296,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
+    onClose,
   };
 }
 

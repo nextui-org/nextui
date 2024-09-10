@@ -97,9 +97,9 @@ export const PackageManagers = ({
         })}
       </Tabs>
       {showGlobalInstallWarning && (
-        <Blockquote className="my-2">
-          No need to install this package if <Code>@nextui-org/react</Code> is already installed
-          globally.
+        <Blockquote className="my-2" color="warning">
+          The above command is for individual installation only. You may skip this step if{" "}
+          <Code>@nextui-org/react</Code> is already installed globally.
         </Blockquote>
       )}
     </>

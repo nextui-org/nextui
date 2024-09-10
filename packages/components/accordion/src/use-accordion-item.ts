@@ -1,3 +1,5 @@
+import type {AccordionItemVariantProps} from "@nextui-org/theme";
+
 import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@nextui-org/theme";
@@ -36,6 +38,7 @@ export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
 }
 
 export type UseAccordionItemProps<T extends object = {}> = Props<T> &
+  AccordionItemVariantProps &
   Omit<AccordionItemBaseProps, "onFocusChange">;
 
 export function useAccordionItem<T extends object = {}>(props: UseAccordionItemProps<T>) {
@@ -53,6 +56,7 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
     startContent,
     motionProps,
     focusedKey,
+    variant,
     isCompact = false,
     classNames: classNamesProp = {},
     isDisabled: isDisabledProp = false,
@@ -125,8 +129,9 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         hideIndicator,
         disableAnimation,
         disableIndicatorAnimation,
+        variant,
       }),
-    [isCompact, isDisabled, hideIndicator, disableAnimation, disableIndicatorAnimation],
+    [isCompact, isDisabled, hideIndicator, disableAnimation, disableIndicatorAnimation, variant],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -172,8 +177,9 @@ export function useAccordionItem<T extends object = {}>(props: UseAccordionItemP
         otherProps.onBlur,
         item.props?.onBlur,
       ),
-      ...mergeProps(buttonProps, hoverProps, pressProps, props),
-      onClick: chain(pressProps.onClick, onClick),
+      ...mergeProps(buttonProps, hoverProps, pressProps, props, {
+        onClick: chain(pressProps.onClick, onClick),
+      }),
     };
   };
 

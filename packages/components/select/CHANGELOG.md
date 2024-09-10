@@ -1,5 +1,118 @@
 # @nextui-org/select
 
+## 2.2.5
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/listbox@2.1.25
+  - @nextui-org/popover@2.1.27
+  - @nextui-org/scroll-shadow@2.1.19
+  - @nextui-org/spinner@2.0.33
+  - @nextui-org/use-aria-button@2.0.10
+  - @nextui-org/use-aria-multiselect@2.2.3
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/spinner@2.0.32
+  - @nextui-org/listbox@2.1.24
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/aria-utils@2.0.23
+
+## 2.2.3
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- [#3374](https://github.com/nextui-org/nextui/pull/3374) [`7cc1bd78a`](https://github.com/nextui-org/nextui/commit/7cc1bd78a30045f2e4370df5738ec3e4ae3933f3) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed select closing issue with selector button (#3276)
+
+- [#3368](https://github.com/nextui-org/nextui/pull/3368) [`1cd64b2e2`](https://github.com/nextui-org/nextui/commit/1cd64b2e2e7b0abeac1933ae58e0de997ba78fc4) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed import HiddenSelect and UseSelectProps (#3356)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49), [`444d320db`](https://github.com/nextui-org/nextui/commit/444d320dbc146399eb937c219ce983d427675425)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/popover@2.1.25
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/listbox@2.1.23
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/spinner@2.0.31
+  - @nextui-org/react-utils@2.0.15
+
+## 2.2.2
+
+### Patch Changes
+
+- [#3177](https://github.com/nextui-org/nextui/pull/3177) [`a0d6a77ef`](https://github.com/nextui-org/nextui/commit/a0d6a77efbe917df406bb309cbd1750629534eaf) Thanks [@wingkwong](https://github.com/wingkwong)! - Add missing `data-invalid` attribute (#3149)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3157](https://github.com/nextui-org/nextui/pull/3157) [`a06422f37`](https://github.com/nextui-org/nextui/commit/a06422f373a13a0cf9f5fada394dec4739ee57e3) Thanks [@wingkwong](https://github.com/wingkwong)! - set empty string instead of undefined for unsetting value (#3156)
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/listbox@2.1.22
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/use-aria-multiselect@2.2.2
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/scroll-shadow@2.1.17
+  - @nextui-org/spinner@2.0.30
+
+## 2.2.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/listbox@2.1.21
+  - @nextui-org/popover@2.1.23
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/use-aria-multiselect@2.2.1
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/scroll-shadow@2.1.16
+  - @nextui-org/spinner@2.0.29
+
+## 2.2.0
+
+### Minor Changes
+
+- [#2987](https://github.com/nextui-org/nextui/pull/2987) [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Change validationBehavior from native to aria by default, with the option to change via props.
+
+### Patch Changes
+
+- [#2854](https://github.com/nextui-org/nextui/pull/2854) [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise popover-based focus behaviours (#2849, #2834, #2779, #2962, #2872, #2974, #1920, #1287, #3060)
+
+- [#2953](https://github.com/nextui-org/nextui/pull/2953) [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix update type definition to prevent primitive values as items (#2938)
+
+- [#2937](https://github.com/nextui-org/nextui/pull/2937) [`a2133009f`](https://github.com/nextui-org/nextui/commit/a2133009f73aa728a0e5deeb9b742aa1defd4de2) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix onSelectionChange can handle number (#2926)
+
+- [#3081](https://github.com/nextui-org/nextui/pull/3081) [`31bfaebe2`](https://github.com/nextui-org/nextui/commit/31bfaebe2c53b0a3b9d18c65db4089e6044fe9dc) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix: display placeholder text when unselected for controlled (#3062)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#3013](https://github.com/nextui-org/nextui/pull/3013) [`06ecd213c`](https://github.com/nextui-org/nextui/commit/06ecd213cf85db2dfaa5fc26c1fed62dcb5fbc85) Thanks [@kosmotema](https://github.com/kosmotema)! - make the VisuallyHidden `elementType` as span when the default parent element accepts only phrasing elements
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531), [`a2133009f`](https://github.com/nextui-org/nextui/commit/a2133009f73aa728a0e5deeb9b742aa1defd4de2), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2), [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a)]:
+  - @nextui-org/popover@2.1.22
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/listbox@2.1.20
+  - @nextui-org/use-aria-multiselect@2.2.0
+  - @nextui-org/scroll-shadow@2.1.16
+  - @nextui-org/spinner@2.0.29
+
 ## 2.1.27
 
 ### Patch Changes

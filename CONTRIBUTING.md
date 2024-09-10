@@ -14,7 +14,7 @@ Hello!, I am very excited that you are interested in contributing with Next UI. 
 ### Tooling
 
 - [PNPM](https://pnpm.io/) to manage packages and dependencies
-- [Tsup](https://tsup.egoist.sh/) to bundle packages
+- [Tsup](https://tsup.egoist.dev/) to bundle packages
 - [Storybook](https://storybook.js.org/) for rapid UI component development and
   testing
 - [Testing Library](https://testing-library.com/) for testing components and
@@ -196,7 +196,7 @@ pnpm build
 npm run build
 ```
 
-> Note: ensure your version of Node is 16 or higher to run scripts
+> Note: ensure that you have at least Node.js 20.16.0 as well as pnpm 9.6.0 or higher installed on your machine to run the scripts
 
 6. Send your pull request:
 

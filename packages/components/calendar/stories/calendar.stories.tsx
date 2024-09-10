@@ -237,6 +237,26 @@ const PresetsTemplate = (args: CalendarProps) => {
   );
 };
 
+const CalendarWidthTemplate = (args: CalendarProps) => {
+  return (
+    <div className="flex gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <p>calendarWidth: 300</p>
+        <p className="text-small text-default-600">calendarWidth: 300</p>
+        <Calendar {...args} calendarWidth={300} />
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">calendarWidth: 300px</p>
+        <Calendar {...args} calendarWidth="300px" />
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">calendarWidth: 30em</p>
+        <Calendar {...args} calendarWidth="30em" />
+      </div>
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -344,6 +364,13 @@ export const PageBehavior = {
 
 export const Presets = {
   render: PresetsTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CalendarWidth = {
+  render: CalendarWidthTemplate,
   args: {
     ...defaultProps,
   },

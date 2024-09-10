@@ -67,7 +67,7 @@ export const FloatingComponents: React.FC<{}> = () => {
             alt="Professional camera"
             as={NextImage}
             className="object-cover -translate-y-12 h-[100%]"
-            height={120}
+            height={180}
             src="/images/card-example-6.webp"
             width={120}
           />

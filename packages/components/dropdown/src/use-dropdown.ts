@@ -1,8 +1,9 @@
 import type {PopoverProps} from "@nextui-org/popover";
 import type {MenuTriggerType} from "@react-types/menu";
 import type {Ref} from "react";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {useMenuTriggerState} from "@react-stately/menu";
 import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
@@ -104,21 +105,25 @@ export function useDropdown(props: UseDropdownProps) {
     }
   };
 
-  const getPopoverProps: PropGetter = (props = {}) => ({
-    state,
-    placement,
-    ref: popoverRef,
-    disableAnimation,
-    shouldBlockScroll,
-    scrollRef: menuRef,
-    triggerRef: menuTriggerRef,
-    ...mergeProps(otherProps, props),
-    classNames: {
-      ...classNamesProp,
-      ...props.classNames,
-      content: clsx(classNames, classNamesProp?.content, props.className),
-    },
-  });
+  const getPopoverProps: PropGetter = (props = {}) => {
+    const popoverProps = mergeProps(otherProps, props);
+
+    return {
+      state,
+      placement,
+      ref: popoverRef,
+      disableAnimation,
+      shouldBlockScroll,
+      scrollRef: menuRef,
+      triggerRef: menuTriggerRef,
+      ...popoverProps,
+      classNames: {
+        ...classNamesProp,
+        ...props.classNames,
+        content: clsx(classNames, classNamesProp?.content, props.className),
+      },
+    };
+  };
 
   const getMenuTriggerProps: PropGetter = (
     originalProps = {},
@@ -143,7 +148,17 @@ export function useDropdown(props: UseDropdownProps) {
       menuProps,
       closeOnSelect,
       ...mergeProps(props, {
-        onAction: () => onMenuAction(props?.closeOnSelect),
+        onAction: (key: any) => {
+          // @ts-ignore
+          const item = props?.children?.find((item) => item.key === key);
+
+          if (item?.props?.closeOnSelect === false) {
+            onMenuAction(false);
+
+            return;
+          }
+          onMenuAction(props?.closeOnSelect);
+        },
         onClose: state.close,
       }),
     } as MenuProps;

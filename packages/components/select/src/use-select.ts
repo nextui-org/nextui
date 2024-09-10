@@ -6,6 +6,7 @@ import {
   HTMLNextUIProps,
   mapPropsVariants,
   PropGetter,
+  SharedSelection,
   useProviderContext,
 } from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
@@ -127,6 +128,10 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Classes object to style the select and its children.
    */
   classNames?: SlotsToClasses<SelectSlots>;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 
 interface SelectData {
@@ -138,8 +143,11 @@ interface SelectData {
 
 export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
 
-export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
-  MultiSelectProps<T> &
+export type UseSelectProps<T> = Omit<
+  Props<T>,
+  keyof Omit<MultiSelectProps<T>, "onSelectionChange">
+> &
+  Omit<MultiSelectProps<T>, "onSelectionChange"> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
@@ -376,6 +384,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-has-value": dataAttr(hasValue),
       "data-has-label": dataAttr(hasLabel),
       "data-has-helper": dataAttr(hasHelper),
+      "data-invalid": dataAttr(isInvalid),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
@@ -500,6 +509,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getPopoverProps = useCallback(
     (props: DOMAttributes = {}) => {
+      const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
       return {
         state,
         triggerRef,
@@ -512,7 +523,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             class: clsx(classNames?.popoverContent, props.className),
           }),
         },
-        ...mergeProps(slotsProps.popoverProps, props),
+        ...popoverProps,
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
@@ -537,7 +548,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorIcon({class: classNames?.selectorIcon}),
     }),
-    [slots, classNames?.selectorIcon, state?.isOpen],
+    [slots, classNames?.selectorIcon, state.isOpen],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(
