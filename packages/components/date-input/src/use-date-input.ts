@@ -186,7 +186,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     isInvalid: ariaIsInvalid,
   } = useAriaDateField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
-  const stringFormatter = useLocalizedStringFormatter(intlMessages) as any;
+  const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
   if (props.minValue != undefined && validationDetails.rangeUnderflow) {
     const indexInValidationErrors: number =
