@@ -17,6 +17,7 @@ export * from "./toggle";
 export * from "./accordion";
 export * from "./progress";
 export * from "./circular-progress";
+export * from "./input-otp";
 export * from "./input";
 export * from "./dropdown";
 export * from "./image";

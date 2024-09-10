@@ -291,6 +291,9 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../../packages/components/divider
+      '@nextui-org/input-otp':
+        specifier: workspace:*
+        version: link:../../packages/components/input-otp
       '@nextui-org/kbd':
         specifier: workspace:*
         version: link:../../packages/components/kbd
@@ -1662,6 +1665,52 @@ importers:
         specifier: ^7.51.3
         version: 7.53.1(react@18.3.1)
 
+  packages/components/input-otp:
+    dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
+      '@react-aria/focus':
+        specifier: 3.17.1
+        version: 3.17.1(react@18.2.0)
+      '@react-aria/textfield':
+        specifier: 3.14.5
+        version: 3.14.5(react@18.2.0)
+      '@react-aria/utils':
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
+      '@react-stately/utils':
+        specifier: 3.10.1
+        version: 3.10.1(react@18.2.0)
+      '@react-types/textfield':
+        specifier: 3.9.3
+        version: 3.9.3(react@18.2.0)
+    devDependencies:
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.51.3(react@18.2.0)
+
   packages/components/kbd:
     dependencies:
       '@nextui-org/react-utils':
@@ -2995,6 +3044,9 @@ importers:
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../../components/input
+      '@nextui-org/input-otp':
+        specifier: workspace:*
+        version: link:../../components/input-otp
       '@nextui-org/kbd':
         specifier: workspace:*
         version: link:../../components/kbd
