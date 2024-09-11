@@ -189,10 +189,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   const stringFormatter = useLocalizedStringFormatter(intlMessages);
 
   if (props.minValue != undefined && validationDetails.rangeUnderflow) {
-    const indexInValidationErrors: number =
-      Number(validationDetails.badInput) +
-      Number(validationDetails.customError) +
-      Number(validationDetails.patternMismatch);
     const minValueDate = new Date(
       minValue.year,
       minValue.month - 1,
@@ -204,15 +200,10 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
       .format("minValidationMessage")
       .replace("{date}", `${minValueDate} ${timeZone}`);
 
-    validationErrors.splice(indexInValidationErrors, 1, rangeUnderflow);
+    validationErrors.splice(0, 1, rangeUnderflow);
   }
 
   if (props.maxValue != undefined && validationDetails.rangeOverflow) {
-    const indexInValidationErrors: number =
-      Number(validationDetails.badInput) +
-      Number(validationDetails.customError) +
-      Number(validationDetails.patternMismatch) +
-      Number(validationDetails.rangeUnderflow);
     const maxValueDate = new Date(
       maxValue.year,
       maxValue.month - 1,
@@ -225,7 +216,14 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
       .format("maxValidationMessage")
       .replace("{date}", `${maxValueDate} ${timeZone}`);
 
-    validationErrors.splice(indexInValidationErrors, 1, rangeOverflow);
+    validationErrors.splice(0, 1, rangeOverflow);
+  }
+
+  if (validationDetails.badInput) {
+    const badInputMessage = stringFormatter.format("badInputMessage");
+    const indexInValidationErrors = validationErrors.length - 1;
+
+    validationErrors.splice(indexInValidationErrors, 1, badInputMessage);
   }
 
   const baseStyles = clsx(classNames?.base, className);
