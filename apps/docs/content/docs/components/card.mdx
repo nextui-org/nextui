@@ -73,9 +73,11 @@ You can use other NextUI components inside the card to compose a more complex ca
 
 ### Blurred Card
 
-You can pass the `isBlurred` prop to the card to blur the card.
+You can pass the `isBlurred` prop to the card to blur the card. Card gets blurred properties based on its ancestor element.
 
 <CodeDemo isGradientBox title="Blurred Card" files={cardContent.blurred} />
+
+**Note**: While trying out the above example, it is required to provide the necessary background to any ancestor element of the Card component to obtain the `blur` effect as seen in the preview.
 
 ### Primary Action
 
