@@ -1,11 +1,11 @@
-import {useContext, useEffect, useState} from "react";
+import {useEffect, useState} from "react";
 import {Card, CardBody, Switch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
 import {useLocalStorage} from "usehooks-ts";
 import {Icon} from "@iconify/react/dist/offline";
 import LinkSquareIcon from "@iconify/icons-solar/link-square-linear";
 
-import {ThemeBuilderContext} from "../../provider";
+import {useThemeBuilder} from "../../provider";
 import {Config, Template, ThemeType} from "../../types";
 import {configKey, syncThemesKey, initialConfig} from "../../constants";
 import {SelectTemplate} from "../select-template";
@@ -26,7 +26,7 @@ import usePrevious from "@/hooks/use-previous";
 
 export default function Configuration() {
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
-  const {config, resetConfig, setConfiguration} = useContext(ThemeBuilderContext);
+  const {config, resetConfig, setConfiguration} = useThemeBuilder();
   const themeProps = useTheme();
   const theme = themeProps.theme as ThemeType;
   const prevTheme = usePrevious(theme);
@@ -34,7 +34,7 @@ export default function Configuration() {
   const [, setLsConfig] = useLocalStorage<Config>(configKey, initialConfig);
   const [syncThemes, setSyncThemes] = useLocalStorage<boolean>(syncThemesKey, true);
   const isLight = theme === "light";
-  const syncIcon = syncThemes ? <Icon icon={LinkSquareIcon} /> : null;
+  const syncIcon = syncThemes ? <Icon className="flex-shrink-0" icon={LinkSquareIcon} /> : null;
 
   /**
    * Update the CSS variables and the configuration when the theme changes.
@@ -81,7 +81,7 @@ export default function Configuration() {
   }
 
   return (
-    <Card className="max-w-xs w-full p-2 h-min relative mx-auto md:sticky md:top-28 z-30 md:h-[calc(100vh-12rem)]">
+    <Card className="max-w-md w-full p-2 h-min relative mx-auto md:sticky md:top-28 z-30 md:h-[calc(100vh-12rem)]">
       <CardBody className="flex flex-col">
         <div className="flex flex-col gap-6">
           <Actions

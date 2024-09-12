@@ -1,7 +1,5 @@
-import {useContext} from "react";
-
 import {setCssFontSize} from "../../css-vars";
-import {ThemeBuilderContext} from "../../provider";
+import {useThemeBuilder} from "../../provider";
 import {Config} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
@@ -11,7 +9,7 @@ interface FontSizesProps {
 }
 
 export function FontSizes({config}: FontSizesProps) {
-  const {setFontSize} = useContext(ThemeBuilderContext);
+  const {setFontSize} = useThemeBuilder();
 
   return (
     <ConfigSection title="Font size (rem)">

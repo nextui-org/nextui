@@ -6,9 +6,12 @@ import {readableColor} from "color2k";
 import waterDrop from "@iconify/icons-solar/waterdrop-linear";
 import {Icon} from "@iconify/react/dist/offline";
 import {useTheme} from "next-themes";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {ColorPickerType, ThemeType} from "../types";
 import {colorValuesToRgb, getColorWeight} from "../utils/colors";
+
+import {CopyButton} from "./copy-button";
 
 interface ColorPickerProps {
   hexColor: string;
@@ -17,9 +20,18 @@ interface ColorPickerProps {
   type: ColorPickerType;
   onChange: (hexColor: string) => void;
   onClose: (hexColor: string) => void;
+  onCopy: (theme: ThemeType) => void;
 }
 
-export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: ColorPickerProps) {
+export function ColorPicker({
+  hexColor,
+  icon,
+  label,
+  type,
+  onChange,
+  onClose,
+  onCopy,
+}: ColorPickerProps) {
   const [selectedColor, setSelectedColor] = useState(hexColor);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -40,7 +52,7 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
   }, [hexColor, isOpen]);
 
   return (
-    <div>
+    <div className="flex">
       <Popover
         isOpen={isOpen}
         placement="bottom"
@@ -50,7 +62,7 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
         <PopoverTrigger>
           <Button
             fullWidth
-            className={getColor(type)}
+            className={clsx(getColor(type), "rounded-r-none")}
             size="sm"
             style={{
               color: ["background", "foreground", "focus", "overlay"].includes(type)
@@ -87,6 +99,7 @@ export function ColorPicker({hexColor, icon, label, type, onChange, onClose}: Co
           </div>
         </PopoverContent>
       </Popover>
+      <CopyButton className="rounded-l-none" size="sm" variant="flat" onCopy={onCopy} />
     </div>
   );
 }

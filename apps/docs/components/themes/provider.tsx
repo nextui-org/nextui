@@ -1,10 +1,10 @@
-import {useState, createContext, useMemo, useCallback} from "react";
+import {useState, createContext, useContext} from "react";
 import {useLocalStorage} from "usehooks-ts";
 
 import {configKey, initialConfig} from "./constants";
 import {ConfigColors, Config, ConfigLayout, ThemeType} from "./types";
 
-export interface ThemeBuilderProviderI {
+export interface ThemeBuilderContextProps {
   config: Config;
   resetConfig: (theme: ThemeType, sync: boolean) => Config;
   setBaseColor: (newConfig: Partial<ConfigColors["baseColor"]>, theme: ThemeType) => void;
@@ -26,7 +26,7 @@ export interface ThemeBuilderProviderI {
   setRadius: (newConfig: Partial<ConfigLayout["radius"]>) => void;
 }
 
-export const ThemeBuilderContext = createContext<ThemeBuilderProviderI>({
+const ThemeBuilderContext = createContext<ThemeBuilderContextProps>({
   config: initialConfig,
   resetConfig: () => initialConfig,
   setBaseColor: () => {},
@@ -45,11 +45,10 @@ interface ThemeBuilderProviderProps {
 }
 
 export default function ThemeBuilderProvider({children}: ThemeBuilderProviderProps) {
-  // ASK: There are 3 local storage imports. Which one should I use?
   const [lsConfig] = useLocalStorage<Config>(configKey, initialConfig);
   const [config, setConfig] = useState<Config>(lsConfig);
 
-  const setConfiguration = useCallback((newConfig: Config, theme: ThemeType, sync: boolean) => {
+  const setConfiguration = (newConfig: Config, theme: ThemeType, sync: boolean) => {
     setConfig((prev) =>
       sync
         ? newConfig
@@ -58,9 +57,9 @@ export default function ThemeBuilderProvider({children}: ThemeBuilderProviderPro
             [theme]: newConfig[theme],
           },
     );
-  }, []);
+  };
 
-  const resetConfig = useCallback((theme: ThemeType, sync: boolean) => {
+  const resetConfig = (theme: ThemeType, sync: boolean) => {
     let newConfig = initialConfig;
 
     setConfig((prev) => {
@@ -76,201 +75,183 @@ export default function ThemeBuilderProvider({children}: ThemeBuilderProviderPro
     });
 
     return newConfig;
-  }, []);
+  };
 
-  const setBrandColor = useCallback(
-    (newConfig: Partial<ConfigColors["brandColor"]>, theme: ThemeType, sync: boolean) => {
-      setConfig((prev) =>
-        sync
-          ? {
-              ...prev,
-              light: {
-                ...prev.light,
-                brandColor: {
-                  ...prev.light.brandColor,
-                  ...newConfig,
-                },
-              },
-              dark: {
-                ...prev.dark,
-                brandColor: {
-                  ...prev.dark.brandColor,
-                  ...newConfig,
-                },
-              },
-            }
-          : {
-              ...prev,
-              [theme]: {
-                ...prev[theme],
-                brandColor: {
-                  ...prev[theme].brandColor,
-                  ...newConfig,
-                },
+  const setBrandColor = (
+    newConfig: Partial<ConfigColors["brandColor"]>,
+    theme: ThemeType,
+    sync: boolean,
+  ) => {
+    setConfig((prev) =>
+      sync
+        ? {
+            ...prev,
+            light: {
+              ...prev.light,
+              brandColor: {
+                ...prev.light.brandColor,
+                ...newConfig,
               },
             },
-      );
-    },
-    [],
-  );
-
-  const setBaseColor = useCallback(
-    (newConfig: Partial<ConfigColors["baseColor"]>, theme: ThemeType) => {
-      setConfig((prev) => ({
-        ...prev,
-        [theme]: {
-          ...prev[theme],
-          baseColor: {
-            ...prev[theme].baseColor,
-            ...newConfig,
-          },
-        },
-      }));
-    },
-    [],
-  );
-
-  const setOtherColor = useCallback(
-    (newConfig: Partial<ConfigColors["otherColor"]>, theme: ThemeType, sync: boolean) => {
-      setConfig((prev) =>
-        sync
-          ? {
-              ...prev,
-              light: {
-                ...prev.light,
-                otherColor: {
-                  ...prev.light.otherColor,
-                  ...newConfig,
-                },
-              },
-              dark: {
-                ...prev.dark,
-                otherColor: {
-                  ...prev.dark.otherColor,
-                  ...newConfig,
-                },
-              },
-            }
-          : {
-              ...prev,
-              [theme]: {
-                ...prev[theme],
-                otherColor: {
-                  ...prev[theme].otherColor,
-                  ...newConfig,
-                },
+            dark: {
+              ...prev.dark,
+              brandColor: {
+                ...prev.dark.brandColor,
+                ...newConfig,
               },
             },
-      );
-    },
-    [],
-  );
-
-  const setBorderWidth = useCallback(
-    (newBorderWidths: Partial<ConfigLayout["borderWidth"]>) =>
-      setConfig((prev) => ({
-        ...prev,
-        layout: {
-          ...prev.layout,
-          borderWidth: {
-            ...prev.layout.borderWidth,
-            ...newBorderWidths,
+          }
+        : {
+            ...prev,
+            [theme]: {
+              ...prev[theme],
+              brandColor: {
+                ...prev[theme].brandColor,
+                ...newConfig,
+              },
+            },
           },
-        },
-      })),
-    [],
-  );
+    );
+  };
 
-  const setLineHeight = useCallback(
-    (newLineHeights: Partial<ConfigLayout["lineHeight"]>) =>
-      setConfig((prev) => ({
-        ...prev,
-        layout: {
-          ...prev.layout,
-          lineHeight: {
-            ...prev.layout.lineHeight,
-            ...newLineHeights,
+  const setBaseColor = (newConfig: Partial<ConfigColors["baseColor"]>, theme: ThemeType) => {
+    setConfig((prev) => ({
+      ...prev,
+      [theme]: {
+        ...prev[theme],
+        baseColor: {
+          ...prev[theme].baseColor,
+          ...newConfig,
+        },
+      },
+    }));
+  };
+
+  const setOtherColor = (
+    newConfig: Partial<ConfigColors["otherColor"]>,
+    theme: ThemeType,
+    sync: boolean,
+  ) => {
+    setConfig((prev) =>
+      sync
+        ? {
+            ...prev,
+            light: {
+              ...prev.light,
+              otherColor: {
+                ...prev.light.otherColor,
+                ...newConfig,
+              },
+            },
+            dark: {
+              ...prev.dark,
+              otherColor: {
+                ...prev.dark.otherColor,
+                ...newConfig,
+              },
+            },
+          }
+        : {
+            ...prev,
+            [theme]: {
+              ...prev[theme],
+              otherColor: {
+                ...prev[theme].otherColor,
+                ...newConfig,
+              },
+            },
           },
-        },
-      })),
-    [],
-  );
+    );
+  };
 
-  const setFontSize = useCallback(
-    (newFontSizes: Partial<ConfigLayout["fontSize"]>) =>
-      setConfig((prev) => ({
-        ...prev,
-        layout: {
-          ...prev.layout,
-          fontSize: {
-            ...prev.layout.fontSize,
-            ...newFontSizes,
-          },
+  const setBorderWidth = (newBorderWidths: Partial<ConfigLayout["borderWidth"]>) =>
+    setConfig((prev) => ({
+      ...prev,
+      layout: {
+        ...prev.layout,
+        borderWidth: {
+          ...prev.layout.borderWidth,
+          ...newBorderWidths,
         },
-      })),
-    [],
-  );
+      },
+    }));
 
-  const setRadius = useCallback(
-    (newRadius: Partial<ConfigLayout["radius"]>) =>
-      setConfig((prev) => ({
-        ...prev,
-        layout: {
-          ...prev.layout,
-          radius: {
-            ...prev.layout.radius,
-            ...newRadius,
-          },
+  const setLineHeight = (newLineHeights: Partial<ConfigLayout["lineHeight"]>) =>
+    setConfig((prev) => ({
+      ...prev,
+      layout: {
+        ...prev.layout,
+        lineHeight: {
+          ...prev.layout.lineHeight,
+          ...newLineHeights,
         },
-      })),
-    [],
-  );
+      },
+    }));
 
-  const setOtherParams = useCallback(
-    (newOtherParams: Partial<ConfigLayout["otherParams"]>) =>
-      setConfig((prev) => ({
-        ...prev,
-        layout: {
-          ...prev.layout,
-          otherParams: {
-            ...prev.layout.otherParams,
-            ...newOtherParams,
-          },
+  const setFontSize = (newFontSizes: Partial<ConfigLayout["fontSize"]>) =>
+    setConfig((prev) => ({
+      ...prev,
+      layout: {
+        ...prev.layout,
+        fontSize: {
+          ...prev.layout.fontSize,
+          ...newFontSizes,
         },
-      })),
-    [],
-  );
+      },
+    }));
 
-  const contextValue = useMemo(
-    () => ({
-      resetConfig,
-      config,
-      setBaseColor,
-      setBorderWidth,
-      setBrandColor,
-      setConfiguration,
-      setLineHeight,
-      setFontSize,
-      setOtherColor,
-      setOtherParams,
-      setRadius,
-    }),
-    [
-      resetConfig,
-      config,
-      setBaseColor,
-      setBorderWidth,
-      setBrandColor,
-      setConfiguration,
-      setLineHeight,
-      setFontSize,
-      setOtherColor,
-      setOtherParams,
-      setRadius,
-    ],
-  );
+  const setRadius = (newRadius: Partial<ConfigLayout["radius"]>) =>
+    setConfig((prev) => ({
+      ...prev,
+      layout: {
+        ...prev.layout,
+        radius: {
+          ...prev.layout.radius,
+          ...newRadius,
+        },
+      },
+    }));
+
+  const setOtherParams = (newOtherParams: Partial<ConfigLayout["otherParams"]>) =>
+    setConfig((prev) => ({
+      ...prev,
+      layout: {
+        ...prev.layout,
+        otherParams: {
+          ...prev.layout.otherParams,
+          ...newOtherParams,
+        },
+      },
+    }));
 
   return (
-    <ThemeBuilderContext.Provider value={contextValue}>{children}</ThemeBuilderContext.Provider>
+    <ThemeBuilderContext.Provider
+      value={{
+        resetConfig,
+        config,
+        setBaseColor,
+        setBorderWidth,
+        setBrandColor,
+        setConfiguration,
+        setLineHeight,
+        setFontSize,
+        setOtherColor,
+        setOtherParams,
+        setRadius,
+      }}
+    >
+      {children}
+    </ThemeBuilderContext.Provider>
   );
+}
+
+// Create a custom hook to use the ThemeBuilderContext
+export function useThemeBuilder(): ThemeBuilderContextProps {
+  const context = useContext(ThemeBuilderContext);
+
+  if (!context) {
+    throw new Error("useThemeBuilder must be used within a ThemeBuilderProvider");
+  }
+
+  return context;
 }

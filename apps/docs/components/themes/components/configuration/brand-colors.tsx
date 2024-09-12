@@ -1,9 +1,8 @@
-import {useContext} from "react";
-
 import {colorsId} from "../../constants";
 import {setCssColor} from "../../css-vars";
-import {ThemeBuilderContext} from "../../provider";
+import {useThemeBuilder} from "../../provider";
 import {Config, ThemeType} from "../../types";
+import {copyBrandColorConfig} from "../../utils/config";
 import {ColorPicker} from "../color-picker";
 import {ConfigSection} from "../config-section";
 
@@ -15,7 +14,7 @@ interface BrandColorsProps {
 }
 
 export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsProps) {
-  const {setBrandColor} = useContext(ThemeBuilderContext);
+  const {setBrandColor} = useThemeBuilder();
 
   return (
     <ConfigSection id={colorsId} title="Brand colors">
@@ -25,6 +24,7 @@ export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsPr
         type="default"
         onChange={(hexColor) => setCssColor("default", hexColor, theme)}
         onClose={(hexColor) => setBrandColor({default: hexColor}, theme, false)}
+        onCopy={(theme) => copyBrandColorConfig(config, "default", theme)}
       />
       <ColorPicker
         hexColor={config[theme].brandColor.primary}
@@ -33,6 +33,7 @@ export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsPr
         type="primary"
         onChange={(hexColor) => setCssColor("primary", hexColor, theme)}
         onClose={(hexColor) => setBrandColor({primary: hexColor}, theme, syncThemes)}
+        onCopy={(theme) => copyBrandColorConfig(config, "primary", theme)}
       />
       <ColorPicker
         hexColor={config[theme].brandColor.secondary}
@@ -41,6 +42,7 @@ export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsPr
         type="secondary"
         onChange={(hexColor) => setCssColor("secondary", hexColor, theme)}
         onClose={(hexColor) => setBrandColor({secondary: hexColor}, theme, syncThemes)}
+        onCopy={(theme) => copyBrandColorConfig(config, "secondary", theme)}
       />
       <ColorPicker
         hexColor={config[theme].brandColor.success}
@@ -49,6 +51,7 @@ export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsPr
         type="success"
         onChange={(hexColor) => setCssColor("success", hexColor, theme)}
         onClose={(hexColor) => setBrandColor({success: hexColor}, theme, syncThemes)}
+        onCopy={(theme) => copyBrandColorConfig(config, "success", theme)}
       />
       <ColorPicker
         hexColor={config[theme].brandColor.warning}
@@ -57,6 +60,7 @@ export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsPr
         type="warning"
         onChange={(hexColor) => setCssColor("warning", hexColor, theme)}
         onClose={(hexColor) => setBrandColor({warning: hexColor}, theme, syncThemes)}
+        onCopy={(theme) => copyBrandColorConfig(config, "warning", theme)}
       />
       <ColorPicker
         hexColor={config[theme].brandColor.danger}
@@ -65,6 +69,7 @@ export function BrandColors({config, syncIcon, syncThemes, theme}: BrandColorsPr
         type="danger"
         onChange={(hexColor) => setCssColor("danger", hexColor, theme)}
         onClose={(hexColor) => setBrandColor({danger: hexColor}, theme, syncThemes)}
+        onCopy={(theme) => copyBrandColorConfig(config, "danger", theme)}
       />
     </ConfigSection>
   );

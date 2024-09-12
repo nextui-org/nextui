@@ -3,7 +3,7 @@ import {colors} from "@nextui-org/theme";
 import {ConfigColors, Config, ConfigLayout} from "./types";
 
 // Colors
-export const defaultDarkColorWeight = 22.5;
+export const defaultDarkColorWeight = 20;
 export const defaultLightColorWeight = 17.5;
 export const colorWeight = 17.5;
 

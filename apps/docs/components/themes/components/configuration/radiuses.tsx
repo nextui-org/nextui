@@ -1,7 +1,5 @@
-import {useContext} from "react";
-
 import {setCssRadius} from "../../css-vars";
-import {ThemeBuilderContext} from "../../provider";
+import {useThemeBuilder} from "../../provider";
 import {Config} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
@@ -11,7 +9,7 @@ interface RadiusesProps {
 }
 
 export function Radiuses({config}: RadiusesProps) {
-  const {setRadius} = useContext(ThemeBuilderContext);
+  const {setRadius} = useThemeBuilder();
 
   return (
     <ConfigSection cols={3} title="Radius (rem)">

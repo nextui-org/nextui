@@ -1,7 +1,5 @@
-import {useContext} from "react";
-
 import {setOtherCssParams} from "../../css-vars";
-import {ThemeBuilderContext} from "../../provider";
+import {useThemeBuilder} from "../../provider";
 import {Config} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
@@ -11,7 +9,7 @@ interface OtherProps {
 }
 
 export function Other({config}: OtherProps) {
-  const {setOtherParams} = useContext(ThemeBuilderContext);
+  const {setOtherParams} = useThemeBuilder();
 
   const handleChange = (key: keyof Config["layout"]["otherParams"], value: string) => {
     setOtherParams({[key]: value});
