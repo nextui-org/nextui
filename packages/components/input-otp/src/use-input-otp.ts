@@ -24,7 +24,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   total: number;
   classNames?: SlotsToClasses<InputOtpSlots>;
   allowedKeys?: string;
-  onFill: () => void;
+  onFill?: () => void;
 }
 
 export type ValueTypes = {
@@ -91,8 +91,9 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const getBaseProps: PropGetter = useCallback(() => {
     return {
       className: slots.base({class: baseStyles}),
+      "data-slot": "base",
     };
-  }, [slots, baseStyles]);
+  }, [slots, baseStyles, value]);
 
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
@@ -101,12 +102,15 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
           class: clsx(classNames?.input, props?.classsName),
         }),
         maxLength: total,
+        minLength: total,
         value,
-        ...mergeProps(focusProps),
+        ...mergeProps(focusProps, originalProps),
         onChange: onInputChange,
+        "data-slot": "input",
+        "data-focus": isInputFocused,
       };
     },
-    [slots, classNames?.input, value, setValue],
+    [slots, classNames?.input, value, setValue, isInputFocused],
   );
 
   const values = useMemo(
@@ -125,7 +129,6 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     value,
     isInputFocused,
     values,
-    setValue,
     getBaseProps,
     getInputProps,
     ...otherProps,
