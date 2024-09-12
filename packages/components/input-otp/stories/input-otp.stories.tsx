@@ -32,7 +32,7 @@ const defaultProps = {
   ...inputOtp.defaultVariants,
 };
 
-const Template = (args: InputOtpProps) => <InputOtp {...args} />;
+const Template = (args: InputOtpProps) => <InputOtp {...args} total={4} />;
 
 export const Default = {
   render: Template,

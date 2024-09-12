@@ -41,7 +41,12 @@
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*"
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/use-input-otp": "workspace:*",
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@react-aria/focus": "3.17.1",
+    "@react-aria/utils": "3.24.1",
+    "@react-stately/utils": "3.10.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
