@@ -20,8 +20,7 @@ import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {dateRangePicker, dateInput} from "@nextui-org/theme";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+import {dateRangePicker, dateInput, cn} from "@nextui-org/theme";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 interface Props<T extends DateValue>
@@ -216,9 +215,6 @@ export function useDateRangePicker<T extends DateValue>({
           ),
         }),
       },
-      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
-        ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
     } as PopoverProps;
   };
 
@@ -227,8 +223,11 @@ export function useDateRangePicker<T extends DateValue>({
       ...ariaCalendarProps,
       ...calendarProps,
       classNames: {
-        base: slots.calendar({class: classNames?.calendar}),
-        content: slots.calendarContent({class: classNames?.calendarContent}),
+        ...calendarProps.classNames,
+        base: slots.calendar({class: cn(calendarProps?.classNames?.base, classNames?.calendar)}),
+        content: slots.calendarContent({
+          class: cn(calendarProps?.classNames?.content, classNames?.calendarContent),
+        }),
       },
     } as RangeCalendarProps;
   };

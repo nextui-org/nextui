@@ -59,9 +59,11 @@ export const useScrollPosition = (props: UseScrollPositionOptions): ScrollValue 
 
     const handleScroll = () => {
       if (delay) {
-        if (throttleTimeout.current === null) {
-          throttleTimeout.current = setTimeout(handler, delay);
+        if (throttleTimeout.current) {
+          clearTimeout(throttleTimeout.current);
         }
+
+        throttleTimeout.current = setTimeout(handler, delay);
       } else {
         handler();
       }

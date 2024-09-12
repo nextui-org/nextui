@@ -226,6 +226,7 @@ import {useFilter} from "@react-aria/i18n";
 <CodeDemo
   title="Fully Controlled"
   showPreview={false}
+  showOpenInCodeSandbox={false}
   highlightedLines="63-64,67,69-71"
   files={autocompleteContent.fullyControlled}
 />
@@ -237,6 +238,12 @@ import {useFilter} from "@react-aria/i18n";
 You can customize the autocomplete items by modifying the `AutocompleteItem` children.
 
 <CodeDemo title="Custom Items" files={autocompleteContent.customItems} />
+
+### Custom Empty Content Message
+
+By default, a message `No results found.` will be shown if there is no result matching a query with your filter. You can customize the empty content message by modifying the `emptyContent` in `listboxProps`.
+
+<CodeDemo title="Custom Empty Content Message" files={autocompleteContent.customEmptyContentMessage} />
 
 ### Custom Filtering
 
@@ -275,6 +282,7 @@ import {useAsyncList} from "@react-stately/data";
   typescriptStrict={true}
   title="Asynchronous Filtering"
   showPreview={false}
+  showOpenInCodeSandbox={false}
   highlightedLines="27-29,33"
   files={autocompleteContent.asyncFiltering}
 />
@@ -301,6 +309,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 
 <CodeDemo
   showPreview={false}
+  showOpenInCodeSandbox={false}
   typescriptStrict={true}
   title="Asynchronous Loading"
   highlightedLines="21-22,25,27"

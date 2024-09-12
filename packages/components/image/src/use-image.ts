@@ -121,15 +121,20 @@ export function useImage(originalProps: UseImageProps) {
 
   const domRef = useDOMRef(ref);
 
-  const {w} = useMemo(() => {
+  const {w, h} = useMemo(() => {
     return {
       w: props.width
         ? typeof props.width === "number"
           ? `${props.width}px`
           : props.width
         : "fit-content",
+      h: props.height
+        ? typeof props.height === "number"
+          ? `${props.height}px`
+          : props.height
+        : "auto",
     };
-  }, [props?.width]);
+  }, [props?.width, props?.height]);
 
   const showFallback = (!src || !isImgLoaded) && !!fallbackSrc;
   const showSkeleton = isLoading && !disableSkeleton;
@@ -159,6 +164,13 @@ export function useImage(originalProps: UseImageProps) {
       sizes,
       crossOrigin,
       ...otherProps,
+      style: {
+        // img has `height: auto` by default
+        // passing the custom height here to override if it is specified
+        ...(otherProps?.height && {height: h}),
+        ...props.style,
+        ...otherProps.style,
+      },
     };
   };
 

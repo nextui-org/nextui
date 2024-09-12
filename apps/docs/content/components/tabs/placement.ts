@@ -7,7 +7,6 @@ export default function App() {
       <RadioGroup
         className="mb-4"
         label="Placement"
-        orientation="top"
         value={placement}
         onValueChange={(value) => setPlacement(value)}
       >

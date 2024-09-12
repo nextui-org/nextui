@@ -11,14 +11,14 @@ module.exports = {
     getAbsolutePath("@storybook/addon-essentials"),
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("storybook-dark-mode"),
-    getAbsolutePath("@storybook/addon-mdx-gfm")
+    getAbsolutePath("@storybook/addon-mdx-gfm"),
+    "./addons/react-strict-mode/register",
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),
-    options: {}
   },
   core: {
-    disableTelemetry: true
+    disableTelemetry: true,
   },
   typescript: {
     reactDocgen: false,

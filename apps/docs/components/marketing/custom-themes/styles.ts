@@ -41,7 +41,7 @@ export const shopCartStyles = tv({
       "!ease-soft-spring",
       "!duration-300",
     ],
-    contentWrapper: "flex flex-col justify-center transition-all h-full h-[200px]",
+    contentWrapper: "flex flex-col justify-center transition-all h-full min-h-[200px]",
     title: ["relative", "w-full", "flex-none", "text-xl", "font-semibold", "text-foreground"],
     description: ["my-2", "w-full", "text-base", "text-default-500"],
     price: "relative text-lg font-semibold text-foreground",

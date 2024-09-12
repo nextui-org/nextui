@@ -1,5 +1,52 @@
 # @nextui-org/tabs
 
+## 2.0.35
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-is-mounted@2.0.6
+  - @nextui-org/use-update-effect@2.0.6
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/framer-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.34
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.0.23
+  - @nextui-org/framer-utils@2.0.23
+
+## 2.0.33
+
+### Patch Changes
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
+## 2.0.32
+
+### Patch Changes
+
+- [#3164](https://github.com/nextui-org/nextui/pull/3164) [`5c83e9cea`](https://github.com/nextui-org/nextui/commit/5c83e9ceafd014691b0532192bee28dd1cdc503f) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect content in tab panel (#3159)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3246](https://github.com/nextui-org/nextui/pull/3246) [`d8ceab357`](https://github.com/nextui-org/nextui/commit/d8ceab3579e94a68217e5ddb135f256d40281564) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed set tab panel id correctly (#2809)
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+
 ## 2.0.31
 
 ### Patch Changes

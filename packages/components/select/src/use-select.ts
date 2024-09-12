@@ -6,6 +6,7 @@ import {
   HTMLNextUIProps,
   mapPropsVariants,
   PropGetter,
+  SharedSelection,
   useProviderContext,
 } from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
@@ -27,7 +28,6 @@ import {
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
@@ -128,6 +128,10 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Classes object to style the select and its children.
    */
   classNames?: SlotsToClasses<SelectSlots>;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 
 interface SelectData {
@@ -139,8 +143,11 @@ interface SelectData {
 
 export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
 
-export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
-  MultiSelectProps<T> &
+export type UseSelectProps<T> = Omit<
+  Props<T>,
+  keyof Omit<MultiSelectProps<T>, "onSelectionChange">
+> &
+  Omit<MultiSelectProps<T>, "onSelectionChange"> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
@@ -242,16 +249,16 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     onSelectionChange: (keys) => {
       onSelectionChange?.(keys);
-      if (onChange && typeof onChange === "function" && domRef.current) {
-        const event = {
+      if (onChange && typeof onChange === "function") {
+        onChange({
           target: {
-            ...domRef.current,
+            ...(domRef.current && {
+              ...domRef.current,
+              name: domRef.current.name,
+            }),
             value: Array.from(keys).join(","),
-            name: domRef.current.name,
           },
-        } as React.ChangeEvent<HTMLSelectElement>;
-
-        onChange(event);
+        } as React.ChangeEvent<HTMLSelectElement>);
       }
     },
   });
@@ -522,9 +529,6 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             ? // forces the popover to update its position when the selected items change
               state.selectedItems.length * 0.00000001 + (slotsProps.popoverProps?.offset || 0)
             : slotsProps.popoverProps?.offset,
-        shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
-          ? popoverProps.shouldCloseOnInteractOutside
-          : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
       } as PopoverProps;
     },
     [
@@ -544,7 +548,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorIcon({class: classNames?.selectorIcon}),
     }),
-    [slots, classNames?.selectorIcon, state?.isOpen],
+    [slots, classNames?.selectorIcon, state.isOpen],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(

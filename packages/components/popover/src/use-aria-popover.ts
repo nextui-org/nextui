@@ -1,7 +1,6 @@
 import {RefObject, useEffect} from "react";
 import {
   AriaPopoverProps,
-  useOverlay,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,
@@ -10,7 +9,7 @@ import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-o
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+import {useAriaOverlay} from "@nextui-org/use-aria-overlay";
 
 export interface Props {
   /**
@@ -67,16 +66,16 @@ export function useReactAriaPopover(
 
   const isNonModal = isNonModalProp ?? true;
 
-  const {overlayProps, underlayProps} = useOverlay(
+  const {overlayProps, underlayProps} = useAriaOverlay(
     {
       isOpen: state.isOpen,
       onClose: state.close,
       shouldCloseOnBlur,
       isDismissable,
       isKeyboardDismissDisabled,
-      shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
-        ? shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
+      shouldCloseOnInteractOutside:
+        shouldCloseOnInteractOutside || ((el) => !triggerRef.current?.contains(el)),
+      disableOutsideEvents: !isNonModal,
     },
     popoverRef,
   );
@@ -98,7 +97,7 @@ export function useReactAriaPopover(
     containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
-    onClose: () => {},
+    onClose: isNonModal ? state.close : () => {},
   });
 
   useSafeLayoutEffect(() => {
