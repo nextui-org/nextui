@@ -1,6 +1,6 @@
 import {Listbox} from "@nextui-org/listbox";
 import {FreeSoloPopover} from "@nextui-org/popover";
-import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import {ChevronDownIcon, CloseFilledIcon} from "@nextui-org/shared-icons";
 import {Spinner} from "@nextui-org/spinner";
 import {forwardRef} from "@nextui-org/system";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
@@ -30,7 +30,9 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     placeholder,
     renderValue,
     isOutsideLeft,
+    isClearable,
     disableAnimation,
+    getClearButtonProps,
     getBaseProps,
     getLabelProps,
     getTriggerProps,
@@ -51,6 +53,15 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
   const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
+  const end = useMemo(() => {
+    if (isClearable) {
+      return state.selectedItems?.length ? (
+        <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>
+      ) : null;
+    }
+
+    return endContent;
+  }, [isClearable, getClearButtonProps]);
 
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;
@@ -124,10 +135,8 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
           <div {...getInnerWrapperProps()}>
             {startContent}
             <span {...getValueProps()}>{renderSelectedItem}</span>
-            {endContent && state.selectedItems && (
-              <VisuallyHidden elementType="span">,</VisuallyHidden>
-            )}
-            {endContent}
+            {end && state.selectedItems && <VisuallyHidden elementType="span">,</VisuallyHidden>}
+            {end}
           </div>
           {renderIndicator}
         </Component>

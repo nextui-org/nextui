@@ -87,6 +87,37 @@ const Template = ({color, variant, ...args}: SelectProps) => (
   </Select>
 );
 
+const isClearableTemplate = ({color, variant, ...args}: SelectProps) => (
+  <div className="flex flex-col justify-center items-center h-full w-full">
+    <div className="my-1">
+      <h1>IsClearable = true</h1>
+      <Select
+        className="max-w-xs"
+        color={color}
+        isClearable={true}
+        label="Favorite Animal"
+        variant={variant}
+        {...args}
+      >
+        {items}
+      </Select>
+    </div>
+    <div className="my-1">
+      <h1>IsClearable = false</h1>
+      <Select
+        className="max-w-xs"
+        color={color}
+        isClearable={false}
+        label="Favorite Animal"
+        variant={variant}
+        {...args}
+      >
+        {items}
+      </Select>
+    </div>
+  </div>
+);
+
 const DynamicTemplate = ({color, variant, ...args}: SelectProps<Animal>) => (
   <Select
     className="max-w-xs"
@@ -1004,5 +1035,13 @@ export const CustomStyles = {
         </div>
       ));
     },
+  },
+};
+
+export const isClearable = {
+  render: isClearableTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

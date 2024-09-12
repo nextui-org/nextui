@@ -17,7 +17,7 @@ import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {
@@ -77,6 +77,9 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
   startContent?: React.ReactNode;
   /**
    * Element to be rendered in the right side of the select.
+   * if you pass this prop and the `onClear` prop, the passed element
+   * will have the clear button props and it will be rendered instead of the
+   * default clear button.
    */
   endContent?: ReactNode;
   /**
@@ -132,6 +135,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Handler that is called when the selection changes.
    */
   onSelectionChange?: (keys: SharedSelection) => void;
+  /**
+   * Callback fired when the value is cleared.
+   * if you pass this prop, the clear button will be shown.
+   */
+  onClear?: () => void;
 }
 
 interface SelectData {
@@ -186,6 +194,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     validationState,
     onChange,
     onClose,
+    onClear,
     className,
     classNames,
     ...otherProps
@@ -295,11 +304,23 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     triggerRef,
   );
 
+  const handleClear = useCallback(() => {
+    state.setSelectedKeys(new Set([]));
+    if (onClear) onClear();
+  }, [onClear, state]);
+
+  const {pressProps: clearPressProps} = usePress({
+    isDisabled: !!originalProps?.isDisabled,
+    onPress: handleClear,
+  });
+
   const isInvalid = originalProps.isInvalid || validationState === "invalid" || isAriaInvalid;
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
+  const {focusProps: clearFocusProps, isFocusVisible: isClearButtonFocusVisible} = useFocusRing();
+
   const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const labelPlacement = useMemo<SelectVariantProps["labelPlacement"]>(() => {
@@ -316,6 +337,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
   const isOutsideLeft = labelPlacement === "outside-left";
+  const isClearable = !!onClear || originalProps.isClearable;
 
   const isFilled =
     state.isOpen ||
@@ -334,11 +356,19 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       select({
         ...variantProps,
         isInvalid,
+        isClearable,
         labelPlacement,
         disableAnimation,
         className,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, disableAnimation, className],
+    [
+      objectToDeps(variantProps),
+      isClearable,
+      isInvalid,
+      labelPlacement,
+      disableAnimation,
+      className,
+    ],
   );
 
   // scroll the listbox to the selected item
@@ -630,6 +660,22 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, spinnerRef, spinnerProps, classNames?.spinner],
   );
 
+  const getClearButtonProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        role: "button",
+        tabIndex: 0,
+        "aria-label": "clear selection",
+        "data-slot": "clear-button",
+        "data-focus-visible": dataAttr(isClearButtonFocusVisible),
+        className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
+        ...mergeProps(clearPressProps, clearFocusProps),
+      };
+    },
+    [slots, isClearButtonFocusVisible, clearPressProps, clearFocusProps, classNames?.clearButton],
+  );
+
   // store the data to be used in useHiddenSelect
   selectData.set(state, {
     isDisabled: originalProps?.isDisabled,
@@ -647,6 +693,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     name,
     triggerRef,
     isLoading,
+    isClearable,
     placeholder,
     startContent,
     endContent,
@@ -665,6 +712,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     errorMessage,
     getBaseProps,
     getTriggerProps,
+    getClearButtonProps,
     getLabelProps,
     getValueProps,
     getListboxProps,

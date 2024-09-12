@@ -28,6 +28,23 @@ const select = tv({
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
+    clearButton: [
+      "w-4",
+      "h-4",
+      "z-10",
+      "absolute",
+      "end-12",
+      "start-auto",
+      "appearance-none",
+      "outline-none",
+      "select-none",
+      "hover:!opacity-100",
+      "cursor-pointer",
+      "active:!opacity-70",
+      "rounded-full",
+      // focus ring
+      ...dataFocusVisibleClasses,
+    ],
     helperWrapper: "p-1 flex relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
@@ -102,14 +119,17 @@ const select = tv({
         label: "text-tiny",
         trigger: "h-8 min-h-8 px-2 rounded-small",
         value: "text-small",
+        clearButton: "text-medium",
       },
       md: {
         trigger: "h-10 min-h-10 rounded-medium",
         value: "text-small",
+        clearButton: "text-large",
       },
       lg: {
         trigger: "h-12 min-h-12 rounded-large",
         value: "text-medium",
+        clearButton: "text-large",
       },
     },
     radius: {
@@ -145,6 +165,12 @@ const select = tv({
     fullWidth: {
       true: {
         base: "w-full",
+      },
+    },
+    isClearable: {
+      true: {
+        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
+        clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
     isDisabled: {
@@ -193,6 +219,7 @@ const select = tv({
           "motion-reduce:transition-none",
         ],
         selectorIcon: "transition-transform duration-150 ease motion-reduce:transition-none",
+        clearButton: ["transition-opacity", "motion-reduce:transition-none"],
       },
     },
     disableSelectorIconRotation: {
