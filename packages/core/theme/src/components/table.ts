@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
-import {tv} from "../utils/tv";
 import {dataFocusVisibleClasses} from "../utils";
+import {tv} from "../utils/tv";
 
 /**
  * Table **Tailwind Variants** component
@@ -61,22 +61,16 @@ const table = tv({
       "group",
       "px-3",
       "h-10",
-      "text-left",
-      "rtl:text-right",
+      "text-start",
       "align-middle",
       "bg-default-100",
       "whitespace-nowrap",
       "text-foreground-500",
       "text-tiny",
       "font-semibold",
-      "first:rounded-l-lg",
-      "rtl:first:rounded-r-lg",
-      "rtl:first:rounded-l-[unset]",
-      "last:rounded-r-lg",
-      "rtl:last:rounded-l-lg",
-      "rtl:last:rounded-r-[unset]",
+      "first:rounded-s-lg",
+      "last:rounded-e-lg",
       "outline-none",
-      "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
       "data-[hover=true]:text-foreground-400",
       ...dataFocusVisibleClasses,
@@ -106,7 +100,7 @@ const table = tv({
     ],
     tfoot: "",
     sortIcon: [
-      "ml-2",
+      "ms-2",
       "mb-px",
       "opacity-0",
       "text-inherit",
@@ -122,7 +116,7 @@ const table = tv({
   variants: {
     color: {
       default: {
-        td: "before:bg-default/40 data-[selected=true]:text-default-foreground",
+        td: "before:bg-default/60 data-[selected=true]:text-default-foreground",
       },
       primary: {
         td: "before:bg-primary/20 data-[selected=true]:text-primary",
@@ -214,32 +208,17 @@ const table = tv({
       true: {
         td: [
           // first
-          "group-data-[first=true]:first:before:rounded-tl-lg",
-          "group-data-[first=true]:rtl:first:before:rounded-tr-lg",
-          "group-data-[first=true]:rtl:first:before:rounded-tl-[unset]",
-          "group-data-[first=true]:last:before:rounded-tr-lg",
-          "group-data-[first=true]:rtl:last:before:rounded-tl-lg",
-          "group-data-[first=true]:rtl:last:before:rounded-tr-[unset]",
+          "group-data-[first=true]:first:before:rounded-ts-lg",
+          "group-data-[first=true]:last:before:rounded-te-lg",
           // middle
           "group-data-[middle=true]:before:rounded-none",
           // last
-          "group-data-[last=true]:first:before:rounded-bl-lg",
-          "group-data-[last=true]:rtl:first:before:rounded-br-lg",
-          "group-data-[last=true]:rtl:first:before:rounded-bl-[unset]",
-          "group-data-[last=true]:last:before:rounded-br-lg",
-          "group-data-[last=true]:rtl:last:before:rounded-bl-lg",
-          "group-data-[last=true]:rtl:last:before:rounded-br-[unset]",
+          "group-data-[last=true]:first:before:rounded-bs-lg",
+          "group-data-[last=true]:last:before:rounded-be-lg",
         ],
       },
       false: {
-        td: [
-          "first:before:rounded-l-lg",
-          "rtl:first:before:rounded-r-lg",
-          "rtl:first:before:rounded-l-[unset]",
-          "last:before:rounded-r-lg",
-          "rtl:last:before:rounded-l-lg",
-          "rtl:last:before:rounded-r-[unset]",
-        ],
+        td: ["first:before:rounded-s-lg", "last:before:rounded-e-lg"],
       },
     },
     fullWidth: {
@@ -247,6 +226,20 @@ const table = tv({
         base: "w-full",
         wrapper: "w-full",
         table: "w-full",
+      },
+    },
+    align: {
+      start: {
+        th: "text-start",
+        td: "text-start",
+      },
+      center: {
+        th: "text-center",
+        td: "text-center",
+      },
+      end: {
+        th: "text-end",
+        td: "text-end",
       },
     },
   },
@@ -259,8 +252,52 @@ const table = tv({
     hideHeader: false,
     isStriped: false,
     fullWidth: true,
-    disableAnimation: false,
+    align: "start",
   },
+  compoundVariants: [
+    {
+      isStriped: true,
+      color: "default",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/60",
+      },
+    },
+    {
+      isStriped: true,
+      color: "primary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-primary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "secondary",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-secondary/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "success",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-success/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "warning",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-warning/20",
+      },
+    },
+    {
+      isStriped: true,
+      color: "danger",
+      class: {
+        td: "group-data-[odd=true]:data-[selected=true]:before:bg-danger/20",
+      },
+    },
+  ],
 });
 
 export type TableVariantProps = VariantProps<typeof table>;

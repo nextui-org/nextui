@@ -71,11 +71,32 @@ const image = tv({
     },
     showSkeleton: {
       true: {
+        wrapper: ["group", "relative", "overflow-hidden", "bg-content3 dark:bg-content2"],
+        img: "opacity-0",
+      },
+    },
+    disableAnimation: {
+      true: {
+        img: "transition-none",
+      },
+      false: {
+        img: "transition-transform-opacity motion-reduce:transition-none !duration-300",
+      },
+    },
+  },
+  defaultVariants: {
+    radius: "lg",
+    shadow: "none",
+    isZoomed: false,
+    isBlurred: false,
+    showSkeleton: false,
+  },
+  compoundVariants: [
+    {
+      showSkeleton: true,
+      disableAnimation: false,
+      class: {
         wrapper: [
-          "group",
-          "relative",
-          "overflow-hidden",
-          "bg-content3 dark:bg-content2",
           // before
           "before:opacity-100",
           "before:absolute",
@@ -97,26 +118,9 @@ const image = tv({
           "after:bg-content3",
           "dark:after:bg-content2",
         ],
-        img: "opacity-0",
       },
     },
-    disableAnimation: {
-      true: {
-        img: "transition-none",
-      },
-      false: {
-        img: "transition-transform-opacity motion-reduce:transition-none !duration-300",
-      },
-    },
-  },
-  defaultVariants: {
-    radius: "lg",
-    shadow: "none",
-    isZoomed: false,
-    isBlurred: false,
-    showSkeleton: false,
-    disableAnimation: false,
-  },
+  ],
   compoundSlots: [
     {
       slots: ["wrapper", "img", "blurredImg", "zoomedWrapper"],

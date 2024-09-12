@@ -3,7 +3,7 @@ import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system-rsc";
 
 import {mapPropsVariants} from "@nextui-org/system-rsc";
 import {kbd} from "@nextui-org/theme";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 
@@ -48,7 +48,7 @@ export function useKbd(originalProps: UseKbdProps) {
       kbd({
         ...variantProps,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps)],
   );
 
   const baseStyles = clsx(classNames?.base, className);

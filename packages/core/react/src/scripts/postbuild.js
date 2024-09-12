@@ -18,6 +18,8 @@ const docsComponentsDir = path.resolve(rootDir, 'apps/docs/content/docs/componen
 const filePath = './src/index.ts'; // Updated file path
 const backupFilePath = filePath + '.backup.ts'; // Backup file
 
+const themeDir = path.resolve(packagesDir, 'core/theme'); // Theme directory path
+
 const baseDocs = 'https://nextui.org/docs/components';
 
 const EXCLUDE_LIST = ['.DS_Store'];
@@ -27,6 +29,8 @@ function generateComponents() {
     const routes = routesJson.routes.find(route => route.key === 'components').routes;
     const components = fs.readdirSync(componentsDir);
     const resultList = [];
+
+    const themePkg = require(path.resolve(themeDir, 'package.json'));
 
     for (const component of components) {
         if (EXCLUDE_LIST.includes(component)) continue;
@@ -54,6 +58,10 @@ function generateComponents() {
             description: componentDesc,
             status: (routeComponent.updated && 'updated') || (routeComponent.newPost && 'new') || 'stable',
             style: style || '',
+            peerDependencies: {
+                ...componentPkg.peerDependencies,
+                ...themePkg.peerDependencies
+            } || {},
         }
 
         resultList.push(componentInfo);

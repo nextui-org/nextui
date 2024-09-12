@@ -9,12 +9,12 @@ Requirements:
 
 - [Vite 2](https://vitejs.dev/) or later
 - [React 18](https://reactjs.org/) or later
-- [Tailwind CSS 3](https://tailwindcss.com/docs/guides/vite#react) or later
-- [Framer Motion 4](https://www.framer.com/motion/) or later
+- [Tailwind CSS 3.4](https://tailwindcss.com/docs/guides/vite#react) or later
+- [Framer Motion 11](https://www.framer.com/motion/) or later
 
 ------
 
-<CarbonAd />
+
 
 To use NextUI in your Vite project, you need to follow the following steps:
 
@@ -29,8 +29,23 @@ In your Vite React project, run one of the following command to install NextUI:
     npm: 'npm i @nextui-org/react framer-motion',
     yarn: 'yarn add @nextui-org/react framer-motion',
     pnpm: 'pnpm add @nextui-org/react framer-motion',
+    bun: "bun add @nextui-org/react framer-motion"
   }}
 />
+
+### Hoisted Dependencies Setup
+
+<Blockquote color="primary">
+**Note**: This step is only for those who use pnpm to install. If you install NextUI using other package managers, you may skip this step.
+</Blockquote>
+
+If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
+
+```bash
+public-hoist-pattern[]=*@nextui-org/*
+```
+
+After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 ### Tailwind CSS Setup
 
@@ -38,8 +53,11 @@ NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS firs
 [installation guide](https://tailwindcss.com/docs/guides/vite#react) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
 
-```js {8,13-14}
+```js {2,8,13-14}
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
 
@@ -63,7 +81,7 @@ After installing NextUI, you need to set up the `NextUIProvider` at the `root` o
 
 Go to the src directory and inside `main.jsx` or `main.tsx`, wrap `NextUIProvider` around App:
 
-```jsx
+```jsx {4,10,12}
 // main.tsx or main.jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
@@ -79,16 +97,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 ```
-
-### Setup pnpm (optional)
-
-If you are using pnpm, you need to add the following code to your `.npmrc` file:
-
-```bash
-public-hoist-pattern[]=*@nextui-org/*
-```
-
-After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 </Steps>
 

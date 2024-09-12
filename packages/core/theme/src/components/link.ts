@@ -101,7 +101,6 @@ const link = tv({
     isBlock: false,
     underline: "none",
     isDisabled: false,
-    disableAnimation: false,
   },
 });
 

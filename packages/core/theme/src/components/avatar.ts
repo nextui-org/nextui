@@ -124,6 +124,13 @@ const avatar = tv({
         base: "m-0 data-[hover=true]:translate-x-0",
       },
     },
+    disableAnimation: {
+      true: {
+        base: "transition-none",
+        img: "transition-none",
+      },
+      false: {},
+    },
   },
   defaultVariants: {
     size: "md",
@@ -187,7 +194,10 @@ const avatar = tv({
  * </div>
  */
 const avatarGroup = tv({
-  base: "flex items-center justify-center h-auto w-max-content",
+  slots: {
+    base: "flex items-center justify-center h-auto w-max",
+    count: "hover:-translate-x-0",
+  },
   variants: {
     isGrid: {
       true: "inline-grid grid-cols-4 gap-3",
@@ -200,6 +210,7 @@ const avatarGroup = tv({
 // -ms-2 hover:-translate-x-0 ms-0
 
 export type AvatarGroupVariantProps = VariantProps<typeof avatarGroup>;
+export type AvatarGroupSlots = keyof ReturnType<typeof avatarGroup>;
 export type AvatarVariantProps = VariantProps<typeof avatar>;
 export type AvatarSlots = keyof ReturnType<typeof avatar>;
 

@@ -1,5 +1,100 @@
 # @nextui-org/checkbox
 
+## 2.1.4
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-callback-ref@2.0.6
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.1.3
+
+### Patch Changes
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
+## 2.1.2
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/react-utils@2.0.14
+
+## 2.1.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+## 2.1.0
+
+### Minor Changes
+
+- [#2987](https://github.com/nextui-org/nextui/pull/2987) [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Change validationBehavior from native to aria by default, with the option to change via props.
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- [#3013](https://github.com/nextui-org/nextui/pull/3013) [`06ecd213c`](https://github.com/nextui-org/nextui/commit/06ecd213cf85db2dfaa5fc26c1fed62dcb5fbc85) Thanks [@kosmotema](https://github.com/kosmotema)! - make the VisuallyHidden `elementType` as span when the default parent element accepts only phrasing elements
+
+## 2.0.29
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+
+## 2.0.28
+
+### Patch Changes
+
+- [#2772](https://github.com/nextui-org/nextui/pull/2772) [`69f713cb0`](https://github.com/nextui-org/nextui/commit/69f713cb056d1d39db510b75bdd53eb29c459b19) Thanks [@chirokas](https://github.com/chirokas)! - Fix non-react props omitted from checkbox group component
+
+## 2.0.27
+
+### Patch Changes
+
+- [#2754](https://github.com/nextui-org/nextui/pull/2754) [`cadbb30cf`](https://github.com/nextui-org/nextui/commit/cadbb30cfb786d2b54e1cb46ea9319d4cb9ce590) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes checkbox controlled state (#2752)
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.26
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2595](https://github.com/nextui-org/nextui/pull/2595) [`ef6ea6c1f`](https://github.com/nextui-org/nextui/commit/ef6ea6c1ffb57cd30f8994143a48b70f8ad2adeb) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect onChange typing in Checkbox Group
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed react-hook-form uncontrolled components (#1969)
+
+- [#2466](https://github.com/nextui-org/nextui/pull/2466) [`e4b3c7d1a`](https://github.com/nextui-org/nextui/commit/e4b3c7d1a19bc31c1f69c90a5b467bf8310602dc) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the checkbox component
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+  - @nextui-org/use-safe-layout-effect@2.0.5
+
 ## 2.0.25
 
 ### Patch Changes

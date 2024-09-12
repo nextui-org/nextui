@@ -1,4 +1,5 @@
 import type {GridNode} from "@react-types/grid";
+import type {TableColumnProps} from "./base";
 
 import {Key, useMemo} from "react";
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
@@ -49,6 +50,8 @@ const TableCell = forwardRef<"td", TableCellProps>((props, ref) => {
     );
   }, [node.rendered]);
 
+  const columnProps: TableColumnProps<unknown> = node.column?.props || {};
+
   return (
     <Component
       ref={domRef}
@@ -62,7 +65,7 @@ const TableCell = forwardRef<"td", TableCellProps>((props, ref) => {
         }),
         otherProps,
       )}
-      className={slots.td?.({class: tdStyles})}
+      className={slots.td?.({align: columnProps.align, class: tdStyles})}
     >
       {cell}
     </Component>
