@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/slider",
-  "version": "2.2.15",
+  "version": "2.2.16",
   "description": "A slider allows a user to select one or more values within a range.",
   "keywords": [
     "slider"

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/date-picker",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "A date picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.",
   "keywords": [
     "date-picker"

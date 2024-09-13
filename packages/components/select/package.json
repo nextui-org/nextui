@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/select",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "A select displays a collapsible list of options and allows a user to select one of them.",
   "keywords": [
     "select"

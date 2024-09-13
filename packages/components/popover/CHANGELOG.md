@@ -1,5 +1,21 @@
 # @nextui-org/popover
 
+## 2.1.28
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- [#3307](https://github.com/nextui-org/nextui/pull/3307) [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11) Thanks [@chirokas](https://github.com/chirokas)! - Use `usePreventScroll` instead of `react-remove-scroll`; Add `shouldBlockScroll` prop to `Tooltip` (#3474).
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/use-aria-overlay@2.0.1
+  - @nextui-org/aria-utils@2.0.25
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/button@2.0.38
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.1.27
 
 ### Patch Changes
