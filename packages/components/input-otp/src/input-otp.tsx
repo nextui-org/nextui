@@ -37,10 +37,11 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
       <div {...getSegmentWrapperProps()}>
         {Array.from(Array(otpLength)).map((_, idx) => (
           <InputOtpSegment
-            key={idx}
+            key={"segment-" + idx}
             accessorIndex={idx}
             classNames={values.classNames}
             isInputFocused={isInputFocused}
+            otpLength={otpLength}
             slots={values.slots}
             value={value}
           />

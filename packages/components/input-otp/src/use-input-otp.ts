@@ -5,7 +5,12 @@ import type {
   SlotsToClasses,
 } from "@nextui-org/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {inputOtp} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
@@ -20,27 +25,31 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
-   * Total number of characters in the OTP
+   * Length required for the otp.
    */
   otpLength: number;
   /**
-   * String which contains regex expression for the allowed keys
+   * Regex string for the allowed keys.
    */
   allowedKeys?: string;
   /**
-   * Method that will run when the inputOtp is completely filled
+   * Callback that will be fired when the value has length equal to otpLength
    */
   onFill?: () => void;
   /**
-   * Is the input-otp component disabled
+   * Boolean to disable the input-otp component.
    */
   isDisabled?: boolean;
   /**
-   * Description for the component
+   * Boolean to disable the animation in input-otp component.
+   */
+  disableAnimation?: boolean;
+  /**
+   * Description message for the input-otp component.
    */
   description?: string;
   /**
-   * Error message for invalid OTP
+   * Error message when input-otp component has invalid value.
    */
   errorMessage?: string;
   /**
@@ -72,6 +81,7 @@ export type ValueTypes = {
 export type UseInputOtpProps = Props & InputOtpVariantProps;
 
 export function useInputOtp(originalProps: UseInputOtpProps) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, inputOtp.variantKeys);
 
   const {
@@ -82,6 +92,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     otpLength,
     onFill = () => {},
     allowedKeys = "^[0-9]*$",
+    isDisabled,
     description,
     errorMessage,
     ...otherProps
@@ -102,15 +113,18 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   const [value, setValue] = useState("");
 
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
+  const hasHelper = !!description || !!errorMessage;
+  const isInvalid = value.length != otpLength;
+
   const baseStyles = clsx(classNames?.base, className);
 
   const {focusProps, isFocused: isInputFocused} = useFocusRing({isTextInput: true});
   const allowedKeysRegex = new RegExp(allowedKeys);
   const isFilled = !isEmpty(value);
   const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
-
-  const hasHelper = !!description || !!errorMessage;
-  const isInvalid = value.length != otpLength;
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = e.target.value;
@@ -128,8 +142,9 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     () =>
       inputOtp({
         ...variantProps,
+        disableAnimation,
       }),
-    [objectToDeps(variantProps)],
+    [objectToDeps(variantProps), disableAnimation],
   );
 
   const getBaseProps: PropGetter = useCallback(() => {
@@ -141,9 +156,9 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       "data-filled": dataAttr(isFilled),
       "data-focus": dataAttr(isInputFocused),
       "data-hover": dataAttr(isHovered),
-      "data-disabled": dataAttr(originalProps.isDisabled),
+      "data-disabled": dataAttr(isDisabled),
     };
-  }, [slots, baseStyles, isInputFocused, isFilled, value, originalProps]);
+  }, [slots, baseStyles, isFilled, isInputFocused, isDisabled]);
 
   const getInputWrapperProps: PropGetter = useCallback(() => {
     return {
@@ -163,14 +178,16 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         maxLength: otpLength,
         minLength: otpLength,
         value,
+        disabled: isDisabled,
         ...mergeProps(focusProps, originalProps, hoverProps),
         onChange: onInputChange,
         "data-slot": "input",
         "data-focus": isInputFocused,
         "data-filled": dataAttr(isFilled),
+        "data-disabled": dataAttr(isDisabled),
       };
     },
-    [slots, classNames?.input, value, setValue, isInputFocused, isFilled],
+    [slots, classNames?.input, otpLength, value, isDisabled, setValue, isInputFocused, isFilled],
   );
 
   const getSegmentWrapperProps: PropGetter = useCallback(() => {
@@ -179,8 +196,9 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         class: clsx(classNames?.segmentWrapper, props?.className),
       }),
       "data-slot": "segment-wrapper",
+      "data-disabled": dataAttr(isDisabled),
     };
-  }, [slots, classNames?.segmentWrapper]);
+  }, [slots, classNames?.segmentWrapper, isDisabled]);
 
   const getHelperWrapperProps: PropGetter = useCallback(() => {
     return {

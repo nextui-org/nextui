@@ -1,9 +1,11 @@
 import {clsx} from "@nextui-org/shared-utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
+import {useMemo} from "react";
 
 import {ValueTypes} from "./use-input-otp";
 
 interface InputOtpSegmentProps extends HTMLNextUIProps<"div"> {
+  otpLength: number;
   accessorIndex: number;
   value: string;
   isInputFocused: boolean;
@@ -13,6 +15,7 @@ interface InputOtpSegmentProps extends HTMLNextUIProps<"div"> {
 }
 
 export const InputOtpSegment = ({
+  otpLength,
   accessorIndex,
   value,
   isInputFocused,
@@ -20,29 +23,27 @@ export const InputOtpSegment = ({
   classNames,
   slots,
 }: InputOtpSegmentProps) => {
-  let isActive = false;
-
-  if (value.length == accessorIndex) {
-    isActive = true;
-  }
-  if (value.length == 4 && accessorIndex == 3) {
-    isActive = true;
-  }
+  const isActive = useMemo(
+    () =>
+      (value.length == accessorIndex ||
+        (value.length == otpLength && accessorIndex == otpLength - 1)) &&
+      isInputFocused,
+    [value, isInputFocused],
+  );
+  const displayValue = useMemo(
+    () => (value.length > accessorIndex ? value[accessorIndex] : ""),
+    [value],
+  );
 
   const segmentStyles = clsx(className, classNames?.segment);
 
   return (
     <div
-      className={clsx(
-        slots.segment?.({class: segmentStyles}),
-        isActive &&
-          isInputFocused &&
-          "transition scale-105 outline outline-2 outline-blue-300 border-none",
-      )}
+      className={clsx(slots.segment?.({class: segmentStyles}))}
       data-active={isActive}
       data-slot="segment"
     >
-      {value.length > accessorIndex ? value[accessorIndex] : ""}
+      {displayValue}
     </div>
   );
 };

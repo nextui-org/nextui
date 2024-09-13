@@ -25,7 +25,7 @@ describe("InputOtp", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("should select first segment when clicked.", async () => {
+  it("should select first segment when clicked", async () => {
     render(<InputOtp otpLength={4} />);
 
     const base = document.querySelector("[data-slot=base]")!;
@@ -47,7 +47,18 @@ describe("InputOtp", () => {
     expect(segments[3]).toHaveAttribute("data-active", "false");
   });
 
-  it("should shift focus when valid digit is typed", async () => {
+  it("should not be focused when disabled", async () => {
+    render(<InputOtp isDisabled={true} otpLength={4} />);
+    const input = document.querySelector("[data-slot=input]")!;
+
+    await act(async () => {
+      await user.click(input);
+    });
+
+    expect(input).toBeDisabled();
+  });
+
+  it("should shift focus to next segment when valid digit is typed", async () => {
     render(<InputOtp otpLength={4} />);
 
     const base = document.querySelector("[data-slot=base]")!;
@@ -62,7 +73,7 @@ describe("InputOtp", () => {
 
     expect(base).toHaveAttribute("data-focus", "true");
     expect(input).toHaveAttribute("data-focus", "true");
-    //since no input is entered hence segment[1] will not be active(as segment[0] will be active)
+    //since no input is entered hence segment[1] will not be active
     expect(segments[1]).toHaveAttribute("data-active", "false");
 
     await act(async () => {
@@ -103,7 +114,7 @@ describe("InputOtp", () => {
     expect(segments[1]).toHaveAttribute("data-active", "true");
   });
 
-  it("should be able to take paste value to the input", async () => {
+  it("should be able to paste value", async () => {
     render(<InputOtp otpLength={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
@@ -141,7 +152,7 @@ describe("InputOtp", () => {
   });
 
   it("should allow inputs based on custom regex", async () => {
-    // below exp only matches with chars from small "a" to small "z"
+    // below exp matches with chars from small "a" to small "z"
     const regEx = "^[a-z]*$";
 
     render(<InputOtp allowedKeys={regEx} otpLength={4} />);
@@ -161,7 +172,7 @@ describe("InputOtp", () => {
     expect(input).toHaveAttribute("value", "a");
   });
 
-  it("should be calling the onFill when inputOtp is completely filled", async () => {
+  it("should call onFill callback when inputOtp is completely filled", async () => {
     let testVar = 0;
     const onFill = () => {
       testVar = 1;
