@@ -1,4 +1,4 @@
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useMemo} from "react";
 
@@ -30,8 +30,9 @@ export const InputOtpSegment = ({
       isInputFocused,
     [value, isInputFocused],
   );
+
   const displayValue = useMemo(
-    () => (value.length > accessorIndex ? value[accessorIndex] : ""),
+    () => (value.length > accessorIndex ? value[accessorIndex] : null),
     [value],
   );
 
@@ -40,7 +41,7 @@ export const InputOtpSegment = ({
   return (
     <div
       className={clsx(slots.segment?.({class: segmentStyles}))}
-      data-active={isActive}
+      data-active={dataAttr(isActive)}
       data-slot="segment"
     >
       {displayValue}

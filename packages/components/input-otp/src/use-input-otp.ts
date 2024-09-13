@@ -27,13 +27,13 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Length required for the otp.
    */
-  otpLength: number;
+  otplength: number;
   /**
    * Regex string for the allowed keys.
    */
   allowedKeys?: string;
   /**
-   * Callback that will be fired when the value has length equal to otpLength
+   * Callback that will be fired when the value has length equal to otplength
    */
   onFill?: () => void;
   /**
@@ -89,7 +89,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     as,
     className,
     classNames,
-    otpLength,
+    otplength,
     onFill = () => {},
     allowedKeys = "^[0-9]*$",
     isDisabled,
@@ -117,7 +117,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const hasHelper = !!description || !!errorMessage;
-  const isInvalid = value.length != otpLength;
+  const isInvalid = value.length != otplength;
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -133,7 +133,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       return;
     }
     setValue(updatedValue);
-    if (updatedValue.length == otpLength) {
+    if (updatedValue.length == otplength) {
       onFill();
     }
   };
@@ -175,19 +175,19 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         className: slots.input({
           class: clsx(classNames?.input, props?.classsName),
         }),
-        maxLength: otpLength,
-        minLength: otpLength,
+        maxLength: otplength,
+        minLength: otplength,
         value,
         disabled: isDisabled,
         ...mergeProps(focusProps, originalProps, hoverProps),
         onChange: onInputChange,
         "data-slot": "input",
-        "data-focus": isInputFocused,
+        "data-focus": dataAttr(isInputFocused),
         "data-filled": dataAttr(isFilled),
         "data-disabled": dataAttr(isDisabled),
       };
     },
-    [slots, classNames?.input, otpLength, value, isDisabled, setValue, isInputFocused, isFilled],
+    [slots, classNames?.input, otplength, value, isDisabled, setValue, isInputFocused, isFilled],
   );
 
   const getSegmentWrapperProps: PropGetter = useCallback(() => {
@@ -239,7 +239,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     Component,
     styles,
     domRef,
-    otpLength,
+    otplength,
     value,
     isInputFocused,
     values,

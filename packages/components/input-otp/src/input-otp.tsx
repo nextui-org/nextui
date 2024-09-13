@@ -9,7 +9,7 @@ export interface InputOtpProps extends UseInputOtpProps {}
 const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
   const {
     Component,
-    otpLength,
+    otplength,
     domRef,
     styles,
     value,
@@ -35,20 +35,20 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
   const segmentsSection = useMemo(() => {
     return (
       <div {...getSegmentWrapperProps()}>
-        {Array.from(Array(otpLength)).map((_, idx) => (
+        {Array.from(Array(otplength)).map((_, idx) => (
           <InputOtpSegment
             key={"segment-" + idx}
             accessorIndex={idx}
             classNames={values.classNames}
             isInputFocused={isInputFocused}
-            otpLength={otpLength}
+            otpLength={otplength}
             slots={values.slots}
             value={value}
           />
         ))}
       </div>
     );
-  }, [otpLength, values.classNames, values.slots, isInputFocused, value, getSegmentWrapperProps]);
+  }, [otplength, values.classNames, values.slots, isInputFocused, value, getSegmentWrapperProps]);
 
   const inputSection = useMemo(() => {
     return (

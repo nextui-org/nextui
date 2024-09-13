@@ -13,7 +13,7 @@ describe("InputOtp", () => {
   });
 
   it("should render correctly", () => {
-    const wrapper = render(<InputOtp otpLength={4} />);
+    const wrapper = render(<InputOtp otplength={4} />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -21,12 +21,12 @@ describe("InputOtp", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLDivElement>();
 
-    render(<InputOtp ref={ref} otpLength={4} />);
+    render(<InputOtp ref={ref} otplength={4} />);
     expect(ref.current).not.toBeNull();
   });
 
   it("should select first segment when clicked", async () => {
-    render(<InputOtp otpLength={4} />);
+    render(<InputOtp otplength={4} />);
 
     const base = document.querySelector("[data-slot=base]")!;
     const input = document.querySelector("[data-slot=input]")!;
@@ -42,13 +42,13 @@ describe("InputOtp", () => {
     expect(input).toHaveAttribute("data-focus", "true");
 
     expect(segments[0]).toHaveAttribute("data-active", "true");
-    expect(segments[1]).toHaveAttribute("data-active", "false");
-    expect(segments[2]).toHaveAttribute("data-active", "false");
-    expect(segments[3]).toHaveAttribute("data-active", "false");
+    expect(segments[1].getAttribute("data-active")).toBe(null);
+    expect(segments[2].getAttribute("data-active")).toBe(null);
+    expect(segments[3].getAttribute("data-active")).toBe(null);
   });
 
   it("should not be focused when disabled", async () => {
-    render(<InputOtp isDisabled={true} otpLength={4} />);
+    render(<InputOtp isDisabled={true} otplength={4} />);
     const input = document.querySelector("[data-slot=input]")!;
 
     await act(async () => {
@@ -59,7 +59,7 @@ describe("InputOtp", () => {
   });
 
   it("should shift focus to next segment when valid digit is typed", async () => {
-    render(<InputOtp otpLength={4} />);
+    render(<InputOtp otplength={4} />);
 
     const base = document.querySelector("[data-slot=base]")!;
     const input = document.querySelector("[data-slot=input]")!;
@@ -74,7 +74,7 @@ describe("InputOtp", () => {
     expect(base).toHaveAttribute("data-focus", "true");
     expect(input).toHaveAttribute("data-focus", "true");
     //since no input is entered hence segment[1] will not be active
-    expect(segments[1]).toHaveAttribute("data-active", "false");
+    expect(segments[1].getAttribute("data-active")).toBe(null);
 
     await act(async () => {
       await user.keyboard("1");
@@ -86,7 +86,7 @@ describe("InputOtp", () => {
   });
 
   it("should be able to erase the input", async () => {
-    render(<InputOtp otpLength={4} />);
+    render(<InputOtp otplength={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
@@ -115,7 +115,7 @@ describe("InputOtp", () => {
   });
 
   it("should be able to paste value", async () => {
-    render(<InputOtp otpLength={4} />);
+    render(<InputOtp otplength={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
@@ -133,7 +133,7 @@ describe("InputOtp", () => {
   });
 
   it("should not take non-allowed inputs", async () => {
-    render(<InputOtp otpLength={4} />);
+    render(<InputOtp otplength={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
@@ -155,7 +155,7 @@ describe("InputOtp", () => {
     // below exp matches with chars from small "a" to small "z"
     const regEx = "^[a-z]*$";
 
-    render(<InputOtp allowedKeys={regEx} otpLength={4} />);
+    render(<InputOtp allowedKeys={regEx} otplength={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
@@ -178,7 +178,7 @@ describe("InputOtp", () => {
       testVar = 1;
     };
 
-    render(<InputOtp otpLength={4} onFill={onFill} />);
+    render(<InputOtp otplength={4} onFill={onFill} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
@@ -223,9 +223,9 @@ describe("InputOtp with react hook form", () => {
 
     render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <InputOtp otpLength={4} {...register("defaultValue")} />
-        <InputOtp otpLength={4} {...register("withoutDefaultValue")} />
-        <InputOtp otpLength={4} {...register("requiredField", {required: true})} />
+        <InputOtp otplength={4} {...register("defaultValue")} />
+        <InputOtp otplength={4} {...register("withoutDefaultValue")} />
+        <InputOtp otplength={4} {...register("requiredField", {required: true})} />
         {errors.requiredField && <span className="text-danger">This field is required</span>}
         <button type="submit">Submit</button>
       </form>,

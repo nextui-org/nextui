@@ -36,7 +36,7 @@ const defaultProps = {
   ...inputOtp.defaultVariants,
 };
 
-const Template = (args: InputOtpProps) => <InputOtp {...args} otpLength={4} />;
+const Template = (args: InputOtpProps) => <InputOtp {...args} otplength={4} />;
 
 export const Default = {
   render: Template,
