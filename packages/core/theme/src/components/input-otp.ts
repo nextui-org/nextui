@@ -4,7 +4,8 @@ import {tv} from "../utils/tv";
 
 const inputOtp = tv({
   slots: {
-    base: ["relative", "inline-flex", "gap-x-2"],
+    base: ["relative", "inline-flex"],
+    inputWrapper: [],
     input: [
       "absolute",
       "inset-0",
@@ -13,9 +14,31 @@ const inputOtp = tv({
       "bg-transparent",
       "text-transparent",
     ],
-    segment: ["h-10", "w-10", "font-semibold", "border", "flex", "justify-center", "items-center"],
+    segmentWrapper: ["flex"],
+    segment: [
+      "h-10",
+      "w-10",
+      "font-semibold",
+      "flex",
+      "justify-center",
+      "items-center",
+      "border",
+      "bg-white",
+      "dark:bg-black",
+    ],
   },
-  variants: {},
+  variants: {
+    variant: {
+      flat: {
+        base: [],
+        segment: ["bg-default-100", "dark:bg-default-100"],
+        segmentWrapper: ["gap-x-1"],
+      },
+      faded: {},
+      bordered: {},
+      underlined: {},
+    },
+  },
   defaultVariants: {},
   compoundVariants: [],
 });

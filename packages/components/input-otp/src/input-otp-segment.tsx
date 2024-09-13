@@ -39,6 +39,8 @@ export const InputOtpSegment = ({
           isInputFocused &&
           "transition scale-105 outline outline-2 outline-blue-300 border-none",
       )}
+      data-active={isActive}
+      data-slot="segment"
     >
       {value.length > accessorIndex ? value[accessorIndex] : ""}
     </div>

@@ -8,6 +8,10 @@ export default {
   title: "Components/InputOtp",
   component: InputOtp,
   argTypes: {
+    variant: {
+      control: {type: "select"},
+      options: ["flat"],
+    },
     color: {
       control: {type: "select"},
       options: ["default", "primary", "secondary", "success", "warning", "danger"],
@@ -32,7 +36,7 @@ const defaultProps = {
   ...inputOtp.defaultVariants,
 };
 
-const Template = (args: InputOtpProps) => <InputOtp {...args} total={4} />;
+const Template = (args: InputOtpProps) => <InputOtp {...args} otpLength={4} />;
 
 export const Default = {
   render: Template,

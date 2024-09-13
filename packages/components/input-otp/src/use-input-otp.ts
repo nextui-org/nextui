@@ -8,10 +8,11 @@ import type {
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {inputOtp} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 import {useCallback, useMemo, useState} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
+import {useHover} from "@react-aria/interactions";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -21,10 +22,11 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Total number of characters in the OTP
    */
-  total: number;
+  otpLength: number;
   classNames?: SlotsToClasses<InputOtpSlots>;
   allowedKeys?: string;
   onFill?: () => void;
+  isDisabled?: boolean;
 }
 
 export type ValueTypes = {
@@ -42,7 +44,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     as,
     className,
     classNames,
-    total,
+    otpLength,
     onFill = () => {},
     allowedKeys = "^[0-9]*$",
     ...otherProps
@@ -67,6 +69,8 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   const {focusProps, isFocused: isInputFocused} = useFocusRing({isTextInput: true});
   const allowedKeysRegex = new RegExp(allowedKeys);
+  const isFilled = !isEmpty(value);
+  const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = e.target.value;
@@ -75,7 +79,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       return;
     }
     setValue(updatedValue);
-    if (updatedValue.length == total) {
+    if (updatedValue.length == otpLength) {
       onFill();
     }
   };
@@ -90,10 +94,25 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   const getBaseProps: PropGetter = useCallback(() => {
     return {
-      className: slots.base({class: baseStyles}),
+      className: slots.base({
+        class: baseStyles,
+      }),
       "data-slot": "base",
+      "data-filled": dataAttr(isFilled),
+      "data-focus": dataAttr(isInputFocused),
+      "data-hover": dataAttr(isHovered),
+      "data-disabled": dataAttr(originalProps.isDisabled),
     };
-  }, [slots, baseStyles, value]);
+  }, [slots, baseStyles, isInputFocused, isFilled, value, originalProps]);
+
+  const getInputWrapperProps: PropGetter = useCallback(() => {
+    return {
+      className: slots.inputWrapper({
+        class: clsx(classNames?.inputWrapper, props?.className),
+      }),
+      "data-slot": "input-wrapper",
+    };
+  }, [slots, classNames?.inputWrapper]);
 
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
@@ -101,17 +120,27 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         className: slots.input({
           class: clsx(classNames?.input, props?.classsName),
         }),
-        maxLength: total,
-        minLength: total,
+        maxLength: otpLength,
+        minLength: otpLength,
         value,
-        ...mergeProps(focusProps, originalProps),
+        ...mergeProps(focusProps, originalProps, hoverProps),
         onChange: onInputChange,
         "data-slot": "input",
         "data-focus": isInputFocused,
+        "data-filled": dataAttr(isFilled),
       };
     },
-    [slots, classNames?.input, value, setValue, isInputFocused],
+    [slots, classNames?.input, value, setValue, isInputFocused, isFilled],
   );
+
+  const getSegmentWrapperProps: PropGetter = useCallback(() => {
+    return {
+      className: slots.segmentWrapper({
+        class: clsx(classNames?.segmentWrapper, props?.className),
+      }),
+      "data-slot": "segment-wrapper",
+    };
+  }, [slots, classNames?.segmentWrapper]);
 
   const values = useMemo(
     () => ({
@@ -125,12 +154,14 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     Component,
     styles,
     domRef,
-    total,
+    otpLength,
     value,
     isInputFocused,
     values,
     getBaseProps,
+    getInputWrapperProps,
     getInputProps,
+    getSegmentWrapperProps,
     ...otherProps,
   };
 }
