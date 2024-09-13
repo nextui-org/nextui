@@ -87,34 +87,30 @@ const Template = ({color, variant, ...args}: SelectProps) => (
   </Select>
 );
 
-const isClearableTemplate = ({color, variant, ...args}: SelectProps) => (
-  <div className="flex flex-col justify-center items-center h-full w-full">
-    <div className="my-1">
-      <h1>IsClearable = true</h1>
-      <Select
-        className="max-w-xs"
-        color={color}
-        isClearable={true}
-        label="Favorite Animal"
-        variant={variant}
-        {...args}
-      >
-        {items}
-      </Select>
-    </div>
-    <div className="my-1">
-      <h1>IsClearable = false</h1>
-      <Select
-        className="max-w-xs"
-        color={color}
-        isClearable={false}
-        label="Favorite Animal"
-        variant={variant}
-        {...args}
-      >
-        {items}
-      </Select>
-    </div>
+const ClearableTemplate = ({color, variant, ...args}: SelectProps) => (
+  <div className="flex flex-col h-full w-full items-center justify-center">
+    <h2>IsClearable = true</h2>
+    <Select
+      className="max-w-xs my-4"
+      color={color}
+      isClearable={true}
+      label="Favorite Animal"
+      variant={variant}
+      {...args}
+    >
+      {items}
+    </Select>
+    <h2>IsClearable = false</h2>
+    <Select
+      className="max-w-xs my-4"
+      color={color}
+      isClearable={false}
+      label="Favorite Animal"
+      variant={variant}
+      {...args}
+    >
+      {items}
+    </Select>
   </div>
 );
 
@@ -1038,8 +1034,8 @@ export const CustomStyles = {
   },
 };
 
-export const isClearable = {
-  render: isClearableTemplate,
+export const Clearable = {
+  render: ClearableTemplate,
 
   args: {
     ...defaultProps,

@@ -53,15 +53,14 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
   const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
-  const end = useMemo(() => {
+
+  const clearButton = useMemo(() => {
     if (isClearable) {
       return state.selectedItems?.length ? (
         <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>
       ) : null;
     }
-
-    return endContent;
-  }, [isClearable, getClearButtonProps]);
+  }, [isClearable, getClearButtonProps, state]);
 
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;
@@ -135,9 +134,13 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
           <div {...getInnerWrapperProps()}>
             {startContent}
             <span {...getValueProps()}>{renderSelectedItem}</span>
-            {end && state.selectedItems && <VisuallyHidden elementType="span">,</VisuallyHidden>}
-            {end}
+            {endContent && state.selectedItems && (
+              <VisuallyHidden elementType="span">,</VisuallyHidden>
+            )}
+            {/* we display endContent only when we are not displaying clear button */}
+            {!isClearable && endContent}
           </div>
+          {clearButton}
           {renderIndicator}
         </Component>
         {helperWrapper}

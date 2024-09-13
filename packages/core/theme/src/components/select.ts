@@ -33,7 +33,7 @@ const select = tv({
       "h-4",
       "z-10",
       "absolute",
-      "end-12",
+      "end-10",
       "start-auto",
       "appearance-none",
       "outline-none",
