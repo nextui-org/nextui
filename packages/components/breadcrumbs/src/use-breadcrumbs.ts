@@ -2,13 +2,18 @@ import type {BreadcrumbsVariantProps, SlotsToClasses, BreadcrumbsSlots} from "@n
 import type {AriaBreadcrumbsProps} from "@react-types/breadcrumbs";
 
 import {Children, ReactNode, Key, ReactElement} from "react";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {breadcrumbs} from "@nextui-org/theme";
 import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useBreadcrumbs as useAriaBreadcrumbs} from "@react-aria/breadcrumbs";
 import {useMemo} from "react";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 
 import BreadcrumbItem, {BreadcrumbItemProps} from "./breadcrumb-item";
 
@@ -103,6 +108,11 @@ export type UseBreadcrumbsProps = Props &
   >;
 
 export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
+  const globalContext = useProviderContext();
+
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
+
   const [props, variantProps] = mapPropsVariants(originalProps, breadcrumbs.variantKeys);
 
   const {
@@ -117,7 +127,6 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
     itemsAfterCollapse = 2,
     maxItems = 8,
     hideSeparator,
-    disableAnimation,
     renderEllipsis,
     className,
     classNames,
@@ -143,7 +152,7 @@ export function useBreadcrumbs(originalProps: UseBreadcrumbsProps) {
         ...variantProps,
         className,
       }),
-    [...Object.values(variantProps), className],
+    [objectToDeps(variantProps), className],
   );
 
   const baseStyles = clsx(classNames?.base, className);

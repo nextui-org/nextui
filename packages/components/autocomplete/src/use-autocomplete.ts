@@ -1,21 +1,23 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
+import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
-import {useComboBox} from "@react-aria/combobox";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
 import {InputProps} from "@nextui-org/input";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
+import {useComboBox} from "@react-aria/combobox";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -116,13 +118,18 @@ export type UseAutocompleteProps<T> = Props<T> &
   AutocompleteVariantProps;
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   // TODO: Remove disableClearable prop in the next minor release.
   const isClearable =
     originalProps.disableClearable !== undefined
       ? !originalProps.disableClearable
+      : originalProps.isReadOnly
+      ? false
       : originalProps.isClearable;
 
   const {
@@ -150,20 +157,24 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
+    errorMessage,
     onOpenChange,
     onClose,
+    isReadOnly = false,
     ...otherProps
   } = props;
 
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
 
-  const state = useComboBoxState({
+  let state = useComboBoxState({
     ...originalProps,
     children,
     menuTrigger,
+    validationBehavior,
     shouldCloseOnBlur,
     allowsEmptyCollection,
     defaultFilter: defaultFilter && typeof defaultFilter === "function" ? defaultFilter : contains,
@@ -175,6 +186,13 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     },
   });
 
+  state = {
+    ...state,
+    ...(isReadOnly && {
+      disabledKeys: new Set([...state.collection.getKeys()]),
+    }),
+  };
+
   // Setup refs and get props for child elements.
   const buttonRef = useRef<HTMLButtonElement>(null);
   const inputWrapperRef = useRef<HTMLDivElement>(null);
@@ -182,6 +200,27 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const popoverRef = useRef<HTMLDivElement>(null);
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
+
+  const {
+    buttonProps,
+    inputProps,
+    listBoxProps,
+    isInvalid: isAriaInvalid,
+    validationDetails,
+    validationErrors,
+  } = useComboBox(
+    {
+      validationBehavior,
+      ...originalProps,
+      inputRef,
+      buttonRef,
+      listBoxRef,
+      popoverRef,
+    },
+    state,
+  );
+
+  const isInvalid = originalProps.isInvalid || isAriaInvalid;
 
   const slotsProps: {
     inputProps: InputProps;
@@ -238,7 +277,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         size: "sm",
         variant: "light",
         radius: "full",
-        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
       },
@@ -249,7 +288,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         size: "sm",
         variant: "light",
         radius: "full",
-        color: originalProps?.isInvalid ? "danger" : originalProps?.color,
+        color: isInvalid ? "danger" : originalProps?.color,
         isIconOnly: true,
         disableAnimation,
       },
@@ -262,34 +301,48 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ? state.isOpen && !!state.collection.size
     : state.isOpen;
 
-  // apply the same with to the popover as the select
+  // if we use `react-hook-form`, it will set the native input value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!inputRef.current) return;
+
+    const key = inputRef.current.value;
+    const item = state.collection.getItem(key);
+
+    if (item && state.inputValue !== item.textValue) {
+      state.setSelectedKey(key);
+      state.setInputValue(item.textValue);
+    }
+  }, [inputRef.current]);
+
   useEffect(() => {
-    if (isOpen && popoverRef.current && inputWrapperRef.current) {
-      let rect = inputWrapperRef.current.getBoundingClientRect();
+    if (isOpen) {
+      // apply the same with to the popover as the select
+      if (popoverRef.current && inputWrapperRef.current) {
+        let rect = inputWrapperRef.current.getBoundingClientRect();
 
-      let popover = popoverRef.current;
+        let popover = popoverRef.current;
 
-      popover.style.width = rect.width + "px";
+        popover.style.width = rect.width + "px";
+      }
     }
   }, [isOpen]);
 
-  // unfocus the input when the popover closes & there's no selected item & no allows custom value
-  useEffect(() => {
-    if (!isOpen && !state.selectedItem && inputRef.current && !allowsCustomValue) {
-      inputRef.current.blur();
-    }
-  }, [isOpen, allowsCustomValue]);
+  // to prevent the error message:
+  // stopPropagation is now the default behavior for events in React Spectrum.
+  // You can use continuePropagation() to revert this behavior.
+  if (inputProps.onKeyDown) {
+    const originalOnKeyDown = inputProps.onKeyDown;
 
-  const {buttonProps, inputProps, listBoxProps} = useComboBox(
-    {
-      ...originalProps,
-      inputRef,
-      buttonRef,
-      listBoxRef,
-      popoverRef,
-    },
-    state,
-  );
+    inputProps.onKeyDown = (e) => {
+      if ("continuePropagation" in e) {
+        e.stopPropagation = () => {};
+      }
+
+      return originalOnKeyDown(e);
+    };
+  }
 
   const Component = as || "div";
 
@@ -301,24 +354,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         disableAnimation,
         className,
       }),
-    [...Object.values(variantProps), isClearable, disableAnimation, className],
-  );
-
-  const onClear = useCallback(() => {
-    state.setInputValue("");
-    state.setSelectedKey(null);
-  }, [state]);
-
-  const onFocus = useCallback(
-    (isFocused: boolean) => {
-      inputRef.current?.focus();
-      state.setFocused(isFocused);
-    },
-    [state, inputRef],
+    [objectToDeps(variantProps), isClearable, disableAnimation, className],
   );
 
   const getBaseProps: PropGetter = () => ({
-    "data-invalid": dataAttr(originalProps?.isInvalid),
+    "data-invalid": dataAttr(isInvalid),
     "data-open": dataAttr(state.isOpen),
     className: slots.base({class: baseStyles}),
   });
@@ -336,16 +376,23 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   const getClearButtonProps = () =>
     ({
       ...mergeProps(buttonProps, slotsProps.clearButtonProps),
+      // disable original focus and state toggle from react aria
+      onPressStart: () => {
+        // this is in PressStart for mobile so that touching the clear button doesn't remove focus from
+        // the input and close the keyboard
+        inputRef.current?.focus();
+      },
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
 
         if (state.selectedItem) {
-          onClear();
+          state.setInputValue("");
+          state.setSelectedKey(null);
         } else {
-          const inputFocused = inputRef.current === document.activeElement;
-
-          allowsCustomValue && state.setInputValue("");
-          !inputFocused && onFocus(true);
+          if (allowsCustomValue) {
+            state.setInputValue("");
+            state.close();
+          }
         }
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
@@ -356,9 +403,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   const getInputProps = () =>
     ({
-      ...slotsProps.inputProps,
       ...otherProps,
       ...inputProps,
+      ...slotsProps.inputProps,
+      isInvalid,
+      validationBehavior,
+      errorMessage:
+        typeof errorMessage === "function"
+          ? errorMessage({isInvalid, validationErrors, validationDetails})
+          : errorMessage || validationErrors?.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 
@@ -366,18 +419,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ({
       state,
       ref: listBoxRef,
-      shouldHighlightOnFocus: true,
-      ...mergeProps(slotsProps.listboxProps, listBoxProps),
+      ...mergeProps(slotsProps.listboxProps, listBoxProps, {
+        shouldHighlightOnFocus: true,
+      }),
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
+    const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
     return {
       state,
       ref: popoverRef,
       triggerRef: inputWrapperRef,
       scrollRef: listBoxRef,
       triggerType: "listbox",
-      ...mergeProps(slotsProps.popoverProps, props),
+      ...popoverProps,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -387,7 +443,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
+      // when the popover is open, the focus should be on input instead of dialog
+      // therefore, we skip dialog focus here
+      disableDialogFocus: true,
     } as unknown as PopoverProps;
+  };
+
+  const getEmptyPopoverProps = () => {
+    // avoid null node in `ariaHideOutside` from `@react-aria/overlays`
+    return {
+      ref: popoverRef,
+      className: "hidden",
+    };
   };
 
   const getListBoxWrapperProps: PropGetter = (props: any = {}) => ({
@@ -405,13 +472,19 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     className: slots.endContentWrapper({
       class: clsx(classNames?.endContentWrapper, props?.className),
     }),
-    onClick: (e) => {
-      const inputFocused = inputRef.current === document.activeElement;
-
-      if (!inputFocused && !state.isFocused && e.currentTarget === e.target) {
-        onFocus(true);
+    onPointerDown: chain(props.onPointerDown, (e: React.PointerEvent) => {
+      if (e.button === 0 && e.currentTarget === e.target) {
+        inputRef.current?.focus();
       }
-    },
+    }),
+    onMouseDown: chain(props.onMouseDown, (e: React.MouseEvent) => {
+      if (e.button === 0 && e.currentTarget === e.target) {
+        // Chrome and Firefox on touch Windows devices require mouse down events
+        // to be canceled in addition to pointer events, or an extra asynchronous
+        // focus event will be fired.
+        e.preventDefault();
+      }
+    }),
   });
 
   return {
@@ -433,6 +506,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     getInputProps,
     getListBoxProps,
     getPopoverProps,
+    getEmptyPopoverProps,
     getClearButtonProps,
     getSelectorButtonProps,
     getListBoxWrapperProps,

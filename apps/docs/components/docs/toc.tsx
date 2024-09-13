@@ -1,6 +1,6 @@
 "use client";
 
-import {FC, useRef, useEffect} from "react";
+import {FC, useRef, useEffect, useState} from "react";
 import {clsx} from "@nextui-org/shared-utils";
 import {Divider, Spacer} from "@nextui-org/react";
 import {ChevronCircleTopLinearIcon} from "@nextui-org/shared-icons";
@@ -9,6 +9,7 @@ import scrollIntoView from "scroll-into-view-if-needed";
 import {Heading} from "@/libs/docs/utils";
 import {useScrollSpy} from "@/hooks/use-scroll-spy";
 import {useScrollPosition} from "@/hooks/use-scroll-position";
+import emitter from "@/libs/emitter";
 
 export interface DocsTocProps {
   headings: Heading[];
@@ -22,6 +23,8 @@ const paddingLeftByLevel: Record<number, string> = {
 };
 
 export const DocsToc: FC<DocsTocProps> = ({headings}) => {
+  const [isProBannerVisible, setIsProBannerVisible] = useState(true);
+
   const tocRef = useRef<HTMLDivElement>(null);
 
   const scrollPosition = useScrollPosition(tocRef);
@@ -51,10 +54,23 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
     }
   }, [activeId, activeIndex]);
 
+  useEffect(() => {
+    emitter.on("proBannerVisibilityChange", (value) => {
+      setIsProBannerVisible(value === "visible");
+    });
+
+    return () => {
+      emitter.off("proBannerVisibilityChange");
+    };
+  }, []);
+
   return (
     <div
       ref={tocRef}
-      className="fixed w-full max-w-[12rem] flex flex-col gap-4 text-left top-20 pb-20 h-[calc(100vh-121px)] scrollbar-hide overflow-y-scroll"
+      className={clsx(
+        "fixed w-full max-w-[12rem] flex flex-col gap-4 text-left pb-28 h-[calc(100vh-121px)] scrollbar-hide overflow-y-scroll",
+        isProBannerVisible ? "top-32" : "top-20",
+      )}
       style={{
         WebkitMaskImage: `linear-gradient(to top, transparent 0%, #000 100px, #000 ${
           scrollPosition > 30 ? "90%" : "100%"

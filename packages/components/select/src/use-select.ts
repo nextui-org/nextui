@@ -1,24 +1,33 @@
 import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {HiddenSelectProps} from "./hidden-select";
 
-import {DOMAttributes, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  DOMAttributes,
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  SharedSelection,
+  useProviderContext,
+} from "@nextui-org/system";
 import {select} from "@nextui-org/theme";
 import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
 import {ListboxProps} from "@nextui-org/listbox";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {PopoverProps} from "@nextui-org/popover";
 import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
 import {
   MultiSelectProps,
+  MultiSelectState,
   useMultiSelect,
   useMultiSelectState,
 } from "@nextui-org/use-aria-multiselect";
 import {SpinnerProps} from "@nextui-org/spinner";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {CollectionChildren} from "@react-types/shared";
 
 export type SelectedItemProps<T = object> = {
@@ -119,30 +128,49 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Classes object to style the select and its children.
    */
   classNames?: SlotsToClasses<SelectSlots>;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 
-export type UseSelectProps<T> = Omit<Props<T>, keyof MultiSelectProps<T>> &
-  MultiSelectProps<T> &
+interface SelectData {
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  name?: string;
+  validationBehavior?: "aria" | "native";
+}
+
+export const selectData = new WeakMap<MultiSelectState<any>, SelectData>();
+
+export type UseSelectProps<T> = Omit<
+  Props<T>,
+  keyof Omit<MultiSelectProps<T>, "onSelectionChange">
+> &
+  Omit<MultiSelectProps<T>, "onSelectionChange"> &
   SelectVariantProps;
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
-  const disableAnimation = originalProps.disableAnimation ?? false;
+
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const {
     ref,
     as,
-    isOpen,
     label,
     name,
     isLoading,
     selectorIcon,
+    isOpen,
     defaultOpen,
     onOpenChange,
     startContent,
     endContent,
     description,
-    errorMessage,
     renderValue,
     onSelectionChange,
     placeholder,
@@ -204,14 +232,14 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const listBoxRef = useRef<HTMLUListElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
 
-  const state = useMultiSelectState<T>({
+  let state = useMultiSelectState<T>({
     ...props,
     isOpen,
     selectionMode,
     disallowEmptySelection,
     children: children as CollectionChildren<T>,
-    isRequired: originalProps?.isRequired,
-    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps.isRequired,
+    isDisabled: originalProps.isDisabled,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
@@ -221,31 +249,58 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     },
     onSelectionChange: (keys) => {
       onSelectionChange?.(keys);
-      if (onChange && typeof onChange === "function" && domRef.current) {
-        const event = {
+      if (onChange && typeof onChange === "function") {
+        onChange({
           target: {
-            ...domRef.current,
+            ...(domRef.current && {
+              ...domRef.current,
+              name: domRef.current.name,
+            }),
             value: Array.from(keys).join(","),
-            name: domRef.current.name,
           },
-        } as React.ChangeEvent<HTMLSelectElement>;
-
-        onChange(event);
+        } as React.ChangeEvent<HTMLSelectElement>);
       }
     },
   });
 
-  const {labelProps, triggerProps, valueProps, menuProps, descriptionProps, errorMessageProps} =
-    useMultiSelect(
-      {...props, disallowEmptySelection, isDisabled: originalProps?.isDisabled},
-      state,
-      triggerRef,
-    );
+  state = {
+    ...state,
+    ...(originalProps.isDisabled && {
+      disabledKeys: new Set([...state.collection.getKeys()]),
+    }),
+  };
+
+  // if we use `react-hook-form`, it will set the native select value using the ref in register
+  // i.e. setting ref.current.value to something which is uncontrolled
+  // hence, sync the state with `ref.current.value`
+  useSafeLayoutEffect(() => {
+    if (!domRef.current?.value) return;
+
+    state.setSelectedKeys(new Set([...state.selectedKeys, domRef.current.value]));
+  }, [domRef.current]);
+
+  const {
+    labelProps,
+    triggerProps,
+    valueProps,
+    menuProps,
+    descriptionProps,
+    errorMessageProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+  } = useMultiSelect(
+    {...props, disallowEmptySelection, isDisabled: originalProps.isDisabled},
+    state,
+    triggerRef,
+  );
+
+  const isInvalid = originalProps.isInvalid || validationState === "invalid" || isAriaInvalid;
 
   const {isPressed, buttonProps} = useAriaButton(triggerProps, triggerRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
-  const {isHovered, hoverProps} = useHover({isDisabled: originalProps?.isDisabled});
+  const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const labelPlacement = useMemo<SelectVariantProps["labelPlacement"]>(() => {
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
@@ -255,22 +310,21 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     return originalProps.labelPlacement ?? "inside";
   }, [originalProps.labelPlacement, label]);
 
-  const hasHelper = !!description || !!errorMessage;
   const hasPlaceholder = !!placeholder;
-  const isInvalid = validationState === "invalid" || originalProps.isInvalid;
   const shouldLabelBeOutside =
     labelPlacement === "outside-left" ||
     (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
+  const isOutsideLeft = labelPlacement === "outside-left";
 
   const isFilled =
     state.isOpen ||
     hasPlaceholder ||
-    !!state.selectedItems ||
+    !!state.selectedItems?.length ||
     !!startContent ||
     !!endContent ||
     !!originalProps.isMultiline;
-  const hasValue = !!state.selectedItems;
+  const hasValue = !!state.selectedItems?.length;
   const hasLabel = !!label;
 
   const baseStyles = clsx(classNames?.base, className);
@@ -281,9 +335,10 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         ...variantProps,
         isInvalid,
         labelPlacement,
+        disableAnimation,
         className,
       }),
-    [...Object.values(variantProps), isInvalid, labelPlacement, className],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, disableAnimation, className],
   );
 
   // scroll the listbox to the selected item
@@ -305,6 +360,13 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     }
   }, [state.isOpen, disableAnimation]);
 
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors?.join(" ");
+
+  const hasHelper = !!description || !!errorMessage;
+
   // apply the same with to the popover as the select
   useEffect(() => {
     if (state.isOpen && popoverRef.current && triggerRef.current) {
@@ -322,6 +384,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-has-value": dataAttr(hasValue),
       "data-has-label": dataAttr(hasLabel),
       "data-has-helper": dataAttr(hasHelper),
+      "data-invalid": dataAttr(isInvalid),
       className: slots.base({
         class: clsx(baseStyles, props.className),
       }),
@@ -446,6 +509,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const getPopoverProps = useCallback(
     (props: DOMAttributes = {}) => {
+      const popoverProps = mergeProps(slotsProps.popoverProps, props);
+
       return {
         state,
         triggerRef,
@@ -458,7 +523,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
             class: clsx(classNames?.popoverContent, props.className),
           }),
         },
-        ...mergeProps(slotsProps.popoverProps, props),
+        ...popoverProps,
         offset:
           state.selectedItems && state.selectedItems.length > 0
             ? // forces the popover to update its position when the selected items change
@@ -483,7 +548,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       "data-open": dataAttr(state.isOpen),
       className: slots.selectorIcon({class: classNames?.selectorIcon}),
     }),
-    [slots, classNames?.selectorIcon, state?.isOpen],
+    [slots, classNames?.selectorIcon, state.isOpen],
   );
 
   const getInnerWrapperProps: PropGetter = useCallback(
@@ -565,6 +630,15 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     [slots, spinnerRef, spinnerProps, classNames?.spinner],
   );
 
+  // store the data to be used in useHiddenSelect
+  selectData.set(state, {
+    isDisabled: originalProps?.isDisabled,
+    isRequired: originalProps?.isRequired,
+    name: originalProps?.name,
+    // TODO: Future enhancement to support "aria" validation behavior.
+    validationBehavior: "native",
+  });
+
   return {
     Component,
     domRef,
@@ -578,15 +652,17 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     endContent,
     description,
     selectorIcon,
-    errorMessage,
     hasHelper,
     labelPlacement,
     hasPlaceholder,
     renderValue,
     selectionMode,
     disableAnimation,
+    isOutsideLeft,
     shouldLabelBeOutside,
     shouldLabelBeInside,
+    isInvalid,
+    errorMessage,
     getBaseProps,
     getTriggerProps,
     getLabelProps,

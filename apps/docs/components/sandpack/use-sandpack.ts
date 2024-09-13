@@ -70,7 +70,7 @@ export const useSandpack = ({
   }, {});
 
   let dependencies = {
-    "framer-motion": "10.12.16",
+    "framer-motion": "11.0.22",
     "@nextui-org/react": "latest",
   };
 
@@ -100,13 +100,17 @@ export const useSandpack = ({
       let fileContent = files[key] as string;
 
       // Check if the file content includes 'React' import statements, if not, add it
-      if (!fileContent.includes("from 'react'") && !fileContent.includes('from "react"')) {
+      if (
+        fileContent.includes("React.") &&
+        !fileContent.includes("from 'react'") &&
+        !fileContent.includes('from "react"')
+      ) {
         fileContent = `${importReact}\n${fileContent}\n`;
       }
 
       // Check if file content includes any other dependencies, if yes, add it to dependencies
       const importRegex = /import .* from ["'](.*)["']/g;
-      let match;
+      let match: RegExpExecArray | null;
 
       while ((match = importRegex.exec(fileContent)) !== null) {
         const dependencyName = match[1];
@@ -139,7 +143,7 @@ export const useSandpack = ({
 
   // const dependencies = useMemo(() => {
   //   let deps = {
-  //     "framer-motion": "10.12.16",
+  //     "framer-motion": "11.0.22",
   //   };
 
   //   if (hasComponents) {

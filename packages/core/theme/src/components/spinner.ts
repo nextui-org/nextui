@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 /**
  * Spinner wrapper **Tailwind Variants** component
  *
- * const {base, line1, line2, label } = spinner({...})
+ * const {base, circle1, circle2, label } = spinner({...})
  *
  * @example
  * <div className={base())}>

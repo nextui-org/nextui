@@ -30,6 +30,11 @@ export default {
         type: "boolean",
       },
     },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
     showSkeleton: {
       control: {
         disable: true,

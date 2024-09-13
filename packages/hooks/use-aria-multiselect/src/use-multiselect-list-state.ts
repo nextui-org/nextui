@@ -1,8 +1,11 @@
 import {ListState, useListState} from "@react-stately/list";
-import {CollectionBase, MultipleSelection, Node} from "@react-types/shared";
-import {Key} from "react";
+import {CollectionBase, MultipleSelection, AsyncLoadable, Node} from "@react-types/shared";
+import {Key, useMemo} from "react";
 
-export interface MultiSelectListProps<T> extends CollectionBase<T>, MultipleSelection {}
+export interface MultiSelectListProps<T>
+  extends CollectionBase<T>,
+    AsyncLoadable,
+    MultipleSelection {}
 
 export interface MultiSelectListState<T> extends ListState<T> {
   /** The keys for the currently selected items. */
@@ -25,19 +28,21 @@ export function useMultiSelectListState<T extends object>(
     selectionManager: {setSelectedKeys, selectedKeys, selectionMode},
   } = useListState<T>(props);
 
-  const missingKeys: Key[] = [];
+  const missingKeys: Key[] = useMemo(() => {
+    if (!props.isLoading && selectedKeys.size !== 0) {
+      return Array.from(selectedKeys)
+        .filter(Boolean)
+        .filter((key) => !collection.getItem(key));
+    }
+
+    return [];
+  }, [selectedKeys, collection]);
 
   const selectedItems = (
     selectedKeys.size !== 0
       ? Array.from(selectedKeys)
           .map((key) => {
-            const item = collection.getItem(key);
-
-            if (!item) {
-              missingKeys.push(key);
-            }
-
-            return item;
+            return collection.getItem(key);
           })
           // Remove undefined values when some keys are not present in the collection
           .filter(Boolean)

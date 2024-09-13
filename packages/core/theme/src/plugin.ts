@@ -16,10 +16,11 @@ import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
-import {createSpacingUnits, generateSpacingScale, isBaseTheme} from "./utils/theme";
+import {isBaseTheme} from "./utils/theme";
 import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, defaultLayout} from "./default-layout";
 import {baseStyles} from "./utils/classes";
+import {DEFAULT_TRANSITION_DURATION} from "./utilities/transition";
 
 const DEFAULT_PREFIX = "nextui";
 
@@ -78,7 +79,7 @@ const resolveConfig = (
 
       try {
         const parsedColor =
-          parsedColorsCache[colorValue] || Color(colorValue).hsl().round().array();
+          parsedColorsCache[colorValue] || Color(colorValue).hsl().round(2).array();
 
         parsedColorsCache[colorValue] = parsedColor;
 
@@ -129,26 +130,13 @@ const resolveConfig = (
           resolved.utilities[cssSelector]![nestedLayoutVariable] = nestedValue;
         }
       } else {
-        // Process base units and spacing scale
-        if (key === "spacing-unit") {
-          resolved.utilities[cssSelector]![layoutVariablePrefix] = value; // Add the base unit
+        // Handle opacity values and other singular layout values
+        const formattedValue =
+          layoutVariablePrefix.includes("opacity") && typeof value === "number"
+            ? value.toString().replace(/^0\./, ".")
+            : value;
 
-          const spacingScale = generateSpacingScale(Number(value));
-
-          for (const [scaleKey, scaleValue] of Object.entries(spacingScale)) {
-            const spacingVariable = `${layoutVariablePrefix}-${scaleKey}`;
-
-            resolved.utilities[cssSelector]![spacingVariable] = scaleValue;
-          }
-        } else {
-          // Handle opacity values and other singular layout values
-          const formattedValue =
-            layoutVariablePrefix.includes("opacity") && typeof value === "number"
-              ? value.toString().replace(/^0\./, ".")
-              : value;
-
-          resolved.utilities[cssSelector]![layoutVariablePrefix] = formattedValue;
-        }
+        resolved.utilities[cssSelector]![layoutVariablePrefix] = formattedValue;
       }
     }
   }
@@ -163,24 +151,6 @@ const corePlugin = (
   addCommonColors: boolean,
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
-  const minSizes = {
-    "unit-1": `var(--${prefix}-spacing-unit)`,
-    "unit-2": `var(--${prefix}-spacing-unit-2`,
-    "unit-3": `var(--${prefix}-spacing-unit-3)`,
-    "unit-3.5": `var(--${prefix}-spacing-unit-3_5)`,
-    "unit-4": `var(--${prefix}-spacing-unit-4)`,
-    "unit-5": `var(--${prefix}-spacing-unit-5)`,
-    "unit-6": `var(--${prefix}-spacing-unit-6)`,
-    "unit-7": `var(--${prefix}-spacing-unit-7)`,
-    "unit-8": `var(--${prefix}-spacing-unit-8)`,
-    "unit-9": `var(--${prefix}-spacing-unit-9)`,
-    "unit-10": `var(--${prefix}-spacing-unit-10)`,
-    "unit-11": `var(--${prefix}-spacing-unit-11)`,
-    "unit-12": `var(--${prefix}-spacing-unit-12)`,
-    "unit-16": `var(--${prefix}-spacing-unit-16)`,
-    "unit-20": `var(--${prefix}-spacing-unit-20)`,
-    "unit-24": `var(--${prefix}-spacing-unit-24)`,
-  };
 
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
@@ -216,16 +186,6 @@ const corePlugin = (
           },
           width: {
             divider: `var(--${prefix}-divider-weight)`,
-          },
-          spacing: {
-            unit: `var(--${prefix}-spacing-unit)`,
-            ...createSpacingUnits(prefix),
-          },
-          minWidth: {
-            ...minSizes,
-          },
-          minHeight: {
-            ...minSizes,
           },
           fontSize: {
             tiny: [`var(--${prefix}-font-size-tiny)`, `var(--${prefix}-line-height-tiny)`],
@@ -264,6 +224,7 @@ const corePlugin = (
             0: "0ms",
             250: "250ms",
             400: "400ms",
+            DEFAULT: DEFAULT_TRANSITION_DURATION,
           },
           transitionTimingFunction: {
             "soft-spring": "cubic-bezier(0.155, 1.105, 0.295, 1.12)",

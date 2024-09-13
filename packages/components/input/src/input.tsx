@@ -19,6 +19,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     isOutsideLeft,
     shouldLabelBeOutside,
     errorMessage,
+    isInvalid,
     getBaseProps,
     getLabelProps,
     getInputProps,
@@ -68,7 +69,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
     return (
       <div {...getHelperWrapperProps()}>
-        {errorMessage ? (
+        {isInvalid && errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : description ? (
           <div {...getDescriptionProps()}>{description}</div>
@@ -77,6 +78,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     );
   }, [
     hasHelper,
+    isInvalid,
     errorMessage,
     description,
     getHelperWrapperProps,
@@ -107,7 +109,9 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
 
     return (
       <div {...getInnerWrapperProps()}>
+        {startContent}
         <input {...getInputProps()} />
+        {end}
       </div>
     );
   }, [startContent, end, getInputProps, getInnerWrapperProps]);

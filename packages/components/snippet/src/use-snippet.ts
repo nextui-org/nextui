@@ -1,9 +1,14 @@
 import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {snippet} from "@nextui-org/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useFocusRing} from "@react-aria/focus";
@@ -116,6 +121,8 @@ export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, Snippe
 }
 
 export function useSnippet(originalProps: UseSnippetProps) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, snippet.variantKeys);
 
   const {
@@ -142,6 +149,8 @@ export function useSnippet(originalProps: UseSnippetProps) {
 
   const Component = as || "div";
   const shouldFilterDOMProps = typeof Component === "string";
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const tooltipProps: Partial<TooltipProps> = {
     offset: 15,
@@ -167,8 +176,9 @@ export function useSnippet(originalProps: UseSnippetProps) {
     () =>
       snippet({
         ...variantProps,
+        disableAnimation,
       }),
-    [...Object.values(variantProps)],
+    [objectToDeps(variantProps), disableAnimation],
   );
 
   const symbolBefore = useMemo(() => {

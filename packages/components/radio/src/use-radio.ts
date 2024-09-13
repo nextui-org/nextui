@@ -4,11 +4,10 @@ import type {RadioVariantProps, RadioSlots, SlotsToClasses} from "@nextui-org/th
 import {Ref, ReactNode, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {useHover} from "@react-aria/interactions";
-import {usePress} from "@nextui-org/use-aria-press";
+import {useHover, usePress} from "@react-aria/interactions";
 import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
 import {__DEV__, warn, clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -52,6 +51,7 @@ export type UseRadioProps = Omit<Props, "defaultChecked"> &
   RadioVariantProps;
 
 export function useRadio(props: UseRadioProps) {
+  const globalContext = useProviderContext();
   const groupContext = useRadioGroupContext();
 
   const {
@@ -65,7 +65,7 @@ export function useRadio(props: UseRadioProps) {
     size = groupContext?.size ?? "md",
     color = groupContext?.color ?? "primary",
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
-    disableAnimation = groupContext?.disableAnimation ?? false,
+    disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
     onChange = groupContext?.onChange,
     autoFocus = false,
     className,
@@ -87,27 +87,33 @@ export function useRadio(props: UseRadioProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const labelId = useId();
+  const descriptionId = useId();
 
   const isRequired = useMemo(() => groupContext.isRequired ?? false, [groupContext.isRequired]);
   const isInvalid = groupContext.isInvalid;
 
   const ariaRadioProps = useMemo(() => {
-    const ariaLabel =
-      otherProps["aria-label"] || typeof children === "string" ? (children as string) : undefined;
     const ariaDescribedBy =
-      otherProps["aria-describedby"] || typeof description === "string"
-        ? (description as string)
-        : undefined;
+      [otherProps["aria-describedby"], descriptionId].filter(Boolean).join(" ") || undefined;
 
     return {
       id,
       isRequired,
       isDisabled: isDisabledProp,
-      "aria-label": ariaLabel,
+      "aria-label": otherProps["aria-label"],
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       "aria-describedby": ariaDescribedBy,
     };
-  }, [labelId, id, isDisabledProp, isRequired]);
+  }, [
+    id,
+    isDisabledProp,
+    isRequired,
+    description,
+    otherProps["aria-label"],
+    otherProps["aria-labelledby"],
+    otherProps["aria-describedby"],
+    descriptionId,
+  ]);
 
   const {
     inputProps,
@@ -117,8 +123,7 @@ export function useRadio(props: UseRadioProps) {
   } = useReactAriaRadio(
     {
       value,
-      children,
-      ...groupContext,
+      children: typeof children === "function" ? true : children,
       ...ariaRadioProps,
     },
     groupContext.groupState,
@@ -218,14 +223,12 @@ export function useRadio(props: UseRadioProps) {
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ...props,
         ref: inputRef,
-        required: isRequired,
-        ...mergeProps(inputProps, focusProps),
+        ...mergeProps(props, inputProps, focusProps),
         onChange: chain(inputProps.onChange, onChange),
       };
     },
-    [inputProps, focusProps, isRequired, onChange],
+    [inputProps, focusProps, onChange],
   );
 
   const getLabelProps: PropGetter = useCallback(
@@ -253,22 +256,30 @@ export function useRadio(props: UseRadioProps) {
     [slots, classNames?.control],
   );
 
+  const getDescriptionProps: PropGetter = useCallback(
+    (props = {}) => ({
+      ...props,
+      id: descriptionId,
+      className: slots.description({class: classNames?.description}),
+    }),
+    [slots, classNames?.description],
+  );
+
   return {
     Component,
     children,
-    slots,
-    classNames,
-    description,
     isSelected,
     isDisabled,
     isInvalid,
     isFocusVisible,
+    description,
     getBaseProps,
     getWrapperProps,
     getInputProps,
     getLabelProps,
     getLabelWrapperProps,
     getControlProps,
+    getDescriptionProps,
   };
 }
 
