@@ -41,7 +41,7 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
             accessorIndex={idx}
             classNames={values.classNames}
             isInputFocused={isInputFocused}
-            otpLength={otplength}
+            otplength={otplength}
             slots={values.slots}
             value={value}
           />

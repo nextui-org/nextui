@@ -5,7 +5,7 @@ import {useMemo} from "react";
 import {ValueTypes} from "./use-input-otp";
 
 interface InputOtpSegmentProps extends HTMLNextUIProps<"div"> {
-  otpLength: number;
+  otplength: number;
   accessorIndex: number;
   value: string;
   isInputFocused: boolean;
@@ -15,7 +15,7 @@ interface InputOtpSegmentProps extends HTMLNextUIProps<"div"> {
 }
 
 export const InputOtpSegment = ({
-  otpLength,
+  otplength,
   accessorIndex,
   value,
   isInputFocused,
@@ -26,7 +26,7 @@ export const InputOtpSegment = ({
   const isActive = useMemo(
     () =>
       (value.length == accessorIndex ||
-        (value.length == otpLength && accessorIndex == otpLength - 1)) &&
+        (value.length == otplength && accessorIndex == otplength - 1)) &&
       isInputFocused,
     [value, isInputFocused],
   );
