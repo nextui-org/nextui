@@ -4,7 +4,7 @@ import {tv} from "../utils/tv";
 
 const inputOtp = tv({
   slots: {
-    base: ["relative", "inline-flex"],
+    base: ["relative", "flex", "flex-col"],
     inputWrapper: [],
     input: [
       "absolute",
@@ -26,6 +26,9 @@ const inputOtp = tv({
       "bg-white",
       "dark:bg-black",
     ],
+    helperWrapper: [],
+    errorMessage: [],
+    description: [],
   },
   variants: {
     variant: {

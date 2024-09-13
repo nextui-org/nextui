@@ -23,10 +23,45 @@ interface Props extends HTMLNextUIProps<"div"> {
    * Total number of characters in the OTP
    */
   otpLength: number;
-  classNames?: SlotsToClasses<InputOtpSlots>;
+  /**
+   * String which contains regex expression for the allowed keys
+   */
   allowedKeys?: string;
+  /**
+   * Method that will run when the inputOtp is completely filled
+   */
   onFill?: () => void;
+  /**
+   * Is the input-otp component disabled
+   */
   isDisabled?: boolean;
+  /**
+   * Description for the component
+   */
+  description?: string;
+  /**
+   * Error message for invalid OTP
+   */
+  errorMessage?: string;
+  /**
+   * Classname or List of classes to change the classNames of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * <InputOtp classNames={{
+   *    base:"base-classes",
+   *    inputWrapper:"input-wrapper-classes",
+   *    input: "input-classes",
+   *    segmentWrapper: "segment-wrapper-classes",
+   *    segment: "segment-classes",
+   *    helperWrapper: "helper-wrapper-classes",
+   *    description: "description-classes",
+   *    errorMessage: "error-message-classes",
+   * }} />
+   * ```
+   */
+  classNames?: SlotsToClasses<InputOtpSlots>;
 }
 
 export type ValueTypes = {
@@ -47,6 +82,8 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     otpLength,
     onFill = () => {},
     allowedKeys = "^[0-9]*$",
+    description,
+    errorMessage,
     ...otherProps
   } = props;
 
@@ -71,6 +108,9 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const allowedKeysRegex = new RegExp(allowedKeys);
   const isFilled = !isEmpty(value);
   const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
+
+  const hasHelper = !!description || !!errorMessage;
+  const isInvalid = value.length != otpLength;
 
   const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = e.target.value;
@@ -142,6 +182,33 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     };
   }, [slots, classNames?.segmentWrapper]);
 
+  const getHelperWrapperProps: PropGetter = useCallback(() => {
+    return {
+      className: slots.helperWrapper({
+        class: clsx(classNames?.helperWrapper, props?.className),
+      }),
+      "data-slot": "helper-wrapper",
+    };
+  }, [slots, classNames?.helperWrapper]);
+
+  const getErrorMessageProps: PropGetter = useCallback(() => {
+    return {
+      className: slots.errorMessage({
+        class: clsx(classNames?.errorMessage, props?.className),
+      }),
+      "data-slot": "error-message",
+    };
+  }, [slots, classNames?.errorMessage]);
+
+  const getDescriptionProps: PropGetter = useCallback(() => {
+    return {
+      className: slots.description({
+        class: clsx(classNames?.description, props?.className),
+      }),
+      "data-slot": "description",
+    };
+  }, [slots, classNames?.description]);
+
   const values = useMemo(
     () => ({
       classNames,
@@ -158,10 +225,17 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     value,
     isInputFocused,
     values,
+    hasHelper,
+    isInvalid,
+    description,
+    errorMessage,
     getBaseProps,
     getInputWrapperProps,
     getInputProps,
     getSegmentWrapperProps,
+    getHelperWrapperProps,
+    getErrorMessageProps,
+    getDescriptionProps,
     ...otherProps,
   };
 }

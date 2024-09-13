@@ -1,4 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
+import {useMemo} from "react";
 
 import {UseInputOtpProps, useInputOtp} from "./use-input-otp";
 import {InputOtpSegment} from "./input-otp-segment";
@@ -8,57 +9,82 @@ export interface InputOtpProps extends UseInputOtpProps {}
 const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
   const {
     Component,
+    otpLength,
     domRef,
     styles,
     value,
     isInputFocused,
     values,
+    hasHelper,
+    isInvalid,
+    errorMessage,
+    description,
     getBaseProps,
     getInputWrapperProps,
     getInputProps,
     getSegmentWrapperProps,
+    getHelperWrapperProps,
+    getErrorMessageProps,
+    getDescriptionProps,
     ...otherProps
   } = useInputOtp({
     ...props,
     ref,
   });
 
-  return (
-    <Component ref={domRef} className={styles} {...otherProps} {...getBaseProps()}>
+  const segmentsSection = useMemo(() => {
+    return (
       <div {...getSegmentWrapperProps()}>
-        <InputOtpSegment
-          accessorIndex={0}
-          classNames={values.classNames}
-          isInputFocused={isInputFocused}
-          slots={values.slots}
-          value={value}
-        />
-        <InputOtpSegment
-          accessorIndex={1}
-          classNames={values.classNames}
-          isInputFocused={isInputFocused}
-          slots={values.slots}
-          value={value}
-        />
-        <InputOtpSegment
-          accessorIndex={2}
-          classNames={values.classNames}
-          isInputFocused={isInputFocused}
-          slots={values.slots}
-          value={value}
-        />
-        <InputOtpSegment
-          accessorIndex={3}
-          classNames={values.classNames}
-          isInputFocused={isInputFocused}
-          slots={values.slots}
-          value={value}
-        />
+        {Array.from(Array(otpLength)).map((_, idx) => (
+          <InputOtpSegment
+            key={idx}
+            accessorIndex={idx}
+            classNames={values.classNames}
+            isInputFocused={isInputFocused}
+            slots={values.slots}
+            value={value}
+          />
+        ))}
       </div>
+    );
+  }, [otpLength, values.classNames, values.slots, isInputFocused, value, getSegmentWrapperProps]);
+
+  const inputSection = useMemo(() => {
+    return (
       <div {...getInputWrapperProps()}>
         <input {...getInputProps()} />
       </div>
-      <div />
+    );
+  }, [getInputWrapperProps, getInputProps]);
+
+  const helperSection = useMemo(() => {
+    if (!hasHelper) {
+      return null;
+    }
+
+    return (
+      <div {...getHelperWrapperProps()}>
+        {isInvalid && errorMessage ? (
+          <div {...getErrorMessageProps()}>{errorMessage}</div>
+        ) : (
+          <div {...getDescriptionProps()}>{description}</div>
+        )}
+      </div>
+    );
+  }, [
+    hasHelper,
+    isInvalid,
+    errorMessage,
+    description,
+    getHelperWrapperProps,
+    getErrorMessageProps,
+  ]);
+
+  return (
+    <Component ref={domRef} className={styles} {...otherProps} {...getBaseProps()}>
+      {segmentsSection}
+      {inputSection}
+      {helperSection}
     </Component>
   );
 });
