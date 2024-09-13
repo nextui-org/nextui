@@ -4,7 +4,7 @@ import {tv} from "../utils/tv";
 
 const autocomplete = tv({
   slots: {
-    base: "group inline-flex flex-column w-full",
+    base: "group/autocomplete inline-flex flex-column w-full",
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -16,14 +16,14 @@ const autocomplete = tv({
       "opacity-0",
       "pointer-events-none",
       "text-default-500",
-      "group-data-[invalid=true]:text-danger",
+      "group-data-[invalid=true]/autocomplete:text-danger",
       "data-[visible=true]:opacity-100", // on mobile is always visible when there is a value
       "data-[visible=true]:pointer-events-auto",
       "data-[visible=true]:cursor-pointer",
       "sm:data-[visible=true]:opacity-0", // only visible on hover
       "sm:data-[visible=true]:pointer-events-none",
-      "sm:group-data-[hover=true]:data-[visible=true]:opacity-100",
-      "sm:group-data-[hover=true]:data-[visible=true]:pointer-events-auto",
+      "sm:group-data-[hover=true]:data-[visible=true]/autocomplete:opacity-100",
+      "sm:group-data-[hover=true]:data-[visible=true]/autocomplete:pointer-events-auto",
     ],
     selectorButton: "text-medium",
   },
