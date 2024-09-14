@@ -1,5 +1,14 @@
 # @nextui-org/pagination
 
+## 2.0.36
+
+### Patch Changes
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/react-utils@2.0.17
+  - @nextui-org/use-pagination@2.0.10
+
 ## 2.0.35
 
 ### Patch Changes

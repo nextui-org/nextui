@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/badge",
-  "version": "2.0.31",
+  "version": "2.0.32",
   "description": "Badges are used as a small numerical value or status descriptor for UI elements.",
   "keywords": [
     "badge"

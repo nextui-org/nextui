@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-multiselect",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Provides the behavior and accessibility implementation for a multi-select component.",
   "keywords": [
     "use-aria-multiselect"

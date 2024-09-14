@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.2.4
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
 ## 2.2.3
 
 ### Patch Changes
