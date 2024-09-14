@@ -279,7 +279,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     "data-has-multiple-months": dataAttr(hasMultipleMonths),
     style: {
       // @ts-ignore
-      "--visible-months": visibleMonths,
+      "--visible-months": typeof visibleMonths === "number" ? `${visibleMonths}` : visibleMonths,
       "--calendar-width": typeof calendarWidth === "number" ? `${calendarWidth}px` : calendarWidth,
     } as React.CSSProperties,
   };

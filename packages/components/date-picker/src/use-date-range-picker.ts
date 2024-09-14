@@ -21,7 +21,6 @@ import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepick
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {dateRangePicker, dateInput, cn} from "@nextui-org/theme";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 interface Props<T extends DateValue>
@@ -216,9 +215,6 @@ export function useDateRangePicker<T extends DateValue>({
           ),
         }),
       },
-      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
-        ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
     } as PopoverProps;
   };
 

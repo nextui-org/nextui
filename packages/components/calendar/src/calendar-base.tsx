@@ -5,7 +5,6 @@ import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
 import {Fragment} from "react";
 import {useState} from "react";
-import {useLocale} from "@react-aria/i18n";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
@@ -55,8 +54,6 @@ export function CalendarBase(props: CalendarBaseProps) {
 
   const [direction, setDirection] = useState<number>(0);
 
-  const {direction: rtlDirection} = useLocale();
-
   const currentMonth = state.visibleRange.start;
 
   const headers: React.ReactNode[] = [];
@@ -72,7 +69,7 @@ export function CalendarBase(props: CalendarBaseProps) {
             {...prevButtonProps}
             onPress={chain(prevButtonProps.onPress, () => setDirection(-1))}
           >
-            {rtlDirection === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            <ChevronLeftIcon />
           </Button>
         )}
         <CalendarHeader
@@ -86,7 +83,7 @@ export function CalendarBase(props: CalendarBaseProps) {
             {...nextButtonProps}
             onPress={chain(nextButtonProps.onPress, () => setDirection(1))}
           >
-            {rtlDirection === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            <ChevronRightIcon />
           </Button>
         )}
       </Fragment>,
