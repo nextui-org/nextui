@@ -212,7 +212,7 @@ export default function App() {
       className="max-w-xs"
       variant="bordered"
       classNames={{
-        label: "group-data-[filled=true]:-translate-y-5",
+        label: "group-data-[filled=true]/select:-translate-y-5",
         trigger: "min-h-16",
         listboxWrapper: "max-h-[400px]",
       }}

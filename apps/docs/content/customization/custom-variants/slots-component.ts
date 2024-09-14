@@ -47,7 +47,7 @@ const MyInput = extendVariants(Input, {
           "focus-within:bg-zinc-100",
           "data-[hover=true]:border-zinc-600",
           "data-[hover=true]:bg-zinc-100",
-          "group-data-[focus=true]:border-zinc-600",
+          "group-data-[focus=true]/input:border-zinc-600",
           "dark:bg-zinc-900",
           "dark:border-zinc-800",
           "dark:data-[hover=true]:bg-zinc-900",
