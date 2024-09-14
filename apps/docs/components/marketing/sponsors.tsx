@@ -1,7 +1,12 @@
 import {Button, Link} from "@nextui-org/react";
 
 import {sectionWrapper} from "@/components/primitives";
-import {Story2DesignLogo, ReplexicaLogo, CodeRabbitLogo, ScrumbuissLogo} from "@/components/icons/sponsors";
+import {
+  Story2DesignLogo,
+  ReplexicaLogo,
+  CodeRabbitLogo,
+  ScrumbuissLogo,
+} from "@/components/icons/sponsors";
 import {HeartFilledIcon} from "@/components/icons";
 import {siteConfig} from "@/config/site";
 import {Sponsor, SponsorItem} from "@/components/marketing/sponsor-item";

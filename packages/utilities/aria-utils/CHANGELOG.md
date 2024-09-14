@@ -1,5 +1,16 @@
 # @nextui-org/aria-utils
 
+## 2.0.25
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- Updated dependencies [[`4ac7674d1`](https://github.com/nextui-org/nextui/commit/4ac7674d1ec8ed60925412fe1bd1f01ee9f1555a), [`446a6bf57`](https://github.com/nextui-org/nextui/commit/446a6bf57c3c9e6acadd6629411b33353b305590), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/system@2.2.6
+  - @nextui-org/react-rsc-utils@2.0.14
+  - @nextui-org/shared-utils@2.0.8
+
 ## 2.0.24
 
 ### Patch Changes

@@ -27,7 +27,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const radio = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2",
+    base: "group/radio relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none",
     wrapper: [
       "relative",
       "inline-flex",
@@ -40,7 +40,7 @@ const radio = tv({
       "box-border",
       "border-default",
       "rounded-full",
-      "group-data-[hover-unselected=true]:bg-default-100",
+      "group-data-[hover-unselected=true]/radio:bg-default-100",
       // focus ring
       ...groupDataFocusVisibleClasses,
     ],
@@ -53,8 +53,8 @@ const radio = tv({
       "scale-0",
       "origin-center",
       "rounded-full",
-      "group-data-[selected=true]:opacity-100",
-      "group-data-[selected=true]:scale-100",
+      "group-data-[selected=true]/radio:opacity-100",
+      "group-data-[selected=true]/radio:scale-100",
     ],
     label: "relative text-foreground select-none",
     description: "relative text-foreground-400",
@@ -63,27 +63,27 @@ const radio = tv({
     color: {
       default: {
         control: "bg-default-500 text-default-foreground",
-        wrapper: "group-data-[selected=true]:border-default-500",
+        wrapper: "group-data-[selected=true]/radio:border-default-500",
       },
       primary: {
         control: "bg-primary text-primary-foreground",
-        wrapper: "group-data-[selected=true]:border-primary",
+        wrapper: "group-data-[selected=true]/radio:border-primary",
       },
       secondary: {
         control: "bg-secondary text-secondary-foreground",
-        wrapper: "group-data-[selected=true]:border-secondary",
+        wrapper: "group-data-[selected=true]/radio:border-secondary",
       },
       success: {
         control: "bg-success text-success-foreground",
-        wrapper: "group-data-[selected=true]:border-success",
+        wrapper: "group-data-[selected=true]/radio:border-success",
       },
       warning: {
         control: "bg-warning text-warning-foreground",
-        wrapper: "group-data-[selected=true]:border-warning",
+        wrapper: "group-data-[selected=true]/radio:border-warning",
       },
       danger: {
         control: "bg-danger text-danger-foreground",
-        wrapper: "group-data-[selected=true]:border-danger",
+        wrapper: "group-data-[selected=true]/radio:border-danger",
       },
     },
     size: {
@@ -117,7 +117,7 @@ const radio = tv({
     isInvalid: {
       true: {
         control: "bg-danger text-danger-foreground",
-        wrapper: "border-danger group-data-[selected=true]:border-danger",
+        wrapper: "border-danger group-data-[selected=true]/radio:border-danger",
         label: "text-danger",
         description: "text-danger-300",
       },
@@ -126,7 +126,7 @@ const radio = tv({
       true: {},
       false: {
         wrapper: [
-          "group-data-[pressed=true]:scale-95",
+          "group-data-[pressed=true]/radio:scale-95",
           "transition-transform-colors",
           "motion-reduce:transition-none",
         ],

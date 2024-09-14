@@ -133,7 +133,7 @@ export const Hero = () => {
               });
             }}
           >
-            Github
+            GitHub
           </Button>
         </div>
       </div>

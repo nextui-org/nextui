@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: ["group inline-flex flex-col relative w-full"],
+    base: ["group/select inline-flex flex-col relative w-full"],
     label: [
       "block",
       "absolute",
@@ -22,8 +22,8 @@ const select = tv({
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
-    selectorIcon: "absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4",
-    spinner: "absolute right-3 rtl:left-3 rtl:right-[unset]",
+    selectorIcon: "absolute end-3 w-4 h-4",
+    spinner: "absolute end-3",
     value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
@@ -38,17 +38,18 @@ const select = tv({
         trigger: [
           "bg-default-100",
           "data-[hover=true]:bg-default-200",
-          "group-data-[focus=true]:bg-default-100",
+          "group-data-[focus=true]/select:bg-default-100",
         ],
       },
       faded: {
         trigger: [
           "bg-default-100",
+          "data-[hover=true]:bg-default-200",
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
         ],
-        value: "group-data-[has-value=true]:text-default-foreground",
+        value: "group-data-[has-value=true]/select:text-default-foreground",
       },
       bordered: {
         trigger: [
@@ -59,6 +60,7 @@ const select = tv({
           "data-[focus=true]:border-default-foreground",
           "data-[focus=true]:border-default-foreground",
         ],
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       underlined: {
         trigger: [
@@ -84,7 +86,7 @@ const select = tv({
           "data-[open=true]:after:w-full",
           "data-[focus=true]:after:w-full",
         ],
-        label: "group-data-[filled=true]:text-foreground",
+        value: "group-data-[has-value=true]/select:text-default-foreground",
       },
     },
     color: {
@@ -133,7 +135,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative pr-2 rtl:pl-2 rtl:pr-[unset] text-foreground",
+        label: "relative pe-2 text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -160,7 +162,7 @@ const select = tv({
     },
     isRequired: {
       true: {
-        label: "after:content-['*'] after:text-danger after:ml-0.5",
+        label: "after:content-['*'] after:text-danger after:ms-0.5",
       },
     },
     isMultiline: {
@@ -216,7 +218,8 @@ const select = tv({
       variant: "flat",
       color: "default",
       class: {
-        value: "group-data-[has-value=true]:text-default-foreground",
+        value: "group-data-[has-value=true]/select:text-default-foreground",
+        trigger: ["bg-default-100", "data-[hover=true]:bg-default-50"],
       },
     },
     {
@@ -224,10 +227,10 @@ const select = tv({
       color: "primary",
       class: {
         trigger: [
-          "bg-primary-50",
+          "bg-primary-100",
           "text-primary",
-          "data-[hover=true]:bg-primary-100",
-          "group-data-[focus=true]:bg-primary-50",
+          "data-[hover=true]:bg-primary-50",
+          "group-data-[focus=true]/select:bg-primary-50",
         ],
         value: "text-primary",
         label: "text-primary",
@@ -238,10 +241,10 @@ const select = tv({
       color: "secondary",
       class: {
         trigger: [
-          "bg-secondary-50",
+          "bg-secondary-100",
           "text-secondary",
-          "data-[hover=true]:bg-secondary-100",
-          "group-data-[focus=true]:bg-secondary-50",
+          "data-[hover=true]:bg-secondary-50",
+          "group-data-[focus=true]/select:bg-secondary-50",
         ],
         value: "text-secondary",
         label: "text-secondary",
@@ -252,11 +255,11 @@ const select = tv({
       color: "success",
       class: {
         trigger: [
-          "bg-success-50",
+          "bg-success-100",
           "text-success-600",
           "dark:text-success",
-          "data-[hover=true]:bg-success-100",
-          "group-data-[focus=true]:bg-success-50",
+          "data-[hover=true]:bg-success-50",
+          "group-data-[focus=true]/select:bg-success-50",
         ],
         value: "text-success-600 dark:text-success",
         label: "text-success-600 dark:text-success",
@@ -267,11 +270,11 @@ const select = tv({
       color: "warning",
       class: {
         trigger: [
-          "bg-warning-50",
+          "bg-warning-100",
           "text-warning-600",
           "dark:text-warning",
-          "data-[hover=true]:bg-warning-100",
-          "group-data-[focus=true]:bg-warning-50",
+          "data-[hover=true]:bg-warning-50",
+          "group-data-[focus=true]/select:bg-warning-50",
         ],
         value: "text-warning-600 dark:text-warning",
         label: "text-warning-600 dark:text-warning",
@@ -282,11 +285,11 @@ const select = tv({
       color: "danger",
       class: {
         trigger: [
-          "bg-danger-50",
+          "bg-danger-100",
           "text-danger",
           "dark:text-danger-500",
-          "data-[hover=true]:bg-danger-100",
-          "group-data-[focus=true]:bg-danger-50",
+          "data-[hover=true]:bg-danger-50",
+          "group-data-[focus=true]/select:bg-danger-50",
         ],
         value: "text-danger dark:text-danger-500",
         label: "text-danger dark:text-danger-500",
@@ -339,7 +342,7 @@ const select = tv({
       variant: "underlined",
       color: "default",
       class: {
-        value: "group-data-[has-value=true]:text-foreground",
+        value: "group-data-[has-value=true]/select:text-foreground",
       },
     },
     {
@@ -428,7 +431,7 @@ const select = tv({
       labelPlacement: "inside",
       color: "default",
       class: {
-        label: "group-data-[filled=true]:text-default-600",
+        label: "group-data-[filled=true]/select:text-default-600",
       },
     },
     // labelPlacement=outside & default
@@ -436,7 +439,7 @@ const select = tv({
       labelPlacement: "outside",
       color: "default",
       class: {
-        label: "group-data-[filled=true]:text-foreground",
+        label: "group-data-[filled=true]/select:text-foreground",
       },
     },
     // radius-full & size
@@ -494,7 +497,7 @@ const select = tv({
         trigger: [
           "bg-danger-50",
           "data-[hover=true]:bg-danger-100",
-          "group-data-[focus=true]:bg-danger-50",
+          "group-data-[focus=true]/select:bg-danger-50",
         ],
       },
     },
@@ -502,7 +505,7 @@ const select = tv({
       isInvalid: true,
       variant: "bordered",
       class: {
-        trigger: "!border-danger group-data-[focus=true]:border-danger",
+        trigger: "!border-danger group-data-[focus=true]/select:border-danger",
       },
     },
     {
@@ -535,13 +538,6 @@ const select = tv({
         trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },
-    //  labelPlacement=[inside, outside]
-    {
-      labelPlacement: ["inside", "outside"],
-      class: {
-        label: ["group-data-[filled=true]:pointer-events-auto"],
-      },
-    },
     {
       labelPlacement: "outside",
       isMultiline: false,
@@ -552,9 +548,7 @@ const select = tv({
           "z-20",
           "top-1/2",
           "-translate-y-1/2",
-          "group-data-[filled=true]:left-0",
-          "rtl:group-data-[filled=true]:right-0",
-          "rtl:group-data-[filled=true]:left-[unset]",
+          "group-data-[filled=true]/select:start-0",
         ],
       },
     },
@@ -562,7 +556,7 @@ const select = tv({
     {
       labelPlacement: ["inside"],
       class: {
-        label: "group-data-[filled=true]:scale-85",
+        label: "group-data-[filled=true]/select:scale-85",
       },
     },
     // inside & size
@@ -578,8 +572,10 @@ const select = tv({
       isMultiline: false,
       size: "sm",
       class: {
-        label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]"],
-        innerWrapper: "group-data-[has-label=true]:pt-4",
+        label: [
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px)]",
+        ],
+        innerWrapper: "group-data-[has-label=true]/select:pt-4",
       },
     },
     {
@@ -588,9 +584,9 @@ const select = tv({
       size: "md",
       class: {
         label: [
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px)]",
         ],
-        innerWrapper: "group-data-[has-label=true]:pt-4",
+        innerWrapper: "group-data-[has-label=true]/select:pt-4",
       },
     },
     {
@@ -600,9 +596,9 @@ const select = tv({
       class: {
         label: [
           "text-medium",
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px)]",
         ],
-        innerWrapper: "group-data-[has-label=true]:pt-5",
+        innerWrapper: "group-data-[has-label=true]/select:pt-5",
       },
     },
     // inside & size & [faded, bordered]
@@ -613,7 +609,7 @@ const select = tv({
       size: "sm",
       class: {
         label: [
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px_-_theme(borderWidth.medium))]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_8px_-_theme(borderWidth.medium))]",
         ],
       },
     },
@@ -624,7 +620,7 @@ const select = tv({
       size: "md",
       class: {
         label: [
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px_-_theme(borderWidth.medium))]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_6px_-_theme(borderWidth.medium))]",
         ],
       },
     },
@@ -636,7 +632,7 @@ const select = tv({
       class: {
         label: [
           "text-medium",
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px_-_theme(borderWidth.medium))]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_8px_-_theme(borderWidth.medium))]",
         ],
       },
     },
@@ -647,7 +643,9 @@ const select = tv({
       isMultiline: false,
       size: "sm",
       class: {
-        label: ["group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_5px)]"],
+        label: [
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.tiny)/2_-_5px)]",
+        ],
       },
     },
     {
@@ -657,7 +655,7 @@ const select = tv({
       size: "md",
       class: {
         label: [
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_3.5px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_3.5px)]",
         ],
       },
     },
@@ -669,7 +667,7 @@ const select = tv({
       class: {
         label: [
           "text-medium",
-          "group-data-[filled=true]:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(50%_+_theme(fontSize.small)/2_-_4px)]",
         ],
       },
     },
@@ -680,11 +678,9 @@ const select = tv({
       isMultiline: false,
       class: {
         label: [
-          "left-2",
-          "rtl:right-2",
-          "rtl:left-[unset]",
+          "start-2",
           "text-tiny",
-          "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
       },
@@ -695,11 +691,9 @@ const select = tv({
       size: "md",
       class: {
         label: [
-          "left-3",
-          "rtl:right-3",
-          "rtl:left-[unset]",
+          "start-3",
           "text-small",
-          "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
       },
@@ -710,11 +704,9 @@ const select = tv({
       size: "lg",
       class: {
         label: [
-          "left-3",
-          "rtl:right-3",
-          "rtl:left-[unset]",
+          "start-3",
           "text-medium",
-          "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
+          "group-data-[filled=true]/select:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
       },

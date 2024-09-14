@@ -9,13 +9,13 @@ import {tv} from "../utils/tv";
  */
 const dateInput = tv({
   slots: {
-    base: "group flex flex-col",
+    base: "group/dateinput flex flex-col",
     label: [
       "block subpixel-antialiased text-small text-default-600",
       // isRequired=true
-      "group-data-[required=true]:after:content-['*'] group-data-[required=true]:after:text-danger group-data-[required=true]:after:ml-0.5",
+      "group-data-[required=true]/dateinput:after:content-['*'] group-data-[required=true]/dateinput:after:text-danger group-data-[required=true]/dateinput:after:ml-0.5",
       // isInValid=true
-      "group-data-[invalid=true]:text-danger",
+      "group-data-[invalid=true]/dateinput:text-danger",
     ],
     inputWrapper: [
       "relative px-3 gap-3 w-full inline-flex flex-row items-center",
@@ -25,10 +25,10 @@ const dateInput = tv({
     innerWrapper: [
       "flex items-center text-default-400 w-full gap-x-2 h-6",
       // isInValid=true
-      "group-data-[invalid=true]:text-danger",
+      "group-data-[invalid=true]/dateinput:text-danger",
     ], // this wraps the input and the start/end content
     segment: [
-      "group first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start",
+      "group/dateinput first:-ml-0.5 [&:not(:first-child)]:-ml-1 px-0.5 my-auto box-content tabular-nums text-start",
       "inline-block outline-none focus:shadow-sm rounded-md",
       "text-foreground-500 data-[editable=true]:text-foreground",
       "data-[editable=true]:data-[placeholder=true]:text-foreground-500",
@@ -37,7 +37,8 @@ const dateInput = tv({
       "data-[invalid=true]:focus:bg-danger-400/50 dark:data-[invalid=true]:focus:bg-danger-400/20",
       "data-[invalid=true]:data-[editable=true]:focus:text-danger",
     ],
-    helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
+    helperWrapper:
+      "hidden group-data-[has-helper=true]/dateinput:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -49,9 +50,9 @@ const dateInput = tv({
           "hover:bg-default-200",
           "focus-within:hover:bg-default-100",
           // isInvalid=true
-          "group-data-[invalid=true]:bg-danger-50",
-          "group-data-[invalid=true]:hover:bg-danger-100",
-          "group-data-[invalid=true]:focus-within:hover:bg-danger-50",
+          "group-data-[invalid=true]/dateinput:bg-danger-50",
+          "group-data-[invalid=true]/dateinput:hover:bg-danger-100",
+          "group-data-[invalid=true]/dateinput:focus-within:hover:bg-danger-50",
         ],
       },
       faded: {
@@ -61,9 +62,9 @@ const dateInput = tv({
           "border-default-200",
           "hover:border-default-400",
           // isInvalid=true
-          "group-data-[invalid=true]:bg-danger-50",
-          "group-data-[invalid=true]:hover:bg-danger-100",
-          "group-data-[invalid=true]:focus-within:hover:bg-danger-50",
+          "group-data-[invalid=true]/dateinput:bg-danger-50",
+          "group-data-[invalid=true]/dateinput:hover:bg-danger-100",
+          "group-data-[invalid=true]/dateinput:focus-within:hover:bg-danger-50",
         ],
       },
       bordered: {
@@ -74,9 +75,9 @@ const dateInput = tv({
           "focus-within:border-default-foreground",
           "focus-within:hover:border-default-foreground",
           // isInvalid=true
-          "group-data-[invalid=true]:border-danger",
-          "group-data-[invalid=true]:hover:border-danger",
-          "group-data-[invalid=true]:focus-within:hover:border-danger",
+          "group-data-[invalid=true]/dateinput:border-danger",
+          "group-data-[invalid=true]/dateinput:hover:border-danger",
+          "group-data-[invalid=true]/dateinput:focus-within:hover:border-danger",
         ],
       },
       underlined: {
@@ -102,7 +103,7 @@ const dateInput = tv({
           "after:h-[2px]",
           "focus-within:after:w-full",
           // isInvalid=true
-          "group-data-[invalid=true]:after:bg-danger",
+          "group-data-[invalid=true]/dateinput:after:bg-danger",
         ],
       },
     },
