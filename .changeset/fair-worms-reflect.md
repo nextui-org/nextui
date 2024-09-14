@@ -3,4 +3,4 @@
 "@nextui-org/tooltip": patch
 ---
 
-rollback PR3307. reschduled to v2.5.0.
+rollback PR3307. rescheduled to v2.5.0.
