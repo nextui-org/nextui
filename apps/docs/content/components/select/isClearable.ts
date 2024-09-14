@@ -19,31 +19,18 @@ import {animals} from "./data";
 
 export default function App() {
   return (
-      <div className="flex flex-col w-screen justify-center items-center">
-      <h2>IsClearable = true</h2>
-      <Select
-          className="max-w-xs my-5"
-          isClearable={true}
-          label="Favorite Animal"
-      >
-      {animals.map((animal) => (
-      <SelectItem key={animal.key}>
-          {animal.label}
-      </SelectItem>
-      ))}
-      </Select>
-      <h2>IsClearable = true</h2>
-      <Select
-          className="max-w-xs my-5"
-          isClearable={true}
-          label="Favorite Animal"
-      >
-      {animals.map((animal) => (
-      <SelectItem key={animal.key}>
-          {animal.label}
-      </SelectItem>
-      ))}
-      </Select>
+      <div className="flex w-screen justify-center items-center">
+        <Select
+            className="max-w-xs my-5"
+            isClearable={true}
+            label="Favorite Animal"
+        >
+          {animals.map((animal) => (
+          <SelectItem key={animal.key}>
+              {animal.label}
+          </SelectItem>
+          ))}
+        </Select>
     </div>
   );
 }`;
