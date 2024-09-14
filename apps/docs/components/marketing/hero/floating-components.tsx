@@ -110,6 +110,7 @@ export const FloatingComponents: React.FC<{}> = () => {
             content="Developers love Next.js"
             isOpen={!isTablet}
             placement="top"
+            shouldBlockScroll={false}
             style={{
               zIndex: 39,
             }}
