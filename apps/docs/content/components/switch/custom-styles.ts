@@ -11,12 +11,12 @@ export default function App() {
         ),
         wrapper: "p-0 h-4 overflow-visible",
         thumb: cn("w-6 h-6 border-2 shadow-lg",
-          "group-data-[hover=true]/toggle:border-primary",
+          "group-data-[hover=true]:border-primary",
           //selected
-          "group-data-[selected=true]/toggle:ml-6",
+          "group-data-[selected=true]:ml-6",
           // pressed
-          "group-data-[pressed=true]/toggle:w-7",
-          "group-data-[selected]:group-data-[pressed]/toggle:ml-4",
+          "group-data-[pressed=true]:w-7",
+          "group-data-[selected]:group-data-[pressed]:ml-4",
         ),
       }}
     >
