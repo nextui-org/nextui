@@ -63,11 +63,12 @@ const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined,
 const getCloseOnSelect = <T extends object>(
   props: Partial<MenuProps<T>> | undefined,
   key: string,
+  item?: any,
 ) => {
-  const item = getMenuItem(props, key);
+  const mergedItem = item || getMenuItem(props, key);
 
-  if (item && item.props && "closeOnSelect" in item.props) {
-    return item.props.closeOnSelect;
+  if (mergedItem && mergedItem.props && "closeOnSelect" in mergedItem.props) {
+    return mergedItem.props.closeOnSelect;
   }
 
   return props?.closeOnSelect;
@@ -184,7 +185,7 @@ export function useDropdown(props: UseDropdownProps) {
       closeOnSelect,
       ...mergeProps(props, {
         onAction: (key: any, item?: any) => {
-          const closeOnSelect = item ? item.props?.closeOnSelect : getCloseOnSelect(props, key);
+          const closeOnSelect = getCloseOnSelect(props, key, item);
 
           onMenuAction(closeOnSelect);
         },
