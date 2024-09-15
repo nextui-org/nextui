@@ -1,5 +1,17 @@
 # @nextui-org/popover
 
+## 2.1.29
+
+### Patch Changes
+
+- [#3756](https://github.com/nextui-org/nextui/pull/3756) [`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback PR3307. rescheduled to v2.5.0.
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/button@2.0.38
+
 ## 2.1.28
 
 ### Patch Changes
