@@ -41,6 +41,7 @@
     "react-dom": ">=18"
   },
   "dependencies": {
+    "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/listbox": "workspace:*",

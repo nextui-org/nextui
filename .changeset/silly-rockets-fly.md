@@ -1,4 +1,6 @@
 ---
+"@nextui-org/autocomplete": patch
+"@nextui-org/date-picker": patch
 "@nextui-org/dropdown": patch
 "@nextui-org/modal": patch
 "@nextui-org/popover": patch
