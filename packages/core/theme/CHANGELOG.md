@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.2.11
+
+### Patch Changes
+
+- [#3754](https://github.com/nextui-org/nextui/pull/3754) [`5517a0578`](https://github.com/nextui-org/nextui/commit/5517a0578b5514cf2a4ddec53528d25d7f616cd0) Thanks [@wingkwong](https://github.com/wingkwong)! - remove tw nested group (rollback PR3658)
+
 ## 2.2.10
 
 ### Patch Changes

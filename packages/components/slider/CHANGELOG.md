@@ -1,5 +1,12 @@
 # @nextui-org/slider
 
+## 2.2.17
+
+### Patch Changes
+
+- Updated dependencies [[`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f)]:
+  - @nextui-org/tooltip@2.0.41
+
 ## 2.2.16
 
 ### Patch Changes
