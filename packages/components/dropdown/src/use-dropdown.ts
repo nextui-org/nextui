@@ -13,6 +13,7 @@ import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
+import {CollectionElement} from "@react-types/shared";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -49,8 +50,8 @@ const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined,
       : [...(props?.items || [])];
 
     if (mergedChildren && mergedChildren.length) {
-      const item = (mergedChildren.find((item) => {
-        if ("key" in item && item.key === key) {
+      const item = ((mergedChildren as CollectionElement<T>[]).find((item) => {
+        if (item.key === key) {
           return item;
         }
       }) || {}) as {props: MenuProps};
