@@ -112,12 +112,6 @@ export function useMultiSelect<T>(
   typeSelectProps.onKeyDown = typeSelectProps.onKeyDownCapture;
   delete typeSelectProps.onKeyDownCapture;
 
-  menuTriggerProps.onPressStart = (e) => {
-    if (e.pointerType !== "touch" && e.pointerType !== "keyboard" && !isDisabled) {
-      state.toggle(e.pointerType === "virtual" ? "first" : null);
-    }
-  };
-
   const domProps = filterDOMProps(props, {labelable: true});
   const triggerProps = mergeProps(typeSelectProps, menuTriggerProps, fieldProps);
 
