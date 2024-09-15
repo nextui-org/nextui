@@ -10,7 +10,7 @@ export default {
   argTypes: {
     variant: {
       control: {type: "select"},
-      options: ["flat"],
+      options: ["flat", "faded", "bordered", "underlined"],
     },
     color: {
       control: {type: "select"},

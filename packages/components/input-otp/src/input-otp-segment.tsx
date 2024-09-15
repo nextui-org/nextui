@@ -30,18 +30,27 @@ export const InputOtpSegment = ({
       isInputFocused,
     [value, isInputFocused],
   );
-
-  const displayValue = useMemo(
-    () => (value.length > accessorIndex ? value[accessorIndex] : null),
-    [value],
-  );
+  const hasValue = useMemo(() => value.length > accessorIndex, [value, accessorIndex]);
 
   const segmentStyles = clsx(className, classNames?.segment);
+  const caretStyles = clsx(className, classNames?.caret);
+
+  const displayValue = useMemo(() => {
+    if (hasValue) {
+      return value[accessorIndex];
+    }
+    if (isActive) {
+      return <div className={clsx(slots.caret?.({class: caretStyles}))} />;
+    }
+
+    return null;
+  }, [hasValue, value, isActive]);
 
   return (
     <div
       className={clsx(slots.segment?.({class: segmentStyles}))}
       data-active={dataAttr(isActive)}
+      data-has-value={dataAttr(hasValue)}
       data-slot="segment"
     >
       {displayValue}
