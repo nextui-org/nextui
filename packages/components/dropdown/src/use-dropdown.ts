@@ -44,20 +44,23 @@ interface Props extends HTMLNextUIProps<"div"> {
 export type UseDropdownProps = Props & Omit<PopoverProps, "children" | "color" | "variant">;
 
 const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined, key: string) => {
-  if (!props) {
-    return null;
-  }
-  const mergedChildren = Array.isArray(props.children) ? props.children : [...(props?.items || [])];
+  if (props) {
+    const mergedChildren = Array.isArray(props.children)
+      ? props.children
+      : [...(props?.items || [])];
 
-  if (mergedChildren && mergedChildren.length) {
-    const item = ((mergedChildren as CollectionElement<T>[]).find((item) => {
-      if (item.key === key) {
-        return item;
-      }
-    }) || {}) as {props: MenuProps};
+    if (mergedChildren && mergedChildren.length) {
+      const item = ((mergedChildren as CollectionElement<T>[]).find((item) => {
+        if (item.key === key) {
+          return item;
+        }
+      }) || {}) as {props: MenuProps};
 
-    return item;
+      return item;
+    }
   }
+
+  return null;
 };
 
 const getCloseOnSelect = <T extends object>(
