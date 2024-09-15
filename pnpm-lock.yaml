@@ -689,6 +689,9 @@ importers:
 
   packages/components/autocomplete:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1327,6 +1330,9 @@ importers:
       '@internationalized/date':
         specifier: ^3.5.4
         version: 3.5.4
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
@@ -1425,6 +1431,9 @@ importers:
 
   packages/components/dropdown:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/menu':
         specifier: workspace:*
         version: link:../menu
@@ -2008,9 +2017,6 @@ importers:
       '@nextui-org/use-aria-button':
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
-      '@nextui-org/use-aria-overlay':
-        specifier: workspace:*
-        version: link:../../hooks/use-aria-overlay
       '@nextui-org/use-safe-layout-effect':
         specifier: workspace:*
         version: link:../../hooks/use-safe-layout-effect
@@ -2226,6 +2232,9 @@ importers:
 
   packages/components/select:
     dependencies:
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/listbox':
         specifier: workspace:*
         version: link:../listbox
@@ -3251,9 +3260,6 @@ importers:
 
   packages/hooks/use-aria-modal-overlay:
     dependencies:
-      '@nextui-org/use-aria-overlay':
-        specifier: workspace:*
-        version: link:../use-aria-overlay
       '@react-aria/overlays':
         specifier: 3.22.1
         version: 3.22.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -3318,31 +3324,6 @@ importers:
       '@react-types/select':
         specifier: 3.9.4
         version: 3.9.4(react@18.2.0)
-      '@react-types/shared':
-        specifier: 3.23.1
-        version: 3.23.1(react@18.2.0)
-    devDependencies:
-      clean-package:
-        specifier: 2.2.0
-        version: 2.2.0
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-
-  packages/hooks/use-aria-overlay:
-    dependencies:
-      '@react-aria/focus':
-        specifier: 3.17.1
-        version: 3.17.1(react@18.2.0)
-      '@react-aria/interactions':
-        specifier: 3.21.3
-        version: 3.21.3(react@18.2.0)
-      '@react-aria/overlays':
-        specifier: 3.22.1
-        version: 3.22.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
@@ -18120,15 +18101,13 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/cache@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)':
+  '@parcel/cache@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))':
     dependencies:
       '@parcel/core': 2.12.0(@swc/helpers@0.5.9)
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
       '@parcel/logger': 2.12.0
       '@parcel/utils': 2.12.0
       lmdb: 2.8.5
-    transitivePeerDependencies:
-      - '@swc/helpers'
 
   '@parcel/codeframe@2.12.0':
     dependencies:
@@ -18188,7 +18167,7 @@ snapshots:
   '@parcel/core@2.12.0(@swc/helpers@0.5.9)':
     dependencies:
       '@mischnic/json-sourcemap': 0.1.1
-      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
+      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))
       '@parcel/diagnostic': 2.12.0
       '@parcel/events': 2.12.0
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
@@ -18603,7 +18582,7 @@ snapshots:
 
   '@parcel/types@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)':
     dependencies:
-      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
+      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))
       '@parcel/diagnostic': 2.12.0
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
       '@parcel/package-manager': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
