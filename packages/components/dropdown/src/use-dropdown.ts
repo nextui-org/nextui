@@ -42,6 +42,37 @@ interface Props extends HTMLNextUIProps<"div"> {
 
 export type UseDropdownProps = Props & Omit<PopoverProps, "children" | "color" | "variant">;
 
+const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined, key: string) => {
+  if (props) {
+    const mergedChildren = Array.isArray(props.children)
+      ? props.children
+      : [...(props?.items || [])];
+
+    if (mergedChildren && mergedChildren.length) {
+      const item = (mergedChildren.find((item) => {
+        if ("key" in item && item.key === key) {
+          return item;
+        }
+      }) || {}) as {props: MenuProps};
+
+      return item;
+    }
+  }
+};
+
+const getCloseOnSelect = <T extends object>(
+  props: Partial<MenuProps<T>> | undefined,
+  key: string,
+) => {
+  const item = getMenuItem(props, key);
+
+  if (item && item.props && "closeOnSelect" in item.props) {
+    return item.props.closeOnSelect;
+  }
+
+  return props?.closeOnSelect;
+};
+
 export function useDropdown(props: UseDropdownProps) {
   const globalContext = useProviderContext();
 
@@ -153,15 +184,9 @@ export function useDropdown(props: UseDropdownProps) {
       closeOnSelect,
       ...mergeProps(props, {
         onAction: (key: any) => {
-          // @ts-ignore
-          const item = props?.children?.find((item) => item.key === key);
+          const closeOnSelect = getCloseOnSelect(props, key);
 
-          if (item?.props?.closeOnSelect === false) {
-            onMenuAction(false);
-
-            return;
-          }
-          onMenuAction(props?.closeOnSelect);
+          onMenuAction(closeOnSelect);
         },
         onClose: state.close,
       }),
