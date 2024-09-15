@@ -183,8 +183,8 @@ export function useDropdown(props: UseDropdownProps) {
       menuProps,
       closeOnSelect,
       ...mergeProps(props, {
-        onAction: (key: any) => {
-          const closeOnSelect = getCloseOnSelect(props, key);
+        onAction: (key: any, item?: any) => {
+          const closeOnSelect = item ? item.props?.closeOnSelect : getCloseOnSelect(props, key);
 
           onMenuAction(closeOnSelect);
         },
