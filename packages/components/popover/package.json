@@ -56,7 +56,8 @@
     "@react-aria/utils": "3.24.1",
     "@react-stately/overlays": "3.6.7",
     "@react-types/button": "3.9.4",
-    "@react-types/overlays": "3.8.7"
+    "@react-types/overlays": "3.8.7",
+    "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
     "@nextui-org/card": "workspace:*",

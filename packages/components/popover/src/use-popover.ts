@@ -6,7 +6,7 @@ import {RefObject, Ref} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
+import {useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {
   HTMLNextUIProps,
@@ -298,10 +298,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     [slots, state.isOpen, classNames, underlayProps],
   );
 
-  usePreventScroll({
-    isDisabled: !(shouldBlockScroll && state.isOpen),
-  });
-
   return {
     state,
     Component,
@@ -316,6 +312,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,
+    shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "transparent",
     motionProps,
     getBackdropProps,
