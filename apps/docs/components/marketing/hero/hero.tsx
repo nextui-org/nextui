@@ -53,26 +53,6 @@ export const Hero = () => {
         <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
           Beautiful, fast and modern React UI library.
         </h2>
-        <div className="flex flex-col gap-y-2 my-3 items-start">
-          <a
-            href="https://www.producthunt.com/posts/zigma-by-nextui-yc-s24?embed=true&utm_source=badge-featured&utm_medium=badge&utm_souce=badge-zigma&#0045;by&#0045;nextui&#0045;yc&#0045;s24"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <img
-              alt="Zigma&#0032;by&#0032;NextUI&#0032;&#0040;YC&#0032;S24&#0041; - Connect&#0032;your&#0032;design&#0032;files&#0032;to&#0032;production&#0032;code&#0032;in&#0032;minutes | Product Hunt"
-              className="m-0"
-              height="54"
-              src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=488715&theme=light"
-              style={{width: "250px", height: "54px"}}
-              width="250"
-            />
-          </a>
-          <p className="text-sm text-default-500 font-semibold !p-0 m-0">
-            We&apos;re live on Product Hunt! Join the conversation and help us get to #1 Product of
-            the day 🚀
-          </p>
-        </div>
         <div className="flex flex-col md:flex-row items-center gap-4">
           <Button
             as={NextLink}
