@@ -169,6 +169,7 @@ export function useModal(originalProps: UseModalProps) {
   const getBackdropProps = useCallback<PropGetter>(
     (props = {}) => ({
       className: slots.backdrop({class: classNames?.backdrop}),
+      onClick: () => state.close(),
       ...underlayProps,
       ...props,
     }),
