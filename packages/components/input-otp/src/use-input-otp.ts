@@ -92,7 +92,6 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     otplength,
     onFill = () => {},
     allowedKeys = "^[0-9]*$",
-    isDisabled,
     description,
     errorMessage,
     ...otherProps
@@ -115,6 +114,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+  const isDisabled = originalProps.isDisabled ?? false;
 
   const hasHelper = !!description || !!errorMessage;
   const isInvalid = value.length != otplength;

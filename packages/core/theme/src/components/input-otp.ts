@@ -66,6 +66,12 @@ const inputOtp = tv({
         segment: "transition duration-150",
       },
     },
+    isDisabled: {
+      true: {
+        segment: "opacity-disabled pointer-events-none",
+        input: "pointer-events-none",
+      },
+    },
     radius: {
       none: {
         segment: "rounded-none",
