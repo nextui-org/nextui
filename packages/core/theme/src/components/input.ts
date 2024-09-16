@@ -52,7 +52,6 @@ const input = tv({
       "z-10",
       "hidden",
       "absolute",
-      "end-3",
       "start-auto",
       "appearance-none",
       "outline-none",
@@ -188,8 +187,10 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
-        clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
+        input:
+          "peer pr-6 data-[filled=true]:[--clearable-padding-right-has-end-content:theme(spacing.4)] pr-6 rtl:pr-0 rtl:pl-6",
+        clearButton:
+          "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block right-3 [--clearable-right-has-end-content:theme(spacing.5)]",
       },
     },
     isDisabled: {
