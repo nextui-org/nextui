@@ -4,7 +4,7 @@ import {tv} from "../utils/tv";
 
 const inputOtp = tv({
   slots: {
-    base: ["relative", "flex", "flex-col"],
+    base: ["relative", "flex", "flex-col", "w-fit"],
     inputWrapper: [],
     input: [
       "absolute",
