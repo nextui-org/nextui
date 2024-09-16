@@ -258,7 +258,7 @@ const inputOtp = tv({
       variant: "bordered",
       color: "primary",
       class: {
-        segment: ["data-[active=true]:border-primary-400"],
+        segment: ["border-primary-200", "text-primary", "data-[active=true]:border-primary-400"],
         caret: ["bg-primary"],
       },
     },
@@ -266,7 +266,11 @@ const inputOtp = tv({
       variant: "bordered",
       color: "secondary",
       class: {
-        segment: ["data-[active=true]:border-secondary-400"],
+        segment: [
+          "border-secondary-200",
+          "text-secondary",
+          "data-[active=true]:border-secondary-400",
+        ],
         caret: ["bg-secondary"],
       },
     },
@@ -274,7 +278,7 @@ const inputOtp = tv({
       variant: "bordered",
       color: "success",
       class: {
-        segment: ["data-[active=true]:border-success-400"],
+        segment: ["border-success-200", "text-success", "data-[active=true]:border-success-400"],
         caret: ["bg-success"],
       },
     },
@@ -282,7 +286,7 @@ const inputOtp = tv({
       variant: "bordered",
       color: "warning",
       class: {
-        segment: ["data-[active=true]:border-warning-400"],
+        segment: ["border-warning-200", "text-warning", "data-[active=true]:border-warning-400"],
         caret: ["bg-warning"],
       },
     },
@@ -290,7 +294,7 @@ const inputOtp = tv({
       variant: "bordered",
       color: "danger",
       class: {
-        segment: ["data-[active=true]:border-danger-400"],
+        segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
         caret: ["bg-danger"],
       },
     },
@@ -306,7 +310,7 @@ const inputOtp = tv({
       variant: "underlined",
       color: "primary",
       class: {
-        segment: ["data-[active=true]:border-primary-400"],
+        segment: ["border-primary-200", "text-primary", "data-[active=true]:border-primary-400"],
         caret: ["bg-primary"],
       },
     },
@@ -314,7 +318,11 @@ const inputOtp = tv({
       variant: "underlined",
       color: "secondary",
       class: {
-        segment: ["data-[active=true]:border-secondary-400"],
+        segment: [
+          "border-secondary-200",
+          "text-secondary",
+          "data-[active=true]:border-secondary-400",
+        ],
         caret: ["bg-secondary"],
       },
     },
@@ -322,7 +330,7 @@ const inputOtp = tv({
       variant: "underlined",
       color: "success",
       class: {
-        segment: ["data-[active=true]:border-success-400"],
+        segment: ["border-success-200", "text-success", "data-[active=true]:border-success-400"],
         caret: ["bg-success"],
       },
     },
@@ -330,7 +338,7 @@ const inputOtp = tv({
       variant: "underlined",
       color: "warning",
       class: {
-        segment: ["data-[active=true]:border-warning-400"],
+        segment: ["border-warning-200", "text-warning", "data-[active=true]:border-warning-400"],
         caret: ["bg-warning"],
       },
     },
@@ -338,7 +346,7 @@ const inputOtp = tv({
       variant: "underlined",
       color: "danger",
       class: {
-        segment: ["data-[active=true]:border-danger-400"],
+        segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
         caret: ["bg-danger"],
       },
     },
