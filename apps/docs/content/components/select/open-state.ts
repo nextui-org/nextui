@@ -21,7 +21,7 @@ export default function App() {
   const [isOpen, setIsOpen] = React.useState(false);
 
   return (
-    <div className="flex w-full max-w-xs items-center gap-2">
+    <div className="flex w-full max-w-xs gap-2">
       <Select
         isOpen={isOpen}
         label="Favorite Animal"
