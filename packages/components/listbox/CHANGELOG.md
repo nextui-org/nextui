@@ -1,5 +1,25 @@
 # @nextui-org/listbox
 
+## 2.1.27
+
+### Patch Changes
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/divider@2.0.32
+
+## 2.1.26
+
+### Patch Changes
+
+- [#3726](https://github.com/nextui-org/nextui/pull/3726) [`d621b2923`](https://github.com/nextui-org/nextui/commit/d621b2923e7c90e73bea996e5918b744223e896c) Thanks [@chirokas](https://github.com/chirokas)! - Fix item highlighting in `AutocompleteSection` during keyboard navigation (#3713)
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/aria-utils@2.0.25
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/divider@2.0.32
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.1.25
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nextui-org/use-scroll-position
 
+## 2.0.9
+
+### Patch Changes
+
+- [#3247](https://github.com/nextui-org/nextui/pull/3247) [`b0728e3c3`](https://github.com/nextui-org/nextui/commit/b0728e3c3841ce6abb6ed6d4617ddb5242077324) Thanks [@vetan2](https://github.com/vetan2)! - re-attach scroll event behavior in `useScrollPosition`
+
 ## 2.0.8
 
 ### Patch Changes

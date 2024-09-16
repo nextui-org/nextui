@@ -1,5 +1,11 @@
 # @nextui-org/shared-utils
 
+## 2.0.8
+
+### Patch Changes
+
+- [#3603](https://github.com/nextui-org/nextui/pull/3603) [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed gregorian year offset for persian (#3602)
+
 ## 2.0.7
 
 ### Patch Changes

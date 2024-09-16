@@ -207,9 +207,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={pathname.includes("components")}
-              href="/docs/components/avatar"
-              onClick={() => handlePressNavbarItem("Components", "/docs/components/avatar")}
+              data-active={includes(pathname, "components")}
+              href="/docs/components/accordion"
+              onClick={() => handlePressNavbarItem("Components", "/docs/components/accordion")}
             >
               Components
             </NextLink>

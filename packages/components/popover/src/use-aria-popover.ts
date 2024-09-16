@@ -1,7 +1,7 @@
 import {RefObject, useEffect} from "react";
 import {
-  AriaPopoverProps,
   useOverlay,
+  AriaPopoverProps,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,

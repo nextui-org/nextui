@@ -50,7 +50,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         />
 
         <Input
-          className="absolute -top-[130px] -right-[120px] animate-[levitate_10s_ease_infinite] w-[200px]"
+          className="absolute -top-[60px] -right-[80px] animate-[levitate_10s_ease_infinite] w-[200px]"
           color="secondary"
           defaultValue="NextUI"
           label="Input"
@@ -61,7 +61,7 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <Card
           isFooterBlurred
-          className="absolute -top-[260px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
+          className="absolute -top-[270px] right-[100px] h-[120px] animate-[levitate_12s_ease_infinite_1s] z-0 max-w-fit"
         >
           <Image
             alt="Professional camera"
@@ -79,10 +79,10 @@ export const FloatingComponents: React.FC<{}> = () => {
 
         <FloatingTabs />
 
-        <UserTwitterCard className="absolute left-[80px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
+        <UserTwitterCard className="absolute left-[30px] -top-[80px] animate-[levitate_16s_ease_infinite] border-none" />
 
         <Card
-          className="absolute right-[110px] -top-[60px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
+          className="absolute right-[150px] -top-[50px] animate-[levitate_18s_ease_infinite] z-10 max-w-fit border-none"
           shadow="lg"
         >
           <CardBody>
@@ -90,7 +90,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           </CardBody>
         </Card>
 
-        <div className="absolute z-10 -top-[40px] -right-[230px] animate-[levitate_14s_ease_infinite_1s]">
+        <div className="absolute z-10 -top-[120px] -right-[90px] animate-[levitate_14s_ease_infinite_1s]">
           <Pagination
             isCompact
             showControls
