@@ -37,6 +37,14 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
+  it("should set tabIndex to -1 when isDisabled is true", () => {
+    const {getByRole} = render(<Input isClearable isDisabled label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toHaveAttribute("tabIndex", "-1");
+  });
+
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
