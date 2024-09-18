@@ -1,5 +1,5 @@
 ---
-"@nextui-org/use-theme": patch
+"@nextui-org/use-theme": minor
 ---
 
 introduce `use-theme` hook
