@@ -6,6 +6,7 @@ import variants from "./variants";
 import labelPlacements from "./label-placements";
 import description from "./description";
 import errorMessage from "./error-message";
+import errorMessageFunction from "./error-message-function";
 import withTimeField from "./with-time-field";
 import selectorIcon from "./selector-icon";
 import controlled from "./controlled";
@@ -18,6 +19,7 @@ import visibleMonth from "./visible-month";
 import pageBehavior from "./page-behavior";
 import nonContigous from "./non-contiguous";
 import presets from "./presets";
+import customStyles from "./custom-styles";
 
 export const dateRangePickerContent = {
   usage,
@@ -28,6 +30,7 @@ export const dateRangePickerContent = {
   labelPlacements,
   description,
   errorMessage,
+  errorMessageFunction,
   withTimeField,
   selectorIcon,
   controlled,
@@ -40,4 +43,5 @@ export const dateRangePickerContent = {
   pageBehavior,
   nonContigous,
   presets,
+  customStyles,
 };

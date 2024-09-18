@@ -153,6 +153,60 @@ describe("Input", () => {
 
     expect(onClear).toHaveBeenCalledTimes(1);
   });
+
+  it("should not display input with hidden type", async () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-1" type="hidden" />
+        <Input data-testid="input-2" />
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const inputBaseWrappers = container.querySelectorAll("[data-slot='base']");
+
+    expect(inputBaseWrappers).toHaveLength(2);
+
+    const inputs = container.querySelectorAll("input");
+
+    expect(inputs).toHaveLength(2);
+
+    expect(inputBaseWrappers[0]).toHaveAttribute("data-hidden");
+
+    expect(inputBaseWrappers[1]).not.toHaveAttribute("data-hidden");
+
+    expect(inputs[0]).not.toBeVisible();
+
+    expect(inputs[1]).toBeVisible();
+  });
+
+  it("should disable clear button when isReadOnly is true", async () => {
+    const onClear = jest.fn();
+
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {getByRole} = render(
+      <Input
+        ref={ref}
+        isClearable
+        isReadOnly
+        defaultValue="readOnly test for clear button"
+        label="test input"
+        onClear={onClear}
+      />,
+    );
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(onClear).toHaveBeenCalledTimes(0);
+  });
 });
 
 describe("Input with React Hook Form", () => {

@@ -10,7 +10,14 @@ import {
   PressEvents,
   RouterOptions,
 } from "@react-types/shared";
-import {chain, filterDOMProps, mergeProps, useRouter, useSlotId} from "@react-aria/utils";
+import {
+  chain,
+  filterDOMProps,
+  mergeProps,
+  useLinkProps,
+  useRouter,
+  useSlotId,
+} from "@react-aria/utils";
 import {getItemCount} from "@react-stately/collections";
 import {isFocusVisible, useFocus, useHover, useKeyboard, usePress} from "@react-aria/interactions";
 import {RefObject} from "react";
@@ -87,8 +94,12 @@ export interface AriaMenuItemProps
    * Handler that is called when the user activates the item.
    * @deprecated - pass to the menu instead.
    */
-  onAction?: (key: Key) => void;
+  onAction?: (key: Key, item: any) => void;
 
+  /**
+   * The native button click event handler
+   * @deprecated - use `onAction` instead.
+   */
   onClick?: DOMAttributes["onClick"];
 
   /** What kind of popup the item opens. */
@@ -135,7 +146,7 @@ export function useMenuItem<T>(
 
   let isTrigger = !!hasPopup;
   // @ts-ignore
-  let isDisabled = props.isDisabled ?? state.disabledKeys.has(key);
+  let isDisabled = props.isDisabled ?? state.selectionManager.isDisabled(key);
   // @ts-ignore
   let isSelected = props.isSelected ?? state.selectionManager.isSelected(key);
   let data = menuData.get(state);
@@ -144,16 +155,28 @@ export function useMenuItem<T>(
   // @ts-ignore
   let onClose = props.onClose || data.onClose;
   // @ts-ignore
-  let onAction = isTrigger ? () => {} : props.onAction || data.onAction;
   let router = useRouter();
   let performAction = (e: PressEvent) => {
-    if (onAction) {
+    if (isTrigger) {
+      return;
+    }
+
+    if (item?.props?.onAction) {
+      item.props.onAction();
+    }
+
+    if (props.onAction) {
       // @ts-ignore
-      onAction(key);
+      props.onAction(key, item);
+      // @ts-ignore
+    } else if (data.onAction) {
+      // @ts-ignore
+      data.onAction(key, item);
     }
 
     if (e.target instanceof HTMLAnchorElement) {
-      router.open(e.target, e, item?.props.href, item?.props.routerOptions as RouterOptions);
+      // @ts-ignore
+      router.open(e.target, e, item.props.href, item.props.routerOptions as RouterOptions);
     }
   };
 
@@ -305,22 +328,27 @@ export function useMenuItem<T>(
 
   let {focusProps} = useFocus({onBlur, onFocus, onFocusChange});
   // @ts-ignore
-  let domProps = filterDOMProps(item.props, {isLink: !!item?.props?.href});
+  let domProps = filterDOMProps(item.props);
 
   delete domProps.id;
+  // @ts-ignore
+  let linkProps = useLinkProps(item.props);
 
   return {
     menuItemProps: {
       ...ariaProps,
       ...mergeProps(
         domProps,
+        linkProps,
         isTrigger ? {onFocus: itemProps.onFocus} : itemProps,
         pressProps,
         hoverProps,
         keyboardProps,
         focusProps,
+        {
+          onClick: chain(onClick, pressProps.onClick),
+        },
       ),
-      onClick: chain(onClick, pressProps.onClick),
       tabIndex: itemProps.tabIndex != null ? -1 : undefined,
     },
     labelProps: {

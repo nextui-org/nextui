@@ -2,6 +2,7 @@ import {Image} from "@nextui-org/react";
 
 import {Blockquote} from "@/components/docs/components/blockquote";
 import {FigmaButton} from "@/components/figma-button";
+import {ScriptProviders} from "@/components/scripts/script-providers";
 
 export default function FigmaPage() {
   return (
@@ -43,6 +44,8 @@ export default function FigmaPage() {
       >
         <Image removeWrapper alt="docs right background" src="/gradients/docs-right.png" />
       </div>
+
+      <ScriptProviders />
     </>
   );
 }

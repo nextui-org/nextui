@@ -7,6 +7,7 @@ import labelPlacements from "./label-placements";
 import description from "./description";
 import startEndContent from "./start-end-content";
 import errorMessage from "./error-message";
+import errorMessageFunction from "./error-message-function";
 import controlled from "./controlled";
 import timeZones from "./time-zones";
 import granularity from "./granularity";
@@ -25,6 +26,7 @@ export const dateInputContent = {
   description,
   startEndContent,
   errorMessage,
+  errorMessageFunction,
   controlled,
   timeZones,
   granularity,

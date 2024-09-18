@@ -134,12 +134,6 @@
       "defaultOpen": true,
       "routes": [
         {
-          "key": "avatar",
-          "title": "Avatar",
-          "keywords": "avatar, profile picture, user representation, identity",
-          "path": "/docs/components/avatar.mdx"
-        },
-        {
           "key": "accordion",
           "title": "Accordion",
           "keywords": "accordion, collapse, expandable sections, content hiding",
@@ -152,11 +146,23 @@
           "path": "/docs/components/autocomplete.mdx"
         },
         {
+          "key": "avatar",
+          "title": "Avatar",
+          "keywords": "avatar, profile picture, user representation, identity",
+          "path": "/docs/components/avatar.mdx"
+        },
+        {
           "key": "badge",
           "title": "Badge",
           "keywords": "badge, markers, status indication, count display",
           "path": "/docs/components/badge.mdx",
           "updated": true
+        },
+        {
+          "key": "breadcrumbs",
+          "title": "Breadcrumbs",
+          "keywords": "breadcrumbs, navigation, path, trail, location",
+          "path": "/docs/components/breadcrumbs.mdx"
         },
         {
           "key": "button",
@@ -165,10 +171,11 @@
           "path": "/docs/components/button.mdx"
         },
         {
-          "key": "breadcrumbs",
-          "title": "Breadcrumbs",
-          "keywords": "breadcrumbs, navigation, path, trail, location",
-          "path": "/docs/components/breadcrumbs.mdx"
+          "key": "calendar",
+          "title": "Calendar",
+          "keywords": "calendar, date picker, month picker, year picker",
+          "path": "/docs/components/calendar.mdx",
+          "newPost": true
         },
         {
           "key": "card",
@@ -180,7 +187,8 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx"
+          "path": "/docs/components/checkbox.mdx",
+          "updated": true
         },
         {
           "key": "checkbox-group",
@@ -195,49 +203,22 @@
           "path": "/docs/components/chip.mdx"
         },
         {
-          "key": "code",
-          "title": "Code",
-          "keywords": "code, code snippet, inline code, coding",
-          "path": "/docs/components/code.mdx"
-        },
-        {
-          "key": "input",
-          "title": "Input",
-          "keywords": "input, text box, form field, data entry",
-          "path": "/docs/components/input.mdx"
-        },
-        {
-          "key": "date-input",
-          "title": "Date Input",
-          "keywords": "date-input, time, input, timezone",
-          "path": "/docs/components/date-input.mdx",
-          "newPost": true
-        },
-        {
-          "key": "time-input",
-          "title": "Time Input",
-          "keywords": "timeinput, time, input, timezone",
-          "path": "/docs/components/time-input.mdx",
-          "newPost": true
-        },
-        {
           "key": "circular-progress",
           "title": "Circular Progress",
           "keywords": "circular progress, loading indicator, activity sign, process display",
           "path": "/docs/components/circular-progress.mdx"
         },
         {
-          "key": "calendar",
-          "title": "Calendar",
-          "keywords": "calendar, date picker, month picker, year picker",
-          "path": "/docs/components/calendar.mdx",
-          "newPost": true
+          "key": "code",
+          "title": "Code",
+          "keywords": "code, code snippet, inline code, coding",
+          "path": "/docs/components/code.mdx"
         },
         {
-          "key": "range-calendar",
-          "title": "Range Calendar",
-          "keywords": "range calendar, date picker, month picker, year picker",
-          "path": "/docs/components/range-calendar.mdx",
+          "key": "date-input",
+          "title": "Date Input",
+          "keywords": "date-input, time, input, timezone",
+          "path": "/docs/components/date-input.mdx",
           "newPost": true
         },
         {
@@ -271,6 +252,12 @@
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
           "path": "/docs/components/image.mdx"
+        },
+        {
+          "key": "input",
+          "title": "Input",
+          "keywords": "input, text box, form field, data entry",
+          "path": "/docs/components/input.mdx"
         },
         {
           "key": "kbd",
@@ -327,6 +314,19 @@
           "path": "/docs/components/radio-group.mdx"
         },
         {
+          "key": "range-calendar",
+          "title": "Range Calendar",
+          "keywords": "range calendar, date picker, month picker, year picker",
+          "path": "/docs/components/range-calendar.mdx",
+          "newPost": true
+        },
+        {
+          "key": "scroll-shadow",
+          "title": "Scroll Shadow",
+          "keywords": "scroll shadow, scroll indicator, scroll bar, scroll position",
+          "path": "/docs/components/scroll-shadow.mdx"
+        },
+        {
           "key": "select",
           "title": "Select",
           "keywords": "select, selection, option list, multiple choice",
@@ -340,16 +340,16 @@
           "updated": true
         },
         {
+          "key": "slider",
+          "title": "Slider",
+          "keywords": "slider, range input, value selector, sliding control",
+          "path": "/docs/components/slider.mdx"
+        },
+        {
           "key": "snippet",
           "title": "Snippet",
           "keywords": "snippet, code block, programming, code example",
           "path": "/docs/components/snippet.mdx"
-        },
-        {
-          "key": "scroll-shadow",
-          "title": "Scroll Shadow",
-          "keywords": "scroll shadow, scroll indicator, scroll bar, scroll position",
-          "path": "/docs/components/scroll-shadow.mdx"
         },
         {
           "key": "spacer",
@@ -368,12 +368,6 @@
           "title": "Switch",
           "keywords": "switch, toggle, binary input, on/off control",
           "path": "/docs/components/switch.mdx"
-        },
-        {
-          "key": "slider",
-          "title": "Slider",
-          "keywords": "slider, range input, value selector, sliding control",
-          "path": "/docs/components/slider.mdx"
         },
         {
           "key": "table",
@@ -395,10 +389,18 @@
           "path": "/docs/components/textarea.mdx"
         },
         {
+          "key": "time-input",
+          "title": "Time Input",
+          "keywords": "timeinput, time, input, timezone",
+          "path": "/docs/components/time-input.mdx",
+          "newPost": true
+        },
+        {
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx"
+          "path": "/docs/components/tooltip.mdx",
+          "updated": true
         },
         {
           "key": "user",

@@ -1,5 +1,23 @@
 # @nextui-org/shared-utils
 
+## 2.0.8
+
+### Patch Changes
+
+- [#3603](https://github.com/nextui-org/nextui/pull/3603) [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed gregorian year offset for persian (#3602)
+
+## 2.0.7
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.0.6
+
+### Patch Changes
+
+- [#3331](https://github.com/nextui-org/nextui/pull/3331) [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect year in `showMonthAndYearPickers` with different locales
+
 ## 2.0.5
 
 ### Patch Changes

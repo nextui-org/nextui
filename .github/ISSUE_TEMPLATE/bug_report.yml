@@ -28,7 +28,9 @@ body:
       description: |
         Please provide the version of NextUI you are using.
         You can find the version number in the package.json file.
-      placeholder: ex. 2.0.10
+        For global installation, please state the version only. (e.g. 2.4.2)
+        For individual installation, please state the package name as well. (e.g. @nextui-org/button@2.0.34)
+      placeholder: ex. 2.4.2
     validations:
       required: true
   - type: textarea
@@ -103,6 +105,6 @@ body:
         - "Safari"
         - "Edge"
         - "Opera"
-        - "Other (add additonal context)"
+        - "Other (add additional context)"
     validations:
       required: true

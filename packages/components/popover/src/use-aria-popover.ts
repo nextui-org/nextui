@@ -1,16 +1,20 @@
 import {RefObject, useEffect} from "react";
 import {
-  AriaPopoverProps,
   useOverlay,
+  AriaPopoverProps,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,
 } from "@react-aria/overlays";
-import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
+import {
+  OverlayPlacement,
+  ariaHideOutside,
+  toReactAriaPlacement,
+  ariaShouldCloseOnInteractOutside,
+} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 export interface Props {
   /**
@@ -98,7 +102,7 @@ export function useReactAriaPopover(
     containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
-    onClose: () => {},
+    onClose: isNonModal ? state.close : () => {},
   });
 
   useSafeLayoutEffect(() => {

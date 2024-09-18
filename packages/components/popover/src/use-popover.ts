@@ -19,7 +19,7 @@ import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useMemo, useCallback, useRef} from "react";
-import {AriaDialogProps, useDialog} from "@react-aria/dialog";
+import {AriaDialogProps} from "@react-aria/dialog";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
@@ -131,7 +131,6 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const domTriggerRef = useRef<HTMLElement>(null);
   const wasTriggerPressedRef = useRef(false);
-  const dialogRef = useRef(null);
   const triggerRef = triggerRefProp || domTriggerRef;
 
   const disableAnimation =
@@ -179,8 +178,6 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing();
 
-  const {dialogProps, titleProps} = useDialog({}, dialogRef);
-
   const slots = useMemo(
     () =>
       popover({
@@ -198,14 +195,15 @@ export function usePopover(originalProps: UsePopoverProps) {
   });
 
   const getDialogProps: PropGetter = (props = {}) => ({
-    ref: dialogRef,
+    // `ref` and `dialogProps` from `useDialog` are passed from props
+    // if we use `useDialog` here, dialogRef won't be focused on mount
     "data-slot": "base",
     "data-open": dataAttr(state.isOpen),
     "data-focus": dataAttr(isFocused),
     "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
     "data-placement": getArrowPlacement(ariaPlacement, placementProp),
-    ...mergeProps(focusProps, dialogProps, dialogPropsProp, props),
+    ...mergeProps(focusProps, dialogPropsProp, props),
     className: slots.base({class: clsx(baseStyles)}),
     style: {
       // this prevent the dialog to have a default outline
@@ -265,8 +263,7 @@ export function usePopover(originalProps: UsePopoverProps) {
 
       return {
         "data-slot": "trigger",
-        "aria-haspopup": "dialog",
-        ...mergeProps(triggerProps, otherProps),
+        ...mergeProps({"aria-haspopup": "dialog"}, triggerProps, otherProps),
         onPress,
         isDisabled,
         className: slots.trigger({
@@ -316,7 +313,6 @@ export function usePopover(originalProps: UsePopoverProps) {
     triggerRef,
     placement,
     isNonModal,
-    titleProps,
     popoverRef: domRef,
     portalContainer,
     isOpen: state.isOpen,
