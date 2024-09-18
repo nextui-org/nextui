@@ -1,5 +1,87 @@
 # @nextui-org/select
 
+## 2.2.7
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f), [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/use-aria-multiselect@2.2.5
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/listbox@2.1.27
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+
+## 2.2.6
+
+### Patch Changes
+
+- [#3568](https://github.com/nextui-org/nextui/pull/3568) [`5c8cc7a42`](https://github.com/nextui-org/nextui/commit/5c8cc7a42d1e7a7957c0273ab21555f01d5bac8f) Thanks [@sohan01fw](https://github.com/sohan01fw)! - Fixed toggle issue while clicking on label of select component unexpectedly open and close the model instantly. The removal of code block containing `group-data-[filled=true]:pointer-events-auto` prevent from any unwanted user interactions and resolve the flickering issue (#3558)
+
+- [#3598](https://github.com/nextui-org/nextui/pull/3598) [`74792f7bf`](https://github.com/nextui-org/nextui/commit/74792f7bff9ffe735d3954e01b5383d969a51caf) Thanks [@wingkwong](https://github.com/wingkwong)! - added missing onChange when there are more than 300 items (#3455)
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`d621b2923`](https://github.com/nextui-org/nextui/commit/d621b2923e7c90e73bea996e5918b744223e896c), [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/popover@2.1.28
+  - @nextui-org/use-aria-multiselect@2.2.4
+  - @nextui-org/listbox@2.1.26
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+  - @nextui-org/react-utils@2.0.17
+
+## 2.2.5
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/listbox@2.1.25
+  - @nextui-org/popover@2.1.27
+  - @nextui-org/scroll-shadow@2.1.19
+  - @nextui-org/spinner@2.0.33
+  - @nextui-org/use-aria-button@2.0.10
+  - @nextui-org/use-aria-multiselect@2.2.3
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/spinner@2.0.32
+  - @nextui-org/listbox@2.1.24
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/aria-utils@2.0.23
+
+## 2.2.3
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- [#3374](https://github.com/nextui-org/nextui/pull/3374) [`7cc1bd78a`](https://github.com/nextui-org/nextui/commit/7cc1bd78a30045f2e4370df5738ec3e4ae3933f3) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed select closing issue with selector button (#3276)
+
+- [#3368](https://github.com/nextui-org/nextui/pull/3368) [`1cd64b2e2`](https://github.com/nextui-org/nextui/commit/1cd64b2e2e7b0abeac1933ae58e0de997ba78fc4) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fixed import HiddenSelect and UseSelectProps (#3356)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49), [`444d320db`](https://github.com/nextui-org/nextui/commit/444d320dbc146399eb937c219ce983d427675425)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/popover@2.1.25
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/listbox@2.1.23
+  - @nextui-org/scroll-shadow@2.1.18
+  - @nextui-org/spinner@2.0.31
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.2.2
 
 ### Patch Changes

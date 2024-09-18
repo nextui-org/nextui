@@ -1,32 +1,26 @@
 import {Button, Link} from "@nextui-org/react";
 
 import {sectionWrapper} from "@/components/primitives";
-import {Story2DesignLogo, ReplexicaLogo, CodeRabbitLogo} from "@/components/icons/sponsors";
+import {Story2DesignLogo, CodeRabbitLogo, ScrumbuissLogo} from "@/components/icons/sponsors";
 import {HeartFilledIcon} from "@/components/icons";
-import {VercelIcon} from "@/components/icons/social";
 import {siteConfig} from "@/config/site";
 import {Sponsor, SponsorItem} from "@/components/marketing/sponsor-item";
 
 const sponsors: Sponsor[] = [
-  {
-    name: "Vercel",
-    href: "https://www.vercel.com?utm_source=nextui&utm_marketing=oss",
-    logo: <VercelIcon className="text-black dark:text-white" height={24} />,
-  },
   {
     name: "story.to.design",
     href: "https://story.to.design?utm_source=nextui&utm_marketing=partnership",
     logo: <Story2DesignLogo className="pt-1" />,
   },
   {
-    name: "Replexica",
-    href: "https://replexica.com/?utm_source=nextui&utm_marketing=oss",
-    logo: <ReplexicaLogo />,
-  },
-  {
     name: "CodeRabbit",
     href: "https://coderabbit.ai/?utm_source=nextui&utm_marketing=oss",
     logo: <CodeRabbitLogo />,
+  },
+  {
+    name: "Scrumbuiss",
+    href: "https://www.scrumbuiss.com/?utm_source=nextui&utm_marketing=oss",
+    logo: <ScrumbuissLogo />,
   },
 ];
 

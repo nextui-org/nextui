@@ -48,9 +48,8 @@ const itemsSectionData = [
   },
 ];
 
-
-const ControlledAutocomplete = <T = object>(props: AutocompleteProps<T>) => {
-  const [selectedKey, setSelectedKey] = React.useState<React.Key>("cat");
+const ControlledAutocomplete = <T extends object>(props: AutocompleteProps<T>) => {
+  const [selectedKey, setSelectedKey] = React.useState<React.Key | null>("cat");
 
   return (
     <Autocomplete
@@ -76,7 +75,6 @@ const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
     </AutocompleteItem>
   </Autocomplete>
 );
-
 
 describe("Autocomplete", () => {
   it("should render correctly", () => {
@@ -198,6 +196,50 @@ describe("Autocomplete", () => {
           Shark
         </AutocompleteItem>
       </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await act(async () => {
+      await userEvent.click(autocomplete);
+    });
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await act(async () => {
+      await userEvent.click(options[0]);
+    });
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // select the target item
+    await act(async () => {
+      await userEvent.click(clearButton);
+    });
+
+    // assert that the input has empty value
+    expect(autocomplete).toHaveValue("");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+  });
+
+  it("should clear value after clicking clear button (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="autocomplete" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
     );
 
     const autocomplete = wrapper.getByTestId("autocomplete");
@@ -370,9 +412,6 @@ describe("Autocomplete", () => {
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
-
-    // assert that input is focused
-    expect(autocomplete).toHaveFocus();
   });
 
   it("should set the input after selection", async () => {

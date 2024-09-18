@@ -180,6 +180,32 @@ describe("TimeInput", () => {
         }
       }
     });
+
+    it("should support error message (with isInvalid)", function () {
+      const {getAllByRole, getByRole} = render(
+        <TimeInput isInvalid errorMessage="Error message" label="Time" />,
+      );
+
+      const group = getByRole("group");
+
+      expect(group).toHaveAttribute("aria-describedby");
+
+      if (group) {
+        const descById = group.getAttribute("aria-describedby");
+        const description = descById && document.getElementById(descById);
+
+        expect(description).toHaveTextContent("Error message");
+
+        const segments = getAllByRole("spinbutton");
+
+        for (const segment of segments) {
+          expect(segment).toHaveAttribute(
+            "aria-describedby",
+            group.getAttribute("aria-describedby"),
+          );
+        }
+      }
+    });
   });
 
   describe("Events", function () {
@@ -352,6 +378,56 @@ describe("TimeInput", () => {
 
       expect(getDescription()).toBe("Selected Time: 8:30 AM");
       expect(input).toHaveValue("08:30:00");
+    });
+  });
+
+  describe(`Validation (validationBehavior="aria")`, () => {
+    it("should display errorMessage when timeValue is less than the minimum (controlled)", () => {
+      render(<TimeInput label="Time" minValue={new Time(9)} value={new Time(8)} />);
+
+      expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
+    });
+
+    it("should display errorMessage when timeValue is less than the minimum (uncontrolled)", async () => {
+      const {getAllByRole} = render(
+        <TimeInput defaultValue={new Time(9)} label="Time" minValue={new Time(9)} name="time" />,
+      );
+
+      const input = document.querySelector("input[name=time]");
+      const segments = getAllByRole("spinbutton");
+
+      await user.tab();
+      expect(input).toHaveValue("09:00:00");
+      expect(segments[0]).toHaveFocus();
+      expect(document.querySelector("[data-slot=error-message]")).toBeNull();
+
+      await user.keyboard("[ArrowDown]");
+      expect(input).toHaveValue("08:00:00");
+      expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
+    });
+
+    it("should display errorMessage when timeValue is greater than the maximum (controlled)", () => {
+      render(<TimeInput label="Time" maxValue={new Time(17)} value={new Time(18)} />);
+
+      expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
+    });
+
+    it("should display errorMessage when timeValue is greater than the maximum (uncontrolled)", async () => {
+      const {getAllByRole} = render(
+        <TimeInput defaultValue={new Time(17)} label="Time" maxValue={new Time(17)} name="time" />,
+      );
+
+      const input = document.querySelector("input[name=time]");
+      const segments = getAllByRole("spinbutton");
+
+      await user.tab();
+      expect(input).toHaveValue("17:00:00");
+      expect(segments[0]).toHaveFocus();
+      expect(document.querySelector("[data-slot=error-message]")).toBeNull();
+
+      await user.keyboard("[ArrowUp]");
+      expect(input).toHaveValue("18:00:00");
+      expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
     });
   });
 });

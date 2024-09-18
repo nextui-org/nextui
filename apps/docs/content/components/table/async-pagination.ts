@@ -12,7 +12,7 @@ export default function App() {
 
   const rowsPerPage = 10;
 
-  const pages = useMemo(() => {
+  const pages = React.useMemo(() => {
     return data?.count ? Math.ceil(data.count / rowsPerPage) : 0;
   }, [data?.count, rowsPerPage]);
 
@@ -36,7 +36,6 @@ export default function App() {
           </div>
         ) : null
       }
-      {...args}
     >
       <TableHeader>
         <TableColumn key="name">Name</TableColumn>

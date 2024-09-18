@@ -44,6 +44,8 @@
     "@storybook/addon-links": "^7.4.6",
     "@storybook/addon-mdx-gfm": "^7.4.6",
     "@storybook/cli": "^7.4.6",
+    "@storybook/manager-api": "^7.6.17",
+    "@storybook/preview-api": "^7.6.17",
     "@storybook/react": "^7.4.6",
     "@storybook/react-vite": "^7.4.6",
     "@storybook/theming": "^7.4.6",
