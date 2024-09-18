@@ -15,6 +15,9 @@ const TestComponent = ({defaultTheme}: {defaultTheme?: Theme}) => {
       <button type="button" onClick={() => setTheme(ThemeProps.LIGHT)}>
         Set Light
       </button>
+      <button type="button" onClick={() => setTheme(ThemeProps.SYSTEM)}>
+        Set System
+      </button>
     </div>
   );
 };
@@ -74,13 +77,70 @@ describe("useTheme hook", () => {
     expect(document.documentElement.classList.contains(ThemeProps.DARK)).toBe(true);
   });
 
-  it("should set new theme correctly and update localStorage and DOM", () => {
+  it("should set new theme correctly and update localStorage and DOM (dark)", () => {
     const {getByText, getByTestId} = render(<TestComponent />);
 
     act(() => {
       getByText("Set Dark").click();
     });
     expect(getByTestId("theme-display").textContent).toBe(ThemeProps.DARK);
+    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.DARK);
+    expect(document.documentElement.classList.contains(ThemeProps.DARK)).toBe(true);
+  });
+
+  it("should set new theme correctly and update localStorage and DOM (light)", () => {
+    const {getByText, getByTestId} = render(<TestComponent />);
+
+    act(() => {
+      getByText("Set Light").click();
+    });
+    expect(getByTestId("theme-display").textContent).toBe(ThemeProps.LIGHT);
+    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.LIGHT);
+    expect(document.documentElement.classList.contains(ThemeProps.LIGHT)).toBe(true);
+  });
+
+  it("should set new theme correctly and update localStorage and DOM (system - prefers-color-scheme: light)", () => {
+    const {getByText, getByTestId} = render(<TestComponent />);
+
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: false,
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+
+    act(() => {
+      getByText("Set System").click();
+    });
+    expect(getByTestId("theme-display").textContent).toBe(ThemeProps.SYSTEM);
+    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.LIGHT);
+    expect(document.documentElement.classList.contains(ThemeProps.LIGHT)).toBe(true);
+  });
+
+  it("should set new theme correctly and update localStorage and DOM (system - prefers-color-scheme: dark)", () => {
+    const {getByText, getByTestId} = render(<TestComponent />);
+
+    Object.defineProperty(window, "matchMedia", {
+      writable: true,
+      value: jest.fn().mockImplementation((query) => ({
+        matches: true,
+        media: query,
+        onchange: null,
+        addEventListener: jest.fn(),
+        removeEventListener: jest.fn(),
+        dispatchEvent: jest.fn(),
+      })),
+    });
+
+    act(() => {
+      getByText("Set System").click();
+    });
+    expect(getByTestId("theme-display").textContent).toBe(ThemeProps.SYSTEM);
     expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.DARK);
     expect(document.documentElement.classList.contains(ThemeProps.DARK)).toBe(true);
   });

@@ -4,15 +4,21 @@ import {useCallback, useEffect, useState} from "react";
 export const ThemeProps = {
   // localStorage key for storing the current theme
   KEY: "nextui-theme",
-  // system theme: light
+  // light theme
   LIGHT: "light",
-  // system theme: dark
+  // dark theme
   DARK: "dark",
+  // system theme
+  SYSTEM: "system",
 } as const;
 
 // type definition for Theme using system theme names or custom theme names
 export type customTheme = string;
-export type Theme = typeof ThemeProps.LIGHT | typeof ThemeProps.DARK | customTheme;
+export type Theme =
+  | typeof ThemeProps.LIGHT
+  | typeof ThemeProps.DARK
+  | typeof ThemeProps.SYSTEM
+  | customTheme;
 
 /**
  * React hook to switch between themes
@@ -28,15 +34,35 @@ export function useTheme(defaultTheme?: Theme) {
       storedTheme = localStorage.getItem(ThemeProps.KEY) || undefined;
     } catch {}
 
-    return storedTheme || (defaultTheme ?? ThemeProps.LIGHT);
+    // return stored theme if it is selected previously
+    if (storedTheme) return storedTheme;
+
+    // if it is using system theme, check `prefers-color-scheme` value
+    // return light theme if not specified
+    if (defaultTheme === ThemeProps.SYSTEM) {
+      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? ThemeProps.DARK
+        : ThemeProps.LIGHT;
+    }
+
+    // return default theme with light theme as default one
+    return defaultTheme ?? ThemeProps.LIGHT;
   });
 
   const setTheme = useCallback(
     (newTheme: Theme) => {
       try {
-        localStorage.setItem(ThemeProps.KEY, newTheme);
+        const targetTheme =
+          newTheme === ThemeProps.SYSTEM
+            ? window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? ThemeProps.DARK
+              : ThemeProps.LIGHT
+            : newTheme;
+
+        localStorage.setItem(ThemeProps.KEY, targetTheme);
+
         document.documentElement.classList.remove(theme);
-        document.documentElement.classList.add(newTheme);
+        document.documentElement.classList.add(targetTheme);
         setThemeState(newTheme);
       } catch {}
     },
@@ -44,6 +70,12 @@ export function useTheme(defaultTheme?: Theme) {
   );
 
   useEffect(() => setTheme(theme), [theme, setTheme]);
+
+  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
+    if (theme === ThemeProps.SYSTEM) {
+      setTheme(event.matches ? ThemeProps.DARK : ThemeProps.LIGHT);
+    }
+  });
 
   return {theme, setTheme};
 }
