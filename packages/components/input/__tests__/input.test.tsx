@@ -37,12 +37,12 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
-  it("should set tabIndex to -1 when isDisabled is true", () => {
-    const {getByRole} = render(<Input isClearable isDisabled label="test input" />);
+  it("should disable the clear button when isDisabled", () => {
+    const {container} = render(<Input isClearable isDisabled label="test input" />);
 
-    const clearButton = getByRole("button");
+    const clearButton = container.querySelector("button");
 
-    expect(clearButton).toHaveAttribute("tabIndex", "-1");
+    expect(clearButton).toBeDisabled();
   });
 
   it("should have required attribute when isRequired with native validationBehavior", () => {
@@ -139,7 +139,7 @@ describe("Input", () => {
 
     const ref = React.createRef<HTMLInputElement>();
 
-    const {getByRole} = render(
+    const {container} = render(
       <Input
         ref={ref}
         isClearable
@@ -149,7 +149,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = getByRole("button");
+    const clearButton = container.querySelector("button")!;
 
     expect(clearButton).not.toBeNull();
 
@@ -194,7 +194,7 @@ describe("Input", () => {
 
     const ref = React.createRef<HTMLInputElement>();
 
-    const {getByRole} = render(
+    const {container} = render(
       <Input
         ref={ref}
         isClearable
@@ -205,7 +205,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = getByRole("button");
+    const clearButton = container.querySelector("button")!;
 
     expect(clearButton).not.toBeNull();
 
@@ -264,7 +264,7 @@ describe("Input with React Hook Form", () => {
     input1 = document.querySelector("input[name=withDefaultValue]")!;
     input2 = document.querySelector("input[name=withoutDefaultValue]")!;
     input3 = document.querySelector("input[name=requiredField]")!;
-    submitButton = document.querySelector("button")!;
+    submitButton = document.querySelector('button[type="submit"]')!;
   });
 
   it("should work with defaultValues", () => {
