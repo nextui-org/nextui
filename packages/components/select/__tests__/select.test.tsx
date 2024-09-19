@@ -1,9 +1,11 @@
+import type {SelectProps} from "../src";
+
 import * as React from "react";
 import {render, renderHook, act} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
-import {Select, SelectItem, SelectSection, type SelectProps} from "../src";
+import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
 
 type Item = {
@@ -83,7 +85,7 @@ describe("Select", () => {
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" items={itemsData} label="Favorite Animal">
-        {(item) => <SelectItem>{item.label}</SelectItem>}
+        {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
       </Select>,
     );
 
@@ -110,7 +112,7 @@ describe("Select", () => {
     const wrapper = render(
       <Select aria-label="Favorite Animal" items={itemsSectionData} label="Favorite Animal">
         {(section) => (
-          <SelectSection<Item>
+          <SelectSection<(typeof itemsSectionData)[0]["children"][0]>
             aria-label={section.title}
             items={section.children}
             title={section.title}
@@ -350,9 +352,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item ids upon selection", async () => {
     const itemsWithId = [
-      {id: 1, value: "penguin"},
-      {id: 2, value: "zebra"},
-      {id: 3, value: "shark"},
+      {id: "1", value: "penguin"},
+      {id: "2", value: "zebra"},
+      {id: "3", value: "shark"},
     ];
 
     const onSelectionChangeId = jest.fn();
@@ -363,7 +365,7 @@ describe("Select", () => {
         label="Test with ID"
         onSelectionChange={onSelectionChangeId}
       >
-        {(item) => <SelectItem>{item.value}</SelectItem>}
+        {(item) => <SelectItem key={item.id}>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -390,9 +392,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item keys upon selection", async () => {
     const itemsWithKey = [
-      {key: 1, value: "penguin"},
-      {key: 2, value: "zebra"},
-      {key: 3, value: "shark"},
+      {key: "1", value: "penguin"},
+      {key: "2", value: "zebra"},
+      {key: "3", value: "shark"},
     ];
 
     const onSelectionChangeKey = jest.fn();
@@ -403,7 +405,7 @@ describe("Select", () => {
         label="Test with Key"
         onSelectionChange={onSelectionChangeKey}
       >
-        {(item) => <SelectItem>{item.value}</SelectItem>}
+        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -561,10 +563,16 @@ describe("Select", () => {
           const formData = new FormData(e.target as HTMLFormElement);
 
           /* eslint-disable no-console */
+          // @ts-ignore
           console.log(JSON.stringify(Object.fromEntries(formData)));
         }}
       >
-        <Select data-testid="select" label="test select" name="select" size="sm">
+        <Select
+          data-testid="select"
+          defaultSelectedKeys={["foo"]}
+          label="test select"
+          name="select"
+        >
           <SelectItem key="foo">foo</SelectItem>
           <SelectItem key="bar">bar</SelectItem>
         </Select>
@@ -574,6 +582,14 @@ describe("Select", () => {
       </form>,
     );
 
+    const submitButton = wrapper.getByTestId("submit-button");
+
+    await act(async () => {
+      await user.click(submitButton);
+    });
+
+    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "foo"}));
+
     const select = wrapper.getByTestId("select");
 
     expect(select).not.toBeNull();
@@ -582,32 +598,16 @@ describe("Select", () => {
       await user.click(select);
     });
 
-    let listbox = wrapper.getByRole("listbox");
+    const listbox = wrapper.getByRole("listbox");
 
     expect(listbox).toBeTruthy();
 
-    let listboxItems = wrapper.getAllByRole("option");
+    const listboxItems = wrapper.getAllByRole("option");
 
     expect(listboxItems.length).toBe(2);
 
     await act(async () => {
-      await user.click(listboxItems[1]);
-    });
-
-    let submitButton = wrapper.getByTestId("submit-button");
-
-    await act(async () => {
-      await user.click(submitButton);
-    });
-
-    expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: "bar"}));
-
-    await act(async () => {
-      await user.click(select);
-    });
-
-    await act(async () => {
-      await user.click(listboxItems[1]);
+      await user.click(listboxItems[0]);
     });
 
     await act(async () => {
@@ -615,6 +615,110 @@ describe("Select", () => {
     });
 
     expect(logSpy).toHaveBeenCalledWith(JSON.stringify({select: ""}));
+  });
+
+  it("should close listbox by clicking selector button again", async () => {
+    const wrapper = render(
+      <Select aria-label="Favorite Animal" data-testid="select" label="Favorite Animal">
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("select");
+
+    expect(select).not.toBeNull();
+
+    // open the select listbox by clicking selector button
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select listbox is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    // open the select listbox by clicking selector button
+    await act(async () => {
+      await userEvent.click(select);
+    });
+
+    // assert that the select listbox is closed
+    expect(select).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should work with onChange (< 300 select items)", async () => {
+    const onChange = jest.fn();
+
+    let options = new Array(10).fill("");
+
+    options = options.map((_, i) => {
+      return `option ${i}`;
+    });
+
+    const wrapper = render(
+      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+        {options.map((o) => (
+          <SelectItem key={o} value={o}>
+            {o}
+          </SelectItem>
+        ))}
+      </Select>,
+    );
+
+    let listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(10);
+
+    await act(async () => {
+      await user.click(listboxItems[1]);
+
+      expect(onChange).toBeCalledTimes(1);
+    });
+  });
+
+  it("should work with onChange (>= 300 select items)", async () => {
+    let onChange = jest.fn();
+
+    let options = new Array(300).fill("");
+
+    options = options.map((_, i) => {
+      return `option ${i}`;
+    });
+
+    const wrapper = render(
+      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+        {options.map((o) => (
+          <SelectItem key={o} value={o}>
+            {o}
+          </SelectItem>
+        ))}
+      </Select>,
+    );
+
+    let listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(300);
+
+    await act(async () => {
+      await user.click(listboxItems[1]);
+
+      expect(onChange).toBeCalledTimes(1);
+    });
   });
 });
 
@@ -648,11 +752,11 @@ describe("Select with React Hook Form", () => {
     wrapper = render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
         <Select data-testid="select-1" items={itemsData} {...register("withDefaultValue")}>
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         <Select data-testid="select-2" items={itemsData} {...register("withoutDefaultValue")}>
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         <Select
@@ -660,7 +764,7 @@ describe("Select with React Hook Form", () => {
           items={itemsData}
           {...register("requiredField", {required: true})}
         >
-          {(item) => <SelectItem key={item.value}>{item.label}</SelectItem>}
+          {(item) => <SelectItem key={item.id}>{item.label}</SelectItem>}
         </Select>
 
         {errors.requiredField && <span className="text-danger">This field is required</span>}

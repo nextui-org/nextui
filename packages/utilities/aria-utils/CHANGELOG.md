@@ -1,5 +1,50 @@
 # @nextui-org/aria-utils
 
+## 2.0.26
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+## 2.0.25
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- Updated dependencies [[`4ac7674d1`](https://github.com/nextui-org/nextui/commit/4ac7674d1ec8ed60925412fe1bd1f01ee9f1555a), [`446a6bf57`](https://github.com/nextui-org/nextui/commit/446a6bf57c3c9e6acadd6629411b33353b305590), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/system@2.2.6
+  - @nextui-org/react-rsc-utils@2.0.14
+  - @nextui-org/shared-utils@2.0.8
+
+## 2.0.24
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/system@2.2.5
+  - @nextui-org/react-rsc-utils@2.0.13
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/system@2.2.4
+
+## 2.0.22
+
+### Patch Changes
+
+- [#3362](https://github.com/nextui-org/nextui/pull/3362) [`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix tsc error (#2365, #2314, #2505)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/system@2.2.3
+  - @nextui-org/shared-utils@2.0.6
+
 ## 2.0.21
 
 ### Patch Changes

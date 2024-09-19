@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useCallback, useState} from "react";
 
 export interface UseClipboardProps {
   /**
@@ -18,34 +18,40 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
   const [copied, setCopied] = useState(false);
   const [copyTimeout, setCopyTimeout] = useState<ReturnType<typeof setTimeout> | null>(null);
 
-  const onClearTimeout = () => {
+  const onClearTimeout = useCallback(() => {
     if (copyTimeout) {
       clearTimeout(copyTimeout);
     }
-  };
+  }, [copyTimeout]);
 
-  const handleCopyResult = (value: boolean) => {
-    onClearTimeout();
-    setCopyTimeout(setTimeout(() => setCopied(false), timeout));
-    setCopied(value);
-  };
+  const handleCopyResult = useCallback(
+    (value: boolean) => {
+      onClearTimeout();
+      setCopyTimeout(setTimeout(() => setCopied(false), timeout));
+      setCopied(value);
+    },
+    [onClearTimeout, timeout],
+  );
 
-  const copy = (valueToCopy: any) => {
-    if ("clipboard" in navigator) {
-      navigator.clipboard
-        .writeText(valueToCopy)
-        .then(() => handleCopyResult(true))
-        .catch((err) => setError(err));
-    } else {
-      setError(new Error("useClipboard: navigator.clipboard is not supported"));
-    }
-  };
+  const copy = useCallback(
+    (valueToCopy: any) => {
+      if ("clipboard" in navigator) {
+        navigator.clipboard
+          .writeText(valueToCopy)
+          .then(() => handleCopyResult(true))
+          .catch((err) => setError(err));
+      } else {
+        setError(new Error("useClipboard: navigator.clipboard is not supported"));
+      }
+    },
+    [handleCopyResult],
+  );
 
-  const reset = () => {
+  const reset = useCallback(() => {
     setCopied(false);
     setError(null);
     onClearTimeout();
-  };
+  }, [onClearTimeout]);
 
   return {copy, reset, error, copied};
 }

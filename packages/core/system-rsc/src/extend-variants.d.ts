@@ -33,6 +33,7 @@ type ComposeVariants<CP, S> = SuggestedVariants<CP, S> | Variants<S>;
 type VariantValue<V, SV> = {
   [K in keyof V | keyof SV]?:
     | (K extends keyof V ? StringToBoolean<keyof V[K]> : never)
+    | (K extends keyof V ? StringToBoolean<keyof V[K]>[] : never)
     | (K extends keyof SV
         ? ValidateSubtype<SV[K], object> extends "true"
           ? keyof OmitUndefined<SV[K]>
@@ -47,7 +48,7 @@ type CompoundVariants<V, SV> = Array<VariantValue<V, SV> & ClassProp<ClassValue>
 type Options = {
   /**
    * Whether to merge the class names with `tailwind-merge` library.
-   * It's avoid to have duplicate tailwind classes. (Recommended)
+   * It avoids to have duplicate tailwind classes. (Recommended)
    * @see https://github.com/dcastil/tailwind-merge/blob/v1.8.1/README.md
    * @default true
    */

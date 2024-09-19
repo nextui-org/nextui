@@ -1,7 +1,7 @@
 import {RefObject, useEffect} from "react";
 import {
-  AriaPopoverProps,
   useOverlay,
+  AriaPopoverProps,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,
@@ -102,7 +102,7 @@ export function useReactAriaPopover(
     containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
-    onClose: () => {},
+    onClose: isNonModal ? state.close : () => {},
   });
 
   useSafeLayoutEffect(() => {

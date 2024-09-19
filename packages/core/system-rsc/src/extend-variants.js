@@ -47,14 +47,17 @@ function getClassNamesWithProps({
   const customTv = tv(
     {
       variants,
-      // Do not apply default variants when the props variant is different
-      defaultVariants: Object.keys(defaultVariants)
-        .filter((k) => !keys.includes(k))
-        .reduce((o, k) => {
-          o[k] = defaultVariants[k];
+      defaultVariants:
+        defaultVariants && typeof defaultVariants === "object"
+          ? // Do not apply default variants when the props variant is different
+            Object.keys(defaultVariants)
+              .filter((k) => !keys.includes(k))
+              .reduce((o, k) => {
+                o[k] = defaultVariants[k];
 
-          return o;
-        }, []),
+                return o;
+              }, [])
+          : defaultVariants,
       compoundVariants,
       ...(hasSlots && {slots}),
     },

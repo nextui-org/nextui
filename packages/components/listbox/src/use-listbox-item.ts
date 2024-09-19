@@ -109,13 +109,9 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     itemProps = removeEvents(itemProps);
   }
 
-  const isHighlighted = useMemo(() => {
-    if (shouldHighlightOnFocus && isFocused) {
-      return true;
-    }
-
-    return isMobile ? isHovered || isPressed : isHovered;
-  }, [isHovered, isPressed, isFocused, isMobile, shouldHighlightOnFocus]);
+  const isHighlighted =
+    (shouldHighlightOnFocus && isFocused) ||
+    (isMobile ? isHovered || isPressed : isHovered || (isFocused && !isFocusVisible));
 
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
