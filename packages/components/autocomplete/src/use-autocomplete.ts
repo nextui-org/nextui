@@ -7,7 +7,7 @@ import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {ComboBoxState, FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
