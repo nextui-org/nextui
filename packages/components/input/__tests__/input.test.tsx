@@ -38,9 +38,9 @@ describe("Input", () => {
   });
 
   it("should disable the clear button when isDisabled", () => {
-    const {container} = render(<Input isClearable isDisabled label="test input" />);
+    const {getByRole} = render(<Input isClearable isDisabled label="test input" />);
 
-    const clearButton = container.querySelector("button");
+    const clearButton = getByRole("button");
 
     expect(clearButton).toBeDisabled();
   });
@@ -139,7 +139,7 @@ describe("Input", () => {
 
     const ref = React.createRef<HTMLInputElement>();
 
-    const {container} = render(
+    const {getByRole} = render(
       <Input
         ref={ref}
         isClearable
@@ -149,7 +149,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = container.querySelector("button")!;
+    const clearButton = getByRole("button")!;
 
     expect(clearButton).not.toBeNull();
 
@@ -194,7 +194,7 @@ describe("Input", () => {
 
     const ref = React.createRef<HTMLInputElement>();
 
-    const {container} = render(
+    const {getByRole} = render(
       <Input
         ref={ref}
         isClearable
@@ -205,7 +205,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = container.querySelector("button")!;
+    const clearButton = getByRole("button")!;
 
     expect(clearButton).not.toBeNull();
 
