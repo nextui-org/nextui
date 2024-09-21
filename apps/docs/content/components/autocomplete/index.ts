@@ -24,6 +24,7 @@ import asyncLoadingItems from "./async-loading-items";
 import sections from "./sections";
 import customSectionsStyle from "./custom-sections-style";
 import customStyles from "./custom-styles";
+import customEmptyContentMessage from "./custom-empty-content-message";
 import readOnly from "./read-only";
 
 export const autocompleteContent = {
@@ -53,5 +54,6 @@ export const autocompleteContent = {
   sections,
   customSectionsStyle,
   customStyles,
+  customEmptyContentMessage,
   readOnly,
 };

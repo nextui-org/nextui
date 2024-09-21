@@ -215,162 +215,212 @@ describe("Radio", () => {
     expect(radio2).toBeChecked();
   });
 
-  describe("validation", () => {
-    let user = userEvent.setup();
+  it("should support help text description", () => {
+    const {getByRole} = render(
+      <RadioGroup description="Help text" label="Options">
+        <Radio value="1">Option 1</Radio>
+      </RadioGroup>,
+    );
 
-    beforeAll(() => {
-      user = userEvent.setup();
-    });
-    describe("validationBehavior=native", () => {
-      it("supports isRequired", async () => {
-        const {getAllByRole, getByRole, getByTestId} = render(
-          <form data-testid="form">
-            <RadioGroup isRequired aria-label="favorite pet" validationBehavior="native">
-              <Radio value="dogs">Dogs</Radio>
-              <Radio value="cats">Cats</Radio>
-              <Radio value="dragons">Dragons</Radio>
-            </RadioGroup>
-          </form>,
-        );
+    const group = getByRole("radiogroup");
 
-        const group = getByRole("radiogroup");
+    expect(group).toHaveAttribute("aria-describedby");
 
-        expect(group).not.toHaveAttribute("aria-describedby");
+    const groupDescriptionId = group.getAttribute("aria-describedby");
+    const groupDescriptionElement = document.getElementById(groupDescriptionId as string);
 
-        const radios = getAllByRole("radio") as HTMLInputElement[];
+    expect(groupDescriptionElement).toHaveTextContent("Help text");
+  });
 
-        for (let input of radios) {
-          expect(input).toHaveAttribute("required");
-          expect(input).not.toHaveAttribute("aria-required");
-          expect(input.validity.valid).toBe(false);
-        }
+  it("should support help text description for the individual radios", () => {
+    const {getByLabelText} = render(
+      <RadioGroup description="Help text" label="Options">
+        <Radio description="Help text for option 1" value="1">
+          Option 1
+        </Radio>
+        <Radio description="Help text for option 2" value="2">
+          Option 2
+        </Radio>
+      </RadioGroup>,
+    );
 
-        act(() => {
-          (getByTestId("form") as HTMLFormElement).checkValidity();
-        });
+    const option1 = getByLabelText("Option 1");
 
-        expect(group).toHaveAttribute("aria-describedby");
-        expect(
-          document.getElementById(group.getAttribute("aria-describedby") as string),
-        ).toHaveTextContent("Constraints not satisfied");
-        expect(document.activeElement).toBe(radios[0]);
+    expect(option1).toHaveAttribute("aria-describedby");
+    const option1Description = option1
+      .getAttribute("aria-describedby")
+      ?.split(" ")
+      .map((d) => document.getElementById(d)?.textContent)
+      .join(" ");
 
-        await user.click(radios[0]);
-        for (let input of radios) {
-          expect(input.validity.valid).toBe(true);
-        }
+    expect(option1Description).toBe("Help text for option 1 Help text");
 
-        expect(group).not.toHaveAttribute("aria-describedby");
-      });
+    const option2 = getByLabelText("Option 2");
+    const option2Description = option2
+      .getAttribute("aria-describedby")
+      ?.split(" ")
+      .map((d) => document.getElementById(d)?.textContent)
+      .join(" ");
 
-      it("supports server validation", async () => {
-        function Test() {
-          const [serverErrors, setServerErrors] = React.useState({});
-          const onSubmit = (e) => {
-            e.preventDefault();
-            setServerErrors({
-              pet: "You must choose a pet.",
-            });
-          };
+    expect(option2Description).toBe("Help text for option 2 Help text");
+  });
+});
 
-          return (
-            <Form validationBehavior="native" validationErrors={serverErrors} onSubmit={onSubmit}>
-              <RadioGroup aria-label="favorite pet" name="pet" validationBehavior="native">
-                <Radio value="dogs">Dogs</Radio>
-                <Radio value="cats">Cats</Radio>
-                <Radio value="dragons">Dragons</Radio>
-              </RadioGroup>
-              <button type="submit">Submit</button>
-            </Form>
-          );
-        }
+describe("validation", () => {
+  let user = userEvent.setup();
 
-        const {getAllByRole, getByRole} = render(<Test />);
-
-        const group = getByRole("radiogroup");
-
-        expect(group).not.toHaveAttribute("aria-describedby");
-
-        await user.click(getByRole("button"));
-
-        expect(group).toHaveAttribute("aria-describedby");
-        expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "You must choose a pet.",
-        );
-
-        const radios = getAllByRole("radio") as HTMLInputElement[];
-
-        for (const input of radios) {
-          expect(input.validity.valid).toBe(false);
-        }
-
-        await user.click(radios[0]);
-        expect(group).not.toHaveAttribute("aria-describedby");
-        for (const input of radios) {
-          expect(input.validity.valid).toBe(true);
-        }
-      });
-    });
-
-    describe("validationBehavior=aria", () => {
-      it("supports validate function", async () => {
-        const {getAllByRole, getByRole} = render(
-          <RadioGroup
-            aria-label="favorite pet"
-            defaultValue="dragons"
-            validate={(v) => (v === "dragons" ? "Too scary" : null)}
-            validationBehavior="aria"
-          >
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+  describe("validationBehavior=native", () => {
+    it("supports isRequired", async () => {
+      const {getAllByRole, getByRole, getByTestId} = render(
+        <form data-testid="form">
+          <RadioGroup isRequired aria-label="favorite pet" validationBehavior="native">
             <Radio value="dogs">Dogs</Radio>
             <Radio value="cats">Cats</Radio>
             <Radio value="dragons">Dragons</Radio>
-          </RadioGroup>,
-        );
+          </RadioGroup>
+        </form>,
+      );
 
-        const group = getByRole("radiogroup");
+      const group = getByRole("radiogroup");
 
-        expect(group).toHaveAttribute("aria-describedby");
-        expect(group).toHaveAttribute("aria-invalid", "true");
-        expect(
-          document.getElementById(group.getAttribute("aria-describedby") as string),
-        ).toHaveTextContent("Too scary");
+      expect(group).not.toHaveAttribute("aria-describedby");
 
-        const radios = getAllByRole("radio") as HTMLInputElement[];
+      const radios = getAllByRole("radio") as HTMLInputElement[];
 
-        for (let input of radios) {
-          expect(input.validity.valid).toBe(true);
-        }
+      for (let input of radios) {
+        expect(input).toHaveAttribute("required");
+        expect(input).not.toHaveAttribute("aria-required");
+        expect(input.validity.valid).toBe(false);
+      }
 
-        await user.click(radios[0]);
-        expect(group).not.toHaveAttribute("aria-describedby");
-        expect(group).not.toHaveAttribute("aria-invalid");
+      act(() => {
+        (getByTestId("form") as HTMLFormElement).checkValidity();
       });
 
-      it("supports server validation", async () => {
-        const {getAllByRole, getByRole} = render(
-          <Form validationBehavior="aria" validationErrors={{pet: "You must choose a pet"}}>
-            <RadioGroup aria-label="favorite pet" name="pet">
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(
+        document.getElementById(group.getAttribute("aria-describedby") as string),
+      ).toHaveTextContent("Constraints not satisfied");
+      expect(document.activeElement).toBe(radios[0]);
+
+      await user.click(radios[0]);
+      for (let input of radios) {
+        expect(input.validity.valid).toBe(true);
+      }
+
+      expect(group).not.toHaveAttribute("aria-describedby");
+    });
+
+    it("supports server validation", async () => {
+      function Test() {
+        const [serverErrors, setServerErrors] = React.useState({});
+        const onSubmit = (e) => {
+          e.preventDefault();
+          setServerErrors({
+            pet: "You must choose a pet.",
+          });
+        };
+
+        return (
+          <Form validationBehavior="native" validationErrors={serverErrors} onSubmit={onSubmit}>
+            <RadioGroup aria-label="favorite pet" name="pet" validationBehavior="native">
               <Radio value="dogs">Dogs</Radio>
               <Radio value="cats">Cats</Radio>
               <Radio value="dragons">Dragons</Radio>
             </RadioGroup>
-          </Form>,
+            <button type="submit">Submit</button>
+          </Form>
         );
+      }
 
-        const group = getByRole("radiogroup");
+      const {getAllByRole, getByRole} = render(<Test />);
 
-        expect(group).toHaveAttribute("aria-describedby");
-        expect(group).toHaveAttribute("aria-invalid", "true");
-        expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "You must choose a pet",
-        );
+      const group = getByRole("radiogroup");
 
-        const radios = getAllByRole("radio");
+      expect(group).not.toHaveAttribute("aria-describedby");
 
-        await user.click(radios[0]);
-        expect(group).not.toHaveAttribute("aria-describedby");
-        expect(group).not.toHaveAttribute("aria-invalid");
-      });
+      await user.click(getByRole("button"));
+
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "You must choose a pet.",
+      );
+
+      const radios = getAllByRole("radio") as HTMLInputElement[];
+
+      for (const input of radios) {
+        expect(input.validity.valid).toBe(false);
+      }
+
+      await user.click(radios[0]);
+      expect(group).not.toHaveAttribute("aria-describedby");
+      for (const input of radios) {
+        expect(input.validity.valid).toBe(true);
+      }
+    });
+  });
+
+  describe("validationBehavior=aria", () => {
+    it("supports validate function", async () => {
+      const {getAllByRole, getByRole} = render(
+        <RadioGroup
+          aria-label="favorite pet"
+          defaultValue="dragons"
+          validate={(v) => (v === "dragons" ? "Too scary" : null)}
+          validationBehavior="aria"
+        >
+          <Radio value="dogs">Dogs</Radio>
+          <Radio value="cats">Cats</Radio>
+          <Radio value="dragons">Dragons</Radio>
+        </RadioGroup>,
+      );
+
+      const group = getByRole("radiogroup");
+
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(group).toHaveAttribute("aria-invalid", "true");
+      expect(
+        document.getElementById(group.getAttribute("aria-describedby") as string),
+      ).toHaveTextContent("Too scary");
+
+      const radios = getAllByRole("radio") as HTMLInputElement[];
+
+      for (let input of radios) {
+        expect(input.validity.valid).toBe(true);
+      }
+
+      await user.click(radios[0]);
+      expect(group).not.toHaveAttribute("aria-describedby");
+      expect(group).not.toHaveAttribute("aria-invalid");
+    });
+
+    it("supports server validation", async () => {
+      const {getAllByRole, getByRole} = render(
+        <Form validationBehavior="aria" validationErrors={{pet: "You must choose a pet"}}>
+          <RadioGroup aria-label="favorite pet" name="pet">
+            <Radio value="dogs">Dogs</Radio>
+            <Radio value="cats">Cats</Radio>
+            <Radio value="dragons">Dragons</Radio>
+          </RadioGroup>
+        </Form>,
+      );
+
+      const group = getByRole("radiogroup");
+
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(group).toHaveAttribute("aria-invalid", "true");
+      expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "You must choose a pet",
+      );
+
+      const radios = getAllByRole("radio");
+
+      await user.click(radios[0]);
+      expect(group).not.toHaveAttribute("aria-describedby");
+      expect(group).not.toHaveAttribute("aria-invalid");
     });
   });
 });

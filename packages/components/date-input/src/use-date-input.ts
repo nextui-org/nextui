@@ -7,16 +7,15 @@ import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
-import {CalendarDate} from "@internationalized/date";
+import {createCalendar, CalendarDate, DateFormatter} from "@internationalized/date";
 import {mergeProps} from "@react-aria/utils";
 import {PropGetter, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useDateField as useAriaDateField} from "@react-aria/datepicker";
 import {useDateFieldState} from "@react-stately/datepicker";
-import {createCalendar} from "@internationalized/date";
-import {objectToDeps, clsx, dataAttr} from "@nextui-org/shared-utils";
-import {dateInput} from "@nextui-org/theme";
+import {objectToDeps, clsx, dataAttr, getGregorianYearOffset} from "@nextui-org/shared-utils";
+import {dateInput, cn} from "@nextui-org/theme";
 import {useMemo} from "react";
 import {FormContext, useSlottedContext} from "@nextui-org/form";
 
@@ -36,6 +35,8 @@ interface Props<T extends DateValue> extends NextUIBaseProps<T> {
   labelProps?: DOMAttributes;
   /** Props for the date field. */
   fieldProps?: DOMAttributes;
+  /** Props for the inner wrapper. */
+  innerWrapperProps?: DOMAttributes;
   /** Props for the description element, if any. */
   descriptionProps?: DOMAttributes;
   /** Props for the error message element, if any. */
@@ -118,6 +119,15 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
 
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
+  const {locale} = useLocale();
+
+  const calendarProp = createCalendar(new DateFormatter(locale).resolvedOptions().calendar);
+
+  // by default, we are using gregorian calendar with possible years in [1900, 2099]
+  // however, some locales such as `th-TH-u-ca-buddhist` using different calendar making the years out of bound
+  // hence, add the corresponding offset to make sure the year is within the bound
+  const gregorianYearOffset = getGregorianYearOffset(calendarProp.identifier);
+
   const {
     ref,
     as,
@@ -132,12 +142,15 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     groupProps = {},
     labelProps: labelPropsProp,
     fieldProps: fieldPropsProp,
+    innerWrapperProps: innerWrapperPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
     validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     shouldForceLeadingZeros = true,
-    minValue = globalContext?.defaultDates?.minDate ?? new CalendarDate(1900, 1, 1),
-    maxValue = globalContext?.defaultDates?.maxDate ?? new CalendarDate(2099, 12, 31),
+    minValue = globalContext?.defaultDates?.minDate ??
+      new CalendarDate(calendarProp, 1900 + gregorianYearOffset, 1, 1),
+    maxValue = globalContext?.defaultDates?.maxDate ??
+      new CalendarDate(calendarProp, 2099 + gregorianYearOffset, 12, 31),
     createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
     isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
     errorMessage,
@@ -148,8 +161,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
 
   const disableAnimation = originalProps.disableAnimation ?? globalContext?.disableAnimation;
 
-  const {locale} = useLocale();
-
   const state = useDateFieldState({
     ...originalProps,
     label,
@@ -157,7 +168,6 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     minValue,
     maxValue,
     validationBehavior,
-    isInvalid: isInvalidProp,
     shouldForceLeadingZeros,
     createCalendar:
       !createCalendarProp || typeof createCalendarProp !== "function"
@@ -246,11 +256,13 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
   };
 
   const getInnerWrapperProps: PropGetter = (props) => {
+    const innerWrapperProps = mergeProps(innerWrapperPropsProp, props);
+
     return {
-      ...props,
+      ...innerWrapperProps,
       "data-slot": "inner-wrapper",
       className: slots.innerWrapper({
-        class: classNames?.innerWrapper,
+        class: cn(classNames?.innerWrapper, innerWrapperProps?.className),
       }),
     };
   };

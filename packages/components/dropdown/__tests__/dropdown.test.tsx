@@ -667,7 +667,7 @@ describe("Keyboard interactions", () => {
 
     expect(triggerButton).toHaveFocus();
 
-    fireEvent.keyDown(triggerButton, {key: " ", charCode: keyCodes.Space});
+    fireEvent.keyDown(triggerButton, {key: " ", charCode: keyCodes[" "]});
 
     let menu = wrapper.queryByRole("menu");
 
@@ -678,5 +678,204 @@ describe("Keyboard interactions", () => {
     expect(menuItems.length).toBe(4);
 
     expect(menuItems[0]).toHaveFocus();
+  });
+
+  it("should press the item on keyDown (Enter)", async () => {
+    const user = userEvent.setup();
+
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" selectionMode="single">
+          <DropdownItem
+            key="new"
+            onPress={() => {
+              /* eslint-disable no-console */
+              console.log("ENTER");
+            }}
+          >
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+
+    await act(async () => {
+      await user.keyboard("[Enter]");
+    });
+
+    expect(logSpy).toHaveBeenCalledWith("ENTER");
+
+    logSpy.mockRestore();
+  });
+
+  it("should press the item on keyDown (Space)", async () => {
+    const user = userEvent.setup();
+
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" selectionMode="single">
+          <DropdownItem
+            key="new"
+            onPress={() => {
+              /* eslint-disable no-console */
+              console.log("SPACE");
+            }}
+          >
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+
+    await act(async () => {
+      await user.keyboard("[Space]");
+    });
+
+    expect(logSpy).toHaveBeenCalledWith("SPACE");
+
+    logSpy.mockRestore();
+  });
+
+  it("should respect closeOnSelect setting of DropdownItem (static)", async () => {
+    const onOpenChange = jest.fn();
+    const wrapper = render(
+      <Dropdown onOpenChange={onOpenChange}>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions">
+          <DropdownItem key="new" closeOnSelect={false}>
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.click();
+    });
+    expect(onOpenChange).toBeCalledTimes(1);
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[0]);
+      expect(onOpenChange).toBeCalledTimes(1);
+    });
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+      expect(onOpenChange).toBeCalledTimes(2);
+    });
+  });
+
+  it("should respect closeOnSelect setting of DropdownItem (dynamic)", async () => {
+    const onOpenChange = jest.fn();
+    const items = [
+      {
+        key: "new",
+        label: "New file",
+      },
+      {
+        key: "copy",
+        label: "Copy link",
+      },
+    ];
+    const wrapper = render(
+      <Dropdown onOpenChange={onOpenChange}>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" items={items}>
+          {(item) => (
+            <DropdownItem key={item.key} closeOnSelect={item.key !== "new"}>
+              {item.label}
+            </DropdownItem>
+          )}
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.click();
+    });
+    expect(onOpenChange).toBeCalledTimes(1);
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[0]);
+      expect(onOpenChange).toBeCalledTimes(1);
+    });
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+      expect(onOpenChange).toBeCalledTimes(2);
+    });
   });
 });

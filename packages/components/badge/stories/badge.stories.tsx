@@ -65,15 +65,22 @@ const defaultProps = {
   content: 5,
 };
 
-const Template = (args: BadgeProps) => (
-  <Badge {...args}>
-    <Avatar
-      isBordered={args.classNames?.badge?.includes("bottom")}
-      radius={args.shape === "rectangle" ? "lg" : "full"}
-      src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
-    />
-  </Badge>
-);
+const Template = (args: BadgeProps) => {
+  const classNamesBadge = args.classNames?.badge;
+  const isBordered = Array.isArray(classNamesBadge)
+    ? classNamesBadge?.some((c) => (c as string).includes("bottom"))
+    : (classNamesBadge as string)?.includes("bottom");
+
+  return (
+    <Badge {...args}>
+      <Avatar
+        isBordered={isBordered}
+        radius={args.shape === "rectangle" ? "lg" : "full"}
+        src="https://i.pravatar.cc/300?u=a042581f4e29026709d"
+      />
+    </Badge>
+  );
+};
 
 const ShapesTemplate = (args: BadgeProps) => (
   <div className="flex gap-4 items-center">

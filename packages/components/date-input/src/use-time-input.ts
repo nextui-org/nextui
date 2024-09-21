@@ -89,7 +89,6 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     endContent,
     className,
     classNames,
-    validationState,
     groupProps = {},
     labelProps: labelPropsProp,
     fieldProps: fieldPropsProp,
@@ -99,7 +98,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     shouldForceLeadingZeros = true,
     minValue,
     maxValue,
-    isInvalid: isInvalidProp = validationState ? validationState === "invalid" : false,
+    isInvalid: isInvalidProp,
     errorMessage,
   } = props;
 
@@ -129,12 +128,10 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     validationDetails,
     descriptionProps,
     errorMessageProps,
-    isInvalid: ariaIsInvalid,
+    isInvalid,
   } = useAriaTimeField({...originalProps, label, validationBehavior, inputRef}, state, domRef);
 
   const baseStyles = clsx(classNames?.base, className);
-
-  const isInvalid = isInvalidProp || ariaIsInvalid;
 
   const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
     if (

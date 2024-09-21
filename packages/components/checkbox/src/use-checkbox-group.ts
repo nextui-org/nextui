@@ -2,8 +2,9 @@ import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
 import type {ReactRef} from "@nextui-org/react-utils";
+import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {useProviderContext, type HTMLNextUIProps, type PropGetter} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {checkboxGroup} from "@nextui-org/theme";

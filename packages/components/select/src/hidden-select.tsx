@@ -113,7 +113,7 @@ export function useHiddenSelect<T>(
       value:
         selectionMode === "multiple"
           ? [...state.selectedKeys].map((k) => String(k))
-          : [...state.selectedKeys][0],
+          : [...state.selectedKeys][0] ?? "",
       multiple: selectionMode === "multiple",
       onChange: (e: React.ChangeEvent<HTMLSelectElement>) => {
         state.setSelectedKeys(e.target.value);
