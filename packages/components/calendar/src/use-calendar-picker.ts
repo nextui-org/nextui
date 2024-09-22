@@ -3,9 +3,7 @@ import type {PressEvent} from "@react-types/shared";
 
 import {useDateFormatter} from "@react-aria/i18n";
 import {HTMLNextUIProps} from "@nextui-org/system";
-import {useCallback, useRef, useEffect} from "react";
-import debounce from "lodash.debounce";
-import {areRectsIntersecting} from "@nextui-org/react-utils";
+import {useCallback, useEffect, useRef} from "react";
 import scrollIntoView from "scroll-into-view-if-needed";
 
 import {getMonthsInYear, getYearRange} from "./utils";
@@ -15,6 +13,7 @@ export type PickerValue = {
   value: string;
   label: string;
 };
+
 export interface CalendarPickerProps extends HTMLNextUIProps<"div"> {
   date: CalendarDate;
   currentMonth: CalendarDate;
@@ -22,8 +21,6 @@ export interface CalendarPickerProps extends HTMLNextUIProps<"div"> {
 
 type ItemsRefMap = Map<number, HTMLElement>;
 type CalendarPickerListType = "months" | "years";
-
-const SCROLL_DEBOUNCE_TIME = 200;
 
 export function useCalendarPicker(props: CalendarPickerProps) {
   const {date, currentMonth} = props;
@@ -83,36 +80,6 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     }
   }
 
-  const handleListScroll = useCallback(
-    (e: Event, highlightEl: HTMLElement | null, list: CalendarPickerListType) => {
-      if (!(e.target instanceof HTMLElement)) return;
-
-      const map = getItemsRefMap(list === "months" ? monthsItemsRef : yearsItemsRef);
-
-      const items = Array.from(map.values());
-
-      const item = items.find((itemEl) => {
-        const rect1 = itemEl.getBoundingClientRect();
-        const rect2 = highlightEl?.getBoundingClientRect();
-
-        if (!rect2) {
-          return false;
-        }
-
-        return areRectsIntersecting(rect1, rect2);
-      });
-
-      const itemValue = Number(item?.getAttribute("data-value"));
-
-      if (!itemValue) return;
-
-      let date = state.focusedDate.set(list === "months" ? {month: itemValue} : {year: itemValue});
-
-      state.setFocusedDate(date);
-    },
-    [state, isHeaderExpanded],
-  );
-
   // scroll to the selected month/year when the component is mounted/opened/closed
   useEffect(() => {
     if (!isHeaderExpanded) return;
@@ -120,36 +87,6 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     scrollTo(date.month, "months", false);
     scrollTo(date.year, "years", false);
   }, [isHeaderExpanded]);
-
-  useEffect(() => {
-    // add scroll event listener to monthsListRef
-    const monthsList = monthsListRef.current;
-    const yearsList = yearsListRef.current;
-    const highlightEl = highlightRef.current;
-
-    if (!highlightEl) return;
-
-    const debouncedHandleMonthsScroll = debounce(
-      (e: Event) => handleListScroll(e, highlightEl, "months"),
-      SCROLL_DEBOUNCE_TIME,
-    );
-    const debouncedHandleYearsScroll = debounce(
-      (e: Event) => handleListScroll(e, highlightEl, "years"),
-      SCROLL_DEBOUNCE_TIME,
-    );
-
-    monthsList?.addEventListener("scroll", debouncedHandleMonthsScroll);
-    yearsList?.addEventListener("scroll", debouncedHandleYearsScroll);
-
-    return () => {
-      if (debouncedHandleMonthsScroll) {
-        monthsList?.removeEventListener("scroll", debouncedHandleMonthsScroll);
-      }
-      if (debouncedHandleYearsScroll) {
-        yearsList?.removeEventListener("scroll", debouncedHandleYearsScroll);
-      }
-    };
-  }, [handleListScroll]);
 
   function scrollTo(value: number, list: CalendarPickerListType, smooth = true) {
     const mapListRef = list === "months" ? monthsItemsRef : yearsItemsRef;
@@ -160,6 +97,9 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     const node = map.get(value);
 
     if (!node) return;
+    let date = state.focusedDate.set(list === "months" ? {month: value} : {year: value});
+
+    state.setFocusedDate(date);
 
     // scroll picker list to the selected item
     scrollIntoView(node, {
