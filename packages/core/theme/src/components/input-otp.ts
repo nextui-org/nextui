@@ -40,8 +40,8 @@ const inputOtp = tv({
       "bg-white",
     ],
     helperWrapper: ["text-xs", "mt-0.5", "font-extralight", ""],
-    errorMessage: ["text-red-600"],
-    description: [],
+    errorMessage: ["text-tiny text-danger w-full"],
+    description: ["text-tiny text-foreground-400"],
   },
   variants: {
     variant: {
@@ -71,6 +71,9 @@ const inputOtp = tv({
         segment: "opacity-disabled pointer-events-none",
         input: "pointer-events-none",
       },
+    },
+    isInvalid: {
+      true: {},
     },
     radius: {
       none: {
@@ -345,6 +348,49 @@ const inputOtp = tv({
     {
       variant: "underlined",
       color: "danger",
+      class: {
+        segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
+        caret: ["bg-danger"],
+      },
+    },
+    // isInvalid and flat
+    {
+      variant: "flat",
+      isInvalid: true,
+      class: {
+        segment: ["bg-danger-50", "data-[active=true]:bg-danger-100", "text-danger"],
+        caret: ["bg-danger"],
+      },
+    },
+    // isInvalid and faded
+    {
+      variant: "faded",
+      isInvalid: true,
+      class: {
+        segment: [
+          "bg-danger-50",
+          "text-danger",
+          "border-1",
+          "border-danger-200",
+          "data-[active=true]:border-2",
+          "data-[active=true]:border-danger-400",
+        ],
+        caret: ["bg-danger"],
+      },
+    },
+    // isInvalid and bordered
+    {
+      variant: "bordered",
+      isInvalid: true,
+      class: {
+        segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
+        caret: ["bg-danger"],
+      },
+    },
+    // isInvalid anf underlined
+    {
+      variant: "underlined",
+      isInvalid: true,
       class: {
         segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
         caret: ["bg-danger"],

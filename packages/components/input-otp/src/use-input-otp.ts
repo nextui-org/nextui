@@ -12,28 +12,32 @@ import {
   useProviderContext,
 } from "@nextui-org/system";
 import {inputOtp} from "@nextui-org/theme";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
-import {useCallback, useMemo, useState} from "react";
+import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
+import {useCallback, useMemo} from "react";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
+import {AriaTextFieldProps} from "@react-types/textfield";
+import {AriaTextFieldOptions, useTextField} from "@react-aria/textfield";
+import {useControlledState} from "@react-stately/utils";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
-  ref?: ReactRef<HTMLElement | null>;
+  ref?: ReactRef<HTMLInputElement | null>;
   /**
    * Length required for the otp.
    */
-  otplength: number;
+  length: number;
   /**
    * Regex string for the allowed keys.
    */
   allowedKeys?: string;
   /**
-   * Callback that will be fired when the value has length equal to otplength
+   * Callback that will be fired when the value has length equal to otp length
    */
   onFill?: () => void;
   /**
@@ -44,14 +48,6 @@ interface Props extends HTMLNextUIProps<"div"> {
    * Boolean to disable the animation in input-otp component.
    */
   disableAnimation?: boolean;
-  /**
-   * Description message for the input-otp component.
-   */
-  description?: string;
-  /**
-   * Error message when input-otp component has invalid value.
-   */
-  errorMessage?: string;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -71,6 +67,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    * ```
    */
   classNames?: SlotsToClasses<InputOtpSlots>;
+  /**
+   * React aria onChange event.
+   */
+  onValueChange?: (value: string) => void;
 }
 
 export type ValueTypes = {
@@ -78,7 +78,7 @@ export type ValueTypes = {
   classNames: SlotsToClasses<InputOtpSlots>;
 };
 
-export type UseInputOtpProps = Props & InputOtpVariantProps;
+export type UseInputOtpProps = Props & InputOtpVariantProps & Omit<AriaTextFieldProps, "onChange">;
 
 export function useInputOtp(originalProps: UseInputOtpProps) {
   const globalContext = useProviderContext();
@@ -89,36 +89,37 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     as,
     className,
     classNames,
-    otplength,
+    length,
     onFill = () => {},
+    onValueChange = () => {},
     allowedKeys = "^[0-9]*$",
-    description,
-    errorMessage,
+    validationBehavior = globalContext?.validationBehavior ?? "aria",
     ...otherProps
   } = props;
 
   const Component = as || "div";
 
-  const domRef = useDOMRef(ref);
+  const domRef = useDOMRef<HTMLInputElement>(ref);
 
-  const styles = useMemo(
-    () =>
-      inputOtp({
-        ...variantProps,
-        className,
-      }),
-    [objectToDeps(variantProps), className],
+  const handleValueChange = useCallback(
+    (value: string | undefined) => {
+      onValueChange(value ?? "");
+      if (value && value?.length === length) {
+        onFill();
+      }
+    },
+    [onValueChange],
   );
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useControlledState(
+    props.value,
+    props.defaultValue ?? "",
+    handleValueChange,
+  );
 
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
   const isDisabled = originalProps.isDisabled ?? false;
-
-  const hasHelper = !!description || !!errorMessage;
-  const isInvalid = value.length != otplength;
-
   const baseStyles = clsx(classNames?.base, className);
 
   const {focusProps, isFocused: isInputFocused} = useFocusRing({isTextInput: true});
@@ -126,123 +127,212 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const isFilled = !isEmpty(value);
   const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
 
-  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const updatedValue = e.target.value;
+  const onKeyDownCapture = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const key = e.key;
 
-    if (!allowedKeysRegex.test(updatedValue)) {
+    if (key == "Backspace") {
       return;
     }
-    setValue(updatedValue);
-    if (updatedValue.length == otplength) {
-      onFill();
+    if (key == "ArrowLeft" || key == "ArrowRight") {
+      e.stopPropagation();
+      e.preventDefault();
+
+      return;
     }
+    if (!allowedKeysRegex.test(key)) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      return;
+    }
+
+    return;
   };
+
+  type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
+
+  const {
+    inputProps,
+    isInvalid: isAriaInvalid,
+    validationErrors,
+    validationDetails,
+    descriptionProps,
+    errorMessageProps,
+  } = useTextField(
+    {
+      ...originalProps,
+      validationBehavior,
+      autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
+      value: value,
+      "aria-label": safeAriaLabel(
+        originalProps["aria-label"],
+        originalProps.label,
+        originalProps.placeholder,
+      ),
+      inputElementType: "input",
+      onChange: setValue,
+      minLength: length,
+      maxLength: length,
+    },
+    domRef,
+  );
+
+  const isInvalid = originalProps.isInvalid || isAriaInvalid;
+  const errorMessage =
+    typeof props.errorMessage === "function"
+      ? props.errorMessage({isInvalid, validationErrors, validationDetails})
+      : props.errorMessage || validationErrors?.join(" ");
+  const description = props.description;
+  const hasHelper = !!description || !!errorMessage;
 
   const slots = useMemo(
     () =>
       inputOtp({
         ...variantProps,
         disableAnimation,
+        isInvalid,
       }),
-    [objectToDeps(variantProps), disableAnimation],
+    [objectToDeps(variantProps), disableAnimation, isInvalid],
   );
 
-  const getBaseProps: PropGetter = useCallback(() => {
-    return {
-      className: slots.base({
-        class: baseStyles,
-      }),
-      "data-slot": "base",
-      "data-filled": dataAttr(isFilled),
-      "data-focus": dataAttr(isInputFocused),
-      "data-hover": dataAttr(isHovered),
-      "data-disabled": dataAttr(isDisabled),
-    };
-  }, [slots, baseStyles, isFilled, isInputFocused, isDisabled]);
+  useSafeLayoutEffect(() => {
+    if (!domRef.current) return;
 
-  const getInputWrapperProps: PropGetter = useCallback(() => {
-    return {
-      className: slots.inputWrapper({
-        class: clsx(classNames?.inputWrapper, props?.className),
-      }),
-      "data-slot": "input-wrapper",
-    };
-  }, [slots, classNames?.inputWrapper]);
+    setValue(domRef.current.value);
+  }, [domRef.current]);
+
+  const getBaseProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.base({
+          class: baseStyles,
+        }),
+        onKeyDownCapture: onKeyDownCapture,
+        "data-slot": "base",
+        "data-filled": dataAttr(isFilled),
+        "data-focus": dataAttr(isInputFocused),
+        "data-hover": dataAttr(isHovered),
+        "data-disabled": dataAttr(isDisabled),
+        ...props,
+      };
+    },
+    [slots, baseStyles, isFilled, isInputFocused, isDisabled],
+  );
+
+  const getInputWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.inputWrapper({
+          class: clsx(classNames?.inputWrapper, props?.className),
+        }),
+        "data-slot": "input-wrapper",
+        ...mergeProps(otherProps, props),
+      };
+    },
+    [slots, classNames?.inputWrapper],
+  );
 
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
+        ref: domRef,
         className: slots.input({
-          class: clsx(classNames?.input, props?.classsName),
+          class: clsx(classNames?.input, props?.className),
         }),
-        maxLength: otplength,
-        minLength: otplength,
+        maxLength: length,
+        minLength: length,
         value,
         disabled: isDisabled,
-        ...mergeProps(focusProps, originalProps, hoverProps),
-        onChange: onInputChange,
+        ...mergeProps(
+          focusProps,
+          hoverProps,
+          inputProps,
+          filterDOMProps(otherProps, {
+            enabled: true,
+            omitEventNames: new Set(Object.keys(inputProps)),
+          }),
+          props,
+        ),
         "data-slot": "input",
         "data-focus": dataAttr(isInputFocused),
         "data-filled": dataAttr(isFilled),
         "data-disabled": dataAttr(isDisabled),
       };
     },
-    [slots, classNames?.input, otplength, value, isDisabled, setValue, isInputFocused, isFilled],
+    [
+      domRef,
+      slots,
+      classNames?.input,
+      length,
+      value,
+      isDisabled,
+      setValue,
+      isInputFocused,
+      isFilled,
+    ],
   );
 
-  const getSegmentWrapperProps: PropGetter = useCallback(() => {
-    return {
-      className: slots.segmentWrapper({
-        class: clsx(classNames?.segmentWrapper, props?.className),
-      }),
-      "data-slot": "segment-wrapper",
-      "data-disabled": dataAttr(isDisabled),
-    };
-  }, [slots, classNames?.segmentWrapper, isDisabled]);
+  const getSegmentWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.segmentWrapper({
+          class: clsx(classNames?.segmentWrapper, props?.className),
+        }),
+        "data-slot": "segment-wrapper",
+        "data-disabled": dataAttr(isDisabled),
+        ...props,
+      };
+    },
+    [slots, classNames?.segmentWrapper, isDisabled],
+  );
 
-  const getHelperWrapperProps: PropGetter = useCallback(() => {
-    return {
-      className: slots.helperWrapper({
-        class: clsx(classNames?.helperWrapper, props?.className),
-      }),
-      "data-slot": "helper-wrapper",
-    };
-  }, [slots, classNames?.helperWrapper]);
+  const getHelperWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.helperWrapper({
+          class: clsx(classNames?.helperWrapper, props?.className),
+        }),
+        "data-slot": "helper-wrapper",
+        ...props,
+      };
+    },
+    [slots, classNames?.helperWrapper],
+  );
 
-  const getErrorMessageProps: PropGetter = useCallback(() => {
-    return {
-      className: slots.errorMessage({
-        class: clsx(classNames?.errorMessage, props?.className),
-      }),
-      "data-slot": "error-message",
-    };
-  }, [slots, classNames?.errorMessage]);
+  const getErrorMessageProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.errorMessage({
+          class: clsx(classNames?.errorMessage, props?.className),
+        }),
+        "data-slot": "error-message",
+        ...mergeProps(errorMessageProps, props),
+      };
+    },
+    [slots, classNames?.errorMessage],
+  );
 
-  const getDescriptionProps: PropGetter = useCallback(() => {
-    return {
-      className: slots.description({
-        class: clsx(classNames?.description, props?.className),
-      }),
-      "data-slot": "description",
-    };
-  }, [slots, classNames?.description]);
-
-  const values = useMemo(
-    () => ({
-      classNames,
-      slots,
-    }),
-    [classNames, slots],
+  const getDescriptionProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.description({
+          class: clsx(classNames?.description, props?.className),
+        }),
+        "data-slot": "description",
+        ...mergeProps(descriptionProps, props),
+      };
+    },
+    [slots, classNames?.description],
   );
 
   return {
     Component,
-    styles,
     domRef,
-    otplength,
+    length,
     value,
     isInputFocused,
-    values,
+    classNames,
+    slots,
     hasHelper,
     isInvalid,
     description,
@@ -254,7 +344,6 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     getHelperWrapperProps,
     getErrorMessageProps,
     getDescriptionProps,
-    ...otherProps,
   };
 }
 

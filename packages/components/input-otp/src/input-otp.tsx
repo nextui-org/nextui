@@ -3,18 +3,16 @@ import {useMemo} from "react";
 
 import {UseInputOtpProps, useInputOtp} from "./use-input-otp";
 import {InputOtpSegment} from "./input-otp-segment";
+import {InputOtpProvider} from "./input-otp-context";
 
 export interface InputOtpProps extends UseInputOtpProps {}
 
 const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
+  const context = useInputOtp({...props, ref});
+
   const {
     Component,
-    otplength,
-    domRef,
-    styles,
-    value,
-    isInputFocused,
-    values,
+    length,
     hasHelper,
     isInvalid,
     errorMessage,
@@ -26,29 +24,17 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
     getHelperWrapperProps,
     getErrorMessageProps,
     getDescriptionProps,
-    ...otherProps
-  } = useInputOtp({
-    ...props,
-    ref,
-  });
+  } = context;
 
   const segmentsSection = useMemo(() => {
     return (
       <div {...getSegmentWrapperProps()}>
-        {Array.from(Array(otplength)).map((_, idx) => (
-          <InputOtpSegment
-            key={"segment-" + idx}
-            accessorIndex={idx}
-            classNames={values.classNames}
-            isInputFocused={isInputFocused}
-            otplength={otplength}
-            slots={values.slots}
-            value={value}
-          />
+        {Array.from(Array(length)).map((_, idx) => (
+          <InputOtpSegment key={"segment-" + idx} accessorIndex={idx} />
         ))}
       </div>
     );
-  }, [otplength, values.classNames, values.slots, isInputFocused, value, getSegmentWrapperProps]);
+  }, [getSegmentWrapperProps]);
 
   const inputSection = useMemo(() => {
     return (
@@ -82,11 +68,15 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
   ]);
 
   return (
-    <Component ref={domRef} className={styles} {...otherProps} {...getBaseProps()}>
-      {segmentsSection}
-      {inputSection}
-      {helperSection}
-    </Component>
+    <InputOtpProvider value={context}>
+      <Component {...getBaseProps()}>
+        <div>
+          {segmentsSection}
+          {inputSection}
+          {helperSection}
+        </div>
+      </Component>
+    </InputOtpProvider>
   );
 });
 

@@ -13,21 +13,56 @@ describe("InputOtp", () => {
   });
 
   it("should render correctly", () => {
-    const wrapper = render(<InputOtp otplength={4} />);
+    const wrapper = render(<InputOtp length={4} />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
   it("ref should be forwarded", () => {
-    const ref = React.createRef<HTMLDivElement>();
+    const ref = React.createRef<HTMLInputElement>();
 
-    render(<InputOtp ref={ref} otplength={4} />);
+    render(<InputOtp ref={ref} length={4} />);
     expect(ref.current).not.toBeNull();
   });
 
-  it("should select first segment when clicked", async () => {
-    render(<InputOtp otplength={4} />);
+  it("should have length according to the prop", async () => {
+    render(<InputOtp length={5} />);
+    const segments = document.querySelectorAll("[data-slot=segment]");
 
+    expect(segments.length).toBe(5);
+  });
+
+  it("should display error message", async () => {
+    const errorMessage = "custom error message";
+
+    render(<InputOtp errorMessage={errorMessage} isInvalid={true} length={4} />);
+    const base = document.querySelector("[data-slot=base]")!;
+
+    expect(base).toHaveTextContent(errorMessage);
+  });
+
+  it("should display description message", async () => {
+    const descriptionMessage = "custom description message";
+
+    render(<InputOtp description={descriptionMessage} length={4} />);
+    const base = document.querySelector("[data-slot=base]")!;
+
+    expect(base).toHaveTextContent(descriptionMessage);
+  });
+
+  it("should not focus on disabled", async () => {
+    render(<InputOtp isDisabled length={4} />);
+    const input = document.querySelector("[data-slot=input]")!;
+
+    await act(async () => {
+      await user.click(input);
+    });
+
+    expect(input).not.toHaveAttribute("data-focus", "true");
+  });
+
+  it("should select first segment when clicked", async () => {
+    render(<InputOtp length={4} />);
     const base = document.querySelector("[data-slot=base]")!;
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
@@ -48,7 +83,7 @@ describe("InputOtp", () => {
   });
 
   it("should not be focused when disabled", async () => {
-    render(<InputOtp isDisabled={true} otplength={4} />);
+    render(<InputOtp isDisabled={true} length={4} />);
     const input = document.querySelector("[data-slot=input]")!;
 
     await act(async () => {
@@ -59,7 +94,7 @@ describe("InputOtp", () => {
   });
 
   it("should shift focus to next segment when valid digit is typed", async () => {
-    render(<InputOtp otplength={4} />);
+    render(<InputOtp length={4} />);
 
     const base = document.querySelector("[data-slot=base]")!;
     const input = document.querySelector("[data-slot=input]")!;
@@ -73,27 +108,27 @@ describe("InputOtp", () => {
 
     expect(base).toHaveAttribute("data-focus", "true");
     expect(input).toHaveAttribute("data-focus", "true");
-    //since no input is entered hence segment[1] will not be active
+    // since no input is entered hence segment[1] will not be active
     expect(segments[1].getAttribute("data-active")).toBe(null);
 
     await act(async () => {
       await user.keyboard("1");
     });
 
-    // After the keypress, the focus should shift to segment[1]
+    // after the keypress, the focus should shift to segment[1]
     expect(segments[1]).toHaveAttribute("data-active", "true");
     expect(input).toHaveAttribute("value", "1");
   });
 
   it("should be able to erase the input", async () => {
-    render(<InputOtp otplength={4} />);
+    render(<InputOtp length={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
 
     expect(segments.length).toBe(4);
 
-    // Clicking on the component and typing in  "12"
+    // clicking on the component and typing in  "12"
     await act(async () => {
       await user.click(input);
       await user.keyboard("1");
@@ -104,25 +139,25 @@ describe("InputOtp", () => {
     expect(input).toHaveAttribute("value", "12");
     expect(segments[2]).toHaveAttribute("data-active", "true");
 
-    // Removing the data by pressing backspace.
+    // removing the data by pressing backspace
     await act(async () => {
       await user.keyboard("[BackSpace]");
     });
 
-    // After one Backspace keypress, the value should be "1" and segment[1] should be active
+    // after one Backspace keypress, the value should be "1" and segment[1] should be active
     expect(input).toHaveAttribute("value", "1");
     expect(segments[1]).toHaveAttribute("data-active", "true");
   });
 
   it("should be able to paste value", async () => {
-    render(<InputOtp otplength={4} />);
+    render(<InputOtp length={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
 
     expect(segments.length).toBe(4);
 
-    // Clicking on the component and pasting in  "1234"
+    // clicking on the component and pasting in  "1234"
     await act(async () => {
       await user.click(input);
       await user.paste("1234");
@@ -133,20 +168,20 @@ describe("InputOtp", () => {
   });
 
   it("should not take non-allowed inputs", async () => {
-    render(<InputOtp otplength={4} />);
+    render(<InputOtp length={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
 
     expect(segments.length).toBe(4);
 
-    // Clicking on the component and typing the unallowed letter (here, "a").
+    // clicking on the component and typing the unallowed letter (here, "a")
     await act(async () => {
       await user.click(input);
       await user.keyboard("a");
     });
 
-    //Since unallowed letter was typed, "value" should remain empty and segment[0] remains active
+    // since unallowed letter was typed, "value" should remain empty and segment[0] remains active
     expect(segments[0]).toHaveAttribute("data-active", "true");
     expect(input).toHaveAttribute("value", "");
   });
@@ -155,14 +190,14 @@ describe("InputOtp", () => {
     // below exp matches with chars from small "a" to small "z"
     const regEx = "^[a-z]*$";
 
-    render(<InputOtp allowedKeys={regEx} otplength={4} />);
+    render(<InputOtp allowedKeys={regEx} length={4} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
 
     expect(segments.length).toBe(4);
 
-    // Clicking on the component and typing the "a" letter.
+    // clicking on the component and typing the "a" letter
     await act(async () => {
       await user.click(input);
       await user.keyboard("a");
@@ -178,14 +213,14 @@ describe("InputOtp", () => {
       testVar = 1;
     };
 
-    render(<InputOtp otplength={4} onFill={onFill} />);
+    render(<InputOtp length={4} onFill={onFill} />);
 
     const input = document.querySelector("[data-slot=input]")!;
     const segments = document.querySelectorAll("[data-slot=segment]");
 
     expect(segments.length).toBe(4);
 
-    // Clicking on the component and pasting "1234".
+    // clicking on the component and pasting "1234"
     await act(async () => {
       await user.click(input);
       await user.paste("1234");
@@ -223,9 +258,9 @@ describe("InputOtp with react hook form", () => {
 
     render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <InputOtp otplength={4} {...register("defaultValue")} />
-        <InputOtp otplength={4} {...register("withoutDefaultValue")} />
-        <InputOtp otplength={4} {...register("requiredField", {required: true})} />
+        <InputOtp length={4} {...register("defaultValue")} />
+        <InputOtp length={4} {...register("withoutDefaultValue")} />
+        <InputOtp length={4} {...register("requiredField", {required: true})} />
         {errors.requiredField && <span className="text-danger">This field is required</span>}
         <button type="submit">Submit</button>
       </form>,

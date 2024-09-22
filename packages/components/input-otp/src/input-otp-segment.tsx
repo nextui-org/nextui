@@ -2,38 +2,25 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useMemo} from "react";
 
-import {ValueTypes} from "./use-input-otp";
+import {useInputOtpContext} from "./input-otp-context";
 
 interface InputOtpSegmentProps extends HTMLNextUIProps<"div"> {
-  otplength: number;
   accessorIndex: number;
-  value: string;
-  isInputFocused: boolean;
-  className?: string;
-  classNames?: ValueTypes["classNames"];
-  slots: ValueTypes["slots"];
 }
 
-export const InputOtpSegment = ({
-  otplength,
-  accessorIndex,
-  value,
-  isInputFocused,
-  className,
-  classNames,
-  slots,
-}: InputOtpSegmentProps) => {
+export const InputOtpSegment = ({accessorIndex}: InputOtpSegmentProps) => {
+  const {length, value, isInputFocused, classNames, slots} = useInputOtpContext();
+
   const isActive = useMemo(
     () =>
-      (value.length == accessorIndex ||
-        (value.length == otplength && accessorIndex == otplength - 1)) &&
+      (value.length == accessorIndex || (value.length == length && accessorIndex == length - 1)) &&
       isInputFocused,
     [value, isInputFocused],
   );
   const hasValue = useMemo(() => value.length > accessorIndex, [value, accessorIndex]);
 
-  const segmentStyles = clsx(className, classNames?.segment);
-  const caretStyles = clsx(className, classNames?.caret);
+  const segmentStyles = clsx(classNames?.segment);
+  const caretStyles = clsx(classNames?.caret);
 
   const displayValue = useMemo(() => {
     if (hasValue) {

@@ -1,6 +1,10 @@
 # @nextui-org/input-otp
 
-A Quick description of the component
+InputOTP is a component that allows users to enter otp input. It can be used to get user otp in forms.
+
+This package contains the InputOTPcomponent.
+
+Please refer to the [documentation](https://nextui.org/docs/components/input-otp) for more information.
 
 > This is an internal utility, not intended for public usage.
 

@@ -45,7 +45,9 @@
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/focus": "3.17.1",
     "@react-aria/utils": "3.24.1",
-    "@react-stately/utils": "3.10.1"
+    "@react-stately/utils": "3.10.1",
+    "@react-types/textfield": "3.9.3",
+    "@react-aria/textfield": "3.14.5"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
