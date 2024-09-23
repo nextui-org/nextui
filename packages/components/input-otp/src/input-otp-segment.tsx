@@ -9,7 +9,7 @@ interface InputOtpSegmentProps extends HTMLNextUIProps<"div"> {
 }
 
 export const InputOtpSegment = ({accessorIndex}: InputOtpSegmentProps) => {
-  const {length, value, isInputFocused, classNames, slots} = useInputOtpContext();
+  const {length, value, isInputFocused, classNames, slots, type} = useInputOtpContext();
 
   const isActive = useMemo(
     () =>
@@ -21,17 +21,23 @@ export const InputOtpSegment = ({accessorIndex}: InputOtpSegmentProps) => {
 
   const segmentStyles = clsx(classNames?.segment);
   const caretStyles = clsx(classNames?.caret);
+  const passwordCharStyles = clsx(classNames?.passwordChar);
 
   const displayValue = useMemo(() => {
+    if (hasValue && type == "password") {
+      return <div className={clsx(slots.passwordChar?.({class: passwordCharStyles}))} />;
+    }
+
     if (hasValue) {
       return value[accessorIndex];
     }
+
     if (isActive) {
       return <div className={clsx(slots.caret?.({class: caretStyles}))} />;
     }
 
     return null;
-  }, [hasValue, value, isActive]);
+  }, [type, hasValue, value, isActive]);
 
   return (
     <div

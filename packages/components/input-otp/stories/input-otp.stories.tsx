@@ -144,6 +144,14 @@ export const WithErrorMessage = {
   },
 };
 
+export const Password = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    type: "password",
+  },
+};
+
 export const WithErrorMessageFunction = {
   render: WithReactHookFormTemplate,
   args: {

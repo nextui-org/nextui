@@ -29,6 +29,10 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   ref?: ReactRef<HTMLInputElement | null>;
   /**
+   * Ref to the container DOM node.
+   */
+  baseRef?: ReactRef<HTMLDivElement | null>;
+  /**
    * Length required for the otp.
    */
   length: number;
@@ -39,7 +43,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Callback that will be fired when the value has length equal to otp length
    */
-  onFill?: () => void;
+  onFill?: (v?: string) => void;
   /**
    * Boolean to disable the input-otp component.
    */
@@ -86,26 +90,29 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   const {
     ref,
+    baseRef,
     as,
     className,
     classNames,
-    length,
+    length = 4,
     onFill = () => {},
     onValueChange = () => {},
     allowedKeys = "^[0-9]*$",
     validationBehavior = globalContext?.validationBehavior ?? "aria",
+    type,
     ...otherProps
   } = props;
 
   const Component = as || "div";
 
-  const domRef = useDOMRef<HTMLInputElement>(ref);
+  const inputRef = useDOMRef<HTMLInputElement>(ref);
+  const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
 
   const handleValueChange = useCallback(
     (value: string | undefined) => {
       onValueChange(value ?? "");
       if (value && value?.length === length) {
-        onFill();
+        onFill(value);
       }
     },
     [onValueChange],
@@ -174,7 +181,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       minLength: length,
       maxLength: length,
     },
-    domRef,
+    inputRef,
   );
 
   const isInvalid = originalProps.isInvalid || isAriaInvalid;
@@ -196,14 +203,15 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   );
 
   useSafeLayoutEffect(() => {
-    if (!domRef.current) return;
+    if (!inputRef.current) return;
 
-    setValue(domRef.current.value);
-  }, [domRef.current]);
+    setValue(inputRef.current.value);
+  }, [inputRef.current]);
 
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
+        ref: baseDomRef,
         className: slots.base({
           class: baseStyles,
         }),
@@ -213,10 +221,13 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         "data-focus": dataAttr(isInputFocused),
         "data-hover": dataAttr(isHovered),
         "data-disabled": dataAttr(isDisabled),
+        "data-invalid": dataAttr(isInvalid),
+        "data-required": dataAttr(originalProps?.isRequired),
+        "data-readonly": dataAttr(originalProps?.isReadOnly),
         ...props,
       };
     },
-    [slots, baseStyles, isFilled, isInputFocused, isDisabled],
+    [baseDomRef, slots, baseStyles, isFilled, isInputFocused, isDisabled],
   );
 
   const getInputWrapperProps: PropGetter = useCallback(
@@ -235,7 +246,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ref: domRef,
+        ref: inputRef,
         className: slots.input({
           class: clsx(classNames?.input, props?.className),
         }),
@@ -253,6 +264,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
           }),
           props,
         ),
+        placeholder: "",
         "data-slot": "input",
         "data-focus": dataAttr(isInputFocused),
         "data-filled": dataAttr(isFilled),
@@ -260,7 +272,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       };
     },
     [
-      domRef,
+      inputRef,
       slots,
       classNames?.input,
       length,
@@ -327,7 +339,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   return {
     Component,
-    domRef,
+    inputRef,
     length,
     value,
     isInputFocused,
@@ -337,6 +349,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     isInvalid,
     description,
     errorMessage,
+    type,
     getBaseProps,
     getInputWrapperProps,
     getInputProps,

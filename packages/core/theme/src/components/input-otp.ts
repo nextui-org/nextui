@@ -13,6 +13,7 @@ const inputOtp = tv({
       "outline-none",
       "bg-transparent",
       "text-transparent",
+      "select-none",
     ],
     segmentWrapper: ["inline-flex", "gap-x-1"],
     segment: [
@@ -26,6 +27,7 @@ const inputOtp = tv({
       "data-[active=true]:border-default-400",
       "data-[active=true]:scale-110",
     ],
+    passwordChar: ["w-1", "h-1", "bg-default-800", "rounded-full"],
     caret: [
       "animate-[appearance-in_1s_infinite]",
       "font-extralight",
@@ -75,6 +77,11 @@ const inputOtp = tv({
     isInvalid: {
       true: {},
     },
+    fullWidth: {
+      true: {
+        base: "w-full",
+      },
+    },
     radius: {
       none: {
         segment: "rounded-none",
@@ -116,6 +123,7 @@ const inputOtp = tv({
     variant: "flat",
     color: "default",
     size: "md",
+    radius: "md",
   },
   compoundVariants: [
     // flat & color
@@ -132,6 +140,7 @@ const inputOtp = tv({
       class: {
         segment: ["bg-primary-50", "data-[active=true]:bg-primary-100", "text-primary"],
         caret: ["bg-primary"],
+        passwordChar: ["bg-primary"],
       },
     },
     {
@@ -140,6 +149,7 @@ const inputOtp = tv({
       class: {
         segment: ["bg-secondary-50", "data-[active=true]:bg-secondary-100", "text-secondary"],
         caret: ["bg-secondary"],
+        passwordChar: ["bg-secondary"],
       },
     },
     {
@@ -148,6 +158,7 @@ const inputOtp = tv({
       class: {
         segment: ["bg-success-50", "data-[active=true]:bg-success-100", "text-success"],
         caret: ["bg-success"],
+        passwordChar: ["bg-success"],
       },
     },
     {
@@ -156,6 +167,7 @@ const inputOtp = tv({
       class: {
         segment: ["bg-warning-50", "data-[active=true]:bg-warning-100", "text-warning"],
         caret: ["bg-warning"],
+        passwordChar: ["bg-warning"],
       },
     },
     {
@@ -164,6 +176,7 @@ const inputOtp = tv({
       class: {
         segment: ["bg-danger-50", "data-[active=true]:bg-danger-100", "text-danger"],
         caret: ["bg-danger"],
+        passwordChar: ["bg-danger"],
       },
     },
     // faded & color
@@ -187,6 +200,7 @@ const inputOtp = tv({
           "data-[active=true]:border-primary-400",
         ],
         caret: ["bg-primary"],
+        passwordChar: ["bg-primary"],
       },
     },
     {
@@ -202,6 +216,7 @@ const inputOtp = tv({
           "data-[active=true]:border-secondary-400",
         ],
         caret: ["bg-secondary"],
+        passwordChar: ["bg-secondary"],
       },
     },
     {
@@ -217,6 +232,7 @@ const inputOtp = tv({
           "data-[active=true]:border-success-400",
         ],
         caret: ["bg-success"],
+        passwordChar: ["bg-success"],
       },
     },
     {
@@ -232,6 +248,7 @@ const inputOtp = tv({
           "data-[active=true]:border-warning-400",
         ],
         caret: ["bg-warning"],
+        passwordChar: ["bg-warning"],
       },
     },
     {
@@ -247,6 +264,7 @@ const inputOtp = tv({
           "data-[active=true]:border-danger-400",
         ],
         caret: ["bg-danger"],
+        passwordChar: ["bg-danger"],
       },
     },
     // bordered & color
@@ -263,6 +281,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-primary-200", "text-primary", "data-[active=true]:border-primary-400"],
         caret: ["bg-primary"],
+        passwordChar: ["bg-primary"],
       },
     },
     {
@@ -275,6 +294,7 @@ const inputOtp = tv({
           "data-[active=true]:border-secondary-400",
         ],
         caret: ["bg-secondary"],
+        passwordChar: ["bg-secondary"],
       },
     },
     {
@@ -283,6 +303,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-success-200", "text-success", "data-[active=true]:border-success-400"],
         caret: ["bg-success"],
+        passwordChar: ["bg-success"],
       },
     },
     {
@@ -291,6 +312,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-warning-200", "text-warning", "data-[active=true]:border-warning-400"],
         caret: ["bg-warning"],
+        passwordChar: ["bg-warning"],
       },
     },
     {
@@ -299,6 +321,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
         caret: ["bg-danger"],
+        passwordChar: ["bg-danger"],
       },
     },
     // underlined & color
@@ -315,6 +338,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-primary-200", "text-primary", "data-[active=true]:border-primary-400"],
         caret: ["bg-primary"],
+        passwordChar: ["bg-primary"],
       },
     },
     {
@@ -327,6 +351,7 @@ const inputOtp = tv({
           "data-[active=true]:border-secondary-400",
         ],
         caret: ["bg-secondary"],
+        passwordChar: ["bg-secondary"],
       },
     },
     {
@@ -335,6 +360,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-success-200", "text-success", "data-[active=true]:border-success-400"],
         caret: ["bg-success"],
+        passwordChar: ["bg-success"],
       },
     },
     {
@@ -343,6 +369,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-warning-200", "text-warning", "data-[active=true]:border-warning-400"],
         caret: ["bg-warning"],
+        passwordChar: ["bg-warning"],
       },
     },
     {
@@ -351,6 +378,7 @@ const inputOtp = tv({
       class: {
         segment: ["border-danger-200", "text-danger", "data-[active=true]:border-danger-400"],
         caret: ["bg-danger"],
+        passwordChar: ["bg-danger"],
       },
     },
     // isInvalid and flat
