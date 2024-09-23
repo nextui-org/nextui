@@ -1,5 +1,4 @@
 ---
-"@nextui-org/accordion": patch
 "@nextui-org/calendar": patch
 "@nextui-org/date-picker": patch
 ---
