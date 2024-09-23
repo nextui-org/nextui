@@ -18,6 +18,8 @@ export interface CalendarHeaderProps extends HTMLNextUIProps<"header"> {
   buttonPickerProps?: ButtonProps;
 }
 
+export const monthAndYearPickerToggle = "Month and year picker toggle";
+
 export function CalendarHeader(props: CalendarHeaderProps) {
   const {direction, date, currentMonth, buttonPickerProps} = props;
 
@@ -99,6 +101,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
   return showMonthAndYearPickers ? (
     <Button
       {...headerProps}
+      aria-label={monthAndYearPickerToggle}
       disableAnimation={disableAnimation}
       endContent={<ChevronDownIcon className="chevron-icon" />}
       onKeyDown={handleKeyDown}

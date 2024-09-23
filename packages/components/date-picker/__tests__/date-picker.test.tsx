@@ -5,6 +5,7 @@ import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 import {CalendarDate, CalendarDateTime} from "@internationalized/date";
 import {NextUIProvider} from "@nextui-org/system";
+import {monthAndYearPickerToggle} from "@nextui-org/calendar/src/calendar-header";
 
 import {DatePicker as DatePickerBase, DatePickerProps} from "../src";
 
@@ -524,6 +525,7 @@ describe("DatePicker", () => {
 
   describe("Month and Year Picker", () => {
     const onHeaderExpandedChangeSpy = jest.fn();
+    const valueChangeSpy = jest.fn();
 
     afterEach(() => {
       onHeaderExpandedChangeSpy.mockClear();
@@ -598,6 +600,48 @@ describe("DatePicker", () => {
 
       expect(dialog).not.toBeInTheDocument();
       expect(onHeaderExpandedChangeSpy).not.toHaveBeenCalled();
+    });
+
+    it("should focus the month and year when pressed in the picker", () => {
+      const {getByRole, getByLabelText} = render(
+        <DatePicker
+          showMonthAndYearPickers
+          calendarProps={{
+            isHeaderExpanded: true,
+            onChange: valueChangeSpy,
+          }}
+          defaultValue={new CalendarDate(2024, 4, 26)}
+          label="Date"
+        />,
+      );
+      const dialogButton = getByRole("button");
+
+      triggerPress(dialogButton);
+
+      const dialog = getByRole("dialog");
+      const month = getByRole("button", {name: "April"});
+      const year = getByRole("button", {name: "2024"});
+
+      expect(dialog).toBeVisible();
+      expect(month).toHaveAttribute("data-value", "4");
+      expect(year).toHaveAttribute("data-value", "2024");
+
+      const button = getByLabelText(monthAndYearPickerToggle);
+
+      triggerPress(button);
+
+      const monthBefore = getByRole("button", {name: "March"});
+      const yearBefore = getByRole("button", {name: "2023"});
+
+      expect(monthBefore).toHaveAttribute("data-value", "3");
+      expect(yearBefore).toHaveAttribute("data-value", "2023");
+      expect(monthBefore).toHaveAttribute("tabindex", "-1");
+      expect(yearBefore).toHaveAttribute("tabindex", "-1");
+      triggerPress(monthBefore);
+      triggerPress(yearBefore);
+      expect(valueChangeSpy).not.toHaveBeenCalled();
+      expect(monthBefore).toHaveAttribute("tabindex", "0");
+      expect(yearBefore).toHaveAttribute("tabindex", "0");
     });
 
     it("CalendarBottomContent should render correctly", () => {
