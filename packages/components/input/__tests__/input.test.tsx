@@ -45,6 +45,14 @@ describe("Input", () => {
     expect(clearButton).toBeDisabled();
   });
 
+  it("should not allow clear button to be focusable", () => {
+    const {getByRole} = render(<Input isClearable label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toHaveAttribute("tabIndex", "-1");
+  });
+
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
