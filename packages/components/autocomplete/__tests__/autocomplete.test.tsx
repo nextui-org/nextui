@@ -223,7 +223,7 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
+    // click the clear button
     await act(async () => {
       await userEvent.click(clearButton);
     });
@@ -275,7 +275,7 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
+    // click the clear button
     await act(async () => {
       await userEvent.click(clearButton);
     });
@@ -316,7 +316,7 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
+    /// click the clear button
     await act(async () => {
       await userEvent.click(clearButton);
     });
@@ -360,7 +360,7 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
+    // click the clear button
     await act(async () => {
       await userEvent.click(clearButton);
     });
