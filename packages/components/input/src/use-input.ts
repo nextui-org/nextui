@@ -511,6 +511,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       return {
         ...props,
         type: "button",
+        tabIndex: -1,
         disabled: originalProps.isDisabled,
         "aria-label": "clear input",
         "data-slot": "clear-button",
