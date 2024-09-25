@@ -12,10 +12,10 @@ export type {
   Merge,
   HTMLNextUIProps,
   PropGetter,
+  SharedSelection,
 } from "./types";
 
 export {
-  cn,
   forwardRef,
   toIterator,
   mapPropsVariants,

@@ -1,5 +1,39 @@
 # @nextui-org/system-rsc
 
+## 2.1.6
+
+### Patch Changes
+
+- [#3559](https://github.com/nextui-org/nextui/pull/3559) [`44e89a077`](https://github.com/nextui-org/nextui/commit/44e89a0779c1c98fe275c864fe12834d19302b9c) Thanks [@awesome-pro](https://github.com/awesome-pro)! - added missing `StringToBoolean<keyof V[K]>[]` (#3530)
+
+## 2.1.5
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.1.4
+
+### Patch Changes
+
+- [#3503](https://github.com/nextui-org/nextui/pull/3503) [`5591138bf`](https://github.com/nextui-org/nextui/commit/5591138bff4a393f614c4cb0d505901560c4ceea) Thanks [@wingkwong](https://github.com/wingkwong)! - handled defaultVariants null case in extendVariants (#3502)
+
+## 2.1.3
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- [#3299](https://github.com/nextui-org/nextui/pull/3299) [`f785d1fb0`](https://github.com/nextui-org/nextui/commit/f785d1fb0460df73912bcd6614bc78d46db14e6b) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed `extendVariants` when having `defaultVariants` (#3009)
+
+## 2.1.2
+
+### Patch Changes
+
+- [#2915](https://github.com/nextui-org/nextui/pull/2915) [`e3afa4789`](https://github.com/nextui-org/nextui/commit/e3afa4789a1ac0fa929b2acaca5bd9c520567ab8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - The `cn` utility was moved the `theme` package and updated to support NextUI custom classes.
+
+- [#3018](https://github.com/nextui-org/nextui/pull/3018) [`1109baea6`](https://github.com/nextui-org/nextui/commit/1109baea6ac6aa3feb2be90ef065f61b2c2a06a9) Thanks [@wingkwong](https://github.com/wingkwong)! - fix incorrect tailwind classnames
+
 ## 2.1.1
 
 ### Patch Changes

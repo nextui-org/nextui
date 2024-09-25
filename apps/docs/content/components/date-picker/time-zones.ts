@@ -1,5 +1,5 @@
-const AppTs = `import {DatePicker} from "@nextui-org/react";
-import {parseZonedDateTime} from "@internationalized/date";
+const App = `import {DatePicker} from "@nextui-org/react";
+import {parseZonedDateTime, parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {
   return (
@@ -21,7 +21,7 @@ export default function App() {
 }`;
 
 const react = {
-  "/App.tsx": AppTs,
+  "/App.jsx": App,
 };
 
 export default {

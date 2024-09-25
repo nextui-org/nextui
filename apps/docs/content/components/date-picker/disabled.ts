@@ -6,7 +6,7 @@ export default function App() {
         <DatePicker 
           label="Birth date"
           className="max-w-[284px]"
-          isReadOnly
+          isDisabled
         />
     </div>
   );

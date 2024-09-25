@@ -6,7 +6,7 @@ import {ForwardedRef, ReactElement, Ref} from "react";
 
 import {useDropdownContext} from "./dropdown-context";
 
-interface Props<T> extends Omit<MenuProps<T>, "menuProps"> {}
+interface Props<T extends object = object> extends Omit<MenuProps<T>, "menuProps"> {}
 
 function DropdownMenu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
   const {getMenuProps} = useDropdownContext();
@@ -20,10 +20,10 @@ function DropdownMenu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLU
   );
 }
 
-export type DropdownMenuProps<T = object> = Props<T> & {ref?: Ref<HTMLElement>};
+export type DropdownMenuProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DropdownMenu) as <T = object>(
+export default forwardRef(DropdownMenu) as <T extends object>(
   props: DropdownMenuProps<T>,
 ) => ReactElement;
 

@@ -73,4 +73,24 @@ describe("Image", () => {
     expect(wrapper.getByRole("img")).toHaveAttribute("src", src);
     expect(onLoad).toHaveBeenCalled();
   });
+
+  test("should disable aspect ratio if height is set", () => {
+    const wrapper = render(
+      <>
+        <Image height={30} src={src} />
+        <Image height={"40px"} src={src} />
+        <Image height={50} src={src} width={50} />
+        <Image height={"60px"} src={src} width={50} />
+      </>,
+    );
+
+    const images = wrapper.getAllByRole("img");
+
+    expect(images).toHaveLength(4);
+
+    expect(getComputedStyle(images[0]).height).toBe("30px");
+    expect(getComputedStyle(images[1]).height).toBe("40px");
+    expect(getComputedStyle(images[2]).height).toBe("50px");
+    expect(getComputedStyle(images[3]).height).toBe("60px");
+  });
 });

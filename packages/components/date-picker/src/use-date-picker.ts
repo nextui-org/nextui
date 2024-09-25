@@ -8,12 +8,14 @@ import type {UseDatePickerBaseProps} from "./use-date-picker-base";
 import type {DOMAttributes} from "@nextui-org/system";
 import type {DatePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {useMemo} from "react";
+import {useProviderContext} from "@nextui-org/system";
+import {useMemo, useRef} from "react";
 import {datePicker} from "@nextui-org/theme";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 
@@ -47,13 +49,24 @@ interface Props<T extends DateValue>
   classNames?: SlotsToClasses<DatePickerSlots> & DateInputProps<T>["classNames"];
 }
 
-export type UseDatePickerProps<T extends DateValue> = Props<T> & AriaDatePickerProps<T>;
+export type UseDatePickerProps<T extends DateValue> = Props<T> &
+  AriaDatePickerProps<T> & {
+    /**
+     * Classname or List of classes to change the classNames of the date input element.
+     */
+    dateInputClassNames?: DateInputProps<T>["classNames"];
+  };
 
 export function useDatePicker<T extends DateValue>({
   className,
   classNames,
   ...originalProps
 }: UseDatePickerProps<T>) {
+  const globalContext = useProviderContext();
+
+  const validationBehavior =
+    originalProps.validationBehavior ?? globalContext?.validationBehavior ?? "aria";
+
   const {
     domRef,
     endContent,
@@ -74,12 +87,21 @@ export function useDatePicker<T extends DateValue>({
     userTimeInputProps,
     selectorButtonProps,
     selectorIconProps,
-  } = useDatePickerBase(originalProps);
+    onClose,
+  } = useDatePickerBase({...originalProps, validationBehavior});
 
   let state: DatePickerState = useDatePickerState({
     ...originalProps,
+    validationBehavior,
     shouldCloseOnSelect: () => !state.hasTime,
+    onOpenChange: (isOpen) => {
+      if (!isOpen) {
+        onClose();
+      }
+    },
   });
+
+  const popoverTriggerRef = useRef<HTMLDivElement>(null);
 
   const baseStyles = clsx(classNames?.base, className);
 
@@ -101,7 +123,7 @@ export function useDatePicker<T extends DateValue>({
     calendarProps: ariaCalendarProps,
     descriptionProps,
     errorMessageProps,
-  } = useAriaDatePicker(originalProps, state, domRef);
+  } = useAriaDatePicker({...originalProps, validationBehavior}, state, domRef);
 
   // Time field values
   originalProps.maxValue && "hour" in originalProps.maxValue ? originalProps.maxValue : null;
@@ -115,6 +137,7 @@ export function useDatePicker<T extends DateValue>({
   const getDateInputProps = () => {
     return {
       ...dateInputProps,
+      classNames: {...originalProps?.dateInputClassNames},
       groupProps,
       labelProps,
       createCalendar,
@@ -127,11 +150,14 @@ export function useDatePicker<T extends DateValue>({
         disableAnimation,
       }),
       className: slots.base({class: baseStyles}),
+      innerWrapperProps: {
+        ref: popoverTriggerRef,
+      },
       "data-open": dataAttr(state.isOpen),
     } as DateInputProps;
   };
 
-  const getTimeInputProps = () => {
+  const getTimeInputProps = (): TimeInputProps => {
     if (!showTimeField) return {};
 
     return {
@@ -139,8 +165,8 @@ export function useDatePicker<T extends DateValue>({
       value: state.timeValue,
       onChange: state.setTimeValue,
       granularity: timeGranularity,
-      minValue: timeMinValue,
-      maxValue: timeMaxValue,
+      minValue: timeMinValue ?? undefined,
+      maxValue: timeMaxValue ?? undefined,
       classNames: {
         base: slots.timeInput({
           class: clsx(classNames?.timeInput, userTimeInputProps?.classNames?.base),
@@ -149,15 +175,15 @@ export function useDatePicker<T extends DateValue>({
           class: clsx(classNames?.timeInputLabel, userTimeInputProps?.classNames?.label),
         }),
       },
-    } as TimeInputProps;
+    };
   };
 
-  const getPopoverProps = (props: DOMAttributes = {}) => {
+  const getPopoverProps = (props: DOMAttributes = {}): PopoverProps => {
     return {
       state,
       dialogProps,
       ...popoverProps,
-      ...props,
+      triggerRef: popoverTriggerRef,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -167,10 +193,13 @@ export function useDatePicker<T extends DateValue>({
           ),
         }),
       },
-    } as PopoverProps;
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
+    };
   };
 
-  const getCalendarProps = () => {
+  const getCalendarProps = (): CalendarProps => {
     return {
       ...ariaCalendarProps,
       ...calendarProps,
@@ -178,15 +207,16 @@ export function useDatePicker<T extends DateValue>({
         base: slots.calendar({class: classNames?.calendar}),
         content: slots.calendarContent({class: classNames?.calendarContent}),
       },
-    } as CalendarProps;
+    };
   };
 
-  const getSelectorButtonProps = () => {
+  const getSelectorButtonProps = (): ButtonProps => {
     return {
       ...buttonProps,
       ...selectorButtonProps,
+      onPress: state.toggle,
       className: slots.selectorButton({class: classNames?.selectorButton}),
-    } as ButtonProps;
+    };
   };
 
   const getSelectorIconProps = () => {

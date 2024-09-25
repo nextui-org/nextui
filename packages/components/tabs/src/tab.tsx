@@ -61,6 +61,10 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     isPressed,
   } = useTab({key, isDisabled: isDisabledProp, shouldSelectOnPressUp}, state, domRef);
 
+  if (props.children == null) {
+    delete tabProps["aria-controls"];
+  }
+
   const isDisabled = isDisabledProp || isDisabledItem;
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
@@ -111,11 +115,11 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
           enabled: shouldFilterDOMProps,
           omitPropNames: new Set(["title"]),
         }),
+        {onClick: handleClick},
       )}
       className={slots.tab?.({class: tabStyles})}
       title={otherProps?.titleValue}
       type={Component === "button" ? "button" : undefined}
-      onClick={handleClick}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
         <LazyMotion features={domMax}>

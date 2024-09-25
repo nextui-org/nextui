@@ -18,8 +18,9 @@ Card is a container for text, photos, and actions in the context of a single sub
 ## Installation
 
 <PackageManagers
+  showGlobalInstallWarning
   commands={{
-    cli: "nextui add card",
+    cli: "npx nextui-cli@latest add card",
     npm: "npm install @nextui-org/card",
     yarn: "yarn add @nextui-org/card",
     pnpm: "pnpm add @nextui-org/card",
@@ -89,6 +90,19 @@ If you pass the `isPressable` prop to the card, it will be rendered as a button.
 You can use `Image` component as the cover of the card by taking it out of the `CardBody` component.
 
 <CodeDemo title="Cover Image" files={cardContent.coverImage} />
+
+<Spacer y={4} />
+
+## Slots
+
+- **base**:
+  The main container of the card, where the header, body, and footer are placed.
+- **header**:
+  The header of the card, usually used for the title.
+- **body**:
+  The body of the card, where the main content is placed.
+- **footer**:
+  The footer of the card, usually used for actions.
 
 <Spacer y={4} />
 

@@ -18,8 +18,9 @@ Buttons allow users to perform actions and choose with a single tap.
 ## Installation
 
 <PackageManagers
+  showGlobalInstallWarning
   commands={{
-    cli: "nextui add button",
+    cli: "npx nextui-cli@latest add button",
     npm: "npm install @nextui-org/button",
     yarn: "yarn add @nextui-org/button",
     pnpm: "pnpm add @nextui-org/button",
@@ -100,7 +101,7 @@ You can customize the `Button` component by passing custom Tailwind CSS classes 
 
 You can also use the `useButton` hook to create your own button component.
 
-<CodeDemo showPreview={false} title="Custom Implementation" files={buttonContent.customImpl} />
+<CodeDemo showPreview={false} showOpenInCodeSandbox={false} title="Custom Implementation" files={buttonContent.customImpl} />
 
 ## Button Group
 

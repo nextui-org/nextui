@@ -297,7 +297,9 @@ export function Providers({children}: ProvidersProps) {
 
 ## Breaking Changes
 
-In order to improve the performance and reduce the bundle size, we have removed the `units` creation from the 
+### Removal of the `units` creation
+
+To improve performance and reduce bundle size, we have removed the `units` creation from the 
 `nextui` plugin. [TailwindCSS v3.4](https://tailwindcss.com/blog/tailwindcss-v3-4) added support for `min-h-*` and `min-w-*` classes, so it is no longer needed.
 
 How to upgrade:
@@ -335,8 +337,28 @@ export const MyButton = () => {
 };
 ```
 
-That's it! Your project should now be using the latest version of TailwindCSS and NextUI.
+### Separation for `errorMessage` and `isInvalid`
 
+We are currently working on supporting multiple types of validation, including native HTML constraint validation, custom validation, and real-time validation. 
+Due to this reason, the requirements for displaying error messages have become more varied, and it is necessary to handle validation conditions separately from the `errorMessage`.
+
+How to upgrade:
+
+1. To display `errorMessage`, `isInvalid` must be set to `true`.
+
+```diff-jsx
+<Input
+  type="email"
+  label="Email"
+  variant="bordered"
+  defaultValue="junior2nextui.org"
++ isInvalid={true}
+  errorMessage="Please enter a valid email"
+  className="max-w-xs"
+/>
+```
+
+That's it! Your project should now be using the latest version of TailwindCSS and NextUI.
 
 <Spacer y={4} />
 

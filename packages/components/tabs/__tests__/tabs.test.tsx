@@ -1,5 +1,5 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {act, render, fireEvent, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
@@ -11,7 +11,7 @@ type Item = {
   content?: React.ReactNode;
 };
 
-let tabs: Item[] = [
+let defaultItems: Item[] = [
   {
     id: "item1",
     label: "Item1 ",
@@ -76,7 +76,7 @@ describe("Tabs", () => {
 
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
-      <Tabs aria-label="Tabs static test" items={tabs}>
+      <Tabs aria-label="Tabs static test" items={defaultItems}>
         {(item) => (
           <Tab key={item.id} title={item.label}>
             <div>{item.content}</div>
@@ -86,6 +86,40 @@ describe("Tabs", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("renders property", () => {
+    const wrapper = render(
+      <Tabs aria-label="Tabs property test">
+        {defaultItems.map((item) => (
+          <Tab key={item.id} title={item.label}>
+            <div>{item.content}</div>
+          </Tab>
+        ))}
+      </Tabs>,
+    );
+    const tablist = wrapper.getByRole("tablist");
+
+    expect(tablist).toBeTruthy();
+    const tabs = within(tablist).getAllByRole("tab");
+
+    expect(tabs.length).toBe(3);
+
+    for (let tab of tabs) {
+      expect(tab).toHaveAttribute("tabindex");
+      expect(tab).toHaveAttribute("aria-selected");
+      const isSelected = tab.getAttribute("aria-selected") === "true";
+
+      if (isSelected) {
+        expect(tab).toHaveAttribute("aria-controls");
+        const tabpanel = document.getElementById(tab.getAttribute("aria-controls")!);
+
+        expect(tabpanel).toBeTruthy();
+        expect(tabpanel).toHaveAttribute("aria-labelledby", tab.id);
+        expect(tabpanel).toHaveAttribute("role", "tabpanel");
+        expect(tabpanel).toHaveTextContent(defaultItems[0]?.content as string);
+      }
+    }
   });
 
   it("ref should be forwarded", () => {
@@ -317,5 +351,63 @@ describe("Tabs", () => {
 
     expect(tabWrapper).toHaveAttribute("data-placement", "top");
     expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
+  });
+
+  test("should destory inactive tab panels", () => {
+    const {container} = render(
+      <Tabs aria-label="Tabs test (destroyInactiveTabPanel=true)">
+        <Tab key="tab1" data-testid="item1" title="Tab 1">
+          <input className="border-2" data-testid="input" id="firstTab" />
+        </Tab>
+        <Tab key="tab2" data-testid="item2" title="Tab 2">
+          <p id="secondTab">second tab content</p>
+        </Tab>
+      </Tabs>,
+    );
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(1);
+  });
+
+  test("should not destory inactive tab panels", async () => {
+    const wrapper = render(
+      <Tabs aria-label="Tabs test (destroyInactiveTabPanel=false)" destroyInactiveTabPanel={false}>
+        <Tab key="tab1" data-testid="item1" title="Tab 1">
+          <input className="border-2" data-testid="input" id="firstTab" />
+        </Tab>
+        <Tab key="tab2" data-testid="item2" title="Tab 2">
+          <p id="secondTab">second tab content</p>
+        </Tab>
+      </Tabs>,
+    );
+
+    const {container} = wrapper;
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(2);
+
+    const tab1 = wrapper.getByTestId("item1");
+    const tab2 = wrapper.getByTestId("item2");
+    const input = wrapper.getByTestId("input");
+
+    fireEvent.change(input, {target: {value: "23"}});
+
+    expect(input).toHaveValue("23");
+
+    act(() => {
+      focus(tab1);
+    });
+
+    await act(async () => {
+      await userEvent.keyboard("[ArrowRight]");
+    });
+
+    expect(tab2).toHaveFocus();
+
+    await act(async () => {
+      await userEvent.keyboard("[ArrowLeft]");
+    });
+
+    expect(tab1).toHaveFocus();
+
+    expect(input).toHaveValue("23");
   });
 });

@@ -15,10 +15,10 @@ export type {
   ExtendVariantProps,
   ExtendVariantWithSlotsProps,
   ExtendVariants,
+  SharedSelection,
 } from "@nextui-org/system-rsc";
 
 export {
-  cn,
   forwardRef,
   toIterator,
   mapPropsVariants,

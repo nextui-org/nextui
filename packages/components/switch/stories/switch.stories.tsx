@@ -5,6 +5,8 @@ import {toggle} from "@nextui-org/theme";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SunFilledIcon, MoonFilledIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
+import {button} from "@nextui-org/theme";
+import {useForm} from "react-hook-form";
 
 import {Switch, SwitchProps, SwitchThumbIconProps, useSwitch} from "../src";
 
@@ -131,6 +133,44 @@ const CustomWithHooksTemplate = (args: SwitchProps) => {
   );
 };
 
+const WithReactHookFormTemplate = (args: SwitchProps) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      defaultTrue: true,
+      defaultFalse: false,
+      requiredField: false,
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <Switch {...args} {...register("defaultTrue")}>
+        By default this switch is true
+      </Switch>
+      <Switch {...args} {...register("defaultFalse")}>
+        By default this switch is false
+      </Switch>
+      <Switch {...args} {...register("requiredField", {required: true})}>
+        This switch is required
+      </Switch>
+      {errors.requiredField && <span className="text-danger">This switch is required</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
+  );
+};
+
 export const Default = {
   args: {
     ...defaultProps,
@@ -178,6 +218,14 @@ export const WithIcons = {
   args: {
     ...defaultProps,
     size: "xl",
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

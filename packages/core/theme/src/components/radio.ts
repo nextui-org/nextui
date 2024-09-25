@@ -27,7 +27,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const radio = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer tap-highlight-transparent p-2 -m-2 select-none",
     wrapper: [
       "relative",
       "inline-flex",
@@ -141,7 +141,6 @@ const radio = tv({
     size: "md",
     isDisabled: false,
     isInvalid: false,
-    disableAnimation: false,
   },
 });
 
@@ -187,7 +186,6 @@ const radioGroup = tv({
   defaultVariants: {
     isInvalid: false,
     isRequired: false,
-    disableAnimation: false,
   },
 });
 

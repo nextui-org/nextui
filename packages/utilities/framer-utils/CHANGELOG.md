@@ -1,5 +1,62 @@
 # @nextui-org/framer-utils
 
+## 2.0.25
+
+### Patch Changes
+
+- Updated dependencies [[`4ac7674d1`](https://github.com/nextui-org/nextui/commit/4ac7674d1ec8ed60925412fe1bd1f01ee9f1555a), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/system@2.2.6
+  - @nextui-org/shared-utils@2.0.8
+
+## 2.0.24
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/system@2.2.5
+  - @nextui-org/use-measure@2.0.2
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/system@2.2.4
+
+## 2.0.22
+
+### Patch Changes
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/system@2.2.3
+  - @nextui-org/shared-utils@2.0.6
+
+## 2.0.21
+
+### Patch Changes
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b)]:
+  - @nextui-org/system@2.2.2
+
+## 2.0.20
+
+### Patch Changes
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a), [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/system@2.2.1
+
+## 2.0.19
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`e3afa4789`](https://github.com/nextui-org/nextui/commit/e3afa4789a1ac0fa929b2acaca5bd9c520567ab8), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2), [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a)]:
+  - @nextui-org/system@2.2.0
+
 ## 2.0.18
 
 ### Patch Changes

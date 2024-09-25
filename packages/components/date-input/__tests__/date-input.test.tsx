@@ -63,6 +63,7 @@ describe("DateInput", () => {
               date.compare(new CalendarDate(1980, 1, 8)) <= 0
             );
           }}
+          name="date"
         />,
       );
 
@@ -70,9 +71,7 @@ describe("DateInput", () => {
         await user.tab();
       });
 
-      await act(async () => {
-        await user.keyboard("01011980");
-      });
+      await user.keyboard("01011980");
 
       expect(tree.getByText("Date unavailable.")).toBeInTheDocument();
     });

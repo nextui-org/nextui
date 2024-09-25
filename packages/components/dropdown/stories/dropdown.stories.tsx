@@ -116,7 +116,6 @@ const defaultProps = {
   offset: 7,
   isDisabled: false,
   defaultOpen: false,
-  disableAnimation: false,
 };
 
 const items = [
@@ -152,6 +151,41 @@ const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) 
       </DropdownItem>
     </DropdownMenu>
   </Dropdown>
+);
+
+const ItemCloseOnSelectTemplate = ({
+  color,
+  variant,
+  ...args
+}: DropdownProps & DropdownMenuProps) => (
+  <>
+    <Dropdown {...args}>
+      <DropdownTrigger>
+        <Button>Trigger</Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" color={color} variant={variant}>
+        <DropdownItem key="new">New file</DropdownItem>
+        <DropdownItem key="copy">Copy link</DropdownItem>
+        <DropdownItem key="edit">Edit file</DropdownItem>
+        <DropdownItem key="delete" className="text-danger" closeOnSelect={false} color="danger">
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+    <Dropdown {...args}>
+      <DropdownTrigger>
+        <Button>Trigger</Button>
+      </DropdownTrigger>
+      <DropdownMenu aria-label="Actions" closeOnSelect={false} color={color} variant={variant}>
+        <DropdownItem key="new">New file</DropdownItem>
+        <DropdownItem key="copy">Copy link</DropdownItem>
+        <DropdownItem key="edit">Edit file</DropdownItem>
+        <DropdownItem key="delete" className="text-danger" color="danger">
+          Delete file
+        </DropdownItem>
+      </DropdownMenu>
+    </Dropdown>
+  </>
 );
 
 const DynamicTemplate = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
@@ -738,5 +772,13 @@ export const DisableAnimation = {
     variant: "flat",
     color: "secondary",
     disableAnimation: true,
+  },
+};
+
+export const ItemCloseOnSelect = {
+  render: ItemCloseOnSelectTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

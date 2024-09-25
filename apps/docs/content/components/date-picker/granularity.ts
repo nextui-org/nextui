@@ -1,6 +1,5 @@
 const App = `import {DatePicker} from "@nextui-org/react";
 import {now, parseAbsoluteToLocal} from "@internationalized/date";
-import {useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
   let [date, setDate] = React.useState(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
@@ -34,7 +33,6 @@ export default function App() {
 
 const AppTs = `import {DatePicker} from "@nextui-org/react";
 import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
-import {useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
   let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));

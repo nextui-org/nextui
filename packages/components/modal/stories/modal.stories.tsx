@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React from "react";
 import {Meta} from "@storybook/react";
 import {modal} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
@@ -76,7 +75,6 @@ export default {
 
 const defaultProps = {
   ...modal.defaultVariants,
-  disableAnimation: false,
   isDismissable: true,
   isKeyboardDismissDisabled: false,
 };

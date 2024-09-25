@@ -209,8 +209,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               className={navLinkClasses}
               color="foreground"
               data-active={includes(pathname, "components")}
-              href="/docs/components/avatar"
-              onClick={() => handlePressNavbarItem("Components", "/docs/components/avatar")}
+              href="/docs/components/accordion"
+              onClick={() => handlePressNavbarItem("Components", "/docs/components/accordion")}
             >
               Components
             </NextLink>
@@ -312,13 +312,13 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             as={NextLink}
             className="bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
             color="default"
-            href="/blog/v2.3.0"
+            href="/blog/v2.4.0"
             variant="dot"
-            onClick={() => handlePressNavbarItem("Introducing v2.3.0", "/blog/v2.3.0")}
+            onClick={() => handlePressNavbarItem("New version v2.4.0", "/blog/v2.4.0")}
           >
-            Introducing v2.3.0&nbsp;
-            <span aria-label="tada emoji" role="img">
-              🎉
+            New version v2.4.0&nbsp;
+            <span aria-label="emoji" role="img">
+              🚀
             </span>
           </Chip>
         </NavbarItem>
