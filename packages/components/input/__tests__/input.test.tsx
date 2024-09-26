@@ -37,6 +37,22 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
+  it("should disable the clear button when isDisabled", () => {
+    const {getByRole} = render(<Input isClearable isDisabled label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toBeDisabled();
+  });
+
+  it("should not allow clear button to be focusable", () => {
+    const {getByRole} = render(<Input isClearable label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toHaveAttribute("tabIndex", "-1");
+  });
+
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
@@ -141,7 +157,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = getByRole("button");
+    const clearButton = getByRole("button")!;
 
     expect(clearButton).not.toBeNull();
 
@@ -197,7 +213,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = getByRole("button");
+    const clearButton = getByRole("button")!;
 
     expect(clearButton).not.toBeNull();
 
@@ -256,7 +272,7 @@ describe("Input with React Hook Form", () => {
     input1 = document.querySelector("input[name=withDefaultValue]")!;
     input2 = document.querySelector("input[name=withoutDefaultValue]")!;
     input3 = document.querySelector("input[name=requiredField]")!;
-    submitButton = document.querySelector("button")!;
+    submitButton = document.querySelector('button[type="submit"]')!;
   });
 
   it("should work with defaultValues", () => {
