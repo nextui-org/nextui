@@ -1,11 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
-import {render, act, fireEvent, waitFor} from "@testing-library/react";
+import {act, fireEvent, render, waitFor} from "@testing-library/react";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 import {CalendarDate, CalendarDateTime} from "@internationalized/date";
 import {NextUIProvider} from "@nextui-org/system";
-import {monthAndYearPickerToggle} from "@nextui-org/calendar/src/calendar-header";
 
 import {DatePicker as DatePickerBase, DatePickerProps} from "../src";
 
@@ -603,7 +602,7 @@ describe("DatePicker", () => {
     });
 
     it("should focus the month and year when pressed in the picker", () => {
-      const {getByRole, getByLabelText} = render(
+      const {getByRole} = render(
         <DatePicker
           showMonthAndYearPickers
           calendarProps={{
@@ -626,7 +625,7 @@ describe("DatePicker", () => {
       expect(month).toHaveAttribute("data-value", "4");
       expect(year).toHaveAttribute("data-value", "2024");
 
-      const button = getByLabelText(monthAndYearPickerToggle);
+      const button = document.querySelector<HTMLButtonElement>(`button[data-slot="header"]`)!;
 
       triggerPress(button);
 
