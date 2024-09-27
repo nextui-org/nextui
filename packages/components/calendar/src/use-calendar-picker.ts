@@ -125,6 +125,22 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     (e: React.KeyboardEvent<HTMLElement>, value: number, list: CalendarPickerListType) => {
       const map = getItemsRefMap(list === "months" ? monthsItemsRef : yearsItemsRef);
 
+      if (
+        [
+          "ArrowDown",
+          "ArrowUp",
+          "Home",
+          "End",
+          "PageUp",
+          "PageDown",
+          "Escape",
+          "Enter",
+          " ",
+        ].includes(e.key)
+      ) {
+        e.preventDefault();
+      }
+
       const node = map.get(value);
 
       if (!node) return;
