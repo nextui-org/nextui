@@ -5,9 +5,9 @@ export default function App() {
     <Image
       width={300}
       height={200}
-      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/wrong-src"
-      fallbackSrc="https://via.placeholder.com/300x200"
-      alt="NextUI Image with fallback"
+      src="https://app.requestly.io/delay/1000/https://nextui-docs-v2.vercel.app/images/fruit-4.jpeg"
+      loadingSrc="https://via.placeholder.com/300x200"
+      alt="NextUI Image with custom loading"
     />
   );
 }`;
