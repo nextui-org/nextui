@@ -1,5 +1,32 @@
 # @nextui-org/date-picker
 
+## 2.1.8
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f), [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/button@2.0.38
+  - @nextui-org/calendar@2.0.12
+  - @nextui-org/date-input@2.1.4
+
+## 2.1.7
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11), [`55c92981e`](https://github.com/nextui-org/nextui/commit/55c92981e009b1721e8288341402feb1ebec08f3), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/popover@2.1.28
+  - @nextui-org/calendar@2.0.12
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/button@2.0.38
+  - @nextui-org/date-input@2.1.4
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.1.6
 
 ### Patch Changes

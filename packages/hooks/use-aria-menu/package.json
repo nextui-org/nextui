@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-menu",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "React-aria useMenu hooks with custom implementations",
   "keywords": [
     "use-aria-menu"

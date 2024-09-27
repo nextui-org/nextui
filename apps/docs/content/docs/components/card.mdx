@@ -13,7 +13,7 @@ Card is a container for text, photos, and actions in the context of a single sub
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -90,6 +90,19 @@ If you pass the `isPressable` prop to the card, it will be rendered as a button.
 You can use `Image` component as the cover of the card by taking it out of the `CardBody` component.
 
 <CodeDemo title="Cover Image" files={cardContent.coverImage} />
+
+<Spacer y={4} />
+
+## Slots
+
+- **base**:
+  The main container of the card, where the header, body, and footer are placed.
+- **header**:
+  The header of the card, usually used for the title.
+- **body**:
+  The body of the card, where the main content is placed.
+- **footer**:
+  The footer of the card, usually used for actions.
 
 <Spacer y={4} />
 
