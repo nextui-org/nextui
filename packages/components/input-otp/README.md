@@ -6,8 +6,6 @@ This package contains the InputOTPcomponent.
 
 Please refer to the [documentation](https://nextui.org/docs/components/input-otp) for more information.
 
-> This is an internal utility, not intended for public usage.
-
 ## Installation
 
 ```sh

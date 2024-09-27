@@ -34,7 +34,7 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
         ))}
       </div>
     );
-  }, [getSegmentWrapperProps]);
+  }, [length, getSegmentWrapperProps]);
 
   const inputSection = useMemo(() => {
     return (
@@ -65,6 +65,7 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
     description,
     getHelperWrapperProps,
     getErrorMessageProps,
+    getDescriptionProps,
   ]);
 
   return (

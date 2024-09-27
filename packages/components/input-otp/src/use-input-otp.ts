@@ -115,7 +115,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         onFill(value);
       }
     },
-    [onValueChange],
+    [onValueChange, onFill, length],
   );
 
   const [value, setValue] = useControlledState(
@@ -137,10 +137,10 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const onKeyDownCapture = (e: React.KeyboardEvent<HTMLInputElement>) => {
     const key = e.key;
 
-    if (key == "Backspace") {
+    if (key === "Backspace") {
       return;
     }
-    if (key == "ArrowLeft" || key == "ArrowRight") {
+    if (key === "ArrowLeft" || key === "ArrowRight") {
       e.stopPropagation();
       e.preventDefault();
 

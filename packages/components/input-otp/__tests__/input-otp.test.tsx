@@ -1,5 +1,5 @@
 import * as React from "react";
-import {act, fireEvent, render, renderHook} from "@testing-library/react";
+import {act, render, renderHook} from "@testing-library/react";
 import {useForm} from "react-hook-form";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 
@@ -208,10 +208,7 @@ describe("InputOtp", () => {
   });
 
   it("should call onFill callback when inputOtp is completely filled", async () => {
-    let testVar = 0;
-    const onFill = () => {
-      testVar = 1;
-    };
+    const onFill = jest.fn();
 
     render(<InputOtp length={4} onFill={onFill} />);
 
@@ -226,7 +223,7 @@ describe("InputOtp", () => {
       await user.paste("1234");
     });
 
-    expect(testVar).toBe(1);
+    expect(onFill).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -236,6 +233,11 @@ describe("InputOtp with react hook form", () => {
   let inputOtp3: Element;
   let submitButton: HTMLButtonElement;
   let onSubmit: () => void;
+  let user: UserEvent;
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
 
   beforeEach(() => {
     const {result} = renderHook(() =>
@@ -279,17 +281,13 @@ describe("InputOtp with react hook form", () => {
   });
 
   it("should not submit form when required field is empty", async () => {
-    const user = userEvent.setup();
-
     await user.click(submitButton);
 
     expect(onSubmit).toHaveBeenCalledTimes(0);
   });
 
   it("should submit form when required field is not empty", async () => {
-    fireEvent.change(inputOtp3, {target: {value: "1234"}});
-
-    const user = userEvent.setup();
+    await user.type(inputOtp3, "1234");
 
     await user.click(submitButton);
 

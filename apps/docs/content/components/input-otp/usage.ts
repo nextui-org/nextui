@@ -1,10 +1,27 @@
-const App = `import {InputOtp} from "@nextui-org/react";
+const App = `import {InputOtp, Button} from "@nextui-org/react";
 
 export default function App() {
+  const [value, setValue] = React.useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted OTP:", value);
+    alert("Submitted OTP: " + value);
+  };
+
   return (
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <InputOtp length={4} />
-    </div>
+    <form onSubmit={handleSubmit} className="flex flex-col items-center gap-4">
+      <InputOtp
+        length={4}
+        value={value}
+        onValueChange={setValue}
+        color="primary"
+        size="lg"
+      />
+      <Button type="submit" color="primary">
+        Verify OTP
+      </Button>
+    </form>
   );
 }`;
 
