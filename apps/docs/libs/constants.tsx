@@ -1,4 +1,4 @@
-import {DiscordIcon, GithubIcon, TwitterIcon} from "@/components/icons";
+import {DiscordIcon, GithubIcon, XIcon} from "@/components/icons";
 
 export const TWITTER_USER_NAME = "getnextui";
 export const SITE_URL = "https://nextui.org";
@@ -7,8 +7,8 @@ export const communityAccounts = [
   {
     title: "Twitter",
     description: "For announcements, tips and general information.",
-    icon: <TwitterIcon className="text-[#00ACEE]" size={32} />,
-    href: "https://twitter.com/getnextui",
+    icon: <XIcon className="text-[#ffffff]" size={28} />,
+    href: "https://x.com/getnextui",
     isExternal: true,
   },
   {
