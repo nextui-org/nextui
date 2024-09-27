@@ -161,6 +161,8 @@ export function useCalendarPicker(props: CalendarPickerProps) {
 
       const nextItem = map.get(nextValue);
 
+      scrollTo(nextValue, list);
+
       nextItem?.focus();
     },
     [state],
