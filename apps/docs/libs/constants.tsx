@@ -5,7 +5,7 @@ export const SITE_URL = "https://nextui.org";
 
 export const communityAccounts = [
   {
-    title: "Twitter",
+    title: "X",
     description: "For announcements, tips and general information.",
     icon: <XIcon className="text-[#ffffff]" size={28} />,
     href: "https://x.com/getnextui",

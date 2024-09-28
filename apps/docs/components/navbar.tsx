@@ -325,10 +325,10 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
         <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
-            aria-label="Twitter"
+            aria-label="X"
             className="p-1"
             href={siteConfig.links.twitter}
-            onPress={() => handlePressNavbarItem("Twitter", siteConfig.links.twitter)}
+            onPress={() => handlePressNavbarItem("X", siteConfig.links.twitter)}
           >
             <XIcon className="text-default-600 dark:text-default-500" />
           </Link>
