@@ -1,10 +1,10 @@
 import {parseToRgba, readableColor} from "color2k";
 import {Button, Tooltip} from "@nextui-org/react";
-import {commonColors, semanticColors, SemanticBaseColors, ThemeColors} from "@nextui-org/theme";
+import {commonColors, semanticColors} from "@nextui-org/theme";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useState} from "react";
 import {useTheme} from "next-themes";
-import {isEmpty} from "@nextui-org/shared-utils";
+import {get, isEmpty} from "@nextui-org/shared-utils";
 
 type ColorsItem = {
   color: string;
@@ -106,12 +106,12 @@ const SemanticSwatch = ({
   let value: string = "";
   const [colorName, colorScale] = color.split("-");
 
-  const currentPalette = semanticColors[theme as keyof SemanticBaseColors] || {};
+  const currentPalette = get(semanticColors, theme ?? "", {});
 
   if (!colorScale) {
-    value = (currentPalette[colorName as keyof ThemeColors] as any)?.DEFAULT || "";
+    value = get(currentPalette, `${colorName}.DEFAULT`, "");
   } else {
-    value = (currentPalette[colorName as keyof ThemeColors] as any)?.colorScale || "";
+    value = get(currentPalette, `${colorName}.${colorScale}`, "");
   }
 
   const handleCopy = () => {
