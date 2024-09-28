@@ -138,3 +138,23 @@ export const mapKeys = (
 
   return res;
 };
+
+export const get = (
+  object: Record<string, any>,
+  path: string | (string | number)[],
+  defaultValue?: any,
+): any => {
+  const keys = Array.isArray(path) ? path : path.replace(/\[(\d+)\]/g, ".$1").split(".");
+
+  let res: any = object;
+
+  for (const key of keys) {
+    res = res?.[key];
+
+    if (res === undefined) {
+      return defaultValue;
+    }
+  }
+
+  return res;
+};
