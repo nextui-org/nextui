@@ -36,6 +36,9 @@
   "peerDependencies": {
     "react": ">=18"
   },
+  "dependencies": {
+    "@nextui-org/shared-utils": "workspace:*"
+  },
   "devDependencies": {
     "clean-package": "2.2.0",
     "react": "^18.0.0"
