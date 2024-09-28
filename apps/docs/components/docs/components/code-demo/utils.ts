@@ -13,7 +13,7 @@ export const transformCode = (
     .replace(importRegex, (match) => {
       // get component name from the match ex. "import { Table } from '@nextui-org/react'"
       const componentName = match.match(/\w+/g)?.[1] || "";
-      const matchingImport = imports[componentName] || {};
+      const matchingImport = imports[componentName];
 
       if (matchingImport) {
         // remove the matching import
