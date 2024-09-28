@@ -45,19 +45,19 @@ const defaultProps = {
 };
 
 const Template = (args) => (
-  <div className="w-screen h-screen flex items-center justify-center">
+  <div>
     <InputOtp {...args} />
   </div>
 );
 
-const WithReactHookFormTemplate = (args) => {
+const RequiredTemplate = (args) => {
   const {
     register,
     formState: {errors},
     handleSubmit,
   } = useForm({
     defaultValues: {
-      otp: "1234",
+      otp: "",
     },
   });
 
@@ -67,7 +67,7 @@ const WithReactHookFormTemplate = (args) => {
   };
 
   return (
-    <div className="w-screen h-screen flex flex-col items-center justify-center">
+    <div className="flex flex-col">
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
         <InputOtp {...args} length={4} {...register("otp", {required: true})} />
         {errors.otp && <div className="text-xs text-danger">This field is required</div>}
@@ -83,10 +83,48 @@ const ControlledTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
   return (
-    <div className="w-screen h-screen flex flex-col gap-y-2 items-center justify-center">
+    <div className="flex flex-col gap-y-2">
       <InputOtp {...args} length={4} value={value} onValueChange={setValue} />
       <p className="text-default-500 text-sm">Input value: {value}</p>
     </div>
+  );
+};
+
+const WithReactHookFormTemplate = (args) => {
+  const {
+    register,
+    formState: {errors},
+    handleSubmit,
+  } = useForm({
+    defaultValues: {
+      withDefaultValue: "12",
+      requiredField: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    console.log(data);
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col">
+        <div className="text-default-400/60 text-xs">Default value:</div>
+        <InputOtp {...args} {...register("withDefaultValue")} />
+      </div>
+      <div className="flex flex-col">
+        <div className="text-default-400/60 text-xs">Required value:</div>
+        <InputOtp {...args} {...register("requiredField", {required: true})} />
+        {errors.requiredField && (
+          <span className="text-danger text-tiny">This field is required</span>
+        )}
+      </div>
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+    </form>
   );
 };
 
@@ -99,7 +137,7 @@ export const Default = {
 };
 
 export const Required = {
-  render: WithReactHookFormTemplate,
+  render: RequiredTemplate,
   args: {
     ...defaultProps,
     length: 4,
@@ -111,6 +149,7 @@ export const Disabled = {
   args: {
     ...defaultProps,
     length: 4,
+    defaultValue: "123",
     isDisabled: true,
   },
 };
@@ -179,9 +218,16 @@ export const isInvalid = {
 
 export const Controlled = {
   render: ControlledTemplate,
-
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithReactHookForm = {
+  render: WithReactHookFormTemplate,
+  args: {
+    ...defaultProps,
+    length: 4,
   },
 };
 
@@ -196,6 +242,6 @@ export const CustomWithClassNames = {
       caret: "bg-red-700",
     },
     radius: "md",
-    description: "Custom otp component.",
+    description: "custom otp component",
   },
 };

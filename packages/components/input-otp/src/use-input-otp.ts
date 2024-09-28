@@ -184,6 +184,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     inputRef,
   );
 
+  const isReadOnly = originalProps.isReadOnly ?? false;
   const isInvalid = originalProps.isInvalid || isAriaInvalid;
   const errorMessage =
     typeof props.errorMessage === "function"
@@ -198,6 +199,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         ...variantProps,
         disableAnimation,
         isInvalid,
+        isReadOnly,
       }),
     [objectToDeps(variantProps), disableAnimation, isInvalid],
   );

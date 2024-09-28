@@ -13,9 +13,8 @@ const inputOtp = tv({
       "outline-none",
       "bg-transparent",
       "text-transparent",
-      "select-none",
     ],
-    segmentWrapper: ["inline-flex", "gap-x-1"],
+    segmentWrapper: ["inline-flex", "gap-x-1", "py-2"],
     segment: [
       "h-10",
       "w-10",
@@ -76,6 +75,12 @@ const inputOtp = tv({
     },
     isInvalid: {
       true: {},
+    },
+    isReadOnly: {
+      true: {
+        caret: "bg-transparent",
+        segment: "transition-none data-[active=true]:scale-100",
+      },
     },
     fullWidth: {
       true: {

@@ -2,8 +2,8 @@ const App = `import {InputOtp} from "@nextui-org/react";
 
 export default function App() {
   const exps = [
-    {name: "For below InputOtp, only small alphabets (a to z) are allowed:", value: "^[a-z]*$"} , 
-    {name: "For below InputOtp, only big alphabets(A to Z) are allowed:", value: "^[A-Z]*$"}
+    {name: "For below InputOtp, only lower-case alphabets (a to z) are allowed:", value: "^[a-z]*$"} , 
+    {name: "For below InputOtp, only upper-case alphabets(A to Z) are allowed:", value: "^[A-Z]*$"}
   ];
 
   return (
