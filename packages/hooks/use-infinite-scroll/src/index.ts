@@ -1,4 +1,5 @@
 import {useLayoutEffect, useRef, useCallback} from "react";
+import {debounce} from "@nextui-org/shared-utils";
 
 export interface UseInfiniteScrollProps {
   /**
@@ -23,23 +24,6 @@ export interface UseInfiniteScrollProps {
    * Callback to load more items.
    */
   onLoadMore?: () => void;
-}
-
-function debounce<F extends (...args: any[]) => void>(func: F, waitMilliseconds: number = 0) {
-  let timeout: ReturnType<typeof setTimeout> | undefined;
-
-  return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
-    const later = () => {
-      timeout = undefined;
-      func.apply(this, args);
-    };
-
-    if (timeout !== undefined) {
-      clearTimeout(timeout);
-    }
-
-    timeout = setTimeout(later, waitMilliseconds);
-  };
 }
 
 export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
