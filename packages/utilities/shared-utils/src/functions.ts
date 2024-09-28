@@ -87,11 +87,9 @@ export function debounce<F extends (...args: any[]) => void>(
   let timeout: ReturnType<typeof setTimeout> | undefined;
 
   return function (this: ThisParameterType<F>, ...args: Parameters<F>) {
-    const context = this;
-
     const later = () => {
       timeout = undefined;
-      func.apply(context, args);
+      func.apply(this, args);
     };
 
     if (timeout !== undefined) {
