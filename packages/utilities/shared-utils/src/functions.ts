@@ -121,3 +121,20 @@ export const omit = <Obj, Keys extends keyof Obj>(obj: Obj, keys: Keys[]): Omit<
 export const kebabCase = (s: string) => {
   return s.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase();
 };
+
+export const mapKeys = (
+  obj: Record<string, any>,
+  iteratee: (value: any, key: string) => any,
+): Record<string, any> => {
+  const res: Record<string, any> = {};
+
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key)) {
+      const newKey = iteratee(obj[key], key);
+
+      res[newKey] = obj[key];
+    }
+  }
+
+  return res;
+};

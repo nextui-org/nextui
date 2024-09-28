@@ -6,7 +6,7 @@
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
 import deepMerge from "deepmerge";
-import {omit, kebabCase} from "@nextui-org/shared-utils";
+import {omit, kebabCase, mapKeys} from "@nextui-org/shared-utils";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
@@ -59,13 +59,7 @@ const resolveConfig = (
     // flatten color definitions
     const flatColors = flattenThemeObject(colors) as Record<string, string>;
 
-    const flatLayout = layout
-      ? Object.keys(layout).reduce((acc, key) => {
-          acc[kebabCase(key)] = (layout as Record<string, any>)[key];
-
-          return acc;
-        }, {} as Record<string, any>)
-      : {};
+    const flatLayout = layout ? mapKeys(layout, (_, key) => kebabCase(key)) : {};
 
     // resolved.variants
     resolved.variants.push({
