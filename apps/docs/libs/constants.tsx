@@ -7,7 +7,7 @@ export const communityAccounts = [
   {
     title: "X",
     description: "For announcements, tips and general information.",
-    icon: <XIcon className="text-[#ffffff]" size={28} />,
+    icon: <XIcon className="text-[#333] dark:text-[#E7E7E7]" size={28} />,
     href: "https://x.com/getnextui",
     isExternal: true,
   },
