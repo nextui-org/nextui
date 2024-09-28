@@ -215,10 +215,11 @@ export function useDateRangePicker<T extends DateValue>({
             props.className,
           ),
         }),
+        shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+          ? popoverProps.shouldCloseOnInteractOutside
+          : (element: Element) =>
+              ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
       },
-      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
-        ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
     } as PopoverProps;
   };
 
