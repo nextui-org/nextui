@@ -9,9 +9,11 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
+import {CollectionElement} from "@react-types/shared";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -40,6 +42,40 @@ interface Props extends HTMLNextUIProps<"div"> {
 }
 
 export type UseDropdownProps = Props & Omit<PopoverProps, "children" | "color" | "variant">;
+
+const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined, key: string) => {
+  if (props) {
+    const mergedChildren = Array.isArray(props.children)
+      ? props.children
+      : [...(props?.items || [])];
+
+    if (mergedChildren && mergedChildren.length) {
+      const item = ((mergedChildren as CollectionElement<T>[]).find((item) => {
+        if (item.key === key) {
+          return item;
+        }
+      }) || {}) as {props: MenuProps};
+
+      return item;
+    }
+  }
+
+  return null;
+};
+
+const getCloseOnSelect = <T extends object>(
+  props: Partial<MenuProps<T>> | undefined,
+  key: string,
+  item?: any,
+) => {
+  const mergedItem = item || getMenuItem(props, key);
+
+  if (mergedItem && mergedItem.props && "closeOnSelect" in mergedItem.props) {
+    return mergedItem.props.closeOnSelect;
+  }
+
+  return props?.closeOnSelect;
+};
 
 export function useDropdown(props: UseDropdownProps) {
   const globalContext = useProviderContext();
@@ -122,6 +158,9 @@ export function useDropdown(props: UseDropdownProps) {
         ...props.classNames,
         content: clsx(classNames, classNamesProp?.content, props.className),
       },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
     };
   };
 
@@ -148,16 +187,10 @@ export function useDropdown(props: UseDropdownProps) {
       menuProps,
       closeOnSelect,
       ...mergeProps(props, {
-        onAction: (key: any) => {
-          // @ts-ignore
-          const item = props?.children?.find((item) => item.key === key);
+        onAction: (key: any, item?: any) => {
+          const closeOnSelect = getCloseOnSelect(props, key, item);
 
-          if (item?.props?.closeOnSelect === false) {
-            onMenuAction(false);
-
-            return;
-          }
-          onMenuAction(props?.closeOnSelect);
+          onMenuAction(closeOnSelect);
         },
         onClose: state.close,
       }),

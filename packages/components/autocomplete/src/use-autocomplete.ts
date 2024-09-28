@@ -18,6 +18,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
@@ -384,16 +385,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
-
         if (state.selectedItem) {
           state.setInputValue("");
           state.setSelectedKey(null);
         } else {
           if (allowsCustomValue) {
             state.setInputValue("");
-            state.close();
           }
         }
+        state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
@@ -443,6 +443,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ),
         }),
       },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, inputWrapperRef, state),
       // when the popover is open, the focus should be on input instead of dialog
       // therefore, we skip dialog focus here
       disableDialogFocus: true,

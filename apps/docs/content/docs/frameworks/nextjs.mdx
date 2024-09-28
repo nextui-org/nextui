@@ -15,7 +15,7 @@ Requirements:
 
 ------
 
-
+<CarbonAd/>
 
 To use NextUI in your Next.js project, you need to follow the steps below, depending on your project structure.
 
@@ -115,9 +115,12 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 <Spacer y={4} />
 
-```jsx {3,7,9,11}
+```jsx {6,10,12,14}
 // app/layout.tsx
 
+// globals.css includes @tailwind directives
+// adjust the path if necessary
+import "@/styles/globals.css";
 import {Providers} from "./providers";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
@@ -218,8 +221,12 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 Now, Go to your `root` layout page and wrap it with the `Providers`:
 
-```jsx {2,6,8,10}
+```jsx {6,10,12,14}
 // app/layout.tsx
+
+// globals.css includes @tailwind directives
+// adjust the path if necessary
+import "@/styles/globals.css";
 import {Providers} from "./providers";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
@@ -354,9 +361,12 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 <Spacer y={4} />
 
-```jsx {3,7,9,11}
+```jsx {6,10,12,14}
 // app/layout.tsx
 
+// globals.css includes @tailwind directives
+// adjust the path if necessary
+import "@/styles/globals.css";
 import {Providers} from "./providers";
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
