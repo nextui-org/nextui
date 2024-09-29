@@ -1,6 +1,6 @@
 import * as React from "react";
 import {render, renderHook, fireEvent, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 import {Form} from "@nextui-org/form";
 
@@ -301,7 +301,7 @@ describe("Input with React Hook Form", () => {
   });
 
   describe("validation", () => {
-    let user;
+    let user: UserEvent;
 
     beforeEach(() => {
       user = userEvent.setup();
@@ -383,7 +383,7 @@ describe("Input with React Hook Form", () => {
       it("supports server validation", async () => {
         function Test() {
           let [serverErrors, setServerErrors] = React.useState({});
-          let onSubmit = (e) => {
+          let onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             setServerErrors({
               name: "Invalid name.",
