@@ -387,16 +387,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
-
         if (state.selectedItem) {
           state.setInputValue("");
           state.setSelectedKey(null);
         } else {
           if (allowsCustomValue) {
             state.setInputValue("");
-            state.close();
           }
         }
+        state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
