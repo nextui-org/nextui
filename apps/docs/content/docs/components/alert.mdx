@@ -55,8 +55,10 @@ Alerts are temporary notifications that provide concise feedback about an action
 
 ### isClosable
 
-If `isClosable` is true, a close button appear on alert which can be used to close it.
-It is set to true by default.
+If `isClosable` is true, a close button will appear on the alert which closes it.
+It is set to false by default.
+
+> **Note**: If the `onClose` is passed, the close buton is visible regardless of `isClosable` property.
 
 <CodeDemo title="Loading" files={alertContent.isClosable} />
 
@@ -74,7 +76,7 @@ It is set to true by default.
 | description      | `ReactNode`                                                                  | Description for alert message                                | -         |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The alert color theme.                                       | `default` |
 | radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The alert border radius.                                     | `md`      |
-| isClosable      | `boolean`                                                                    | Whether the close button should be displayed.                | `true`    |
+| isClosable       | `boolean`                                                                    | Whether the close button should be displayed.                | `false`    |
 
 ### Alert Events
 
