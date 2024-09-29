@@ -1,7 +1,9 @@
-import React from "react";
 import {Meta} from "@storybook/react";
+import {Input} from "@nextui-org/input";
+import {useState} from "react";
+import {Button} from "@nextui-org/button";
 
-import {Form} from "../src";
+import {Form, FormProps} from "../src";
 
 export default {
   title: "Components/Form",
@@ -23,7 +25,14 @@ export default {
 
 const defaultProps = {};
 
-const Template = () => <div>test</div>;
+const Template = (args: FormProps) => (
+  <Form {...args} className="flex flex-col gap-2 w-4/5">
+    <Input isRequired label="comment" name="input" />
+    <Button color="primary" type="submit">
+      Submit
+    </Button>
+  </Form>
+);
 
 export const Default = {
   render: Template,
@@ -46,4 +55,19 @@ export const AriaValidation = {
     ...defaultProps,
     validationBehavior: "aria",
   },
+};
+
+export const ServerValidation = () => {
+  const [serverErrors, setServerErrors] = useState({});
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    let errors = {};
+
+    for (let el of e.target.elements) {
+      errors[el.name] = `Invalid value for "${el.name}".`;
+    }
+    setServerErrors(errors);
+  };
+
+  return <Template validationErrors={serverErrors} onSubmit={onSubmit} />;
 };
