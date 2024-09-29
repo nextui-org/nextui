@@ -11,15 +11,16 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
     title,
     description,
     isClosable,
-    isVisible,
-    onClose,
     domRef,
+    handleClose,
     getBaseProps,
     getMainWrapperProps,
     getDescriptionProps,
     getTitleProps,
     getCloseButtonProps,
     color,
+    isVisible,
+    onClose,
   } = useAlert({...props, ref});
 
   const mainWrapper = useMemo(() => {
@@ -32,20 +33,27 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
   }, [title, description, getMainWrapperProps, getTitleProps, getDescriptionProps]);
 
   const baseWrapper = useMemo(() => {
-    return (
-      isVisible && (
-        <div ref={domRef} {...getBaseProps()}>
-          <AlertIcon color={color} />
-          {mainWrapper}
-          {isClosable && (
-            <button onClick={onClose} {...getCloseButtonProps()}>
-              <AlertCloseIcon color={color} />
-            </button>
-          )}
-        </div>
-      )
-    );
-  }, [mainWrapper, isClosable, getCloseButtonProps]);
+    return isVisible ? (
+      <div ref={domRef} {...getBaseProps()}>
+        <AlertIcon color={color} />
+        {mainWrapper}
+        {(isClosable || onClose) && (
+          <button onClick={handleClose} {...getCloseButtonProps()}>
+            <AlertCloseIcon color={color} />
+          </button>
+        )}
+      </div>
+    ) : null;
+  }, [
+    mainWrapper,
+    isClosable,
+    getCloseButtonProps,
+    isVisible,
+    domRef,
+    getBaseProps,
+    handleClose,
+    color,
+  ]);
 
   return <>{baseWrapper}</>;
 });

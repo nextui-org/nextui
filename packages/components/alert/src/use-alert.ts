@@ -55,14 +55,14 @@ export type UseAlertProps = Props & AlertVariantProps;
 export function useAlert(originalProps: UseAlertProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, alert.variantKeys);
 
+  const {title, description, onClose, isClosable, ref, classNames} = props;
+
   const [isVisible, setIsVisible] = useState(true);
+
   const handleClose = () => {
-    setIsVisible(() => false);
+    setIsVisible(false);
+    if (onClose) onClose();
   };
-
-  // By Default, isClosable is condsidered true and onClose simply closes the alert
-  const {title, description, onClose = handleClose, isClosable = true, ref, classNames} = props;
-
   const domRef = useDOMRef(ref);
 
   const slots = useMemo(() => alert({...variantProps}), [objectToDeps(variantProps)]);
@@ -101,8 +101,6 @@ export function useAlert(originalProps: UseAlertProps) {
     title,
     description,
     isClosable,
-    isVisible,
-    onClose,
     domRef,
     getBaseProps,
     getMainWrapperProps,
@@ -110,5 +108,8 @@ export function useAlert(originalProps: UseAlertProps) {
     getTitleProps,
     color: variantProps["color"],
     getCloseButtonProps,
+    handleClose,
+    isVisible,
+    onClose,
   };
 }

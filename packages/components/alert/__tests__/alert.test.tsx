@@ -17,6 +17,7 @@ describe("Alert", () => {
     const ref = React.createRef<HTMLDivElement>();
 
     render(<Alert ref={ref} description={description} title={title} />);
+
     expect(ref.current).not.toBeNull();
   });
 
@@ -30,30 +31,55 @@ describe("Alert", () => {
     expect(descriptionElement).toContainHTML(description);
   });
 
-  it("should show close button when is Closeable", () => {
-    const {getByRole} = render(<Alert description={description} title={title} />);
-    const button = getByRole("button");
+  it("should show close button when is Closable", () => {
+    const {getByRole} = render(<Alert isClosable description={description} title={title} />);
 
-    expect(button).toBeVisible();
+    const closeButton = getByRole("button");
+
+    expect(closeButton).toBeVisible();
   });
 
-  it("should not show close button when not is Closeable", () => {
-    const wrapper = render(<Alert description={description} isClosable={false} title={title} />);
-    const button = wrapper.queryByRole("button");
+  it("should show close button when onClose is passed", () => {
+    const onClose = jest.fn();
 
-    expect(button).toBeNull();
+    const {getByRole} = render(<Alert description={description} title={title} onClose={onClose} />);
+
+    const closeButton = getByRole("button");
+
+    expect(closeButton).toBeVisible();
+  });
+
+  it("should not show close button when not isClosable and onClose is not passed", () => {
+    const wrapper = render(<Alert description={description} title={title} />);
+
+    const closeButton = wrapper.queryByRole("button");
+
+    expect(closeButton).toBeNull();
   });
 
   it("should call the onClose function when clicking on close button", async () => {
     const onClose = jest.fn();
 
     const wrapper = render(<Alert description={description} title={title} onClose={onClose} />);
-    const button = wrapper.getByRole("button");
+
+    const closeButton = wrapper.getByRole("button");
 
     act(() => {
-      button.click();
+      closeButton.click();
     });
 
     expect(onClose).toHaveBeenCalled();
+  });
+
+  it("should close the alert when clicking on close button", async () => {
+    const wrapper = render(<Alert isClosable description={description} title={title} />);
+
+    const closeButton = wrapper.getByRole("button");
+
+    act(() => {
+      closeButton.click();
+    });
+
+    expect(wrapper.container).toBeEmptyDOMElement();
   });
 });
