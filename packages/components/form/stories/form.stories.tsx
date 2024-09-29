@@ -27,6 +27,9 @@ const defaultProps = {};
 
 const Template = (args: FormProps) => (
   <Form {...args} className="flex flex-col gap-2 w-4/5">
+    {/* TODO: Doesn't work due to circular dependencies in the monorepo.
+     * See: https://github.com/vercel/turborepo/discussions/1752
+     */}
     {/* <Input isRequired label="comment" name="input" /> */}
     <Button color="primary" type="submit">
       Submit
