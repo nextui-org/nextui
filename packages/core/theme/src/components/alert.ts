@@ -26,7 +26,7 @@ const alert = tv({
     base: ["flex flex-row w-[342px] h-17  p-3"],
     title: ["text-medium font-normal block h-6"],
     description: ["text-small font-normal h-5"],
-    mainWrapper: ["w-[268px]  h-11 ml-5 rtl:mr-5 rtl:ml-0 flex flex-col box-border items-start"],
+    mainWrapper: ["w-[268px] h-11 ms-5 flex flex-col box-border items-start"],
     closeButton: ["w-6 h-6 cursor-pointer relative"],
   },
   variants: {
