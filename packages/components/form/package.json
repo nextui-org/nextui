@@ -45,7 +45,6 @@
     "react-aria-components": "^1.2.1"
   },
   "devDependencies": {
-    "@nextui-org/input": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",

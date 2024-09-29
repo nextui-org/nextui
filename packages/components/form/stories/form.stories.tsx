@@ -1,6 +1,6 @@
+import React, {useState} from "react";
 import {Meta} from "@storybook/react";
-import {Input} from "@nextui-org/input";
-import {useState} from "react";
+// import {Input} from "@nextui-org/input";
 import {Button} from "@nextui-org/button";
 
 import {Form, FormProps} from "../src";
@@ -27,7 +27,7 @@ const defaultProps = {};
 
 const Template = (args: FormProps) => (
   <Form {...args} className="flex flex-col gap-2 w-4/5">
-    <Input isRequired label="comment" name="input" />
+    {/* <Input isRequired label="comment" name="input" /> */}
     <Button color="primary" type="submit">
       Submit
     </Button>
