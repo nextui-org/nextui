@@ -691,85 +691,6 @@ describe("Autocomplete", () => {
     describe("validationBehavior=native", () => {
       it("supports isRequired", async () => {
         const {getByTestId, getByRole, findByRole} = render(
-          <form data-testid="form">
-            <AutocompleteExample isRequired validationBehavior="native" />
-          </form>,
-        );
-
-        const input = getByRole("combobox") as HTMLInputElement;
-
-        expect(input).toHaveAttribute("required");
-        expect(input).not.toHaveAttribute("aria-required");
-        expect(input).not.toHaveAttribute("aria-describedby");
-        expect(input.validity.valid).toBe(false);
-
-        act(() => {
-          (getByTestId("form") as HTMLFormElement).checkValidity();
-        });
-
-        expect(input).toHaveAttribute("aria-describedby");
-        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Constraints not satisfied",
-        );
-
-        await user.click(input);
-        await user.keyboard("pe");
-
-        const listbox = await findByRole("listbox");
-        const items = within(listbox).getAllByRole("option");
-
-        await user.click(items[0]);
-        expect(input).toHaveAttribute("aria-describedby");
-      });
-    });
-
-    describe("validationBehavior=aria", () => {
-      it("supports validate function", async () => {
-        let {getByRole, findByRole} = render(
-          <form data-testid="form">
-            <AutocompleteExample
-              defaultInputValue="Penguin"
-              validate={(v) => (v.inputValue === "Penguin" ? "Invalid value" : null)}
-              validationBehavior="aria"
-            />
-          </form>,
-        );
-
-        const input = getByRole("combobox") as HTMLInputElement;
-
-        expect(input).toHaveAttribute("aria-describedby");
-        expect(input).toHaveAttribute("aria-invalid", "true");
-        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid value",
-        );
-        expect(input.validity.valid).toBe(true);
-
-        await user.tab();
-        await user.click();
-        // open the select dropdown
-        await user.keyboard("{ArrowDown}");
-
-        const listbox = await findByRole("listbox");
-        const item = within(listbox).getByRole("option", {name: "Zebra"});
-
-        await user.click(item);
-
-        expect(input).not.toHaveAttribute("aria-describedby");
-        expect(input).not.toHaveAttribute("aria-invalid");
-      });
-    });
-  });
-
-  describe("validation", () => {
-    let user;
-
-    beforeAll(() => {
-      user = userEvent.setup();
-    });
-
-    describe("validationBehavior=native", () => {
-      it("supports isRequired", async () => {
-        const {getByTestId, getByRole, findByRole} = render(
           <Form data-testid="form">
             <AutocompleteExample isRequired validationBehavior="native" />
           </Form>,
@@ -863,8 +784,8 @@ describe("Autocomplete", () => {
         let {getByRole, findByRole} = render(
           <form data-testid="form">
             <AutocompleteExample
-              defaultInputValue="Penguin"
-              validate={(v) => (v === "Penguin" ? "Invalid value" : null)}
+              defaultSelectedKey="penguin"
+              validate={(v) => (v.selectedKey === "penguin" ? "Invalid value" : null)}
               validationBehavior="aria"
             />
           </form>,

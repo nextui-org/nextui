@@ -195,7 +195,7 @@ describe("DatePicker", () => {
     });
 
     it("should apply custom dateInput classNames", function () {
-      const {getByRole, getByText} = render(
+      const {getByText} = render(
         <DatePicker
           dateInputClassNames={{
             inputWrapper: "border-green-500",
@@ -209,7 +209,9 @@ describe("DatePicker", () => {
 
       expect(label).toHaveClass("text-green-500");
 
-      const inputWrapper = getByRole("group");
+      const inputWrapper = document.querySelector<HTMLButtonElement>(
+        `div[data-slot="input-wrapper"]`,
+      )!;
 
       expect(inputWrapper).toHaveClass("border-green-500");
     });

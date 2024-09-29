@@ -1282,7 +1282,7 @@ importers:
   packages/components/date-input:
     dependencies:
       '@internationalized/date':
-        specifier: ^3.5.4
+        specifier: 3.5.5
         version: 3.5.5
       '@nextui-org/form':
         specifier: workspace:*
@@ -1294,23 +1294,23 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/datepicker':
-        specifier: 3.10.1
-        version: 3.10.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 3.11.2
+        version: 3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@react-aria/i18n':
-        specifier: 3.11.1
-        version: 3.11.1(react@18.2.0)
+        specifier: 3.12.2
+        version: 3.12.2(react@18.2.0)
       '@react-aria/utils':
+        specifier: 3.25.2
+        version: 3.25.2(react@18.2.0)
+      '@react-stately/datepicker':
+        specifier: 3.10.2
+        version: 3.10.2(react@18.2.0)
+      '@react-types/datepicker':
+        specifier: 3.8.2
+        version: 3.8.2(react@18.2.0)
+      '@react-types/shared':
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
-      '@react-stately/datepicker':
-        specifier: 3.9.4
-        version: 3.9.4(react@18.2.0)
-      '@react-types/datepicker':
-        specifier: 3.7.4
-        version: 3.7.4(react@18.2.0)
-      '@react-types/shared':
-        specifier: 3.23.1
-        version: 3.23.1(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1459,17 +1459,17 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@react-aria/focus':
-        specifier: 3.17.1
-        version: 3.17.1(react@18.2.0)
+        specifier: 3.18.2
+        version: 3.18.2(react@18.2.0)
       '@react-aria/menu':
-        specifier: 3.14.1
-        version: 3.14.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 3.15.3
+        version: 3.15.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@react-aria/utils':
-        specifier: 3.24.1
-        version: 3.24.1(react@18.2.0)
+        specifier: 3.25.2
+        version: 3.25.2(react@18.2.0)
       '@react-stately/menu':
-        specifier: 3.7.1
-        version: 3.7.1(react@18.2.0)
+        specifier: 3.8.2
+        version: 3.8.2(react@18.2.0)
       '@react-types/menu':
         specifier: 3.9.9
         version: 3.9.9(react@18.2.0)
@@ -6689,12 +6689,6 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
 
-  '@react-aria/datepicker@3.10.1':
-    resolution: {integrity: sha512-4HZL593nrNMa1GjBmWEN/OTvNS6d3/16G1YJWlqiUlv11ADulSbqBIjMmkgwrJVFcjrgqtXFy+yyrTA/oq94Zw==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-
   '@react-aria/datepicker@3.11.2':
     resolution: {integrity: sha512-6sbLln3VXSBcBRDgSACBzIzF/5KV5NlNOhZvXPFE6KqFw6GbevjZQTv5BNDXiwA3CQoawIRF7zgRvTANw8HkNA==}
     peerDependencies:
@@ -7078,11 +7072,6 @@ packages:
     peerDependencies:
       react: ^18.2.0
 
-  '@react-stately/datepicker@3.9.4':
-    resolution: {integrity: sha512-yBdX01jn6gq4NIVvHIqdjBUPo+WN8Bujc4OnPw+ZnfA4jI0eIgq04pfZ84cp1LVXW0IB0VaCu1AlQ/kvtZjfGA==}
-    peerDependencies:
-      react: ^18.2.0
-
   '@react-stately/dnd@3.4.2':
     resolution: {integrity: sha512-VrHmNoNdVGrx5JHdz/zewmN+N8rlZe+vL/iAOLmvQ74RRLEz8KDFnHdlhgKg1AZqaSg3JJ18BlHEkS7oL1n+tA==}
     peerDependencies:
@@ -7303,11 +7292,6 @@ packages:
 
   '@react-types/combobox@3.12.1':
     resolution: {integrity: sha512-bd5YwHZWtgnJx4jGbplWbYzXj7IbO5w3IY5suNR7r891rx6IktquZ8GQwyYH0pQ/x+X5LdK2xI59i6+QC2PmlA==}
-    peerDependencies:
-      react: ^18.2.0
-
-  '@react-types/datepicker@3.7.4':
-    resolution: {integrity: sha512-ZfvgscvNzBJpYyVWg3nstJtA/VlWLwErwSkd1ivZYam859N30w8yH+4qoYLa6FzWLCFlrsRHyvtxlEM7lUAt5A==}
     peerDependencies:
       react: ^18.2.0
 
@@ -19859,29 +19843,6 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@react-aria/datepicker@3.10.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.5.5
-      '@internationalized/number': 3.5.3
-      '@internationalized/string': 3.2.3
-      '@react-aria/focus': 3.18.2(react@18.2.0)
-      '@react-aria/form': 3.0.5(react@18.2.0)
-      '@react-aria/i18n': 3.12.2(react@18.2.0)
-      '@react-aria/interactions': 3.22.2(react@18.2.0)
-      '@react-aria/label': 3.7.8(react@18.2.0)
-      '@react-aria/spinbutton': 3.6.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@react-aria/utils': 3.25.2(react@18.2.0)
-      '@react-stately/datepicker': 3.9.4(react@18.2.0)
-      '@react-stately/form': 3.0.3(react@18.2.0)
-      '@react-types/button': 3.9.4(react@18.2.0)
-      '@react-types/calendar': 3.4.6(react@18.2.0)
-      '@react-types/datepicker': 3.7.4(react@18.2.0)
-      '@react-types/dialog': 3.5.12(react@18.2.0)
-      '@react-types/shared': 3.24.1(react@18.2.0)
-      '@swc/helpers': 0.5.9
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
   '@react-aria/datepicker@3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@internationalized/date': 3.5.5
@@ -20020,7 +19981,7 @@ snapshots:
       '@internationalized/string': 3.2.3
       '@react-aria/ssr': 3.9.4(react@18.2.0)
       '@react-aria/utils': 3.25.2(react@18.2.0)
-      '@react-types/shared': 3.23.1(react@18.2.0)
+      '@react-types/shared': 3.24.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
 
@@ -20127,7 +20088,7 @@ snapshots:
       '@react-aria/selection': 3.18.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@react-aria/utils': 3.25.2(react@18.2.0)
       '@react-stately/collections': 3.10.7(react@18.2.0)
-      '@react-stately/menu': 3.7.1(react@18.2.0)
+      '@react-stately/menu': 3.8.2(react@18.2.0)
       '@react-stately/tree': 3.8.1(react@18.2.0)
       '@react-types/button': 3.9.4(react@18.2.0)
       '@react-types/menu': 3.9.9(react@18.2.0)
@@ -20524,7 +20485,7 @@ snapshots:
     dependencies:
       '@react-aria/ssr': 3.9.4(react@18.2.0)
       '@react-stately/utils': 3.10.1(react@18.2.0)
-      '@react-types/shared': 3.23.1(react@18.2.0)
+      '@react-types/shared': 3.24.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       clsx: 2.1.0
       react: 18.2.0
@@ -20690,18 +20651,6 @@ snapshots:
       '@react-stately/overlays': 3.6.10(react@18.2.0)
       '@react-stately/utils': 3.10.3(react@18.2.0)
       '@react-types/datepicker': 3.8.2(react@18.2.0)
-      '@react-types/shared': 3.24.1(react@18.2.0)
-      '@swc/helpers': 0.5.9
-      react: 18.2.0
-
-  '@react-stately/datepicker@3.9.4(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.5.5
-      '@internationalized/string': 3.2.3
-      '@react-stately/form': 3.0.3(react@18.2.0)
-      '@react-stately/overlays': 3.6.7(react@18.2.0)
-      '@react-stately/utils': 3.10.1(react@18.2.0)
-      '@react-types/datepicker': 3.7.4(react@18.2.0)
       '@react-types/shared': 3.24.1(react@18.2.0)
       '@swc/helpers': 0.5.9
       react: 18.2.0
@@ -21036,14 +20985,6 @@ snapshots:
 
   '@react-types/combobox@3.12.1(react@18.2.0)':
     dependencies:
-      '@react-types/shared': 3.24.1(react@18.2.0)
-      react: 18.2.0
-
-  '@react-types/datepicker@3.7.4(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.5.5
-      '@react-types/calendar': 3.4.6(react@18.2.0)
-      '@react-types/overlays': 3.8.7(react@18.2.0)
       '@react-types/shared': 3.24.1(react@18.2.0)
       react: 18.2.0
 
