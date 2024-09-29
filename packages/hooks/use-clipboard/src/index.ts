@@ -40,8 +40,7 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
     input.select();
     try {
       let result = document.execCommand("copy");
-
-      setCopied(result);
+      handleCopyResult(result);
     } catch (err) {
       setCopied(false);
       setError(new Error("useClipboard: document.execCommand is not supported"));
