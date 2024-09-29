@@ -527,7 +527,7 @@ const ServerValidationTemplate = (args: InputProps) => {
 
   return (
     <Form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       validationErrors={serverErrors}
       onSubmit={onSubmit}
     >

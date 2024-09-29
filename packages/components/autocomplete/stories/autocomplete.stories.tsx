@@ -815,11 +815,11 @@ const ServerValidationTemplate = (args: AutocompleteProps) => {
 
   return (
     <Form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       validationErrors={serverErrors}
       onSubmit={onSubmit}
     >
-      <Autocomplete {...args} className="max-w-xs" label="Favorite Animal">
+      <Autocomplete {...args} className="max-w-xs" label="Favorite Animal" name="animals">
         <AutocompleteItem key="red_panda">Red Panda</AutocompleteItem>
         <AutocompleteItem key="cat">Cat</AutocompleteItem>
         <AutocompleteItem key="dog">Dog</AutocompleteItem>
@@ -1006,6 +1006,13 @@ export const WithValidation = {
   },
 };
 
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const WithSections = {
   render: WithSectionsTemplate,
 
@@ -1078,13 +1085,6 @@ export const CustomStyles = {
 export const CustomStylesWithCustomItems = {
   render: CustomStylesWithCustomItemsTemplate,
 
-  args: {
-    ...defaultProps,
-  },
-};
-
-export const WithServerValidation = {
-  render: ServerValidationTemplate,
   args: {
     ...defaultProps,
   },

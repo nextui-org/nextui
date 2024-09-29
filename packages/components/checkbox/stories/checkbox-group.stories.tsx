@@ -91,7 +91,7 @@ const InvalidTemplate = (args: CheckboxGroupProps) => {
 const FormTemplate = (args: CheckboxGroupProps) => {
   return (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         const formData = new FormData(e.currentTarget);
         const selectedCities = formData.getAll("favorite-cities");
@@ -136,37 +136,21 @@ const ControlledTemplate = (args: CheckboxGroupProps) => {
   );
 };
 
-const callServer = (data) => {
-  if (data.terms) {
-    return {ok: true};
-  }
-
-  return {
-    errors: {
-      terms: "You must accept the terms.",
-    },
-  };
-};
-
 const ServerValidationTemplate = (args: CheckboxGroupProps) => {
   const [serverErrors, setServerErrors] = React.useState({});
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    const result = callServer(data);
-
-    if (result.ok) {
-      alert("Submitted successfully");
-    }
-    setServerErrors(result.errors ?? {});
+    setServerErrors({
+      terms: "Please select a valid animal.",
+    });
   };
 
   return (
     <Form
-      className="flex flex-col items-start gap-4"
-      validationErrors={serverErrors ?? undefined}
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
       onSubmit={onSubmit}
     >
       <CheckboxGroup

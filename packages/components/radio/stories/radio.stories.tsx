@@ -94,7 +94,7 @@ const Template = (args: RadioGroupProps) => {
 
   return args.isRequired ? (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         alert(`Submitted value: ${e.target["sample"].value}`);
         e.preventDefault();
@@ -158,7 +158,7 @@ const InvalidTemplate = (args: RadioGroupProps) => {
 
   return args.isRequired ? (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         e.preventDefault();
         alert("Submitted!");
@@ -219,8 +219,8 @@ const ServerValidationTemplate = (args: RadioGroupProps) => {
 
   return (
     <Form
-      className="flex flex-col items-start gap-4"
-      validationErrors={serverErrors ?? undefined}
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
       onSubmit={onSubmit}
     >
       <RadioGroup {...args} label="Choose one option" name="option">
