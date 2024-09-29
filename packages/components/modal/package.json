@@ -36,7 +36,7 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=11.0.22",
+    "framer-motion": ">=11.5.6",
     "@nextui-org/theme": ">=2.1.0",
     "@nextui-org/system": ">=2.0.0"
   },
@@ -65,7 +65,7 @@
     "@nextui-org/button": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "react-lorem-component": "0.13.0",
-    "framer-motion": "^11.3.23",
+    "framer-motion": "^11.9.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

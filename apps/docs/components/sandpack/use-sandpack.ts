@@ -70,7 +70,7 @@ export const useSandpack = ({
   }, {});
 
   let dependencies = {
-    "framer-motion": "11.3.23",
+    "framer-motion": "11.9.0",
     "@nextui-org/react": "latest",
   };
 
@@ -143,7 +143,7 @@ export const useSandpack = ({
 
   // const dependencies = useMemo(() => {
   //   let deps = {
-  //     "framer-motion": "11.3.23",
+  //     "framer-motion": "11.9.0",
   //   };
 
   //   if (hasComponents) {
