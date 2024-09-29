@@ -1,5 +1,4 @@
 ---
-"@nextui-org/table": minor
 "@nextui-org/accordion": patch
 "@nextui-org/avatar": patch
 "@nextui-org/breadcrumbs": patch
