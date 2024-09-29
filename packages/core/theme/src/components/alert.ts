@@ -8,14 +8,12 @@ import {tv} from "../utils/tv";
  * ```js
  * const {base, mainWrapper, title, description} = input({...})
  *
- * <div className={base())}>
- *    // icon
- *
- *    <div classsName ={mainWrapper()}>
+ * <div className={base()}>
+ *    <AlertIcon/>
+ *    <div className={mainWrapper()}>
  *       <div className={title()}>Title</div>
  *       <div className={description()}>Description</div>
  *   </div>
- *
  *    <button>
  *      // close button
  *    </button>
@@ -28,7 +26,7 @@ const alert = tv({
     base: ["flex flex-row w-[342px] h-17  p-3"],
     title: ["text-medium font-normal block h-6"],
     description: ["text-small font-normal h-5"],
-    mainWrapper: ["w-[268px]  h-11 ml-5 flex flex-col box-border items-start"],
+    mainWrapper: ["w-[268px]  h-11 ml-5 rtl:mr-5 rtl:ml-0 flex flex-col box-border items-start"],
     closeButton: ["w-6 h-6 cursor-pointer relative"],
   },
   variants: {
@@ -36,7 +34,7 @@ const alert = tv({
       default: {
         base: ["bg-default-100"],
         title: ["text-foreground"],
-        description: ["text-[default-600]"],
+        description: ["text-default-600"],
       },
       primary: {
         base: ["bg-primary-50"],
