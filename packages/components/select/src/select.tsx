@@ -55,11 +55,13 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
 
   const clearButton = useMemo(() => {
-    if (isClearable) {
-      return state.selectedItems?.length ? (
-        <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>
-      ) : null;
+    if (isClearable && state.selectedItems?.length) {
+      return (
+        <span {...getClearButtonProps()}>{endContent ? endContent : <CloseFilledIcon />}</span>
+      );
     }
+
+    return null;
   }, [isClearable, getClearButtonProps, state]);
 
   const helperWrapper = useMemo(() => {
@@ -137,7 +139,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
             {endContent && state.selectedItems && (
               <VisuallyHidden elementType="span">,</VisuallyHidden>
             )}
-            {/* we display endContent only when we are not displaying clear button */}
+            {/**
+             * we display endContent seperately only when we are not displaying clear button.
+             * otherwise, we would use it as clear button.
+             */}
             {!isClearable && endContent}
           </div>
           {clearButton}
