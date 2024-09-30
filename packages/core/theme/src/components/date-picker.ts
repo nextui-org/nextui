@@ -9,7 +9,7 @@ import {tv} from "../utils/tv";
  */
 const datePicker = tv({
   slots: {
-    base: "group/datepicker w-full",
+    base: "group w-full",
     selectorButton: "-mr-2 text-inherit",
     selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
@@ -23,10 +23,9 @@ const datePicker = tv({
 const dateRangePicker = tv({
   extend: datePicker,
   slots: {
-    calendar: "group/daterangepicker",
+    calendar: "group",
     bottomContent: "flex flex-col gap-y-2",
-    timeInputWrapper:
-      "flex flex-col group-data-[has-multiple-months=true]/daterangepicker:flex-row",
+    timeInputWrapper: "flex flex-col group-data-[has-multiple-months=true]:flex-row",
     separator: "-mx-1 text-inherit",
   },
 });

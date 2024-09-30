@@ -325,7 +325,10 @@ const button = tv({
     {
       variant: "ghost",
       color: "danger",
-      class: [colorVariants.ghost.danger, "data-[hover=true]:!bg-danger !text-danger-foreground"],
+      class: [
+        colorVariants.ghost.danger,
+        "data-[hover=true]:!bg-danger data-[hover=true]:!text-danger-foreground",
+      ],
     },
     // isInGroup / radius / size <-- radius not provided
     {

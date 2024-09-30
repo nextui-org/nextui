@@ -3,6 +3,7 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
+import {RemoveScroll} from "react-remove-scroll";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {m, domAnimation, LazyMotion} from "framer-motion";
@@ -23,10 +24,12 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
 
   const {
     Component: OverlayComponent,
+    isOpen,
     placement,
     backdrop,
     motionProps,
     disableAnimation,
+    shouldBlockScroll,
     getPopoverProps,
     getDialogProps,
     getBackdropProps,
@@ -79,23 +82,27 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
-  const contents = disableAnimation ? (
-    content
-  ) : (
-    <LazyMotion features={domAnimation}>
-      <m.div
-        animate="enter"
-        exit="exit"
-        initial="initial"
-        style={{
-          ...getTransformOrigins(placement === "center" ? "top" : placement),
-        }}
-        variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-        {...motionProps}
-      >
-        {content}
-      </m.div>
-    </LazyMotion>
+  const contents = (
+    <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+      {disableAnimation ? (
+        content
+      ) : (
+        <LazyMotion features={domAnimation}>
+          <m.div
+            animate="enter"
+            exit="exit"
+            initial="initial"
+            style={{
+              ...getTransformOrigins(placement === "center" ? "top" : placement),
+            }}
+            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
+            {...motionProps}
+          >
+            {content}
+          </m.div>
+        </LazyMotion>
+      )}
+    </RemoveScroll>
   );
 
   return (

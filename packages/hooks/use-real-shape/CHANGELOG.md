@@ -1,5 +1,14 @@
 # @nextui-org/use-real-shape
 
+## 2.0.17
+
+### Patch Changes
+
+- [#3607](https://github.com/nextui-org/nextui/pull/3607) [`eda316ab2`](https://github.com/nextui-org/nextui/commit/eda316ab24d390065931daf3aa816cbdbff4fb9a) Thanks [@AnYiEE](https://github.com/AnYiEE)! - ensure exposed functions wrap by `useCallback`
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.16
 
 ### Patch Changes
