@@ -110,6 +110,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Whether to automatically highlight the first item in the list as the user types.
+   * @default false
+   */
+  isAutoHighlight?: boolean;
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
@@ -165,6 +170,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     onOpenChange,
     onClose,
     isReadOnly = false,
+    isAutoHighlight = false,
     ...otherProps
   } = props;
 
@@ -330,6 +336,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isAutoHighlight && isOpen && state.collection.size > 0) {
+      const firstKey = state.collection.getFirstKey();
+
+      state.selectionManager.setFocusedKey(firstKey);
+    }
+  }, [isAutoHighlight, isOpen, state.inputValue, state.collection]);
+
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
   // You can use continuePropagation() to revert this behavior.
@@ -423,6 +437,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
+      isAutoHighlight,
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
@@ -506,6 +521,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     disableAnimation,
     allowsCustomValue,
     selectorIcon,
+    isAutoHighlight,
     getBaseProps,
     getInputProps,
     getListBoxProps,

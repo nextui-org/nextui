@@ -65,6 +65,11 @@ export default {
         type: "boolean",
       },
     },
+    isAutoHighlight: {
+      control: {
+        type: "boolean",
+      },
+    },
     validationBehavior: {
       control: {
         type: "select",
@@ -803,6 +808,21 @@ const WithReactHookFormTemplate = (args: AutocompleteProps) => {
   );
 };
 
+const AutoHighlightTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => (
+  <Autocomplete
+    isAutoHighlight
+    className="max-w-xs"
+    color={color}
+    defaultItems={animalsData}
+    label="Favorite Animal"
+    placeholder="Select an animal"
+    variant={variant}
+    {...args}
+  >
+    {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+  </Autocomplete>
+);
+
 export const Default = {
   render: Template,
   args: {
@@ -1057,6 +1077,13 @@ export const CustomStylesWithCustomItems = {
 
 export const FullyControlled = {
   render: FullyControlledTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithAutoHighlight = {
+  render: AutoHighlightTemplate,
   args: {
     ...defaultProps,
   },
