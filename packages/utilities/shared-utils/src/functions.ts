@@ -8,6 +8,8 @@ type Extractable =
     }
   | undefined;
 
+type Iteratee<T, R> = (value: T) => R;
+
 /**
  * Capitalizes the first letter of a string
  * @param {string} s
@@ -145,6 +147,44 @@ export const get = (
 
     if (res === undefined) {
       return defaultValue;
+    }
+  }
+
+  return res;
+};
+
+export const intersectionBy = <T, R>(
+  ...args: [...arrays: T[][], iteratee: Iteratee<T, R>]
+): T[] => {
+  if (args.length < 2) {
+    throw new Error("intersectionBy requires at least two arrays and an iteratee");
+  }
+
+  const iteratee = args[args.length - 1] as Iteratee<T, R>;
+  const arrays = args.slice(0, -1) as T[][];
+
+  if (arrays.length === 0) {
+    return [];
+  }
+
+  const [first, ...rest] = arrays;
+  const transformedFirst = first.map((item) => iteratee(item));
+
+  const transformedSets: Set<R>[] = rest.map(
+    (array) => new Set(array.map((item) => iteratee(item))),
+  );
+
+  const res: T[] = [];
+  const seen = new Set<R>();
+
+  for (let i = 0; i < first.length; i++) {
+    if (seen.has(transformedFirst[i])) {
+      continue;
+    }
+
+    if (transformedSets.every((set) => set.has(transformedFirst[i]))) {
+      res.push(first[i]);
+      seen.add(transformedFirst[i]);
     }
   }
 
