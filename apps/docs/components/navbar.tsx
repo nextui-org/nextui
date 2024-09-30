@@ -243,7 +243,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               color="foreground"
               data-active={includes(pathname, "themes")}
               href="/themes"
-              onClick={() => handlePressNavbarItem("Figma", "/themes")}
+              onClick={() => handlePressNavbarItem("Themes", "/themes")}
             >
               Themes
             </NextLink>

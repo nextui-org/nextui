@@ -1,6 +1,6 @@
 import {setCssFontSize} from "../../css-vars";
 import {useThemeBuilder} from "../../provider";
-import {Config} from "../../types";
+import {Config, ConfigLayout} from "../../types";
 import {ConfigSection} from "../config-section";
 import {NumberInput} from "../number-input";
 
@@ -9,42 +9,33 @@ interface FontSizesProps {
 }
 
 export function FontSizes({config}: FontSizesProps) {
+  return (
+    <ConfigSection title="Font size (rem)">
+      <FontSizeInput label="Tiny" type="tiny" value={config.layout.fontSize.tiny} />
+      <FontSizeInput label="Small" type="small" value={config.layout.fontSize.small} />
+      <FontSizeInput label="Medium" type="medium" value={config.layout.fontSize.medium} />
+      <FontSizeInput label="Large" type="large" value={config.layout.fontSize.large} />
+    </ConfigSection>
+  );
+}
+
+interface FontSizeInputProps {
+  label: string;
+  type: keyof ConfigLayout["fontSize"];
+  value: string;
+}
+
+function FontSizeInput({label, type, value}: FontSizeInputProps) {
   const {setFontSize} = useThemeBuilder();
 
   return (
-    <ConfigSection title="Font size (rem)">
-      <NumberInput
-        label="Tiny"
-        value={config.layout.fontSize.tiny}
-        onChange={(value) => {
-          setFontSize({tiny: value});
-          setCssFontSize("tiny", value);
-        }}
-      />
-      <NumberInput
-        label="Small"
-        value={config.layout.fontSize.small}
-        onChange={(value) => {
-          setFontSize({small: value});
-          setCssFontSize("small", value);
-        }}
-      />
-      <NumberInput
-        label="Medium"
-        value={config.layout.fontSize.medium}
-        onChange={(value) => {
-          setFontSize({medium: value});
-          setCssFontSize("medium", value);
-        }}
-      />
-      <NumberInput
-        label="Large"
-        value={config.layout.fontSize.large}
-        onChange={(value) => {
-          setFontSize({large: value});
-          setCssFontSize("large", value);
-        }}
-      />
-    </ConfigSection>
+    <NumberInput
+      label={label}
+      value={value}
+      onChange={(value) => {
+        setFontSize({[type]: value});
+        setCssFontSize(type, value);
+      }}
+    />
   );
 }
