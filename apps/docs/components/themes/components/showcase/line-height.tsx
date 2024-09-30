@@ -1,4 +1,4 @@
-import ShowcaseComponent from "components/ShowcaseComponent";
+import {ShowcaseComponent} from "../showcase-component";
 
 export default function FontSizeShowcase() {
   return (
