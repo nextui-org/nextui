@@ -60,7 +60,7 @@ describe("UseClipboard", () => {
     expect(document.execCommand).toHaveBeenCalledWith("copy");
     // Ensure that the copied state is set to true
     expect(result.current.copied).toBe(true);
-    jest.advanceTimersByTime(1000); 
+    jest.advanceTimersByTime(1000);
     expect(result.current.copied).toBe(false);
   });
 });
