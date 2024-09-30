@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/autocomplete",
-  "version": "2.1.5",
+  "version": "2.1.7",
   "description": "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.",
   "keywords": [
     "autocomplete"
@@ -34,24 +34,24 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=10.17.0",
+    "@nextui-org/system": ">=2.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "framer-motion": ">=10.17.0",
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/input": "workspace:*",
     "@nextui-org/listbox": "workspace:*",
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/scroll-shadow": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
-    "@nextui-org/input": "workspace:*",
-    "@nextui-org/button": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/combobox": "3.9.1",
     "@react-aria/focus": "3.17.1",
@@ -64,15 +64,15 @@
     "@react-types/shared": "3.23.1"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/stories-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@react-stately/data": "3.11.4",
-    "framer-motion": "^11.0.28",
     "clean-package": "2.2.0",
+    "framer-motion": "^11.0.28",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.51.3"

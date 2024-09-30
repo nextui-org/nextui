@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/skeleton",
-  "version": "2.0.31",
+  "version": "2.0.32",
   "description": "Skeleton is used to display the loading state of some component.",
   "keywords": [
     "skeleton"

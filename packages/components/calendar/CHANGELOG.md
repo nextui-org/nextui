@@ -1,5 +1,17 @@
 # @nextui-org/calendar
 
+## 2.0.12
+
+### Patch Changes
+
+- [#3656](https://github.com/nextui-org/nextui/pull/3656) [`55c92981e`](https://github.com/nextui-org/nextui/commit/55c92981e009b1721e8288341402feb1ebec08f3) Thanks [@ameybh](https://github.com/ameybh)! - fixed arrow keys order when html has dir="rtl" (#3641, #3642)
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/button@2.0.38
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.11
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/link",
-  "version": "2.0.34",
+  "version": "2.0.35",
   "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
   "keywords": [
     "link"

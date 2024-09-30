@@ -1,5 +1,15 @@
 # @nextui-org/system
 
+## 2.2.6
+
+### Patch Changes
+
+- [#2943](https://github.com/nextui-org/nextui/pull/2943) [`4ac7674d1`](https://github.com/nextui-org/nextui/commit/4ac7674d1ec8ed60925412fe1bd1f01ee9f1555a) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix missing `useHref` logic (#2934)
+
+- Updated dependencies [[`44e89a077`](https://github.com/nextui-org/nextui/commit/44e89a0779c1c98fe275c864fe12834d19302b9c)]:
+  - @nextui-org/system-rsc@2.1.6
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.2.5
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @nextui-org/link
 
+## 2.0.35
+
+### Patch Changes
+
+- [#3569](https://github.com/nextui-org/nextui/pull/3569) [`3c0a486ce`](https://github.com/nextui-org/nextui/commit/3c0a486ceaa73479e5909d3add1cd14619f62796) Thanks [@awesome-pro](https://github.com/awesome-pro)! - use `@nextui-org/use-aria-link` to suppress onClick deprecation warning (#3196)
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.34
 
 ### Patch Changes
