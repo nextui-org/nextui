@@ -10,7 +10,7 @@ import type {DatePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {useProviderContext} from "@nextui-org/system";
 import {useMemo, useRef} from "react";
-import {datePicker} from "@nextui-org/theme";
+import {datePicker, cn} from "@nextui-org/theme";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -204,8 +204,11 @@ export function useDatePicker<T extends DateValue>({
       ...ariaCalendarProps,
       ...calendarProps,
       classNames: {
-        base: slots.calendar({class: classNames?.calendar}),
-        content: slots.calendarContent({class: classNames?.calendarContent}),
+        ...calendarProps.classNames,
+        base: slots.calendar({class: cn(calendarProps?.classNames?.base, classNames?.calendar)}),
+        content: slots.calendarContent({
+          class: cn(calendarProps?.classNames?.content, classNames?.calendarContent),
+        }),
       },
     };
   };
