@@ -323,6 +323,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [inputRef.current]);
 
+  // focus first non-disabled item
+  useEffect(() => {
+    let key = state.collection.getFirstKey();
+
+    while (key && state.disabledKeys.has(key)) {
+      key = state.collection.getKeyAfter(key);
+    }
+    state.selectionManager.setFocusedKey(key);
+  }, [state.collection, state.disabledKeys]);
+
   useEffect(() => {
     if (isOpen) {
       // apply the same with to the popover as the select
@@ -399,16 +409,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       },
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
-
         if (state.selectedItem) {
           state.setInputValue("");
           state.setSelectedKey(null);
         } else {
           if (allowsCustomValue) {
             state.setInputValue("");
-            state.close();
           }
         }
+        state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({

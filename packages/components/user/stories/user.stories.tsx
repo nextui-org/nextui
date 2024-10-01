@@ -58,7 +58,7 @@ export const WithLinkDescription = {
   args: {
     name: "Junior Garcia",
     description: (
-      <Link href="https://twitter.com/jrgarciadev" size="sm">
+      <Link href="https://x.com/jrgarciadev" size="sm">
         @jrgarciadev
       </Link>
     ),
