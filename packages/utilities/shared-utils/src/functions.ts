@@ -8,7 +8,7 @@ type Extractable =
     }
   | undefined;
 
-type Iteratee<T, R> = (value: T) => R;
+type Iteratee<T> = ((value: T) => any) | keyof T;
 
 /**
  * Capitalizes the first letter of a string
@@ -153,38 +153,51 @@ export const get = (
   return res;
 };
 
-export const intersectionBy = <T, R>(
-  ...args: [...arrays: T[][], iteratee: Iteratee<T, R>]
-): T[] => {
+export const intersectionBy = <T>(...args: [...arrays: T[][], iteratee: Iteratee<T>]): T[] => {
   if (args.length < 2) {
     throw new Error("intersectionBy requires at least two arrays and an iteratee");
   }
 
-  const iteratee = args[args.length - 1] as Iteratee<T, R>;
+  const iteratee = args[args.length - 1];
   const arrays = args.slice(0, -1) as T[][];
 
   if (arrays.length === 0) {
     return [];
   }
 
-  const [first, ...rest] = arrays;
-  const transformedFirst = first.map((item) => iteratee(item));
+  const getIterateeValue = (item: T): unknown => {
+    if (typeof iteratee === "function") {
+      return (iteratee as (value: T) => any)(item);
+    } else if (typeof iteratee === "string") {
+      return (item as any)[iteratee];
+    } else {
+      throw new Error("Iteratee must be a function or a string key of the array elements");
+    }
+  };
 
-  const transformedSets: Set<R>[] = rest.map(
-    (array) => new Set(array.map((item) => iteratee(item))),
+  const [first, ...rest] = arrays;
+  const transformedFirst = first.map((item) => getIterateeValue(item));
+
+  const transformedSets: Set<unknown>[] = rest.map(
+    (array) => new Set(array.map((item) => getIterateeValue(item))),
   );
 
   const res: T[] = [];
-  const seen = new Set<R>();
+  const seen = new Set<unknown>();
 
   for (let i = 0; i < first.length; i++) {
-    if (seen.has(transformedFirst[i])) {
+    const item = first[i];
+    const transformed = transformedFirst[i];
+
+    if (seen.has(transformed)) {
       continue;
     }
 
-    if (transformedSets.every((set) => set.has(transformedFirst[i]))) {
-      res.push(first[i]);
-      seen.add(transformedFirst[i]);
+    const existsInAll = transformedSets.every((set) => set.has(transformed));
+
+    if (existsInAll) {
+      res.push(item);
+      seen.add(transformed);
     }
   }
 
