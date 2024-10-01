@@ -47,7 +47,7 @@ We're excited to see the community adopt NextUI, raise issues, and provide feedb
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
 
 - [Discord](https://discord.gg/9b6yyZKmH4)
-- [Twitter](https://twitter.com/getnextui)
+- [X](https://x.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
 
 ## Contributing

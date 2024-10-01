@@ -349,7 +349,7 @@ const PresetsTemplate = (args: DateRangePickerProps) => {
           </ButtonGroup>
         }
         calendarProps={{
-          focusedValue: value.start,
+          focusedValue: value?.start,
           onFocusChange: (val) => setValue({...value, start: val}),
           nextButtonProps: {
             variant: "bordered",

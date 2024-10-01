@@ -9,7 +9,7 @@ import type {DOMAttributes} from "@nextui-org/system";
 import type {DatePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 
 import {useProviderContext} from "@nextui-org/system";
-import {useMemo} from "react";
+import {useMemo, useRef} from "react";
 import {datePicker} from "@nextui-org/theme";
 import {useDatePickerState} from "@react-stately/datepicker";
 import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
@@ -101,6 +101,8 @@ export function useDatePicker<T extends DateValue>({
     },
   });
 
+  const popoverTriggerRef = useRef<HTMLDivElement>(null);
+
   const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
@@ -148,6 +150,9 @@ export function useDatePicker<T extends DateValue>({
         disableAnimation,
       }),
       className: slots.base({class: baseStyles}),
+      innerWrapperProps: {
+        ref: popoverTriggerRef,
+      },
       "data-open": dataAttr(state.isOpen),
     } as DateInputProps;
   };
@@ -178,6 +183,7 @@ export function useDatePicker<T extends DateValue>({
       state,
       dialogProps,
       ...popoverProps,
+      triggerRef: popoverTriggerRef,
       classNames: {
         content: slots.popoverContent({
           class: clsx(
@@ -189,7 +195,7 @@ export function useDatePicker<T extends DateValue>({
       },
       shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
         ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
     };
   };
 
@@ -198,8 +204,11 @@ export function useDatePicker<T extends DateValue>({
       ...ariaCalendarProps,
       ...calendarProps,
       classNames: {
-        base: slots.calendar({class: classNames?.calendar}),
-        content: slots.calendarContent({class: classNames?.calendarContent}),
+        ...calendarProps.classNames,
+        base: slots.calendar({class: clsx(classNames?.base, calendarProps.classNames?.base)}),
+        content: slots.calendarContent({
+          class: clsx(classNames?.calendarContent, calendarProps.classNames?.content),
+        }),
       },
     };
   };
@@ -208,6 +217,7 @@ export function useDatePicker<T extends DateValue>({
     return {
       ...buttonProps,
       ...selectorButtonProps,
+      onPress: state.toggle,
       className: slots.selectorButton({class: classNames?.selectorButton}),
     };
   };

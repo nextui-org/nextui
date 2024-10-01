@@ -30,7 +30,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const toggle = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none",
     wrapper: [
       "px-1",
       "relative",

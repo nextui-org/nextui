@@ -1,4 +1,4 @@
-import {RefObject, useState, useEffect} from "react";
+import {RefObject, useCallback, useState, useEffect} from "react";
 import {ShapeType, getRealShape} from "@nextui-org/react-utils";
 
 export type ShapeResult = [ShapeType, () => void];
@@ -8,15 +8,15 @@ export function useRealShape<T extends HTMLElement>(ref: RefObject<T | null>) {
     width: 0,
     height: 0,
   });
-  const updateShape = () => {
+  const updateShape = useCallback(() => {
     if (!ref?.current) return;
 
     const {width, height} = getRealShape(ref.current);
 
     setState({width, height});
-  };
+  }, []);
 
-  useEffect(() => updateShape(), [ref.current]);
+  useEffect(() => updateShape(), [updateShape]);
 
   return [shape, updateShape] as ShapeResult;
 }

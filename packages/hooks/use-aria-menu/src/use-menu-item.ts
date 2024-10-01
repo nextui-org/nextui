@@ -94,7 +94,7 @@ export interface AriaMenuItemProps
    * Handler that is called when the user activates the item.
    * @deprecated - pass to the menu instead.
    */
-  onAction?: (key: Key) => void;
+  onAction?: (key: Key, item: any) => void;
 
   /**
    * The native button click event handler
@@ -167,11 +167,11 @@ export function useMenuItem<T>(
 
     if (props.onAction) {
       // @ts-ignore
-      props.onAction(key);
+      props.onAction(key, item);
       // @ts-ignore
     } else if (data.onAction) {
       // @ts-ignore
-      data.onAction(key);
+      data.onAction(key, item);
     }
 
     if (e.target instanceof HTMLAnchorElement) {
