@@ -14,6 +14,10 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
+   * A property to set initial files (which might be fetched) or to control files from outside of the component.
+   */
+  files?: File[];
+  /**
    * If a different browse button is needed.
    */
   browseButton?: ReactElement;

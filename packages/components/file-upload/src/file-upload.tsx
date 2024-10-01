@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
-import {cloneElement, useCallback, useMemo, useRef, useState} from "react";
+import {cloneElement, useCallback, useEffect, useMemo, useRef, useState} from "react";
 
 import {UseFileUploadProps, useFileUpload} from "./use-file-upload";
 import {FileUploadItem} from "./file-upload-item";
@@ -12,6 +12,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     Component,
     domRef,
     children,
+    files: initialFiles,
     styles,
     maxItems,
     maxItemsText,
@@ -34,7 +35,11 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
   const inputFileRef = useRef<HTMLInputElement>(null);
   const singleInputFileRef = useRef<HTMLInputElement>(null);
-  const [files, setFiles] = useState<File[]>([]);
+  const [files, setFiles] = useState<File[]>(initialFiles ?? []);
+
+  useEffect(() => {
+    initialFiles && setFiles(initialFiles);
+  }, [initialFiles]);
 
   const browseButtonElement = useMemo(
     () =>
