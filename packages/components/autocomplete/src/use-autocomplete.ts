@@ -325,12 +325,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // focus first non-disabled item
   useEffect(() => {
-    let key = state.collection.getFirstKey();
+    if (isAutoHighlight) {
+      let key = state.collection.getFirstKey();
 
-    while (key && state.disabledKeys.has(key)) {
-      key = state.collection.getKeyAfter(key);
+      while (key && state.disabledKeys.has(key)) {
+        key = state.collection.getKeyAfter(key);
+      }
+      state.selectionManager.setFocusedKey(key);
     }
-    state.selectionManager.setFocusedKey(key);
   }, [state.collection, state.disabledKeys]);
 
   useEffect(() => {
@@ -345,14 +347,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }
     }
   }, [isOpen]);
-
-  useEffect(() => {
-    if (isAutoHighlight && isOpen && state.collection.size > 0) {
-      const firstKey = state.collection.getFirstKey();
-
-      state.selectionManager.setFocusedKey(firstKey);
-    }
-  }, [isAutoHighlight, isOpen, state.inputValue, state.collection]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.

@@ -861,3 +861,75 @@ describe("Autocomplete with React Hook Form", () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });
+
+it("should auto-highlight the first non-disabled item when isAutoHighlight is true", async () => {
+  const {getByRole, getAllByRole} = render(
+    <Autocomplete
+      isAutoHighlight
+      aria-label="Favorite Animal"
+      items={itemsData}
+      label="Favorite Animal"
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>,
+  );
+
+  const input = getByRole("combobox");
+
+  await act(async () => {
+    await userEvent.click(input);
+  });
+
+  const options = getAllByRole("option");
+
+  expect(options[0]).toHaveAttribute("data-hover", "true");
+});
+
+it("should skip disabled items when auto-highlighting", async () => {
+  const {getByRole, getAllByRole} = render(
+    <Autocomplete
+      isAutoHighlight
+      aria-label="Favorite Animal"
+      disabledKeys={["cat", "dog"]}
+      items={itemsData}
+      label="Favorite Animal"
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>,
+  );
+
+  const input = getByRole("combobox");
+
+  await act(async () => {
+    await userEvent.click(input);
+  });
+
+  const options = getAllByRole("option");
+
+  expect(options[2]).toHaveAttribute("data-hover", "true");
+});
+
+it("should not auto-highlight when isAutoHighlight is false", async () => {
+  const {getByRole, getAllByRole} = render(
+    <Autocomplete
+      aria-label="Favorite Animal"
+      isAutoHighlight={false}
+      items={itemsData}
+      label="Favorite Animal"
+    >
+      {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
+    </Autocomplete>,
+  );
+
+  const input = getByRole("combobox");
+
+  await act(async () => {
+    await userEvent.click(input);
+  });
+
+  const options = getAllByRole("option");
+
+  options.forEach((option) => {
+    expect(option).not.toHaveAttribute("data-hover", "true");
+  });
+});
