@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
-import {cloneElement, useMemo, useRef, useState} from "react";
+import {cloneElement, useCallback, useMemo, useRef, useState} from "react";
 
 import {UseFileUploadProps, useFileUpload} from "./use-file-upload";
 import {FileUploadItem} from "./file-upload-item";
@@ -11,84 +11,178 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
   const {
     Component,
     domRef,
+    children,
     styles,
     maxItems,
     maxItemsText,
+    maxItemsElement,
     maxAllowedSize,
     maxAllowedSizeText,
+    maxAllowedSizeElement,
     totalMaxAllowedSize,
     totalMaxAllowedSizeText,
+    totalMaxAllowedSizeElement,
     browseButton,
-    defaultBrowseButtonText,
+    browseButtonText,
+    addButton,
+    resetButton,
     uploadButton,
+    fileItemElement,
+    onChange,
     ...otherProps
   } = useFileUpload({...props, ref});
 
   const inputFileRef = useRef<HTMLInputElement>(null);
+  const singleInputFileRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);
 
-  const finalBrowseButton = useMemo(
+  const browseButtonElement = useMemo(
     () =>
       browseButton ? (
         cloneElement(browseButton, {
           onClick: () => {
+            if (props.isDisabled) return;
             inputFileRef.current?.click();
             browseButton.props.onClick?.();
           },
         })
       ) : (
-        <Button onClick={() => inputFileRef.current?.click()}>{defaultBrowseButtonText}</Button>
+        <Button disabled={props.isDisabled} onClick={() => inputFileRef.current?.click()}>
+          {browseButtonText}
+        </Button>
       ),
-    [browseButton, defaultBrowseButtonText],
+    [browseButton, browseButtonText, props.isDisabled],
+  );
+
+  const updateFiles = useCallback(
+    (files: File[]) => {
+      setFiles(files);
+      onChange?.(files);
+      // Setting input values to "" in order to ignore previously-selected file(s).
+      // This will fix some bugs when "removing" and re-adding "the exact same" file(s) (e.g. removing foo.txt and adding foo.txt again).
+      if (inputFileRef.current) inputFileRef.current.value = "";
+      if (singleInputFileRef.current) singleInputFileRef.current.value = "";
+    },
+    [setFiles, onChange],
   );
 
   const items = useMemo(
-    () => files.map((file) => <FileUploadItem key={file.name} file={file} />),
+    () =>
+      files.map((file) => {
+        const customFileElm = fileItemElement?.(file);
+
+        if (!customFileElm) {
+          return (
+            <FileUploadItem
+              key={file.name}
+              file={file}
+              onFileRemove={(name) => {
+                const newFiles = files.filter((file) => file.name !== name);
+
+                updateFiles(newFiles);
+              }}
+            />
+          );
+        }
+
+        return cloneElement(customFileElm, {
+          key: file.name,
+        });
+      }),
     [files],
   );
 
+  const addButtonElement = useMemo(
+    () =>
+      addButton ?? (
+        <Button color="secondary" onClick={() => singleInputFileRef.current?.click()}>
+          Add
+        </Button>
+      ),
+    [addButton],
+  );
+
+  const resetButtonElement = useMemo(
+    () =>
+      resetButton ?? (
+        <Button
+          color="warning"
+          onClick={() => {
+            updateFiles([]);
+          }}
+        >
+          Reset
+        </Button>
+      ),
+    [resetButton, setFiles, onChange],
+  );
+
   return (
-    <Component ref={domRef} className={styles.base} {...otherProps}>
+    <Component ref={domRef} className={styles.base()} {...otherProps}>
       <input
         ref={inputFileRef}
         className="hidden"
         multiple={maxItems > 1}
+        title="file upload"
         type="file"
         onChange={(ev) => {
-          if (!ev.target.files) return;
+          if (!ev.target.files?.length) return;
           const length = ev.target.files.length > maxItems ? maxItems : ev.target.files.length;
+          const newFiles: File[] = [];
 
           for (let index = 0; index < length; index++) {
             const file = ev.target.files.item(index);
 
-            file && files.push(file);
+            file && newFiles.push(file);
           }
+          updateFiles(newFiles);
+        }}
+      />
 
-          setFiles([...files]);
+      <input
+        ref={singleInputFileRef}
+        className="hidden"
+        title="single file upload"
+        type="file"
+        onChange={(ev) => {
+          const singleFile = ev.target.files?.item(0);
+
+          if (!singleFile) return;
+          if (files.find((file) => file.name === singleFile.name)) return;
+          files.push(singleFile);
+          updateFiles([...files]);
         }}
       />
 
       <div className={styles.topBar()}>
-        {maxAllowedSize && (
-          <span>
-            {maxAllowedSizeText}: {maxAllowedSize}
-          </span>
-        )}
-        {totalMaxAllowedSize && (
-          <span>
-            {totalMaxAllowedSizeText}: {totalMaxAllowedSize}
-          </span>
-        )}
-        {maxItems > 1 && (
-          <span>
-            {maxItemsText}: {maxItems}
-          </span>
-        )}
+        {maxItems > 1 &&
+          (maxItemsElement ?? (
+            <span>
+              {maxItemsText}: {maxItems}
+            </span>
+          ))}
+        {maxAllowedSize &&
+          (maxAllowedSizeElement ?? (
+            <span>
+              {maxAllowedSizeText}: {maxAllowedSize}
+            </span>
+          ))}
+        {totalMaxAllowedSize &&
+          (totalMaxAllowedSizeElement ?? (
+            <span>
+              {totalMaxAllowedSizeText}: {totalMaxAllowedSize}
+            </span>
+          ))}
       </div>
 
-      <div className={styles.items()}>{items}</div>
+      <div className={styles.items()}>
+        {children}
+        {items}
+      </div>
       <div className={styles.buttons()}>
-        {finalBrowseButton}
+        {maxItems > 1 && files.length !== 0 && files.length < maxItems && addButtonElement}
+        {files.length !== 0 && resetButtonElement}
+        {browseButtonElement}
         {uploadButton}
       </div>
     </Component>

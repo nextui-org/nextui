@@ -12,10 +12,6 @@ export default {
       control: {type: "select"},
       options: ["default", "primary", "secondary", "success", "warning", "danger"],
     },
-    radius: {
-      control: {type: "select"},
-      options: ["none", "sm", "md", "lg", "full"],
-    },
     size: {
       control: {type: "select"},
       options: ["sm", "md", "lg"],
@@ -29,10 +25,23 @@ export default {
 } as Meta<typeof FileUpload>;
 
 const defaultProps = {
+  maxItems: 2,
+  maxItemsText: "Max Num of Items",
+  maxAllowedSize: "250 KB",
+  maxAllowedSizeText: "File Size for Each File",
+  totalMaxAllowedSize: "2 MB",
+  totalMaxAllowedSizeText: "Total Max",
   ...fileUpload.defaultVariants,
 };
 
-const Template = (args: FileUploadProps) => <FileUpload {...args} />;
+const Template = (args: FileUploadProps) => (
+  <FileUpload
+    {...args}
+    // onChange={(files) => {
+    //   console.log(files);
+    // }}
+  />
+);
 
 export const Default = {
   render: Template,

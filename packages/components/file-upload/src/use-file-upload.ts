@@ -6,7 +6,9 @@ import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {objectToDeps} from "@nextui-org/shared-utils";
 import {ReactElement, useMemo} from "react";
 
-interface Props extends HTMLNextUIProps<"div"> {
+type FileSize = `${number} KB` | `${number} MB`;
+
+interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Ref to the DOM node.
    */
@@ -16,9 +18,17 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   browseButton?: ReactElement;
   /**
-   * A different text for the default browse button.
+   * A different text for the browse button.
    */
-  defaultBrowseButtonText?: string;
+  browseButtonText?: string;
+  /**
+   * Custom Add Button.
+   */
+  addButton?: ReactElement;
+  /**
+   * Custom Reset Button.
+   */
+  resetButton?: ReactElement;
   /**
    * If an uplaod button is needed.
    */
@@ -32,25 +42,45 @@ interface Props extends HTMLNextUIProps<"div"> {
    * Max number of items text.
    * @default  "Max number of items"
    */
-  maxItemsText?: number;
+  maxItemsText?: string;
+  /**
+   * Custom Element to show Max number of items.
+   */
+  maxItemsElement?: ReactElement;
   /**
    * Max file size allowed.
    */
-  maxAllowedSize?: string;
-  /**
-   * Total max size allowed for multiple files combined.
-   */
-  totalMaxAllowedSize?: string;
+  maxAllowedSize?: FileSize;
   /**
    * Max file size text.
    * @default "Max File Size"
    */
   maxAllowedSizeText?: string;
   /**
+   * Custom Element to show Max file size.
+   */
+  maxAllowedSizeElement?: ReactElement;
+  /**
+   * Total max size allowed for multiple files combined.
+   */
+  totalMaxAllowedSize?: FileSize;
+  /**
    * Total max file size text.
    * @default "Total Max Files Size"
    */
   totalMaxAllowedSizeText?: string;
+  /**
+   * Custom Element to show Total Max file size.
+   */
+  totalMaxAllowedSizeElement?: ReactElement;
+  /**
+   * Custom Element for an Upload File Item.
+   */
+  fileItemElement?: (file: File) => ReactElement;
+  /**
+   * Triggered when file(s) selected, added or removed.
+   */
+  onChange?: (files: File[]) => void;
 }
 
 export type UseFileUploadProps = Props & FileUploadVariantProps;
@@ -66,6 +96,7 @@ export function useFileUpload(originalProps: UseFileUploadProps) {
     maxItemsText = "Max number of items",
     maxAllowedSizeText = "Max File Size",
     totalMaxAllowedSizeText = "Total Max Files Size",
+    browseButtonText = "Browse",
     ...otherProps
   } = props;
 
@@ -90,6 +121,7 @@ export function useFileUpload(originalProps: UseFileUploadProps) {
     maxItemsText,
     maxAllowedSizeText,
     totalMaxAllowedSizeText,
+    browseButtonText,
     ...otherProps,
   };
 }

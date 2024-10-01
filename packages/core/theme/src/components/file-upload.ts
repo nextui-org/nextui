@@ -29,16 +29,12 @@ const fileUpload = tv({
       "text-foreground",
       "box-border",
       "bg-content1",
-      // focus ring
       ...dataFocusVisibleClasses,
     ],
     topBar: ["flex", "gap-3"],
     items: [
       "relative",
-      "w-full",
       "p-3",
-      "max-h-24",
-      "overflow-scroll",
       "break-words",
       "text-start",
       "overflow-y-auto",
@@ -56,20 +52,6 @@ const fileUpload = tv({
     ],
   },
   variants: {
-    shadow: {
-      none: {
-        base: "shadow-none",
-      },
-      sm: {
-        base: "shadow-small",
-      },
-      md: {
-        base: "shadow-medium",
-      },
-      lg: {
-        base: "shadow-large",
-      },
-    },
     isDisabled: {
       true: {
         base: "opacity-disabled cursor-not-allowed",
@@ -78,8 +60,6 @@ const fileUpload = tv({
   },
   compoundVariants: [],
   defaultVariants: {
-    radius: "lg",
-    shadow: "md",
     isDisabled: false,
   },
 });
