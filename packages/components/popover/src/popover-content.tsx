@@ -3,14 +3,13 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
-import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-transitions";
-import {motion} from "framer-motion";
-import {useDialog} from "@react-aria/dialog";
-import {mergeProps} from "@react-aria/utils";
-import {HTMLNextUIProps} from "@nextui-org/system";
 import {RemoveScroll} from "react-remove-scroll";
+import {DismissButton} from "@react-aria/overlays";
+import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
+import {m, domAnimation, LazyMotion} from "framer-motion";
+import {HTMLNextUIProps} from "@nextui-org/system";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
+import {useDialog} from "@react-aria/dialog";
 
 import {usePopoverContext} from "./popover-context";
 
@@ -27,8 +26,8 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     Component: OverlayComponent,
     isOpen,
     placement,
-    motionProps,
     backdrop,
+    motionProps,
     disableAnimation,
     shouldBlockScroll,
     getPopoverProps,
@@ -39,18 +38,20 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     onClose,
   } = usePopoverContext();
 
-  const Component = as || OverlayComponent || "div";
-
   const dialogRef = useRef(null);
-  const {dialogProps, titleProps} = useDialog({}, dialogRef);
+  const {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
+  const dialogProps = getDialogProps({
+    ref: dialogRef,
+    ...ariaDialogProps,
+    ...otherProps,
+  });
 
-  // Not needed in the popover context, the popover role comes from getPopoverProps
-  delete dialogProps.role;
+  const Component = as || OverlayComponent || "div";
 
   const content = (
     <>
       {!isNonModal && <DismissButton onDismiss={onClose} />}
-      <Component {...getDialogProps(mergeProps(dialogProps, otherProps))} ref={dialogRef}>
+      <Component {...dialogProps}>
         <div {...getContentProps({className})}>
           {typeof children === "function" ? children(titleProps) : children}
         </div>
@@ -69,24 +70,25 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
     }
 
     return (
-      <motion.div
-        animate="enter"
-        exit="exit"
-        initial="exit"
-        variants={TRANSITION_VARIANTS.fade}
-        {...(getBackdropProps() as HTMLMotionProps<"div">)}
-      />
+      <LazyMotion features={domAnimation}>
+        <m.div
+          animate="enter"
+          exit="exit"
+          initial="exit"
+          variants={TRANSITION_VARIANTS.fade}
+          {...(getBackdropProps() as HTMLMotionProps<"div">)}
+        />
+      </LazyMotion>
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
-  return (
-    <div {...getPopoverProps()}>
-      {backdropContent}
-      <RemoveScroll forwardProps enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-        {disableAnimation ? (
-          content
-        ) : (
-          <motion.div
+  const contents = (
+    <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+      {disableAnimation ? (
+        content
+      ) : (
+        <LazyMotion features={domAnimation}>
+          <m.div
             animate="enter"
             exit="exit"
             initial="initial"
@@ -97,9 +99,16 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
             {...motionProps}
           >
             {content}
-          </motion.div>
-        )}
-      </RemoveScroll>
+          </m.div>
+        </LazyMotion>
+      )}
+    </RemoveScroll>
+  );
+
+  return (
+    <div {...getPopoverProps()}>
+      {backdropContent}
+      {contents}
     </div>
   );
 });

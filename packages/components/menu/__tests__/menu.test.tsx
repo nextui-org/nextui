@@ -109,6 +109,7 @@ describe("Menu", () => {
       <Menu aria-label="Actions" items={menuItems}>
         {(section: any) => (
           <MenuSection aria-label={section.title} items={section.children} title={section.title}>
+            {/* @ts-ignore */}
             {(item: any) => <MenuItem key={item.key}>{item.name}</MenuItem>}
           </MenuSection>
         )}
@@ -272,5 +273,82 @@ describe("Menu", () => {
     let checkmark1 = menuItems[0].querySelector("svg");
 
     expect(checkmark1).toBeFalsy();
+  });
+
+  it("should dispatch onAction events correctly", async () => {
+    let onAction = jest.fn();
+
+    const wrapper = render(
+      <Menu aria-label="Actions" onAction={onAction}>
+        <MenuItem key="new">New file</MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+
+      expect(onAction).toBeCalledTimes(1);
+    });
+  });
+
+  it("should not dispatch onAction events if item is disabled", async () => {
+    let onAction = jest.fn();
+
+    const wrapper = render(
+      <Menu aria-label="Actions" onAction={onAction}>
+        <MenuItem key="new">New file</MenuItem>
+        <MenuItem key="copy" isDisabled>
+          Copy link
+        </MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+
+      expect(onAction).toBeCalledTimes(0);
+    });
+  });
+
+  it("should dispatch onPress, onAction and onClick events", async () => {
+    let onPress = jest.fn();
+    let onClick = jest.fn();
+    let onAction = jest.fn();
+
+    const wrapper = render(
+      <Menu aria-label="Actions" onAction={onAction}>
+        <MenuItem key="new" onClick={onClick} onPress={onPress}>
+          New file
+        </MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[0]);
+
+      expect(onAction).toBeCalledTimes(1);
+      expect(onPress).toBeCalledTimes(1);
+      expect(onClick).toBeCalledTimes(1);
+    });
   });
 });

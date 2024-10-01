@@ -8,6 +8,8 @@ import {trackEvent} from "@/utils/va";
 
 export interface ComponentLinksProps {
   component: string;
+  npm?: string;
+  source?: string;
   styles?: string;
   storybook?: string;
   rscCompatible?: boolean;
@@ -60,6 +62,8 @@ const ButtonLink = ({
 
 export const ComponentLinks = ({
   component,
+  npm,
+  source,
   storybook,
   styles,
   rscCompatible,
@@ -80,10 +84,10 @@ export const ComponentLinks = ({
         Storybook
       </ButtonLink>
       <ButtonLink
-        href={`https://www.npmjs.com/package/@nextui-org/${component}`}
+        href={`https://www.npmjs.com/package/@nextui-org/${npm || component}`}
         startContent={<NpmIcon className="text-2xl text-[#E53E3E]" />}
       >
-        {`@nextui-org/${component}`}
+        {`@nextui-org/${npm || component}`}
       </ButtonLink>
       {reactAriaHook && (
         <ButtonLink
@@ -113,7 +117,10 @@ export const ComponentLinks = ({
         </ButtonLink>
       )}
 
-      <ButtonLink href={`${COMPONENT_PATH}/${component}`} startContent={<GithubIcon size={20} />}>
+      <ButtonLink
+        href={`${COMPONENT_PATH}/${source || component}`}
+        startContent={<GithubIcon size={20} />}
+      >
         Source
       </ButtonLink>
       <ButtonLink

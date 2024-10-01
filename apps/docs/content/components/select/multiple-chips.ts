@@ -57,7 +57,7 @@ const data = `export const users = [
     age: "29",
     avatar: "https://d2u8k2ocievbld.cloudfront.net/memojis/male/3.png",
     email: "brian.kim@example.com",
-    status: "Active",
+    status: "active",
   },
   {
     id: 7,
@@ -216,7 +216,7 @@ export default function App() {
       labelPlacement="outside"
       classNames={{
         base: "max-w-xs",
-        trigger: "min-h-unit-12 py-2",
+        trigger: "min-h-12 py-2",
       }}
       renderValue={(items) => {
         return (
@@ -269,7 +269,7 @@ export default function App() {
       labelPlacement="outside"
       classNames={{
         base: "max-w-xs",
-        trigger: "min-h-unit-12 py-2",
+        trigger: "min-h-12 py-2",
       }}
       renderValue={(items: SelectedItems<User>) => {
         return (

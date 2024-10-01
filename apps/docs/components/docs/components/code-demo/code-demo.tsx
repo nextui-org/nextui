@@ -9,7 +9,6 @@ import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";
 import WindowResizer, {WindowResizerProps} from "./window-resizer";
 
 import {GradientBoxProps} from "@/components/gradient-box";
-import {trackEvent} from "@/utils/va";
 
 const DynamicReactLiveDemo = dynamic(
   () => import("./react-live-demo").then((m) => m.ReactLiveDemo),
@@ -41,7 +40,6 @@ interface CodeDemoProps extends UseCodeDemoProps, WindowResizerProps {
   displayMode?: "always" | "visible";
   isGradientBox?: boolean;
   gradientColor?: GradientBoxProps["color"];
-  defaultExpanded?: boolean;
   previewHeight?: string | number;
   overflow?: "auto" | "visible" | "hidden";
   className?: string;
@@ -60,9 +58,8 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
   isPreviewCentered = false,
   // when false .js files will be used
   typescriptStrict = false,
-  showOpenInCodeSandbox,
+  showOpenInCodeSandbox = true,
   isGradientBox = false,
-  defaultExpanded = false,
   previewHeight = "auto",
   overflow = "visible",
   displayMode = "always",
@@ -139,11 +136,10 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
 
     const content = (
       <DynamicSandpack
-        defaultExpanded={defaultExpanded}
         files={files}
         highlightedLines={highlightedLines}
         showEditor={showEditor}
-        showOpenInCodeSandbox={showOpenInCodeSandbox || showPreview}
+        showOpenInCodeSandbox={showOpenInCodeSandbox}
         showPreview={showSandpackPreview}
         typescriptStrict={typescriptStrict}
       />
@@ -156,7 +152,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
     isInView,
     files,
     highlightedLines,
-    defaultExpanded,
     showPreview,
     showSandpackPreview,
     showOpenInCodeSandbox,
@@ -180,14 +175,6 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
             panel: "pt-0",
           }}
           variant="underlined"
-          onSelectionChange={(tabKey) => {
-            trackEvent("CodeDemo - Selection", {
-              name: tabKey as string,
-              action: "tabChange",
-              category: "docs",
-              data: tabKey ?? "",
-            });
-          }}
         >
           <Tab key="preview" title="Preview">
             {previewContent}

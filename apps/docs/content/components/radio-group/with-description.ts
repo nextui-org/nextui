@@ -9,8 +9,8 @@ export default function App() {
       <Radio value="buenos-aires" description="The capital of Argentina">
         Buenos Aires
       </Radio>
-      <Radio value="sydney" description="The capital of Australia">
-        Sydney
+      <Radio value="canberra" description="The capital of Australia">
+        Canberra
       </Radio>
       <Radio value="london" description="The capital of England">
         London

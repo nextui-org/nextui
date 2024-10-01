@@ -29,6 +29,7 @@ export function useReactAriaAccordion<T>(
     ...props,
     ...state,
     allowsTabNavigation: true,
+    disallowSelectAll: true,
     ref,
   });
 

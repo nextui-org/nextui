@@ -1,11 +1,23 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {act, render, fireEvent} from "@testing-library/react";
 import {Button} from "@nextui-org/button";
 import userEvent from "@testing-library/user-event";
+import {keyCodes} from "@nextui-org/test-utils";
+import {User} from "@nextui-org/user";
+import {Image} from "@nextui-org/image";
+import {Avatar} from "@nextui-org/avatar";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
 
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Dropdown", () => {
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly (static)", () => {
     const wrapper = render(
       <Dropdown>
@@ -100,6 +112,7 @@ describe("Dropdown", () => {
               items={section.children}
               title={section.title}
             >
+              {/* @ts-ignore */}
               {(item: any) => <DropdownItem key={item.key}>{item.name}</DropdownItem>}
             </DropdownSection>
           )}
@@ -108,6 +121,38 @@ describe("Dropdown", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("should not throw any error when clicking button", async () => {
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    expect(triggerButton).toBeTruthy();
+
+    await act(async () => {
+      await userEvent.click(triggerButton);
+    });
+
+    expect(spy).toBeCalledTimes(0);
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
   });
 
   it("should work with single selection (controlled)", async () => {
@@ -353,6 +398,36 @@ describe("Dropdown", () => {
     expect(menu).toBeFalsy();
   });
 
+  it("should not open on disabled dropdown", () => {
+    const wrapper = render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions">
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    expect(triggerButton).toBeTruthy();
+
+    act(() => {
+      triggerButton.click();
+    });
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeFalsy();
+  });
+
   it("should not select on disabled item", () => {
     const onSelectionChange = jest.fn();
     const wrapper = render(
@@ -385,5 +460,422 @@ describe("Dropdown", () => {
     });
 
     expect(onSelectionChange).toBeCalledTimes(0);
+  });
+
+  it("should render without error (custom trigger with isDisabled)", async () => {
+    const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
+    const renderDropdownMenu = () => {
+      return (
+        <DropdownMenu aria-label="Actions" onAction={alert}>
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      );
+    };
+
+    // Non Next UI Element in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <div>Trigger</div>
+        </DropdownTrigger>
+        {renderDropdownMenu()}
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    // Next UI Element in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <User as="button" description="@tonyreichert" name="Tony Reichert" />
+        </DropdownTrigger>
+        {renderDropdownMenu()}
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    // NextUI Element that supports isDisabled prop in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <Avatar isDisabled name="Marcus" />
+        </DropdownTrigger>
+        {renderDropdownMenu()}
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+
+    // NextUI Element that doesn't support isDisabled prop in DropdownTrigger
+    render(
+      <Dropdown isDisabled>
+        <DropdownTrigger>
+          <Image
+            alt="NextUI hero Image"
+            src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+            width={300}
+          />
+        </DropdownTrigger>
+        {renderDropdownMenu()}
+      </Dropdown>,
+    );
+
+    expect(spy).toBeCalledTimes(0);
+
+    spy.mockRestore();
+  });
+
+  it("should close listbox by clicking another dropdown", async () => {
+    const wrapper = render(
+      <>
+        <Dropdown>
+          <DropdownTrigger>
+            <Button data-testid="dropdown">Trigger</Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Actions">
+            <DropdownItem key="new">New file</DropdownItem>
+            <DropdownItem key="copy">Copy link</DropdownItem>
+            <DropdownItem key="edit">Edit file</DropdownItem>
+            <DropdownItem key="delete" color="danger">
+              Delete file
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+        <Dropdown>
+          <DropdownTrigger>
+            <Button data-testid="dropdown2">Trigger</Button>
+          </DropdownTrigger>
+          <DropdownMenu aria-label="Actions">
+            <DropdownItem key="new">New file</DropdownItem>
+            <DropdownItem key="copy">Copy link</DropdownItem>
+            <DropdownItem key="edit">Edit file</DropdownItem>
+            <DropdownItem key="delete" color="danger">
+              Delete file
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+      </>,
+    );
+
+    const dropdown = wrapper.getByTestId("dropdown");
+
+    const dropdown2 = wrapper.getByTestId("dropdown2");
+
+    expect(dropdown).not.toBeNull();
+
+    expect(dropdown2).not.toBeNull();
+
+    // open the dropdown listbox by clicking dropdownor button in the first dropdown
+    await act(async () => {
+      await userEvent.click(dropdown);
+    });
+
+    // assert that the first dropdown listbox is open
+    expect(dropdown).toHaveAttribute("aria-expanded", "true");
+
+    // assert that the second dropdown listbox is close
+    expect(dropdown2).toHaveAttribute("aria-expanded", "false");
+
+    // close the dropdown listbox by clicking the second dropdown
+    await act(async () => {
+      await userEvent.click(dropdown2);
+    });
+
+    // assert that the first dropdown listbox is closed
+    expect(dropdown).toHaveAttribute("aria-expanded", "false");
+
+    // assert that the second dropdown listbox is open
+    expect(dropdown2).toHaveAttribute("aria-expanded", "true");
+  });
+});
+
+describe("Keyboard interactions", () => {
+  it("should focus on the first item on keyDown (Enter)", async () => {
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu disallowEmptySelection aria-label="Actions" selectionMode="single">
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+  });
+
+  it("should focus on the first item on keyDown (Space)", async () => {
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu disallowEmptySelection aria-label="Actions" selectionMode="single">
+          <DropdownItem key="new">New file</DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: " ", charCode: keyCodes[" "]});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+  });
+
+  it("should press the item on keyDown (Enter)", async () => {
+    const user = userEvent.setup();
+
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" selectionMode="single">
+          <DropdownItem
+            key="new"
+            onPress={() => {
+              /* eslint-disable no-console */
+              console.log("ENTER");
+            }}
+          >
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+
+    await act(async () => {
+      await user.keyboard("[Enter]");
+    });
+
+    expect(logSpy).toHaveBeenCalledWith("ENTER");
+
+    logSpy.mockRestore();
+  });
+
+  it("should press the item on keyDown (Space)", async () => {
+    const user = userEvent.setup();
+
+    const logSpy = jest.spyOn(console, "log").mockImplementation(() => {});
+
+    const wrapper = render(
+      <Dropdown>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" selectionMode="single">
+          <DropdownItem
+            key="new"
+            onPress={() => {
+              /* eslint-disable no-console */
+              console.log("SPACE");
+            }}
+          >
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+          <DropdownItem key="edit">Edit file</DropdownItem>
+          <DropdownItem key="delete" color="danger">
+            Delete file
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.focus();
+    });
+
+    expect(triggerButton).toHaveFocus();
+
+    fireEvent.keyDown(triggerButton, {key: "Enter", charCode: keyCodes.Enter});
+
+    let menu = wrapper.queryByRole("menu");
+
+    expect(menu).toBeTruthy();
+
+    let menuItems = wrapper.getAllByRole("menuitemradio");
+
+    expect(menuItems.length).toBe(4);
+
+    expect(menuItems[0]).toHaveFocus();
+
+    await act(async () => {
+      await user.keyboard("[Space]");
+    });
+
+    expect(logSpy).toHaveBeenCalledWith("SPACE");
+
+    logSpy.mockRestore();
+  });
+
+  it("should respect closeOnSelect setting of DropdownItem (static)", async () => {
+    const onOpenChange = jest.fn();
+    const wrapper = render(
+      <Dropdown onOpenChange={onOpenChange}>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions">
+          <DropdownItem key="new" closeOnSelect={false}>
+            New file
+          </DropdownItem>
+          <DropdownItem key="copy">Copy link</DropdownItem>
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.click();
+    });
+    expect(onOpenChange).toBeCalledTimes(1);
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[0]);
+      expect(onOpenChange).toBeCalledTimes(1);
+    });
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+      expect(onOpenChange).toBeCalledTimes(2);
+    });
+  });
+
+  it("should respect closeOnSelect setting of DropdownItem (dynamic)", async () => {
+    const onOpenChange = jest.fn();
+    const items = [
+      {
+        key: "new",
+        label: "New file",
+      },
+      {
+        key: "copy",
+        label: "Copy link",
+      },
+    ];
+    const wrapper = render(
+      <Dropdown onOpenChange={onOpenChange}>
+        <DropdownTrigger>
+          <Button data-testid="trigger-test">Trigger</Button>
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Actions" items={items}>
+          {(item) => (
+            <DropdownItem key={item.key} closeOnSelect={item.key !== "new"}>
+              {item.label}
+            </DropdownItem>
+          )}
+        </DropdownMenu>
+      </Dropdown>,
+    );
+
+    let triggerButton = wrapper.getByTestId("trigger-test");
+
+    act(() => {
+      triggerButton.click();
+    });
+    expect(onOpenChange).toBeCalledTimes(1);
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await act(async () => {
+      await userEvent.click(menuItems[0]);
+      expect(onOpenChange).toBeCalledTimes(1);
+    });
+
+    await act(async () => {
+      await userEvent.click(menuItems[1]);
+      expect(onOpenChange).toBeCalledTimes(2);
+    });
   });
 });

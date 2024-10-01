@@ -1,5 +1,189 @@
 # @nextui-org/dropdown
 
+## 2.1.31
+
+### Patch Changes
+
+- [#3762](https://github.com/nextui-org/nextui/pull/3762) [`8fecb5afa`](https://github.com/nextui-org/nextui/commit/8fecb5afa9aabe73e32243ca313f97856da8aa08) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed `_a2.find` is not a function (#3761)
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f), [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/menu@2.0.30
+
+## 2.1.30
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- [#2598](https://github.com/nextui-org/nextui/pull/2598) [`4f8ae50cf`](https://github.com/nextui-org/nextui/commit/4f8ae50cf441da5b5685b6573714a3f7c9ab3ea2) Thanks [@gtoxlili](https://github.com/gtoxlili)! - fix(dropdown): respect closeOnSelect prop on DropdownItem (#2290)
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/popover@2.1.28
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/menu@2.0.29
+  - @nextui-org/react-utils@2.0.17
+
+## 2.1.29
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/menu@2.0.28
+  - @nextui-org/popover@2.1.27
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.1.28
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/menu@2.0.27
+  - @nextui-org/popover@2.1.26
+  - @nextui-org/aria-utils@2.0.23
+
+## 2.1.27
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- Updated dependencies [[`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b), [`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49), [`444d320db`](https://github.com/nextui-org/nextui/commit/444d320dbc146399eb937c219ce983d427675425)]:
+  - @nextui-org/menu@2.0.26
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/popover@2.1.25
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
+## 2.1.26
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/popover@2.1.24
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/menu@2.0.25
+  - @nextui-org/react-utils@2.0.14
+
+## 2.1.25
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/menu@2.0.24
+  - @nextui-org/popover@2.1.23
+  - @nextui-org/aria-utils@2.0.20
+
+## 2.1.24
+
+### Patch Changes
+
+- [#2854](https://github.com/nextui-org/nextui/pull/2854) [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise popover-based focus behaviours (#2849, #2834, #2779, #2962, #2872, #2974, #1920, #1287, #3060)
+
+- [#2953](https://github.com/nextui-org/nextui/pull/2953) [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix update type definition to prevent primitive values as items (#2938)
+
+- [#2970](https://github.com/nextui-org/nextui/pull/2970) [`7df2c71ec`](https://github.com/nextui-org/nextui/commit/7df2c71ecc5f06d60807b6b3502d3a118080a0d5) Thanks [@wingkwong](https://github.com/wingkwong)! - Focus on the first item when pressing Space / Enter key on dropdown menu open (#2863)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`c8f792ccd`](https://github.com/nextui-org/nextui/commit/c8f792ccd78a80000e6f5b15e6f22cac947fd531), [`7df2c71ec`](https://github.com/nextui-org/nextui/commit/7df2c71ecc5f06d60807b6b3502d3a118080a0d5), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/popover@2.1.22
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/menu@2.0.23
+
+## 2.1.23
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/popover@2.1.21
+  - @nextui-org/menu@2.0.22
+
+## 2.1.22
+
+### Patch Changes
+
+- [#2784](https://github.com/nextui-org/nextui/pull/2784) [`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix `isDisabled` prop warning on NextUI components that don't support this property, it is also fixed for non-NextUI components.
+
+- Updated dependencies [[`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d), [`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/popover@2.1.20
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/menu@2.0.21
+
+## 2.1.21
+
+### Patch Changes
+
+- Updated dependencies [[`9e5dd8ce3`](https://github.com/nextui-org/nextui/commit/9e5dd8ce37c94c9ca1ba7b2049a6e55f1803fee9)]:
+  - @nextui-org/popover@2.1.19
+
+## 2.1.20
+
+### Patch Changes
+
+- [#2746](https://github.com/nextui-org/nextui/pull/2746) [`6b56e43a3`](https://github.com/nextui-org/nextui/commit/6b56e43a350d045c36eb9983c7f48ba61db7cdd2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #2743 #2751 internal react-aria use-menu hooks implemented to pass down the press events and control the pressUp one
+
+- Updated dependencies [[`6b56e43a3`](https://github.com/nextui-org/nextui/commit/6b56e43a350d045c36eb9983c7f48ba61db7cdd2), [`f89356691`](https://github.com/nextui-org/nextui/commit/f89356691cecb8e54f5f820b2b4491537e7c11f3)]:
+  - @nextui-org/menu@2.0.20
+  - @nextui-org/popover@2.1.18
+
+## 2.1.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/menu@2.0.19
+  - @nextui-org/popover@2.1.17
+  - @nextui-org/react-utils@2.0.12
+
+## 2.1.18
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2450](https://github.com/nextui-org/nextui/pull/2450) [`0a9982d3e`](https://github.com/nextui-org/nextui/commit/0a9982d3efe6ac8dfc25438f21598c8fe53de4db) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed getMenuTriggerProps mergeProps (#2448)
+
+- [#2458](https://github.com/nextui-org/nextui/pull/2458) [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17) Thanks [@wingkwong](https://github.com/wingkwong)! - fix(autocomplete): support isReadOnly for dynamic collections in Autocomplete
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`a05aef0ac`](https://github.com/nextui-org/nextui/commit/a05aef0acb5a7b000c8131e8ba4f50f0adec01e5), [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8), [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9), [`8761168d3`](https://github.com/nextui-org/nextui/commit/8761168d3459cd83ce571f4e65eb8ea6db8516ef), [`eb51bf226`](https://github.com/nextui-org/nextui/commit/eb51bf226170e4bb37ae30990d1c3aa26d8c504b), [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17), [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae)]:
+  - @nextui-org/menu@2.0.18
+  - @nextui-org/popover@2.1.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+
+## 2.1.17
+
+### Patch Changes
+
+- [#2435](https://github.com/nextui-org/nextui/pull/2435) [`9b27da544`](https://github.com/nextui-org/nextui/commit/9b27da544e950cdb2bccd2d1a57ead772fd10dc1) Thanks [@kuri-sun](https://github.com/kuri-sun)! - Fixed the bug: isDisabled does not disable dropdown
+
+- Updated dependencies [[`a235e324b`](https://github.com/nextui-org/nextui/commit/a235e324b9ee0c7d4f6af23b086860ac112ff633), [`01aedcf09`](https://github.com/nextui-org/nextui/commit/01aedcf09b63daafef9ff5e0465040c0c91c809e)]:
+  - @nextui-org/popover@2.1.15
+  - @nextui-org/menu@2.0.17
+
 ## 2.1.16
 
 ### Patch Changes
@@ -225,7 +409,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

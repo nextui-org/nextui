@@ -1,5 +1,7 @@
 import * as React from "react";
-import {render, waitFor} from "@testing-library/react";
+import {render, renderHook, fireEvent} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import {useForm} from "react-hook-form";
 
 import {Input} from "../src";
 
@@ -35,10 +37,33 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
-  it("should have required attribute when isRequired", () => {
-    const {container} = render(<Input isRequired label="test input" />);
+  it("should disable the clear button when isDisabled", () => {
+    const {getByRole} = render(<Input isClearable isDisabled label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toBeDisabled();
+  });
+
+  it("should not allow clear button to be focusable", () => {
+    const {getByRole} = render(<Input isClearable label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toHaveAttribute("tabIndex", "-1");
+  });
+
+  it("should have required attribute when isRequired with native validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
     expect(container.querySelector("input")).toHaveAttribute("required");
+    expect(container.querySelector("input")).not.toHaveAttribute("aria-required");
+  });
+
+  it("should have aria-required attribute when isRequired with aria validationBehavior", () => {
+    const {container} = render(<Input isRequired label="test input" validationBehavior="aria" />);
+
+    expect(container.querySelector("input")).not.toHaveAttribute("required");
     expect(container.querySelector("input")).toHaveAttribute("aria-required", "true");
   });
 
@@ -49,7 +74,7 @@ describe("Input", () => {
   });
 
   it("should have aria-describedby when errorMessage is provided", () => {
-    const {container} = render(<Input errorMessage="error text" label="test input" />);
+    const {container} = render(<Input isInvalid errorMessage="error text" label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-describedby");
   });
@@ -99,7 +124,8 @@ describe("Input", () => {
 
     expect(onFocus).toHaveBeenCalledTimes(1);
   });
-  it("ref should update the value", async () => {
+
+  it("ref should update the value", () => {
     const ref = React.createRef<HTMLInputElement>();
 
     const {container} = render(<Input ref={ref} type="text" />);
@@ -113,11 +139,163 @@ describe("Input", () => {
 
     container.querySelector("input")?.focus();
 
-    await waitFor(() => {
-      return expect(ref.current?.value)?.toBe(value);
-    });
-    await waitFor(() => {
-      return expect(ref.current?.value)?.toBe(value);
-    });
+    expect(ref.current?.value)?.toBe(value);
+  });
+
+  it("should clear the value and onClear is triggered", async () => {
+    const onClear = jest.fn();
+
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {getByRole} = render(
+      <Input
+        ref={ref}
+        isClearable
+        defaultValue="junior@nextui.org"
+        label="test input"
+        onClear={onClear}
+      />,
+    );
+
+    const clearButton = getByRole("button")!;
+
+    expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(ref.current?.value)?.toBe("");
+
+    expect(onClear).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not display input with hidden type", async () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-1" type="hidden" />
+        <Input data-testid="input-2" />
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const inputBaseWrappers = container.querySelectorAll("[data-slot='base']");
+
+    expect(inputBaseWrappers).toHaveLength(2);
+
+    const inputs = container.querySelectorAll("input");
+
+    expect(inputs).toHaveLength(2);
+
+    expect(inputBaseWrappers[0]).toHaveAttribute("data-hidden");
+
+    expect(inputBaseWrappers[1]).not.toHaveAttribute("data-hidden");
+
+    expect(inputs[0]).not.toBeVisible();
+
+    expect(inputs[1]).toBeVisible();
+  });
+
+  it("should disable clear button when isReadOnly is true", async () => {
+    const onClear = jest.fn();
+
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {getByRole} = render(
+      <Input
+        ref={ref}
+        isClearable
+        isReadOnly
+        defaultValue="readOnly test for clear button"
+        label="test input"
+        onClear={onClear}
+      />,
+    );
+
+    const clearButton = getByRole("button")!;
+
+    expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(onClear).toHaveBeenCalledTimes(0);
+  });
+});
+
+describe("Input with React Hook Form", () => {
+  let input1: HTMLInputElement;
+  let input2: HTMLInputElement;
+  let input3: HTMLInputElement;
+  let submitButton: HTMLButtonElement;
+  let onSubmit: () => void;
+
+  beforeEach(() => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withDefaultValue: "wkw",
+          withoutDefaultValue: "",
+          requiredField: "",
+        },
+      }),
+    );
+
+    const {
+      handleSubmit,
+      register,
+      formState: {errors},
+    } = result.current;
+
+    onSubmit = jest.fn();
+
+    render(
+      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+        <Input isClearable label="With default value" {...register("withDefaultValue")} />
+        <Input
+          data-testid="input-2"
+          label="Without default value"
+          {...register("withoutDefaultValue")}
+        />
+        <Input
+          data-testid="input-3"
+          label="Required"
+          {...register("requiredField", {required: true})}
+        />
+        {errors.requiredField && <span className="text-danger">This field is required</span>}
+        <button type="submit">Submit</button>
+      </form>,
+    );
+
+    input1 = document.querySelector("input[name=withDefaultValue]")!;
+    input2 = document.querySelector("input[name=withoutDefaultValue]")!;
+    input3 = document.querySelector("input[name=requiredField]")!;
+    submitButton = document.querySelector('button[type="submit"]')!;
+  });
+
+  it("should work with defaultValues", () => {
+    expect(input1).toHaveValue("wkw");
+    expect(input2).toHaveValue("");
+    expect(input3).toHaveValue("");
+  });
+
+  it("should not submit form when required field is empty", async () => {
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+
+  it("should submit form when required field is not empty", async () => {
+    fireEvent.change(input3, {target: {value: "updated"}});
+
+    const user = userEvent.setup();
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

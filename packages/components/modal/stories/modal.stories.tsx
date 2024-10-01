@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React from "react";
 import {Meta} from "@storybook/react";
 import {modal} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
@@ -65,7 +64,7 @@ export default {
   },
   decorators: [
     (Story) => (
-      <div className="flex items-center justify-center w-screen h-screen">
+      <div className="flex justify-center items-center w-screen h-screen">
         <Story />
       </div>
     ),
@@ -74,7 +73,6 @@ export default {
 
 const defaultProps = {
   ...modal.defaultVariants,
-  disableAnimation: false,
   isDismissable: true,
   isKeyboardDismissDisabled: false,
 };
@@ -152,7 +150,7 @@ const InsideScrollTemplate = (args: ModalProps) => {
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>
-            <Lorem count={5} />
+            <Lorem count={10} />
           </ModalBody>
           <ModalFooter>
             <Button onPress={onClose}>Close</Button>
@@ -173,7 +171,7 @@ const OutsideScrollTemplate = (args: ModalProps) => {
         <ModalContent>
           <ModalHeader>Modal Title</ModalHeader>
           <ModalBody>
-            <Lorem count={5} />
+            <Lorem count={10} />
           </ModalBody>
           <ModalFooter>
             <Button onPress={onClose}>Close</Button>

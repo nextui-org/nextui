@@ -9,9 +9,14 @@ import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {popover} from "@nextui-org/theme";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
 import {createDOMRef} from "@nextui-org/react-utils";
 import {useMemo, useRef, useCallback} from "react";
@@ -87,6 +92,7 @@ export type UseTooltipProps = Props &
   PopoverVariantProps;
 
 export function useTooltip(originalProps: UseTooltipProps) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, popover.variantKeys);
 
   const {
@@ -121,6 +127,9 @@ export function useTooltip(originalProps: UseTooltipProps) {
   } = props;
 
   const Component = as || "div";
+
+  const disableAnimation =
+    originalProps?.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   const state = useTooltipTriggerState({
     delay,
@@ -203,12 +212,14 @@ export function useTooltip(originalProps: UseTooltipProps) {
     () =>
       popover({
         ...variantProps,
+        disableAnimation,
         radius: originalProps?.radius ?? "md",
         size: originalProps?.size ?? "md",
         shadow: originalProps?.shadow ?? "sm",
       }),
     [
-      ...Object.values(variantProps),
+      objectToDeps(variantProps),
+      disableAnimation,
       originalProps?.radius,
       originalProps?.size,
       originalProps?.shadow,
@@ -274,7 +285,7 @@ export function useTooltip(originalProps: UseTooltipProps) {
     showArrow,
     portalContainer,
     placement: placementProp,
-    disableAnimation: originalProps?.disableAnimation,
+    disableAnimation,
     isDisabled,
     motionProps,
     getTooltipContentProps,

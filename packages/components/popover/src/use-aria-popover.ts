@@ -1,14 +1,20 @@
 import {RefObject, useEffect} from "react";
 import {
-  AriaPopoverProps,
   useOverlay,
+  AriaPopoverProps,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,
 } from "@react-aria/overlays";
-import {OverlayPlacement, ariaHideOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
+import {
+  OverlayPlacement,
+  ariaHideOutside,
+  toReactAriaPlacement,
+  ariaShouldCloseOnInteractOutside,
+} from "@nextui-org/aria-utils";
 import {OverlayTriggerState} from "@react-stately/overlays";
 import {mergeProps} from "@react-aria/utils";
+import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
 export interface Props {
   /**
@@ -26,6 +32,11 @@ export interface Props {
    * @default popoverRef
    */
   scrollRef?: RefObject<HTMLElement>;
+  /**
+   * List of dependencies to update the position of the popover.
+   * @default []
+   */
+  updatePositionDeps?: any[];
 }
 
 export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement"> & AriaOverlayProps;
@@ -54,10 +65,11 @@ export function useReactAriaPopover(
     shouldCloseOnInteractOutside,
     isNonModal: isNonModalProp,
     isKeyboardDismissDisabled,
+    updatePositionDeps = [],
     ...otherProps
   } = props;
 
-  const isNonModal = isNonModalProp || true;
+  const isNonModal = isNonModalProp ?? true;
 
   const {overlayProps, underlayProps} = useOverlay(
     {
@@ -68,12 +80,7 @@ export function useReactAriaPopover(
       isKeyboardDismissDisabled,
       shouldCloseOnInteractOutside: shouldCloseOnInteractOutside
         ? shouldCloseOnInteractOutside
-        : (element) => {
-            // Don't close if the click is within the trigger or the popover itself
-            let trigger = triggerRef?.current;
-
-            return !trigger || !trigger.contains(element);
-          },
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, triggerRef, state),
     },
     popoverRef,
   );
@@ -82,6 +89,7 @@ export function useReactAriaPopover(
     overlayProps: positionProps,
     arrowProps,
     placement,
+    updatePosition,
   } = useOverlayPosition({
     ...otherProps,
     shouldFlip,
@@ -94,8 +102,14 @@ export function useReactAriaPopover(
     containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
-    onClose: () => {},
+    onClose: isNonModal ? state.close : () => {},
   });
+
+  useSafeLayoutEffect(() => {
+    if (!updatePositionDeps.length) return;
+    // force update position when deps change
+    updatePosition();
+  }, updatePositionDeps);
 
   useEffect(() => {
     if (state.isOpen && !isNonModal && popoverRef.current) {
