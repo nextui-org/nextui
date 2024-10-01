@@ -94,7 +94,14 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
   const addButtonElement = useMemo(
     () =>
-      addButton ?? (
+      addButton ? (
+        cloneElement(addButton, {
+          onClick: () => {
+            singleInputFileRef.current?.click();
+            addButton.props.onClick?.();
+          },
+        })
+      ) : (
         <Button color="secondary" onClick={() => singleInputFileRef.current?.click()}>
           Add
         </Button>
@@ -104,7 +111,14 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
   const resetButtonElement = useMemo(
     () =>
-      resetButton ?? (
+      resetButton ? (
+        cloneElement(resetButton, {
+          onClick: () => {
+            updateFiles([]);
+            resetButton.props.onClick?.();
+          },
+        })
+      ) : (
         <Button
           color="warning"
           onClick={() => {
@@ -114,7 +128,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
           Reset
         </Button>
       ),
-    [resetButton, setFiles, onChange],
+    [resetButton, setFiles, updateFiles],
   );
 
   return (
