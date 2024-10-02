@@ -12,7 +12,7 @@ import {mergeProps} from "@react-aria/utils";
 const CalendarPickerItem = forwardRef<
   HTMLButtonElement,
   HTMLNextUIProps<"button"> & AriaButtonProps
->(({children, autoFocus, isDisabled, onKeyDown, ...otherProps}, ref) => {
+>(({children, autoFocus, isDisabled, onKeyDown, onKeyUp, ...otherProps}, ref) => {
   const domRef = useDOMRef(ref);
 
   const {buttonProps: ariaButtonProps, isPressed} = useAriaButton(
@@ -20,6 +20,7 @@ const CalendarPickerItem = forwardRef<
       elementType: "button",
       isDisabled,
       onKeyDown,
+      onKeyUp,
       ...otherProps,
     } as AriaButtonProps,
     domRef,

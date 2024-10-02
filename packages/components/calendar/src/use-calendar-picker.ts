@@ -184,6 +184,23 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     [state],
   );
 
+  const onPickerItemKeyUp = useCallback(
+    (e: React.KeyboardEvent<HTMLElement>, value: number, list: CalendarPickerListType) => {
+      const listRef = list === "months" ? monthsListRef : yearsListRef;
+
+      // When the key up events fires we do a safety scroll to the element that fired it.
+      // Part of fixing issue #3789
+      if (e.currentTarget) {
+        scrollIntoView(e.currentTarget, {
+          scrollMode: "always",
+          behavior: "smooth",
+          boundary: listRef.current,
+        });
+      }
+    },
+    [state],
+  );
+
   return {
     state,
     slots,
@@ -197,6 +214,7 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     isHeaderExpanded,
     onPickerItemPressed,
     onPickerItemKeyDown,
+    onPickerItemKeyUp,
   };
 }
 
