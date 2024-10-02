@@ -155,10 +155,10 @@ export function useCalendarPicker(props: CalendarPickerProps) {
           nextValue = value - 1;
           break;
         case "Home":
-          nextValue = 0;
+          nextValue = 1;
           break;
         case "End":
-          nextValue = months.length - 1;
+          nextValue = months.length;
           break;
         case "PageUp":
           nextValue = value - 3;
