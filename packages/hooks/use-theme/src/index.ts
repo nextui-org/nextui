@@ -27,6 +27,8 @@ export type Theme =
  * @returns An object containing the current theme and theme manipulation functions
  */
 export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
+  const MEDIA = "(prefers-color-scheme: dark)";
+
   const [theme, setThemeState] = useState<Theme>(() => {
     let storedTheme: Theme | undefined;
 
@@ -40,13 +42,12 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
     // if it is using system theme, check `prefers-color-scheme` value
     // return light theme if not specified
     if (defaultTheme === ThemeProps.SYSTEM) {
-      return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+      return window.matchMedia && window.matchMedia(MEDIA).matches
         ? ThemeProps.DARK
         : ThemeProps.LIGHT;
     }
 
-    // return default theme with light theme as default one
-    return defaultTheme ?? ThemeProps.LIGHT;
+    return defaultTheme;
   });
 
   const setTheme = useCallback(
@@ -54,7 +55,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
       try {
         const targetTheme =
           newTheme === ThemeProps.SYSTEM
-            ? window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? window.matchMedia && window.matchMedia(MEDIA).matches
               ? ThemeProps.DARK
               : ThemeProps.LIGHT
             : newTheme;
@@ -69,13 +70,24 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
     [theme],
   );
 
+  const handleMediaQuery = useCallback(
+    (e: MediaQueryListEvent | MediaQueryList) => {
+      if (defaultTheme === ThemeProps.SYSTEM) {
+        setTheme(e.matches ? ThemeProps.DARK : ThemeProps.LIGHT);
+      }
+    },
+    [theme],
+  );
+
   useEffect(() => setTheme(theme), [theme, setTheme]);
 
-  window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", (event) => {
-    if (theme === ThemeProps.SYSTEM) {
-      setTheme(event.matches ? ThemeProps.DARK : ThemeProps.LIGHT);
-    }
-  });
+  useEffect(() => {
+    const media = window.matchMedia(MEDIA);
+
+    media.addEventListener("change", handleMediaQuery);
+
+    return () => media.removeEventListener("change", handleMediaQuery);
+  }, [handleMediaQuery]);
 
   return {theme, setTheme};
 }
