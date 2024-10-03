@@ -42,9 +42,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
     // if it is using system theme, check `prefers-color-scheme` value
     // return light theme if not specified
     if (defaultTheme === ThemeProps.SYSTEM) {
-      return window.matchMedia && window.matchMedia(MEDIA).matches
-        ? ThemeProps.DARK
-        : ThemeProps.LIGHT;
+      return window.matchMedia?.(MEDIA).matches ? ThemeProps.DARK : ThemeProps.LIGHT;
     }
 
     return defaultTheme;
@@ -55,7 +53,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
       try {
         const targetTheme =
           newTheme === ThemeProps.SYSTEM
-            ? window.matchMedia && window.matchMedia(MEDIA).matches
+            ? window.matchMedia?.(MEDIA).matches
               ? ThemeProps.DARK
               : ThemeProps.LIGHT
             : newTheme;
@@ -76,7 +74,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
         setTheme(e.matches ? ThemeProps.DARK : ThemeProps.LIGHT);
       }
     },
-    [theme],
+    [theme, setTheme],
   );
 
   useEffect(() => setTheme(theme), [theme, setTheme]);
