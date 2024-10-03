@@ -8,6 +8,8 @@ import scrollIntoView from "scroll-into-view-if-needed";
 
 import {getMonthsInYear, getYearRange} from "./utils";
 import {useCalendarContext} from "./calendar-context";
+import useScrollEndCallback from "./use-scroll-end-callback";
+import {useKeyRepeatBlocker} from "./use-key-repeat-blocker";
 
 export type PickerValue = {
   value: string;
@@ -38,6 +40,14 @@ const LISTENED_NAVIGATION_KEYS = [
   "Enter",
   " ",
 ];
+
+const OF_100_MILLISECONDS = 100;
+
+const HOME_AND_END_NEED_DEFERRED_FOCUS = ["Home", "End"];
+
+function needsDeferredFocus(e: React.KeyboardEvent<HTMLElement>) {
+  return HOME_AND_END_NEED_DEFERRED_FOCUS.includes(e.key);
+}
 
 export function useCalendarPicker(props: CalendarPickerProps) {
   const {date, currentMonth} = props;
@@ -138,6 +148,11 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     [state],
   );
 
+  const {onScrollEnd, abortRef} = useScrollEndCallback(OF_100_MILLISECONDS);
+  const {handleKeyDown, handleKeyUp, isKeyDown} = useKeyRepeatBlocker(
+    HOME_AND_END_NEED_DEFERRED_FOCUS,
+  );
+
   // Destructure before useCallback to ring-fence the dependency
   const {maxValue, minValue} = state;
 
@@ -195,11 +210,37 @@ export function useCalendarPicker(props: CalendarPickerProps) {
 
       const nextItem = map.get(nextValue);
 
-      scrollTo(nextValue, list);
+      if (needsDeferredFocus(e)) {
+        if (!isKeyDown(e.key)) {
+          scrollTo(nextValue, list);
+        } else {
+        }
+      } else {
+        scrollTo(nextValue, list);
+      }
 
-      nextItem?.focus();
+      if (nextItem) {
+        const abort = () => {
+          if (abortRef.current) {
+            abortRef.current();
+          }
+        };
+
+        if (needsDeferredFocus(e)) {
+          if (!isKeyDown(e.key)) {
+            abort();
+            handleKeyDown(e.key);
+            onScrollEnd(list === "months" ? monthsListRef.current : yearsListRef.current, () => {
+              nextItem.focus();
+            });
+          }
+        } else {
+          abort();
+          nextItem.focus();
+        }
+      }
     },
-    [state],
+    [state, handleKeyDown, isKeyDown],
   );
 
   const onPickerItemKeyUp = useCallback(
@@ -213,11 +254,19 @@ export function useCalendarPicker(props: CalendarPickerProps) {
       // When the key up events fires we do a safety scroll to the element that fired it.
       // Part of fixing issue #3789
       if (e.currentTarget) {
-        scrollIntoView(e.currentTarget, {
-          scrollMode: "always",
-          behavior: "smooth",
-          boundary: listRef.current,
-        });
+        const runnable = () => {
+          scrollIntoView(e.currentTarget, {
+            scrollMode: "always",
+            behavior: "smooth",
+            boundary: listRef.current,
+          });
+        };
+
+        if (needsDeferredFocus(e)) {
+          handleKeyUp(e.key);
+        } else {
+          runnable();
+        }
       }
     },
     [state],
