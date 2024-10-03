@@ -22,6 +22,23 @@ export interface CalendarPickerProps extends HTMLNextUIProps<"div"> {
 type ItemsRefMap = Map<number, HTMLElement>;
 type CalendarPickerListType = "months" | "years";
 
+const DEFAULT_BOUNDARY_VALUE = {
+  max: {months: 12, years: 2099},
+  min: {months: 1, years: 1900},
+} as const;
+
+const LISTENED_NAVIGATION_KEYS = [
+  "ArrowDown",
+  "ArrowUp",
+  "Home",
+  "End",
+  "PageUp",
+  "PageDown",
+  "Escape",
+  "Enter",
+  " ",
+];
+
 export function useCalendarPicker(props: CalendarPickerProps) {
   const {date, currentMonth} = props;
 
@@ -121,23 +138,18 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     [state],
   );
 
+  function getBoundaryValue(list: CalendarPickerListType, bound: "min" | "max") {
+    let boundaryDate = state[`${bound}Value`];
+    const fromState = list === "months" ? boundaryDate?.month : boundaryDate?.year;
+
+    return fromState ?? DEFAULT_BOUNDARY_VALUE[bound][list];
+  }
+
   const onPickerItemKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLElement>, value: number, list: CalendarPickerListType) => {
       const map = getItemsRefMap(list === "months" ? monthsItemsRef : yearsItemsRef);
 
-      if (
-        [
-          "ArrowDown",
-          "ArrowUp",
-          "Home",
-          "End",
-          "PageUp",
-          "PageDown",
-          "Escape",
-          "Enter",
-          " ",
-        ].includes(e.key)
-      ) {
+      if (LISTENED_NAVIGATION_KEYS.includes(e.key)) {
         e.preventDefault();
       }
 
@@ -155,10 +167,10 @@ export function useCalendarPicker(props: CalendarPickerProps) {
           nextValue = value - 1;
           break;
         case "Home":
-          nextValue = 1;
+          nextValue = getBoundaryValue(list, "min");
           break;
         case "End":
-          nextValue = months.length;
+          nextValue = getBoundaryValue(list, "max");
           break;
         case "PageUp":
           nextValue = value - 3;
@@ -177,7 +189,7 @@ export function useCalendarPicker(props: CalendarPickerProps) {
 
       const nextItem = map.get(nextValue);
 
-      scrollTo(nextValue, list);
+      scrollTo(nextValue, list, true);
 
       nextItem?.focus();
     },
@@ -187,6 +199,10 @@ export function useCalendarPicker(props: CalendarPickerProps) {
   const onPickerItemKeyUp = useCallback(
     (e: React.KeyboardEvent<HTMLElement>, value: number, list: CalendarPickerListType) => {
       const listRef = list === "months" ? monthsListRef : yearsListRef;
+
+      if (LISTENED_NAVIGATION_KEYS.includes(e.key)) {
+        e.preventDefault();
+      }
 
       // When the key up events fires we do a safety scroll to the element that fired it.
       // Part of fixing issue #3789
