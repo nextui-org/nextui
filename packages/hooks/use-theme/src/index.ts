@@ -68,7 +68,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
         setTheme(e.matches ? ThemeProps.DARK : ThemeProps.LIGHT);
       }
     },
-    [theme, setTheme],
+    [setTheme],
   );
 
   useEffect(() => setTheme(theme), [theme, setTheme]);
