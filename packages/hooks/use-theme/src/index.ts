@@ -26,7 +26,7 @@ export type Theme =
  * @param defaultTheme the default theme name (e.g. light, dark, purple-dark and etc)
  * @returns An object containing the current theme and theme manipulation functions
  */
-export function useTheme(defaultTheme?: Theme) {
+export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
   const [theme, setThemeState] = useState<Theme>(() => {
     let storedTheme: Theme | undefined;
 
