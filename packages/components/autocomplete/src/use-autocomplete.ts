@@ -548,7 +548,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       state,
       originalProps?.name,
       originalProps?.autoComplete,
-      originalProps?.autoComplete,
       originalProps?.isDisabled,
       originalProps?.isRequired,
       inputRef,
