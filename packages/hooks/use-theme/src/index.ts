@@ -30,11 +30,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
   const MEDIA = "(prefers-color-scheme: dark)";
 
   const [theme, setThemeState] = useState<Theme>(() => {
-    let storedTheme: Theme | undefined;
-
-    try {
-      storedTheme = localStorage.getItem(ThemeProps.KEY) || undefined;
-    } catch {}
+    const storedTheme = localStorage.getItem(ThemeProps.KEY) as Theme | null;
 
     // return stored theme if it is selected previously
     if (storedTheme) return storedTheme;
@@ -65,7 +61,7 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
         setThemeState(newTheme);
       } catch {}
     },
-    [theme],
+    [theme, MEDIA],
   );
 
   const handleMediaQuery = useCallback(
