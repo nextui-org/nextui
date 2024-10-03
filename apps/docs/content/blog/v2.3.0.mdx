@@ -7,7 +7,7 @@ tags: ["nextui", "cli", "date picker", "time input", "date input", "calendar"]
 author:
   name: "Junior Garcia"
   username: "@jrgarciadev"
-  link: "https://twitter.com/jrgarciadev"
+  link: "https://x.com/jrgarciadev"
   avatar: "/avatars/junior-garcia.jpeg"
 ---
 
@@ -209,7 +209,7 @@ Go to the [DateRangePicker documentation](/docs/components/date-range-picker) to
 
 ### Calendar Presets
 
-`Calendar` and `RangeCalendar` components support adding custom content at the top and bottom of the calendar, this is useful for adding presets or 
+`Calendar` and `RangeCalendar` components support adding custom content at the top and bottom of the calendar, this is useful for adding presets or
 custom actions to the calendar.
 
 Here's an example of how to add presets to the `Calendar` component:
@@ -299,7 +299,7 @@ export function Providers({children}: ProvidersProps) {
 
 ### Removal of the `units` creation
 
-To improve performance and reduce bundle size, we have removed the `units` creation from the 
+To improve performance and reduce bundle size, we have removed the `units` creation from the
 `nextui` plugin. [TailwindCSS v3.4](https://tailwindcss.com/blog/tailwindcss-v3-4) added support for `min-h-*` and `min-w-*` classes, so it is no longer needed.
 
 How to upgrade:
@@ -339,7 +339,7 @@ export const MyButton = () => {
 
 ### Separation for `errorMessage` and `isInvalid`
 
-We are currently working on supporting multiple types of validation, including native HTML constraint validation, custom validation, and real-time validation. 
+We are currently working on supporting multiple types of validation, including native HTML constraint validation, custom validation, and real-time validation.
 Due to this reason, the requirements for displaying error messages have become more varied, and it is necessary to handle validation conditions separately from the `errorMessage`.
 
 How to upgrade:
@@ -381,7 +381,7 @@ That's it! Your project should now be using the latest version of TailwindCSS an
 **Improvements**
 - Framer Motion was updated to the latest version, improving performance and reducing bundle size. [Docs](https://www.framer.com/motion/guide-reduce-bundle-size/) [PR](https://github.com/nextui-org/nextui/pull/2464) - [@mezotv](https://github.com/mezotv)
 - `LazyMotion` was added to all components that use Framer Motion, improving performance by only loading the required motion components.
-- We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above. [PR](https://github.com/nextui-org/nextui/pull/2713) - [@jrgarciadev](https://github.com/jrgarciadev) 
+- We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above. [PR](https://github.com/nextui-org/nextui/pull/2713) - [@jrgarciadev](https://github.com/jrgarciadev)
 - Updated `framer-motion` package across various components and utilities to version `11.0.22` for enhanced performance and consistency. [PR](https://github.com/nextui-org/nextui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
 - Ensured compatibility with `react@18.2.0` and `react-dom@18.2.0` across the board. [PR](https://github.com/nextui-org/nextui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
 - Introduced patches for NextUI components to improve animations, including support for keyframes with spring and inertia animations. [PR](https://github.com/nextui-org/nextui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
@@ -402,8 +402,8 @@ That's it! Your project should now be using the latest version of TailwindCSS an
 - Layout docs updated to remove the `units` configuration from the `tailwind.config.(js|ts)` file.
 
 
-Special thanks to NextUI Team members [@kuri-sun](https://github.com/kuri-sun), [@ryo-manba](https://github.com/ryo-manba), 
-[@sudongyuer](https://github.com/sudongyuer), [@winchesHe](https://github.com/winchesHe), [@wingkwong](https://github.com/wingkwong), 
+Special thanks to NextUI Team members [@kuri-sun](https://github.com/kuri-sun), [@ryo-manba](https://github.com/ryo-manba),
+[@sudongyuer](https://github.com/sudongyuer), [@winchesHe](https://github.com/winchesHe), [@wingkwong](https://github.com/wingkwong),
 [@tianenpang](https://github.com/tianenpang), [@smultar](https://github.com/smultar) and contributors for their contributions to this release.
 
 For a full list of changes, please refer to the [release notes](https://github.com/nextui-org/nextui/releases/tag/%40nextui-org%2Freact%402.3.0).
