@@ -46,22 +46,20 @@ export function useTheme(defaultTheme: Theme = ThemeProps.SYSTEM) {
 
   const setTheme = useCallback(
     (newTheme: Theme) => {
-      try {
-        const targetTheme =
-          newTheme === ThemeProps.SYSTEM
-            ? window.matchMedia?.(MEDIA).matches
-              ? ThemeProps.DARK
-              : ThemeProps.LIGHT
-            : newTheme;
+      const targetTheme =
+        newTheme === ThemeProps.SYSTEM
+          ? window.matchMedia?.(MEDIA).matches
+            ? ThemeProps.DARK
+            : ThemeProps.LIGHT
+          : newTheme;
 
-        localStorage.setItem(ThemeProps.KEY, targetTheme);
+      localStorage.setItem(ThemeProps.KEY, targetTheme);
 
-        document.documentElement.classList.remove(theme);
-        document.documentElement.classList.add(targetTheme);
-        setThemeState(newTheme);
-      } catch {}
+      document.documentElement.classList.remove(theme);
+      document.documentElement.classList.add(targetTheme);
+      setThemeState(newTheme);
     },
-    [theme, MEDIA],
+    [theme],
   );
 
   const handleMediaQuery = useCallback(
