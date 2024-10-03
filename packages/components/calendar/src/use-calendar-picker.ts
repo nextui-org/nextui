@@ -213,29 +213,20 @@ export function useCalendarPicker(props: CalendarPickerProps) {
       if (needsDeferredFocus(e)) {
         if (!isKeyDown(e.key)) {
           scrollTo(nextValue, list);
-        } else {
-        }
-      } else {
-        scrollTo(nextValue, list);
-      }
-
-      if (nextItem) {
-        if (needsDeferredFocus(e)) {
-          if (!isKeyDown(e.key)) {
-            if (abortRef.current) {
-              abortRef.current();
-            }
-            handleKeyDown(e.key);
-            onScrollEnd(list === "months" ? monthsListRef.current : yearsListRef.current, () => {
-              nextItem.focus();
-            });
-          }
-        } else {
           if (abortRef.current) {
             abortRef.current();
           }
-          nextItem.focus();
+          handleKeyDown(e.key);
+          onScrollEnd(list === "months" ? monthsListRef.current : yearsListRef.current, () => {
+            nextItem?.focus();
+          });
         }
+      } else {
+        scrollTo(nextValue, list);
+        if (abortRef.current) {
+          abortRef.current();
+        }
+        nextItem?.focus();
       }
     },
     [state, handleKeyDown, isKeyDown],
