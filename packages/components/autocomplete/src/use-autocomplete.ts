@@ -1,7 +1,7 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
 import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext, SharedSelection} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
@@ -110,6 +110,10 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: SharedSelection) => void;
 }
 interface InputData {
   isDisabled?: boolean;
@@ -121,7 +125,10 @@ interface InputData {
 export const inputData = new WeakMap<ComboBoxState<any>, InputData>();
 
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
+  Omit<
+    InputProps,
+    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "onSelectionChange"
+  > &
   ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
@@ -171,7 +178,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     classNames,
     errorMessage,
     onOpenChange,
+    onChange,
     onClose,
+    onSelectionChange,
     isReadOnly = false,
     ...otherProps
   } = props;
@@ -191,6 +200,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onOpenChange?.(open, menuTrigger);
       if (!open) {
         onClose?.();
+      }
+    },
+    onSelectionChange: (keys) => {
+      onSelectionChange?.(keys);
+      if (onChange && typeof onChange === "function") {
+        onChange({
+          target: {
+            name: inputRef?.current?.name,
+            value: keys,
+          },
+        } as React.ChangeEvent<HTMLInputElement>);
       }
     },
   });
@@ -521,6 +541,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       isRequired: originalProps?.isRequired,
       autoComplete: originalProps?.autoComplete,
       isDisabled: originalProps?.isDisabled,
+      onChange,
       ...props,
     }),
     [
@@ -529,6 +550,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       originalProps?.autoComplete,
       originalProps?.autoComplete,
       originalProps?.isDisabled,
+      originalProps?.isRequired,
       inputRef,
     ],
   );
