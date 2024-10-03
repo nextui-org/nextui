@@ -138,12 +138,18 @@ export function useCalendarPicker(props: CalendarPickerProps) {
     [state],
   );
 
-  function getBoundaryValue(list: CalendarPickerListType, bound: "min" | "max") {
-    let boundaryDate = state[`${bound}Value`];
-    const fromState = list === "months" ? boundaryDate?.month : boundaryDate?.year;
+  // Destructure before useCallback to ring-fence the dependency
+  const {maxValue, minValue} = state;
 
-    return fromState ?? DEFAULT_BOUNDARY_VALUE[bound][list];
-  }
+  const getBoundaryValue = useCallback(
+    (list: CalendarPickerListType, bound: "min" | "max") => {
+      let boundaryDate = bound === "min" ? minValue : maxValue;
+      const fromState = list === "months" ? boundaryDate?.month : boundaryDate?.year;
+
+      return fromState ?? DEFAULT_BOUNDARY_VALUE[bound][list];
+    },
+    [minValue, maxValue],
+  );
 
   const onPickerItemKeyDown = useCallback(
     (e: React.KeyboardEvent<HTMLElement>, value: number, list: CalendarPickerListType) => {
@@ -189,7 +195,7 @@ export function useCalendarPicker(props: CalendarPickerProps) {
 
       const nextItem = map.get(nextValue);
 
-      scrollTo(nextValue, list, true);
+      scrollTo(nextValue, list);
 
       nextItem?.focus();
     },
