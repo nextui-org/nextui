@@ -220,22 +220,20 @@ export function useCalendarPicker(props: CalendarPickerProps) {
       }
 
       if (nextItem) {
-        const abort = () => {
-          if (abortRef.current) {
-            abortRef.current();
-          }
-        };
-
         if (needsDeferredFocus(e)) {
           if (!isKeyDown(e.key)) {
-            abort();
+            if (abortRef.current) {
+              abortRef.current();
+            }
             handleKeyDown(e.key);
             onScrollEnd(list === "months" ? monthsListRef.current : yearsListRef.current, () => {
               nextItem.focus();
             });
           }
         } else {
-          abort();
+          if (abortRef.current) {
+            abortRef.current();
+          }
           nextItem.focus();
         }
       }
