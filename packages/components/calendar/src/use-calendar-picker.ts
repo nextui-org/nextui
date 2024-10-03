@@ -216,10 +216,10 @@ export function useCalendarPicker(props: CalendarPickerProps) {
           if (abortRef.current) {
             abortRef.current();
           }
-          handleKeyDown(e.key);
           onScrollEnd(list === "months" ? monthsListRef.current : yearsListRef.current, () => {
             nextItem?.focus();
           });
+          handleKeyDown(e.key);
         }
       } else {
         scrollTo(nextValue, list);
@@ -243,18 +243,14 @@ export function useCalendarPicker(props: CalendarPickerProps) {
       // When the key up events fires we do a safety scroll to the element that fired it.
       // Part of fixing issue #3789
       if (e.currentTarget) {
-        const runnable = () => {
+        if (needsDeferredFocus(e)) {
+          handleKeyUp(e.key);
+        } else {
           scrollIntoView(e.currentTarget, {
             scrollMode: "always",
             behavior: "smooth",
             boundary: listRef.current,
           });
-        };
-
-        if (needsDeferredFocus(e)) {
-          handleKeyUp(e.key);
-        } else {
-          runnable();
         }
       }
     },

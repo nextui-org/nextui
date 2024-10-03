@@ -29,6 +29,7 @@ function useScrollEndCallback(debounce: number) {
   const onScrollEnd = useCallback(
     (element: HTMLElement | null, callback: () => void) => {
       if (!element) return;
+      clearListener();
       elementRef.current = element;
 
       // Clear the timeout if already set
