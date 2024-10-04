@@ -185,6 +185,7 @@ const input = tv({
       true: {
         base: "w-full",
       },
+      false: {},
     },
     isClearable: {
       true: {

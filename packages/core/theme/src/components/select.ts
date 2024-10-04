@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: ["group inline-flex flex-col relative w-full"],
+    base: ["group inline-flex flex-col relative"],
     label: [
       "block",
       "absolute",
@@ -145,6 +145,9 @@ const select = tv({
     fullWidth: {
       true: {
         base: "w-full",
+      },
+      false: {
+        base: "min-w-40",
       },
     },
     isDisabled: {
