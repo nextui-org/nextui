@@ -50,7 +50,7 @@ export function useHiddenInput<T>(props: HiddenInputProps<T>) {
 
   const {validationBehavior, isRequired} = data;
 
-  useFormReset(props.inputRef!, state.selectedKey, state.setSelectedKey);
+  useFormReset(inputRef!, state.selectedKey, state.setSelectedKey);
   useFormValidation(
     {
       validationBehavior,
