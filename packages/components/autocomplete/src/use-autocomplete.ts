@@ -1,7 +1,7 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
 import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {mapPropsVariants, useProviderContext, SharedSelection} from "@nextui-org/system";
+import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
@@ -113,7 +113,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
   /**
    * Handler that is called when the selection changes.
    */
-  onSelectionChange?: (keys: SharedSelection) => void;
+  onSelectionChange?: (keys: React.Key | null) => void;
 }
 interface InputData {
   isDisabled?: boolean;
