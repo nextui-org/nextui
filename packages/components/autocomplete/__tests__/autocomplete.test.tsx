@@ -767,6 +767,7 @@ describe("Autocomplete with React Hook Form", () => {
   let submitButton: HTMLButtonElement;
   let wrapper: any;
   let onSubmit: () => void;
+  let getReactHookFormValues: (key: string) => string;
 
   beforeEach(() => {
     const {result} = renderHook(() =>
@@ -783,9 +784,12 @@ describe("Autocomplete with React Hook Form", () => {
       handleSubmit,
       register,
       formState: {errors},
+      getValues,
     } = result.current;
 
     onSubmit = jest.fn();
+
+    getReactHookFormValues = getValues;
 
     wrapper = render(
       <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
@@ -859,5 +863,27 @@ describe("Autocomplete with React Hook Form", () => {
     await user.click(submitButton);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it("should have correct form values", async () => {
+    const user = userEvent.setup();
+
+    await user.click(autocomplete3);
+
+    expect(autocomplete3).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete3).toHaveValue("Dog");
+
+    await user.click(submitButton);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
+
+    expect(getReactHookFormValues("withDefaultValue")).toEqual("cat");
+    expect(getReactHookFormValues("withoutDefaultValue")).toEqual("");
+    expect(getReactHookFormValues("requiredField")).toEqual("dog");
   });
 });
