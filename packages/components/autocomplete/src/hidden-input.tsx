@@ -33,6 +33,8 @@ export interface HiddenInputProps<T> extends CombinedAriaInputProps {
   /** State for the input. */
   state: ComboBoxState<T>;
   /** A ref to the hidden `<input>` element. */
+  hiddenInputRef?: RefObject<HTMLInputElement>;
+  /** A ref to the `<input>` element. */
   inputRef?: RefObject<HTMLInputElement>;
 }
 
@@ -44,6 +46,7 @@ export function useHiddenInput<T>(props: HiddenInputProps<T>) {
     autoComplete,
     name = data.name,
     isDisabled = data.isDisabled,
+    hiddenInputRef,
     inputRef,
     onChange,
   } = props;
@@ -62,7 +65,7 @@ export function useHiddenInput<T>(props: HiddenInputProps<T>) {
 
   return {
     name,
-    ref: inputRef,
+    ref: hiddenInputRef,
     type: "hidden",
     disabled: isDisabled,
     required: isRequired,
