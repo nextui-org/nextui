@@ -188,6 +188,15 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
 
+  // Setup refs and get props for child elements.
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
+  const listBoxRef = useRef<HTMLUListElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const hiddenInputRef = useDOMRef<HTMLInputElement>(ref);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
+
   let state = useComboBoxState({
     ...originalProps,
     children,
@@ -207,7 +216,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       if (onChange && typeof onChange === "function") {
         onChange({
           target: {
-            name: inputRef?.current?.name,
+            name: hiddenInputRef?.current?.name,
             value: keys,
           },
         } as React.ChangeEvent<HTMLInputElement>);
@@ -221,14 +230,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
-
-  // Setup refs and get props for child elements.
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const inputWrapperRef = useRef<HTMLDivElement>(null);
-  const listBoxRef = useRef<HTMLUListElement>(null);
-  const popoverRef = useRef<HTMLDivElement>(null);
-  const inputRef = useDOMRef<HTMLInputElement>(ref);
-  const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
   const {
     buttonProps,
@@ -262,7 +263,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     inputProps: mergeProps(
       {
         label,
-        // ref: inputRef,
+        ref: inputRef,
         wrapperRef: inputWrapperRef,
         onClick: () => {
           if (!state.isOpen && !!state.selectedItem) {
@@ -334,16 +335,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
   useSafeLayoutEffect(() => {
-    if (!inputRef.current) return;
+    if (!hiddenInputRef.current) return;
 
-    const key = inputRef.current.value;
+    const key = hiddenInputRef.current.value;
     const item = state.collection.getItem(key);
 
     if (item && state.inputValue !== item.textValue) {
       state.setSelectedKey(key);
       state.setInputValue(item.textValue);
     }
-  }, [inputRef.current]);
+
+    if (inputRef?.current) {
+      // sync the value from ref to inputRef for initial display
+      inputRef.current.value = hiddenInputRef.current.value;
+    }
+  }, [hiddenInputRef.current]);
 
   // focus first non-disabled item
   useEffect(() => {
@@ -537,6 +543,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     (props = {}) => ({
       state,
       inputRef,
+      hiddenInputRef,
       name: originalProps?.name,
       isRequired: originalProps?.isRequired,
       autoComplete: originalProps?.autoComplete,
@@ -551,6 +558,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       originalProps?.isDisabled,
       originalProps?.isRequired,
       inputRef,
+      hiddenInputRef,
     ],
   );
 
