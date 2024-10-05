@@ -1,5 +1,38 @@
 # @nextui-org/autocomplete
 
+## 2.1.7
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f), [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/button@2.0.38
+  - @nextui-org/input@2.2.5
+  - @nextui-org/listbox@2.1.27
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+
+## 2.1.6
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- [#3000](https://github.com/nextui-org/nextui/pull/3000) [`81da063d6`](https://github.com/nextui-org/nextui/commit/81da063d6ab80e1b352ebfda78ed26a47a239c49) Thanks [@chirokas](https://github.com/chirokas)! - Improve clear button pointer events, keyboard reopen issue on mobile
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`985c2e1dd`](https://github.com/nextui-org/nextui/commit/985c2e1dd3642e3087aa0555a3c3ae4ea182b099), [`d621b2923`](https://github.com/nextui-org/nextui/commit/d621b2923e7c90e73bea996e5918b744223e896c), [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11), [`3d6865586`](https://github.com/nextui-org/nextui/commit/3d6865586fe7cec850925c8e8ff42155a97c43ea), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/popover@2.1.28
+  - @nextui-org/input@2.2.5
+  - @nextui-org/listbox@2.1.26
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/button@2.0.38
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.1.5
 
 ### Patch Changes

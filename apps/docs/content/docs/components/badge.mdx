@@ -13,7 +13,7 @@ Badges are used as a small numerical value or status descriptor for UI elements.
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -86,6 +86,16 @@ It's not advisable to depend on the badge's content for accurate announcement.
 Instead, consider supplying a comprehensive description, such as using `aria-label`.
 
 <CodeDemo title="Accessibility" files={badgeContent.a11y} />
+
+<Spacer y={4} />
+
+## Slots
+
+The Badge component has two slots:
+
+- **base**: The base slot for the badge, which is the container of the badge.
+
+- **badge**: The main slot for the badge content, which is the content of the badge.
 
 <Spacer y={4} />
 

@@ -13,7 +13,7 @@ Card is a container for text, photos, and actions in the context of a single sub
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -73,7 +73,9 @@ You can use other NextUI components inside the card to compose a more complex ca
 
 ### Blurred Card
 
-You can pass the `isBlurred` prop to the card to blur the card.
+You can pass the `isBlurred` prop to the card to blur the card. Card gets blurred properties based on its ancestor element.
+
+> **Note**: To achieve the blur effect as seen in the preview, you need to provide a suitable background (e.g., `bg-gradient-to-tr from-[#FFB457] to-[#FF705B]`) to an ancestor element of the Card component allowing the Card's blur effect to be visible.
 
 <CodeDemo isGradientBox title="Blurred Card" files={cardContent.blurred} />
 
@@ -90,6 +92,19 @@ If you pass the `isPressable` prop to the card, it will be rendered as a button.
 You can use `Image` component as the cover of the card by taking it out of the `CardBody` component.
 
 <CodeDemo title="Cover Image" files={cardContent.coverImage} />
+
+<Spacer y={4} />
+
+## Slots
+
+- **base**:
+  The main container of the card, where the header, body, and footer are placed.
+- **header**:
+  The header of the card, usually used for the title.
+- **body**:
+  The body of the card, where the main content is placed.
+- **footer**:
+  The footer of the card, usually used for actions.
 
 <Spacer y={4} />
 
