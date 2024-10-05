@@ -37,9 +37,9 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
         <Listbox {...getListBoxProps()} />
       </ScrollShadow>
     </FreeSoloPopover>
-  ) : (
+  ) : getListBoxProps().state?.collection.size === 0 ? (
     <div {...getEmptyPopoverProps()} />
-  );
+  ) : null;
 
   return (
     <Component {...getBaseProps()}>
