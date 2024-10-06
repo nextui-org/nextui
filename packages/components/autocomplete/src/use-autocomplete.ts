@@ -345,7 +345,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       state.setInputValue(item.textValue);
     }
 
-    if (inputRef?.current) {
+    if (inputRef.current && hiddenInputRef.current) {
       // sync the value from ref to inputRef for initial display
       inputRef.current.value = hiddenInputRef.current.value;
     }
@@ -461,10 +461,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
     // `name` will be in the hidden input
     // so that users can get the value of the input instead of label in form
-    delete props["name"];
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {name, ...restProps} = props;
 
     return {
-      ...props,
+      ...restProps,
       isInvalid,
       validationBehavior,
       errorMessage:

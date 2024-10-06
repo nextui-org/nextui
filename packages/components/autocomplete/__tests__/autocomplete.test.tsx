@@ -767,7 +767,7 @@ describe("Autocomplete with React Hook Form", () => {
   let submitButton: HTMLButtonElement;
   let wrapper: any;
   let onSubmit: () => void;
-  let getReactHookFormValues: (key: string) => string;
+  let getReactHookFormValues: (key: string) => any;
 
   beforeEach(() => {
     const {result} = renderHook(() =>
