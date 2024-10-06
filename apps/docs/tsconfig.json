@@ -5,7 +5,7 @@
     "paths": {
       "@/*": ["./*"],
       "tailwind-variants": ["./node_modules/tailwind-variants"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer2/generated": ["./.contentlayer/generated"]
     },
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,

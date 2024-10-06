@@ -1,11 +1,11 @@
-import {defineDocumentType, defineNestedType, makeSource} from "contentlayer/source-files";
+import {defineDocumentType, defineNestedType, makeSource} from "contentlayer2/source-files";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import {visit} from "unist-util-visit";
 import RawPlugin from 'esbuild-plugin-raw'
 import pluginCodeBlock from "./plugins/codeBlock";
 
-/** @type {import('contentlayer/source-files').ComputedFields} */
+/** @type {import('contentlayer2/source-files').ComputedFields} */
 const computedFields = {
   slug: {
     type: "string",
