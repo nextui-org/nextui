@@ -374,6 +374,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (allowsCustomValue) {
+      onChange?.({
+        target: {
+          name: hiddenInputRef?.current?.name,
+          value: hiddenInputRef?.current?.value,
+        },
+      } as React.ChangeEvent<HTMLInputElement>);
+    }
+  }, [state, allowsCustomValue, inputRef?.current?.value, hiddenInputRef?.current?.value]);
+
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
   // You can use continuePropagation() to revert this behavior.

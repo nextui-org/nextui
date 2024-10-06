@@ -70,7 +70,7 @@ export function useHiddenInput<T>(props: HiddenInputProps<T>) {
     disabled: isDisabled,
     required: isRequired,
     autoComplete,
-    value: state.selectedKey ?? "",
+    value: state.selectedKey ?? inputRef?.current?.value ?? "",
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
       state.setSelectedKey(e.target.value);
       onChange?.(e);
