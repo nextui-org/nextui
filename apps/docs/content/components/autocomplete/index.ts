@@ -26,7 +26,7 @@ import customSectionsStyle from "./custom-sections-style";
 import customStyles from "./custom-styles";
 import customEmptyContentMessage from "./custom-empty-content-message";
 import readOnly from "./read-only";
-import isAutoHighlight from "./auto-highlight";
+import autoHighlight from "./auto-highlight";
 
 export const autocompleteContent = {
   usage,
@@ -57,5 +57,5 @@ export const autocompleteContent = {
   customStyles,
   customEmptyContentMessage,
   readOnly,
-  isAutoHighlight,
+  autoHighlight,
 };

@@ -21,7 +21,7 @@ import {ListState} from "@react-stately/list";
 interface Props<T extends object> extends ListboxItemBaseProps<T> {
   item: Node<T>;
   state: ListState<T>;
-  isAutoHighlighted?: boolean;
+  autoHighlighted?: boolean;
 }
 
 export type UseListboxItemProps<T extends object> = Props<T> &
@@ -47,7 +47,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     onPress,
     onClick,
     shouldHighlightOnFocus,
-    isAutoHighlighted = false,
+    autoHighlighted = false,
     hideSelectedIcon = false,
     isReadOnly = false,
     ...otherProps
@@ -114,7 +114,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   const isHighlighted =
     (shouldHighlightOnFocus && isFocused) ||
     (isMobile ? isHovered || isPressed : isHovered || (isFocused && !isFocusVisible)) ||
-    isAutoHighlighted;
+    autoHighlighted;
 
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,

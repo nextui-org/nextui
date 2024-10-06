@@ -65,7 +65,7 @@ export default {
         type: "boolean",
       },
     },
-    isAutoHighlight: {
+    autoHighlight: {
       control: {
         type: "boolean",
       },
@@ -810,7 +810,7 @@ const WithReactHookFormTemplate = (args: AutocompleteProps) => {
 
 const AutoHighlightTemplate = ({color, variant, ...args}: AutocompleteProps<Animal>) => (
   <Autocomplete
-    isAutoHighlight
+    autoHighlight
     className="max-w-xs"
     color={color}
     defaultItems={animalsData}

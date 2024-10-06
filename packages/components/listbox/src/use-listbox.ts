@@ -96,7 +96,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
    * Whether to automatically highlight the first item in the list.
    * @default false
    */
-  isAutoHighlight?: boolean;
+  autoHighlight?: boolean;
 }
 
 export type UseListboxProps<T = object> = Props<T> & AriaListBoxOptions<T> & ListboxVariantProps;
@@ -123,7 +123,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     hideEmptyContent = false,
     shouldHighlightOnFocus = false,
     classNames,
-    isAutoHighlight = false,
+    autoHighlight = false,
     ...otherProps
   } = props;
 
@@ -187,7 +187,7 @@ export function useListbox<T extends object>(props: UseListboxProps<T>) {
     disableAnimation,
     className,
     itemClasses,
-    isAutoHighlight,
+    autoHighlight,
     getBaseProps,
     getListProps,
     getEmptyContentProps,

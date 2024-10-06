@@ -3,4 +3,4 @@
 "@nextui-org/listbox": minor
 ---
 
-add prop isAutoHighlight to enable/disable the automatic focus on autocomplete items (#2186)
+add prop autoHighlight to enable/disable the automatic focus on autocomplete items (#2186)

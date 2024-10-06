@@ -114,7 +114,7 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Whether to automatically highlight the first item in the list as the user types.
    * @default false
    */
-  isAutoHighlight?: boolean;
+  autoHighlight?: boolean;
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
@@ -170,7 +170,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     onOpenChange,
     onClose,
     isReadOnly = false,
-    isAutoHighlight = false,
+    autoHighlight = false,
     ...otherProps
   } = props;
 
@@ -325,7 +325,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // focus first non-disabled item
   useEffect(() => {
-    if (isAutoHighlight) {
+    if (autoHighlight) {
       let key = state.collection.getFirstKey();
 
       while (key && state.disabledKeys.has(key)) {
@@ -440,7 +440,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
-      isAutoHighlight,
+      autoHighlight,
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
@@ -524,7 +524,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     disableAnimation,
     allowsCustomValue,
     selectorIcon,
-    isAutoHighlight,
+    autoHighlight,
     getBaseProps,
     getInputProps,
     getListBoxProps,

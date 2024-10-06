@@ -862,10 +862,10 @@ describe("Autocomplete with React Hook Form", () => {
   });
 });
 
-it("should auto-highlight the first non-disabled item when isAutoHighlight is true", async () => {
+it("should auto-highlight the first non-disabled item when autoHighlight is true", async () => {
   const {getByRole, getAllByRole} = render(
     <Autocomplete
-      isAutoHighlight
+      autoHighlight
       aria-label="Favorite Animal"
       items={itemsData}
       label="Favorite Animal"
@@ -888,7 +888,7 @@ it("should auto-highlight the first non-disabled item when isAutoHighlight is tr
 it("should skip disabled items when auto-highlighting", async () => {
   const {getByRole, getAllByRole} = render(
     <Autocomplete
-      isAutoHighlight
+      autoHighlight
       aria-label="Favorite Animal"
       disabledKeys={["cat", "dog"]}
       items={itemsData}
@@ -909,11 +909,11 @@ it("should skip disabled items when auto-highlighting", async () => {
   expect(options[2]).toHaveAttribute("data-hover", "true");
 });
 
-it("should not auto-highlight when isAutoHighlight is false", async () => {
+it("should not auto-highlight when autoHighlight is false", async () => {
   const {getByRole, getAllByRole} = render(
     <Autocomplete
       aria-label="Favorite Animal"
-      isAutoHighlight={false}
+      autoHighlight={false}
       items={itemsData}
       label="Favorite Animal"
     >

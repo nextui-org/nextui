@@ -32,7 +32,7 @@ import {animals} from "./data";
 export default function App() {
   return (
       <Autocomplete
-        isAutoHighlight
+        autoHighlight
         label="Favorite Animal"
         placeholder="Search an animal"
         className="max-w-xs"
