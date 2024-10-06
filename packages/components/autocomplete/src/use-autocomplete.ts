@@ -375,7 +375,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   }, [isOpen]);
 
   useEffect(() => {
-    if (allowsCustomValue) {
+    if (allowsCustomValue && hiddenInputRef.current) {
       onChange?.({
         target: {
           name: hiddenInputRef?.current?.name,
