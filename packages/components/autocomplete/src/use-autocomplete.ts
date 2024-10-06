@@ -556,9 +556,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       inputRef,
       hiddenInputRef,
       name: originalProps?.name,
-      isRequired: originalProps?.isRequired,
-      autoComplete: originalProps?.autoComplete,
-      isDisabled: originalProps?.isDisabled,
+      isRequired: originalProps?.isRequired ?? false,
+      autoComplete: originalProps?.autoComplete ?? "on",
+      isDisabled: originalProps?.isDisabled ?? false,
       onChange,
       ...props,
     }),
@@ -575,8 +575,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // store the data to be used in useHiddenInput
   inputData.set(state, {
-    isDisabled: originalProps?.isDisabled,
-    isRequired: originalProps?.isRequired,
+    isDisabled: originalProps?.isDisabled ?? false,
+    isRequired: originalProps?.isRequired ?? false,
     name: originalProps?.name,
     // TODO: Future enhancement to support "aria" validation behavior.
     validationBehavior: "native",
