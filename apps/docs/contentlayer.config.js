@@ -3,6 +3,7 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import {visit} from "unist-util-visit";
 import RawPlugin from 'esbuild-plugin-raw'
+import pluginCodeBlock from "./plugins/codeBlock";
 
 /** @type {import('contentlayer/source-files').ComputedFields} */
 const computedFields = {
@@ -47,6 +48,7 @@ export const BlogPost = defineDocumentType(() => ({
     title: {type: "string", required: true},
     description: {type: "string", required: true},
     date: {type: "date", required: true},
+    draft: {type: "boolean", required: false},
     tags: {type: "list", of: {type: "string"}},
     author: {type: "nested", of: AuthorProperties, required: false},
     image: {type: "string", required: false},
@@ -79,7 +81,7 @@ export default makeSource({
   contentDirPath: "./content",
   documentTypes: [Doc, BlogPost],
   mdx: {
-    remarkPlugins: [remarkGfm],
+    remarkPlugins: [remarkGfm, pluginCodeBlock],
     esbuildOptions(options) {
       options.plugins ||= [];
       options.plugins.unshift(RawPlugin());

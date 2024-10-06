@@ -32,16 +32,7 @@ const modal = tv({
       "z-50",
       "overflow-x-auto",
       "justify-center",
-      //  mobile animation vars
-      "[--scale-enter:100%]",
-      "[--scale-exit:100%]",
-      "[--slide-enter:0px]",
-      "[--slide-exit:80px]",
-      // tablet/desktop animation vars
-      "sm:[--scale-enter:100%]",
-      "sm:[--scale-exit:103%]",
-      "sm:[--slide-enter:0px]",
-      "sm:[--slide-exit:0px]",
+      "h-[--visual-viewport-height]",
     ],
     base: [
       "flex",
@@ -111,7 +102,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] !rounded-none",
+        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] min-h-[100dvh] !rounded-none",
       },
     },
     radius: {
@@ -167,12 +158,28 @@ const modal = tv({
         base: "overflow-y-hidden",
       },
       inside: {
-        base: "max-h-[calc(100%_-_7.5rem)]",
+        base: "max-h-[calc(100%_-_8rem)]",
         body: "overflow-y-auto",
       },
       outside: {
         wrapper: "items-start sm:items-start overflow-y-auto",
         base: "my-16",
+      },
+    },
+    disableAnimation: {
+      false: {
+        wrapper: [
+          //  mobile animation vars
+          "[--scale-enter:100%]",
+          "[--scale-exit:100%]",
+          "[--slide-enter:0px]",
+          "[--slide-exit:80px]",
+          // tablet/desktop animation vars
+          "sm:[--scale-enter:100%]",
+          "sm:[--scale-exit:103%]",
+          "sm:[--slide-enter:0px]",
+          "sm:[--slide-exit:0px]",
+        ],
       },
     },
   },

@@ -1,5 +1,195 @@
 # @nextui-org/popover
 
+## 2.1.29
+
+### Patch Changes
+
+- [#3756](https://github.com/nextui-org/nextui/pull/3756) [`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback PR3307. rescheduled to v2.5.0.
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/button@2.0.38
+
+## 2.1.28
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- [#3307](https://github.com/nextui-org/nextui/pull/3307) [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11) Thanks [@chirokas](https://github.com/chirokas)! - Use `usePreventScroll` instead of `react-remove-scroll`; Add `shouldBlockScroll` prop to `Tooltip` (#3474).
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/use-aria-overlay@2.0.1
+  - @nextui-org/aria-utils@2.0.25
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/button@2.0.38
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
+## 2.1.27
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/button@2.0.37
+  - @nextui-org/use-aria-button@2.0.10
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/framer-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.1.26
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.36
+  - @nextui-org/aria-utils@2.0.23
+  - @nextui-org/framer-utils@2.0.23
+
+## 2.1.25
+
+### Patch Changes
+
+- [#3311](https://github.com/nextui-org/nextui/pull/3311) [`0462dde0a`](https://github.com/nextui-org/nextui/commit/0462dde0a752e5ee5341c372834be5496296a6cc) Thanks [@wingkwong](https://github.com/wingkwong)! - add `disableDialogFocus` to free-solo-popover (#3225, #3124, #3203)
+
+- [#3414](https://github.com/nextui-org/nextui/pull/3414) [`444d320db`](https://github.com/nextui-org/nextui/commit/444d320dbc146399eb937c219ce983d427675425) Thanks [@wingkwong](https://github.com/wingkwong)! - close popover on scroll (#3265)
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/button@2.0.35
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
+## 2.1.24
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix popover focus issue (#3171, #2992)
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - remove `disableFocusManagement` from Overlay
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/button@2.0.34
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+
+## 2.1.23
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/button@2.0.33
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/aria-utils@2.0.20
+  - @nextui-org/framer-utils@2.0.20
+
+## 2.1.22
+
+### Patch Changes
+
+- [#2854](https://github.com/nextui-org/nextui/pull/2854) [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise popover-based focus behaviours (#2849, #2834, #2779, #2962, #2872, #2974, #1920, #1287, #3060)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e), [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/aria-utils@2.0.19
+  - @nextui-org/button@2.0.32
+  - @nextui-org/framer-utils@2.0.19
+
+## 2.1.21
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.31
+
+## 2.1.20
+
+### Patch Changes
+
+- [#2784](https://github.com/nextui-org/nextui/pull/2784) [`183a4a6cf`](https://github.com/nextui-org/nextui/commit/183a4a6cfda193a076a4a30550ab93b72d51002d) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix `isDisabled` prop warning on NextUI components that don't support this property, it is also fixed for non-NextUI components.
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/aria-utils@2.0.18
+  - @nextui-org/framer-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+  - @nextui-org/button@2.0.30
+
+## 2.1.19
+
+### Patch Changes
+
+- [`9e5dd8ce3`](https://github.com/nextui-org/nextui/commit/9e5dd8ce37c94c9ca1ba7b2049a6e55f1803fee9) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix ref not beign passed
+
+## 2.1.18
+
+### Patch Changes
+
+- [#2741](https://github.com/nextui-org/nextui/pull/2741) [`f89356691`](https://github.com/nextui-org/nextui/commit/f89356691cecb8e54f5f820b2b4491537e7c11f3) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes isDisabled prop on a DOM element
+
+## 2.1.17
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.29
+  - @nextui-org/aria-utils@2.0.17
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/react-utils@2.0.12
+
+## 2.1.16
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2494](https://github.com/nextui-org/nextui/pull/2494) [`a05aef0ac`](https://github.com/nextui-org/nextui/commit/a05aef0acb5a7b000c8131e8ba4f50f0adec01e5) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed popover closing issue in autocomplete with open modal (#2475, #2082, #1987)
+
+- [#2536](https://github.com/nextui-org/nextui/pull/2536) [`2b9f89023`](https://github.com/nextui-org/nextui/commit/2b9f89023ac087016083dcc205703ae1b2bc9cb8) Thanks [@wingkwong](https://github.com/wingkwong)! - revise shouldCloseOnInteractOutside for FreeSoloPopover
+
+- [#2522](https://github.com/nextui-org/nextui/pull/2522) [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed unexpected props on a DOM element (#2474)
+
+- [#2611](https://github.com/nextui-org/nextui/pull/2611) [`8761168d3`](https://github.com/nextui-org/nextui/commit/8761168d3459cd83ce571f4e65eb8ea6db8516ef) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed lazy motion forwardRef issue
+
+- [#2616](https://github.com/nextui-org/nextui/pull/2616) [`eb51bf226`](https://github.com/nextui-org/nextui/commit/eb51bf226170e4bb37ae30990d1c3aa26d8c504b) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect level of m.div
+
+- [#2458](https://github.com/nextui-org/nextui/pull/2458) [`7263daca0`](https://github.com/nextui-org/nextui/commit/7263daca08674338eb28529315070337ba0dfc17) Thanks [@wingkwong](https://github.com/wingkwong)! - fix(autocomplete): support isReadOnly for dynamic collections in Autocomplete
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/button@2.0.28
+  - @nextui-org/use-aria-button@2.0.7
+  - @nextui-org/aria-utils@2.0.16
+  - @nextui-org/framer-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-utils@2.0.5
+  - @nextui-org/use-safe-layout-effect@2.0.5
+
 ## 2.1.15
 
 ### Patch Changes
@@ -18,7 +208,7 @@
 - Updated dependencies []:
   - @nextui-org/button@2.0.26
   - @nextui-org/aria-utils@2.0.15
-  - @nextui-org/framer-transitions@2.0.15
+  - @nextui-org/framer-utils@2.0.15
 
 ## 2.1.13
 
@@ -27,7 +217,7 @@
 - Updated dependencies []:
   - @nextui-org/button@2.0.25
   - @nextui-org/aria-utils@2.0.14
-  - @nextui-org/framer-transitions@2.0.14
+  - @nextui-org/framer-utils@2.0.14
 
 ## 2.1.12
 
@@ -38,7 +228,7 @@
 - Updated dependencies [[`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648)]:
   - @nextui-org/button@2.0.24
   - @nextui-org/aria-utils@2.0.13
-  - @nextui-org/framer-transitions@2.0.13
+  - @nextui-org/framer-utils@2.0.13
 
 ## 2.1.11
 
@@ -50,7 +240,7 @@
   - @nextui-org/button@2.0.23
   - @nextui-org/system@2.0.12
   - @nextui-org/aria-utils@2.0.12
-  - @nextui-org/framer-transitions@2.0.12
+  - @nextui-org/framer-utils@2.0.12
 
 ## 2.1.10
 
@@ -64,7 +254,7 @@
   - @nextui-org/theme@2.1.10
   - @nextui-org/use-aria-button@2.0.6
   - @nextui-org/aria-utils@2.0.11
-  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/framer-utils@2.0.11
   - @nextui-org/react-utils@2.0.10
   - @nextui-org/shared-utils@2.0.4
 
@@ -78,7 +268,7 @@
   - @nextui-org/system@2.0.10
   - @nextui-org/react-utils@2.0.9
   - @nextui-org/aria-utils@2.0.10
-  - @nextui-org/framer-transitions@2.0.10
+  - @nextui-org/framer-utils@2.0.10
 
 ## 2.1.8
 
@@ -92,7 +282,7 @@
   - @nextui-org/theme@2.1.8
   - @nextui-org/use-aria-button@2.0.5
   - @nextui-org/aria-utils@2.0.9
-  - @nextui-org/framer-transitions@2.0.9
+  - @nextui-org/framer-utils@2.0.9
   - @nextui-org/react-utils@2.0.8
   - @nextui-org/shared-utils@2.0.3
 
@@ -108,7 +298,7 @@
   - @nextui-org/aria-utils@2.0.8
   - @nextui-org/button@2.0.19
   - @nextui-org/system@2.0.8
-  - @nextui-org/framer-transitions@2.0.8
+  - @nextui-org/framer-utils@2.0.8
 
 ## 2.1.6
 
@@ -127,7 +317,7 @@
   - @nextui-org/system@2.0.7
   - @nextui-org/button@2.0.17
   - @nextui-org/aria-utils@2.0.7
-  - @nextui-org/framer-transitions@2.0.7
+  - @nextui-org/framer-utils@2.0.7
 
 ## 2.1.4
 
@@ -138,7 +328,7 @@
   - @nextui-org/system@2.0.6
   - @nextui-org/button@2.0.16
   - @nextui-org/aria-utils@2.0.6
-  - @nextui-org/framer-transitions@2.0.6
+  - @nextui-org/framer-utils@2.0.6
 
 ## 2.1.3
 
@@ -226,7 +416,7 @@
   - other bug fixes..
 
 - Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
-  - @nextui-org/framer-transitions@2.0.5
+  - @nextui-org/framer-utils@2.0.5
   - @nextui-org/use-aria-button@2.0.3
   - @nextui-org/aria-utils@2.0.5
   - @nextui-org/button@2.0.8
@@ -240,7 +430,7 @@
   - @nextui-org/system@2.0.4
   - @nextui-org/button@2.0.7
   - @nextui-org/aria-utils@2.0.4
-  - @nextui-org/framer-transitions@2.0.4
+  - @nextui-org/framer-utils@2.0.4
 
 ## 2.0.6
 
@@ -281,7 +471,7 @@
   - @nextui-org/theme@2.0.3
   - @nextui-org/use-aria-button@2.0.2
   - @nextui-org/aria-utils@2.0.3
-  - @nextui-org/framer-transitions@2.0.3
+  - @nextui-org/framer-utils@2.0.3
   - @nextui-org/shared-utils@2.0.2
 
 ## 2.0.2
@@ -293,7 +483,7 @@
   - @nextui-org/button@2.0.2
   - @nextui-org/system@2.0.2
   - @nextui-org/aria-utils@2.0.2
-  - @nextui-org/framer-transitions@2.0.2
+  - @nextui-org/framer-utils@2.0.2
 
 ## 2.0.1
 
@@ -304,7 +494,7 @@
 - [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Introducing v2 - Readmes updated
 
 - Updated dependencies [[`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140), [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140)]:
-  - @nextui-org/framer-transitions@2.0.1
+  - @nextui-org/framer-utils@2.0.1
   - @nextui-org/shared-utils@2.0.1
   - @nextui-org/use-aria-button@2.0.1
   - @nextui-org/react-utils@2.0.1

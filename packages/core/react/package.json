@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "2.2.10",
+  "version": "2.4.8",
   "description": "🚀 Beautiful and modern React UI library.",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -80,12 +80,16 @@
     "@nextui-org/ripple": "workspace:*",
     "@nextui-org/slider": "workspace:*",
     "@nextui-org/breadcrumbs": "workspace:*",
-    "@react-aria/visually-hidden": "^3.8.6"
+    "@nextui-org/calendar": "workspace:*",
+    "@nextui-org/date-input": "workspace:*",
+    "@nextui-org/date-picker": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
+    "@react-aria/visually-hidden": "3.8.12"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=4.0.0"
+    "framer-motion": ">=10.17.0"
   },
   "devDependencies": {
     "react": "^18.0.0",

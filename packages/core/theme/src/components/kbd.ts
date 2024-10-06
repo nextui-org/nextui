@@ -39,6 +39,7 @@ const kbd = tv({
       "py-0.5",
       "inline-flex",
       "space-x-0.5",
+      "rtl:space-x-reverse",
       "items-center",
       "font-sans",
       "font-normal",

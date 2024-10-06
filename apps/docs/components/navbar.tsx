@@ -16,6 +16,7 @@ import {
   DropdownMenu,
   DropdownItem,
   DropdownTrigger,
+  Chip,
 } from "@nextui-org/react";
 import {dataFocusVisibleClasses} from "@nextui-org/theme";
 import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
@@ -33,13 +34,7 @@ import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
-import {
-  TwitterIcon,
-  GithubIcon,
-  DiscordIcon,
-  HeartFilledIcon,
-  SearchLinearIcon,
-} from "@/components/icons";
+import {XIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
@@ -214,8 +209,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               className={navLinkClasses}
               color="foreground"
               data-active={includes(pathname, "components")}
-              href="/docs/components/avatar"
-              onClick={() => handlePressNavbarItem("Components", "/docs/components/avatar")}
+              href="/docs/components/accordion"
+              onClick={() => handlePressNavbarItem("Components", "/docs/components/accordion")}
             >
               Components
             </NextLink>
@@ -313,14 +308,29 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
       <NavbarContent className="hidden sm:flex basis-1/5 sm:basis-full" justify="end">
         <NavbarItem className="hidden sm:flex">
+          <Chip
+            as={NextLink}
+            className="bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
+            color="default"
+            href="/blog/v2.4.0"
+            variant="dot"
+            onClick={() => handlePressNavbarItem("New version v2.4.0", "/blog/v2.4.0")}
+          >
+            New version v2.4.0&nbsp;
+            <span aria-label="emoji" role="img">
+              🚀
+            </span>
+          </Chip>
+        </NavbarItem>
+        <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
-            aria-label="Twitter"
+            aria-label="X"
             className="p-1"
             href={siteConfig.links.twitter}
             onPress={() => handlePressNavbarItem("Twitter", siteConfig.links.twitter)}
           >
-            <TwitterIcon className="text-default-600 dark:text-default-500" />
+            <XIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <Link
             isExternal
@@ -343,7 +353,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           <ThemeSwitch />
         </NavbarItem>
         <NavbarItem className="hidden lg:flex">{searchButton}</NavbarItem>
-        <NavbarItem className="hidden md:flex">
+        {/* <NavbarItem className="hidden md:flex">
           <Button
             isExternal
             as={Link}
@@ -357,7 +367,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           >
             Sponsor
           </Button>
-        </NavbarItem>
+        </NavbarItem> */}
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="hidden sm:flex lg:hidden ml-4"

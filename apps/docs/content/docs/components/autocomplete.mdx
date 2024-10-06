@@ -13,7 +13,21 @@ An autocomplete combines a text input with a listbox, allowing users to filter a
 
 ---
 
-<CarbonAd />
+<CarbonAd/>
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add autocomplete",
+    npm: "npm install @nextui-org/autocomplete",
+    yarn: "yarn add @nextui-org/autocomplete",
+    pnpm: "pnpm add @nextui-org/autocomplete",
+    bun: "bun add @nextui-org/autocomplete"
+  }}
+/>
+
 
 ## Import
 
@@ -67,6 +81,13 @@ If you pass the `isRequired` property to the autocomplete, it will have a `dange
 the end of the label and the autocomplete will be required.
 
 <CodeDemo title="Required" highlightedLines="8" files={autocompleteContent.required} />
+
+### Read Only
+
+If you pass the `isReadOnly` property to the Autocomplete, the Listbox will open to display 
+all available options, but users won't be able to select any of the listed options.
+
+<CodeDemo title="Read Only" highlightedLines="8" files={autocompleteContent.readOnly} />
 
 ### Sizes
 
@@ -205,6 +226,7 @@ import {useFilter} from "@react-aria/i18n";
 <CodeDemo
   title="Fully Controlled"
   showPreview={false}
+  showOpenInCodeSandbox={false}
   highlightedLines="63-64,67,69-71"
   files={autocompleteContent.fullyControlled}
 />
@@ -216,6 +238,12 @@ import {useFilter} from "@react-aria/i18n";
 You can customize the autocomplete items by modifying the `AutocompleteItem` children.
 
 <CodeDemo title="Custom Items" files={autocompleteContent.customItems} />
+
+### Custom Empty Content Message
+
+By default, a message `No results found.` will be shown if there is no result matching a query with your filter. You can customize the empty content message by modifying the `emptyContent` in `listboxProps`.
+
+<CodeDemo title="Custom Empty Content Message" files={autocompleteContent.customEmptyContentMessage} />
 
 ### Custom Filtering
 
@@ -233,7 +261,7 @@ The following example uses the `defaultFilter` prop to filter the list of option
 
 ### Asynchronous Filtering
 
-Autocomplete supports asynchronous filtering, in the example below we are using the [useAyncList](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) function
+Autocomplete supports asynchronous filtering, in the example below we are using the [useAsyncList](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) function
 from [react-aria](https://react-spectrum.adobe.com) to handle asynchronous loading and filtering of data from a server.
 
 <PackageManagers
@@ -254,6 +282,7 @@ import {useAsyncList} from "@react-stately/data";
   typescriptStrict={true}
   title="Asynchronous Filtering"
   showPreview={false}
+  showOpenInCodeSandbox={false}
   highlightedLines="27-29,33"
   files={autocompleteContent.asyncFiltering}
 />
@@ -280,6 +309,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 
 <CodeDemo
   showPreview={false}
+  showOpenInCodeSandbox={false}
   typescriptStrict={true}
   title="Asynchronous Loading"
   highlightedLines="21-22,25,27"
@@ -405,7 +435,9 @@ properties to customize the popover, listbox and input components.
 | selectedKey                 | `React.Key`                                                                                                                           | The currently selected key in the collection (controlled).                                                                                                    | -                        |
 | defaultSelectedKey          | `React.Key`                                                                                                                           | The initial selected key in the collection (uncontrolled).                                                                                                    | -                        |
 | disabledKeys                | `all` \| `React.Key[]`                                                                                                                | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.                                                       | -                        |
-| errorMessage                | `ReactNode`                                                                                                                           | An error message to display below the field.                                                                                                                  | -                        |
+| errorMessage                | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                 | An error message to display below the field.                                                                                                                  | -                        |
+| validate                    | `(value: { inputValue: string, selectedKey: React.Key }) => ValidationError ｜ true ｜ null ｜ undefined`                              | Validate input values when committing (e.g. on blur), and return error messages for invalid values.                                                           | -                        |
+| validationBehavior          | `native` \| `aria`                                                                                                                    | Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA.| `aria`                   |
 | startContent                | `ReactNode`                                                                                                                           | Element to be rendered in the left side of the Autocomplete.                                                                                                  | -                        |
 | endContent                  | `ReactNode`                                                                                                                           | Element to be rendered in the right side of the Autocomplete.                                                                                                 | -                        |
 | autoFocus                   | `boolean`                                                                                                                             | Whether the Autocomplete should be focused on render.                                                                                                         | `false`                  |

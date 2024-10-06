@@ -1,6 +1,6 @@
-import {Key} from "react";
-
 import {isObject} from "./assertion";
+
+type Key = string | number;
 
 export interface MergeObject {
   [key: string]: any;

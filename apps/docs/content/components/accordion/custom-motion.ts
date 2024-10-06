@@ -12,6 +12,7 @@ export default function App() {
             y: 0,
             opacity: 1,
             height: "auto",
+            overflowY: "unset",
             transition: {
               height: {
                 type: "spring",
@@ -29,6 +30,7 @@ export default function App() {
             y: -10,
             opacity: 0,
             height: 0,
+            overflowY: "hidden",
             transition: {
               height: {
                 easings: "ease",

@@ -202,7 +202,7 @@
     "email": null,
     "twitter": null,
     "github": "https://github.com/HighError",
-    "website": "https://higherror.github.io/"
+    "website": null
   },
   {
     "MemberId": 409558,
@@ -308,5 +308,25 @@
     "twitter": null,
     "github": null,
     "website": "https://encur.me/"
+  },
+  {
+    "MemberId": 571230,
+    "createdAt": "2024-06-01 18:47",
+    "type": "ORGANIZATION",
+    "role": "BACKER",
+    "tier": "Gold Sponsor 🥇",
+    "isActive": true,
+    "totalAmountDonated": 100,
+    "currency": "USD",
+    "lastTransactionAt": "2024-06-01 18:47",
+    "lastTransactionAmount": 100,
+    "profile": "https://opencollective.com/coderabbit",
+    "name": "CodeRabbit",
+    "company": null,
+    "description": "CodeRabbit is an AI-driven context-aware code reviewer that provides line-by-line feedback and smart chat. ",
+    "image": "/sponsors/571230.jpg",
+    "twitter": null,
+    "github": null,
+    "website": "https://coderabbit.ai"
   }
 ]

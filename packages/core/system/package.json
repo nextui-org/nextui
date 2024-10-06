@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "2.0.15",
+  "version": "2.2.6",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -35,12 +35,14 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "react-dom": ">=18"
+    "react-dom": ">=18",
+    "framer-motion": ">=10.17.0"
   },
   "devDependencies": {
-    "clean-package": "2.2.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0"
+    "react-dom": "^18.0.0",
+    "clean-package": "2.2.0",
+    "framer-motion": "^11.0.22"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {
@@ -53,9 +55,11 @@
   },
   "dependencies": {
     "@nextui-org/system-rsc": "workspace:*",
-    "@react-aria/i18n": "^3.8.4",
-    "@react-aria/overlays": "^3.18.1",
-    "@react-aria/utils": "^3.21.1",
-    "@react-stately/utils": "^3.8.0"
+    "@nextui-org/react-utils": "workspace:*",
+    "@react-aria/i18n": "3.11.1",
+    "@internationalized/date": "^3.5.4",
+    "@react-aria/overlays": "3.22.1",
+    "@react-aria/utils": "3.24.1",
+    "@react-stately/utils": "3.10.1"
   }
 }

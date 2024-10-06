@@ -1,4 +1,4 @@
-import {TRANSITION_EASINGS} from "@nextui-org/framer-transitions";
+import {TRANSITION_EASINGS} from "@nextui-org/framer-utils";
 
 export const scaleInOut = {
   enter: {

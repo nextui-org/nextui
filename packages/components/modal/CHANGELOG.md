@@ -1,5 +1,159 @@
 # @nextui-org/modal
 
+## 2.0.41
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/use-aria-modal-overlay@2.0.13
+
+## 2.0.40
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- [#3691](https://github.com/nextui-org/nextui/pull/3691) [`3e06ef64c`](https://github.com/nextui-org/nextui/commit/3e06ef64cc5da30f7b2ab209d9d669e6ac8478ca) Thanks [@wingkwong](https://github.com/wingkwong)! - adjust modal position when keyboard appears (#2837)
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/use-aria-modal-overlay@2.0.12
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
+## 2.0.39
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-aria-button@2.0.10
+  - @nextui-org/use-aria-modal-overlay@2.0.11
+  - @nextui-org/use-disclosure@2.0.10
+  - @nextui-org/framer-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.38
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/framer-utils@2.0.23
+
+## 2.0.37
+
+### Patch Changes
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
+## 2.0.36
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - remove `disableFocusManagement` from Overlay
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/use-aria-button@2.0.9
+  - @nextui-org/use-aria-modal-overlay@2.0.10
+  - @nextui-org/use-disclosure@2.0.9
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/framer-utils@2.0.21
+
+## 2.0.35
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+- Updated dependencies [[`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a)]:
+  - @nextui-org/use-aria-button@2.0.8
+  - @nextui-org/use-aria-modal-overlay@2.0.9
+  - @nextui-org/use-disclosure@2.0.8
+  - @nextui-org/framer-utils@2.0.20
+
+## 2.0.34
+
+### Patch Changes
+
+- [#2854](https://github.com/nextui-org/nextui/pull/2854) [`3b14c21e0`](https://github.com/nextui-org/nextui/commit/3b14c21e02fedf15d7d22e911109dac60c4e780e) Thanks [@wingkwong](https://github.com/wingkwong)! - Revise popover-based focus behaviours (#2849, #2834, #2779, #2962, #2872, #2974, #1920, #1287, #3060)
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+- Updated dependencies [[`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2)]:
+  - @nextui-org/framer-utils@2.0.19
+
+## 2.0.33
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/framer-utils@2.0.18
+  - @nextui-org/react-utils@2.0.13
+
+## 2.0.32
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/framer-utils@2.0.17
+  - @nextui-org/react-utils@2.0.12
+
+## 2.0.31
+
+### Patch Changes
+
+- [#2739](https://github.com/nextui-org/nextui/pull/2739) [`60c61aaf0`](https://github.com/nextui-org/nextui/commit/60c61aaf0c46a01ca1ee0d99a6b2d0a1784cc357) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix modal inside and outside scroll
+
+- Updated dependencies [[`60c61aaf0`](https://github.com/nextui-org/nextui/commit/60c61aaf0c46a01ca1ee0d99a6b2d0a1784cc357)]:
+  - @nextui-org/use-aria-modal-overlay@2.0.8
+
+## 2.0.30
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed the issue where only two keyframes were supported with spring and inertia animations.
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2709](https://github.com/nextui-org/nextui/pull/2709) [`eb11a7731`](https://github.com/nextui-org/nextui/commit/eb11a7731ada165103e898ea97e80f2b735bbedd) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Prevent IME input carryover in form fields when tabbing
+
+- [#2611](https://github.com/nextui-org/nextui/pull/2611) [`8761168d3`](https://github.com/nextui-org/nextui/commit/8761168d3459cd83ce571f4e65eb8ea6db8516ef) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed lazy motion forwardRef issue
+
+- [#2616](https://github.com/nextui-org/nextui/pull/2616) [`eb51bf226`](https://github.com/nextui-org/nextui/commit/eb51bf226170e4bb37ae30990d1c3aa26d8c504b) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed incorrect level of m.div
+
+- [#2464](https://github.com/nextui-org/nextui/pull/2464) [`2894aecca`](https://github.com/nextui-org/nextui/commit/2894aecca1a2ef0dfb3066b9b8df24ce48c99dae) Thanks [@mezotv](https://github.com/mezotv)! - Changes the motion important to the more lightweight m component in framer motion to only load the required features.
+
+- [#2469](https://github.com/nextui-org/nextui/pull/2469) [`a68626200`](https://github.com/nextui-org/nextui/commit/a6862620094eae485fcb323690c3e1c6e29de690) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the modal component.
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/use-aria-button@2.0.7
+  - @nextui-org/use-aria-modal-overlay@2.0.7
+  - @nextui-org/use-disclosure@2.0.7
+  - @nextui-org/framer-utils@2.0.16
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+
 ## 2.0.29
 
 ### Patch Changes
@@ -11,7 +165,7 @@
 ### Patch Changes
 
 - Updated dependencies []:
-  - @nextui-org/framer-transitions@2.0.15
+  - @nextui-org/framer-utils@2.0.15
 
 ## 2.0.27
 
@@ -19,7 +173,7 @@
 
 - Updated dependencies [[`9189b3fbf`](https://github.com/nextui-org/nextui/commit/9189b3fbf2d6d6cc6566009c71b37d5fcc566291)]:
   - @nextui-org/shared-icons@2.0.6
-  - @nextui-org/framer-transitions@2.0.14
+  - @nextui-org/framer-utils@2.0.14
 
 ## 2.0.26
 
@@ -28,7 +182,7 @@
 - [#1877](https://github.com/nextui-org/nextui/pull/1877) [`44ed1056e`](https://github.com/nextui-org/nextui/commit/44ed1056e717c56633f60cf289f78e9c7b83b648) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Peer dependencies updated, changeset config changed to update peer dependencies only when out of range
 
 - Updated dependencies []:
-  - @nextui-org/framer-transitions@2.0.13
+  - @nextui-org/framer-utils@2.0.13
 
 ## 2.0.25
 
@@ -38,7 +192,7 @@
 
 - Updated dependencies []:
   - @nextui-org/system@2.0.12
-  - @nextui-org/framer-transitions@2.0.12
+  - @nextui-org/framer-utils@2.0.12
 
 ## 2.0.24
 
@@ -52,7 +206,7 @@
   - @nextui-org/use-aria-button@2.0.6
   - @nextui-org/use-aria-modal-overlay@2.0.6
   - @nextui-org/use-disclosure@2.0.6
-  - @nextui-org/framer-transitions@2.0.11
+  - @nextui-org/framer-utils@2.0.11
   - @nextui-org/react-utils@2.0.10
   - @nextui-org/shared-icons@2.0.5
   - @nextui-org/shared-utils@2.0.4
@@ -65,7 +219,7 @@
   - @nextui-org/theme@2.1.9
   - @nextui-org/system@2.0.10
   - @nextui-org/react-utils@2.0.9
-  - @nextui-org/framer-transitions@2.0.10
+  - @nextui-org/framer-utils@2.0.10
 
 ## 2.0.22
 
@@ -79,7 +233,7 @@
   - @nextui-org/use-aria-button@2.0.5
   - @nextui-org/use-aria-modal-overlay@2.0.5
   - @nextui-org/use-disclosure@2.0.5
-  - @nextui-org/framer-transitions@2.0.9
+  - @nextui-org/framer-utils@2.0.9
   - @nextui-org/react-utils@2.0.8
   - @nextui-org/shared-icons@2.0.4
   - @nextui-org/shared-utils@2.0.3
@@ -96,7 +250,7 @@
   - @nextui-org/use-aria-button@2.0.4
   - @nextui-org/use-disclosure@2.0.4
   - @nextui-org/system@2.0.8
-  - @nextui-org/framer-transitions@2.0.8
+  - @nextui-org/framer-utils@2.0.8
 
 ## 2.0.20
 
@@ -112,7 +266,7 @@
 - Updated dependencies [[`d61428d9e`](https://github.com/nextui-org/nextui/commit/d61428d9e6c1c0590593fb1f0136e226051b7e23), [`4db10a47e`](https://github.com/nextui-org/nextui/commit/4db10a47e96ad8315b5b96c2ff15574ac0fdeecc)]:
   - @nextui-org/theme@2.1.5
   - @nextui-org/system@2.0.7
-  - @nextui-org/framer-transitions@2.0.7
+  - @nextui-org/framer-utils@2.0.7
 
 ## 2.0.18
 
@@ -121,7 +275,7 @@
 - Updated dependencies [[`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592), [`641bf0885`](https://github.com/nextui-org/nextui/commit/641bf0885b6af2d7f36f27d83716a441975a5ca5)]:
   - @nextui-org/theme@2.1.4
   - @nextui-org/system@2.0.6
-  - @nextui-org/framer-transitions@2.0.6
+  - @nextui-org/framer-utils@2.0.6
 
 ## 2.0.17
 
@@ -200,7 +354,7 @@
 
 - Updated dependencies [[`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171)]:
   - @nextui-org/use-aria-modal-overlay@2.0.3
-  - @nextui-org/framer-transitions@2.0.5
+  - @nextui-org/framer-utils@2.0.5
   - @nextui-org/use-aria-button@2.0.3
   - @nextui-org/use-disclosure@2.0.3
   - @nextui-org/system@2.0.5
@@ -211,7 +365,7 @@
 
 - Updated dependencies [[`710395f3`](https://github.com/nextui-org/nextui/commit/710395f3a2ca44238332237a49e948c933abe63d)]:
   - @nextui-org/system@2.0.4
-  - @nextui-org/framer-transitions@2.0.4
+  - @nextui-org/framer-utils@2.0.4
 
 ## 2.0.7
 
@@ -255,7 +409,7 @@
   - @nextui-org/use-aria-button@2.0.2
   - @nextui-org/use-aria-modal-overlay@2.0.2
   - @nextui-org/use-disclosure@2.0.2
-  - @nextui-org/framer-transitions@2.0.3
+  - @nextui-org/framer-utils@2.0.3
   - @nextui-org/shared-icons@2.0.2
   - @nextui-org/shared-utils@2.0.2
 
@@ -266,7 +420,7 @@
 - Updated dependencies [[`459ac5ed`](https://github.com/nextui-org/nextui/commit/459ac5ed4537942517803ba14129226a791d6feb)]:
   - @nextui-org/theme@2.0.2
   - @nextui-org/system@2.0.2
-  - @nextui-org/framer-transitions@2.0.2
+  - @nextui-org/framer-utils@2.0.2
 
 ## 2.0.1
 
@@ -278,7 +432,7 @@
 
 - Updated dependencies [[`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140), [`e940ec06`](https://github.com/nextui-org/nextui/commit/e940ec06ac5e46340d5956fb7c455a6ab3de3140)]:
   - @nextui-org/use-aria-modal-overlay@2.0.1
-  - @nextui-org/framer-transitions@2.0.1
+  - @nextui-org/framer-utils@2.0.1
   - @nextui-org/shared-icons@2.0.1
   - @nextui-org/shared-utils@2.0.1
   - @nextui-org/use-aria-button@2.0.1
