@@ -45,7 +45,7 @@ NextUI exports 3 select-related components:
 
 ## Usage
 
-<CodeDemo title="Usage" files={selectContent.usage} />
+<CodeDemo title="Usage" files={selectContent.usage} previewHeight="350px" />
 
 ### Dynamic items
 
@@ -54,13 +54,13 @@ Select follows the [Collection Components API](https://react-spectrum.adobe.com/
 - **Static**: The usage example above shows the static implementation, which can be used when the full list of options is known ahead of time.
 - **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
 
-<CodeDemo title="Dynamic items" highlightedLines="8" files={selectContent.dynamic} />
+<CodeDemo title="Dynamic items" highlightedLines="8" files={selectContent.dynamic} previewHeight="350px" />
 
 ### Multiple Selection
 
 You can use the `selectionMode="multiple"` property to allow multiple selection.
 
-<CodeDemo title="Multiple Selection" files={selectContent.multiple} />
+<CodeDemo title="Multiple Selection" files={selectContent.multiple} previewHeight="350px" />
 
 ### Disabled
 
@@ -70,36 +70,36 @@ You can use the `selectionMode="multiple"` property to allow multiple selection.
 
 You can disable specific items by using the `disabledKeys` property.
 
-<CodeDemo title="Disabled Items" highlightedLines="10" files={selectContent.disabledItems} />
+<CodeDemo title="Disabled Items" highlightedLines="10" files={selectContent.disabledItems} previewHeight="350px" />
 
 ### Required
 
 If you pass the `isRequired` property to the select, it will have a `danger` asterisk at
 the end of the label and the select will be required.
 
-<CodeDemo title="Required" highlightedLines="8" files={selectContent.required} />
+<CodeDemo title="Required" highlightedLines="8" files={selectContent.required} previewHeight="350px" />
 
 ### Sizes
 
-<CodeDemo title="Sizes" highlightedLines="13,24" files={selectContent.sizes} />
+<CodeDemo title="Sizes" highlightedLines="13,24" files={selectContent.sizes} previewHeight="500px"  />
 
 ### Colors
 
-<CodeDemo title="Colors" files={selectContent.colors} />
+<CodeDemo title="Colors" files={selectContent.colors} previewHeight="550px" />
 
 ### Variants
 
-<CodeDemo title="Variants" files={selectContent.variants} />
+<CodeDemo title="Variants" files={selectContent.variants} previewHeight="550px" />
 
 ### Radius
 
-<CodeDemo title="Radius" files={selectContent.radius} />
+<CodeDemo title="Radius" files={selectContent.radius} previewHeight="500px" />
 
 ### Label Placements
 
 You can change the position of the label by setting the `labelPlacement` property to `inside`, `outside` or `outside-left`.
 
-<CodeDemo title="Label Placements" highlightedLines="19,37" files={selectContent.labelPlacements} />
+<CodeDemo title="Label Placements" highlightedLines="19,37" files={selectContent.labelPlacements} previewHeight="500px" />
 
 > **Note**: If the `label` is not passed, the `labelPlacement` property will be `outside` by default.
 
@@ -108,7 +108,7 @@ You can change the position of the label by setting the `labelPlacement` propert
 You can use the `startContent` and `endContent` properties to add content to the start and end of
 the select.
 
-<CodeDemo title="Start Content" highlightedLines="13" files={selectContent.startContent} />
+<CodeDemo title="Start Content" highlightedLines="13" files={selectContent.startContent} previewHeight="350px"/>
 
 ### Item Start & End Content
 
@@ -116,14 +116,14 @@ Since the `Select` component uses the [Listbox](/docs/components/listbox) compon
 use the `startContent` and `endContent` properties of the `SelectItem` component to add content to the start
 and end of the select item.
 
-<CodeDemo title="Item Start Content" files={selectContent.itemStartContent} />
+<CodeDemo title="Item Start Content" files={selectContent.itemStartContent} previewHeight="350px" />
 
 ### Custom Selector Icon
 
 By default the select uses a `chevron-down` icon as the selector icon which rotates when the select is open. You can
 customize this icon by passing a custom one to the `selectorIcon` property.
 
-<CodeDemo title="Custom Selector Icon" files={selectContent.customSelectorIcon} />
+<CodeDemo title="Custom Selector Icon" files={selectContent.customSelectorIcon} previewHeight="350px" />
 
 > **Note**: Use the `disableSelectorIconRotation` property to disable the rotation of the icon.
 
@@ -132,7 +132,7 @@ customize this icon by passing a custom one to the `selectorIcon` property.
 Select component uses the [ScrollShadow](/docs/components/scroll-shadow) under the hood to show a shadow when the select content is scrollable.
 You can disable this shadow by passing using the `scrollShadowProps` property.
 
-<CodeDemo title="Without Scroll Shadow" files={selectContent.withoutScrollShadow} />
+<CodeDemo title="Without Scroll Shadow" files={selectContent.withoutScrollShadow} previewHeight="350px" />
 
 > **Note**: You can also use the `showScrollIndicators` property to disable the scroll indicators.
 
@@ -140,13 +140,13 @@ You can disable this shadow by passing using the `scrollShadowProps` property.
 
 You can add a description to the select by passing the `description` property.
 
-<CodeDemo title="With Description" files={selectContent.description} />
+<CodeDemo title="With Description" files={selectContent.description} previewHeight="350px" />
 
 ### With Error Message
 
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid select.
 
-<CodeDemo title="With Error Message" files={selectContent.errorMessage} />
+<CodeDemo title="With Error Message" files={selectContent.errorMessage} previewHeight="350px"/>
 
 ### Controlled
 
@@ -154,7 +154,7 @@ You can use the `selectedKeys` and `onSelectionChange` / `onChange` properties t
 
 Using `onSelectionChange`:
 
-<CodeDemo title="Controlled with onSelectionChange" files={selectContent.singleControlled} />
+<CodeDemo title="Controlled with onSelectionChange" files={selectContent.singleControlled} previewHeight="350px"/>
 
 Using `onChange`:
 
@@ -164,19 +164,19 @@ Using `onChange`:
 
 You can control the open state of the select by using the `isOpen` and `onOpenChange` / `onClose` properties.
 
-<CodeDemo title="Controlling the open state" files={selectContent.openState} />
+<CodeDemo title="Controlling the open state" files={selectContent.openState} previewHeight="350px" />
 
 ### Custom Items
 
 You can customize the select items by modifying the `SelectItem` children.
 
-<CodeDemo title="Custom Items" files={selectContent.customItems} />
+<CodeDemo title="Custom Items" files={selectContent.customItems} previewHeight="350px" />
 
 ### Custom Render Value
 
 By default the select will render the selected item's text value, but you can customize this by passing a `renderValue` function.
 
-<CodeDemo title="Custom Render Value" files={selectContent.customRenderValue} />
+<CodeDemo title="Custom Render Value" files={selectContent.customRenderValue} previewHeight="350px"/>
 
 The `renderValue` function receives the selected items as a parameter and must return a
 `ReactNode`. Check the [Render Value Function](#render-value-function) section for more details.
@@ -217,13 +217,13 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 
 You can use the `SelectSection` component to group select items.
 
-<CodeDemo title="With Sections" files={selectContent.sections} />
+<CodeDemo title="With Sections" files={selectContent.sections} previewHeight="350px" />
 
 ### Custom Sections Style
 
 You can customize the sections style by using the `classNames` property of the `SelectSection` component.
 
-<CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} />
+<CodeDemo title="Custom Sections Style" files={selectContent.customSectionsStyle} previewHeight="350px" />
 
 ### Multiple Select Controlled
 
@@ -234,6 +234,7 @@ Using `onSelectionChange`:
 <CodeDemo
   title="Multiple Selection Controlled with onSelectionChange"
   files={selectContent.multipleControlled}
+  previewHeight="350px"
 />
 
 Using `onChange`:
@@ -241,6 +242,7 @@ Using `onChange`:
 <CodeDemo
   title="Multiple Selection Controlled with onChange"
   files={selectContent.multipleControlledOnChange}
+  previewHeight="350px"
 />
 
 ### Multiple With Chips
@@ -248,7 +250,7 @@ Using `onChange`:
 You can render any component as the select value by using the `renderValue` property. In this example we are
 using the [Chip](/docs/components/chip) component to render the selected items.
 
-<CodeDemo title="Multiple Selection with Chips" files={selectContent.multipleWithChips} />
+<CodeDemo title="Multiple Selection with Chips" files={selectContent.multipleWithChips} previewHeight="350px" />
 
 > **Note**: Make sure to pass the `isMultiline` property to the `Select` component to allow the chips to wrap.
 
@@ -261,7 +263,7 @@ You can customize any slot of the select by using the `classNames` property. Sel
 component also provides the [popoverProps](/docs/components/popover#api) and [listboxProps](/docs/components/listbox#api) properties to customize
 the popover and listbox components.
 
-<CodeDemo title="Custom Styles" files={selectContent.customStyles} />
+<CodeDemo title="Custom Styles" files={selectContent.customStyles} previewHeight="500px" />
 
 ## Slots
 
