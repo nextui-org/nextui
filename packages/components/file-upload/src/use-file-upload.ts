@@ -1,4 +1,4 @@
-import type {FileUploadVariantProps} from "@nextui-org/theme";
+import type {FileUploadSlots, FileUploadVariantProps, SlotsToClasses} from "@nextui-org/theme";
 
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {fileUpload} from "@nextui-org/theme";
@@ -6,13 +6,12 @@ import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {objectToDeps} from "@nextui-org/shared-utils";
 import {ReactElement, useMemo} from "react";
 
-type FileSize = `${number} KB` | `${number} MB`;
-
 interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLElement | null>;
+  classNames?: SlotsToClasses<FileUploadSlots>;
   /**
    * A property to set initial files (which might be fetched) or to control files from outside of the component.
    */
@@ -43,44 +42,13 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
    */
   maxItems: number;
   /**
-   * Max number of items text.
-   * @default  "Max number of items"
-   */
-  maxItemsText?: string;
-  /**
-   * Custom Element to show Max number of items.
-   */
-  maxItemsElement?: ReactElement;
-  /**
-   * Max file size allowed.
-   */
-  maxAllowedSize?: FileSize;
-  /**
-   * Max file size text.
-   * @default "Max File Size"
-   */
-  maxAllowedSizeText?: string;
-  /**
-   * Custom Element to show Max file size.
-   */
-  maxAllowedSizeElement?: ReactElement;
-  /**
-   * Total max size allowed for multiple files combined.
-   */
-  totalMaxAllowedSize?: FileSize;
-  /**
-   * Total max file size text.
-   * @default "Total Max Files Size"
-   */
-  totalMaxAllowedSizeText?: string;
-  /**
-   * Custom Element to show Total Max file size.
-   */
-  totalMaxAllowedSizeElement?: ReactElement;
-  /**
    * Custom Element for an Upload File Item.
    */
-  fileItemElement?: (file: File) => ReactElement;
+  fileItemElement?: (file: File) => ReactElement<HTMLElement>;
+  /**
+   * Custom Element for topbar of the component.
+   */
+  topbar?: ReactElement<HTMLElement>;
   /**
    * Triggered when file(s) selected, added or removed.
    */
@@ -92,17 +60,7 @@ export type UseFileUploadProps = Props & FileUploadVariantProps;
 export function useFileUpload(originalProps: UseFileUploadProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, fileUpload.variantKeys);
 
-  const {
-    ref,
-    as,
-    className,
-    maxItems,
-    maxItemsText = "Max number of items",
-    maxAllowedSizeText = "Max File Size",
-    totalMaxAllowedSizeText = "Total Max Files Size",
-    browseButtonText = "Browse",
-    ...otherProps
-  } = props;
+  const {ref, as, className, maxItems = 1, browseButtonText = "Browse", ...otherProps} = props;
 
   const Component = as || "div";
 
@@ -121,10 +79,8 @@ export function useFileUpload(originalProps: UseFileUploadProps) {
     Component,
     styles,
     domRef,
+    className,
     maxItems,
-    maxItemsText,
-    maxAllowedSizeText,
-    totalMaxAllowedSizeText,
     browseButtonText,
     ...otherProps,
   };

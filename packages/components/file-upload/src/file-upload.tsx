@@ -1,6 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
 import {cloneElement, useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {UseFileUploadProps, useFileUpload} from "./use-file-upload";
 import {FileUploadItem} from "./file-upload-item";
@@ -14,21 +15,16 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     children,
     files: initialFiles,
     styles,
+    className,
+    classNames,
     maxItems,
-    maxItemsText,
-    maxItemsElement,
-    maxAllowedSize,
-    maxAllowedSizeText,
-    maxAllowedSizeElement,
-    totalMaxAllowedSize,
-    totalMaxAllowedSizeText,
-    totalMaxAllowedSizeElement,
     browseButton,
     browseButtonText,
     addButton,
     resetButton,
     uploadButton,
     fileItemElement,
+    topbar,
     onChange,
     ...otherProps
   } = useFileUpload({...props, ref});
@@ -136,8 +132,19 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     [resetButton, setFiles, updateFiles],
   );
 
+  const topbarElement = useMemo(() => {
+    if (topbar) {
+      return cloneElement(topbar, {
+        className: topbarStyles,
+      });
+    }
+  }, [topbar]);
+
+  const baseStyles = styles.base({class: clsx(classNames?.base, className)});
+  const topbarStyles = styles.base({class: clsx(classNames?.topbar, topbar?.props.className)});
+
   return (
-    <Component ref={domRef} className={styles.base()} {...otherProps}>
+    <Component ref={domRef} className={baseStyles} {...otherProps}>
       <input
         ref={inputFileRef}
         className="hidden"
@@ -173,26 +180,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
         }}
       />
 
-      <div className={styles.topBar()}>
-        {maxItems > 1 &&
-          (maxItemsElement ?? (
-            <span>
-              {maxItemsText}: {maxItems}
-            </span>
-          ))}
-        {maxAllowedSize &&
-          (maxAllowedSizeElement ?? (
-            <span>
-              {maxAllowedSizeText}: {maxAllowedSize}
-            </span>
-          ))}
-        {totalMaxAllowedSize &&
-          (totalMaxAllowedSizeElement ?? (
-            <span>
-              {totalMaxAllowedSizeText}: {totalMaxAllowedSize}
-            </span>
-          ))}
-      </div>
+      {topbarElement}
 
       <div className={styles.items()}>
         {children}
