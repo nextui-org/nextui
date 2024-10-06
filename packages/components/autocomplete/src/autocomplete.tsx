@@ -31,15 +31,17 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getEndContentWrapperProps,
   } = useAutocomplete<T>({...props, ref});
 
+  const listboxProps = getListBoxProps();
+
   const popoverContent = isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
       <ScrollShadow {...getListBoxWrapperProps()}>
-        <Listbox {...getListBoxProps()} />
+        <Listbox {...listboxProps} />
       </ScrollShadow>
     </FreeSoloPopover>
-  ) : (
+  ) : listboxProps.state?.collection.size === 0 ? (
     <div {...getEmptyPopoverProps()} />
-  );
+  ) : null;
 
   return (
     <Component {...getBaseProps()}>
