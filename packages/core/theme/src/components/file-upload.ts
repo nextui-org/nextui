@@ -8,11 +8,15 @@ import {dataFocusVisibleClasses} from "../utils";
  *
  * @example
  * ```js
- * const {base, topbar, items, buttons} = fileUpload({...})
+ * const {base, topbar, items, item, buttons} = fileUpload({...})
  *
  * <div className={base()}>
- *    <div className={topbar()}>Topbar</div>
- *    <div className={items()}>Items</div>
+ *     <div className={topbar()}>Topbar</div>
+ *     <div className={items()}>
+ *         <div className={item()}>
+ *             Item
+ *         </div>
+ *     </div>
  *    <div className={buttons()}>Buttons</div>
  * </div>
  * ```
@@ -40,6 +44,7 @@ const fileUpload = tv({
       "overflow-y-auto",
       "subpixel-antialiased",
     ],
+    item: ["flex", "gap-4", "my-4"],
     buttons: [
       "flex",
       "gap-3",

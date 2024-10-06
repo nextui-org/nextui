@@ -13,7 +13,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
   ...otherProps
 }) => {
   return (
-    <div className="flex gap-4 my-4" {...otherProps}>
+    <div {...otherProps}>
       <Button onClick={() => onFileRemove(file.name)}>
         <CloseIcon />
       </Button>

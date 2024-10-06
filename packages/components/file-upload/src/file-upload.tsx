@@ -17,12 +17,13 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     styles,
     className,
     classNames,
-    maxItems,
+    multiple,
     browseButton,
     browseButtonText,
     addButton,
     resetButton,
     uploadButton,
+    buttons,
     fileItemElement,
     topbar,
     onChange,
@@ -37,24 +38,6 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     initialFiles && setFiles(initialFiles);
   }, [initialFiles]);
 
-  const browseButtonElement = useMemo(
-    () =>
-      browseButton ? (
-        cloneElement(browseButton, {
-          onClick: () => {
-            if (props.isDisabled) return;
-            inputFileRef.current?.click();
-            browseButton.props.onClick?.();
-          },
-        })
-      ) : (
-        <Button disabled={props.isDisabled} onClick={() => inputFileRef.current?.click()}>
-          {browseButtonText}
-        </Button>
-      ),
-    [browseButton, browseButtonText, props.isDisabled],
-  );
-
   const updateFiles = useCallback(
     (files: File[]) => {
       setFiles(files);
@@ -67,15 +50,22 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     [setFiles, onChange],
   );
 
+  const topbarElement = useMemo(() => {
+    if (topbar) {
+      return cloneElement(topbar, {
+        className: styles.topbar({class: clsx(classNames?.topbar, topbar?.props.className)}),
+      });
+    }
+  }, [styles, classNames, topbar]);
+
   const items = useMemo(
     () =>
       files.map((file) => {
-        const customFileElm = fileItemElement?.(file);
-
-        if (!customFileElm) {
+        if (!fileItemElement) {
           return (
             <FileUploadItem
               key={file.name}
+              className={styles.item()}
               file={file}
               onFileRemove={(name) => {
                 const newFiles = files.filter((file) => file.name !== name);
@@ -86,20 +76,55 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
           );
         }
 
+        const customFileElm = fileItemElement(file);
+
         return cloneElement(customFileElm, {
           key: file.name,
+          className: styles.item({class: clsx(classNames?.item, customFileElm.props.className)}),
         });
       }),
-    [files],
+    [styles, classNames, files, fileItemElement, updateFiles],
+  );
+
+  const onBrowse = useCallback(() => {
+    if (props.isDisabled) return;
+    inputFileRef.current?.click();
+  }, [props.isDisabled]);
+
+  const onAdd = useCallback(() => {
+    if (props.isDisabled) return;
+    singleInputFileRef.current?.click();
+  }, [props.isDisabled]);
+
+  const onReset = useCallback(() => {
+    if (props.isDisabled) return;
+    updateFiles([]);
+  }, [props.isDisabled]);
+
+  const browseButtonElement = useMemo(
+    () =>
+      browseButton ? (
+        cloneElement(browseButton, {
+          onClick: (ev) => {
+            onBrowse();
+            browseButton.props.onClick?.(ev);
+          },
+        })
+      ) : (
+        <Button disabled={props.isDisabled} onClick={() => inputFileRef.current?.click()}>
+          {browseButtonText}
+        </Button>
+      ),
+    [browseButton, browseButtonText, onBrowse, props.isDisabled],
   );
 
   const addButtonElement = useMemo(
     () =>
       addButton ? (
         cloneElement(addButton, {
-          onClick: () => {
-            singleInputFileRef.current?.click();
-            addButton.props.onClick?.();
+          onClick: (ev) => {
+            onAdd();
+            addButton.props.onClick?.(ev);
           },
         })
       ) : (
@@ -107,56 +132,78 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
           Add
         </Button>
       ),
-    [addButton],
+    [addButton, onAdd],
   );
 
   const resetButtonElement = useMemo(
     () =>
       resetButton ? (
         cloneElement(resetButton, {
-          onClick: () => {
-            updateFiles([]);
-            resetButton.props.onClick?.();
+          onClick: (ev) => {
+            onReset();
+            resetButton.props.onClick?.(ev);
           },
         })
       ) : (
         <Button
           color="warning"
           onClick={() => {
-            updateFiles([]);
+            onReset();
           }}
         >
           Reset
         </Button>
       ),
-    [resetButton, setFiles, updateFiles],
+    [resetButton, onReset],
   );
 
-  const topbarElement = useMemo(() => {
-    if (topbar) {
-      return cloneElement(topbar, {
-        className: topbarStyles,
-      });
+  const buttonsElement = useMemo(() => {
+    if (!buttons) {
+      return (
+        <div className={styles.buttons()}>
+          {multiple && files.length !== 0 && addButtonElement}
+          {files.length !== 0 && resetButtonElement}
+          {browseButtonElement}
+          {uploadButton}
+        </div>
+      );
     }
-  }, [topbar]);
+
+    const customButtonsElement = buttons(onBrowse, onAdd, onReset);
+
+    return cloneElement(customButtonsElement, {
+      className: styles.buttons({
+        class: clsx(classNames?.buttons, customButtonsElement.props.className),
+      }),
+    });
+  }, [
+    onBrowse,
+    onAdd,
+    onReset,
+    styles,
+    multiple,
+    files,
+    browseButtonElement,
+    addButtonElement,
+    resetButtonElement,
+    uploadButton,
+  ]);
 
   const baseStyles = styles.base({class: clsx(classNames?.base, className)});
-  const topbarStyles = styles.base({class: clsx(classNames?.topbar, topbar?.props.className)});
 
   return (
     <Component ref={domRef} className={baseStyles} {...otherProps}>
       <input
         ref={inputFileRef}
         className="hidden"
-        multiple={maxItems > 1}
+        multiple={multiple}
         title="file upload"
         type="file"
         onChange={(ev) => {
           if (!ev.target.files?.length) return;
-          const length = ev.target.files.length > maxItems ? maxItems : ev.target.files.length;
           const newFiles: File[] = [];
 
-          for (let index = 0; index < length; index++) {
+          for (let index = 0; index < ev.target.files.length; index++) {
             const file = ev.target.files.item(index);
 
             file && newFiles.push(file);
@@ -186,12 +233,8 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
         {children}
         {items}
       </div>
-      <div className={styles.buttons()}>
-        {maxItems > 1 && files.length !== 0 && files.length < maxItems && addButtonElement}
-        {files.length !== 0 && resetButtonElement}
-        {browseButtonElement}
-        {uploadButton}
-      </div>
+
+      {buttonsElement}
     </Component>
   );
 });

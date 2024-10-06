@@ -4,7 +4,7 @@ import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {fileUpload} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {objectToDeps} from "@nextui-org/shared-utils";
-import {ReactElement, useMemo} from "react";
+import {ReactHTMLElement, useMemo} from "react";
 
 interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
@@ -17,9 +17,9 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
    */
   files?: File[];
   /**
-   * If a different browse button is needed.
+   * Custom Browse Button.
    */
-  browseButton?: ReactElement;
+  browseButton?: ReactHTMLElement<HTMLButtonElement>;
   /**
    * A different text for the browse button.
    */
@@ -27,28 +27,36 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Custom Add Button.
    */
-  addButton?: ReactElement;
+  addButton?: ReactHTMLElement<HTMLButtonElement>;
   /**
    * Custom Reset Button.
    */
-  resetButton?: ReactElement;
+  resetButton?: ReactHTMLElement<HTMLButtonElement>;
   /**
-   * If an uplaod button is needed.
+   * Custom Upload Button.
    */
-  uploadButton?: ReactElement;
+  uploadButton?: ReactHTMLElement<HTMLButtonElement>;
   /**
-   * Max number of items.
-   * @default 1
+   * Custom element to display buttons such as the browse button in customized design and order.
    */
-  maxItems: number;
+  buttons?: (
+    onBrowse: () => void,
+    onAdd: () => void,
+    onReset: () => void,
+  ) => ReactHTMLElement<HTMLElement>;
+  /**
+   * If set to true, multiple files can be selected from the device.
+   * @default false
+   */
+  multiple?: boolean;
   /**
    * Custom Element for an Upload File Item.
    */
-  fileItemElement?: (file: File) => ReactElement<HTMLElement>;
+  fileItemElement?: (file: File) => ReactHTMLElement<HTMLElement>;
   /**
    * Custom Element for topbar of the component.
    */
-  topbar?: ReactElement<HTMLElement>;
+  topbar?: ReactHTMLElement<HTMLElement>;
   /**
    * Triggered when file(s) selected, added or removed.
    */
@@ -60,7 +68,7 @@ export type UseFileUploadProps = Props & FileUploadVariantProps;
 export function useFileUpload(originalProps: UseFileUploadProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, fileUpload.variantKeys);
 
-  const {ref, as, className, maxItems = 1, browseButtonText = "Browse", ...otherProps} = props;
+  const {ref, as, className, multiple = false, browseButtonText = "Browse", ...otherProps} = props;
 
   const Component = as || "div";
 
@@ -80,7 +88,7 @@ export function useFileUpload(originalProps: UseFileUploadProps) {
     styles,
     domRef,
     className,
-    maxItems,
+    multiple,
     browseButtonText,
     ...otherProps,
   };
