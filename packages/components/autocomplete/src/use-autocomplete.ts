@@ -110,6 +110,11 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Whether to automatically highlight the first item in the list as the user types.
+   * @default false
+   */
+  autoHighlight?: boolean;
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
@@ -165,6 +170,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     onOpenChange,
     onClose,
     isReadOnly = false,
+    autoHighlight = false,
     ...otherProps
   } = props;
 
@@ -319,12 +325,14 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
 
   // focus first non-disabled item
   useEffect(() => {
-    let key = state.collection.getFirstKey();
+    if (autoHighlight) {
+      let key = state.collection.getFirstKey();
 
-    while (key && state.disabledKeys.has(key)) {
-      key = state.collection.getKeyAfter(key);
+      while (key && state.disabledKeys.has(key)) {
+        key = state.collection.getKeyAfter(key);
+      }
+      state.selectionManager.setFocusedKey(key);
     }
-    state.selectionManager.setFocusedKey(key);
   }, [state.collection, state.disabledKeys]);
 
   useEffect(() => {
@@ -432,6 +440,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
+      autoHighlight,
     } as ListboxProps);
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
@@ -515,6 +524,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     disableAnimation,
     allowsCustomValue,
     selectorIcon,
+    autoHighlight,
     getBaseProps,
     getInputProps,
     getListBoxProps,
