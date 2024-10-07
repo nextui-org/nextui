@@ -720,6 +720,63 @@ describe("Select", () => {
       expect(onChange).toBeCalledTimes(1);
     });
   });
+
+  it("should place the label outside when labelPlacement is outside", async () => {
+    const labelContent = "Favorite Animal Label";
+
+    render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label={labelContent}
+        labelPlacement="outside"
+        placeholder="placeholder"
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    const base = document.querySelector("[data-slot=base]");
+    const trigger = document.querySelector("[data-slot=trigger]");
+
+    expect(base).toHaveTextContent(labelContent);
+    expect(trigger).not.toHaveTextContent(labelContent);
+  });
+
+  it("should place the label inside when labelPlacement prop is not passed", async () => {
+    const labelContent = "Favorite Animal Label";
+
+    render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="select"
+        label={labelContent}
+        placeholder="placeholder"
+      >
+        <SelectItem key="penguin" value="penguin">
+          Penguin
+        </SelectItem>
+        <SelectItem key="zebra" value="zebra">
+          Zebra
+        </SelectItem>
+        <SelectItem key="shark" value="shark">
+          Shark
+        </SelectItem>
+      </Select>,
+    );
+
+    const trigger = document.querySelector("[data-slot=trigger]");
+
+    expect(trigger).toHaveTextContent(labelContent);
+  });
 });
 
 describe("Select with React Hook Form", () => {
