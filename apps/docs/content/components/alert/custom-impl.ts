@@ -1,4 +1,4 @@
-const App = `import React, {forwardRef} from "react";
+const App = `import React, {forwardRef, useMemo} from "react";
 import {useAlert} from "@nextui-org/react";
 
 const styles = {
@@ -44,8 +44,8 @@ const MyAlert = forwardRef((props, ref) => {
       ...props,
       ref,
       // this is just for the example, the props bellow should be passed by the parent component
-      title:"Email Sent!!",
-      description:"You will get a reply soon",
+      title: "Email Sent!!",
+      description: "You will get a reply soon",
       // custom styles
       classNames: {
         ...styles,
@@ -82,6 +82,7 @@ const MyAlert = forwardRef((props, ref) => {
     getBaseProps,
     handleClose,
     color,
+    onClose
   ]);
 
   return <>{baseWrapper}</>;

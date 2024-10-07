@@ -53,6 +53,7 @@ const Alert = forwardRef<"div", alertProps>((props, ref) => {
     getBaseProps,
     handleClose,
     color,
+    onClose,
   ]);
 
   return <>{baseWrapper}</>;
