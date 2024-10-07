@@ -7,7 +7,7 @@ import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -317,11 +317,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [inputRef.current]);
 
+  // focus first non-disabled item
   useEffect(() => {
-    // set input focus
-    if (isOpen) {
-      onFocus(true);
+    let key = state.collection.getFirstKey();
 
+    while (key && state.disabledKeys.has(key)) {
+      key = state.collection.getKeyAfter(key);
+    }
+    state.selectionManager.setFocusedKey(key);
+  }, [state.collection, state.disabledKeys]);
+
+  useEffect(() => {
+    if (isOpen) {
       // apply the same with to the popover as the select
       if (popoverRef.current && inputWrapperRef.current) {
         let rect = inputWrapperRef.current.getBoundingClientRect();
@@ -361,19 +368,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     [objectToDeps(variantProps), isClearable, disableAnimation, className],
   );
 
-  const onClear = useCallback(() => {
-    state.setInputValue("");
-    state.setSelectedKey(null);
-  }, [state]);
-
-  const onFocus = useCallback(
-    (isFocused: boolean) => {
-      inputRef.current?.focus();
-      state.setFocused(isFocused);
-    },
-    [state, inputRef],
-  );
-
   const getBaseProps: PropGetter = () => ({
     "data-invalid": dataAttr(isInvalid),
     "data-open": dataAttr(state.isOpen),
@@ -394,19 +388,22 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ({
       ...mergeProps(buttonProps, slotsProps.clearButtonProps),
       // disable original focus and state toggle from react aria
-      onPressStart: () => {},
+      onPressStart: () => {
+        // this is in PressStart for mobile so that touching the clear button doesn't remove focus from
+        // the input and close the keyboard
+        inputRef.current?.focus();
+      },
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
-
         if (state.selectedItem) {
-          onClear();
+          state.setInputValue("");
+          state.setSelectedKey(null);
         } else {
           if (allowsCustomValue) {
             state.setInputValue("");
-            state.close();
           }
         }
-        inputRef?.current?.focus();
+        state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
@@ -488,13 +485,19 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     className: slots.endContentWrapper({
       class: clsx(classNames?.endContentWrapper, props?.className),
     }),
-    onClick: (e) => {
-      const inputFocused = inputRef.current === document.activeElement;
-
-      if (!inputFocused && !state.isFocused && e.currentTarget === e.target) {
-        onFocus(true);
+    onPointerDown: chain(props.onPointerDown, (e: React.PointerEvent) => {
+      if (e.button === 0 && e.currentTarget === e.target) {
+        inputRef.current?.focus();
       }
-    },
+    }),
+    onMouseDown: chain(props.onMouseDown, (e: React.MouseEvent) => {
+      if (e.button === 0 && e.currentTarget === e.target) {
+        // Chrome and Firefox on touch Windows devices require mouse down events
+        // to be canceled in addition to pointer events, or an extra asynchronous
+        // focus event will be fired.
+        e.preventDefault();
+      }
+    }),
   });
 
   return {

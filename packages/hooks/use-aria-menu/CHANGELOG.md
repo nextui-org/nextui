@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-menu
 
+## 2.0.7
+
+### Patch Changes
+
+- [#3762](https://github.com/nextui-org/nextui/pull/3762) [`8fecb5afa`](https://github.com/nextui-org/nextui/commit/8fecb5afa9aabe73e32243ca313f97856da8aa08) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed `_a2.find` is not a function (#3761)
+
 ## 2.0.6
 
 ### Patch Changes

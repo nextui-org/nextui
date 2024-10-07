@@ -1,5 +1,11 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.14
+
+### Patch Changes
+
+- [#3597](https://github.com/nextui-org/nextui/pull/3597) [`446a6bf57`](https://github.com/nextui-org/nextui/commit/446a6bf57c3c9e6acadd6629411b33353b305590) Thanks [@wingkwong](https://github.com/wingkwong)! - added react to peerDependencies to remove react copy from react-rsc-utils bundle (#3531)
+
 ## 2.0.13
 
 ### Patch Changes

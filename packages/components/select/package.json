@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/select",
-  "version": "2.2.5",
+  "version": "2.2.7",
   "description": "A select displays a collapsible list of options and allows a user to select one of them.",
   "keywords": [
     "select"
@@ -34,21 +34,21 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=10.17.0",
+    "@nextui-org/system": ">=2.0.0",
     "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "framer-motion": ">=10.17.0",
+    "react": ">=18",
+    "react-dom": ">=18"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/listbox": "workspace:*",
     "@nextui-org/popover": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/scroll-shadow": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/spinner": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/use-aria-multiselect": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
@@ -60,18 +60,18 @@
     "@react-types/shared": "3.23.1"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/button": "workspace:*",
     "@nextui-org/avatar": "workspace:*",
-    "@nextui-org/input": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/chip": "workspace:*",
+    "@nextui-org/input": "workspace:*",
     "@nextui-org/stories-utils": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
-    "framer-motion": "^11.0.28",
     "@react-aria/i18n": "3.11.1",
     "@react-stately/data": "3.11.4",
     "clean-package": "2.2.0",
+    "framer-motion": "^11.0.28",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.51.3"

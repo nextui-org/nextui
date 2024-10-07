@@ -13,6 +13,8 @@ Requirements:
 
 - [Node.js version 18.17.x or later](https://nodejs.org/en/)
 
+<CarbonAd/>
+
 <Steps>
 
 ### Global Installation
@@ -30,11 +32,16 @@ To install the `CLI` globally, execute one of the following commands in your ter
 
 ### Without Installation
 
-Alternatively, you can use the `CLI` without a global installation by employing `npx`:
+Alternatively, you can use the `CLI` without a global installation by running the following command:
 
-```bash
-npx nextui-cli@latest
-```
+<PackageManagers
+  commands={{
+    npm: "npx nextui-cli@latest",
+    yarn: "yarn dlx nextui-cli@latest",
+    pnpm: "pnpm dlx nextui-cli@latest",
+    bun: "bunx nextui-cli@latest",
+  }}
+/>
 
 </Steps>
 
@@ -114,15 +121,25 @@ You will be prompted to configure your project:
 
 Install the dependencies to start the local server:
 
-```codeBlock bash
-cd my-nextui-app && npm install
-```
+<PackageManagers
+  commands={{
+    npm: "cd my-nextui-app && npm install",
+    yarn: "cd my-nextui-app && yarn install",
+    pnpm: "cd my-nextui-app && pnpm install",
+    bun: "cd my-nextui-app && bun install",
+  }}
+/>
 
 Start the local server:
 
-```codeBlock bash
-npm run dev
-```
+<PackageManagers
+  commands={{
+    npm: "npm run dev",
+    yarn: "yarn run dev",
+    pnpm: "pnpm run dev",
+    bun: "bun run dev",
+  }}
+/>
 
 ## add
 

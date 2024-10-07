@@ -2,10 +2,10 @@ const App = `import {User, Link} from "@nextui-org/react";
 
 export default function App() {
   return (
-    <User   
+    <User
       name="Junior Garcia"
       description={(
-        <Link href="https://twitter.com/jrgarciadev" size="sm" isExternal>
+        <Link href="https://x.com/jrgarciadev" size="sm" isExternal>
           @jrgarciadev
         </Link>
       )}

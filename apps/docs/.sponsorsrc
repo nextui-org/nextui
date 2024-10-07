@@ -310,28 +310,6 @@
     "website": "https://encur.me/"
   },
   {
-    "MemberId": 569973,
-    "createdAt": "2024-05-29 17:51",
-    "type": "USER",
-    "role": "BACKER",
-    "tier": "Gold Sponsor 🥇",
-    "isActive": true,
-    "totalAmountDonated": 100,
-    "currency": "USD",
-    "lastTransactionAt": "2024-05-29 17:51",
-    "lastTransactionAmount": 100,
-    "profile": "https://opencollective.com/maxprilutskiy",
-    "name": "Replexica",
-    "company": "",
-    "description": null,
-    "image": "/sponsors/569973.jpg",
-    "email": null,
-    "newsletterOptIn": null,
-    "twitter": null,
-    "github": null,
-    "website": "https://replexica.com/?utm_source=nextui&utm_marketing=oss"
-  },
-  {
     "MemberId": 571230,
     "createdAt": "2024-06-01 18:47",
     "type": "ORGANIZATION",
