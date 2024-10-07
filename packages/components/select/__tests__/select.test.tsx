@@ -721,7 +721,7 @@ describe("Select", () => {
     });
   });
 
-  it("should place the label outside when labelPlacement is outside", async () => {
+  it("should place the label outside when labelPlacement is outside", () => {
     const labelContent = "Favorite Animal Label";
 
     render(
@@ -751,7 +751,7 @@ describe("Select", () => {
     expect(trigger).not.toHaveTextContent(labelContent);
   });
 
-  it("should place the label inside when labelPlacement prop is not passed", async () => {
+  it("should place the label inside when labelPlacement prop is not passed", () => {
     const labelContent = "Favorite Animal Label";
 
     render(

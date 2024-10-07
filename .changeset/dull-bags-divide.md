@@ -2,4 +2,4 @@
 "@nextui-org/select": patch
 ---
 
-The PR makes changes to use the label placement in select according to the shouldLabelBeOutside rather than isOutsideLeft. This resolves the label placement issues in case of multiline.(fixes issue: #3841)
+The PR updates label placement in select components to use shouldLabelBeOutside instead of isOutsideLeft, resolving multiline label placement issues (#3841).
