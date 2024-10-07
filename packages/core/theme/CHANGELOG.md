@@ -1,5 +1,13 @@
 # @nextui-org/theme
 
+## 2.2.12
+
+### Patch Changes
+
+- [#3768](https://github.com/nextui-org/nextui/pull/3768) [`781b85566`](https://github.com/nextui-org/nextui/commit/781b85566ee5eac3f505625462c4f5f14e36ed3a) Thanks [@macci001](https://github.com/macci001)! - fix the fullWidth variant in input and select component. (#3745)
+
+- [#3764](https://github.com/nextui-org/nextui/pull/3764) [`559436d46`](https://github.com/nextui-org/nextui/commit/559436d462bdb8739d8c817d1aa98607969d8a07) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `data-[hover=true]:` for ghost button with danger color
+
 ## 2.2.11
 
 ### Patch Changes
