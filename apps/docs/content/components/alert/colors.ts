@@ -9,7 +9,7 @@ export default function App() {
         <div className="flex flex-col">
             {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
                 <div key={color} className="w-full flex justify-between items-center my-3">
-                    <h4 className="h4 mx-4 text-md">{color}</h4>
+                    <h4 className="mx-4 text-md">{color}</h4>
                     <Alert title={title} description={description} color={color} />
                 </div>
             ))}

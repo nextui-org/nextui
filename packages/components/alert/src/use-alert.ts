@@ -44,6 +44,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    mainWrapper: "mainWrapper-classes"
    *    description: "description-classes"
    *    title: "title-classes"
+   *    closeButton: "closeButton-classes"
    * }} />
    * ```
    */
@@ -61,7 +62,7 @@ export function useAlert(originalProps: UseAlertProps) {
 
   const handleClose = () => {
     setIsVisible(false);
-    if (onClose) onClose();
+    onClose?.();
   };
   const domRef = useDOMRef(ref);
 

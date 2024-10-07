@@ -20,6 +20,11 @@ export default {
       },
       options: ["none", "sm", "md", "lg", "full"],
     },
+    isClosable: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -43,37 +48,23 @@ const ColorTemplate = (args) => {
     <div className="flex flex-col">
       {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
         <div key={color} className="w-full flex justify-between items-center my-3">
-          <h4 className="h4 mx-4 text-md">{color}</h4>
+          <h4 className="mx-4 text-md">{color}</h4>
           <Alert {...args} color={color} />
         </div>
       ))}
     </div>
   );
 };
+
 const RadiusTemplate = (args) => {
   return (
     <div className="flex flex-col">
       {["none", "sm", "md", "lg", "full"].map((radius) => (
         <div key={radius} className="w-full flex justify-between items-center my-3">
-          <h4 className="h4 mx-4 text-md">{radius}</h4>
+          <h4 className="mx-4 text-md">{radius}</h4>
           <Alert {...args} radius={radius} />
         </div>
       ))}
-    </div>
-  );
-};
-
-const isClosableTemplate = (args) => {
-  return (
-    <div className="flex flex-col">
-      <div className="w-full flex items-center my-3">
-        <h2 className="my-2 mx-3">isClosable = true</h2>
-        <Alert {...args} isClosable={true} />
-      </div>
-      <div className="w-full flex items-center my-3">
-        <h2 className="my-2 mx-3">isClosable = false</h2>
-        <Alert {...args} isClosable={false} />
-      </div>
     </div>
   );
 };
@@ -97,8 +88,31 @@ export const Radius = {
   },
 };
 export const isClosable = {
-  render: isClosableTemplate,
+  render: Template,
   args: {
     ...defaultProps,
+    isClosable: true,
+  },
+};
+export const CustomWithClassNames = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    classNames: {
+      base: [
+        "bg-slate-100",
+        "border",
+        "shadow",
+        "hover:bg-slate-200",
+        "focus-within:!bg-slate-100",
+        "dark:bg-slate-900",
+        "dark:hover:bg-slate-800",
+        "dark:border-slate-800",
+        "dark:focus-within:!bg-slate-900",
+        "cursor-pointer",
+      ],
+      title: ["text-base", "text-slate-500", "font-bold"],
+      description: ["text-base", "text-slate-500"],
+    },
   },
 };

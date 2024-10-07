@@ -11,10 +11,6 @@ export default function App() {
           <h2 className="my-2 mx-4">isClosable=true</h2>
           <Alert isClosable={true} title={title} description={description} />
         </div>
-        <div className="w-full flex items-center my-3">
-          <h2 className="my-2 mx-4">isClosable=false</h2>
-          <Alert isClosable={false} title={title} description={description} />
-        </div>
       </div>        
     </div>
   );

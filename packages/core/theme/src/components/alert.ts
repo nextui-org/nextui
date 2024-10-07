@@ -6,7 +6,7 @@ import {tv} from "../utils/tv";
  *
  * @example
  * ```js
- * const {base, mainWrapper, title, description} = input({...})
+ * const {base, mainWrapper, title, description, closeButton} = alert({...})
  *
  * <div className={base()}>
  *    <AlertIcon/>
@@ -20,7 +20,6 @@ import {tv} from "../utils/tv";
  * </div>
  * ```
  */
-
 const alert = tv({
   slots: {
     base: ["flex flex-row w-[342px] h-17  p-3"],

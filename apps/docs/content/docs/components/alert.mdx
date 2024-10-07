@@ -58,13 +58,39 @@ Alerts are temporary notifications that provide concise feedback about an action
 If `isClosable` is true, a close button appears on the alert which closes it.
 It is set to false by default.
 
-> **Note**: If the `onClose` is passed, the close buton is visible regardless of `isClosable` property.
+> **Note**: If the `onClose` is passed, the close button is visible regardless of `isClosable` property.
 
-<CodeDemo title="Loading" files={alertContent.isClosable} />
+<CodeDemo title="isClosable" files={alertContent.isClosable} />
 
 
 <Spacer y={4} />
 
+## Slots
+
+- **base**: Alert wrapper, it handles alignment, placement, and general appearance.
+- **mainWrapper**: Wraps the `title` and `description` of the alert.
+- **closeButton**: The `closeButton`, it is at the top-right corner of alert.
+- **description**: The description of the alert.
+- **title**: The title of the alert.
+
+### Custom Styles
+
+You can customize the `Alert` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" highlightedLines="12-32" files={alertContent.customStyles} />
+
+### Custom Implementation
+
+In case you need to customize the alert even further, you can use the `useAlert` hook to create your own implementation.
+
+<CodeDemo
+  showPreview={false}
+  showOpenInCodeSandbox={true}
+  title="Custom Implementation"
+  files={alertContent.customImpl}
+/>
+
+<Spacer y={4} />
 
 ## API
 
