@@ -1,5 +1,23 @@
 # @nextui-org/autocomplete
 
+## 2.1.8
+
+### Patch Changes
+
+- [#3788](https://github.com/nextui-org/nextui/pull/3788) [`2e82f165a`](https://github.com/nextui-org/nextui/commit/2e82f165a98e1cdc8f0702d2971fc534b763fd15) Thanks [@abhinav700](https://github.com/abhinav700)! - Clicking the clear button clears the selected value without closing the dropdown. (#3788)
+
+- [#3845](https://github.com/nextui-org/nextui/pull/3845) [`780ba4316`](https://github.com/nextui-org/nextui/commit/780ba43162dc7ceb3f7b46c68c8134473013c873) Thanks [@alexnguyennz](https://github.com/alexnguyennz)! - Return null if there are items for exit animation on popover close to work
+
+- [#2186](https://github.com/nextui-org/nextui/pull/2186) [`557f10f5e`](https://github.com/nextui-org/nextui/commit/557f10f5ec60f9f69bed098b3670046cd56d15da) Thanks [@juliesaia](https://github.com/juliesaia)! - automatically focus first non-disabled item
+
+- Updated dependencies [[`606f75726`](https://github.com/nextui-org/nextui/commit/606f75726c6b273ea25528ec3269fa6e82af3349)]:
+  - @nextui-org/input@2.2.6
+  - @nextui-org/button@2.0.38
+  - @nextui-org/listbox@2.1.27
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+
 ## 2.1.7
 
 ### Patch Changes

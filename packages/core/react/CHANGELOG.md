@@ -1,5 +1,52 @@
 # @nextui-org/react
 
+## 2.4.9
+
+### Patch Changes
+
+- Updated dependencies [[`2e82f165a`](https://github.com/nextui-org/nextui/commit/2e82f165a98e1cdc8f0702d2971fc534b763fd15), [`781b85566`](https://github.com/nextui-org/nextui/commit/781b85566ee5eac3f505625462c4f5f14e36ed3a), [`a4ab02006`](https://github.com/nextui-org/nextui/commit/a4ab02006a63013e1a25c28c182d999e3d7c9eeb), [`780ba4316`](https://github.com/nextui-org/nextui/commit/780ba43162dc7ceb3f7b46c68c8134473013c873), [`557f10f5e`](https://github.com/nextui-org/nextui/commit/557f10f5ec60f9f69bed098b3670046cd56d15da), [`06c4b2f76`](https://github.com/nextui-org/nextui/commit/06c4b2f7637ba5f49f37b048943d66ff65201c85), [`606f75726`](https://github.com/nextui-org/nextui/commit/606f75726c6b273ea25528ec3269fa6e82af3349), [`559436d46`](https://github.com/nextui-org/nextui/commit/559436d462bdb8739d8c817d1aa98607969d8a07)]:
+  - @nextui-org/autocomplete@2.1.8
+  - @nextui-org/theme@2.2.12
+  - @nextui-org/date-picker@2.1.9
+  - @nextui-org/image@2.0.33
+  - @nextui-org/input@2.2.6
+  - @nextui-org/accordion@2.0.40
+  - @nextui-org/avatar@2.0.33
+  - @nextui-org/badge@2.0.32
+  - @nextui-org/breadcrumbs@2.0.13
+  - @nextui-org/button@2.0.38
+  - @nextui-org/calendar@2.0.12
+  - @nextui-org/card@2.0.34
+  - @nextui-org/checkbox@2.1.5
+  - @nextui-org/chip@2.0.33
+  - @nextui-org/code@2.0.33
+  - @nextui-org/date-input@2.1.4
+  - @nextui-org/divider@2.0.32
+  - @nextui-org/dropdown@2.1.31
+  - @nextui-org/kbd@2.0.34
+  - @nextui-org/link@2.0.35
+  - @nextui-org/listbox@2.1.27
+  - @nextui-org/menu@2.0.30
+  - @nextui-org/modal@2.0.41
+  - @nextui-org/navbar@2.0.37
+  - @nextui-org/pagination@2.0.36
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/progress@2.0.34
+  - @nextui-org/radio@2.1.5
+  - @nextui-org/ripple@2.0.33
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/select@2.2.7
+  - @nextui-org/skeleton@2.0.32
+  - @nextui-org/slider@2.2.17
+  - @nextui-org/snippet@2.0.43
+  - @nextui-org/spacer@2.0.33
+  - @nextui-org/spinner@2.0.34
+  - @nextui-org/switch@2.0.34
+  - @nextui-org/table@2.0.40
+  - @nextui-org/tabs@2.0.37
+  - @nextui-org/tooltip@2.0.41
+  - @nextui-org/user@2.0.34
+
 ## 2.4.8
 
 ### Patch Changes
