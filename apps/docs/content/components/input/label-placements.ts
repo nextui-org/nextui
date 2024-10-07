@@ -5,6 +5,7 @@ export default function App() {
     "inside",
     "outside",
     "outside-left",
+    "outside-top"
   ];
 
   return (
