@@ -1,4 +1,4 @@
-import App from "./bordered-variant.raw.tsx?raw";
+import App from "./bordered-variant.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
