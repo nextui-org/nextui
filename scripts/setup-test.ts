@@ -1,14 +1,11 @@
 import "@testing-library/jest-dom/extend-expect";
 import { configure } from "@testing-library/react";
 
-const {getComputedStyle} = window;
-window.getComputedStyle = (elt) => getComputedStyle(elt);
-
+// Only assign if necessary
 if (typeof window.matchMedia !== "function") {
   Object.defineProperty(window, "matchMedia", {
-    enumerable: true,
-    configurable: true,
     writable: true,
+    configurable: true,
     value: jest.fn().mockImplementation((query) => ({
       matches: false,
       media: query,
@@ -22,7 +19,7 @@ if (typeof window.matchMedia !== "function") {
   });
 }
 
-// Workaround https://github.com/jsdom/jsdom/issues/2524#issuecomment-897707183
+
 global.TextEncoder = require("util").TextEncoder;
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
@@ -31,6 +28,7 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),
 }));
 
+// Configure strict mode based on env variable
 configure({
-  reactStrictMode: process.env.STRICT_MODE === "true",
+  reactStrictMode: JSON.parse(process.env.STRICT_MODE || "false"),
 });
