@@ -1,4 +1,4 @@
-import type {Document, MDX} from "contentlayer/core";
+import type {Document, MDX} from "contentlayer2/core";
 
 import {slug} from "github-slugger";
 
