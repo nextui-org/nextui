@@ -23,6 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.jsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated",
     "global.d.ts"
