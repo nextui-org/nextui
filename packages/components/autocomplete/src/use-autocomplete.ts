@@ -5,9 +5,9 @@ import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
-import {FilterFn, useComboBoxState} from "@react-stately/combobox";
+import {ComboBoxState, FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -110,10 +110,25 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Handler that is called when the selection changes.
+   */
+  onSelectionChange?: (keys: React.Key | null) => void;
+}
+interface InputData {
+  isDisabled?: boolean;
+  isRequired?: boolean;
+  name?: string;
+  validationBehavior?: "aria" | "native";
 }
 
+export const inputData = new WeakMap<ComboBoxState<any>, InputData>();
+
 export type UseAutocompleteProps<T> = Props<T> &
-  Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
+  Omit<
+    InputProps,
+    "children" | "value" | "isClearable" | "defaultValue" | "classNames" | "onSelectionChange"
+  > &
   ComboBoxProps<T> &
   AsyncLoadable &
   AutocompleteVariantProps;
@@ -163,13 +178,24 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     classNames,
     errorMessage,
     onOpenChange,
+    onChange,
     onClose,
+    onSelectionChange,
     isReadOnly = false,
     ...otherProps
   } = props;
 
   // Setup filter function and state.
   const {contains} = useFilter(filterOptions);
+
+  // Setup refs and get props for child elements.
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const inputWrapperRef = useRef<HTMLDivElement>(null);
+  const listBoxRef = useRef<HTMLUListElement>(null);
+  const popoverRef = useRef<HTMLDivElement>(null);
+  const hiddenInputRef = useDOMRef<HTMLInputElement>(ref);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
   let state = useComboBoxState({
     ...originalProps,
@@ -185,6 +211,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         onClose?.();
       }
     },
+    onSelectionChange: (keys) => {
+      onSelectionChange?.(keys);
+      if (onChange && typeof onChange === "function") {
+        onChange({
+          target: {
+            name: hiddenInputRef?.current?.name,
+            value: keys,
+          },
+        } as React.ChangeEvent<HTMLInputElement>);
+      }
+    },
   });
 
   state = {
@@ -193,14 +230,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       disabledKeys: new Set([...state.collection.getKeys()]),
     }),
   };
-
-  // Setup refs and get props for child elements.
-  const buttonRef = useRef<HTMLButtonElement>(null);
-  const inputWrapperRef = useRef<HTMLDivElement>(null);
-  const listBoxRef = useRef<HTMLUListElement>(null);
-  const popoverRef = useRef<HTMLDivElement>(null);
-  const inputRef = useDOMRef<HTMLInputElement>(ref);
-  const scrollShadowRef = useDOMRef<HTMLElement>(scrollRefProp);
 
   const {
     buttonProps,
@@ -306,16 +335,21 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
   useSafeLayoutEffect(() => {
-    if (!inputRef.current) return;
+    if (!hiddenInputRef.current) return;
 
-    const key = inputRef.current.value;
+    const key = hiddenInputRef.current.value;
     const item = state.collection.getItem(key);
 
     if (item && state.inputValue !== item.textValue) {
       state.setSelectedKey(key);
       state.setInputValue(item.textValue);
     }
-  }, [inputRef.current]);
+
+    if (inputRef.current && hiddenInputRef.current) {
+      // sync the value from ref to inputRef for initial display
+      inputRef.current.value = hiddenInputRef.current.value;
+    }
+  }, [hiddenInputRef.current]);
 
   // focus first non-disabled item
   useEffect(() => {
@@ -339,6 +373,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (allowsCustomValue && hiddenInputRef.current) {
+      onChange?.({
+        target: {
+          name: hiddenInputRef?.current?.name,
+          value: hiddenInputRef?.current?.value,
+        },
+      } as React.ChangeEvent<HTMLInputElement>);
+    }
+  }, [state, allowsCustomValue, inputRef?.current?.value, hiddenInputRef?.current?.value]);
 
   // to prevent the error message:
   // stopPropagation is now the default behavior for events in React Spectrum.
@@ -411,11 +456,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }),
     } as ButtonProps);
 
-  const getInputProps = () =>
-    ({
-      ...otherProps,
-      ...inputProps,
-      ...slotsProps.inputProps,
+  const getInputProps = () => {
+    const props = mergeProps(otherProps, inputProps, slotsProps.inputProps);
+
+    // `name` will be in the hidden input
+    // so that users can get the value of the input instead of label in form
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const {name, ...restProps} = props;
+
+    return {
+      ...restProps,
       isInvalid,
       validationBehavior,
       errorMessage:
@@ -423,7 +473,8 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
           ? errorMessage({isInvalid, validationErrors, validationDetails})
           : errorMessage || validationErrors?.join(" "),
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
-    } as unknown as InputProps);
+    } as InputProps;
+  };
 
   const getListBoxProps = () =>
     ({
@@ -500,6 +551,38 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }),
   });
 
+  const getHiddenInputProps = useCallback(
+    (props = {}) => ({
+      state,
+      inputRef,
+      hiddenInputRef,
+      name: originalProps?.name,
+      isRequired: originalProps?.isRequired ?? false,
+      autoComplete: originalProps?.autoComplete ?? "on",
+      isDisabled: originalProps?.isDisabled ?? false,
+      onChange,
+      ...props,
+    }),
+    [
+      state,
+      originalProps?.name,
+      originalProps?.autoComplete,
+      originalProps?.isDisabled,
+      originalProps?.isRequired,
+      inputRef,
+      hiddenInputRef,
+    ],
+  );
+
+  // store the data to be used in useHiddenInput
+  inputData.set(state, {
+    isDisabled: originalProps?.isDisabled ?? false,
+    isRequired: originalProps?.isRequired ?? false,
+    name: originalProps?.name,
+    // TODO: Future enhancement to support "aria" validation behavior.
+    validationBehavior: "native",
+  });
+
   return {
     Component,
     inputRef,
@@ -524,6 +607,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     getSelectorButtonProps,
     getListBoxWrapperProps,
     getEndContentWrapperProps,
+    getHiddenInputProps,
   };
 }
 

@@ -55,6 +55,7 @@
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@react-aria/combobox": "3.9.1",
     "@react-aria/focus": "3.17.1",
+    "@react-aria/form": "3.0.5",
     "@react-aria/i18n": "3.11.1",
     "@react-aria/interactions": "3.21.3",
     "@react-aria/utils": "3.24.1",
