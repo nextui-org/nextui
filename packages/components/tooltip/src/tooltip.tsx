@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
-import {AnimatePresence, m, LazyMotion, domAnimation} from "framer-motion";
+import {AnimatePresence, m, LazyMotion} from "framer-motion";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {warn} from "@nextui-org/shared-utils";
 import {Children, cloneElement, isValidElement} from "react";
@@ -10,6 +10,8 @@ import {mergeProps} from "@react-aria/utils";
 import {UseTooltipProps, useTooltip} from "./use-tooltip";
 
 export interface TooltipProps extends Omit<UseTooltipProps, "disableTriggerFocus" | "backdrop"> {}
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   const {

@@ -24,7 +24,6 @@ import {isAppleDevice} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
-import {includes} from "lodash";
 import {motion, AnimatePresence} from "framer-motion";
 import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
@@ -197,7 +196,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(docsPaths, pathname)}
+              data-active={docsPaths.includes(pathname)}
               href="/docs/guide/introduction"
               onClick={() => handlePressNavbarItem("Docs", "/docs/guide/introduction")}
             >
@@ -208,7 +207,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(pathname, "components")}
+              data-active={pathname.includes("components")}
               href="/docs/components/accordion"
               onClick={() => handlePressNavbarItem("Components", "/docs/components/accordion")}
             >
@@ -219,7 +218,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(pathname, "blog")}
+              data-active={pathname.includes("blog")}
               href="/blog"
               onClick={() => handlePressNavbarItem("Blog", "/blog")}
             >
@@ -230,7 +229,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(pathname, "figma")}
+              data-active={pathname.includes("figma")}
               href="/figma"
               onClick={() => handlePressNavbarItem("Figma", "/figma")}
             >

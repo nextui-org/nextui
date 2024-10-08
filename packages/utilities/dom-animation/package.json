@@ -1,11 +1,11 @@
 {
-  "name": "@nextui-org/use-infinite-scroll",
-  "version": "2.1.5",
-  "description": "A hook for handling infinite scroll based on the IntersectionObserver API",
+  "name": "@nextui-org/dom-animation",
+  "version": "2.0.0",
+  "description": "Dom Animation from Framer Motion for dynamic import",
   "keywords": [
-    "use-infinite-scroll"
+    "dom-animation"
   ],
-  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "author": "WK Wong <wingkwong.code@gmail.com>",
   "homepage": "https://nextui.org",
   "license": "MIT",
   "main": "src/index.ts",
@@ -19,7 +19,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/hooks/use-infinite-scroll"
+    "directory": "packages/utilities/dom-animation"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -34,22 +34,11 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
-  },
-  "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*"
+    "framer-motion": ">=11.5.6"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "framer-motion": "^11.9.0"
   },
-  "clean-package": "../../../clean-package.config.json",
-  "tsup": {
-    "clean": true,
-    "target": "es2019",
-    "format": [
-      "cjs",
-      "esm"
-    ]
-  }
+  "clean-package": "../../../clean-package.config.json"
 }
