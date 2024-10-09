@@ -87,6 +87,19 @@ const Template = ({color, variant, ...args}: SelectProps) => (
   </Select>
 );
 
+const ClearableTemplate = ({color, variant, ...args}: SelectProps) => (
+  <Select
+    className="max-w-xs my-4"
+    color={color}
+    isClearable={true}
+    label="Favorite Animal"
+    variant={variant}
+    {...args}
+  >
+    {items}
+  </Select>
+);
+
 const DynamicTemplate = ({color, variant, ...args}: SelectProps<Animal>) => (
   <Select
     className="max-w-xs"
@@ -1004,5 +1017,13 @@ export const CustomStyles = {
         </div>
       ));
     },
+  },
+};
+
+export const Clearable = {
+  render: ClearableTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

@@ -148,6 +148,13 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo title="With Error Message" files={selectContent.errorMessage} />
 
+### Clear Button
+
+If you pass the `isClearable` property to the select, or provide a `onClear` function, it will have a clear button which will be visible only when the some value is selected.
+A default clear button is displayed if `endContent` property is not passed.
+
+<CodeDemo title="Clear Button" files={selectContent.isClearable} />
+
 ### Controlled
 
 You can use the `selectedKeys` and `onSelectionChange` / `onChange` properties to control the select value.
@@ -383,6 +390,7 @@ the popover and listbox components.
 | isDisabled                  | `boolean`                                                                                                                                                                                                              | Whether the select is disabled.                                                                                        | `false`            |
 | isMultiline                 | `boolean`                                                                                                                                                                                                              | Whether the select should allow multiple lines of text.                                                                | `false`            |
 | isInvalid                   | `boolean`                                                                                                                                                                                                              | Whether the select is invalid.                                                                                         | `false`            |
+| isClearable                 | `boolean`                                                                                                                                                                                                              | Whether the select should have a clear button.                                                                         | `false`            |
 | validationState             | `valid` \| `invalid`                                                                                                                                                                                                   | Whether the select should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead. | -                  |
 | showScrollIndicators        | `boolean`                                                                                                                                                                                                              | Whether the select should show scroll indicators when the listbox is scrollable.                                       | `true`             |
 | autoFocus                   | `boolean`                                                                                                                                                                                                              | Whether the select should be focused on the first mount.                                                               | `false`            |
@@ -403,7 +411,7 @@ the popover and listbox components.
 | onSelectionChange | `(keys: "all" \| Set<React.Key> & {anchorKey?: string; currentKey?: string}) => void`                 | Callback fired when the selected keys change.                                        |
 | onChange          | `React.ChangeEvent<HTMLSelectElement>`        | Native select change event, fired when the selected value changes.                   |
 | renderValue       | [RenderValueFunction](#render-value-function) | Function to render the value of the select. It renders the selected item by default. |
-
+| onClear           | `() => void`                                  | Handler that is called when the clear button is clicked.
 ---
 
 ### SelectItem Props
