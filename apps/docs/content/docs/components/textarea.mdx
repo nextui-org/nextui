@@ -89,6 +89,13 @@ You can use the `value` and `onValueChange` properties to control the input valu
 
 <CodeDemo title="Controlled" files={textareaContent.controlled} />
 
+### Clear Button
+
+If you pass the `isClearable` property to the textarea, it will have a clear button at the
+end of the textarea, it will be visible when the textarea has a value.
+
+<CodeDemo title="Clear Button" files={textareaContent.clearButton} />
+
 > **Note**: NextUI `Textarea` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
@@ -163,6 +170,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 | isRequired         | `boolean`                                                                                                          | Whether user input is required on the textarea before form submission.                                                                                                                                                                                  | `false`   |
 | isReadOnly         | `boolean`                                                                                                          | Whether the textarea can be selected but not changed by the user.                                                                                                                                                                                       |           |
 | isDisabled         | `boolean`                                                                                                          | Whether the textarea is disabled.                                                                                                                                                                                                                       | `false`   |
+| isClearable        | `boolean`                                                                                                          | Whether the textarea should have a clear button.                                                                                                                                                                                                        | `false`   |
 | isInvalid          | `boolean`                                                                                                          | Whether the textarea is invalid.                                                                                                                                                                                                                        | `false`   |
 | validationState    | `valid` \| `invalid`                                                                                               | Whether the textarea should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead.                                                                                                                                | -         |
 | disableAutosize    | `boolean`                                                                                                          | Whether the textarea auto vertically resize should be disabled.                                                                                                                                                                                         | `false`   |
