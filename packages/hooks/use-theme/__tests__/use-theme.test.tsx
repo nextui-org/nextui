@@ -118,7 +118,7 @@ describe("useTheme hook", () => {
       getByText("Set System").click();
     });
     expect(getByTestId("theme-display").textContent).toBe(ThemeProps.SYSTEM);
-    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.LIGHT);
+    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.SYSTEM);
     expect(document.documentElement.classList.contains(ThemeProps.LIGHT)).toBe(true);
   });
 
@@ -141,7 +141,7 @@ describe("useTheme hook", () => {
       getByText("Set System").click();
     });
     expect(getByTestId("theme-display").textContent).toBe(ThemeProps.SYSTEM);
-    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.DARK);
+    expect(localStorage.getItem(ThemeProps.KEY)).toBe(ThemeProps.SYSTEM);
     expect(document.documentElement.classList.contains(ThemeProps.DARK)).toBe(true);
   });
 });
