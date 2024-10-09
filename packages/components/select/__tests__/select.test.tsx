@@ -51,7 +51,7 @@ const itemsSectionData = [
 ];
 
 describe("Select", () => {
-  let user;
+  let user: ReturnType<typeof userEvent.setup>;
 
   beforeEach(() => {
     user = userEvent.setup();
