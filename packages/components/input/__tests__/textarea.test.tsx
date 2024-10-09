@@ -13,6 +13,7 @@ describe("Textarea", () => {
     const {getByRole} = render(
       <Textarea
         ref={ref}
+        isClearable
         defaultValue="junior@nextui.org"
         label="test textarea"
         onClear={onClear}

@@ -15,11 +15,7 @@ type TextareaAutoSizeStyle = Omit<
   height?: number;
 };
 
-type OmittedInputProps =
-  | "isClearButtonFocusVisible"
-  | "isLabelPlaceholder"
-  | "isClearable"
-  | "isTextarea";
+type OmittedInputProps = "isClearButtonFocusVisible" | "isLabelPlaceholder" | "isTextarea";
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
