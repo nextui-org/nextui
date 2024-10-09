@@ -8,7 +8,7 @@ export default function App() {
       variant="bordered"
       placeholder="Enter your email"
       defaultValue="junior@nextui.org"
-      onClear={() => console.log("input cleared")}
+      onClear={() => console.log("textarea cleared")}
       className="max-w-xs"
     />
   );
