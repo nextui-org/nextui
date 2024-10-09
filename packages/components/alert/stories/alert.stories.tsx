@@ -48,7 +48,7 @@ const ColorTemplate = (args) => {
     <div className="flex flex-col">
       {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
         <div key={color} className="w-full flex justify-between items-center my-3">
-          <h4 className="mx-4 text-md">{color}</h4>
+          <span className="mx-4 text-md">{color}</span>
           <Alert {...args} color={color} />
         </div>
       ))}
@@ -61,7 +61,7 @@ const RadiusTemplate = (args) => {
     <div className="flex flex-col">
       {["none", "sm", "md", "lg", "full"].map((radius) => (
         <div key={radius} className="w-full flex justify-between items-center my-3">
-          <h4 className="mx-4 text-md">{radius}</h4>
+          <span className="mx-4 text-md">{radius}</span>
           <Alert {...args} radius={radius} />
         </div>
       ))}

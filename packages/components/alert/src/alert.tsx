@@ -4,9 +4,9 @@ import {forwardRef} from "@nextui-org/system";
 import {useAlert, UseAlertProps} from "./use-alert";
 import {AlertCloseIcon, AlertIcon} from "./alert-icons";
 
-export interface alertProps extends UseAlertProps {}
+export interface AlertProps extends UseAlertProps {}
 
-const Alert = forwardRef<"div", alertProps>((props, ref) => {
+const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   const {
     title,
     description,
