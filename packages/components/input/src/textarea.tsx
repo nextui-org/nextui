@@ -127,7 +127,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
 
     const end = useMemo(() => {
       if (isClearable) {
-        return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
+        return <button {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</button>;
       }
 
       return endContent;
