@@ -3,6 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
+import {DustbinIcon} from "@nextui-org/shared-icons";
 
 import {UseInputProps, useInput} from "./use-input";
 
@@ -14,11 +15,7 @@ type TextareaAutoSizeStyle = Omit<
   height?: number;
 };
 
-type OmittedInputProps =
-  | "isClearButtonFocusVisible"
-  | "isLabelPlaceholder"
-  | "isClearable"
-  | "isTextarea";
+type OmittedInputProps = "isClearButtonFocusVisible" | "isLabelPlaceholder" | "isTextarea";
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
@@ -88,6 +85,8 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
+      isClearable,
+      getClearButtonProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
@@ -122,13 +121,25 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       />
     );
 
+    const end = useMemo(() => {
+      if (isClearable) {
+        return (
+          <button {...getClearButtonProps({className: "top-2"})}>
+            {endContent || <DustbinIcon />}
+          </button>
+        );
+      }
+
+      return endContent;
+    }, [isClearable, getClearButtonProps]);
+
     const innerWrapper = useMemo(() => {
-      if (startContent || endContent) {
+      if (startContent || end) {
         return (
           <div {...getInnerWrapperProps()}>
             {startContent}
             {content}
-            {endContent}
+            {end}
           </div>
         );
       }
