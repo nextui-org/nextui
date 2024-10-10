@@ -43,6 +43,7 @@ export * from "@nextui-org/autocomplete";
 export * from "@nextui-org/calendar";
 export * from "@nextui-org/date-input";
 export * from "@nextui-org/date-picker";
+export * from "@nextui-org/rating";
 
 /**
  * React Aria - Exports
