@@ -11,6 +11,7 @@ const select = tv({
       "absolute",
       "z-10",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "text-small",
@@ -189,6 +190,7 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
+          // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
           "rtl:origin-top-right",
           "!duration-200",
           "!ease-out",

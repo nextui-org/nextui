@@ -29,6 +29,7 @@ const input = tv({
       "z-10",
       "pointer-events-none",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "block",
