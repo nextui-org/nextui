@@ -1,6 +1,6 @@
 import {IconSvgProps} from "./types";
 
-export const DustbinIcon = (props: IconSvgProps) => (
+export const TrashIcon = (props: IconSvgProps) => (
   <svg
     fill="none"
     height="16"

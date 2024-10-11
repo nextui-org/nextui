@@ -33,7 +33,7 @@ export * from "./arrow-right";
 export * from "./arrow-left";
 export * from "./link";
 export * from "./selector";
-export * from "./dustbin";
+export * from "./trash";
 
 // sets
 export * from "./bulk";
