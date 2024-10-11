@@ -28,8 +28,7 @@ const input = tv({
       "absolute",
       "z-10",
       "pointer-events-none",
-      "origin-top-left",
-      "rtl:origin-top-right",
+      "origin-top-start",
       "subpixel-antialiased",
       "block",
       "text-small",
@@ -189,7 +188,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
+        input: "peer pe-6",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
@@ -208,8 +207,7 @@ const input = tv({
     },
     isRequired: {
       true: {
-        label:
-          "after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5",
+        label: "after:content-['*'] after:text-danger after:ms-0.5",
       },
     },
     isMultiline: {
