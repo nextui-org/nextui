@@ -177,6 +177,8 @@ const LabelPlacementTemplate = (args) => (
       <div className="w-full max-w-xl flex flex-row items-end gap-4">
         <Input {...args} description="inside" />
         <Input {...args} description="outside" labelPlacement="outside" />
+      </div>
+      <div className="w-full max-w-xl flex flex-row items-end gap-4">
         <Input {...args} description="outside-left" labelPlacement="outside-left" />
         <Input {...args} description="outside-top" labelPlacement="outside-top" />
       </div>
@@ -191,6 +193,8 @@ const LabelPlacementTemplate = (args) => (
           labelPlacement="outside"
           placeholder="Enter your email"
         />
+      </div>
+      <div className="w-full max-w-xl flex flex-row items-end gap-4">
         <Input
           {...args}
           description="outside-left"

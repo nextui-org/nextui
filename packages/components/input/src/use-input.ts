@@ -256,28 +256,27 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const hasLabel = !!label;
   const hasHelper = !!description || !!errorMessage;
 
-  /*
-    outside -> label is outside only when some placeholder is there
-    outside-top, outside-left-> label is outside regardless of placeholder
-  */
+  const isOutsideLeft = labelPlacement === "outside-left";
+  const isOutsideTop = labelPlacement === "outside-top";
+
   const shouldLabelBeOutside =
+    // label is outside only when some placeholder is there
     labelPlacement === "outside" ||
-    labelPlacement === "outside-left" ||
-    labelPlacement === "outside-top";
+    // label is outside regardless of placeholder
+    isOutsideLeft ||
+    isOutsideTop;
+
   const shouldLabelBeInside = labelPlacement === "inside";
   const isPlaceholderShown = domRef.current
     ? (!domRef.current.value || domRef.current.value === "" || !inputValue || inputValue === "") &&
       hasPlaceholder
     : false;
 
-  const isOutsideLeft = labelPlacement === "outside-left";
-  const isOutsideTop = labelPlacement === "outside-top";
-
   const hasStartContent = !!startContent;
 
   const isLabelOutside = shouldLabelBeOutside
-    ? labelPlacement === "outside-left" ||
-      labelPlacement === "outside-top" ||
+    ? isOutsideLeft ||
+      isOutsideTop ||
       hasPlaceholder ||
       (labelPlacement === "outside" && hasStartContent)
     : false;

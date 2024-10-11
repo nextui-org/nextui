@@ -10,35 +10,46 @@ export default function App() {
 
   return (
     <div className="flex flex-col gap-4">
-      <div className="flex flex-col gap-2">
-        <h3 className="text-default-500 text-small">Without placeholder</h3>
-        <div className="flex w-full flex-wrap items-end md:flex-nowrap mb-6 md:mb-0 gap-4">
-          {placements.map((placement) => (
-            <Input
-              key={placement}
-              type="email"
-              label="Email"
-              labelPlacement={placement}
-              description={placement}
-            />
-          ))}
+     <div className="flex flex-col gap-3">
+        <h3>Without placeholder</h3>
+        <div className="w-full max-w-xl flex flex-row items-end gap-4">
+          <Input type={"email"} label={"email"} description="inside" />
+          <Input type={"email"} label={"email"} description="outside" labelPlacement="outside" />
         </div>
-      </div>  
-      <div className="flex flex-col gap-2">
-        <h3 className="text-default-500 text-small">With placeholder</h3>
-        <div className="flex w-full flex-wrap items-end md:flex-nowrap mb-6 md:mb-0 gap-4">
-          {placements.map((placement) => (
-            <Input
-              key={placement}
-              type="email"
-              label="Email"
-              labelPlacement={placement}
-              placeholder="Enter your email"
-              description={placement}
-            />
-          ))}
+        <div className="w-full max-w-xl flex flex-row items-end gap-4">
+          <Input type={"email"} label={"email"} description="outside-left" labelPlacement="outside-left" />
+          <Input type={"email"} label={"email"} description="outside-top" labelPlacement="outside-top" />
         </div>
-      </div>  
+      </div>
+      <div className="flex flex-col gap-3">
+        <h3>With placeholder</h3>
+        <div className="w-full max-w-xl flex flex-row items-end gap-4">
+          <Input type={"email"} label={"email"} description="inside" placeholder="Enter your email" />
+          <Input
+            type={"email"}
+            label={"email"}
+            description="outside"
+            labelPlacement="outside"
+            placeholder="Enter your email"
+          />
+        </div>
+        <div className="w-full max-w-xl flex flex-row items-end gap-4">
+          <Input
+            type={"email"}
+            label={"email"
+            description="outside-left"
+            labelPlacement="outside-left"
+            placeholder="Enter your email"
+          />
+          <Input
+             type={"email"}
+            label={"email"
+            description="outside-top"
+            labelPlacement="outside-top"
+            placeholder="Enter your email"
+          />
+        </div>
+      </div> 
     </div>  
   );
 }`;
