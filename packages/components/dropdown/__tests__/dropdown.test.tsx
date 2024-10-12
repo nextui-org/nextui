@@ -526,7 +526,7 @@ describe("Dropdown", () => {
         <DropdownTrigger>
           <Image
             alt="NextUI hero Image"
-            src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+            src="https://nextui.org/images/hero-card-complete.jpeg"
             width={300}
           />
         </DropdownTrigger>

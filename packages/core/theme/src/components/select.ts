@@ -5,12 +5,13 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: ["group inline-flex flex-col relative w-full"],
+    base: ["group inline-flex flex-col relative"],
     label: [
       "block",
       "absolute",
       "z-10",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "text-small",
@@ -24,7 +25,7 @@ const select = tv({
       "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
     selectorIcon: "absolute end-3 w-4 h-4",
     spinner: "absolute end-3",
-    value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
+    value: ["text-foreground-500", "font-normal", "w-full", "text-start"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -166,6 +167,9 @@ const select = tv({
       true: {
         base: "w-full",
       },
+      false: {
+        base: "min-w-40",
+      },
     },
     isClearable: {
       true: {
@@ -211,6 +215,7 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
+          // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
           "rtl:origin-top-right",
           "!duration-200",
           "!ease-out",
