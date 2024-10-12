@@ -32,8 +32,8 @@ const select = tv({
       "w-4",
       "h-4",
       "z-10",
-      "absolute",
-      "end-10",
+      "mb-4",
+      "relative",
       "start-auto",
       "appearance-none",
       "outline-none",
@@ -169,7 +169,6 @@ const select = tv({
     },
     isClearable: {
       true: {
-        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },

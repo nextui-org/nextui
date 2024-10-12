@@ -307,7 +307,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
 
   const handleClear = useCallback(() => {
     state.setSelectedKeys(new Set([]));
-    if (onClear) onClear();
+    onClear?.();
   }, [onClear, state]);
 
   const {pressProps: clearPressProps} = usePress({
@@ -338,7 +338,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
   const isOutsideLeft = labelPlacement === "outside-left";
-  const isClearable = !!onClear || originalProps.isClearable;
+  const isClearable = originalProps.isClearable;
 
   const isFilled =
     state.isOpen ||
@@ -669,7 +669,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         role: "button",
-        tabIndex: 0,
+        tabIndex: -1,
         "aria-label": "clear selection",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),

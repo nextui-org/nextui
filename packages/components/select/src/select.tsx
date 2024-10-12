@@ -56,13 +56,24 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
 
   const clearButton = useMemo(() => {
     if (isClearable && state.selectedItems?.length) {
-      return (
-        <span {...getClearButtonProps()}>{endContent ? endContent : <CloseFilledIcon />}</span>
-      );
+      return <span {...getClearButtonProps()}>{<CloseFilledIcon />}</span>;
     }
 
     return null;
-  }, [isClearable, getClearButtonProps, state]);
+  }, [isClearable, getClearButtonProps, state.selectedItems?.length]);
+
+  const end = useMemo(() => {
+    if (clearButton) {
+      return (
+        <div className="flex end-18">
+          {clearButton}
+          {endContent && <span className="ms-3">{endContent}</span>}
+        </div>
+      );
+    }
+
+    return endContent && <span className="mb-4">{endContent}</span>;
+  }, [clearButton, endContent]);
 
   const helperWrapper = useMemo(() => {
     if (!hasHelper) return null;
@@ -139,13 +150,8 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
             {endContent && state.selectedItems && (
               <VisuallyHidden elementType="span">,</VisuallyHidden>
             )}
-            {/**
-             * we display endContent seperately only when we are not displaying clear button.
-             * otherwise, we would use it as clear button.
-             */}
-            {!isClearable && endContent}
+            {end}
           </div>
-          {clearButton}
           {renderIndicator}
         </Component>
         {helperWrapper}
