@@ -373,7 +373,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           class: clsx(
             classNames?.input,
             isFilled ? "is-filled" : "",
-            isMultiline ? "px-0 rtl:px-0" : "",
+            isMultiline ? "px-0 pe-0" : "",
           ),
         }),
         ...mergeProps(
