@@ -352,9 +352,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item ids upon selection", async () => {
     const itemsWithId = [
-      {id: "1", value: "penguin"},
-      {id: "2", value: "zebra"},
-      {id: "3", value: "shark"},
+      {id: 1, value: "penguin"},
+      {id: 2, value: "zebra"},
+      {id: 3, value: "shark"},
     ];
 
     const onSelectionChangeId = jest.fn();
@@ -365,7 +365,7 @@ describe("Select", () => {
         label="Test with ID"
         onSelectionChange={onSelectionChangeId}
       >
-        {(item) => <SelectItem key={item.id}>{item.value}</SelectItem>}
+        {(item) => <SelectItem>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -392,9 +392,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item keys upon selection", async () => {
     const itemsWithKey = [
-      {key: "1", value: "penguin"},
-      {key: "2", value: "zebra"},
-      {key: "3", value: "shark"},
+      {key: 1, value: "penguin"},
+      {key: 2, value: "zebra"},
+      {key: 3, value: "shark"},
     ];
 
     const onSelectionChangeKey = jest.fn();
@@ -405,7 +405,7 @@ describe("Select", () => {
         label="Test with Key"
         onSelectionChange={onSelectionChangeKey}
       >
-        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
+        {(item) => <SelectItem>{item.value}</SelectItem>}
       </Select>,
     );
 
