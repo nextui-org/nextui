@@ -123,13 +123,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
 
     const end = useMemo(() => {
       if (isClearable) {
-        return (
-          <button
-            {...getClearButtonProps({className: "relative block opacity-100 p-0 -m-0 -mr-3 -mt-1"})}
-          >
-            {endContent || <TrashIcon />}
-          </button>
-        );
+        return <button {...getClearButtonProps()}>{endContent || <TrashIcon />}</button>;
       }
 
       return endContent;
@@ -151,14 +145,9 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
-        <div
-          {...getInputWrapperProps({
-            style: {flexDirection: "column", alignItems: "flex-start", gap: "0"},
-          })}
-          data-has-multiple-rows={dataAttr(hasMultipleRows)}
-        >
+        <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
           {end ? (
-            <div className="flex h-4 pb-1 justify-between w-full items-center">
+            <div className="flex pb-1 justify-between w-full items-center">
               {shouldLabelBeInside ? labelContent : <label {...getLabelProps()}>{}</label>}
               {end}
             </div>
