@@ -792,7 +792,6 @@ const input = tv({
         label: [
           "start-3",
           "end-auto",
-          "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
