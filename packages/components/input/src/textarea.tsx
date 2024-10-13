@@ -87,6 +87,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getErrorMessageProps,
       isClearable,
       getClearButtonProps,
+      getHeaderWrapperProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
@@ -147,7 +148,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
         {shouldLabelBeOutside ? labelContent : null}
         <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
           {end ? (
-            <div className="flex pb-1 justify-between w-full items-center">
+            <div {...getHeaderWrapperProps()}>
               {shouldLabelBeInside ? labelContent : <label {...getLabelProps()}>{}</label>}
               {end}
             </div>

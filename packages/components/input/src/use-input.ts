@@ -533,6 +533,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [slots, isClearButtonFocusVisible, clearPressProps, clearFocusProps, classNames?.clearButton],
   );
 
+  const getHeaderWrapperProps: PropGetter = useCallback((props = {}) => {
+    return {
+      ...props,
+      className: clsx(props?.className, "flex pb-1 justify-between w-full items-center"),
+    };
+  }, []);
+
   return {
     Component,
     classNames,
@@ -563,6 +570,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
+    getHeaderWrapperProps,
   };
 }
 
