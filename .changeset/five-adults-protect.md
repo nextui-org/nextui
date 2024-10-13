@@ -1,5 +1,6 @@
 ---
 "@nextui-org/input": minor
+"@nextui-org/shared-icons": minor
 ---
 
-Add a Clear button to the textarea component (#2348)
+introduce `isClearable` to Textarea component (#2348, #2112)
