@@ -6,12 +6,7 @@ export default function App() {
 
   return (
     <div className="flex items-center justify-center w-screen">
-      <div className="flex flex-col">
-        <div className="w-full flex items-center my-3">
-          <span className="my-2 mx-4">isClosable=true</span>
-          <Alert isClosable={true} title={title} description={description} />
-        </div>
-      </div>        
+      <Alert isClosable={true} title={title} description={description} />
     </div>
   );
 }`;

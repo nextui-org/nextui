@@ -57,7 +57,7 @@ describe("Alert", () => {
     expect(closeButton).toBeNull();
   });
 
-  it("should call the onClose function when clicking on close button", async () => {
+  it("should call the onClose function when clicking on close button", () => {
     const onClose = jest.fn();
 
     const wrapper = render(<Alert description={description} title={title} onClose={onClose} />);
@@ -71,7 +71,7 @@ describe("Alert", () => {
     expect(onClose).toHaveBeenCalled();
   });
 
-  it("should close the alert when clicking on close button", async () => {
+  it("should close the alert when clicking on close button", () => {
     const wrapper = render(<Alert isClosable description={description} title={title} />);
 
     const closeButton = wrapper.getByRole("button");
