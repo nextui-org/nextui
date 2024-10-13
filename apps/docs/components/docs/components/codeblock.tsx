@@ -144,6 +144,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <div className="w-full" data-language={language}>
             <pre
+              translate="no"
               ref={ref}
               className={clsx(className, classNameProp, "flex max-w-full", {
                 "flex-col": isMultiLine,
