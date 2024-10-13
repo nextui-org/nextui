@@ -57,7 +57,7 @@
     "lodash.omit": "^4.5.0",
     "clsx": "^1.2.1",
     "tailwind-variants": "^0.1.20",
-    "tailwind-merge": "^1.14.0"
+    "tailwind-merge": "^2.5.2"
   },
   "peerDependencies": {
     "tailwindcss": ">=3.4.0"
