@@ -350,6 +350,56 @@ describe("Select", () => {
     });
   });
 
+  it("should pre-select items based on defaultSelectedKeys (numeric keys)", () => {
+    const items = [
+      {key: 1, value: "Penguin"},
+      {key: 2, value: "Zebra"},
+      {key: 3, value: "Shark"},
+    ];
+
+    const wrapper = render(
+      <Select
+        isOpen
+        defaultSelectedKeys={[1, 2]} // Numeric keys for selection
+        items={items}
+        label="Test Default Selected Keys"
+        selectionMode="multiple"
+      >
+        {(item) => <SelectItem>{item.value}</SelectItem>}
+      </Select>,
+    );
+
+    const selectedOptions = wrapper.getAllByRole("option", {selected: true});
+
+    expect(selectedOptions.length).toBe(2);
+    expect(selectedOptions.map((opt) => opt.textContent)).toEqual(["Penguin", "Zebra"]);
+  });
+
+  it("should pre-select items based on defaultSelectedKeys (numeric ids)", () => {
+    const items = [
+      {id: 1, value: "Penguin"},
+      {id: 2, value: "Zebra"},
+      {id: 3, value: "Shark"},
+    ];
+
+    const wrapper = render(
+      <Select
+        isOpen
+        defaultSelectedKeys={[1, 2]} // Numeric ids for selection
+        items={items}
+        label="Test Default Selected IDs"
+        selectionMode="multiple"
+      >
+        {(item) => <SelectItem>{item.value}</SelectItem>}
+      </Select>,
+    );
+
+    const selectedOptions = wrapper.getAllByRole("option", {selected: true});
+
+    expect(selectedOptions.length).toBe(2);
+    expect(selectedOptions.map((opt) => opt.textContent)).toEqual(["Penguin", "Zebra"]);
+  });
+
   it("onSelectionChange should be called with a Set of item ids upon selection", async () => {
     const itemsWithId = [
       {id: 1, value: "penguin"},
