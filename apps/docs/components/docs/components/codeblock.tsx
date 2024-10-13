@@ -144,13 +144,13 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
         {({className, style, tokens, getLineProps, getTokenProps}) => (
           <div className="w-full" data-language={language}>
             <pre
-              translate="no"
               ref={ref}
               className={clsx(className, classNameProp, "flex max-w-full", {
                 "flex-col": isMultiLine,
                 "scrollbar-hide overflow-x-scroll": hideScrollBar,
               })}
               style={style}
+              translate="no"
             >
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({line, key: i});
