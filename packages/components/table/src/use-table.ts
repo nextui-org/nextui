@@ -91,6 +91,11 @@ interface Props<T> extends HTMLNextUIProps<"table"> {
    */
   disableAnimation?: boolean;
   /**
+   * Whether to disable the keyboard navigation functionality.
+   * @default false
+   */
+  isKeyboardNavigationDisabled?: boolean;
+  /**
    * Props to be passed to the checkboxes.
    */
   checkboxesProps?: CheckboxProps;
@@ -159,6 +164,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     layoutNode,
     removeWrapper = false,
     disableAnimation = globalContext?.disableAnimation ?? false,
+    isKeyboardNavigationDisabled = false,
     selectionMode = "none",
     topContentPlacement = "inside",
     bottomContentPlacement = "inside",
@@ -185,6 +191,10 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     children,
     showSelectionCheckboxes,
   });
+
+  if (isKeyboardNavigationDisabled && !state.isKeyboardNavigationDisabled) {
+    state.setKeyboardNavigationDisabled(true);
+  }
 
   const {collection} = state;
 
