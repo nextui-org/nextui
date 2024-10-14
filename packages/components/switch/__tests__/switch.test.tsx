@@ -1,11 +1,17 @@
 import * as React from "react";
-import {render, renderHook, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {render, renderHook} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
 import {Switch} from "../src";
 
 describe("Switch", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Switch aria-label="switch" />);
 
@@ -19,35 +25,26 @@ describe("Switch", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("should check and uncheck", () => {
+  it("should check and uncheck", async () => {
     const {getByRole} = render(<Switch aria-label="switch" />);
 
     const checkbox = getByRole("switch");
 
     expect(checkbox).not.toBeChecked();
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).toBeChecked();
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
 
-  it("should not check if disabled", () => {
+  it("should not check if disabled", async () => {
     const {getByRole} = render(<Switch isDisabled aria-label="switch" />);
 
     const checkbox = getByRole("switch");
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
 
@@ -59,19 +56,16 @@ describe("Switch", () => {
     expect(checkbox).toBeChecked();
   });
 
-  it("should not check if readOnly", () => {
+  it("should not check if readOnly", async () => {
     const {getByRole} = render(<Switch isReadOnly aria-label="switch" />);
 
     const checkbox = getByRole("switch");
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).not.toBeChecked();
   });
 
-  it("should check and uncheck with controlled state", () => {
+  it("should check and uncheck with controlled state", async () => {
     const ControlledSwitch = ({onChange}: any) => {
       const [isSelected, setIsSelected] = React.useState(false);
 
@@ -95,10 +89,7 @@ describe("Switch", () => {
 
     expect(checkbox).not.toBeChecked();
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).toBeChecked();
 
     expect(onChange).toHaveBeenCalledWith(true);
@@ -121,7 +112,7 @@ describe("Switch", () => {
     expect(wrapper.getByTestId("thumb-icon")).toBeInTheDocument();
   });
 
-  it("should change the thumbIcon when clicked", () => {
+  it("should change the thumbIcon when clicked", async () => {
     const thumbIcon = jest.fn((props) => {
       const {isSelected} = props;
 
@@ -138,10 +129,7 @@ describe("Switch", () => {
 
     expect(checkbox).not.toBeChecked();
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).toBeChecked();
 
     expect(thumbIcon).toHaveBeenCalledWith(
@@ -154,10 +142,7 @@ describe("Switch", () => {
 
     expect(checkedthumbIcon).toBeInTheDocument();
 
-    act(() => {
-      checkbox.click();
-    });
-
+    await user.click(checkbox);
     expect(checkbox).not.toBeChecked();
 
     expect(thumbIcon).toHaveBeenCalledWith(
@@ -253,21 +238,16 @@ describe("Switch with React Hook Form", () => {
     const user = userEvent.setup();
 
     await user.click(submitButton);
-
     expect(onSubmit).toHaveBeenCalledTimes(0);
   });
 
   it("should submit form when required field is not empty", async () => {
-    act(() => {
-      switch3.click();
-    });
-
-    expect(switch3.checked).toBe(true);
-
     const user = userEvent.setup();
 
-    await user.click(submitButton);
+    await switch3.click();
+    expect(switch3.checked).toBe(true);
 
+    await user.click(submitButton);
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });
