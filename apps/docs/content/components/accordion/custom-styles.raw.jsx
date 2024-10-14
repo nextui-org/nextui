@@ -1,4 +1,3 @@
-
 import {Accordion, AccordionItem} from "@nextui-org/react";
 
 const MonitorMobileIcon = (props) => (
@@ -55,7 +54,7 @@ const MonitorMobileIcon = (props) => (
       strokeWidth="2"
     />
   </svg>
-)
+);
 
 const ShieldSecurityIcon = (props) => (
   <svg
@@ -195,15 +194,14 @@ export default function App() {
   };
 
   const defaultContent =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
-
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
 
   return (
     <Accordion
-      showDivider={false}
       className="p-2 flex flex-col gap-1 w-full max-w-[300px]"
-      variant="shadow"
       itemClasses={itemClasses}
+      showDivider={false}
+      variant="shadow"
     >
       <AccordionItem
         key="1"
@@ -230,7 +228,7 @@ export default function App() {
       <AccordionItem
         key="3"
         aria-label="Pending tasks"
-        classNames={{ subtitle: "text-warning" }}
+        classNames={{subtitle: "text-warning"}}
         startContent={<InfoIcon className="text-warning" />}
         subtitle="Complete your profile"
         title="Pending tasks"
@@ -240,7 +238,7 @@ export default function App() {
       <AccordionItem
         key="4"
         aria-label="Card expired"
-        classNames={{ subtitle: "text-danger" }}
+        classNames={{subtitle: "text-danger"}}
         startContent={<InvalidCardIcon className="text-danger" />}
         subtitle="Please, update now"
         title={

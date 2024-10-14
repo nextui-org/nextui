@@ -82,25 +82,15 @@ export default function App() {
       <AccordionItem
         key="theme"
         aria-label="Theme"
-        indicator={({ isOpen }) => (isOpen ? <SunIcon /> : <MoonIcon />)}
+        indicator={({isOpen}) => (isOpen ? <SunIcon /> : <MoonIcon />)}
         title="Theme"
       >
         {defaultContent}
       </AccordionItem>
-      <AccordionItem
-        key="anchor"
-        aria-label="Anchor"
-        indicator={<AnchorIcon />}
-        title="Anchor"
-      >
+      <AccordionItem key="anchor" aria-label="Anchor" indicator={<AnchorIcon />} title="Anchor">
         {defaultContent}
       </AccordionItem>
-      <AccordionItem
-        key="sun"
-        aria-label="Sun"
-        indicator={<SunIcon />}
-        title="Sun"
-      >
+      <AccordionItem key="sun" aria-label="Sun" indicator={<SunIcon />} title="Sun">
         {defaultContent}
       </AccordionItem>
     </Accordion>

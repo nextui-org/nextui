@@ -6,7 +6,12 @@ export default function App() {
 
   return (
     <Accordion>
-      <AccordionItem key="1" aria-label="Accordion 1" subtitle="Press to expand" title="Accordion 1">
+      <AccordionItem
+        key="1"
+        aria-label="Accordion 1"
+        subtitle="Press to expand"
+        title="Accordion 1"
+      >
         {defaultContent}
       </AccordionItem>
       <AccordionItem
@@ -21,7 +26,12 @@ export default function App() {
       >
         {defaultContent}
       </AccordionItem>
-      <AccordionItem key="3" aria-label="Accordion 3" subtitle="Press to expand" title="Accordion 3">
+      <AccordionItem
+        key="3"
+        aria-label="Accordion 3"
+        subtitle="Press to expand"
+        title="Accordion 3"
+      >
         {defaultContent}
       </AccordionItem>
     </Accordion>
