@@ -57,7 +57,7 @@ const toggle = tv({
     startContent: "z-0 absolute start-1.5 text-current",
     endContent: "z-0 absolute end-1.5 text-default-600",
     thumbIcon: "text-black",
-    label: "relative text-foreground select-none",
+    label: "relative text-foreground select-none ms-2",
   },
   variants: {
     color: {
