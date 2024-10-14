@@ -350,11 +350,61 @@ describe("Select", () => {
     });
   });
 
+  it("should pre-select items based on defaultSelectedKeys (numeric keys)", () => {
+    const items = [
+      {key: 1, value: "Penguin"},
+      {key: 2, value: "Zebra"},
+      {key: 3, value: "Shark"},
+    ];
+
+    const wrapper = render(
+      <Select
+        isOpen
+        defaultSelectedKeys={[1, 2]} // Numeric keys for selection
+        items={items}
+        label="Test Default Selected Keys"
+        selectionMode="multiple"
+      >
+        {(item) => <SelectItem>{item.value}</SelectItem>}
+      </Select>,
+    );
+
+    const selectedOptions = wrapper.getAllByRole("option", {selected: true});
+
+    expect(selectedOptions.length).toBe(2);
+    expect(selectedOptions.map((opt) => opt.textContent)).toEqual(["Penguin", "Zebra"]);
+  });
+
+  it("should pre-select items based on defaultSelectedKeys (numeric ids)", () => {
+    const items = [
+      {id: 1, value: "Penguin"},
+      {id: 2, value: "Zebra"},
+      {id: 3, value: "Shark"},
+    ];
+
+    const wrapper = render(
+      <Select
+        isOpen
+        defaultSelectedKeys={[1, 2]} // Numeric ids for selection
+        items={items}
+        label="Test Default Selected IDs"
+        selectionMode="multiple"
+      >
+        {(item) => <SelectItem>{item.value}</SelectItem>}
+      </Select>,
+    );
+
+    const selectedOptions = wrapper.getAllByRole("option", {selected: true});
+
+    expect(selectedOptions.length).toBe(2);
+    expect(selectedOptions.map((opt) => opt.textContent)).toEqual(["Penguin", "Zebra"]);
+  });
+
   it("onSelectionChange should be called with a Set of item ids upon selection", async () => {
     const itemsWithId = [
-      {id: "1", value: "penguin"},
-      {id: "2", value: "zebra"},
-      {id: "3", value: "shark"},
+      {id: 1, value: "penguin"},
+      {id: 2, value: "zebra"},
+      {id: 3, value: "shark"},
     ];
 
     const onSelectionChangeId = jest.fn();
@@ -365,7 +415,7 @@ describe("Select", () => {
         label="Test with ID"
         onSelectionChange={onSelectionChangeId}
       >
-        {(item) => <SelectItem key={item.id}>{item.value}</SelectItem>}
+        {(item) => <SelectItem>{item.value}</SelectItem>}
       </Select>,
     );
 
@@ -392,9 +442,9 @@ describe("Select", () => {
 
   it("onSelectionChange should be called with a Set of item keys upon selection", async () => {
     const itemsWithKey = [
-      {key: "1", value: "penguin"},
-      {key: "2", value: "zebra"},
-      {key: "3", value: "shark"},
+      {key: 1, value: "penguin"},
+      {key: 2, value: "zebra"},
+      {key: 3, value: "shark"},
     ];
 
     const onSelectionChangeKey = jest.fn();
@@ -405,7 +455,7 @@ describe("Select", () => {
         label="Test with Key"
         onSelectionChange={onSelectionChangeKey}
       >
-        {(item) => <SelectItem key={item.key}>{item.value}</SelectItem>}
+        {(item) => <SelectItem>{item.value}</SelectItem>}
       </Select>,
     );
 
