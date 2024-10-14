@@ -170,6 +170,12 @@ const input = tv({
       outside: {
         mainWrapper: "flex flex-col",
       },
+      "outside-top": {
+        base: "flex-col items-center flex-nowrap data-[has-helper=true]:items-start",
+        inputWrapper: "flex-1",
+        mainWrapper: "flex flex-col",
+        label: "relative text-foreground pb-2",
+      },
       "outside-left": {
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
@@ -786,7 +792,6 @@ const input = tv({
         label: [
           "start-3",
           "end-auto",
-          "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
