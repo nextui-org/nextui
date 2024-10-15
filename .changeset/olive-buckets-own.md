@@ -1,5 +1,6 @@
 ---
 "@nextui-org/select": minor
+"@nextui-org/theme": minor
 ---
 
-Added isClearable prop, and onClear event handler to select component
+add `isClearable` and `onClear` prop to Select component (#2239)

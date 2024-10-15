@@ -1013,5 +1013,6 @@ export const Clearable = {
     ...defaultProps,
     isClearable: true,
     endContent: <PetBoldIcon />,
+    onClear: () => console.log("Select cleared"),
   },
 };

@@ -27,7 +27,7 @@ import multipleControlledOnChange from "./multiple-controlled-onchange";
 import multipleWithChips from "./multiple-chips";
 import customSelectorIcon from "./custom-selector-icon";
 import customStyles from "./custom-styles";
-import isClearable from "./isClearable";
+import isClearable from "./is-clearable";
 
 export const selectContent = {
   usage,

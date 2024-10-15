@@ -29,7 +29,6 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     endContent,
     placeholder,
     renderValue,
-    isOutsideLeft,
     isClearable,
     shouldLabelBeOutside,
     disableAnimation,
