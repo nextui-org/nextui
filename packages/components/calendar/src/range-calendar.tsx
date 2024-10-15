@@ -10,10 +10,7 @@ import {CalendarBase} from "./calendar-base";
 interface Props<T extends DateValue>
   extends Omit<
     UseRangeCalendarProps<T>,
-    | "isHeaderExpanded"
-    | "onHeaderExpandedChange"
-    | "isHeaderWrapperExpanded"
-    | "showMonthAndYearPickers"
+    "isHeaderExpanded" | "onHeaderExpandedChange" | "isHeaderWrapperExpanded"
   > {}
 
 function RangeCalendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
