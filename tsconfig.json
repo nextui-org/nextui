@@ -3,6 +3,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext",
+    "types": ["@testing-library/jest-dom"],
     "lib": ["dom", "esnext"],
     "declaration": true,
     "sourceMap": true,
