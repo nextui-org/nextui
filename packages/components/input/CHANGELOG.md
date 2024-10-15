@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.2.6
+
+### Patch Changes
+
+- [#3774](https://github.com/nextui-org/nextui/pull/3774) [`606f75726`](https://github.com/nextui-org/nextui/commit/606f75726c6b273ea25528ec3269fa6e82af3349) Thanks [@ryxxn](https://github.com/ryxxn)! - clear button should not receive focus when input is disabled.
+
 ## 2.2.5
 
 ### Patch Changes

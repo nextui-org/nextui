@@ -1,5 +1,17 @@
 # @nextui-org/select
 
+## 2.2.8
+
+### Patch Changes
+
+- [#3853](https://github.com/nextui-org/nextui/pull/3853) [`488a18f52`](https://github.com/nextui-org/nextui/commit/488a18f525465817ce56e81db8e502399a7572b7) Thanks [@macci001](https://github.com/macci001)! - update label placement in Select to use `shouldLabelBeOutside` instead of `isOutsideLeft`, resolving multiline label placement issues (#3841).
+
+- Updated dependencies [[`a2e562b03`](https://github.com/nextui-org/nextui/commit/a2e562b03f79b52b0b35f07104b3585ea05e2cb6)]:
+  - @nextui-org/listbox@2.1.28
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+
 ## 2.2.7
 
 ### Patch Changes
