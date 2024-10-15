@@ -1,4 +1,4 @@
-import {allBlogPosts} from "contentlayer/generated";
+import {allBlogPosts} from "contentlayer2/generated";
 import {compareDesc} from "date-fns";
 
 import {BlogPostList} from "@/components/blog-post";

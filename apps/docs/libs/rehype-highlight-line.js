@@ -1,8 +1,8 @@
 // Inspired by https://github.dev/modulz/stitches-site
 
-const hastToHtml = require("hast-util-to-html");
-const unified = require("unified");
-const parse = require("rehype-parse");
+import {unified} from "unified";
+import {toHtml} from "hast-util-to-html";
+import rehypeParse from "rehype-parse";
 
 const lineNumberify = function lineNumberify(ast, lineNum = 1) {
   let lineNumber = lineNum;
@@ -101,7 +101,7 @@ const MULTILINE_TOKEN_SPAN = /<span class="token ([^"]+)">[^<]*\n[^<]*<\/span>/g
 
 const applyMultilineFix = function (ast) {
   // AST to HTML
-  let html = hastToHtml(ast);
+  let html = toHtml(ast);
 
   // Fix JSX issue
   html = html.replace(MULTILINE_TOKEN_SPAN, (match, token) =>
@@ -109,14 +109,14 @@ const applyMultilineFix = function (ast) {
   );
 
   // HTML to AST
-  const hast = unified().use(parse, {emitParseErrors: true, fragment: true}).parse(html);
+  const hast = unified().use(rehypeParse, {emitParseErrors: true, fragment: true}).parse(html);
 
   return hast.children;
 };
 
-module.exports = function (ast, lines) {
+export default function (ast, lines) {
   const formattedAst = applyMultilineFix(ast);
   const numbered = lineNumberify(formattedAst).nodes;
 
   return wrapLines(numbered, lines);
-};
+}
