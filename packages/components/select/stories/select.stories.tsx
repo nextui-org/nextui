@@ -1006,3 +1006,13 @@ export const CustomStyles = {
     },
   },
 };
+
+export const Clearable = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    isClearable: true,
+    endContent: <PetBoldIcon />,
+    onClear: () => console.log("Select cleared"),
+  },
+};
