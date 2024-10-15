@@ -319,6 +319,16 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [inputRef.current]);
 
+  // focus first non-disabled item
+  useEffect(() => {
+    let key = state.collection.getFirstKey();
+
+    while (key && state.disabledKeys.has(key)) {
+      key = state.collection.getKeyAfter(key);
+    }
+    state.selectionManager.setFocusedKey(key);
+  }, [state.collection, state.disabledKeys]);
+
   useEffect(() => {
     if (isOpen) {
       // apply the same with to the popover as the select

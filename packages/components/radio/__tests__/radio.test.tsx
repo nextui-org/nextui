@@ -1,11 +1,17 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {Form} from "@nextui-org/form";
 
 import {RadioGroup, Radio, RadioGroupProps} from "../src";
 
 describe("Radio", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <RadioGroup label="Options">
@@ -63,7 +69,7 @@ describe("Radio", () => {
     expect(wrapper.container.querySelector("[data-testid=radio-test-2] input")).toBeChecked();
   });
 
-  it("should change value after click", () => {
+  it("should change value after click", async () => {
     const {container} = render(
       <RadioGroup defaultValue="1" label="Options">
         <Radio value="1">Option 1</Radio>
@@ -75,14 +81,11 @@ describe("Radio", () => {
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    act(() => {
-      radio2.click();
-    });
-
+    await user.click(radio2);
     expect(radio2).toBeChecked();
   });
 
-  it("should ignore events when disabled", () => {
+  it("should ignore events when disabled", async () => {
     const {container} = render(
       <RadioGroup label="Options">
         <Radio isDisabled className="radio-test-1" value="1">
@@ -94,14 +97,11 @@ describe("Radio", () => {
 
     let radio1 = container.querySelector(".radio-test-1 input") as HTMLInputElement;
 
-    act(() => {
-      radio1.click();
-    });
-
+    await user.click(radio1);
     expect(radio1).not.toBeChecked();
   });
 
-  it('should work correctly with "onValueChange" prop', () => {
+  it('should work correctly with "onValueChange" prop', async () => {
     const onValueChange = jest.fn();
 
     const {container} = render(
@@ -115,11 +115,8 @@ describe("Radio", () => {
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    act(() => {
-      radio2.click();
-    });
-
-    expect(onValueChange).toBeCalledWith("2");
+    await user.click(radio2);
+    expect(onValueChange).toHaveBeenCalledWith("2");
 
     expect(radio2).toBeChecked();
   });
@@ -142,7 +139,7 @@ describe("Radio", () => {
       radio2.focus();
     });
 
-    expect(onFocus).toBeCalled();
+    expect(onFocus).toHaveBeenCalled();
   });
 
   it("should have required attribute when isRequired with native validationBehavior", () => {
@@ -179,7 +176,7 @@ describe("Radio", () => {
     expect(radios[0]).not.toHaveAttribute("required");
   });
 
-  it("should work correctly with controlled value", () => {
+  it("should work correctly with controlled value", async () => {
     const onValueChange = jest.fn();
 
     const Component = ({onValueChange}: Omit<RadioGroupProps, "value">) => {
@@ -206,11 +203,8 @@ describe("Radio", () => {
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    act(() => {
-      radio2.click();
-    });
-
-    expect(onValueChange).toBeCalled();
+    await user.click(radio2);
+    expect(onValueChange).toHaveBeenCalled();
 
     expect(radio2).toBeChecked();
   });

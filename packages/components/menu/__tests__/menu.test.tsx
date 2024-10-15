@@ -1,10 +1,16 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {render} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Menu, MenuItem, MenuSection} from "../src";
 
 describe("Menu", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Menu aria-label="Actions" onAction={alert}>
@@ -146,11 +152,8 @@ describe("Menu", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(menuItems[1]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(menuItems[1]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should work with multiple selection (controlled)", async () => {
@@ -180,11 +183,8 @@ describe("Menu", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(menuItems[0]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(menuItems[0]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should show checkmarks if selectionMode is single and has a selected item", () => {
@@ -291,11 +291,8 @@ describe("Menu", () => {
 
     let menuItems = wrapper.getAllByRole("menuitem");
 
-    await act(async () => {
-      await userEvent.click(menuItems[1]);
-
-      expect(onAction).toBeCalledTimes(1);
-    });
+    await user.click(menuItems[1]);
+    expect(onAction).toHaveBeenCalledTimes(1);
   });
 
   it("should not dispatch onAction events if item is disabled", async () => {
@@ -316,11 +313,8 @@ describe("Menu", () => {
 
     let menuItems = wrapper.getAllByRole("menuitem");
 
-    await act(async () => {
-      await userEvent.click(menuItems[1]);
-
-      expect(onAction).toBeCalledTimes(0);
-    });
+    await user.click(menuItems[1]);
+    expect(onAction).toHaveBeenCalledTimes(0);
   });
 
   it("should dispatch onPress, onAction and onClick events", async () => {
@@ -343,12 +337,10 @@ describe("Menu", () => {
 
     let menuItems = wrapper.getAllByRole("menuitem");
 
-    await act(async () => {
-      await userEvent.click(menuItems[0]);
+    await user.click(menuItems[0]);
 
-      expect(onAction).toBeCalledTimes(1);
-      expect(onPress).toBeCalledTimes(1);
-      expect(onClick).toBeCalledTimes(1);
-    });
+    expect(onAction).toHaveBeenCalledTimes(1);
+    expect(onPress).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

@@ -209,8 +209,11 @@ export function useDatePicker<T extends DateValue>({
       ...ariaCalendarProps,
       ...calendarProps,
       classNames: {
-        base: slots.calendar({class: classNames?.calendar}),
-        content: slots.calendarContent({class: classNames?.calendarContent}),
+        ...calendarProps.classNames,
+        base: slots.calendar({class: clsx(classNames?.base, calendarProps.classNames?.base)}),
+        content: slots.calendarContent({
+          class: clsx(classNames?.calendarContent, calendarProps.classNames?.content),
+        }),
       },
     };
   };
