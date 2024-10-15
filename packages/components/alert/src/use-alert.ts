@@ -45,6 +45,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    description: "description-classes"
    *    title: "title-classes"
    *    closeButton: "closeButton-classes"
+   *    closeIcon: "closeIcon-classes"
    * }} />
    * ```
    */
@@ -98,6 +99,12 @@ export function useAlert(originalProps: UseAlertProps) {
     };
   }, [slots, classNames?.closeButton]);
 
+  const getCloseIconProps = useCallback<PropGetter>(() => {
+    return {
+      className: slots.closeIcon({class: classNames?.closeIcon}),
+    };
+  }, [slots, classNames?.closeIcon]);
+
   return {
     title,
     description,
@@ -109,6 +116,7 @@ export function useAlert(originalProps: UseAlertProps) {
     getTitleProps,
     color: variantProps["color"],
     getCloseButtonProps,
+    getCloseIconProps,
     handleClose,
     isVisible,
     onClose,

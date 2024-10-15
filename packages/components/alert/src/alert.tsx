@@ -1,8 +1,9 @@
 import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
+import {CloseIcon} from "@nextui-org/shared-icons";
 
 import {useAlert, UseAlertProps} from "./use-alert";
-import {AlertCloseIcon, AlertIcon} from "./alert-icons";
+import {AlertIcon} from "./alert-icons";
 
 export interface AlertProps extends UseAlertProps {}
 
@@ -21,6 +22,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     color,
     isVisible,
     onClose,
+    getCloseIconProps,
   } = useAlert({...props, ref});
 
   const mainWrapper = useMemo(() => {
@@ -39,7 +41,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
         {mainWrapper}
         {(isClosable || onClose) && (
           <button onClick={handleClose} {...getCloseButtonProps()}>
-            <AlertCloseIcon color={color} />
+            <CloseIcon {...getCloseIconProps()} height={20} width={20} />
           </button>
         )}
       </div>

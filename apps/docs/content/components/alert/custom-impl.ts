@@ -76,6 +76,7 @@ const MyAlert = forwardRef((props, ref) => {
   color,
   isVisible,
   onClose,
+  getCloseIconProps,
   } = useAlert({
       ...props,
       ref,
@@ -104,7 +105,7 @@ const MyAlert = forwardRef((props, ref) => {
         {mainWrapper}
         {(isClosable || onClose) && (
           <button onClick={handleClose} {...getCloseButtonProps()}>
-            <CloseIcon />
+            <CloseIcon {...getCloseIconProps()}/>
           </button>
         )}
       </div>

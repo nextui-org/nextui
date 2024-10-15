@@ -6,7 +6,7 @@ import {tv} from "../utils/tv";
  *
  * @example
  * ```js
- * const {base, mainWrapper, title, description, closeButton} = alert({...})
+ * const {base, mainWrapper, title, description, closeButton, closeIcon} = alert({...})
  *
  * <div className={base()}>
  *    <AlertIcon/>
@@ -27,6 +27,7 @@ const alert = tv({
     description: ["text-small font-normal h-5"],
     mainWrapper: ["w-[268px] h-11 ms-5 flex flex-col box-border items-start"],
     closeButton: ["w-6 h-6 cursor-pointer relative"],
+    closeIcon: ["fill-current"],
   },
   variants: {
     color: {
@@ -34,31 +35,37 @@ const alert = tv({
         base: ["bg-default-100"],
         title: ["text-foreground"],
         description: ["text-default-600"],
+        closeIcon: ["text-default-400"],
       },
       primary: {
         base: ["bg-primary-50"],
         title: ["text-primary"],
         description: ["text-primary"],
+        closeIcon: ["text-primary-200"],
       },
       secondary: {
         base: ["bg-secondary-50"],
         title: ["text-secondary"],
-        description: ["text-secondary"],
+        description: ["text-secondary-200"],
+        closeIcon: ["text-secondary-200"],
       },
       success: {
         base: ["bg-success-50"],
         title: ["text-success"],
-        description: ["text-success"],
+        description: ["text-success-200"],
+        closeIcon: ["text-success-200"],
       },
       warning: {
         base: ["bg-warning-50"],
         title: ["text-warning"],
-        description: ["text-warning"],
+        description: ["text-warning-200"],
+        closeIcon: ["text-warning-200"],
       },
       danger: {
         base: ["bg-danger-50"],
         title: ["text-danger"],
-        description: ["text-danger"],
+        description: ["text-danger-200"],
+        closeIcon: ["text-danger-200"],
       },
     },
     radius: {
