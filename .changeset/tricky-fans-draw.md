@@ -1,5 +1,5 @@
 ---
-"@nextui-org/switch": patch
+"@nextui-org/theme": patch
 ---
 
-Removed right margin in wrapper (#3791)
+show margin only with label in Switch component (#3791)
