@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
-import {LazyMotion, domAnimation, m} from "framer-motion";
+import {LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 
 import {hideOnScrollVariants} from "./navbar-transitions";
@@ -11,6 +11,8 @@ import NavbarMenu from "./navbar-menu";
 export interface NavbarProps extends Omit<UseNavbarProps, "hideOnScroll"> {
   children?: React.ReactNode | React.ReactNode[];
 }
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   const {children, ...otherProps} = props;
