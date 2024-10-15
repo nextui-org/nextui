@@ -81,6 +81,11 @@ export default {
         type: "boolean",
       },
     },
+    shouldCloseOnScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
     disableAnimation: {
       control: {
         type: "boolean",
