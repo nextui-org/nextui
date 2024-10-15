@@ -49,9 +49,9 @@ export function CalendarCell(originalProps: CalendarCellProps) {
     !isDisabled && !isInvalid && state.isCellUnavailable(props.date.subtract({days: 1}));
   const highlightedRange = "highlightedRange" in state && state.highlightedRange;
   const isSelectionStart =
-    isSelected && highlightedRange && isSameDay(props.date, highlightedRange.start);
+    isSelected && highlightedRange ? isSameDay(props.date, highlightedRange.start) : false;
   const isSelectionEnd =
-    isSelected && highlightedRange && isSameDay(props.date, highlightedRange.end);
+    isSelected && highlightedRange ? isSameDay(props.date, highlightedRange.end) : false;
   const {locale} = useLocale();
   const dayOfWeek = getDayOfWeek(props.date, locale);
   const isRangeStart =
