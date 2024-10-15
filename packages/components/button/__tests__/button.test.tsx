@@ -1,9 +1,16 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
+import {render} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Button} from "../src";
 
 describe("Button", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Button disableRipple />);
 
@@ -17,24 +24,24 @@ describe("Button", () => {
     expect(ref.current).not.toBeNull();
   });
 
-  it("should trigger onPress function", () => {
+  it("should trigger onPress function", async () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Button disableRipple onPress={onPress} />);
 
-    act(() => {
-      getByRole("button").click();
-    });
+    const button = getByRole("button");
+
+    await user.click(button);
 
     expect(onPress).toHaveBeenCalled();
   });
 
-  it("should ignore events when disabled", () => {
+  it("should ignore events when disabled", async () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Button disableRipple isDisabled onPress={onPress} />);
 
-    act(() => {
-      getByRole("button").click();
-    });
+    const button = getByRole("button");
+
+    await user.click(button);
 
     expect(onPress).not.toHaveBeenCalled();
   });
