@@ -8,6 +8,8 @@ import backdrop from "./backdrop";
 import customBackdrop from "./custom-backdrop";
 import customMotion from "./custom-motion";
 import customStyles from "./custom-styles";
+import draggable from "./draggable";
+import draggableOverflow from "./draggable-overflow";
 
 export const modalContent = {
   usage,
@@ -20,4 +22,6 @@ export const modalContent = {
   customBackdrop,
   customMotion,
   customStyles,
+  draggable,
+  draggableOverflow,
 };
