@@ -25,7 +25,7 @@ export default function App() {
       placeholder="Select an animal"
       className="max-w-xs"
     >
-      {(animal) => <SelectItem>{animal.label}</SelectItem>}
+      {(animal) => <SelectItem key={animal.key}>{animal.label}</SelectItem>}
     </Select>
   );
 }`;
