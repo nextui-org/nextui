@@ -1,9 +1,9 @@
 import * as React from "react";
 import {render, fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import {Button} from "@nextui-org/button";
 
-import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../src";
-import {Button} from "../../button/src";
+import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, useDisclosure} from "../src";
 
 // e.g. console.error Warning: Function components cannot be given refs.
 // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
@@ -92,31 +92,36 @@ describe("Modal", () => {
     expect(onClose).toHaveBeenCalled();
   });
 
-  test("should fire 'onOpenChange' callback when open button is clicked", async () => {
-    const onOpen = jest.fn();
+  const ModalWrapper = ({onOpenChange}) => {
+    const {isOpen, onOpen} = useDisclosure();
 
-    const {getByLabelText} = render(
+    return (
       <>
         <Button aria-label="Open" onClick={onOpen}>
           Open Modal
         </Button>
-        <Modal isOpen>
+        <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
           <ModalContent>
             <ModalHeader>Modal header</ModalHeader>
             <ModalBody>Modal body</ModalBody>
             <ModalFooter>Modal footer</ModalFooter>
           </ModalContent>
         </Modal>
-      </>,
+      </>
     );
+  };
+
+  test("should fire 'onOpenChange' callback when open button is clicked and modal opens", async () => {
+    const onOpenChange = jest.fn();
+
+    const {getByLabelText} = render(<ModalWrapper onOpenChange={onOpenChange} />);
 
     const openButton = getByLabelText("Open");
-
     const user = userEvent.setup();
 
     await user.click(openButton);
 
-    expect(onOpen).toHaveBeenCalled();
+    expect(onOpenChange).toHaveBeenCalled();
   });
 
   it("should hide the modal when pressing the escape key", () => {
