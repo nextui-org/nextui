@@ -2,6 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 import {useMemo} from "react";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
+import {StarIcon} from "@nextui-org/shared-icons";
 
 import {UseRatingProps, useRating} from "./use-rating";
 import RatingSegment from "./rating-segment";
@@ -16,85 +17,85 @@ const Rating = forwardRef<"div", RatingProps>((props, ref) => {
     Component,
     children,
     length,
-    hasHelper,
     isInvalid,
+    isRequired,
+    ratingValue,
+    defaultValue,
+    value,
+    name,
     description,
     errorMessage,
+    classNames,
+    slots,
+    validationBehavior,
+    icon = <StarIcon />,
+    onChange,
+    onBlur,
     setRatingValue,
     getBaseProps,
     getMainWrapperProps,
     getIconWrapperProps,
-    getHelperWrapperProps,
     getInputProps,
-    getDescriptionProps,
-    getErrorMessageProps,
-    ratingValue,
-    value,
-    name,
-    onBlur,
-    onChange,
+    validate,
   } = context;
 
   const IconList = useMemo(() => {
-    if (children) {
-      return <div {...getIconWrapperProps()}>{children}</div>;
-    }
-
     return (
       <div {...getIconWrapperProps()}>
         <RadioGroup
-          data-selected-value={ratingValue.selectedValue.toString()}
+          classNames={{
+            errorMessage: slots.errorMessage({class: classNames?.errorMessage}),
+            description: slots.description({class: classNames?.description}),
+          }}
           data-slot="radio-group"
+          defaultValue={defaultValue}
+          description={description}
+          errorMessage={errorMessage}
+          isInvalid={isInvalid}
+          isRequired={isRequired}
           name={name}
           orientation="horizontal"
-          value={ratingValue.selectedValue.toString()}
-          onBlur={onBlur}
+          validate={validate}
+          validationBehavior={validationBehavior}
+          value={ratingValue.selectedValue != -1 ? ratingValue.selectedValue.toString() : null}
           onChange={onChange}
           onValueChange={(e) => {
             setRatingValue({selectedValue: Number(e), hoveredValue: Number(e)});
           }}
         >
           <Radio
-            className={`absolute top-0 inset-0 opacity-0 cursor-pointer`}
+            className={"absolute inset-0 top-0 opacity-0"}
             data-slot="radio"
             name={name}
             value={"0"}
             onBlur={onBlur}
             onChange={onChange}
           />
-          {Array.from(Array(length)).map((_, idx) => (
-            <RatingSegment key={"segment-" + idx} index={idx} />
-          ))}
+          {children ??
+            Array.from(Array(length)).map((_, idx) => (
+              <RatingSegment key={"segment-" + idx} icon={icon} index={idx} />
+            ))}
         </RadioGroup>
       </div>
     );
-  }, [children, length, getIconWrapperProps, name, onBlur, onChange]);
-
-  const Helper = useMemo(() => {
-    if (!hasHelper) {
-      return null;
-    }
-    if (isInvalid && !!errorMessage) {
-      return (
-        <div {...getHelperWrapperProps()}>
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        </div>
-      );
-    }
-
-    return (
-      <div {...getHelperWrapperProps()}>
-        <div {...getDescriptionProps()}>{description}</div>
-      </div>
-    );
   }, [
-    hasHelper,
+    children,
+    length,
+    getIconWrapperProps,
+    name,
+    defaultValue,
+    ratingValue,
+    setRatingValue,
     isInvalid,
+    isRequired,
     description,
     errorMessage,
-    getHelperWrapperProps,
-    getDescriptionProps,
-    getErrorMessageProps,
+    slots,
+    classNames,
+    validationBehavior,
+    onBlur,
+    onChange,
+    validate,
   ]);
 
   const Input = useMemo(
@@ -111,7 +112,6 @@ const Rating = forwardRef<"div", RatingProps>((props, ref) => {
       <RatingProvider value={context}>
         <div {...getMainWrapperProps()}>
           {IconList}
-          {Helper}
           {Input}
         </div>
       </RatingProvider>

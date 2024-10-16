@@ -1,5 +1,6 @@
 import * as React from "react";
-import {fireEvent, render, renderHook} from "@testing-library/react";
+import {act, render, renderHook} from "@testing-library/react";
+import {focus} from "@nextui-org/test-utils";
 import {useForm} from "react-hook-form";
 import userEvent from "@testing-library/user-event";
 
@@ -36,12 +37,106 @@ describe("Rating", () => {
 
     expect(icons.length).toBe(3);
   });
+
+  it("should be able to reset the rating value after being selected once", async () => {
+    render(<Rating length={3} />);
+
+    const input = document.querySelectorAll("[data-slot=input]")[0];
+    const radioButtonForValueZero = document.querySelectorAll("[data-slot=radio]")[0];
+    const radioButtonForValueOne = document.querySelectorAll("[data-slot=radio]")[1];
+
+    const user = userEvent.setup();
+
+    await user.click(radioButtonForValueOne);
+    expect(input).toHaveValue(1);
+
+    await user.click(radioButtonForValueZero);
+    expect(input).toHaveValue(0);
+  });
+
+  it("should be able to change the rating value on keypress", async () => {
+    render(<Rating length={3} />);
+
+    const input = document.querySelectorAll("[data-slot=input]")[0];
+    const radioButtonForValueOne = document.querySelectorAll("[data-slot=radio]")[1] as HTMLElement;
+    const radioButtonForValueTwo = document.querySelectorAll("[data-slot=radio]")[2] as HTMLElement;
+
+    const user = userEvent.setup();
+
+    await user.click(radioButtonForValueOne);
+    expect(input).toHaveValue(1);
+
+    act(() => {
+      focus(radioButtonForValueOne);
+    });
+    await user.keyboard("[ArrowRight]");
+    expect(input).toHaveValue(2);
+
+    act(() => {
+      focus(radioButtonForValueTwo);
+    });
+    await user.keyboard("[ArrowLeft]");
+    expect(input).toHaveValue(1);
+  });
+});
+
+describe("validation", () => {
+  let user = userEvent.setup();
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+
+  it("should support native validationBehaviour", async () => {
+    const {getAllByRole, getByTestId} = render(
+      <form data-testid="form">
+        <Rating isRequired length={5} validationBehavior="native" />
+      </form>,
+    );
+
+    const radios = getAllByRole("radio") as HTMLInputElement[];
+
+    for (let input of radios) {
+      expect(input).toHaveAttribute("required");
+      expect(input).not.toHaveAttribute("aria-required");
+      expect(input.validity.valid).toBe(false);
+    }
+
+    act(() => {
+      (getByTestId("form") as HTMLFormElement).checkValidity();
+    });
+    expect(document.activeElement).toBe(radios[0]);
+
+    await user.click(radios[0]);
+    for (let input of radios) {
+      expect(input.validity.valid).toBe(true);
+    }
+  });
+
+  it("should support aria validationBehaviour", async () => {
+    const {getByRole, getAllByRole} = render(
+      <form data-testid="form">
+        <Rating isRequired defaultValue="1" length={5} validationBehavior="aria" />
+      </form>,
+    );
+
+    const group = getByRole("radiogroup");
+
+    expect(group).toHaveAttribute("aria-required", "true");
+
+    const radios = getAllByRole("radio") as HTMLInputElement[];
+
+    for (let input of radios) {
+      expect(input.validity.valid).toBe(true);
+    }
+  });
 });
 
 describe("Rating with React Hook Form", () => {
   let rating1: Element;
   let rating2: Element;
   let rating3: Element;
+  let radioButtonRating3: Element;
   let submitButton: HTMLButtonElement;
   let onSubmit: () => void;
 
@@ -61,29 +156,32 @@ describe("Rating with React Hook Form", () => {
     onSubmit = jest.fn();
 
     render(
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <Rating data-testid="input-1" {...register("withDefaultValue")} length={5} />
-        <Rating data-testid="input-2" {...register("withoutDefaultValue")} length={5} />
-        <Rating
-          data-testid="input-3"
-          label="Required"
-          {...register("requiredField", {required: true})}
-          length={5}
-        />
-        <button type="submit">Submit</button>
-      </form>,
+      <>
+        <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
+          <Rating data-testid="input-1" {...register("withDefaultValue")} length={5} />
+          <Rating data-testid="input-2" {...register("withoutDefaultValue")} length={5} />
+          <Rating
+            data-testid="input-3"
+            label="Required"
+            {...register("requiredField", {required: true})}
+            length={5}
+          />
+          <button type="submit">Submit</button>
+        </form>
+      </>,
     );
 
     rating1 = document.querySelectorAll("[data-slot=input]")[0]!;
     rating2 = document.querySelectorAll("[data-slot=input]")[1]!;
     rating3 = document.querySelectorAll("[data-slot=input]")[2]!;
+    radioButtonRating3 = document.querySelectorAll("[data-slot=radio]")[13]!;
     submitButton = document.querySelector("button")!;
   });
 
   it("should work with defaultValues", () => {
     expect(rating1).toHaveValue(2);
-    expect(rating2).toHaveValue(0);
-    expect(rating3).toHaveValue(0);
+    expect(rating2).toHaveValue(null);
+    expect(rating3).toHaveValue(null);
   });
 
   it("should not submit form when required field is empty", async () => {
@@ -95,10 +193,9 @@ describe("Rating with React Hook Form", () => {
   });
 
   it("should submit form when required field is not empty", async () => {
-    fireEvent.change(rating3, {target: {value: "2"}});
-
     const user = userEvent.setup();
 
+    await user.click(radioButtonRating3);
     await user.click(submitButton);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);

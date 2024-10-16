@@ -3,6 +3,8 @@ import {IconSvgProps} from "./types";
 export const HappyEmojicon = ({...props}: IconSvgProps) => {
   return (
     <svg
+      aria-label="Happy face emojicon"
+      role="presentation"
       viewBox="-5.28 -5.28 26.56 26.56"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"

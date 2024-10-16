@@ -3,6 +3,8 @@ import {IconSvgProps} from "./types";
 export const SadEmojicon = ({...props}: IconSvgProps) => {
   return (
     <svg
+      aria-label="Sad face emojicon"
+      role="presentation"
       viewBox="-11.3 -11.3 56.85 56.85"
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"

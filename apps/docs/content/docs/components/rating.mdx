@@ -57,7 +57,7 @@ Passing `isRequired` property will make `rating` required.
 
 Size of the `rating` can be changed by `size` property. By default, `size` property is set to `sm`. 
 
-<CodeDemo title="Size" files={ratingContent.sizes} />
+<CodeDemo title="Sizes" files={ratingContent.sizes} />
 
 ### Description
 
@@ -69,7 +69,7 @@ Description of the `rating` can be set by `description` property.
 
 Error Message of the `rating` can be set by `errorMessage` property.
 
-<CodeDemo title="ErrorMessage" files={ratingContent.errorMessage} />
+<CodeDemo title="Error Message" files={ratingContent.errorMessage} />
 
 ### Controlled
 
@@ -79,20 +79,20 @@ Error Message of the `rating` can be set by `errorMessage` property.
 
 The color filled in the rating icons can be changed by `fillColor` property. By default, the `fillColor` is set to `gold`.
 
-<CodeDemo title="FilledColor" files={ratingContent.fillColor} />
+<CodeDemo title="Fill Color" files={ratingContent.fillColor} />
 
-### Icon
+### Custom Icon
 
 Custom Icon for the rating component can be used by using `icon` property. 
 
-<CodeDemo title="CustomIcon" files={ratingContent.customIcon} />
+<CodeDemo title="Custom Icon" files={ratingContent.customIcon} />
 
 ### RatingSegment
 
 - Rating can be customized with the use of `RatingSegment` as a child of `Rating` component.
 - RatingSegment has an `icon` prop for using custom icon and `fillColor` prop for the color to be filled in the icon.
 
-<CodeDemo title="RatingSegment" files={ratingContent.customSegment} />
+<CodeDemo title="Rating Segment" files={ratingContent.customSegment} />
 
 **Note:** As shown in the above example, it is required for `RatingSegment` to have `index` prop.
 
@@ -101,13 +101,15 @@ Custom Icon for the rating component can be used by using `icon` property.
 ## Slots
 
 - **base**: Rating wrapper, it handles alignment, placement, and general appearance.
-- **mainWrapper**: Wraps the underlying iconWrapper, helperWrapper and underlying input element.
+- **mainWrapper**: Wraps the underlying iconWrapper and underlying input element.
 - **input**: The underlying input element.
 - **iconWrapper**: Wraps all the iconSegment elements.
 - **iconSegment**: The iconSegment element.
 - **icon**: The icon element. 
-- **helperWrapper**: Wraps the `description`.
+- **radioButtonsWrapper**: Wraps all the hidden radio buttons used in internal of the Rating.
+- **radioButtonWrapper**: Each radio button is wrapped by radioButtonWrapper.
 - **description**: The description of the Rating.
+- **errorMessage**: Error message of the Rating to be displayed when Rating is invalid.
 
 <Spacer y={4} />
 
@@ -140,30 +142,29 @@ Custom Icon for the rating component can be used by using `icon` property.
 
 ### Rating Props
 
-| Attribute          | Type                                                                                                                                                                   | Description                                                                                                                                                    | Default       |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- |
-| length             | `number`                                                                                                                                                               | The length/maxValue of the rating.                                                                                                                             | `5`           |
-| precision          | `number` in `range(0, 1)`                                                                                                                                              | The precision for the rating value.                                                                                                                            | `1`           |
-| children           | `ReactNode[]`                                                                                                                                                          | The `RatingSegment` which makes up the `Rating`.                                                                                                               | `null`        |
-| icon               | `ReactNode`                                                                                                                                                            | The `icon` which needs to be desplayed `rating` component.                                                                                                     | `StarIcon`    |
-| fillColor          | `string`                                                                                                                                                               | The color which needs to be filled in the displayed icon.                                                                                                      | `gold`        |
-| strokeColor        | `string`                                                                                                                                                               | The strokeColor which needs to be used in the displayed icon.                                                                                                  | `filledColor` |
-| opacity            | `number` in `range(0, 1)`                                                                                                                                              | The opacity for the displayed icon when it is not active.                                                                                                      | `0.2`         |
-| activeOpacity      | `number` in `range(0, 1)`                                                                                                                                              | The opacity for the displayed icon when it is active.                                                                                                          | `1`           |
-| isSingleSelection  | `boolean`                                                                                                                                                              | When true only icon corresponding to rating value will be active.                                                                                              | `false`       |
-| size               | `sm` \| `md` \| `lg`                                                                                                                                                   | The size of the rating.                                                                                                                                        | `sm`          |
-| value              | `string`                                                                                                                                                               | The current value of the rating (controlled).                                                                                                                  | -             |
-| defaultValue       | `string`                                                                                                                                                               | The default value of the rating (uncontrolled).                                                                                                                | -             |
-| description        | `ReactNode`                                                                                                                                                            | A description for the rating. Provides a hint such as specific requirements for what to choose.                                                                | -             |
-| errorMessage       | `ReactNode`                                                                                                                                                            | A errorMessage for the rating.                                                                                                                                 | -             |
-| isRequired         | `boolean`                                                                                                                                                              | Whether user rating is required on the input before form submission.                                                                                           | `false`       |
-| isReadOnly         | `boolean`                                                                                                                                                              | Whether the rating can be selected but not changed by the user.                                                                                                |               |
-| isDisabled         | `boolean`                                                                                                                                                              | Whether the rating is disabled.                                                                                                                                | `false`       |
-| isInvalid          | `boolean`                                                                                                                                                              | Whether the rating is invalid.                                                                                                                                 | `false`       |
-| baseRef            | `RefObject<HTMLDivElement>`                                                                                                                                            | The ref to the base element.                                                                                                                                   | -             |
-| validationState    | `valid` \| `invalid`                                                                                                                                                   | Whether the rating should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead.                                         | -             |
-| disableAnimation   | `boolean`                                                                                                                                                              | Whether the rating should be animated.                                                                                                                         | `false`       |
-| classNames         | `Record<"base"｜ "mainWrapper"｜ "iconWrapper"｜ "input"｜ "iconSegment" ｜ "icon" ｜ "helperWrapper" ｜ "description", string>`                                         | Allows to set custom class names for the Rating slots.                                                                                                          | -             |
+| Attribute          | Type                                                                                                                                                                           | Description                                                                                                                                                    | Default       |
+| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------| ------------- |
+| length             | `number`                                                                                                                                                                       | The length/maxValue of the rating.                                                                                                                             | `5`           |
+| precision          | `number` in `range (0, 1]` (0 not included, 1 included)                                                                                                                        | The precision for the rating value.                                                                                                                            | `1`           |
+| children           | `ReactNode[]`                                                                                                                                                                  | The `RatingSegment` which makes up the `Rating`.                                                                                                               | `null`        |
+| icon               | `ReactNode`                                                                                                                                                                    | The `icon` which needs to be desplayed `rating` component.                                                                                                     | `StarIcon`    |
+| fillColor          | `string`                                                                                                                                                                       | The color which needs to be filled in the displayed icon.                                                                                                      | `gold`        |
+| strokeColor        | `string`                                                                                                                                                                       | The strokeColor which needs to be used in the displayed icon.                                                                                                  | `filledColor` |
+| opacity            | `number` in `range [0, 1]` (both 0 and 1 are included)                                                                                                                         | The opacity for the displayed icon when it is not active.                                                                                                      | `0.2`         |
+| activeOpacity      | `number` in `range [0, 1]` (both 0 and 1 are included)                                                                                                                         | The opacity for the displayed icon when it is active.                                                                                                          | `1`           |
+| isSingleSelection  | `boolean`                                                                                                                                                                      | Only icon corresponding to the rating wil be active.                                                                                                           | `false`       |
+| size               | `sm` \| `md` \| `lg`                                                                                                                                                           | The size of the rating.                                                                                                                                        | `sm`          |
+| value              | `string`                                                                                                                                                                       | The current value of the rating (controlled).                                                                                                                  | -             |
+| defaultValue       | `string`                                                                                                                                                                       | The default value of the rating (uncontrolled).                                                                                                                | -             |
+| description        | `ReactNode`                                                                                                                                                                    | A description for the rating. Provides a hint such as specific requirements for what to choose.                                                                | -             |
+| errorMessage       | `ReactNode` | `((v: ValidationResult) => ReactNode)`                                                                                                                           | A errorMessage for the rating.                                                                                                                                 | -             |
+| isRequired         | `boolean`                                                                                                                                                                      | Whether user rating is required on the input before form submission.                                                                                           | `false`       |
+| isReadOnly         | `boolean`                                                                                                                                                                      | Whether the rating can be selected but not changed by the user.                                                                                                |               |
+| isDisabled         | `boolean`                                                                                                                                                                      | Whether the rating is disabled.                                                                                                                                | `false`       |
+| isInvalid          | `boolean`                                                                                                                                                                      | Whether the rating is invalid.                                                                                                                                 | `false`       |
+| baseRef            | `RefObject<HTMLDivElement>`                                                                                                                                                    | The ref to the base element.                                                                                                                                   | -             |
+| disableAnimation   | `boolean`                                                                                                                                                                      | Whether the rating should be animated.                                                                                                                         | `false`       |
+| classNames         | `Record<"base"｜ "mainWrapper"｜ "iconWrapper"｜ "input"｜ "iconSegment" ｜ "icon" ｜ "radioButtonsWrapper" ｜ "radioButtonWrapper" ｜ "description" ｜ "errorMessage", string>`  | Allows to set custom class names for the Rating slots.                                                                                                         | -             |
 
 ### Rating Events
 

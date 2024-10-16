@@ -1,4 +1,3 @@
-import {mergeRefs} from "@nextui-org/react-utils";
 import {useMemo, useRef} from "react";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useHover} from "@react-aria/interactions";
@@ -29,7 +28,7 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
     onBlur,
   } = context;
 
-  const iconRef = useRef<HTMLElement>(null);
+  const iconRef = useRef<HTMLDivElement>(null);
 
   let value = ratingValue.selectedValue;
 
@@ -70,13 +69,20 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
     };
 
     return (
-      <div className="absolute inset-0 top-0 flex" style={gridStyle}>
+      <div
+        className={slots.radioButtonsWrapper({class: classNames?.radioButtonsWrapper})}
+        style={gridStyle}
+      >
         {Array.from(Array(numButtons)).map((_, idx) => {
           return (
-            <div key={idx} className="col-span-1 inset-0 overflow-hidden opacity-0">
+            <div
+              key={idx}
+              className={slots.radioButtonWrapper({class: classNames?.radioButtonWrapper})}
+            >
               <Radio
                 key={idx}
                 classNames={{base: "w-full h-full m-0"}}
+                data-slot="radio"
                 name={name}
                 value={
                   idx === numButtons - 1
@@ -95,7 +101,7 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
 
   return (
     <div
-      ref={mergeRefs(iconRef)}
+      ref={iconRef}
       className={segmentStyles}
       data-hovered={dataAttr(isHovered)}
       data-slot="segment"

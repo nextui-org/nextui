@@ -1,3 +1,5 @@
+import type {ValidationResult} from "@react-types/shared";
+
 import React, {useState} from "react";
 import {Meta} from "@storybook/react";
 import {button, rating} from "@nextui-org/theme";
@@ -33,6 +35,12 @@ export default {
         type: "boolean",
       },
     },
+    validationBehavior: {
+      control: {
+        type: "select",
+      },
+      options: ["aria", "native"],
+    },
   },
 } as Meta<typeof Rating>;
 
@@ -47,11 +55,7 @@ const WithReactHookFormTemplate = (args) => {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm({
-    defaultValues: {
-      rating: 2,
-    },
-  });
+  } = useForm();
 
   const onSubmit = (data: any) => {
     // eslint-disable-next-line no-console
@@ -63,6 +67,26 @@ const WithReactHookFormTemplate = (args) => {
       <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
         <Rating {...register("rating", {required: true})} {...args} length={5} />
         {errors.rating && <span className="text-danger text-tiny">This field is required</span>}
+        <button className={button({class: "w-fit"})} type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
+const ErrorTemplate = (args) => {
+  const {register, handleSubmit} = useForm();
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <div className="w-screen h-screen flex flex-col">
+      <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+        <Rating {...register("rating", {required: true})} {...args} length={5} />
         <button className={button({class: "w-fit"})} type="submit">
           Submit
         </button>
@@ -111,7 +135,7 @@ const CustomIconTemplate = (args) => {
         <Rating
           {...args}
           fillColor="red"
-          icon={HeartIcon({})}
+          icon={<HeartIcon />}
           length={5}
           onValueChange={setValue1}
         />
@@ -121,7 +145,7 @@ const CustomIconTemplate = (args) => {
         <Rating
           {...args}
           fillColor="green"
-          icon={LikeIcon({})}
+          icon={<LikeIcon />}
           length={5}
           onValueChange={setValue2}
         />
@@ -131,7 +155,7 @@ const CustomIconTemplate = (args) => {
         <Rating
           {...args}
           fillColor="blue"
-          icon={MusicIcon({})}
+          icon={<MusicIcon />}
           length={5}
           onValueChange={setValue3}
         />
@@ -147,10 +171,10 @@ const CustomSegmentTemplate = (args) => {
   return (
     <div>
       <Rating isSingleSelection length={4} onValueChange={setValue}>
-        <RatingSegment fillColor="red" icon={AngryEmojicon({})} index={0} {...args} />
-        <RatingSegment fillColor="orange" icon={SadEmojicon({})} index={1} {...args} />
-        <RatingSegment icon={StraightEmojicon({})} index={2} {...args} />
-        <RatingSegment fillColor="green" icon={HappyEmojicon({})} index={3} {...args} />
+        <RatingSegment fillColor="red" icon={<AngryEmojicon />} index={0} {...args} />
+        <RatingSegment fillColor="orange" icon={<SadEmojicon />} index={1} {...args} />
+        <RatingSegment icon={<StraightEmojicon />} index={2} {...args} />
+        <RatingSegment fillColor="green" icon={<HappyEmojicon />} index={3} {...args} />
       </Rating>
       <div className="text-tiny text-foreground-500">Rating Value: {value}</div>
     </div>
@@ -216,6 +240,22 @@ export const WithErrorMessage = {
     ...defaultProps,
     errorMessage: "Error Message for the rating component.",
     isInvalid: true,
+  },
+};
+
+export const WithErrorMessageFunction = {
+  render: ErrorTemplate,
+
+  args: {
+    ...defaultProps,
+    isRequired: true,
+    min: 1,
+    description: "Minimum rating value of 1 is required.",
+    errorMessage: (value: ValidationResult) => {
+      if (value.validationDetails.rangeUnderflow) {
+        return "Please rating value greater than or equal to 1.";
+      }
+    },
   },
 };
 

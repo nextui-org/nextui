@@ -57,6 +57,7 @@
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/system": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

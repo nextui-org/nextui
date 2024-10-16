@@ -13,7 +13,6 @@ import {ReactNode, useCallback, useMemo, useRef} from "react";
 import {useHover} from "@react-aria/interactions";
 import {mergeProps} from "@react-aria/utils";
 import {useLocale} from "@react-aria/i18n";
-import {StarIcon} from "@nextui-org/shared-icons";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useControlledState} from "@react-stately/utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
@@ -49,15 +48,15 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   strokeColor?: string;
   /**
-   * Opacity when the icon is not active. By default, opacity will be 0.2
+   * Opacity when the icon is not active. By default, opacity will be 0.2. Range [0, 1]
    */
   opacity?: number;
   /**
-   * Opacity when the icon is active. By default, selectedOpacity will be 1
+   * Opacity when the icon is active. By default, selectedOpacity will be 1. Range [0, 1]
    */
   activeOpacity?: number;
   /**
-   * Precision fraction round-off for Rating value.
+   * Precision fraction round-off for Rating value. Range (0, 1]
    */
   precision?: number;
   /**
@@ -77,10 +76,6 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   disableAnimation?: boolean;
   /**
-   * Error message
-   */
-  errorMessage?: React.ReactNode;
-  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -92,7 +87,6 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    iconWrapper: "icon-wrapper-classes",
    *    iconSegement: "icon-segment-classes",
    *    icon: "icon-classes",
-   *    helperWrapper: "helper-wrapper-classes",
    *    description: "description-classes",
    *    errorMessage: "error-message-classes",
    * }} />
@@ -100,7 +94,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   classNames?: SlotsToClasses<RatingSlots>;
   /**
-   * React aria onChange event.
+   * onValueChnage method gets called whenever the value of rating changes.
    */
   onValueChange?: (value: number) => void;
 }
@@ -119,20 +113,29 @@ export function useRating(originalProps: UseRatingProps) {
     length = 5,
     classNames,
     strokeColor,
-    precision = 1,
+    precision: precisionValue = 1,
     fillColor = "gold",
-    opacity = 0.2,
-    activeOpacity = 1,
+    opacity: opacityValue = 0.2,
+    activeOpacity: activeOpacityValue = 1,
     children = null,
     isSingleSelection = false,
-    icon = StarIcon({}),
+    icon,
+    defaultValue,
+    value,
     onValueChange = () => {},
+    validationBehavior,
+    name,
+    errorMessage,
+    description,
+    onChange,
+    onBlur,
     ...otherProps
   } = props;
 
   const {
     disableAnimation = globalContext?.disableAnimation ?? false,
     isDisabled = originalProps.isDisabled ?? false,
+    isRequired = originalProps.isRequired ?? false,
   } = originalProps;
 
   const {direction} = useLocale();
@@ -177,24 +180,38 @@ export function useRating(originalProps: UseRatingProps) {
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
   useSafeLayoutEffect(() => {
-    if (!domRef.current) return;
+    if (!domRef.current || !domRef.current.value) return;
     setRatingValue({
       hoveredValue: Number(domRef.current.value),
       selectedValue: Number(domRef.current.value),
     });
   }, [domRef.current]);
 
-  const description = props.description;
+  let precision = precisionValue;
+
+  if (precisionValue <= 0 || precisionValue > 1) precision = 1;
+
+  let opacity = opacityValue;
+
+  if (opacityValue < 0) opacity = 0;
+  if (opacityValue > 1) opacity = 1;
+
+  let activeOpacity = activeOpacityValue;
+
+  if (activeOpacityValue < 0) activeOpacity = 0;
+  if (activeOpacityValue > 1) activeOpacity = 1;
+
+  const validate = (value: string | null) => {
+    if (!props.validate || !value) return null;
+    props?.validate(value);
+  };
   const isInvalid = props.isInvalid ?? false;
-  const errorMessage = props.errorMessage;
-  const hasHelper = !!description || !!errorMessage;
 
   const {hoverProps, isHovered: isIconWrapperHovered} = useHover({isDisabled});
   const shouldConsiderHover = Math.abs(Math.floor(1 / precision) - 1 / precision) < Number.EPSILON;
 
   const onMouseMoveIconWrapper = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!iconWrapperRef || !iconWrapperRef.current) return;
-    if (!shouldConsiderHover) return;
+    if (!iconWrapperRef || !iconWrapperRef.current || !shouldConsiderHover) return;
 
     let precisionValue = precision;
 
@@ -255,51 +272,19 @@ export function useRating(originalProps: UseRatingProps) {
     [iconWrapperRef, slots, hoverProps, ratingValue, setRatingValue, onMouseMoveIconWrapper],
   );
 
-  const getHelperWrapperProps: PropGetter = useCallback(
-    (props = {}) => {
-      return {
-        className: slots.helperWrapper({class: clsx(classNames?.helperWrapper)}),
-        ...props,
-        "data-slot": "helper-wrapper",
-      };
-    },
-    [slots],
-  );
-
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         ref: domRef,
-        value: ratingValue.selectedValue == -1 ? null : ratingValue.selectedValue,
+        value: ratingValue.selectedValue == -1 ? "" : ratingValue.selectedValue,
         className: slots.input({class: clsx(classNames?.input)}),
         type: "number",
+        readOnly: true,
         ...mergeProps(props, otherProps),
         "data-slot": "input",
       };
     },
     [domRef, ratingValue, slots, originalProps, originalProps.value],
-  );
-
-  const getDescriptionProps: PropGetter = useCallback(
-    (props = {}) => {
-      return {
-        className: slots.description({class: clsx(classNames?.description)}),
-        "data-slot": "description",
-        ...props,
-      };
-    },
-    [slots],
-  );
-
-  const getErrorMessageProps: PropGetter = useCallback(
-    (props = {}) => {
-      return {
-        className: slots.errorMessage({class: clsx(classNames?.errorMessage)}),
-        "data-slot": "error",
-        ...props,
-      };
-    },
-    [slots],
   );
 
   return {
@@ -316,23 +301,26 @@ export function useRating(originalProps: UseRatingProps) {
     slots,
     fillColor,
     strokeColor,
-    icon,
-    hasHelper,
     isInvalid,
-    description,
-    errorMessage,
+    isRequired,
     shouldConsiderHover,
     opacity,
     activeOpacity,
+    name,
+    description,
+    errorMessage,
+    validationBehavior,
+    icon,
+    defaultValue,
+    value,
     setRatingValue,
     getBaseProps,
     getMainWrapperProps,
     getIconWrapperProps,
-    getHelperWrapperProps,
     getInputProps,
-    getDescriptionProps,
-    getErrorMessageProps,
-    ...otherProps,
+    onChange,
+    onBlur,
+    validate,
   };
 }
 

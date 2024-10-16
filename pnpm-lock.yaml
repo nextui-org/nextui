@@ -2216,6 +2216,9 @@ importers:
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
