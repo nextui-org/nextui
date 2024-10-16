@@ -1,7 +1,6 @@
 ---
-"@nextui-org/modal": minor
-"@nextui-org/use-disclosure": minor
+"@nextui-org/modal": patch
+"@nextui-org/use-disclosure": patch
 ---
 
-Added useEffect in useModal to fire onOpenChange when onOpen changes to true.
-In useDisclosure, onOpenChange now depends on arg onOpen, than state(onOpen).
+Added useEffect in useModal to fire onOpenChange and in useDisclosure, onOpenChange now accepts onOpen as parameter(#3887)
