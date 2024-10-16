@@ -259,6 +259,13 @@
           "path": "/docs/components/input.mdx"
         },
         {
+          "key": "input-otp",
+          "title": "Input OTP",
+          "keywords": "input, otp, auth",
+          "path": "/docs/components/input-otp.mdx",
+          "newPost": true
+        },
+        {
           "key": "kbd",
           "title": "Kbd",
           "keywords": "keyboard input, shortcut, keys, user input display",
