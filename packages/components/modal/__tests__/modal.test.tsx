@@ -3,6 +3,7 @@ import {render, fireEvent} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../src";
+import {Button} from "../../button/src";
 
 // e.g. console.error Warning: Function components cannot be given refs.
 // Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
@@ -89,6 +90,33 @@ describe("Modal", () => {
     await user.click(closeButton);
 
     expect(onClose).toHaveBeenCalled();
+  });
+
+  test("should fire 'onOpenChange' callback when open button is clicked", async () => {
+    const onOpen = jest.fn();
+
+    const {getByLabelText} = render(
+      <>
+        <Button aria-label="Open" onClick={onOpen}>
+          Open Modal
+        </Button>
+        <Modal isOpen>
+          <ModalContent>
+            <ModalHeader>Modal header</ModalHeader>
+            <ModalBody>Modal body</ModalBody>
+            <ModalFooter>Modal footer</ModalFooter>
+          </ModalContent>
+        </Modal>
+      </>,
+    );
+
+    const openButton = getByLabelText("Open");
+
+    const user = userEvent.setup();
+
+    await user.click(openButton);
+
+    expect(onOpen).toHaveBeenCalled();
   });
 
   it("should hide the modal when pressing the escape key", () => {
