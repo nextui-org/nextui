@@ -22,10 +22,10 @@ import {tv} from "../utils/tv";
  */
 const alert = tv({
   slots: {
-    base: ["flex flex-row w-[260px] sm:w-[342px] h-17  p-3"],
+    base: ["flex flex-row max-w-[342px] h-17  p-3"],
     title: ["text-medium font-normal block h-6"],
     description: ["text-small font-normal h-5"],
-    mainWrapper: ["sm:w-[268px] w-[186px] h-11 ms-5 flex flex-col box-border items-start"],
+    mainWrapper: ["max-w-[268px] h-11 ms-5 flex flex-col box-border items-start"],
     closeButton: ["w-6 h-6 cursor-pointer relative"],
     closeIcon: ["fill-current"],
   },

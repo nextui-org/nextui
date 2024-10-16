@@ -41,11 +41,15 @@ const defaultProps = {
   description: "You will get a reply soon",
 };
 
-const Template = (args) => <Alert {...args} />;
+const Template = (args) => (
+  <div className="w-full">
+    <Alert {...args} />
+  </div>
+);
 
 const ColorTemplate = (args) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
         <div key={color} className="w-full flex justify-between items-center my-3">
           <span className="mx-4 text-md">{color}</span>
@@ -58,7 +62,7 @@ const ColorTemplate = (args) => {
 
 const RadiusTemplate = (args) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {["none", "sm", "md", "lg", "full"].map((radius) => (
         <div key={radius} className="w-full flex justify-between items-center my-3">
           <span className="mx-4 text-md">{radius}</span>
