@@ -1,6 +1,6 @@
 import * as React from "react";
 import {act, render, fireEvent, within} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
 import {Tabs, Tab, TabsProps} from "../src";
@@ -50,6 +50,11 @@ function getPlacementTemplate(position: TabsProps["placement"]) {
 const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Tabs", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -71,7 +76,7 @@ describe("Tabs", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toBeCalledTimes(0);
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("should render correctly (dynamic)", () => {
@@ -168,26 +173,17 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "false");
     expect(tab2).toHaveAttribute("aria-selected", "true");
     expect(tab3).toHaveAttribute("aria-selected", "false");
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "false");
     expect(tab2).toHaveAttribute("aria-selected", "false");
     expect(tab3).toHaveAttribute("aria-selected", "true");
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "true");
     expect(tab2).toHaveAttribute("aria-selected", "false");
     expect(tab3).toHaveAttribute("aria-selected", "false");
@@ -220,22 +216,13 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab2).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab3).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowLeft]");
-    });
-
+    await user.keyboard("[ArrowLeft]");
     expect(tab2).toHaveFocus();
 
     expect(tab1).toHaveAttribute("aria-selected", "true");
@@ -280,10 +267,7 @@ describe("Tabs", () => {
 
     const tab2 = wrapper.getByTestId("item2");
 
-    await act(async () => {
-      await userEvent.click(tab2);
-    });
-
+    await user.click(tab2);
     expect(tab2).toHaveAttribute("aria-selected", "false");
   });
 
@@ -396,16 +380,10 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab2).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowLeft]");
-    });
-
+    await user.keyboard("[ArrowLeft]");
     expect(tab1).toHaveFocus();
 
     expect(input).toHaveValue("23");
