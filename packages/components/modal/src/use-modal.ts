@@ -3,7 +3,7 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";
-import {useCallback, useId, useRef, useState, useMemo, ReactNode} from "react";
+import {useCallback, useId, useRef, useState, useMemo, ReactNode, useEffect} from "react";
 import {modal} from "@nextui-org/theme";
 import {
   HTMLNextUIProps,
@@ -128,6 +128,12 @@ export function useModal(originalProps: UseModalProps) {
       }
     },
   });
+
+  useEffect(() => {
+    if (isOpen) {
+      onOpenChange?.(isOpen);
+    }
+  }, [isOpen]);
 
   const {modalProps, underlayProps} = useAriaModalOverlay(
     {
