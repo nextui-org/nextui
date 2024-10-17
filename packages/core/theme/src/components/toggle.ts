@@ -115,7 +115,7 @@ const toggle = tv({
         thumb: [
           "w-5 h-5 text-small",
           //selected
-          "group-data-[selected=true]:ms-5",
+          "group-data-[selected=true]/toggle:ms-5",
         ],
         endContent: "text-small",
         startContent: "text-small",
