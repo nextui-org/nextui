@@ -46,6 +46,7 @@ const input = tv({
       "data-[has-end-content=true]:pe-1.5",
       "file:cursor-pointer file:bg-transparent file:border-0",
       "autofill:bg-transparent bg-clip-text",
+      "input-search-cancel-button-none",
     ],
     clearButton: [
       "p-2",
