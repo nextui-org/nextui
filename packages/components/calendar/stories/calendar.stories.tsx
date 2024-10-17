@@ -257,6 +257,35 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
   );
 };
 
+const CustomCellTemplate = (args: CalendarProps) => {
+  return (
+    <div className="flex gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <Calendar
+          {...args}
+          calendarWidth={300}
+          classNames={{
+            gridHeaderCell: "w-12",
+            cell: "h-12",
+            cellButton: "w-12 h-full rounded-xl",
+          }}
+        />
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <Calendar
+          {...args}
+          calendarWidth="30em"
+          classNames={{
+            gridHeaderCell: "w-16",
+            cell: "w-16",
+            cellButton: "w-16 h-full rounded-xl",
+          }}
+        />
+      </div>
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -373,5 +402,18 @@ export const CalendarWidth = {
   render: CalendarWidthTemplate,
   args: {
     ...defaultProps,
+  },
+};
+
+export const CustomCellContent = {
+  render: CustomCellTemplate,
+  args: {
+    ...defaultProps,
+    renderCellContent: (date) => (
+      <div className="flex flex-col gap-0">
+        {date.day}
+        <span className="text-tiny text-default-500 text-center">•</span>
+      </div>
+    ),
   },
 };

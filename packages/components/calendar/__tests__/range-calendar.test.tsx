@@ -748,4 +748,31 @@ describe("RangeCalendar", () => {
       expect(end).toEqual(new CalendarDate(2019, 6, 25));
     });
   });
+
+  describe("Custom cell content", () => {
+    it("should render custom content in the range calendar cells", () => {
+      const renderCellContent = (date: CalendarDate) => (
+        <div>
+          {date.day}
+          <span>*</span>
+        </div>
+      );
+
+      const wrapper = render(
+        <RangeCalendar
+          defaultValue={{start: new CalendarDate(2024, 6, 25), end: new CalendarDate(2024, 6, 26)}}
+          renderCellContent={renderCellContent}
+        />,
+      );
+
+      const gridCells = wrapper.getAllByRole("gridcell");
+      const customContentCellA = gridCells.find((cell) => cell.textContent === "25*");
+      const customContentCellB = gridCells.find((cell) => cell.textContent === "26*");
+
+      expect(customContentCellA).not.toBeNull();
+      expect(customContentCellA).toHaveTextContent("25*");
+      expect(customContentCellB).not.toBeNull();
+      expect(customContentCellB).toHaveTextContent("26*");
+    });
+  });
 });
