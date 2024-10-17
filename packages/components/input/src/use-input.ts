@@ -536,7 +536,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const getHeaderWrapperProps: PropGetter = useCallback((props = {}) => {
     return {
       ...props,
-      className: clsx(props?.className, "flex pb-1 justify-between w-full items-center"),
+      className: slots.headerWrapper({class: clsx(props?.className)}),
     };
   }, []);
 

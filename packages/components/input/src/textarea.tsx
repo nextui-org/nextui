@@ -123,11 +123,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
     );
 
     const clearButtonContent = useMemo(() => {
-      if (isClearable) {
-        return <button {...getClearButtonProps()}>{<TrashIcon />}</button>;
-      }
-
-      return endContent;
+      return isClearable ? <button {...getClearButtonProps()}>{<TrashIcon />}</button> : null;
     }, [isClearable, getClearButtonProps]);
 
     const innerWrapper = useMemo(() => {
