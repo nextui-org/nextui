@@ -388,4 +388,29 @@ describe("Tabs", () => {
 
     expect(input).toHaveValue("23");
   });
+
+  it("Tab click should be handled", async () => {
+    const item1Click = jest.fn();
+    const item2Click = jest.fn();
+    const wrapper = render(
+      <Tabs>
+        <Tab key="item1" data-testid="item1" title="Item 1" onClick={item1Click}>
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" data-testid="item2" title="Item 2" onClick={item2Click}>
+          <div>Content 2</div>
+        </Tab>
+      </Tabs>,
+    );
+    const tab1 = wrapper.getByTestId("item1");
+    const tab2 = wrapper.getByTestId("item2");
+
+    await user.click(tab1);
+    expect(item1Click).toHaveBeenCalled();
+    expect(item1Click.mock.lastCall[0].target).toBe(tab1);
+
+    await user.click(tab2);
+    expect(item2Click).toHaveBeenCalled();
+    expect(item2Click.mock.lastCall[0].target).toBe(tab2);
+  });
 });
