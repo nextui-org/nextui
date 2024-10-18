@@ -46,7 +46,6 @@ const input = tv({
       "data-[has-end-content=true]:pe-1.5",
       "file:cursor-pointer file:bg-transparent file:border-0",
       "autofill:bg-transparent bg-clip-text",
-      "input-search-cancel-button-none",
     ],
     clearButton: [
       "p-2",
@@ -191,7 +190,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pe-6",
+        input: "peer pe-6 input-search-cancel-button-none",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
