@@ -8,13 +8,10 @@ export default {
   title: "Components/FileUpload",
   component: FileUpload,
   argTypes: {
-    color: {
-      control: {type: "select"},
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
-    },
-    size: {
-      control: {type: "select"},
-      options: ["sm", "md", "lg"],
+    multiple: {
+      control: {
+        type: "boolean",
+      },
     },
     isDisabled: {
       control: {
@@ -25,23 +22,11 @@ export default {
 } as Meta<typeof FileUpload>;
 
 const defaultProps = {
-  maxItems: 2,
-  maxItemsText: "Max Num of Items",
-  maxAllowedSize: "250 KB",
-  maxAllowedSizeText: "File Size for Each File",
-  totalMaxAllowedSize: "2 MB",
-  totalMaxAllowedSizeText: "Total Max",
+  multiple: false,
   ...fileUpload.defaultVariants,
 };
 
-const Template = (args: FileUploadProps) => (
-  <FileUpload
-    {...args}
-    // onChange={(files) => {
-    //   console.log(files);
-    // }}
-  />
-);
+const Template = (args: FileUploadProps) => <FileUpload {...args} />;
 
 export const Default = {
   render: Template,

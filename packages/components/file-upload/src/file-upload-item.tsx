@@ -7,11 +7,7 @@ export interface FileUploadItemProps extends HTMLNextUIProps<"div"> {
   onFileRemove: (name: string) => void;
 }
 
-export const FileUploadItem: React.FC<FileUploadItemProps> = ({
-  file,
-  onFileRemove,
-  ...otherProps
-}) => {
+const FileUploadItem: React.FC<FileUploadItemProps> = ({file, onFileRemove, ...otherProps}) => {
   return (
     <div {...otherProps}>
       <Button onClick={() => onFileRemove(file.name)}>
@@ -23,3 +19,7 @@ export const FileUploadItem: React.FC<FileUploadItemProps> = ({
     </div>
   );
 };
+
+FileUploadItem.displayName = "NextUI.FileUploadItem";
+
+export default FileUploadItem;

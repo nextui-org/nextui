@@ -4,7 +4,7 @@ import {cloneElement, useCallback, useEffect, useMemo, useRef, useState} from "r
 import {clsx} from "@nextui-org/shared-utils";
 
 import {UseFileUploadProps, useFileUpload} from "./use-file-upload";
-import {FileUploadItem} from "./file-upload-item";
+import FileUploadItem from "./file-upload-item";
 
 export interface FileUploadProps extends UseFileUploadProps {}
 
@@ -68,6 +68,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
               className={styles.item()}
               file={file}
               onFileRemove={(name) => {
+                if (props.isDisabled) return;
                 const newFiles = files.filter((file) => file.name !== name);
 
                 updateFiles(newFiles);
@@ -105,13 +106,14 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     () =>
       browseButton ? (
         cloneElement(browseButton, {
+          disabled: props.isDisabled,
           onClick: (ev) => {
             onBrowse();
             browseButton.props.onClick?.(ev);
           },
         })
       ) : (
-        <Button disabled={props.isDisabled} onClick={() => inputFileRef.current?.click()}>
+        <Button disabled={props.isDisabled} onClick={() => onBrowse()}>
           {browseButtonText}
         </Button>
       ),
@@ -122,13 +124,14 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     () =>
       addButton ? (
         cloneElement(addButton, {
+          disabled: props.isDisabled,
           onClick: (ev) => {
             onAdd();
             addButton.props.onClick?.(ev);
           },
         })
       ) : (
-        <Button color="secondary" onClick={() => singleInputFileRef.current?.click()}>
+        <Button color="secondary" disabled={props.isDisabled} onClick={() => onAdd()}>
           Add
         </Button>
       ),
@@ -139,6 +142,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     () =>
       resetButton ? (
         cloneElement(resetButton, {
+          disabled: props.isDisabled,
           onClick: (ev) => {
             onReset();
             resetButton.props.onClick?.(ev);
@@ -147,6 +151,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
       ) : (
         <Button
           color="warning"
+          disabled={props.isDisabled}
           onClick={() => {
             onReset();
           }}

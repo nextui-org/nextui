@@ -1,7 +1,7 @@
 {
   "name": "@nextui-org/file-upload",
   "version": "2.0.0",
-  "description": "FileUplaod adds/removes files selected by user to upload on a server.",
+  "description": "File Uplaod adds/removes file(s) selected by user to upload on a server.",
   "keywords": [
     "file-upload"
   ],

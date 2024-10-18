@@ -46,7 +46,7 @@ export interface FileUploadTopbarProps extends HTMLNextUIProps<"div"> {
   totalMaxAllowedSizeElement?: ReactElement;
 }
 
-export const FileUploadTopbar: React.FC<FileUploadTopbarProps> = ({
+const FileUploadTopbar: React.FC<FileUploadTopbarProps> = ({
   maxItemsText = "Max number of items",
   maxAllowedSizeText = "Max File Size",
   totalMaxAllowedSizeText = "Total Max Files Size",
@@ -81,3 +81,7 @@ export const FileUploadTopbar: React.FC<FileUploadTopbarProps> = ({
     </div>
   );
 };
+
+FileUploadTopbar.displayName = "NextUI.FileUploadTopbar";
+
+export default FileUploadTopbar;

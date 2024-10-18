@@ -1,0 +1,171 @@
+---
+title: "File Upload"
+description: "File Upload adds/removes file(s) selected by user to upload on a server."
+---
+
+import {fileUploadContent} from "@/content/components/file-upload";
+
+# Field Upload
+
+File Upload adds/removes file(s) selected by user to upload on a server.
+
+<ComponentLinks component="file-upload" />
+
+---
+
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add file-upload",
+    npm: "npm install @nextui-org/file-upload",
+    yarn: "yarn add @nextui-org/file-upload",
+    pnpm: "pnpm add @nextui-org/file-upload",
+    bun: "bun add @nextui-org/file-upload"
+  }}
+/>
+
+## Import
+
+NextUI exports 3 fileupload-related components:
+
+- **FileUpload**: The main component to display file(s) that is/are to be uploaded.
+- **FileUploadItem**: The item component to display a single file item.
+- **FileUploadTopbar**: The topbar component to display information like the number of files to upload, max file size, etc.
+
+<ImportTabs
+  commands={{
+    main: 'import {FileUpload, FileUploadItem, FileUploadTopbar} from "@nextui-org/react";',
+    individual: 'import {FileUpload, FileUploadItem, FileUploadTopbar} from "@nextui-org/file-upload";',
+  }}
+/>
+
+## Usage
+
+<CodeDemo title="Usage" files={fileUploadContent.usage} />
+
+### Upload Multiple Items
+
+If you set `multiple` to `true`, then the `FileUpload` will allow multiple files to select and upload.
+
+<CodeDemo title="Upload Multiple Items" files={fileUploadContent.multiple} />
+
+### With Topbar Section
+
+If you want to show some information for the user, you can use your custom component or use the predefined `FileUploadTopbar` component.
+
+<CodeDemo title="With Topbar Section" files={fileUploadContent.topbar} />
+
+### With Custom File Item
+
+There is a built-in component to display information regarding the selected files called `FileUploadItem`. You can implement your own
+
+<CodeDemo title="With Custom Upload, Browse, Add and Reset Buttons" files={fileUploadContent.fileItem} />
+
+### With Custom Upload, Browse, Add and Reset Buttons
+
+In case you need to upload files prior to submitting the form, you can implement a custom button. In addition, there are placeholders for
+other buttons such as the Add Button to place your custom button (component) instead.
+
+<CodeDemo title="With Custom Upload, Browse, Add and Reset Buttons" files={fileUploadContent.button} />
+
+### With Custom Buttons
+
+You can replace all the buttons entirely with your custom buttons using the `buttons` prop.
+It provides three handlers for adding a single file (`onAdd`), browsing (`onBrowse`) and removing all files (`onReset`).
+
+<CodeDemo title="With Custom Buttons" files={fileUploadContent.buttons} />
+
+### Controlled
+
+In case there are some files that were previously uploaded on a server and one wants to show them as uploaded files,
+the `files` prop can be set initially.
+
+<CodeDemo title="Controlled" files={fileUploadContent.controlled} />
+
+## Slots
+
+- **base**: The main wrapper for the fileupload component. Modify the fileupload base styles.
+- **items**: The class name of the fileupload items wrapper.
+- **buttons**: The class name of the fileupload buttons wrapper.
+
+## Data Attributes
+
+`FileUpload` has the following attributes on the `base` element:
+
+- **data-disabled**:
+  When the fileupload is disabled.
+
+<Spacer y={4} />
+
+## API
+
+### FileUpload Props
+
+| Attribute                 | Type                                            | Description                                                                                             | Default  |
+| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------- |
+| children                  | `ReactNode` \| `ReactNode[]`                    | The contents of the collection. Usually the array of `FileUploadItem`                                    |          |
+| multiple                  | `boolean`                                       | Whether multiple files can be selected from the device.                                                               |     false     |
+| isDisabled                | `boolean`                                       | Whether the FileUpload items and buttons are disabled.                                                               |     false     |
+| classNames                | `Record<"base"｜ "items"｜ "buttons, string>`   | Allows to set custom class names for the FileUpload slots.                                                                                                         | -         |
+| files                     | `File[]`                                        | Files as initial values or files to be controlled from outside of the FileUpload.                                                                                                         | -         |
+| browseButton              | `ReactHTMLElement<HTMLButtonElement>`           | Custom button for browsing files.                                                                                                         | -         |
+| browseButtonText          | `Record<"base"｜ "items"｜ "buttons, string>`   | Custom text for the default Browse Button.                                                                                                         | -         |
+| addButton                 | `ReactHTMLElement<HTMLButtonElement>`           | Custom button for adding a single file.                                                                                                          | -         |
+| resetButton               | `ReactHTMLElement<HTMLButtonElement>`           | Custom button for reseting files to an empty array.                                                                                                         | -         |
+| uploadButton              | `ReactHTMLElement<HTMLButtonElement>`           | Custom button for uploading files to a server.                                                                                                         | -         |
+| topbar                    | `Record<"base"｜ "items"｜ "buttons, string>`   | Custom topbar to show information regarding files.                                                                                                         | -         |
+| buttons                   | `Record<"base"｜ "items"｜ "buttons, string>`   | Custom buttons for browsing, adding, .etc or any other ones that are needed for the user.                                                                                                         | -         |
+| fileItemElement           | `Record<"base"｜ "items"｜ "buttons, string>`   | Custom element for representing an item that is selected from the device.                                                                                                         | -         |
+
+### FileUpload Events
+
+| Attribute     | Type                           | Description                                                                                                     |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| onChange      | `(files: File[]) => void`          | Handler called when file(s) are selected from device or removed from the list (`onFileRemove` on an item should be called). |
+
+### FileUpload Item Props
+
+| Attribute                 | Type                                              | Description                                                                                                                  | Default |
+|---------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
+| file          | `File`                               | A file that is selected from the device. |       |
+
+### FileUpload Item Events
+
+| Attribute     | Type                           | Description                                                                                                     |
+| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
+| onFileRemove  | `(name: string) => void`       | Handler called when a file is removed from the list of items. |
+
+### FileUpload Topbar Props
+
+| Attribute                 | Type                                              | Description                                                                                                                  | Default |
+|---------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
+|     maxItems                        | `number`                               | Max number of items.                                   |    1    |
+|     maxItemsText                    | `string`                               | Max number of items text.                              |       |
+|     maxItemsElement                 | `ReactElement`                         | Custom Element to show Max number of items.            |       |
+|     maxAllowedSize                  | `FileSize`                             | Max file size allowed.                                 |       |
+|     maxAllowedSizeText              | `string`                               | Max file size text.                                    |   "Max File Size"    |
+|     maxAllowedSizeElement           | `ReactElement`                         | Custom Element to show Max file size.                  |       |
+|     totalMaxAllowedSize             | `FileSize`                             | Total max size allowed for multiple files combined.    |       |
+|     totalMaxAllowedSizeText         | `string`                               | Total max file size text.                              |   "Total Max Files Size"    |
+|     totalMaxAllowedSizeElement      | `ReactElement`                         | Custom Element to show Total Max file size.            |       |
+
+### FileSize
+
+```ts
+export type FileSize = `${number} KB` | `${number} MB`;
+```
+
+---
+
+### FileUpload classNames
+
+```ts
+export type FileUploadClassnames = {
+  base?: string;
+  items?: string;
+  buttons?: string;
+};
+```
