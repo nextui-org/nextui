@@ -2165,6 +2165,70 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  packages/components/rating:
+    dependencies:
+      '@nextui-org/radio':
+        specifier: workspace:*
+        version: link:../radio
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
+      '@react-aria/focus':
+        specifier: 3.17.1
+        version: 3.17.1(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: 3.11.1
+        version: 3.11.1(react@18.2.0)
+      '@react-aria/textfield':
+        specifier: 3.14.5
+        version: 3.14.5(react@18.2.0)
+      '@react-aria/utils':
+        specifier: 3.24.1
+        version: 3.24.1(react@18.2.0)
+      '@react-aria/visually-hidden':
+        specifier: 3.8.12
+        version: 3.8.12(react@18.2.0)
+      '@react-stately/slider':
+        specifier: 3.5.4
+        version: 3.5.4(react@18.2.0)
+      '@react-stately/utils':
+        specifier: 3.10.1
+        version: 3.10.1(react@18.2.0)
+      '@react-types/textfield':
+        specifier: 3.9.3
+        version: 3.9.3(react@18.2.0)
+    devDependencies:
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.51.3(react@18.2.0)
+
   packages/components/ripple:
     dependencies:
       '@nextui-org/react-utils':
@@ -2915,6 +2979,9 @@ importers:
       '@nextui-org/radio':
         specifier: workspace:*
         version: link:../../components/radio
+      '@nextui-org/rating':
+        specifier: workspace:*
+        version: link:../../components/rating
       '@nextui-org/ripple':
         specifier: workspace:*
         version: link:../../components/ripple

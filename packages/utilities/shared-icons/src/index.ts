@@ -33,6 +33,14 @@ export * from "./arrow-right";
 export * from "./arrow-left";
 export * from "./link";
 export * from "./selector";
+export * from "./star";
+export * from "./heart";
+export * from "./like";
+export * from "./music";
+export * from "./happy-emojicon";
+export * from "./angry-emojicon";
+export * from "./straight-emojicon";
+export * from "./sad-emojicon";
 
 // sets
 export * from "./bulk";
