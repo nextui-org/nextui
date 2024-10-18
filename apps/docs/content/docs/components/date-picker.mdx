@@ -13,7 +13,7 @@ DatePickers combine a DateInput and a Calendar popover to allow users to enter o
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -77,7 +77,7 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo title="With Error Message" files={datePickerContent.errorMessage} />
 
-You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult]((https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51)).
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult](https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51).
 
 <CodeDemo title="With Error Message Function" files={datePickerContent.errorMessageFunction} />
 
@@ -277,7 +277,7 @@ import {I18nProvider} from "@react-aria/i18n";
 `DatePicker` has the following attributes on the `base` element:
 
 - **data-slot**:
-  All slots have this prop. which slot the element represents(e.g. `canlendar`).
+  All slots have this prop. which slot the element represents(e.g. `calendar`).
 - **data-open**:
   Indicates if the calendar popover is open.
 - **data-invalid**:

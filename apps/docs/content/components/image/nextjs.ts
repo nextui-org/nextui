@@ -7,7 +7,7 @@ export default function App() {
       as={NextImage}
       width={300}
       height={200}
-      src="https://nextui-docs-v2.vercel.app/images/hero-card-complete.jpeg"
+      src="https://nextui.org/images/hero-card-complete.jpeg"
       alt="NextUI hero Image"
     />
   );
