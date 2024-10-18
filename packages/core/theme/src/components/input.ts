@@ -69,6 +69,7 @@ const input = tv({
     helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
+    headerWrapper: "flex pb-1 justify-between w-full items-center",
   },
   variants: {
     variant: {
