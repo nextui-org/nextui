@@ -407,8 +407,10 @@ describe("Tabs", () => {
 
     await user.click(tab1);
     expect(item1Click).toHaveBeenCalled();
+    expect(item1Click.mock.lastCall[0].target).toBe(tab1);
 
     await user.click(tab2);
     expect(item2Click).toHaveBeenCalled();
+    expect(item2Click.mock.lastCall[0].target).toBe(tab2);
   });
 });
