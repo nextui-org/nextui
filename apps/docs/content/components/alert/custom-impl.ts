@@ -102,7 +102,7 @@ const MyAlert = forwardRef((props, ref) => {
   const baseWrapper = useMemo(() => {
     return isVisible ? (
       <div ref={domRef} {...getBaseProps()}>
-        <InfoCircleIcon {getAlertIconProps()} />
+        <InfoCircleIcon {...getAlertIconProps()} />
         {mainWrapper}
         {(isClosable || onClose) && (
           <button onClick={handleClose} {...getCloseButtonProps()}>
@@ -120,7 +120,9 @@ const MyAlert = forwardRef((props, ref) => {
     getBaseProps,
     handleClose,
     color,
-    onClose
+    onClose,
+    getAlertIconProps,
+    getCloseIconProps,
   ]);
 
   return <>{baseWrapper}</>;
