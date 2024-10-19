@@ -62,6 +62,7 @@
     "@nextui-org/user": "workspace:*",
     "@nextui-org/progress": "workspace:*",
     "@nextui-org/input": "workspace:*",
+    "@nextui-org/input-otp": "workspace:*",
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/dropdown": "workspace:*",
     "@nextui-org/image": "workspace:*",
