@@ -1,5 +1,17 @@
 # @nextui-org/date-picker
 
+## 2.1.9
+
+### Patch Changes
+
+- [#3773](https://github.com/nextui-org/nextui/pull/3773) [`a4ab02006`](https://github.com/nextui-org/nextui/commit/a4ab02006a63013e1a25c28c182d999e3d7c9eeb) Thanks [@macci001](https://github.com/macci001)! - Fixes getCalendarProps to propagate the classNames in the calendarProps. (#3769)
+
+- Updated dependencies []:
+  - @nextui-org/button@2.0.38
+  - @nextui-org/calendar@2.0.12
+  - @nextui-org/date-input@2.1.4
+  - @nextui-org/popover@2.1.29
+
 ## 2.1.8
 
 ### Patch Changes

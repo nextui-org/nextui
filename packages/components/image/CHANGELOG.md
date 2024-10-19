@@ -1,5 +1,11 @@
 # @nextui-org/image
 
+## 2.0.33
+
+### Patch Changes
+
+- [#3802](https://github.com/nextui-org/nextui/pull/3802) [`06c4b2f76`](https://github.com/nextui-org/nextui/commit/06c4b2f7637ba5f49f37b048943d66ff65201c85) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `w` to `getWrapperProps` dependency (#3801)
+
 ## 2.0.32
 
 ### Patch Changes
