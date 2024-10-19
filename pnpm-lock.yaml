@@ -388,8 +388,8 @@ importers:
         specifier: ^2.30.0
         version: 2.30.0
       framer-motion:
-        specifier: ^11.1.7
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       github-slugger:
         specifier: ^2.0.0
         version: 2.0.0
@@ -399,9 +399,6 @@ importers:
       hast-util-to-html:
         specifier: 7.1.2
         version: 7.1.2
-      lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
       marked:
         specifier: ^5.1.0
         version: 5.1.2
@@ -529,9 +526,6 @@ importers:
       '@types/canvas-confetti':
         specifier: ^1.4.2
         version: 1.6.4
-      '@types/lodash':
-        specifier: ^4.14.194
-        version: 4.17.5
       '@types/marked':
         specifier: ^5.0.0
         version: 5.0.2
@@ -613,6 +607,9 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../divider
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -672,8 +669,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -772,8 +769,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.28
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -949,8 +946,8 @@ importers:
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: '>=11.5.6'
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -979,6 +976,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -1027,12 +1027,6 @@ importers:
       '@react-types/shared':
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
-      '@types/lodash.debounce':
-        specifier: ^4.0.7
-        version: 4.0.9
-      lodash.debounce:
-        specifier: ^4.0.8
-        version: 4.0.8
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -1053,8 +1047,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^10.16.4
-        version: 10.18.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1092,8 +1086,8 @@ importers:
         specifier: 3.23.1
         version: 3.23.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: '>=11.5.6'
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1484,8 +1478,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1789,6 +1783,9 @@ importers:
 
   packages/components/modal:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -1854,8 +1851,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -1868,6 +1865,9 @@ importers:
 
   packages/components/navbar:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -1902,8 +1902,8 @@ importers:
         specifier: 3.10.1
         version: 3.10.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: '>=11.5.6'
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-remove-scroll:
         specifier: ^2.5.6
         version: 2.5.9(@types/react@18.2.8)(react@18.2.0)
@@ -1999,6 +1999,9 @@ importers:
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -2058,8 +2061,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2167,6 +2170,9 @@ importers:
 
   packages/components/ripple:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -2184,8 +2190,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2312,8 +2318,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.28
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2437,8 +2443,8 @@ importers:
         specifier: 3.24.1
         version: 3.24.1(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: '>=11.5.6'
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2719,8 +2725,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2736,6 +2742,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -2783,8 +2792,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.28
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -2964,8 +2973,8 @@ importers:
         specifier: 3.8.12
         version: 3.8.12(react@18.2.0)
       framer-motion:
-        specifier: '>=10.17.0'
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: '>=11.5.6'
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3005,8 +3014,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -3044,6 +3053,9 @@ importers:
 
   packages/core/theme:
     dependencies:
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
       clsx:
         specifier: ^1.2.1
         version: 1.2.1
@@ -3059,21 +3071,6 @@ importers:
       flat:
         specifier: ^5.0.2
         version: 5.0.2
-      lodash.foreach:
-        specifier: ^4.5.0
-        version: 4.5.0
-      lodash.get:
-        specifier: ^4.4.2
-        version: 4.4.2
-      lodash.kebabcase:
-        specifier: ^4.1.1
-        version: 4.1.1
-      lodash.mapkeys:
-        specifier: ^4.6.0
-        version: 4.6.0
-      lodash.omit:
-        specifier: ^4.5.0
-        version: 4.5.0
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0
@@ -3087,21 +3084,6 @@ importers:
       '@types/flat':
         specifier: ^5.0.2
         version: 5.0.5
-      '@types/lodash.foreach':
-        specifier: ^4.5.7
-        version: 4.5.9
-      '@types/lodash.get':
-        specifier: ^4.4.7
-        version: 4.4.9
-      '@types/lodash.kebabcase':
-        specifier: ^4.1.7
-        version: 4.1.9
-      '@types/lodash.mapkeys':
-        specifier: ^4.6.7
-        version: 4.6.9
-      '@types/lodash.omit':
-        specifier: ^4.5.7
-        version: 4.5.9
       clean-package:
         specifier: 2.2.0
         version: 2.2.0
@@ -3426,12 +3408,9 @@ importers:
 
   packages/hooks/use-infinite-scroll:
     dependencies:
-      '@types/lodash.debounce':
-        specifier: ^4.0.7
-        version: 4.0.9
-      lodash.debounce:
-        specifier: ^4.0.8
-        version: 4.0.8
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3683,6 +3662,15 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
 
+  packages/utilities/dom-animation:
+    devDependencies:
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      framer-motion:
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+
   packages/utilities/framer-utils:
     dependencies:
       '@nextui-org/shared-utils':
@@ -3699,8 +3687,8 @@ importers:
         specifier: 2.2.0
         version: 2.2.0
       framer-motion:
-        specifier: ^11.0.22
-        version: 11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: ^11.9.0
+        version: 11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -7569,26 +7557,8 @@ packages:
   '@types/liftoff@4.0.3':
     resolution: {integrity: sha512-UgbL2kR5pLrWICvr8+fuSg0u43LY250q7ZMkC+XKC3E+rs/YBDEnQIzsnhU5dYsLlwMi3R75UvCL87pObP1sxw==}
 
-  '@types/lodash.debounce@4.0.9':
-    resolution: {integrity: sha512-Ma5JcgTREwpLRwMM+XwBR7DaWe96nC38uCBDFKZWbNKD+osjVzdpnUSwBcqCptrp16sSOLBAUb50Car5I0TCsQ==}
-
-  '@types/lodash.foreach@4.5.9':
-    resolution: {integrity: sha512-vmq0p/FK66PsALXRmK/qsnlLlCpnudvozWYrxJImHujHhXMADdeoPEY10zwmu26437w85wCvdxUqpFi+ALtkiQ==}
-
-  '@types/lodash.get@4.4.9':
-    resolution: {integrity: sha512-J5dvW98sxmGnamqf+/aLP87PYXyrha9xIgc2ZlHl6OHMFR2Ejdxep50QfU0abO1+CH6+ugx+8wEUN1toImAinA==}
-
-  '@types/lodash.kebabcase@4.1.9':
-    resolution: {integrity: sha512-kPrrmcVOhSsjAVRovN0lRfrbuidfg0wYsrQa5IYuoQO1fpHHGSme66oyiYA/5eQPVl8Z95OA3HG0+d2SvYC85w==}
-
-  '@types/lodash.mapkeys@4.6.9':
-    resolution: {integrity: sha512-6/ERBCabeDI656LsV+oopLjdnJ/x1PCAE6kkkssH8e4i0K7Pw307noxHCbUc6cAVfTo9vx0Z+k3QZwy1IrUZcA==}
-
-  '@types/lodash.omit@4.5.9':
-    resolution: {integrity: sha512-zuAVFLUPJMOzsw6yawshsYGgq2hWUHtsZgeXHZmSFhaQQFC6EQ021uDKHkSjOpNhSvtNSU9165/o3o/Q51GpTw==}
-
-  '@types/lodash@4.17.5':
-    resolution: {integrity: sha512-MBIOHVZqVqgfro1euRDWX7OO0fBVUUMrN6Pwm8LQsz8cWhEpihlvR70ENj3f40j58TNxZaWv2ndSkInykNBBJw==}
+  '@types/lodash@4.17.7':
+    resolution: {integrity: sha512-8wTvZawATi/lsmNu10/j2hk1KEP0IvjubqPE3cu1Xz7xfXXt5oCq3SNUz4fMIP4XGF9Ky+Ue2tBA3hcS7LSBlA==}
 
   '@types/marked@5.0.2':
     resolution: {integrity: sha512-OucS4KMHhFzhz27KxmWg7J+kIYqyqoW5kdIEI319hqARQQUTqhao3M/F+uFnDXD0Rg72iDDZxZNxq5gvctmLlg==}
@@ -10299,19 +10269,8 @@ packages:
     resolution: {integrity: sha512-GMBAbW9antB8iZRHLoGw0b3HANt57diZYFO/HL1JGIC1MjKrdmhxvrJbupnVvpys0zsz7yBApXdQyfepKly2kA==}
     engines: {node: '>=0.10.0'}
 
-  framer-motion@10.18.0:
-    resolution: {integrity: sha512-oGlDh1Q1XqYPksuTD/usb0I70hq95OUzmL9+6Zd+Hs4XV0oaISBa/UUMSjYiq6m8EUF32132mOJ8xVZS+I0S6w==}
-    peerDependencies:
-      react: ^18.2.0
-      react-dom: ^18.2.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-
-  framer-motion@11.2.12:
-    resolution: {integrity: sha512-lCjkV4nA9rWOy2bhR4RZzkp2xpB++kFmUZ6D44V9VQaxk+JDmbDd5lq+u58DjJIIllE8AZEXp9OG/TyDN4FB/w==}
+  framer-motion@11.9.0:
+    resolution: {integrity: sha512-nCfGxvsQecVLjjYDu35G2F5ls+ArE3FBfhxV0RSiisMaUKqteq5DMBFNRKwMyVj+VqKTNhawt+BV480YCHKFlQ==}
     peerDependencies:
       '@emotion/is-prop-valid': '*'
       react: ^18.2.0
@@ -11827,9 +11786,6 @@ packages:
   lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
 
-  lodash.foreach@4.5.0:
-    resolution: {integrity: sha512-aEXTF4d+m05rVOAUG3z4vZZ4xVexLKZGF0lIxuHZ1Hplpk/3B6Z1+/ICICYRLm7c41Z2xiejbkCkJoTlypoXhQ==}
-
   lodash.get@4.4.2:
     resolution: {integrity: sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ==}
 
@@ -11842,9 +11798,6 @@ packages:
   lodash.kebabcase@4.1.1:
     resolution: {integrity: sha512-N8XRTIMMqqDgSy4VLKPnJ/+hpGZN+PHQiJnSenYqPaVV/NCqEogTnAdZLQiGKhxX+JCs8waWq2t1XHWKOmlY8g==}
 
-  lodash.mapkeys@4.6.0:
-    resolution: {integrity: sha512-0Al+hxpYvONWtg+ZqHpa/GaVzxuN3V7Xeo2p+bY06EaK/n+Y9R7nBePPN2o1LxmL0TWQSwP8LYZ008/hc9JzhA==}
-
   lodash.memoize@4.1.2:
     resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
 
@@ -11853,9 +11806,6 @@ packages:
 
   lodash.mergewith@4.6.2:
     resolution: {integrity: sha512-GK3g5RPZWTRSeLSpgP8Xhra+pnjBC56q9FZYe1d5RN3TJ35dbkGy3YqBSMbyCrlbi+CM9Z3Jk5yTL7RCsqboyQ==}
-
-  lodash.omit@4.5.0:
-    resolution: {integrity: sha512-XeqSp49hNGmlkj2EJlfrQFIzQ6lXdNro9sddtQzcJY8QaoC2GO0DT7xaIokHeyM+mIT0mPMlPvkYzg2xCuHdZg==}
 
   lodash.snakecase@4.1.1:
     resolution: {integrity: sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw==}
@@ -20143,7 +20093,7 @@ snapshots:
       '@storybook/preview-api': 7.6.17
       '@storybook/theming': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/types': 7.6.17
-      '@types/lodash': 4.17.5
+      '@types/lodash': 4.17.7
       color-convert: 2.0.1
       dequal: 2.0.3
       lodash: 4.17.21
@@ -20920,31 +20870,7 @@ snapshots:
       '@types/fined': 1.1.5
       '@types/node': 15.14.9
 
-  '@types/lodash.debounce@4.0.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash.foreach@4.5.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash.get@4.4.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash.kebabcase@4.1.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash.mapkeys@4.6.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash.omit@4.5.9':
-    dependencies:
-      '@types/lodash': 4.17.5
-
-  '@types/lodash@4.17.5': {}
+  '@types/lodash@4.17.7': {}
 
   '@types/marked@5.0.2': {}
 
@@ -24149,15 +24075,7 @@ snapshots:
     dependencies:
       map-cache: 0.2.2
 
-  framer-motion@10.18.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
-    dependencies:
-      tslib: 2.6.2
-    optionalDependencies:
-      '@emotion/is-prop-valid': 0.8.8
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  framer-motion@11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  framer-motion@11.9.0(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       tslib: 2.6.2
     optionalDependencies:
@@ -25991,8 +25909,6 @@ snapshots:
 
   lodash.debounce@4.0.8: {}
 
-  lodash.foreach@4.5.0: {}
-
   lodash.get@4.4.2: {}
 
   lodash.isfunction@3.0.9: {}
@@ -26001,15 +25917,11 @@ snapshots:
 
   lodash.kebabcase@4.1.1: {}
 
-  lodash.mapkeys@4.6.0: {}
-
   lodash.memoize@4.1.2: {}
 
   lodash.merge@4.6.2: {}
 
   lodash.mergewith@4.6.2: {}
-
-  lodash.omit@4.5.0: {}
 
   lodash.snakecase@4.1.1: {}
 

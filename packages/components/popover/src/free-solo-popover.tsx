@@ -10,13 +10,15 @@
 import * as React from "react";
 import {DismissButton, Overlay} from "@react-aria/overlays";
 import {forwardRef} from "@nextui-org/system";
-import {domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {useDialog} from "@react-aria/dialog";
 
 import {usePopover, UsePopoverProps, UsePopoverReturn} from "./use-popover";
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> {
   children: React.ReactNode | ((titleProps: React.DOMAttributes<HTMLElement>) => React.ReactNode);
