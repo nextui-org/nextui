@@ -313,6 +313,13 @@
           "path": "/docs/components/radio-group.mdx"
         },
         {
+          "key": "rating",
+          "title": "Rating",
+          "keywords": "rating input, radio group, form",
+          "path": "/docs/components/rating.mdx",
+          "newPost": true
+        },
+        {
           "key": "range-calendar",
           "title": "Range Calendar",
           "keywords": "range calendar, date picker, month picker, year picker",

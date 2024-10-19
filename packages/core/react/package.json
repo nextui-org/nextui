@@ -84,6 +84,7 @@
     "@nextui-org/date-input": "workspace:*",
     "@nextui-org/date-picker": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/rating": "workspace:*",
     "@react-aria/visually-hidden": "3.8.12"
   },
   "peerDependencies": {
