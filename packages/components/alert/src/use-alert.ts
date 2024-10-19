@@ -105,6 +105,12 @@ export function useAlert(originalProps: UseAlertProps) {
     };
   }, [slots, classNames?.closeIcon]);
 
+  const getAlertIconProps = useCallback<PropGetter>(() => {
+    return {
+      className: slots.alertIcon({class: classNames?.alertIcon}),
+    };
+  }, [slots, classNames?.alertIcon]);
+
   return {
     title,
     description,
@@ -120,5 +126,6 @@ export function useAlert(originalProps: UseAlertProps) {
     handleClose,
     isVisible,
     onClose,
+    getAlertIconProps,
   };
 }

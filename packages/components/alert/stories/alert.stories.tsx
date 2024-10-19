@@ -42,16 +42,16 @@ const defaultProps = {
 };
 
 const Template = (args) => (
-  <div className="w-full">
+  <>
     <Alert {...args} />
-  </div>
+  </>
 );
 
 const ColorTemplate = (args) => {
   return (
     <div className="flex flex-col w-full">
       {["default", "primary", "secondary", "success", "warning", "danger"].map((color) => (
-        <div key={color} className="w-full flex justify-between items-center my-3">
+        <div key={color} className="w-full flex items-center my-3">
           <span className="mx-4 text-md">{color}</span>
           <Alert {...args} color={color} />
         </div>
@@ -64,7 +64,7 @@ const RadiusTemplate = (args) => {
   return (
     <div className="flex flex-col w-full">
       {["none", "sm", "md", "lg", "full"].map((radius) => (
-        <div key={radius} className="w-full flex justify-between items-center my-3">
+        <div key={radius} className="w-full flex items-center my-3">
           <span className="mx-4 text-md">{radius}</span>
           <Alert {...args} radius={radius} />
         </div>

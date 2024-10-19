@@ -63,20 +63,21 @@ const styles = {
 
 const MyAlert = forwardRef((props, ref) => {
   const {
-  title,
-  description,
-  isClosable,
-  domRef,
-  handleClose,
-  getBaseProps,
-  getMainWrapperProps,
-  getDescriptionProps,
-  getTitleProps,
-  getCloseButtonProps,
-  color,
-  isVisible,
-  onClose,
-  getCloseIconProps,
+    title,
+    description,
+    isClosable,
+    domRef,
+    handleClose,
+    getBaseProps,
+    getMainWrapperProps,
+    getDescriptionProps,
+    getTitleProps,
+    getCloseButtonProps,
+    color,
+    isVisible,
+    onClose,
+    getCloseIconProps,
+    getAlertIconProps,
   } = useAlert({
       ...props,
       ref,
@@ -101,7 +102,7 @@ const MyAlert = forwardRef((props, ref) => {
   const baseWrapper = useMemo(() => {
     return isVisible ? (
       <div ref={domRef} {...getBaseProps()}>
-        <InfoCircleIcon />
+        <InfoCircleIcon {getAlertIconProps()} />
         {mainWrapper}
         {(isClosable || onClose) && (
           <button onClick={handleClose} {...getCloseButtonProps()}>

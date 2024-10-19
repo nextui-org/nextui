@@ -1,9 +1,14 @@
 import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
-import {CloseIcon} from "@nextui-org/shared-icons";
+import {
+  CloseIcon,
+  DangerIcon,
+  InfoCircleIcon,
+  SuccessIcon,
+  WarningIcon,
+} from "@nextui-org/shared-icons";
 
 import {useAlert, UseAlertProps} from "./use-alert";
-import {AlertIcon} from "./alert-icons";
 
 export interface AlertProps extends UseAlertProps {}
 
@@ -23,6 +28,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     isVisible,
     onClose,
     getCloseIconProps,
+    getAlertIconProps,
   } = useAlert({...props, ref});
 
   const mainWrapper = useMemo(() => {
@@ -34,10 +40,27 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     );
   }, [title, description, getMainWrapperProps, getTitleProps, getDescriptionProps]);
 
+  const alertIcon = useMemo(() => {
+    switch (color) {
+      case "primary":
+        return <InfoCircleIcon {...getAlertIconProps()} />;
+      case "secondary":
+        return <InfoCircleIcon {...getAlertIconProps()} />;
+      case "success":
+        return <SuccessIcon {...getAlertIconProps()} />;
+      case "warning":
+        return <WarningIcon {...getAlertIconProps()} />;
+      case "danger":
+        return <DangerIcon {...getAlertIconProps()} />;
+      default:
+        return <InfoCircleIcon {...getAlertIconProps()} />;
+    }
+  }, [color, getAlertIconProps]);
+
   const baseWrapper = useMemo(() => {
     return isVisible ? (
       <div ref={domRef} {...getBaseProps()}>
-        <AlertIcon color={color} />
+        {alertIcon}
         {mainWrapper}
         {(isClosable || onClose) && (
           <button onClick={handleClose} {...getCloseButtonProps()}>

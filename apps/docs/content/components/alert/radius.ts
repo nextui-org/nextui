@@ -6,9 +6,9 @@ export default function App() {
 
   return (
     <div className="flex items-center justify-center w-screen">
-        <div className="flex flex-col">
+        <div className="flex flex-col w-full">
             {["none", "sm", "md", "lg", "full"].map((radius) => (
-                <div key={radius} className="w-full flex justify-between items-center my-3">
+                <div key={radius} className="w-full flex items-center my-3">
                   <span className="mx-4 text-md">{radius}</span>
                   <Alert title={title} description={description} radius={radius} />
                 </div>
