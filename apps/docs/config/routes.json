@@ -145,6 +145,12 @@
           "path": "/docs/components/autocomplete.mdx"
         },
         {
+          "key": "alert",
+          "title": "Alert",
+          "keywords": "alert, notification, message",
+          "path": "/docs/components/alert.mdx"
+        },
+        {
           "key": "avatar",
           "title": "Avatar",
           "keywords": "avatar, profile picture, user representation, identity",

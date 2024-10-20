@@ -33,7 +33,10 @@ export * from "./arrow-right";
 export * from "./arrow-left";
 export * from "./link";
 export * from "./selector";
-
+export * from "./info-circle";
+export * from "./warning";
+export * from "./danger";
+export * from "./success";
 // sets
 export * from "./bulk";
 export * from "./bold";
