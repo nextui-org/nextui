@@ -152,7 +152,12 @@ const Code = ({
         });
       }}
     >
-      <Codeblock codeString={codeString} language={language} metastring={meta} />
+      <Codeblock
+        className="sp-editor"
+        codeString={codeString}
+        language={language}
+        metastring={meta}
+      />
     </Components.Snippet>
   );
 };
