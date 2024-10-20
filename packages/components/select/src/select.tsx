@@ -29,7 +29,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     endContent,
     placeholder,
     renderValue,
-    isOutsideLeft,
+    shouldLabelBeOutside,
     disableAnimation,
     getBaseProps,
     getLabelProps,
@@ -117,10 +117,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
-      {isOutsideLeft ? labelContent : null}
+      {shouldLabelBeOutside ? labelContent : null}
       <div {...getMainWrapperProps()}>
         <Component {...getTriggerProps()}>
-          {!isOutsideLeft ? labelContent : null}
+          {!shouldLabelBeOutside ? labelContent : null}
           <div {...getInnerWrapperProps()}>
             {startContent}
             <span {...getValueProps()}>{renderSelectedItem}</span>
