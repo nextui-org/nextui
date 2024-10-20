@@ -4,6 +4,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {checkbox} from "@nextui-org/theme";
 import {button} from "@nextui-org/theme";
+import {Form} from "@nextui-org/form";
 
 import {CheckboxGroup, Checkbox, CheckboxGroupProps} from "../src";
 
@@ -90,7 +91,7 @@ const InvalidTemplate = (args: CheckboxGroupProps) => {
 const FormTemplate = (args: CheckboxGroupProps) => {
   return (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         const formData = new FormData(e.currentTarget);
         const selectedCities = formData.getAll("favorite-cities");
@@ -132,6 +133,40 @@ const ControlledTemplate = (args: CheckboxGroupProps) => {
       </CheckboxGroup>
       <p className="text-default-500">Selected: {selected.join(", ")}</p>
     </div>
+  );
+};
+
+const ServerValidationTemplate = (args: CheckboxGroupProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    setServerErrors({
+      terms: "Please select a valid animal.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <CheckboxGroup
+        {...args}
+        label="Agree to the following"
+        name="terms"
+        validationBehavior="native"
+      >
+        <Checkbox value="terms">Terms and conditions</Checkbox>
+        <Checkbox value="cookies">Cookies</Checkbox>
+        <Checkbox value="privacy">Privacy policy</Checkbox>
+      </CheckboxGroup>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
   );
 };
 
@@ -250,6 +285,14 @@ export const WithValidation = {
 
       return null;
     },
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

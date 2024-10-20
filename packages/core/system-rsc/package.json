@@ -46,7 +46,7 @@
     "clean-package": "2.2.0"
   },
   "dependencies": {
-    "@react-types/shared": "3.23.1",
+    "@react-types/shared": "3.24.1",
     "clsx": "^1.2.1"
   },
   "clean-package": "../../../clean-package.config.json",

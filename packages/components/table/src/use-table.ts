@@ -123,7 +123,7 @@ interface Props<T> extends HTMLNextUIProps<"table"> {
 
 export type UseTableProps<T = object> = Props<T> &
   TableStateProps<T> &
-  Omit<AriaTableProps<T>, "layout"> &
+  Omit<AriaTableProps, "layout"> &
   TableVariantProps;
 
 export type ValuesType<T = object> = {
@@ -156,7 +156,6 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     children,
     className,
     classNames,
-    layoutNode,
     removeWrapper = false,
     disableAnimation = globalContext?.disableAnimation ?? false,
     selectionMode = "none",
@@ -188,7 +187,10 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
 
   const {collection} = state;
 
-  const {gridProps} = useReactAriaTable<T>({...originalProps, layout: layoutNode}, state, domRef);
+  // Exclude the layout prop because it has a name conflict and is deprecated in useTable.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {layout, ...otherOriginalProps} = originalProps;
+  const {gridProps} = useReactAriaTable<T>({...otherOriginalProps}, state, domRef);
 
   const isSelectable = selectionMode !== "none";
   const isMultiSelectable = selectionMode === "multiple";

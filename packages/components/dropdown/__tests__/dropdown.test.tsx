@@ -560,15 +560,15 @@ describe("Dropdown", () => {
     );
 
     const dropdown = wrapper.getByTestId("dropdown");
-
     const dropdown2 = wrapper.getByTestId("dropdown2");
 
-    expect(dropdown).not.toBeNull();
+    expect(dropdown).toBeVisible();
+    expect(dropdown2).toBeVisible();
 
-    expect(dropdown2).not.toBeNull();
-
-    // open the dropdown listbox by clicking dropdownor button in the first dropdown
+    // open the dropdown listbox by clicking dropdown button in the first dropdown
     await user.click(dropdown);
+
+    // TODO: 落ちてる
 
     // assert that the first dropdown listbox is open
     expect(dropdown).toHaveAttribute("aria-expanded", "true");
