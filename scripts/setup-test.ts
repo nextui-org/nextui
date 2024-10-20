@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { configure } from "@testing-library/react";
 
-const {getComputedStyle} = window;
+const { getComputedStyle } = window;
 window.getComputedStyle = (elt) => getComputedStyle(elt);
 
 if (typeof window.matchMedia !== "function") {
@@ -13,8 +13,8 @@ if (typeof window.matchMedia !== "function") {
       matches: false,
       media: query,
       onchange: null,
-      addListener: jest.fn(), // Deprecated
-      removeListener: jest.fn(), // Deprecated
+      addListener: jest.fn(), 
+      removeListener: jest.fn(), 
       addEventListener: jest.fn(),
       removeEventListener: jest.fn(),
       dispatchEvent: jest.fn(),
@@ -22,7 +22,6 @@ if (typeof window.matchMedia !== "function") {
   });
 }
 
-// Workaround https://github.com/jsdom/jsdom/issues/2524#issuecomment-897707183
 global.TextEncoder = require("util").TextEncoder;
 
 global.ResizeObserver = jest.fn().mockImplementation(() => ({
@@ -31,6 +30,7 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   disconnect: jest.fn(),
 }));
 
+
 configure({
-  reactStrictMode: process.env.STRICT_MODE === "true",
+  reactStrictMode: process.env.STRICT_MODE === "true", 
 });
