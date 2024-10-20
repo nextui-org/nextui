@@ -56,9 +56,9 @@ const table = tv({
     table: "min-w-full h-auto",
     thead: "[&>tr]:first:rounded-lg",
     tbody: "",
-    tr: ["group", "outline-none", ...dataFocusVisibleClasses],
+    tr: ["group/tr", "outline-none", ...dataFocusVisibleClasses],
     th: [
-      "group",
+      "group/th",
       "px-3",
       "h-10",
       "text-start",
@@ -95,8 +95,8 @@ const table = tv({
       "before:opacity-0",
       "data-[selected=true]:before:opacity-100",
       // disabled
-      "group-data-[disabled=true]:text-foreground-300",
-      "group-data-[disabled=true]:cursor-not-allowed",
+      "group-data-[disabled=true]/tr:text-foreground-300",
+      "group-data-[disabled=true]/tr:cursor-not-allowed",
     ],
     tfoot: "",
     sortIcon: [
@@ -107,7 +107,7 @@ const table = tv({
       "inline-block",
       "transition-transform-opacity",
       "data-[visible=true]:opacity-100",
-      "group-data-[hover=true]:opacity-100",
+      "group-data-[hover=true]/th:opacity-100",
       "data-[direction=ascending]:rotate-180",
     ],
     emptyWrapper: "text-foreground-400 align-middle text-center h-40",
@@ -178,9 +178,9 @@ const table = tv({
     isStriped: {
       true: {
         td: [
-          "group-data-[odd=true]:before:bg-default-100",
-          "group-data-[odd=true]:before:opacity-100",
-          "group-data-[odd=true]:before:-z-10",
+          "group-data-[odd=true]/tr:before:bg-default-100",
+          "group-data-[odd=true]/tr:before:opacity-100",
+          "group-data-[odd=true]/tr:before:-z-10",
         ],
       },
     },
@@ -199,8 +199,8 @@ const table = tv({
       true: {
         tr: "cursor-default",
         td: [
-          "group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100",
-          "group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70",
+          "group-aria-[selected=false]/tr:group-data-[hover=true]/tr:before:bg-default-100",
+          "group-aria-[selected=false]/tr:group-data-[hover=true]/tr:before:opacity-70",
         ],
       },
     },
@@ -208,13 +208,13 @@ const table = tv({
       true: {
         td: [
           // first
-          "group-data-[first=true]:first:before:rounded-ts-lg",
-          "group-data-[first=true]:last:before:rounded-te-lg",
+          "group-data-[first=true]/tr:first:before:rounded-ts-lg",
+          "group-data-[first=true]/tr:last:before:rounded-te-lg",
           // middle
-          "group-data-[middle=true]:before:rounded-none",
+          "group-data-[middle=true]/tr:before:rounded-none",
           // last
-          "group-data-[last=true]:first:before:rounded-bs-lg",
-          "group-data-[last=true]:last:before:rounded-be-lg",
+          "group-data-[last=true]/tr:first:before:rounded-bs-lg",
+          "group-data-[last=true]/tr:last:before:rounded-be-lg",
         ],
       },
       false: {
@@ -259,42 +259,42 @@ const table = tv({
       isStriped: true,
       color: "default",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/60",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-default/60",
       },
     },
     {
       isStriped: true,
       color: "primary",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-primary/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-primary/20",
       },
     },
     {
       isStriped: true,
       color: "secondary",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-secondary/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-secondary/20",
       },
     },
     {
       isStriped: true,
       color: "success",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-success/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-success/20",
       },
     },
     {
       isStriped: true,
       color: "warning",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-warning/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-warning/20",
       },
     },
     {
       isStriped: true,
       color: "danger",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-danger/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-danger/20",
       },
     },
   ],
