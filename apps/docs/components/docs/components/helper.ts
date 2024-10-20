@@ -35,7 +35,7 @@ export function transformTokens(tokens: TransformTokens, folderLine = 10) {
     }
 
     let startToken: TransformTokens[0][0] = null as any;
-    let mergedStarFlagList = [...startFlag];
+    let mergedStartFlagList = [...startFlag];
 
     token.forEach((t) => {
       if (defaultFoldFlagList.some((text) => t.content.includes(text))) {
@@ -53,10 +53,10 @@ export function transformTokens(tokens: TransformTokens, folderLine = 10) {
         }
 
         fold = true;
-        mergedStarFlagList.push(...specialStartFlag);
+        mergedStartFlagList.push(...specialStartFlag);
       }
 
-      if (mergedStarFlagList.includes(t.content)) {
+      if (mergedStartFlagList.includes(t.content)) {
         startToken = t;
       }
 
@@ -113,7 +113,9 @@ export function transformTokens(tokens: TransformTokens, folderLine = 10) {
           ...endToken,
         ];
         (startToken as TransformTokensTypes).index = index;
-        isShowFolder && !fold && ((startToken as TransformTokensTypes).open = true);
+        if (isShowFolder && !fold) {
+          (startToken as TransformTokensTypes).open = true;
+        }
 
         result.push([startToken]);
 
@@ -142,11 +144,11 @@ function checkIsFolder(
   {specialStartFlag, specialEndFlag}: SpecialOptions = {},
 ) {
   const stack: string[] = [];
-  const mergedStarFlagList = specialStartFlag ? [...startFlag, ...specialStartFlag] : startFlag;
+  const mergedStartFlagList = specialStartFlag ? [...startFlag, ...specialStartFlag] : startFlag;
   const mergedEndFlagList = specialEndFlag ? [...endFlag, ...specialEndFlag] : endFlag;
 
   for (const t of token) {
-    if (mergedStarFlagList.includes(t.content)) {
+    if (mergedStartFlagList.includes(t.content)) {
       stack.push(t.content);
     } else if (mergedEndFlagList.includes(t.content)) {
       stack.pop();
@@ -162,7 +164,7 @@ function findEndIndex(
   {specialStartFlag, specialEndFlag}: SpecialOptions = {},
 ) {
   const stack: string[] = ["flag"];
-  const mergedStarFlagList = specialStartFlag ? [...startFlag, ...specialStartFlag] : startFlag;
+  const mergedStartFlagList = specialStartFlag ? [...startFlag, ...specialStartFlag] : startFlag;
   const mergedEndFlagList = specialEndFlag ? [...endFlag, ...specialEndFlag] : endFlag;
 
   for (let i = startIndex; i < tokens.length; i++) {
@@ -171,7 +173,7 @@ function findEndIndex(
     for (const line of token) {
       const transformLine = line.content.replace(/\$/g, "");
 
-      if (mergedStarFlagList.includes(transformLine)) {
+      if (mergedStartFlagList.includes(transformLine)) {
         stack.push("flag");
       } else if (mergedEndFlagList.includes(transformLine)) {
         stack.pop();

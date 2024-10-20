@@ -213,7 +213,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                       const isCopy = token.types.includes("copy");
 
                       return isCopy ? (
-                        <span className="copy-token" style={{whiteSpace: "inherit"}}>
+                        <span key={key} className="copy-token" style={{whiteSpace: "inherit"}}>
                           {token.folderContent?.map((folderTokens) => {
                             return folderTokens.map((token, index) => {
                               // Hack for wrap line
@@ -257,7 +257,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
               };
 
               return isFolder ? (
-                <details open={folderLine.open ? true : undefined}>
+                <details key={`${folderLine.index}`} open={folderLine.open ? true : undefined}>
                   <summary className="cursor-pointer">
                     {renderLine(folderLine.summaryContent as any, folderLine.index!, "span")}
                   </summary>
