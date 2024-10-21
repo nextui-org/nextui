@@ -24,6 +24,7 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
     disableAnimation,
     getEmptyContentProps,
     getListProps,
+    autoHighlight,
   } = useListbox<T>({...props, ref});
 
   const content = (
@@ -51,6 +52,7 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
           <ListboxItem
             key={item.key}
             {...itemProps}
+            autoHighlighted={autoHighlight && state.selectionManager.focusedKey === item.key}
             classNames={mergeProps(itemClasses, item.props?.classNames)}
             shouldHighlightOnFocus={shouldHighlightOnFocus}
           />
