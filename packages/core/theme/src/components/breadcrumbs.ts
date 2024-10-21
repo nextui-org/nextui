@@ -23,7 +23,7 @@ const breadcrumbItem = tv({
       // focus ring
       ...dataFocusVisibleClasses,
     ],
-    separator: "text-default-400 px-1",
+    separator: "text-default-400 px-1 rtl:rotate-180",
   },
   variants: {
     color: {
