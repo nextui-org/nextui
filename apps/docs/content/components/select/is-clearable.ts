@@ -60,6 +60,7 @@ export default function App() {
             isClearable={true}
             label="Favorite Animal"
             endContent={<PetBoldIcon />}
+            onClear={() => console.log("Select cleared")}
         >
           {animals.map((animal) => (
           <SelectItem key={animal.key}>
