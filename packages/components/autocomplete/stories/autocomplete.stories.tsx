@@ -764,6 +764,28 @@ const CustomStylesWithCustomItemsTemplate = ({color, ...args}: AutocompleteProps
   );
 };
 
+const WithFormTemplate = (args: AutocompleteProps) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const name = e.target.animal.value;
+
+    // eslint-disable-next-line no-console
+    console.log(name);
+    alert("Submitted value: " + name);
+  };
+
+  return (
+    <form className="flex w-full max-w-xs flex-col gap-2" onSubmit={handleSubmit}>
+      <Autocomplete defaultSelectedKey="cat" label="Favorite Animal" name="animal" {...args}>
+        <AutocompleteItem key="cat">Big Cat</AutocompleteItem>
+        <AutocompleteItem key="dog">Big Dog</AutocompleteItem>
+      </Autocomplete>
+
+      <Button type="submit">Submit</Button>
+    </form>
+  );
+};
+
 const WithReactHookFormTemplate = (args: AutocompleteProps) => {
   const {
     register,
@@ -1001,6 +1023,14 @@ export const WithAriaLabel = {
     ...defaultProps,
     label: "Select an animal 🐹",
     "aria-label": "Select an animal",
+  },
+};
+
+export const WithForm = {
+  render: WithFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
