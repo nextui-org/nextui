@@ -99,12 +99,6 @@ export function useAlert(originalProps: UseAlertProps) {
     };
   }, [slots, classNames?.closeButton]);
 
-  const getCloseIconProps = useCallback<PropGetter>(() => {
-    return {
-      className: slots.closeIcon({class: classNames?.closeIcon}),
-    };
-  }, [slots, classNames?.closeIcon]);
-
   const getAlertIconProps = useCallback<PropGetter>(() => {
     return {
       className: slots.alertIcon({class: classNames?.alertIcon}),
@@ -122,7 +116,6 @@ export function useAlert(originalProps: UseAlertProps) {
     getTitleProps,
     color: variantProps["color"],
     getCloseButtonProps,
-    getCloseIconProps,
     handleClose,
     isVisible,
     onClose,

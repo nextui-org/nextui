@@ -6,7 +6,8 @@ import {tv} from "../utils/tv";
  *
  * @example
  * ```js
- * const {base, mainWrapper, title, description, closeButton, closeIcon, alertIcon} = alert({...})
+ * const {base, mainWrapper, title, description, closeButton, alertIcon} = alert({...})
+ *
  *
  * <div className={base()}>
  *    {alertIcon}
@@ -28,8 +29,7 @@ const alert = tv({
     ],
     title: ["w-full text-medium font-normal block min-h-6 max-h-full"],
     description: ["text-small font-normal min-h-5 max-h-full"],
-    closeButton: ["w-6 h-6 cursor-pointer relative"],
-    closeIcon: ["fill-current"],
+    closeButton: ["w-6 h-6 cursor-pointer relative fill-current"],
     alertIcon: ["fill-current"],
   },
   variants: {
@@ -38,42 +38,42 @@ const alert = tv({
         base: ["bg-default-100"],
         title: ["text-foreground"],
         description: ["text-default-600"],
-        closeIcon: ["text-default-400"],
+        closeButton: ["text-default-400"],
         alertIcon: ["text-default-foreground"],
       },
       primary: {
         base: ["bg-primary-50"],
         title: ["text-primary"],
         description: ["text-primary"],
-        closeIcon: ["text-primary-200"],
+        closeButton: ["text-primary-200"],
         alertIcon: ["text-primary"],
       },
       secondary: {
         base: ["bg-secondary-50"],
         title: ["text-secondary"],
         description: ["text-secondary-200"],
-        closeIcon: ["text-secondary-200"],
+        closeButton: ["text-secondary-200"],
         alertIcon: ["text-secondary"],
       },
       success: {
         base: ["bg-success-50"],
         title: ["text-success"],
         description: ["text-success-200"],
-        closeIcon: ["text-success-200"],
+        closeButton: ["text-success-200"],
         alertIcon: ["text-success"],
       },
       warning: {
         base: ["bg-warning-50"],
         title: ["text-warning"],
         description: ["text-warning-200"],
-        closeIcon: ["text-warning-200"],
+        closeButton: ["text-warning-200"],
         alertIcon: ["text-warning"],
       },
       danger: {
         base: ["bg-danger-50"],
         title: ["text-danger"],
         description: ["text-danger-200"],
-        closeIcon: ["text-danger-200"],
+        closeButton: ["text-danger-200"],
         alertIcon: ["text-danger"],
       },
     },

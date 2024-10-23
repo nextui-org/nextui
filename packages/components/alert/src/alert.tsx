@@ -27,7 +27,6 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     color,
     isVisible,
     onClose,
-    getCloseIconProps,
     getAlertIconProps,
   } = useAlert({...props, ref});
 
@@ -40,21 +39,18 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     );
   }, [title, description, getMainWrapperProps, getTitleProps, getDescriptionProps]);
 
+  const iconMap = {
+    primary: InfoCircleIcon,
+    secondary: InfoCircleIcon,
+    success: SuccessIcon,
+    warning: WarningIcon,
+    danger: DangerIcon,
+  };
+
+  const IconComponent = iconMap[color] || InfoCircleIcon;
+
   const alertIcon = useMemo(() => {
-    switch (color) {
-      case "primary":
-        return <InfoCircleIcon {...getAlertIconProps()} />;
-      case "secondary":
-        return <InfoCircleIcon {...getAlertIconProps()} />;
-      case "success":
-        return <SuccessIcon {...getAlertIconProps()} />;
-      case "warning":
-        return <WarningIcon {...getAlertIconProps()} />;
-      case "danger":
-        return <DangerIcon {...getAlertIconProps()} />;
-      default:
-        return <InfoCircleIcon {...getAlertIconProps()} />;
-    }
+    return <IconComponent {...getAlertIconProps()} />;
   }, [color, getAlertIconProps]);
 
   const baseWrapper = useMemo(() => {
@@ -64,7 +60,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
         {mainWrapper}
         {(isClosable || onClose) && (
           <button onClick={handleClose} {...getCloseButtonProps()}>
-            <CloseIcon {...getCloseIconProps()} height={20} width={20} />
+            <CloseIcon height={20} width={20} />
           </button>
         )}
       </div>
@@ -77,7 +73,6 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     domRef,
     getBaseProps,
     handleClose,
-    color,
     onClose,
     alertIcon,
   ]);
