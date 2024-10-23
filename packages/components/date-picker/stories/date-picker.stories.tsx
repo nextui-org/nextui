@@ -18,6 +18,7 @@ import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
 import {ValidationResult} from "@react-types/shared";
+import {Form} from "@nextui-org/form";
 
 import {DatePicker, DatePickerProps} from "../src";
 
@@ -310,6 +311,29 @@ const UnavailableDatesTemplate = (args: DatePickerProps) => {
   );
 };
 
+const ServerValidationTemplate = (args: DatePickerProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      date: "Please select a valid date.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <DatePicker {...args} name="date" />
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -551,6 +575,13 @@ export const WithValidation = {
       }
     },
     label: "Date (Year 2024 or later)",
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
   },
 };
 

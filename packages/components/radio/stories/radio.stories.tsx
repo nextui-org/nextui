@@ -5,6 +5,7 @@ import {Meta} from "@storybook/react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {radio, button} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
+import {Form} from "@nextui-org/form";
 
 import {
   RadioGroup,
@@ -93,7 +94,7 @@ const Template = (args: RadioGroupProps) => {
 
   return args.isRequired ? (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         alert(`Submitted value: ${e.target["sample"].value}`);
         e.preventDefault();
@@ -157,7 +158,7 @@ const InvalidTemplate = (args: RadioGroupProps) => {
 
   return args.isRequired ? (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         e.preventDefault();
         alert("Submitted!");
@@ -202,6 +203,35 @@ const ControlledTemplate = (args: RadioGroupProps) => {
       </RadioGroup>
       <p className="text-default-500">Selected: {selectedItem}</p>
     </div>
+  );
+};
+
+const ServerValidationTemplate = (args: RadioGroupProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      option: "You must choose an option.",
+    });
+  };
+
+  delete args.isInvalid;
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <RadioGroup {...args} label="Choose one option" name="option">
+        <Radio value="option1">Option 1</Radio>
+        <Radio value="option2">Option 2</Radio>
+        <Radio value="option3">Option 3</Radio>
+      </RadioGroup>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
   );
 };
 
@@ -296,6 +326,14 @@ export const WithValidation = {
         return "Option A is not allowed";
       }
     },
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 
