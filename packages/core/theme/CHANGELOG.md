@@ -1,5 +1,23 @@
 # @nextui-org/theme
 
+## 2.2.12
+
+### Patch Changes
+
+- [#3869](https://github.com/nextui-org/nextui/pull/3869) [`0cf91395c`](https://github.com/nextui-org/nextui/commit/0cf91395c7c66a69fb05c7fca4a30cbad9e1e0f8) Thanks [@macci001](https://github.com/macci001)! - fix label placement in input and select
+
+- [#3768](https://github.com/nextui-org/nextui/pull/3768) [`781b85566`](https://github.com/nextui-org/nextui/commit/781b85566ee5eac3f505625462c4f5f14e36ed3a) Thanks [@macci001](https://github.com/macci001)! - fix the fullWidth variant in input and select component. (#3745)
+
+- [#3912](https://github.com/nextui-org/nextui/pull/3912) [`38a54ab49`](https://github.com/nextui-org/nextui/commit/38a54ab497781e17799b37f0061ba50f2dc44e09) Thanks [@sanuj21](https://github.com/sanuj21)! - remove the pseudo cancel btn from input (#3907)
+
+- [#3868](https://github.com/nextui-org/nextui/pull/3868) [`af3c4f706`](https://github.com/nextui-org/nextui/commit/af3c4f706bb88eae02eee594a6db68cdd33bbe88) Thanks [@macci001](https://github.com/macci001)! - replace the use of RTL-specific styles with logical properties.
+
+- [#3927](https://github.com/nextui-org/nextui/pull/3927) [`a0d7141db`](https://github.com/nextui-org/nextui/commit/a0d7141db314c6bea27df6b8beb15dae3b1bcb93) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - separator icon RTL support in Breadcrumbs component (#2486)
+
+- [#3861](https://github.com/nextui-org/nextui/pull/3861) [`8a33eabb2`](https://github.com/nextui-org/nextui/commit/8a33eabb2583202fcc8fbc33e8f2ed23bb45f1a4) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - show margin only with label in Switch component (#3791)
+
+- [#3764](https://github.com/nextui-org/nextui/pull/3764) [`559436d46`](https://github.com/nextui-org/nextui/commit/559436d462bdb8739d8c817d1aa98607969d8a07) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `data-[hover=true]:` for ghost button with danger color
+
 ## 2.2.11
 
 ### Patch Changes
