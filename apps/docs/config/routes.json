@@ -247,6 +247,12 @@
           "path": "/docs/components/dropdown.mdx"
         },
         {
+          "key": "file-upload",
+          "title": "File Upload",
+          "keywords": "file, upload, browse",
+          "path": "/docs/components/file-upload.mdx"
+        },
+        {
           "key": "image",
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
