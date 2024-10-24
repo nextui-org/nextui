@@ -217,8 +217,18 @@ const corePlugin = (
             large: `var(--${prefix}-box-shadow-large)`,
           },
           backgroundImage: {
-            "stripe-gradient":
-              "linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent)",
+            "stripe-gradient-default":
+              "linear-gradient(45deg, #3f3f46 25%, transparent 25%, transparent 50%, #3f3f46 50%, #3f3f46 75%, transparent 75%, transparent)",
+            "stripe-gradient-primary":
+              "linear-gradient(45deg, #004493 25%, #006FEE 25%, #006FEE 50%, #004493 50%, #004493 75%, #006FEE 75%, #006FEE)",
+            "stripe-gradient-secondary":
+              "linear-gradient(45deg, #6020A0 25%, #9353d3 25%, #9353d3 50%, #6020A0 50%, #6020A0 75%, #9353d3 75%, #9353d3)",
+            "stripe-gradient-success":
+              "linear-gradient(45deg, #0E793C 25%, #17c964 25%, #17c964 50%, #0E793C 50%, #0E793C 75%, #17c964 75%, #17c964)",
+            "stripe-gradient-warning":
+              "linear-gradient(45deg, #936316 25%, #f5a524 25%, #f5a524 50%, #936316 50%, #936316 75%, #f5a524 75%, #f5a524)",
+            "stripe-gradient-danger":
+              "linear-gradient(45deg, #920B3A 25%, #f31260 25%, #f31260 50%, #920B3A 50%, #920B3A 75%, #f31260 75%, #f31260)",
           },
           transitionDuration: {
             0: "0ms",

@@ -11,6 +11,13 @@ export const twMergeConfig: Partial<Config> = {
   classGroups: {
     shadow: [{shadow: COMMON_UNITS}],
     "font-size": [{text: ["tiny", ...COMMON_UNITS]}],
-    "bg-image": ["bg-stripe-gradient"],
+    "bg-image": [
+      "bg-stripe-gradient-default",
+      "bg-stripe-gradient-primary",
+      "bg-stripe-gradient-secondary",
+      "bg-stripe-gradient-success",
+      "bg-stripe-gradient-warning",
+      "bg-stripe-gradient-danger",
+    ],
   },
 };
