@@ -370,7 +370,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
         className: slots.input({
-          class: clsx(classNames?.input, isFilled ? "is-filled" : ""),
+          class: clsx(classNames?.input, isFilled ? "is-filled" : "", isMultiline ? "pe-0" : ""),
         }),
         ...mergeProps(
           focusProps,
@@ -412,7 +412,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
-          class: clsx(classNames?.inputWrapper, isFilled ? "is-filled" : ""),
+          class: clsx(
+            classNames?.inputWrapper,
+            isFilled ? "is-filled" : "",
+            isMultiline ? "flex-col items-start gap-0" : "",
+          ),
         }),
         ...mergeProps(props, hoverProps),
         onClick: (e) => {
@@ -516,12 +520,25 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
-        className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
+        className: slots.clearButton({
+          class: clsx(
+            classNames?.clearButton,
+            props?.className,
+            isMultiline ? "relative block opacity-100 p-0 -m-0 end-0" : "",
+          ),
+        }),
         ...mergeProps(clearPressProps, clearFocusProps),
       };
     },
     [slots, isClearButtonFocusVisible, clearPressProps, clearFocusProps, classNames?.clearButton],
   );
+
+  const getHeaderWrapperProps: PropGetter = useCallback((props = {}) => {
+    return {
+      ...props,
+      className: slots.headerWrapper({class: clsx(props?.className)}),
+    };
+  }, []);
 
   return {
     Component,
@@ -553,6 +570,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
+    getHeaderWrapperProps,
   };
 }
 
