@@ -1,5 +1,14 @@
 # @nextui-org/listbox
 
+## 2.1.28
+
+### Patch Changes
+
+- [#3883](https://github.com/nextui-org/nextui/pull/3883) [`a2e562b03`](https://github.com/nextui-org/nextui/commit/a2e562b03f79b52b0b35f07104b3585ea05e2cb6) Thanks [@ryo-manba](https://github.com/ryo-manba)! - change ListboxItem key to optional (#3880)
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.32
+
 ## 2.1.27
 
 ### Patch Changes
