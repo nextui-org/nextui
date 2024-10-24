@@ -3,6 +3,7 @@ import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
+import {CalendarDate} from "@internationalized/date";
 import {Fragment} from "react";
 import {useState} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
@@ -31,6 +32,7 @@ export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   errorMessageProps: HTMLAttributes<HTMLElement>;
   calendarRef: RefObject<HTMLDivElement>;
   errorMessage?: ReactNode;
+  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 export function CalendarBase(props: CalendarBaseProps) {
@@ -46,6 +48,7 @@ export function CalendarBase(props: CalendarBaseProps) {
     errorMessageProps,
     calendarRef: ref,
     errorMessage,
+    renderCellContent,
     ...otherProps
   } = props;
 
@@ -95,6 +98,7 @@ export function CalendarBase(props: CalendarBaseProps) {
         key={`calendar-month-${i}`}
         currentMonth={currentMonth.month}
         direction={direction}
+        renderCellContent={renderCellContent}
         startDate={d}
       />
     );
