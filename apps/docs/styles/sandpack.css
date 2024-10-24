@@ -26,6 +26,22 @@
   max-height: 100%;
   overflow: hidden;
 }
+
+.sp-editor,
+.sp-editor-viewer {
+  height: auto !important;
+}
+
+.sp-editor {
+  & .token-line {
+    padding: 0px 24px;
+  }
+}
+
+.sp-code-viewer {
+  padding: 6px;
+}
+
 .cm-scroller {
   overflow: hidden;
   max-height: 600px;
