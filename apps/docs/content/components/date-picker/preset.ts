@@ -6,6 +6,7 @@ export default function App() {
   let defaultDate = today(getLocalTimeZone());
 
   const [value, setValue] = React.useState(defaultDate);
+  const [isOpen, setIsOpen] = React.useState<boolean>(false);
 
   let {locale} = useLocale();
   let formatter = useDateFormatter({dateStyle: "full"});
@@ -65,9 +66,30 @@ export default function App() {
             size="sm"
             variant="bordered"
           >
-            <Button onPress={() => setValue(now)}>Today</Button>
-            <Button onPress={() => setValue(nextWeek)}>Next week</Button>
-            <Button onPress={() => setValue(nextMonth)}>Next month</Button>
+            <Button 
+              onPress={() => {
+                setValue(now);
+                setIsOpen(false);
+              }}
+            >
+              Today
+            </Button>
+            <Button 
+              onPress={() => {
+                setValue(nextWeek);
+                setIsOpen(false);
+              }}
+            >
+              Next week
+            </Button>
+            <Button 
+              onPress={() => {
+                setValue(nextMonth);
+                setIsOpen(false);
+              }}
+            >
+              Next month
+            </Button>
           </ButtonGroup>
         }
         calendarProps={{
@@ -80,8 +102,10 @@ export default function App() {
             variant: "bordered",
           },
         }}
+        isOpen={isOpen}
         value={value}
         onChange={setValue}
+        onOpenChange={setIsOpen}
         label="Event date"
       />
       <p className="text-default-500 text-sm">
