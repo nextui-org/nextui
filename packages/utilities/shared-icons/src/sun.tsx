@@ -21,7 +21,6 @@ export const SunIcon = (props: IconSvgProps) => (
     <circle
       cx={256}
       cy={256}
-      fill="none"
       r={80}
       stroke="currentColor"
       strokeLinecap="round"
