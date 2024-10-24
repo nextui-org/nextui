@@ -38,14 +38,13 @@ const select = tv({
       flat: {
         trigger: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-200",
+          "data-[hover=true]:bg-default-50",
           "group-data-[focus=true]:bg-default-100",
         ],
       },
       faded: {
         trigger: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-200",
           "border-medium",
           "border-default-200",
           "data-[hover=true]:border-default-400",
@@ -58,7 +57,6 @@ const select = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
           "data-[open=true]:border-default-foreground",
-          "data-[focus=true]:border-default-foreground",
           "data-[focus=true]:border-default-foreground",
         ],
         value: "group-data-[has-value=true]:text-default-foreground",
@@ -224,7 +222,11 @@ const select = tv({
       color: "default",
       class: {
         value: "group-data-[has-value=true]:text-default-foreground",
-        trigger: ["bg-default-100", "data-[hover=true]:bg-default-50"],
+        trigger: [
+          "bg-default-100",
+          "data-[hover=true]:bg-default-200",
+          "group-data-[focus=true]:bg-default-50",
+        ],
       },
     },
     {
@@ -232,9 +234,9 @@ const select = tv({
       color: "primary",
       class: {
         trigger: [
-          "bg-primary-100",
+          "bg-primary-50",
           "text-primary",
-          "data-[hover=true]:bg-primary-50",
+          "data-[hover=true]:bg-primary-100",
           "group-data-[focus=true]:bg-primary-50",
         ],
         value: "text-primary",
@@ -246,9 +248,9 @@ const select = tv({
       color: "secondary",
       class: {
         trigger: [
-          "bg-secondary-100",
+          "bg-secondary-50",
           "text-secondary",
-          "data-[hover=true]:bg-secondary-50",
+          "data-[hover=true]:bg-secondary-100",
           "group-data-[focus=true]:bg-secondary-50",
         ],
         value: "text-secondary",
@@ -260,10 +262,10 @@ const select = tv({
       color: "success",
       class: {
         trigger: [
-          "bg-success-100",
+          "bg-success-50",
           "text-success-600",
           "dark:text-success",
-          "data-[hover=true]:bg-success-50",
+          "data-[hover=true]:bg-success-100",
           "group-data-[focus=true]:bg-success-50",
         ],
         value: "text-success-600 dark:text-success",
@@ -275,10 +277,10 @@ const select = tv({
       color: "warning",
       class: {
         trigger: [
-          "bg-warning-100",
+          "bg-warning-50",
           "text-warning-600",
           "dark:text-warning",
-          "data-[hover=true]:bg-warning-50",
+          "data-[hover=true]:bg-warning-100",
           "group-data-[focus=true]:bg-warning-50",
         ],
         value: "text-warning-600 dark:text-warning",
@@ -290,10 +292,10 @@ const select = tv({
       color: "danger",
       class: {
         trigger: [
-          "bg-danger-100",
+          "bg-danger-50",
           "text-danger",
           "dark:text-danger-500",
-          "data-[hover=true]:bg-danger-50",
+          "data-[hover=true]:bg-danger-100",
           "group-data-[focus=true]:bg-danger-50",
         ],
         value: "text-danger dark:text-danger-500",
@@ -305,7 +307,8 @@ const select = tv({
       variant: "faded",
       color: "primary",
       class: {
-        trigger: "data-[hover=true]:border-primary",
+        trigger:
+          "data-[hover=true]:border-primary data-[focus=true]:border-primary data-[open=true]:border-primary",
         label: "text-primary",
       },
     },
@@ -313,7 +316,8 @@ const select = tv({
       variant: "faded",
       color: "secondary",
       class: {
-        trigger: "data-[hover=true]:border-secondary",
+        trigger:
+          "data-[hover=true]:border-secondary data-[focus=true]:border-secondary data-[open=true]:border-secondary",
         label: "text-secondary",
       },
     },
@@ -321,7 +325,8 @@ const select = tv({
       variant: "faded",
       color: "success",
       class: {
-        trigger: "data-[hover=true]:border-success",
+        trigger:
+          "data-[hover=true]:border-success data-[focus=true]:border-success data-[open=true]:border-success",
         label: "text-success",
       },
     },
@@ -329,7 +334,8 @@ const select = tv({
       variant: "faded",
       color: "warning",
       class: {
-        trigger: "data-[hover=true]:border-warning",
+        trigger:
+          "data-[hover=true]:border-warning data-[focus=true]:border-warning data-[open=true]:border-warning",
         label: "text-warning",
       },
     },
@@ -337,7 +343,8 @@ const select = tv({
       variant: "faded",
       color: "danger",
       class: {
-        trigger: "data-[hover=true]:border-danger",
+        trigger:
+          "data-[hover=true]:border-danger data-[focus=true]:border-danger data-[open=true]:border-danger",
         label: "text-danger",
       },
     },
