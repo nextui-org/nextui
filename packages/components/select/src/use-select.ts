@@ -305,6 +305,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const handleClear = useCallback(() => {
     state.setSelectedKeys(new Set([]));
     onClear?.();
+    domRef.current?.focus();
   }, [onClear, state]);
 
   const {pressProps: clearPressProps} = usePress({

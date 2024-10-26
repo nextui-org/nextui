@@ -56,7 +56,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
 
   const clearButton = useMemo(() => {
     if (isClearable && state.selectedItems?.length) {
-      return <span {...getClearButtonProps()}>{<CloseFilledIcon />}</span>;
+      return <button {...getClearButtonProps()}>{<CloseFilledIcon />}</button>;
     }
 
     return null;
