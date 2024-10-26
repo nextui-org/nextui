@@ -1,4 +1,4 @@
-const withContentlayer = require("next-contentlayer").withContentlayer;
+const withContentlayer = require("next-contentlayer2").withContentlayer;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
