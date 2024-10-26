@@ -1321,6 +1321,9 @@ importers:
       '@internationalized/date':
         specifier: 3.5.5
         version: 3.5.5
+      '@nextui-org/aria-utils':
+        specifier: workspace:*
+        version: link:../../utilities/aria-utils
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
