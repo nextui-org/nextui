@@ -510,8 +510,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ...props,
-        role: "button",
-        tabIndex: 0,
+        type: "button",
+        tabIndex: -1,
+        disabled: originalProps.isDisabled,
         "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),

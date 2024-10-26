@@ -1,10 +1,16 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {CheckboxGroup, Checkbox} from "../src";
 
 describe("Checkbox.Group", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <CheckboxGroup defaultValue={[]} label="Select cities">
@@ -48,7 +54,7 @@ describe("Checkbox.Group", () => {
     expect(container.querySelector("[data-testid=second-checkbox] input")).not.toBeChecked();
   });
 
-  it("should change value after click", () => {
+  it("should change value after click", async () => {
     let value = ["sydney"];
     const wrapper = render(
       <CheckboxGroup
@@ -67,9 +73,7 @@ describe("Checkbox.Group", () => {
 
     const secondCheckbox = wrapper.getByTestId("second-checkbox");
 
-    act(() => {
-      secondCheckbox.click();
-    });
+    await user.click(secondCheckbox);
 
     expect(value).toEqual(["sydney", "buenos-aires"]);
   });
@@ -98,7 +102,7 @@ describe("Checkbox.Group", () => {
     expect(secondCheckbox).not.toBeChecked();
   });
 
-  it("should work correctly with controlled value", () => {
+  it("should work correctly with controlled value", async () => {
     let checked = ["sydney"];
     const onChange = jest.fn((value) => {
       checked = value;
@@ -125,20 +129,13 @@ describe("Checkbox.Group", () => {
 
     const secondCheckbox = wrapper.getByTestId("second-checkbox");
 
-    act(() => {
-      secondCheckbox.click();
-    });
+    await user.click(secondCheckbox);
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(checked).toEqual(["sydney", "buenos-aires"]);
   });
 
   describe("validation", () => {
-    let user = userEvent.setup();
-
-    beforeAll(() => {
-      user = userEvent.setup();
-    });
     describe("validationBehavior=native", () => {
       it("supports group level isRequired", async () => {
         let {getAllByRole, getByRole, getByTestId} = render(

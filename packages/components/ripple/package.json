@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/ripple",
-  "version": "2.0.32",
+  "version": "2.0.33",
   "description": "A simple implementation to display a ripple animation when the source component is clicked",
   "keywords": [
     "ripple"

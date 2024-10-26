@@ -1,5 +1,17 @@
 # @nextui-org/input
 
+## 2.2.5
+
+### Patch Changes
+
+- [#2958](https://github.com/nextui-org/nextui/pull/2958) [`985c2e1dd`](https://github.com/nextui-org/nextui/commit/985c2e1dd3642e3087aa0555a3c3ae4ea182b099) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixed hover and focus of input when label placement is outside-left (#2328)
+
+- [#3643](https://github.com/nextui-org/nextui/pull/3643) [`3d6865586`](https://github.com/nextui-org/nextui/commit/3d6865586fe7cec850925c8e8ff42155a97c43ea) Thanks [@ryxxn](https://github.com/ryxxn)! - disable clear button when input is read-only
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.2.4
 
 ### Patch Changes

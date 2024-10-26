@@ -1,11 +1,17 @@
 import * as React from "react";
 import {render, renderHook, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
 import {Checkbox, CheckboxProps} from "../src";
 
 describe("Checkbox", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Checkbox>Label</Checkbox>);
 
@@ -29,25 +35,21 @@ describe("Checkbox", () => {
     expect(container.querySelector("input")?.checked).toBe(false);
   });
 
-  it("should change value after click", () => {
+  it("should change value after click", async () => {
     const wrapper = render(<Checkbox data-testid="checkbox-test">Option</Checkbox>);
     const checkbox = wrapper.container.querySelector("input")!;
 
     expect(checkbox.checked).toBe(false);
 
-    act(() => {
-      wrapper.getByTestId("checkbox-test").click();
-    });
+    await user.click(wrapper.getByTestId("checkbox-test"));
 
     expect(checkbox.checked).toBe(true);
   });
 
-  it("should ignore events when disabled", () => {
+  it("should ignore events when disabled", async () => {
     const {container} = render(<Checkbox isDisabled>Option</Checkbox>);
 
-    act(() => {
-      userEvent.click(container.querySelector("label")!);
-    });
+    await user.click(container.querySelector("label")!);
 
     expect(container.querySelector("input")?.checked).toBe(false);
   });
@@ -58,7 +60,7 @@ describe("Checkbox", () => {
     expect(container.querySelector("input")?.indeterminate).toBe(true);
   });
 
-  it('should work correctly with "onChange" prop', () => {
+  it('should work correctly with "onChange" prop', async () => {
     const onChange = jest.fn();
     const wrapper = render(
       <Checkbox data-testid="checkbox-test" onChange={onChange}>
@@ -66,11 +68,9 @@ describe("Checkbox", () => {
       </Checkbox>,
     );
 
-    act(() => {
-      wrapper.getByTestId("checkbox-test").click();
-    });
+    await user.click(wrapper.getByTestId("checkbox-test"));
 
-    expect(onChange).toBeCalled();
+    expect(onChange).toHaveBeenCalled();
   });
 
   it('should work correctly with "onFocus" prop', () => {
@@ -87,7 +87,7 @@ describe("Checkbox", () => {
       input.focus();
     });
 
-    expect(onFocus).toBeCalled();
+    expect(onFocus).toHaveBeenCalled();
   });
 
   it("should have required attribute when isRequired with native validationBehavior", () => {
@@ -112,7 +112,7 @@ describe("Checkbox", () => {
     expect(container.querySelector("input")).toHaveAttribute("aria-required", "true");
   });
 
-  it("should work correctly with controlled value", () => {
+  it("should work correctly with controlled value", async () => {
     const onChange = jest.fn();
 
     const Component = (props: CheckboxProps) => {
@@ -138,20 +138,12 @@ describe("Checkbox", () => {
       </Component>,
     );
 
-    act(() => {
-      wrapper.getByTestId("checkbox-test").click();
-    });
+    await user.click(wrapper.getByTestId("checkbox-test"));
 
-    expect(onChange).toBeCalled();
+    expect(onChange).toHaveBeenCalled();
   });
 
   describe("validation", () => {
-    let user;
-
-    beforeEach(() => {
-      user = userEvent.setup();
-    });
-
     describe("validationBehavior=native", () => {
       it("supports isRequired", async () => {
         const {getByRole, getByTestId} = render(
@@ -257,13 +249,11 @@ describe("Checkbox with React Hook Form", () => {
   });
 
   it("should submit form when required field is not empty", async () => {
-    act(() => {
-      checkbox3.click();
-    });
+    const user = userEvent.setup();
+
+    await user.click(checkbox3);
 
     expect(checkbox3.checked).toBe(true);
-
-    const user = userEvent.setup();
 
     await user.click(submitButton);
 

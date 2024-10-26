@@ -288,32 +288,47 @@ const button = tv({
     {
       variant: "ghost",
       color: "default",
-      class: colorVariants.ghost.default,
+      class: [colorVariants.ghost.default, "data-[hover=true]:!bg-default"],
     },
     {
       variant: "ghost",
       color: "primary",
-      class: colorVariants.ghost.primary,
+      class: [
+        colorVariants.ghost.primary,
+        "data-[hover=true]:!bg-primary data-[hover=true]:!text-primary-foreground",
+      ],
     },
     {
       variant: "ghost",
       color: "secondary",
-      class: colorVariants.ghost.secondary,
+      class: [
+        colorVariants.ghost.secondary,
+        "data-[hover=true]:!bg-secondary data-[hover=true]:!text-secondary-foreground",
+      ],
     },
     {
       variant: "ghost",
       color: "success",
-      class: colorVariants.ghost.success,
+      class: [
+        colorVariants.ghost.success,
+        "data-[hover=true]:!bg-success data-[hover=true]:!text-success-foreground",
+      ],
     },
     {
       variant: "ghost",
       color: "warning",
-      class: colorVariants.ghost.warning,
+      class: [
+        colorVariants.ghost.warning,
+        "data-[hover=true]:!bg-warning data-[hover=true]:!text-warning-foreground",
+      ],
     },
     {
       variant: "ghost",
       color: "danger",
-      class: colorVariants.ghost.danger,
+      class: [
+        colorVariants.ghost.danger,
+        "data-[hover=true]:!bg-danger data-[hover=true]:!text-danger-foreground",
+      ],
     },
     // isInGroup / radius / size <-- radius not provided
     {

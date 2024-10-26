@@ -1,5 +1,5 @@
 import * as React from "react";
-import {renderHook, act} from "@testing-library/react-hooks";
+import {renderHook, act} from "@testing-library/react";
 import {render} from "@testing-library/react";
 
 import {useRefState} from "../src";

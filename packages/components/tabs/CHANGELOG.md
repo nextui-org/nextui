@@ -1,5 +1,22 @@
 # @nextui-org/tabs
 
+## 2.0.37
+
+### Patch Changes
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/aria-utils@2.0.26
+
+## 2.0.36
+
+### Patch Changes
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/aria-utils@2.0.25
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.35
 
 ### Patch Changes
