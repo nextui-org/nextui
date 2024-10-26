@@ -1,7 +1,7 @@
 import { dirname, join } from "path";
 module.exports = {
   stories: [
-    "./welcome.stories.mdx",
+    //"./welcome.stories.mdx",
     "../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
@@ -12,7 +12,7 @@ module.exports = {
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("storybook-dark-mode"),
     getAbsolutePath("@storybook/addon-mdx-gfm"),
-    "./addons/react-strict-mode/register",
+ //   getAbsolutePath("./addons/react-strict-mode/register"),
   ],
   framework: {
     name: getAbsolutePath("@storybook/react-vite"),

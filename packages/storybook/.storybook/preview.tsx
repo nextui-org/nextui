@@ -1,15 +1,14 @@
 import React from "react";
-import {themes} from "@storybook/theming";
-import {NextUIProvider} from "@nextui-org/system/src/provider";
-import type {Preview} from "@storybook/react";
+import { themes } from "@storybook/theming";
+import { NextUIProvider } from "@nextui-org/system/src/provider";
+import type { Preview } from "@storybook/react";
 
 import "./style.css";
-import { withStrictModeSwitcher } from "./addons/react-strict-mode";
+// import { withStrictModeSwitcher } from "./addons/react-strict-mode";
 
 const decorators: Preview["decorators"] = [
-  (Story, {globals: {locale, disableAnimation}}) => {
+  (Story, { globals: { locale, disableAnimation } }) => {
     const direction =
-      // @ts-ignore
       locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
     return (
@@ -20,7 +19,6 @@ const decorators: Preview["decorators"] = [
       </NextUIProvider>
     );
   },
-  ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : []),
 ];
 
 const commonTheme = {
@@ -30,7 +28,7 @@ const commonTheme = {
 };
 
 const parameters: Preview["parameters"] = {
-  actions: {argTypesRegex: "^on[A-Z].*"},
+  actions: { argTypesRegex: "^on[A-Z].*" },
   options: {
     storySort: {
       method: "alphabetical",
@@ -69,40 +67,10 @@ const parameters: Preview["parameters"] = {
 };
 
 const locales = [
-  "ar-AE",
-  "bg-BG",
-  "cs-CZ",
-  "da-DK",
-  "de-DE",
-  "el-GR",
-  "en-US",
-  "es-ES",
-  "et-EE",
-  "fi-FI",
-  "fr-FR",
-  "he-IL",
-  "hr-HR",
-  "hu-HU",
-  "it-IT",
-  "ja-JP",
-  "ko-KR",
-  "lt-LT",
-  "lv-LV",
-  "nb-NO",
-  "nl-NL",
-  "pl-PL",
-  "pt-BR",
-  "pt-PT",
-  "ro-RO",
-  "ru-RU",
-  "sk-SK",
-  "sl-SI",
-  "sr-SP",
-  "sv-SE",
-  "tr-TR",
-  "uk-UA",
-  "zh-CN",
-  "zh-TW",
+  "ar-AE", "bg-BG", "cs-CZ", "da-DK", "de-DE", "el-GR", "en-US", "es-ES", "et-EE", "fi-FI",
+  "fr-FR", "he-IL", "hr-HR", "hu-HU", "it-IT", "ja-JP", "ko-KR", "lt-LT", "lv-LV", "nb-NO",
+  "nl-NL", "pl-PL", "pt-BR", "pt-PT", "ro-RO", "ru-RU", "sk-SK", "sl-SI", "sr-SP", "sv-SE",
+  "tr-TR", "uk-UA", "zh-CN", "zh-TW",
 ];
 
 const globalTypes: Preview["globalTypes"] = {
@@ -111,8 +79,7 @@ const globalTypes: Preview["globalTypes"] = {
       icon: "globe",
       items: locales.map((locale) => ({
         value: locale,
-        title: new Intl.DisplayNames(undefined, {type: "language"}).of(locale),
-        // @ts-ignore
+        title: new Intl.DisplayNames(undefined, { type: "language" }).of(locale),
         right: new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "Right to Left" : undefined,
       })),
     },
@@ -123,8 +90,8 @@ const globalTypes: Preview["globalTypes"] = {
     toolbar: {
       icon: "photodrag",
       items: [
-        {value: true, title: "True"},
-        {value: false, title: "False"},
+        { value: true, title: "True" },
+        { value: false, title: "False" },
       ],
     },
   },
@@ -137,3 +104,4 @@ const preview: Preview = {
 };
 
 export default preview;
+
