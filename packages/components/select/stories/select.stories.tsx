@@ -1013,6 +1013,7 @@ export const Clearable = {
     ...defaultProps,
     isClearable: true,
     endContent: <PetBoldIcon />,
+    // eslint-disable-next-line no-console
     onClear: () => console.log("Select cleared"),
   },
 };

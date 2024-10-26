@@ -78,9 +78,6 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
   startContent?: React.ReactNode;
   /**
    * Element to be rendered in the right side of the select.
-   * if you pass this prop and the `onClear` prop, the passed element
-   * will have the clear button props and it will be rendered instead of the
-   * default clear button.
    */
   endContent?: ReactNode;
   /**
