@@ -3,15 +3,36 @@ import React from "react";
 import Grid from "./Grid";
 import GridItem from "./GridItem";
 
-const Home = () => {
+// Example component showcasing different Grid configurations
+const GridExample = () => {
   return (
-    <Grid columns={3} gap="20px">
+    <Grid
+      container
+      columns={{
+        "@initial": 1,
+        "@sm": 2,
+        "@md": 3,
+      }}
+      gap={{
+        "@initial": "10px",
+        "@sm": "20px",
+        "@md": "30px",
+      }}
+    >
       <GridItem>Item 1</GridItem>
-      <GridItem>Item 2</GridItem>
+      <GridItem span={2}>Item 2 (span 2 columns)</GridItem>
       <GridItem>Item 3</GridItem>
-      <GridItem>Item 4</GridItem>
+      <GridItem>
+        <Grid container columns={2} gap="10px">
+          <GridItem>Nested Item 4.1</GridItem>
+          <GridItem>Nested Item 4.2</GridItem>
+        </Grid>
+      </GridItem>
     </Grid>
   );
 };
 
-export default Home;
+// Export the core Grid components and example
+export {Grid, GridItem, GridExample};
+export type {GridProps} from "./Grid";
+export type {GridItemProps} from "./GridItem";

@@ -30,6 +30,7 @@
     "start": "pnpm dlx http-server storybook-static"
   },
   "dependencies": {
+    "@emotion/styled": "^11.13.0",
     "@nextui-org/react": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",

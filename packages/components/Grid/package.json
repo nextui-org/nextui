@@ -1,9 +1,12 @@
 {
-  "name": "@nextui-org/calendar",
-  "version": "2.0.12",
-  "description": "A calendar displays one or more date grids and allows users to select a single date.",
+  "name": "@nextui-org/grid",
+  "version": "1.0.0",
+  "description": "A flexible grid layout component that allows for responsive designs with configurable columns and gaps.",
   "keywords": [
-    "calendar"
+    "grid",
+    "layout",
+    "responsive",
+    "container"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -19,7 +22,7 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nextui-org/nextui.git",
-    "directory": "packages/components/calendar"
+    "directory": "packages/components/grid"
   },
   "bugs": {
     "url": "https://github.com/nextui-org/nextui/issues"
@@ -43,29 +46,11 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/framer-utils": "workspace:*",
-    "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "lodash.debounce": "^4.0.8",
-    "@internationalized/date": "^3.5.4",
-    "@react-aria/calendar": "3.5.8",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/i18n": "3.11.1",
-    "@react-stately/calendar": "3.5.1",
-    "@react-types/button": "3.9.4",
-    "@react-aria/visually-hidden": "3.8.12",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/utils": "3.10.1",
-    "@react-types/calendar": "3.4.6",
-    "@react-aria/interactions": "3.21.3",
-    "@react-types/shared": "3.23.1",
-    "scroll-into-view-if-needed": "3.0.10",
-    "@types/lodash.debounce": "^4.0.7"
+    "@nextui-org/framer-utils": "workspace:*"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
-    "@nextui-org/radio": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
     "framer-motion": "^10.16.4",
     "clean-package": "2.2.0",

@@ -1,10 +1,10 @@
 import React from "react";
 import { themes } from "@storybook/theming";
-import { NextUIProvider } from "@nextui-org/system/src/provider";
+import { NextUIProvider } from "@nextui-org/system"; // Import directly from package to avoid reloading issues
 import type { Preview } from "@storybook/react";
 
 import "./style.css";
-// import { withStrictModeSwitcher } from "./addons/react-strict-mode";
+// import { withStrictModeSwitcher } from "./addons/react-strict-mode"; // Commented out if not needed
 
 const decorators: Preview["decorators"] = [
   (Story, { globals: { locale, disableAnimation } }) => {
@@ -19,6 +19,8 @@ const decorators: Preview["decorators"] = [
       </NextUIProvider>
     );
   },
+  // Uncomment the line below if you want to enable React Strict Mode in non-production environments
+  // ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : []),
 ];
 
 const commonTheme = {
@@ -104,4 +106,3 @@ const preview: Preview = {
 };
 
 export default preview;
-

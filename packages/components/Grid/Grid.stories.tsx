@@ -8,7 +8,20 @@ import GridItem from "../src/GridItem";
 export default {
   title: "Components/Grid",
   component: Grid,
+  parameters: {
+    docs: {
+      description: {
+        component:
+          "A flexible Grid component that supports container layout and responsive design.",
+      },
+    },
+  },
   argTypes: {
+    container: {
+      control: "boolean",
+      defaultValue: false,
+      description: "Enable container layout mode",
+    },
     columns: {control: {type: "number", min: 1, max: 6}, defaultValue: 2},
     gap: {control: {type: "text"}, defaultValue: "20px"},
     itemShape: {
@@ -27,7 +40,6 @@ export default {
 } as ComponentMeta<typeof Grid>;
 
 const Template: ComponentStory<typeof Grid> = (args) => {
-  // Shape styling based on selection
   const getShapeStyle = () => {
     switch (args.itemShape) {
       case "circular":
@@ -41,6 +53,8 @@ const Template: ComponentStory<typeof Grid> = (args) => {
 
   return (
     <div
+      aria-label="Grid Layout"
+      role="region"
       style={{
         padding: args.containerPadding,
         backgroundColor: args.containerBackground,
@@ -57,13 +71,18 @@ const Template: ComponentStory<typeof Grid> = (args) => {
         style={{
           display: "grid",
           gap: args.gap,
-          gridTemplateColumns: `repeat(${args.columns}, 1fr)`,
+          gridTemplateColumns: {
+            base: "1fr",
+            sm: `repeat(${Math.min(2, args.columns)}, 1fr)`,
+            md: `repeat(${args.columns}, 1fr)`,
+          },
           padding: args.gap,
         }}
       >
-        {Array.from({length: args.columns * 2}).map((_, index) => (
+        {[...new Array(args.columns * 2)].map((_, index) => (
           <GridItem
             key={index}
+            role="gridcell"
             style={{
               backgroundColor: args.itemBackground,
               color: args.itemTextColor,
@@ -96,6 +115,13 @@ Default.args = {
   containerBorder: "#333",
   containerPadding: "1rem",
 };
+Default.parameters = {
+  docs: {
+    description: {
+      story: "Basic grid layout with default configuration.",
+    },
+  },
+};
 
 // Story with circular items
 export const CircularItems = Template.bind({});
@@ -105,6 +131,13 @@ CircularItems.args = {
   itemBackground: "#03A9F4",
   itemBorder: "#0288D1",
 };
+CircularItems.parameters = {
+  docs: {
+    description: {
+      story: "Grid layout with circular items.",
+    },
+  },
+};
 
 // Story with four columns
 export const FourColumns = Template.bind({});
@@ -113,4 +146,45 @@ FourColumns.args = {
   columns: 4,
   itemBackground: "#FF5722",
   itemBorder: "#E64A19",
+};
+FourColumns.parameters = {
+  docs: {
+    description: {
+      story: "Grid layout with four columns.",
+    },
+  },
+};
+
+// Story with container layout
+export const ContainerLayout = Template.bind({});
+ContainerLayout.args = {
+  ...Default.args,
+  container: true,
+};
+ContainerLayout.parameters = {
+  docs: {
+    description: {
+      story:
+        "Demonstrates the grid with container layout that centers content within specified breakpoints.",
+    },
+  },
+};
+
+// Story with responsive behavior
+export const ResponsiveGrid = Template.bind({});
+ResponsiveGrid.args = {
+  ...Default.args,
+  columns: {
+    base: 1,
+    sm: 2,
+    md: 3,
+    lg: 4,
+  },
+};
+ResponsiveGrid.parameters = {
+  docs: {
+    description: {
+      story: "Shows how the grid adapts to different screen sizes.",
+    },
+  },
 };
