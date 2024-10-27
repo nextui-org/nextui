@@ -152,6 +152,9 @@ const corePlugin = (
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
+  const createStripeGradient = (stripeColor: string, backgroundColor: string) =>
+    `linear-gradient(45deg,  hsl(var(--${prefix}-${stripeColor})) 25%,  hsl(var(--${prefix}-${backgroundColor})) 25%,  hsl(var(--${prefix}-${backgroundColor})) 50%,  hsl(var(--${prefix}-${stripeColor})) 50%,  hsl(var(--${prefix}-${stripeColor})) 75%,  hsl(var(--${prefix}-${backgroundColor})) 75%,  hsl(var(--${prefix}-${backgroundColor})))`;
+
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
       // add base classNames
@@ -216,19 +219,16 @@ const corePlugin = (
             medium: `var(--${prefix}-box-shadow-medium)`,
             large: `var(--${prefix}-box-shadow-large)`,
           },
+          backgroundSize: {
+            "stripe-size": "1.25rem 1.25rem",
+          },
           backgroundImage: {
-            "stripe-gradient-default":
-              "linear-gradient(45deg, #3f3f46 25%, transparent 25%, transparent 50%, #3f3f46 50%, #3f3f46 75%, transparent 75%, transparent)",
-            "stripe-gradient-primary":
-              "linear-gradient(45deg, #004493 25%, #006FEE 25%, #006FEE 50%, #004493 50%, #004493 75%, #006FEE 75%, #006FEE)",
-            "stripe-gradient-secondary":
-              "linear-gradient(45deg, #6020A0 25%, #9353d3 25%, #9353d3 50%, #6020A0 50%, #6020A0 75%, #9353d3 75%, #9353d3)",
-            "stripe-gradient-success":
-              "linear-gradient(45deg, #0E793C 25%, #17c964 25%, #17c964 50%, #0E793C 50%, #0E793C 75%, #17c964 75%, #17c964)",
-            "stripe-gradient-warning":
-              "linear-gradient(45deg, #936316 25%, #f5a524 25%, #f5a524 50%, #936316 50%, #936316 75%, #f5a524 75%, #f5a524)",
-            "stripe-gradient-danger":
-              "linear-gradient(45deg, #920B3A 25%, #f31260 25%, #f31260 50%, #920B3A 50%, #920B3A 75%, #f31260 75%, #f31260)",
+            "stripe-gradient-default": createStripeGradient("default-200", "default-400"),
+            "stripe-gradient-primary": createStripeGradient("primary-200", "primary"),
+            "stripe-gradient-secondary": createStripeGradient("secondary-200", "secondary"),
+            "stripe-gradient-success": createStripeGradient("success-200", "success"),
+            "stripe-gradient-warning": createStripeGradient("warning-200", "warning"),
+            "stripe-gradient-danger": createStripeGradient("danger-200", "danger"),
           },
           transitionDuration: {
             0: "0ms",
