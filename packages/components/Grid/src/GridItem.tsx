@@ -1,6 +1,14 @@
 import React, {ReactNode, forwardRef} from "react";
+<<<<<<< HEAD
 import styled from "@emotion/styled"; // Use @emotion/styled directly as fallback
 import {CSS, SizeType} from "@nextui-org/theme";
+=======
+//import styled from "@emotion/styled"; // Use @emotion/styled directly as fallback
+import {CSS, SizeType} from "@nextui-org/theme";
+import {styled} from "@nextui-org/system";
+import {useCallback} from "react";
+import {getBreakpointValue} from "@nextui-org/theme";
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
 
 /**
  * Props for the GridItem component.
@@ -23,8 +31,24 @@ interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
  * Styled component for a single grid item.
  * Applies grid cell display and optional span, start, and end properties.
  */
+<<<<<<< HEAD
 const StyledGridItem = styled("div")({
   display: "block",
+=======
+const StyledGridItem = styled("div", {
+  $$gridItemPadding: "$space$4",
+  display: "block",
+  position: "relative",
+  width: "100%",
+  padding: "$$gridItemPadding",
+  variants: {
+    disablePadding: {
+      true: {
+        padding: 0,
+      },
+    },
+  },
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
 });
 
 /**
@@ -38,6 +62,7 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
      * - `property`: CSS property to be applied.
      * - `value`: Value of the property, either a single value or responsive object.
      */
+<<<<<<< HEAD
     const getResponsiveStyles = (property: string, value: GridItemProps[keyof GridItemProps]) => {
       if (typeof value === "number") return {[property]: value};
       if (typeof value === "object") {
@@ -50,6 +75,25 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
 
       return {};
     };
+=======
+    const getResponsiveStyles = useCallback(
+      (property: string, value: GridItemProps[keyof GridItemProps]) => {
+        if (typeof value === "number") return {[property]: value};
+        if (typeof value === "object") {
+          return Object.entries(value).reduce((acc, [breakpoint, val]) => {
+            const breakpointValue = getBreakpointValue(breakpoint as SizeType);
+
+            acc[`@media (min-width: ${breakpointValue}px)`] = {[property]: val};
+
+            return acc;
+          }, {} as CSS);
+        }
+
+        return {};
+      },
+      [],
+    );
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
 
     return (
       <StyledGridItem

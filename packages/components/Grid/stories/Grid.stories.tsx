@@ -38,10 +38,18 @@ export default {
 
 const Template: ComponentStory<typeof Grid> = (args) => (
   <Grid {...args}>
-    <GridItem>Item 1</GridItem>
-    <GridItem>Item 2</GridItem>
-    <GridItem>Item 3</GridItem>
-    <GridItem>Item 4</GridItem>
+    <GridItem css={{bg: "$primary100", p: "$4"}}>Short item</GridItem>
+    <GridItem css={{bg: "$secondary100", p: "$4"}}>Item with more content</GridItem>
+    <GridItem css={{bg: "$success100", p: "$4"}} span={2}>
+      Wide item spanning 2 columns
+    </GridItem>
+    <GridItem css={{bg: "$warning100", p: "$4"}}>
+      Item with
+      <br />
+      multiple
+      <br />
+      lines
+    </GridItem>
   </Grid>
 );
 

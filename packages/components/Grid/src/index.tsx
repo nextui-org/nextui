@@ -33,6 +33,10 @@ const GridExample = () => {
 };
 
 // Export the core Grid components and example
+<<<<<<< HEAD
 export {Grid, GridItem, GridExample};
+=======
+export {Grid, GridItem, GridExample}; // Include GridExample in exports
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
 export type {GridProps} from "./Grid";
 export type {GridItemProps} from "./GridItem";

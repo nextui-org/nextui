@@ -8,10 +8,18 @@ interface GridItemProps extends React.HTMLAttributes<HTMLDivElement> {
 
 // Single definition of the GridItem component with ref forwarding and grid semantics
 const GridItem = React.forwardRef<HTMLDivElement, GridItemProps>(
+<<<<<<< HEAD
   ({children, className, ...props}, ref) => {
     return (
       <div
         ref={ref}
+=======
+  ({children, className, "aria-label": ariaLabel, ...props}, ref) => {
+    return (
+      <div
+        ref={ref}
+        aria-label={ariaLabel}
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
         className={className}
         role="gridcell" // Adds grid semantics for accessibility
         {...props}

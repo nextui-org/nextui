@@ -14,6 +14,7 @@ export default {
         component:
           "A flexible Grid component that supports container layout and responsive design.",
       },
+<<<<<<< HEAD
     },
   },
   argTypes: {
@@ -28,17 +29,16 @@ export default {
       control: {type: "select"},
       options: ["square", "rounded", "circular"],
       defaultValue: "rounded",
+=======
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
     },
-    itemBackground: {control: "color", defaultValue: "#4CAF50"},
-    itemTextColor: {control: "color", defaultValue: "#FFFFFF"},
-    itemBorder: {control: "color", defaultValue: "#388E3C"},
-    itemShadow: {control: "text", defaultValue: "0 4px 8px rgba(0, 0, 0, 0.2)"},
-    containerBackground: {control: "color", defaultValue: "#212121"},
-    containerBorder: {control: "color", defaultValue: "#333"},
-    containerPadding: {control: "text", defaultValue: "1rem"},
+  },
+  argTypes: {
+    // existing argTypes configuration
   },
 } as ComponentMeta<typeof Grid>;
 
+<<<<<<< HEAD
 const Template: ComponentStory<typeof Grid> = (args) => {
   const getShapeStyle = () => {
     switch (args.itemShape) {
@@ -100,6 +100,28 @@ const Template: ComponentStory<typeof Grid> = (args) => {
     </div>
   );
 };
+=======
+const Template: ComponentStory<typeof Grid> = (args) => (
+  <div
+    aria-label="Grid Layout"
+    role="region"
+    style={{
+      padding: args.containerPadding,
+      backgroundColor: args.containerBackground,
+      border: `3px solid ${args.containerBorder}`,
+      borderRadius: "12px",
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <Grid {...args} style={{gap: args.gap, padding: args.gap}}>
+      {args.children}
+    </Grid>
+  </div>
+);
+>>>>>>> 9207c6d06 (feat: grid component updates with fixes)
 
 // Default Grid
 export const Default = Template.bind({});
@@ -123,13 +145,21 @@ Default.parameters = {
   },
 };
 
-// Story with circular items
-export const CircularItems = Template.bind({});
-CircularItems.args = {
+// Add additional stories for edge cases and errors
+
+// Story for zero columns (empty state)
+export const ZeroColumns = Template.bind({});
+ZeroColumns.args = {
   ...Default.args,
-  itemShape: "circular",
-  itemBackground: "#03A9F4",
-  itemBorder: "#0288D1",
+  columns: 0,
+  children: [],
+};
+ZeroColumns.parameters = {
+  docs: {
+    description: {
+      story: "Shows the grid behavior with zero columns, rendering an empty state.",
+    },
+  },
 };
 CircularItems.parameters = {
   docs: {
@@ -139,13 +169,61 @@ CircularItems.parameters = {
   },
 };
 
-// Story with four columns
-export const FourColumns = Template.bind({});
-FourColumns.args = {
+// Story for invalid props (handled gracefully)
+export const InvalidProps = Template.bind({});
+InvalidProps.args = {
   ...Default.args,
-  columns: 4,
-  itemBackground: "#FF5722",
-  itemBorder: "#E64A19",
+  columns: "invalid", // intentionally invalid
+  gap: "invalid", // intentionally invalid
+  children: [<GridItem key="1">Item 1</GridItem>, <GridItem key="2">Item 2</GridItem>],
+};
+InvalidProps.parameters = {
+  docs: {
+    description: {
+      story: "Shows how the grid handles invalid prop values gracefully.",
+    },
+  },
+};
+
+// Story for loading state (shows skeletons or placeholders)
+export const LoadingState = Template.bind({});
+LoadingState.args = {
+  ...Default.args,
+  children: Array.from({length: 6}, (_, index) => (
+    <GridItem
+      key={index}
+      style={{
+        backgroundColor: "#e0e0e0",
+        color: "#c1c1c1",
+        padding: "1rem",
+        textAlign: "center",
+        borderRadius: "12px",
+      }}
+    >
+      Loading...
+    </GridItem>
+  )),
+};
+LoadingState.parameters = {
+  docs: {
+    description: {
+      story: "Shows a loading state with placeholder items.",
+    },
+  },
+};
+
+// Story for an empty grid (no items provided)
+export const EmptyState = Template.bind({});
+EmptyState.args = {
+  ...Default.args,
+  children: [],
+};
+EmptyState.parameters = {
+  docs: {
+    description: {
+      story: "Displays an empty grid when no items are provided.",
+    },
+  },
 };
 FourColumns.parameters = {
   docs: {
