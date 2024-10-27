@@ -29,27 +29,27 @@ export const animals = [
 ];
 
 export default function App() {
-  const [value, setValue] = React.useState('');
+  const [value, setValue] = React.useState("");
   const [selectedKey, setSelectedKey] = React.useState(null);
 
   const onSelectionChange = (id) => {
     setSelectedKey(id);
   };
-  
+
   const onInputChange = (value) => {
-    setValue(value)
+    setValue(value);
   };
 
   return (
     <div className="flex w-full flex-col">
-      <Autocomplete 
-        label="Search an animal" 
-        variant="bordered"
-        defaultItems={animals}
-        className="max-w-xs" 
+      <Autocomplete
         allowsCustomValue={true}
-        onSelectionChange={onSelectionChange}
+        className="max-w-xs"
+        defaultItems={animals}
+        label="Search an animal"
+        variant="bordered"
         onInputChange={onInputChange}
+        onSelectionChange={onSelectionChange}
       >
         {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
       </Autocomplete>
