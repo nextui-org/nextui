@@ -1,4 +1,4 @@
-import App from "./item-start-cotent.raw.jsx?raw";
+import App from "./item-start-content.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
