@@ -1,4 +1,4 @@
-import App from "./placement.raw.jsx?raw";
+import App from "./placements.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
