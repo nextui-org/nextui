@@ -53,11 +53,14 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
 
   const helperWrapper = useMemo(() => {
-    if (!hasHelper || !(isInvalid && errorMessage || description)) return null;
+    const shouldShowError = isInvalid && errorMessage;
+    const hasContent = shouldShowError || description;
+
+    if (!hasHelper || !hasContent) return null;
 
     return (
       <div {...getHelperWrapperProps()}>
-        {isInvalid && errorMessage ? (
+        {shouldShowError ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : (
           <div {...getDescriptionProps()}>{description}</div>
