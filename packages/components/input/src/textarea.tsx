@@ -143,13 +143,13 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
           {shouldLabelBeInside ? labelContent : null}
           {innerWrapper}
         </div>
-        {hasHelper ? (
+        {hasHelper && ((isInvalid && errorMessage) || description) ? (
           <div {...getHelperWrapperProps()}>
             {isInvalid && errorMessage ? (
               <div {...getErrorMessageProps()}>{errorMessage}</div>
-            ) : description ? (
+            ) : (
               <div {...getDescriptionProps()}>{description}</div>
-            ) : null}
+            )}
           </div>
         ) : null}
       </Component>

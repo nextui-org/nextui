@@ -43,15 +43,15 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
   }, [isClearable, getClearButtonProps]);
 
   const helperWrapper = useMemo(() => {
-    if (!hasHelper) return null;
+    if (!hasHelper || !((isInvalid && errorMessage) || description)) return null;
 
     return (
       <div {...getHelperWrapperProps()}>
         {isInvalid && errorMessage ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
+        ) : (
           <div {...getDescriptionProps()}>{description}</div>
-        ) : null}
+        )}
       </div>
     );
   }, [
