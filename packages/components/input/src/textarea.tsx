@@ -136,6 +136,9 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       return <div {...getInnerWrapperProps()}>{content}</div>;
     }, [startContent, inputProps, endContent, getInnerWrapperProps]);
 
+    const shouldShowError = isInvalid && errorMessage;
+    const hasHelperContent = shouldShowError || description;
+
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
@@ -143,9 +146,9 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
           {shouldLabelBeInside ? labelContent : null}
           {innerWrapper}
         </div>
-        {hasHelper && ((isInvalid && errorMessage) || description) ? (
+        {hasHelper && hasHelperContent ? (
           <div {...getHelperWrapperProps()}>
-            {isInvalid && errorMessage ? (
+            {shouldShowError ? (
               <div {...getErrorMessageProps()}>{errorMessage}</div>
             ) : (
               <div {...getDescriptionProps()}>{description}</div>
