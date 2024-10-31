@@ -533,12 +533,15 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     [slots, isClearButtonFocusVisible, clearPressProps, clearFocusProps, classNames?.clearButton],
   );
 
-  const getHeaderWrapperProps: PropGetter = useCallback((props = {}) => {
-    return {
-      ...props,
-      className: slots.headerWrapper({class: clsx(classNames?.headerWrapper, props?.className)}),
-    };
-  }, []);
+  const getHeaderWrapperProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        className: slots.headerWrapper({class: clsx(classNames?.headerWrapper, props?.className)}),
+      };
+    },
+    [slots, classNames?.headerWrapper],
+  );
 
   return {
     Component,
