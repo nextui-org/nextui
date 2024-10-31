@@ -191,7 +191,7 @@ const input = tv({
     },
     isClearable: {
       true: {
-        input: "peer pe-6",
+        input: "peer pe-6 input-search-cancel-button-none",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
