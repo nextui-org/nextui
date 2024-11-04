@@ -92,15 +92,9 @@ export function useHiddenSelect<T>(
     inputProps: {
       type: "text",
       tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
-      autoComplete,
-      value: [...state.selectedKeys].join(",") ?? "",
-      required: isRequired,
       style: {fontSize: 16},
       onFocus: () => triggerRef.current?.focus(),
       disabled: isDisabled,
-      // The onChange is handled by the `select` element. This avoids the `form` with input `value`
-      // and no `onChange` warning.
-      onChange: () => {},
     },
     selectProps: {
       name,
@@ -108,6 +102,7 @@ export function useHiddenSelect<T>(
       autoComplete,
       // TODO: Address validation for cases where an option is selected and then deselected.
       // required: validationBehavior === "native" && isRequired,
+      required: isRequired,
       disabled: isDisabled,
       size: state.collection.size,
       value:
