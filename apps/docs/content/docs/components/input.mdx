@@ -13,7 +13,7 @@ Input is a component that allows users to enter text. It can be used to get user
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -85,14 +85,14 @@ You can change the position of the label by setting the `labelPlacement` propert
 
 You can use the `type` property to change the input type to `password`.
 
-<CodeDemo title="Password Input" highlightedLines="24" files={inputContent.password} />
+<CodeDemo title="Password Input" highlightedLines="25" files={inputContent.password} />
 
 ### Clear Button
 
 If you pass the `isClearable` property to the input, it will have a clear button at the
 end of the input, it will be visible when the input has a value.
 
-<CodeDemo title="Clear Button" highlightedLines="6" files={inputContent.clearButton} />
+<CodeDemo title="Clear Button" highlightedLines="7" files={inputContent.clearButton} />
 
 ### Start & End Content
 
@@ -142,7 +142,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 
 You can customize the `Input` component by passing custom Tailwind CSS classes to the component slots.
 
-<CodeDemo title="Custom Styles" highlightedLines="14-32" files={inputContent.customStyles} />
+<CodeDemo title="Custom Styles" highlightedLines="13-31" files={inputContent.customStyles} />
 
 ### Custom Implementation
 
@@ -155,7 +155,7 @@ In case you need to customize the input even further, you can use the `useInput`
   files={inputContent.customImpl}
 />
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## Data Attributes
 
@@ -178,7 +178,7 @@ In case you need to customize the input even further, you can use the `useInput`
 - **data-disabled**:
   When the input is disabled. Based on `isDisabled` prop.
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## Accessibility
 
@@ -188,7 +188,7 @@ In case you need to customize the input even further, you can use the `useInput`
 - Required and invalid states exposed to assistive technology via ARIA.
 - Support for description and error message help text linked to the input via ARIA.
 
-<Spacer y={4} />{" "}
+<Spacer y={4} />
 
 ## API
 

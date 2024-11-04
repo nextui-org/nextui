@@ -5,7 +5,7 @@
     "paths": {
       "@/*": ["./*"],
       "tailwind-variants": ["./node_modules/tailwind-variants"],
-      "contentlayer/generated": ["./.contentlayer/generated"]
+      "contentlayer2/generated": ["./.contentlayer/generated"]
     },
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
@@ -23,8 +23,10 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "**/*.jsx",
     ".next/types/**/*.ts",
-    ".contentlayer/generated"
+    ".contentlayer/generated",
+    "global.d.ts"
   ],
   "exclude": ["node_modules", "next-redirect.js"]
 }

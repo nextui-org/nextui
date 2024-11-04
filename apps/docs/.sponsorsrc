@@ -310,25 +310,23 @@
     "website": "https://encur.me/"
   },
   {
-    "MemberId": 569973,
-    "createdAt": "2024-05-29 17:51",
-    "type": "USER",
+    "MemberId": 571230,
+    "createdAt": "2024-06-01 18:47",
+    "type": "ORGANIZATION",
     "role": "BACKER",
     "tier": "Gold Sponsor 🥇",
     "isActive": true,
     "totalAmountDonated": 100,
     "currency": "USD",
-    "lastTransactionAt": "2024-05-29 17:51",
+    "lastTransactionAt": "2024-06-01 18:47",
     "lastTransactionAmount": 100,
-    "profile": "https://opencollective.com/maxprilutskiy",
-    "name": "Replexica",
-    "company": "",
-    "description": null,
-    "image": "/sponsors/569973.jpg",
-    "email": null,
-    "newsletterOptIn": null,
+    "profile": "https://opencollective.com/coderabbit",
+    "name": "CodeRabbit",
+    "company": null,
+    "description": "CodeRabbit is an AI-driven context-aware code reviewer that provides line-by-line feedback and smart chat. ",
+    "image": "/sponsors/571230.jpg",
     "twitter": null,
     "github": null,
-    "website": "https://replexica.com/?utm_source=nextui&utm_marketing=oss"
+    "website": "https://coderabbit.ai"
   }
 ]

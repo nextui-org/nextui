@@ -1,5 +1,41 @@
 # @nextui-org/input
 
+## 2.2.5
+
+### Patch Changes
+
+- [#2958](https://github.com/nextui-org/nextui/pull/2958) [`985c2e1dd`](https://github.com/nextui-org/nextui/commit/985c2e1dd3642e3087aa0555a3c3ae4ea182b099) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixed hover and focus of input when label placement is outside-left (#2328)
+
+- [#3643](https://github.com/nextui-org/nextui/pull/3643) [`3d6865586`](https://github.com/nextui-org/nextui/commit/3d6865586fe7cec850925c8e8ff42155a97c43ea) Thanks [@ryxxn](https://github.com/ryxxn)! - disable clear button when input is read-only
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/react-utils@2.0.17
+
+## 2.2.4
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.2.3
+
+### Patch Changes
+
+- [#3300](https://github.com/nextui-org/nextui/pull/3300) [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add accessible name to the icon button (#2802, #2808)
+
+- [#3268](https://github.com/nextui-org/nextui/pull/3268) [`93f178781`](https://github.com/nextui-org/nextui/commit/93f17878154a6351c38c8ef4806b5fb20e4fa217) Thanks [@wingkwong](https://github.com/wingkwong)! - revised styles and logic for input with file type (#2397, #2311, #2965)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.2.2
 
 ### Patch Changes

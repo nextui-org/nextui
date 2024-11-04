@@ -1,5 +1,5 @@
-import debounce from "lodash.debounce";
-import {useLayoutEffect, useRef} from "react";
+import {useLayoutEffect, useRef, useCallback} from "react";
+import {debounce} from "@nextui-org/shared-utils";
 
 export interface UseInfiniteScrollProps {
   /**
@@ -27,13 +27,32 @@ export interface UseInfiniteScrollProps {
 }
 
 export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
-  const {hasMore, distance = 250, isEnabled = true, shouldUseLoader = true, onLoadMore} = props;
+  const {
+    hasMore = true,
+    distance = 250,
+    isEnabled = true,
+    shouldUseLoader = true,
+    onLoadMore,
+  } = props;
 
   const scrollContainerRef = useRef<HTMLElement>(null);
   const loaderRef = useRef<HTMLElement>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const isLoadingRef = useRef(false);
 
-  const previousY = useRef<number>();
-  const previousRatio = useRef<number>(0);
+  const loadMore = useCallback(() => {
+    let timer: ReturnType<typeof setTimeout>;
+
+    if (!isLoadingRef.current && hasMore && onLoadMore) {
+      isLoadingRef.current = true;
+      onLoadMore();
+      timer = setTimeout(() => {
+        isLoadingRef.current = false;
+      }, 100); // Debounce time to prevent multiple calls
+    }
+
+    return () => clearTimeout(timer);
+  }, [hasMore, onLoadMore]);
 
   useLayoutEffect(() => {
     const scrollContainerNode = scrollContainerRef.current;
@@ -48,50 +67,44 @@ export function useInfiniteScroll(props: UseInfiniteScrollProps = {}) {
       const options = {
         root: scrollContainerNode,
         rootMargin: `0px 0px ${distance}px 0px`,
+        threshold: 0.1,
       };
 
-      const listener = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach(({isIntersecting, intersectionRatio, boundingClientRect = {}}) => {
-          const y = boundingClientRect.y || 0;
+      const observer = new IntersectionObserver((entries) => {
+        const [entry] = entries;
 
-          if (
-            isIntersecting &&
-            intersectionRatio >= previousRatio.current &&
-            (!previousY.current || y < previousY.current)
-          ) {
-            onLoadMore?.();
-          }
-          previousY.current = y;
-          previousRatio.current = intersectionRatio;
-        });
-      };
-
-      const observer = new IntersectionObserver(listener, options);
+        if (entry.isIntersecting) {
+          loadMore();
+        }
+      }, options);
 
       observer.observe(loaderNode);
-
-      return () => observer.disconnect();
-    } else {
-      const debouncedOnLoadMore = onLoadMore ? debounce(onLoadMore, 200) : undefined;
-
-      const checkIfNearBottom = () => {
-        if (
-          scrollContainerNode.scrollHeight - scrollContainerNode.scrollTop <=
-          scrollContainerNode.clientHeight + distance
-        ) {
-          debouncedOnLoadMore?.();
-        }
-      };
-
-      scrollContainerNode.addEventListener("scroll", checkIfNearBottom);
+      observerRef.current = observer;
 
       return () => {
-        scrollContainerNode.removeEventListener("scroll", checkIfNearBottom);
+        if (observerRef.current) {
+          observerRef.current.disconnect();
+        }
       };
     }
-  }, [hasMore, distance, isEnabled, onLoadMore, shouldUseLoader]);
 
-  return [loaderRef, scrollContainerRef];
+    const debouncedCheckIfNearBottom = debounce(() => {
+      if (
+        scrollContainerNode.scrollHeight - scrollContainerNode.scrollTop <=
+        scrollContainerNode.clientHeight + distance
+      ) {
+        loadMore();
+      }
+    }, 100);
+
+    scrollContainerNode.addEventListener("scroll", debouncedCheckIfNearBottom);
+
+    return () => {
+      scrollContainerNode.removeEventListener("scroll", debouncedCheckIfNearBottom);
+    };
+  }, [hasMore, distance, isEnabled, shouldUseLoader, loadMore]);
+
+  return [loaderRef, scrollContainerRef] as const;
 }
 
 export type UseInfiniteScrollReturn = ReturnType<typeof useInfiniteScroll>;

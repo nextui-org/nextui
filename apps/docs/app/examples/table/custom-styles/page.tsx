@@ -23,7 +23,7 @@ import {
 } from "@nextui-org/react";
 import {ChevronDownIcon, SearchIcon} from "@nextui-org/shared-icons";
 import {useCallback, useMemo, useState} from "react";
-import {capitalize} from "lodash";
+import {capitalize} from "@nextui-org/shared-utils";
 
 import {PlusLinearIcon} from "@/components/icons";
 import {VerticalDotsIcon} from "@/components/icons/vertical-dots";
@@ -112,7 +112,7 @@ const users = [
     age: "29",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     email: "brian.kim@example.com",
-    status: "Active",
+    status: "active",
   },
   {
     id: 7,

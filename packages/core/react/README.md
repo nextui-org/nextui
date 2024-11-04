@@ -20,13 +20,7 @@
   </a>
 </p>
 
-<p align="center">
-  <a rel="noopener noreferrer" target="_blank" href="https://www.vercel.com?utm_source=nextui&utm_marketing=oss">
-    <img height="34px" src="https://raw.githubusercontent.com/nextui-org/nextui/main/apps/docs/public/deployed-on-vercel.svg" alt="Deployed on vercel">
-  </a>
-</p>
-
-> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com), but does get some inspiration from there.
+> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com).
 
 ## Getting Started
 
@@ -53,7 +47,7 @@ We're excited to see the community adopt NextUI, raise issues, and provide feedb
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
 
 - [Discord](https://discord.gg/9b6yyZKmH4)
-- [Twitter](https://twitter.com/getnextui)
+- [X](https://x.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
 
 ## Contributing

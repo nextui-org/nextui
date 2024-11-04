@@ -70,7 +70,7 @@ export const useSandpack = ({
   }, {});
 
   let dependencies = {
-    "framer-motion": "11.0.22",
+    "framer-motion": "11.9.0",
     "@nextui-org/react": "latest",
   };
 
@@ -100,13 +100,17 @@ export const useSandpack = ({
       let fileContent = files[key] as string;
 
       // Check if the file content includes 'React' import statements, if not, add it
-      if (!fileContent.includes("from 'react'") && !fileContent.includes('from "react"')) {
+      if (
+        fileContent.includes("React.") &&
+        !fileContent.includes("from 'react'") &&
+        !fileContent.includes('from "react"')
+      ) {
         fileContent = `${importReact}\n${fileContent}\n`;
       }
 
       // Check if file content includes any other dependencies, if yes, add it to dependencies
       const importRegex = /import .* from ["'](.*)["']/g;
-      let match;
+      let match: RegExpExecArray | null;
 
       while ((match = importRegex.exec(fileContent)) !== null) {
         const dependencyName = match[1];
@@ -139,19 +143,19 @@ export const useSandpack = ({
 
   // const dependencies = useMemo(() => {
   //   let deps = {
-  //     "framer-motion": "11.0.22",
+  //     "framer-motion": "11.9.0",
   //   };
 
   //   if (hasComponents) {
   //     let deps = {
-  //       "@nextui-org/theme": "dev-v2",
-  //       "@nextui-org/system": "dev-v2",
+  //       "@nextui-org/theme": "canary",
+  //       "@nextui-org/system": "canary",
   //     };
 
   //     nextUIComponents.forEach((component) => {
   //       deps = {
   //         ...deps,
-  //         [`@nextui-org/${component}`]: "dev-v2",
+  //         [`@nextui-org/${component}`]: "canary",
   //       };
   //     });
 
@@ -160,7 +164,7 @@ export const useSandpack = ({
 
   //   return {
   //     ...deps,
-  //     "@nextui-org/react": "dev-v2",
+  //     "@nextui-org/react": "canary",
   //   };
   // }, [hasComponents, nextUIComponents, component]);
 

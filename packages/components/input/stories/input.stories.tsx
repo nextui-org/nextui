@@ -343,6 +343,8 @@ const InputTypesTemplate = (args) => (
     <Input {...args} label="Month" placeholder="Enter your month" type="month" />
     <Input {...args} label="Week" placeholder="Enter your week" type="week" />
     <Input {...args} label="Range" placeholder="Enter your range" type="range" />
+    <Input {...args} label="Single File" type="file" />
+    <Input {...args} multiple label="Multiple Files" type="file" />
   </div>
 );
 

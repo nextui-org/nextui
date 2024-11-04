@@ -124,6 +124,7 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
     imgProps,
     className,
     onError,
+    disableAnimation: disableAnimationProp,
     ...otherProps
   } = originalProps;
 
@@ -134,8 +135,7 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing();
   const {isHovered, hoverProps} = useHover({isDisabled});
-  const disableAnimation =
-    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+  const disableAnimation = disableAnimationProp ?? globalContext?.disableAnimation ?? false;
 
   const imageStatus = useImage({src, onError, ignoreFallback});
 
@@ -201,7 +201,6 @@ export function useAvatar(originalProps: UseAvatarProps = {}) {
     (props = {}) => ({
       ref: imgRef,
       src: src,
-      disableAnimation,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
       ...mergeProps(

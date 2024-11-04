@@ -7,7 +7,7 @@ tags: ["nextui", "tailwindcss", "react", "nextjs", "react-server-components"]
 author:
   name: "Junior Garcia"
   username: "@jrgarciadev"
-  link: "https://twitter.com/jrgarciadev"
+  link: "https://x.com/jrgarciadev"
   avatar: "/avatars/junior-garcia.jpeg"
 ---
 
@@ -60,7 +60,11 @@ into React Server Components issues.
 NextUI v2.0 comes with a TailwindCSS plugin that enables the customization and addition of default themes.
 This plugin allows you to customize colors and layouts tokens that are used by NextUI components.
 
-```js {8,13-14}
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
+
+```js {9,14-15}
 // tailwind.config.js
 const {nextui} = require("@nextui-org/react");
 
@@ -68,6 +72,7 @@ const {nextui} = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -86,7 +91,7 @@ Thanks to the switch to TailwindCSS, **NextUI v2.0** now supports React Server C
 improves performance and allows you to use it with the latest versions of [React](https://reactjs.org/) and
 [Next.js](https://nextjs.org/).
 
-NextUI components already include the `use client;` directive so you can import them directly 
+NextUI components already include the `use client;` directive so you can import them directly
 in your React Server Components (RSC).
 
 ```jsx

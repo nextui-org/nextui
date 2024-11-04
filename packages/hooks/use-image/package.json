@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-image",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "React hook for progressing image loading",
   "keywords": [
     "use-image"
@@ -41,7 +41,8 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "@nextui-org/test-utils": "workspace:*"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {

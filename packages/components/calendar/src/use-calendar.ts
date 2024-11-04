@@ -8,19 +8,12 @@ import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
 import {useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
-import {chain} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
 import {CalendarBaseProps} from "./calendar-base";
 
-interface Props extends UseCalendarBaseProps {
-  /**
-   * Props for the button picker, which is used to select the month, year and expand the header.
-   */
-  buttonPickerProps?: ButtonProps;
-}
-
-export type UseCalendarProps<T extends DateValue> = Props & AriaCalendarProps<T>;
+export type UseCalendarProps<T extends DateValue> = UseCalendarBaseProps & AriaCalendarProps<T>;
 
 export function useCalendar<T extends DateValue>({
   buttonPickerProps: buttonPickerPropsProp,
@@ -76,7 +69,7 @@ export function useCalendar<T extends DateValue>({
   const baseStyles = clsx(classNames?.base, className);
 
   const buttonPickerProps: ButtonProps = {
-    ...buttonPickerPropsProp,
+    ...mergeProps(buttonPickerPropsProp, {isDisabled: originalProps.isDisabled}),
     onPress: chain(buttonPickerPropsProp?.onPress, () => setIsHeaderExpanded(!isHeaderExpanded)),
   };
 

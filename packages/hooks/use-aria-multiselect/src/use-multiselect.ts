@@ -11,7 +11,7 @@ import {AriaListBoxOptions} from "@react-aria/listbox";
 import {useMenuTrigger} from "@react-aria/menu";
 import {ListKeyboardDelegate, useTypeSelect} from "@react-aria/selection";
 import {chain, filterDOMProps, mergeProps, useId} from "@react-aria/utils";
-import {FocusEvent, HTMLAttributes, RefObject, useMemo} from "react";
+import {FocusEvent, HTMLAttributes, RefObject, useMemo, Key} from "react";
 import {ValidationResult} from "@react-types/shared";
 
 export type MultiSelectProps<T> = MultiSelectStateProps<T>;
@@ -64,7 +64,7 @@ export function useMultiSelect<T>(
 
           const key =
             state.selectedKeys.size > 0
-              ? delegate.getKeyAbove(state.selectedKeys.values().next().value)
+              ? delegate.getKeyAbove(state.selectedKeys.values().next().value as Key)
               : delegate.getFirstKey();
 
           if (key) {
@@ -78,7 +78,7 @@ export function useMultiSelect<T>(
 
           const key =
             state.selectedKeys.size > 0
-              ? delegate.getKeyBelow(state.selectedKeys.values().next().value)
+              ? delegate.getKeyBelow(state.selectedKeys.values().next().value as Key)
               : delegate.getFirstKey();
 
           if (key) {

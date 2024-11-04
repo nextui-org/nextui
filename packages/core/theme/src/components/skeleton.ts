@@ -44,7 +44,7 @@ const skeleton = tv({
       "data-[loaded=true]:pointer-events-auto",
       "data-[loaded=true]:overflow-visible",
       "data-[loaded=true]:!bg-transparent",
-      "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:animate-none",
+      "data-[loaded=true]:before:opacity-0 data-[loaded=true]:before:-z-10 data-[loaded=true]:before:animate-none",
       "data-[loaded=true]:after:opacity-0",
     ],
     content: ["opacity-0", "group-data-[loaded=true]:opacity-100"],
@@ -56,7 +56,7 @@ const skeleton = tv({
         content: "transition-none",
       },
       false: {
-        base: "transition-background !duration-300 before:transition-opacity before:!duration-300",
+        base: "transition-background !duration-300",
         content: "transition-opacity motion-reduce:transition-none !duration-300",
       },
     },

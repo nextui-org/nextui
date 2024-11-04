@@ -13,7 +13,7 @@ Tables are used to display tabular data using rows and columns. They allow users
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -223,6 +223,7 @@ sure to install it before using the sorting feature.
     npm: "npm install @react-stately/data",
     yarn: "yarn add @react-stately/data",
     pnpm: "pnpm add @react-stately/data",
+    bun: "bun add @react-stately/data",
   }}
 />
 
@@ -288,6 +289,23 @@ It is also possible to use the [Pagination](/components/pagination) component to
 Table also supports infinite pagination. To do so, you can use the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) and
 [@nextui-org/use-infinite-scroll](https://www.npmjs.com/package/@nextui-org/use-infinite-scroll) hook.
 
+<PackageManagers
+  commands={{
+    npm: "npm install @react-stately/data @nextui-org/use-infinite-scroll",
+    yarn: "yarn add @react-stately/data @nextui-org/use-infinite-scroll",
+    pnpm: "pnpm add @react-stately/data @nextui-org/use-infinite-scroll",
+    bun: "bun add @react-stately/data @nextui-org/use-infinite-scroll",
+  }}
+/>
+
+```jsx
+import { useInfiniteScroll } from "@nextui-org/use-infinite-scroll";
+
+import { useAsyncList } from "@react-stately/data";
+```
+
+<Spacer y={2} />
+
 <CodeDemo
   asIframe
   title="Infinite Paginated Table"
@@ -295,6 +313,8 @@ Table also supports infinite pagination. To do so, you can use the `useAsyncList
   files={tableContent.infinitePagination}
   previewHeight="620px"
   displayMode="visible"
+  showPreview={true}
+  showOpenInCodeSandbox={false}
   iframeSrc="/examples/table/infinite-pagination"
 />
 

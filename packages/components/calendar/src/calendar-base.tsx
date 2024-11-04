@@ -3,13 +3,11 @@ import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
-import {Fragment} from "react";
-import {useState} from "react";
-import {useLocale} from "@react-aria/i18n";
+import {Fragment, useState} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
-import {AnimatePresence, LazyMotion, domAnimation, MotionConfig} from "framer-motion";
+import {AnimatePresence, LazyMotion, MotionConfig} from "framer-motion";
 import {ResizablePanel} from "@nextui-org/framer-utils";
 
 import {ChevronLeftIcon} from "./chevron-left";
@@ -19,6 +17,8 @@ import {transition} from "./calendar-transitions";
 import {CalendarHeader} from "./calendar-header";
 import {CalendarPicker} from "./calendar-picker";
 import {useCalendarContext} from "./calendar-context";
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   Component?: As;
@@ -55,12 +55,10 @@ export function CalendarBase(props: CalendarBaseProps) {
 
   const [direction, setDirection] = useState<number>(0);
 
-  const {direction: rtlDirection} = useLocale();
-
   const currentMonth = state.visibleRange.start;
 
-  const headers = [];
-  const calendars = [];
+  const headers: React.ReactNode[] = [];
+  const calendars: React.ReactNode[] = [];
 
   for (let i = 0; i < visibleMonths; i++) {
     let d = currentMonth.add({months: i});
@@ -72,7 +70,7 @@ export function CalendarBase(props: CalendarBaseProps) {
             {...prevButtonProps}
             onPress={chain(prevButtonProps.onPress, () => setDirection(-1))}
           >
-            {rtlDirection === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            <ChevronLeftIcon />
           </Button>
         )}
         <CalendarHeader
@@ -86,7 +84,7 @@ export function CalendarBase(props: CalendarBaseProps) {
             {...nextButtonProps}
             onPress={chain(nextButtonProps.onPress, () => setDirection(1))}
           >
-            {rtlDirection === "rtl" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+            <ChevronRightIcon />
           </Button>
         )}
       </Fragment>,
