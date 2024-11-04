@@ -3,7 +3,7 @@
   "ignorePatterns": ["!**/*"],
   "overrides": [
     {
-      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "files": ["*.ts", "*.tsx"],
       "parserOptions": {
         "project": ["apps/docs/tsconfig(.*)?.json"],
         "ecmaFeatures": {

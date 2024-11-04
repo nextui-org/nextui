@@ -163,7 +163,12 @@ interface Props extends NextUIBaseProps {
 export type UseCalendarBasePropsComplete = Props & CalendarVariantProps & AriaCalendarPropsBase;
 
 // Omit internal props
-export type UseCalendarBaseProps = Omit<UseCalendarBasePropsComplete, "isRange">;
+export type UseCalendarBaseProps = Omit<UseCalendarBasePropsComplete, "isRange"> & {
+  /**
+   * Props for the button picker, which is used to select the month, year and expand the header.
+   */
+  buttonPickerProps?: ButtonProps;
+};
 
 export type ContextType<T extends CalendarState | RangeCalendarState> = {
   state: T;
@@ -225,11 +230,9 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
   /**
    * Determines whether to show the month and year pickers.
    * The pickers are shown if `showMonthAndYearPickers` is true,
-   * there is only one visible month (`visibleMonths === 1`),
-   * and it's not a range calendar (`!isRange`).
+   * there is only one visible month (`visibleMonths === 1`).
    */
-  const showMonthAndYearPickers =
-    originalProps.showMonthAndYearPickers && visibleMonths === 1 && !originalProps?.isRange;
+  const showMonthAndYearPickers = originalProps.showMonthAndYearPickers && visibleMonths === 1;
 
   const domRef = useDOMRef(ref);
 
@@ -279,7 +282,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     "data-has-multiple-months": dataAttr(hasMultipleMonths),
     style: {
       // @ts-ignore
-      "--visible-months": visibleMonths,
+      "--visible-months": typeof visibleMonths === "number" ? `${visibleMonths}` : visibleMonths,
       "--calendar-width": typeof calendarWidth === "number" ? `${calendarWidth}px` : calendarWidth,
     } as React.CSSProperties,
   };

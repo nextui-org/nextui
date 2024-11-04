@@ -14,7 +14,7 @@ Requirements:
 
 ------
 
-
+<CarbonAd/>
 
 To use NextUI in your Vite project, you need to follow the following steps:
 
@@ -57,7 +57,7 @@ the following code to your `tailwind.config.js` file:
 **Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
 </Blockquote>
 
-```js {8,13-14}
+```js {2,8,13-14}
 // tailwind.config.js
 const { nextui } = require("@nextui-org/react");
 
@@ -81,7 +81,7 @@ After installing NextUI, you need to set up the `NextUIProvider` at the `root` o
 
 Go to the src directory and inside `main.jsx` or `main.tsx`, wrap `NextUIProvider` around App:
 
-```jsx
+```jsx {4,10,12}
 // main.tsx or main.jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'

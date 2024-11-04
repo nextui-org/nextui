@@ -29,6 +29,7 @@ const input = tv({
       "z-10",
       "pointer-events-none",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "block",
@@ -44,6 +45,7 @@ const input = tv({
       "data-[has-start-content=true]:ps-1.5",
       "data-[has-end-content=true]:pe-1.5",
       "file:cursor-pointer file:bg-transparent file:border-0",
+      "autofill:bg-transparent bg-clip-text",
     ],
     clearButton: [
       "p-2",
@@ -51,9 +53,8 @@ const input = tv({
       "z-10",
       "hidden",
       "absolute",
-      "right-3",
-      "rtl:right-auto",
-      "rtl:left-3",
+      "end-3",
+      "start-auto",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -173,7 +174,7 @@ const input = tv({
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
         inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
-        label: "relative text-foreground pr-2 rtl:pr-0 rtl:pl-2",
+        label: "relative text-foreground pe-2 ps-2 pointer-events-auto",
       },
       inside: {
         label: "text-tiny cursor-text",
@@ -185,10 +186,11 @@ const input = tv({
       true: {
         base: "w-full",
       },
+      false: {},
     },
     isClearable: {
       true: {
-        input: "peer pr-6 rtl:pr-0 rtl:pl-6",
+        input: "peer pe-6 input-search-cancel-button-none",
         clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
       },
     },
@@ -207,8 +209,7 @@ const input = tv({
     },
     isRequired: {
       true: {
-        label:
-          "after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5",
+        label: "after:content-['*'] after:text-danger after:ms-0.5",
       },
     },
     isMultiline: {
@@ -600,13 +601,13 @@ const input = tv({
       labelPlacement: "outside",
       isMultiline: false,
       class: {
-        base: "group relative justify-end",
+        base: "relative justify-end",
         label: [
           "pb-0",
           "z-20",
           "top-1/2",
           "-translate-y-1/2",
-          "group-data-[filled-within=true]:left-0",
+          "group-data-[filled-within=true]:start-0",
         ],
       },
     },
@@ -756,7 +757,7 @@ const input = tv({
       isMultiline: false,
       class: {
         label: [
-          "left-2",
+          "start-2",
           "text-tiny",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
@@ -769,9 +770,8 @@ const input = tv({
       isMultiline: false,
       class: {
         label: [
-          "left-3",
-          "rtl:left-auto",
-          "rtl:right-3",
+          "start-3",
+          "end-auto",
           "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -784,9 +784,8 @@ const input = tv({
       isMultiline: false,
       class: {
         label: [
-          "left-3",
-          "rtl:left-auto",
-          "rtl:right-3",
+          "start-3",
+          "end-auto",
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],

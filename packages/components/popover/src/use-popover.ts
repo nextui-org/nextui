@@ -118,6 +118,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     boundaryElement,
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
+    shouldCloseOnScroll,
     motionProps,
     className,
     classNames,
@@ -169,6 +170,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       containerPadding,
       updatePositionDeps,
       isKeyboardDismissDisabled,
+      shouldCloseOnScroll,
       shouldCloseOnInteractOutside,
     },
     state,
@@ -263,8 +265,7 @@ export function usePopover(originalProps: UsePopoverProps) {
 
       return {
         "data-slot": "trigger",
-        "aria-haspopup": "dialog",
-        ...mergeProps(triggerProps, otherProps),
+        ...mergeProps({"aria-haspopup": "dialog"}, triggerProps, otherProps),
         onPress,
         isDisabled,
         className: slots.trigger({

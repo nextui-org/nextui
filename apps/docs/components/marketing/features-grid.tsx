@@ -72,7 +72,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({features, classNames,
           <CardHeader className={slots.header({class: classNames?.header})}>
             <div className={slots.iconWrapper({class: classNames?.iconWrapper})}>{feat.icon}</div>
             <p className={slots.title({class: classNames?.title})}>{feat.title}</p>
-            {feat.isExternal && <LinkIcon className="text-white" height={18} width={18} />}
+            {feat.isExternal && <LinkIcon height={18} width={18} />}
           </CardHeader>
           {feat.description ? (
             <CardBody className={slots.body({class: classNames?.body})}>

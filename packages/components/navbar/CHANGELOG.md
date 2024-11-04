@@ -1,5 +1,47 @@
 # @nextui-org/navbar
 
+## 2.0.37
+
+### Patch Changes
+
+- [#3601](https://github.com/nextui-org/nextui/pull/3601) [`048de6e9b`](https://github.com/nextui-org/nextui/commit/048de6e9b289d1cec180856fbcf3ba38db3007e2) Thanks [@FacundoTenuta](https://github.com/FacundoTenuta)! - Fix navbar menu breaking when a numerical height value is provided. The height value is now converted to pixels if it is a number.
+
+- Updated dependencies [[`b0728e3c3`](https://github.com/nextui-org/nextui/commit/b0728e3c3841ce6abb6ed6d4617ddb5242077324), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/use-scroll-position@2.0.9
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
+## 2.0.36
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-aria-toggle-button@2.0.10
+  - @nextui-org/use-scroll-position@2.0.8
+  - @nextui-org/framer-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.35
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/framer-utils@2.0.23
+
+## 2.0.34
+
+### Patch Changes
+
+- Updated dependencies [[`35e709de7`](https://github.com/nextui-org/nextui/commit/35e709de7d3300c2de0b9158d098b10ef185d6ca), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/use-scroll-position@2.0.7
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/framer-utils@2.0.22
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.33
 
 ### Patch Changes

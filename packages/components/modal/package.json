@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/modal",
-  "version": "2.0.36",
+  "version": "2.0.41",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"
@@ -36,25 +36,27 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=10.17.0",
+    "framer-motion": ">=11.5.6",
     "@nextui-org/theme": ">=2.1.0",
     "@nextui-org/system": ">=2.0.0"
   },
   "dependencies": {
     "@nextui-org/use-disclosure": "workspace:*",
+    "@nextui-org/use-draggable": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-aria-modal-overlay": "workspace:*",
-    "@react-aria/dialog": "3.5.14",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/interactions": "3.21.3",
-    "@react-aria/overlays": "3.22.1",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/overlays": "3.6.7",
-    "@react-types/overlays": "3.8.7"
+    "@nextui-org/dom-animation": "workspace:*",
+    "@react-aria/dialog": "3.5.17",
+    "@react-aria/focus": "3.18.2",
+    "@react-aria/interactions": "3.22.2",
+    "@react-aria/overlays": "3.23.2",
+    "@react-aria/utils": "3.25.2",
+    "@react-stately/overlays": "3.6.10",
+    "@react-types/overlays": "3.8.9"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
@@ -63,8 +65,9 @@
     "@nextui-org/checkbox": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/link": "workspace:*",
+    "@nextui-org/switch": "workspace:*",
     "react-lorem-component": "0.13.0",
-    "framer-motion": "^11.0.22",
+    "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

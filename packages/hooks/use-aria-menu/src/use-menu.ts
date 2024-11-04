@@ -24,7 +24,7 @@ export interface AriaMenuOptions<T> extends Omit<AriaMenuProps<T>, "children">, 
 
 interface MenuData {
   onClose?: () => void;
-  onAction?: (key: Key) => void;
+  onAction?: (key: Key, item: any) => void;
 }
 
 export const menuData = new WeakMap<TreeState<unknown>, MenuData>();

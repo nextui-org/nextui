@@ -17,4 +17,9 @@ export default {
   ".tap-highlight-transparent": {
     "-webkit-tap-highlight-color": "transparent",
   },
+  ".input-search-cancel-button-none": {
+    "&::-webkit-search-cancel-button": {
+      "-webkit-appearance": "none",
+    },
+  },
 };
