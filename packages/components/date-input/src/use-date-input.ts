@@ -1,7 +1,8 @@
 import type {DateInputVariantProps, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaDateFieldProps} from "@react-types/datepicker";
 import type {SupportedCalendars} from "@nextui-org/system";
-import type {DateValue, Calendar} from "@internationalized/date";
+import type {DateValue} from "@react-types/datepicker";
+import type {Calendar} from "@internationalized/date";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {DateInputGroupProps} from "./date-input-group";
