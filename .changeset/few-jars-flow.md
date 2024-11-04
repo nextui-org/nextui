@@ -31,7 +31,7 @@
 "@nextui-org/tabs": patch
 "@nextui-org/tooltip": patch
 "@nextui-org/user": patch
-"@nextui-org/react": patch
+"@nextui-org/react": minor
 "@nextui-org/system": patch
 "@nextui-org/system-rsc": patch
 "@nextui-org/use-aria-accordion": patch
