@@ -1,7 +1,7 @@
 ---
-"@nextui-org/input": minor
-"@nextui-org/shared-icons": minor
-"@nextui-org/theme": minor
+"@nextui-org/input": patch
+"@nextui-org/shared-icons": patch
+"@nextui-org/theme": patch
 ---
 
 introduce `isClearable` to Textarea component (#2348, #2112)
