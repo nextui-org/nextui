@@ -34,15 +34,15 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
+    "framer-motion": ">=10.17.0",
     "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=10.17.0"
+    "react-dom": ">=18"
   },
   "devDependencies": {
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "clean-package": "2.2.0",
-    "framer-motion": "^11.0.22"
+    "framer-motion": "^11.0.22",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
   },
   "clean-package": "../../../clean-package.config.json",
   "tsup": {
@@ -54,10 +54,10 @@
     ]
   },
   "dependencies": {
-    "@nextui-org/system-rsc": "workspace:*",
+    "@internationalized/date": "3.5.5",
     "@nextui-org/react-utils": "workspace:*",
     "@react-aria/i18n": "3.12.2",
-    "@internationalized/date": "3.5.5",
+    "@nextui-org/system-rsc": "workspace:*",
     "@react-aria/overlays": "3.23.2",
     "@react-aria/utils": "3.25.2",
     "@react-stately/utils": "3.10.3",

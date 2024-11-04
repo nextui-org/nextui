@@ -9,6 +9,7 @@ import errorMessage from "./error-message";
 import errorMessageFunction from "./error-message-function";
 import withTimeField from "./with-time-field";
 import selectorIcon from "./selector-icon";
+import selectorButtonPlacement from "./selector-button-placement";
 import controlled from "./controlled";
 import timeZones from "./time-zones";
 import granularity from "./granularity";
@@ -33,6 +34,7 @@ export const dateRangePickerContent = {
   errorMessageFunction,
   withTimeField,
   selectorIcon,
+  selectorButtonPlacement,
   controlled,
   timeZones,
   granularity,

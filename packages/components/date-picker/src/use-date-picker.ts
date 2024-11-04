@@ -74,6 +74,7 @@ export function useDatePicker<T extends DateValue>({
 
   const {
     domRef,
+    startContent,
     endContent,
     selectorIcon,
     createCalendar,
@@ -236,6 +237,7 @@ export function useDatePicker<T extends DateValue>({
 
   return {
     state,
+    startContent,
     endContent,
     selectorIcon,
     showTimeField,

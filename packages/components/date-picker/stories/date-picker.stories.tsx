@@ -1,3 +1,5 @@
+import type {MappedDateValue} from "@react-types/datepicker";
+
 import React from "react";
 import {Meta} from "@storybook/react";
 import {dateInput, button} from "@nextui-org/theme";
@@ -15,8 +17,9 @@ import {
 } from "@internationalized/date";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup} from "@nextui-org/radio";
+import {Radio, RadioGroup, RadioProps} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
+import {MoonIcon, SunIcon} from "@nextui-org/shared-icons";
 import {ValidationResult} from "@react-types/shared";
 import {Form} from "@nextui-org/form";
 
@@ -90,7 +93,9 @@ const FormTemplate = (args: DatePickerProps) => (
     className="flex flex-col gap-2 w-full"
     onSubmit={(e) => {
       e.preventDefault();
-      alert(`Submitted: ${e.target["date"].value}`);
+      const form = e.target as HTMLFormElement;
+
+      alert(`Submitted: ${form["date"].value}`);
     }}
   >
     <DatePicker {...args} name="date" />
@@ -206,7 +211,7 @@ const PresetsTemplate = (args: DatePickerProps) => {
   let nextWeek = startOfWeek(now.add({weeks: 1}), locale);
   let nextMonth = startOfMonth(now.add({months: 1}));
 
-  const CustomRadio = (props) => {
+  const CustomRadio = (props: RadioProps) => {
     const {children, ...otherProps} = props;
 
     return (
@@ -295,7 +300,7 @@ const UnavailableDatesTemplate = (args: DatePickerProps) => {
 
   let {locale} = useLocale();
 
-  let isDateUnavailable = (date) =>
+  let isDateUnavailable = (date: DateValue) =>
     isWeekend(date, locale) ||
     disabledRanges.some(
       (interval) => date.compare(interval[0]) >= 0 && date.compare(interval[1]) <= 0,
@@ -333,6 +338,77 @@ const ServerValidationTemplate = (args: DatePickerProps) => {
     </Form>
   );
 };
+
+const StartAndEndContentTemplate = (args: DatePickerProps) => {
+  return (
+    <div className="flex flex-col gap-4 w-full max-w-sm">
+      <DatePicker {...args} endContent={<MoonIcon />} label="With end content" />
+      <DatePicker {...args} label="With start content" startContent={<SunIcon />} />
+      <DatePicker
+        {...args}
+        endContent={<MoonIcon />}
+        label="With start and end content"
+        startContent={<SunIcon />}
+      />
+    </div>
+  );
+};
+
+const selectorButtonPlacementTemplate = (args: DatePickerProps) => (
+  <div className="w-full max-w-xl flex flex-col items-start gap-4">
+    <DatePicker
+      {...args}
+      label="start inside"
+      labelPlacement="inside"
+      selectorButtonPlacement="start"
+    />
+    <DatePicker
+      {...args}
+      label="start outside"
+      labelPlacement="outside"
+      selectorButtonPlacement="start"
+    />
+    <DatePicker
+      {...args}
+      label="start outside-left"
+      labelPlacement="outside-left"
+      selectorButtonPlacement="start"
+    />
+    <DatePicker
+      {...args}
+      label="start inside with start content"
+      labelPlacement="inside"
+      selectorButtonPlacement="start"
+      startContent={<MoonIcon />}
+    />
+
+    <DatePicker
+      {...args}
+      label="end inside"
+      labelPlacement="inside"
+      selectorButtonPlacement="end"
+    />
+    <DatePicker
+      {...args}
+      label="end outside"
+      labelPlacement="outside"
+      selectorButtonPlacement="end"
+    />
+    <DatePicker
+      {...args}
+      label="end outside-left"
+      labelPlacement="outside-left"
+      selectorButtonPlacement="end"
+    />
+    <DatePicker
+      {...args}
+      endContent={<MoonIcon />}
+      label="end inside with end content"
+      labelPlacement="inside"
+      selectorButtonPlacement="end"
+    />
+  </div>
+);
 
 export const Default = {
   render: Template,
@@ -566,7 +642,7 @@ export const WithValidation = {
 
   args: {
     ...defaultProps,
-    validate: (value) => {
+    validate: (value: MappedDateValue<DateValue>) => {
       if (!value) {
         return "Please enter a date";
       }
@@ -580,6 +656,20 @@ export const WithValidation = {
 
 export const WithServerValidation = {
   render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithStartAndEndContent = {
+  render: StartAndEndContentTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const selectorButtonPlacement = {
+  render: selectorButtonPlacementTemplate,
   args: {
     ...defaultProps,
   },

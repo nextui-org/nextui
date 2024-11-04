@@ -47,7 +47,7 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "lodash.debounce": "^4.0.8",
-    "@internationalized/date": "^3.5.4",
+    "@internationalized/date": "3.5.5",
     "@react-aria/calendar": "3.5.11",
     "@react-aria/focus": "3.18.2",
     "@react-aria/i18n": "3.12.2",
