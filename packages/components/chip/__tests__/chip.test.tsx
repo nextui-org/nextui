@@ -1,7 +1,7 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 import {Avatar} from "@nextui-org/avatar";
-import {act} from "@testing-library/react-hooks";
+import userEvent from "@testing-library/user-event";
 
 import {Chip} from "../src";
 
@@ -49,13 +49,13 @@ describe("Chip", () => {
     expect(wrapper.getByRole("button")).not.toBeNull();
   });
 
-  it("should call onClose when close button is clicked", () => {
+  it("should call onClose when close button is clicked", async () => {
     const onClose = jest.fn();
     const {getByRole} = render(<Chip onClose={onClose} />);
 
-    act(() => {
-      getByRole("button").click();
-    });
+    const user = userEvent.setup();
+
+    await user.click(getByRole("button"));
 
     expect(onClose).toHaveBeenCalled();
   });

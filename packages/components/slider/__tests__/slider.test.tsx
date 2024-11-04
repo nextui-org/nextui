@@ -1,10 +1,16 @@
 import * as React from "react";
 import {render, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Slider, SliderValue} from "../src";
 
 describe("Slider", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Slider />);
 
@@ -138,9 +144,7 @@ describe("Slider", () => {
     expect(output).toHaveTextContent("50");
 
     // change slider value
-    await act(async () => {
-      await userEvent.click(button);
-    });
+    await user.click(button);
 
     expect(slider).toHaveProperty("value", "55");
     expect(slider).toHaveAttribute("aria-valuetext", "55");
@@ -201,9 +205,7 @@ describe("Slider", () => {
     expect(rightSlider).toHaveAttribute("aria-valuetext", "20");
 
     // change slider value
-    await act(async () => {
-      await userEvent.click(button);
-    });
+    await user.click(button);
 
     expect(leftSlider).toHaveProperty("value", "15");
     expect(leftSlider).toHaveAttribute("aria-valuetext", "15");
@@ -318,10 +320,7 @@ describe("Slider", () => {
 
     expect(marks).toHaveLength(3);
 
-    await act(async () => {
-      await userEvent.click(marks[1]);
-    });
-
+    await user.click(marks[1]);
     const slider = getByRole("slider");
 
     expect(slider).toHaveProperty("value", "0.5");
@@ -358,10 +357,7 @@ describe("Slider", () => {
 
     expect(marks).toHaveLength(3);
 
-    await act(async () => {
-      await userEvent.click(marks[1]);
-    });
-
+    await user.click(marks[1]);
     const [leftSlider, rightSlider] = getAllByRole("slider");
 
     expect(leftSlider).toHaveProperty("value", "0.5");
