@@ -32,3 +32,4 @@ export * from "./navbar";
 export * from "./table";
 export * from "./autocomplete";
 export * from "./alert";
+export * from "./drawer";

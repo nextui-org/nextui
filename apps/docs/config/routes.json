@@ -254,6 +254,13 @@
           "path": "/docs/components/dropdown.mdx"
         },
         {
+          "key": "drawer",
+          "title": "Drawer",
+          "keywords": "drawer, panel, slide, overlay",
+          "path": "/docs/components/drawer.mdx",
+          "newPost": true
+        },
+        {
           "key": "image",
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
