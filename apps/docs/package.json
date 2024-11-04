@@ -55,7 +55,7 @@
     "color2k": "^2.0.2",
     "contentlayer2": "^0.5.1",
     "date-fns": "^2.30.0",
-    "framer-motion": "^11.9.0",
+    "framer-motion": "11.9.0",
     "github-slugger": "^2.0.0",
     "gray-matter": "^4.0.3",
     "hast-util-to-html": "9.0.3",

@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "clean-package": "2.2.0",
-    "framer-motion": "^11.9.0"
+    "framer-motion": "11.9.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }
