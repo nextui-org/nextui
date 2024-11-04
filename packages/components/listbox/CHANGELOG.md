@@ -1,5 +1,68 @@
 # @nextui-org/listbox
 
+## 2.1.27
+
+### Patch Changes
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/divider@2.0.32
+
+## 2.1.26
+
+### Patch Changes
+
+- [#3726](https://github.com/nextui-org/nextui/pull/3726) [`d621b2923`](https://github.com/nextui-org/nextui/commit/d621b2923e7c90e73bea996e5918b744223e896c) Thanks [@chirokas](https://github.com/chirokas)! - Fix item highlighting in `AutocompleteSection` during keyboard navigation (#3713)
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/aria-utils@2.0.25
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/divider@2.0.32
+  - @nextui-org/react-utils@2.0.17
+
+## 2.1.25
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/divider@2.0.31
+  - @nextui-org/use-is-mobile@2.0.9
+  - @nextui-org/aria-utils@2.0.24
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.1.24
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.0.30
+  - @nextui-org/aria-utils@2.0.23
+
+## 2.1.23
+
+### Patch Changes
+
+- Updated dependencies [[`60bb09fe6`](https://github.com/nextui-org/nextui/commit/60bb09fe6455475a16225e776348e9acf0537f9b), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/aria-utils@2.0.22
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/divider@2.0.29
+  - @nextui-org/react-utils@2.0.15
+
+## 2.1.22
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- Updated dependencies [[`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/aria-utils@2.0.21
+  - @nextui-org/use-is-mobile@2.0.8
+  - @nextui-org/react-utils@2.0.14
+  - @nextui-org/divider@2.0.28
+
 ## 2.1.21
 
 ### Patch Changes

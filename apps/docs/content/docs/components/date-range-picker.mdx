@@ -13,7 +13,7 @@ Date Range Picker combines two DateInputs and a RangeCalendar popover to allow u
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -91,6 +91,10 @@ You can add a description to the input by passing the `description` property.
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
 
 <CodeDemo title="With Error Message" files={dateRangePickerContent.errorMessage} />
+
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult](https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51).
+
+<CodeDemo title="With Error Message Function" files={dateRangePickerContent.errorMessageFunction} />
 
 ### With Time Fields
 
@@ -303,6 +307,12 @@ import {useLocale, useDateFormatter} from "@react-aria/i18n";
 - **helperWrapper**: Wraps the `description` and the `errorMessage`.
 - **description**: The description of the date-input.
 - **errorMessage**: The error message of the date-input.
+
+### Custom Styles
+
+You can customize the `DateRangePicker` component by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo title="Custom Styles" files={dateRangePickerContent.customStyles} />
 
 <Spacer y={4} />
 

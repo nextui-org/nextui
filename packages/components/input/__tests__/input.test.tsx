@@ -37,6 +37,22 @@ describe("Input", () => {
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
+  it("should disable the clear button when isDisabled", () => {
+    const {getByRole} = render(<Input isClearable isDisabled label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toBeDisabled();
+  });
+
+  it("should not allow clear button to be focusable", () => {
+    const {getByRole} = render(<Input isClearable label="test input" />);
+
+    const clearButton = getByRole("button");
+
+    expect(clearButton).toHaveAttribute("tabIndex", "-1");
+  });
+
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {container} = render(<Input isRequired label="test input" validationBehavior="native" />);
 
@@ -141,7 +157,7 @@ describe("Input", () => {
       />,
     );
 
-    const clearButton = getByRole("button");
+    const clearButton = getByRole("button")!;
 
     expect(clearButton).not.toBeNull();
 
@@ -152,6 +168,60 @@ describe("Input", () => {
     expect(ref.current?.value)?.toBe("");
 
     expect(onClear).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not display input with hidden type", async () => {
+    const wrapper = render(
+      <>
+        <Input data-testid="input-1" type="hidden" />
+        <Input data-testid="input-2" />
+      </>,
+    );
+
+    const {container} = wrapper;
+
+    const inputBaseWrappers = container.querySelectorAll("[data-slot='base']");
+
+    expect(inputBaseWrappers).toHaveLength(2);
+
+    const inputs = container.querySelectorAll("input");
+
+    expect(inputs).toHaveLength(2);
+
+    expect(inputBaseWrappers[0]).toHaveAttribute("data-hidden");
+
+    expect(inputBaseWrappers[1]).not.toHaveAttribute("data-hidden");
+
+    expect(inputs[0]).not.toBeVisible();
+
+    expect(inputs[1]).toBeVisible();
+  });
+
+  it("should disable clear button when isReadOnly is true", async () => {
+    const onClear = jest.fn();
+
+    const ref = React.createRef<HTMLInputElement>();
+
+    const {getByRole} = render(
+      <Input
+        ref={ref}
+        isClearable
+        isReadOnly
+        defaultValue="readOnly test for clear button"
+        label="test input"
+        onClear={onClear}
+      />,
+    );
+
+    const clearButton = getByRole("button")!;
+
+    expect(clearButton).not.toBeNull();
+
+    const user = userEvent.setup();
+
+    await user.click(clearButton);
+
+    expect(onClear).toHaveBeenCalledTimes(0);
   });
 });
 
@@ -202,7 +272,7 @@ describe("Input with React Hook Form", () => {
     input1 = document.querySelector("input[name=withDefaultValue]")!;
     input2 = document.querySelector("input[name=withoutDefaultValue]")!;
     input3 = document.querySelector("input[name=requiredField]")!;
-    submitButton = document.querySelector("button")!;
+    submitButton = document.querySelector('button[type="submit"]')!;
   });
 
   it("should work with defaultValues", () => {

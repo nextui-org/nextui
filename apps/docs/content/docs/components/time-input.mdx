@@ -13,7 +13,7 @@ The `TimeInput` component consists of a label, and a group of segments represent
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -77,6 +77,17 @@ The `isReadOnly` boolean prop makes `TimeInput`'s value immutable. Unlike `isDis
 A description for the field. Provides a hint such as specific requirements for what to choose.
 
 <CodeDemo title="With Description" files={timeInputContent.withDescription} />
+
+### With Error Message
+
+You can combine the `isInvalid` and `errorMessage` properties to show an invalid input.
+
+<CodeDemo title="With Error Message" files={timeInputContent.errorMessage} />
+
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult](https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51).
+
+<CodeDemo title="With Error Message Function" files={timeInputContent.errorMessageFunction} />
+
 
 ### Label Placement
 

@@ -1,5 +1,23 @@
 # @nextui-org/use-scroll-position
 
+## 2.0.9
+
+### Patch Changes
+
+- [#3247](https://github.com/nextui-org/nextui/pull/3247) [`b0728e3c3`](https://github.com/nextui-org/nextui/commit/b0728e3c3841ce6abb6ed6d4617ddb5242077324) Thanks [@vetan2](https://github.com/vetan2)! - re-attach scroll event behavior in `useScrollPosition`
+
+## 2.0.8
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.0.7
+
+### Patch Changes
+
+- [#3315](https://github.com/nextui-org/nextui/pull/3315) [`35e709de7`](https://github.com/nextui-org/nextui/commit/35e709de7d3300c2de0b9158d098b10ef185d6ca) Thanks [@pratyush3124](https://github.com/pratyush3124)! - clearing throttleTimeout when it is supposed to be null in useScrollPosition (#3139)
+
 ## 2.0.6
 
 ### Patch Changes

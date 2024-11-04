@@ -47,7 +47,7 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
 
   const domRef = useDOMRef(ref);
 
-  const {tabPanelProps} = useTabPanel(props, state, domRef);
+  const {tabPanelProps} = useTabPanel({...props, id: String(tabKey)}, state, domRef);
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
@@ -69,7 +69,10 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
       data-focus={isFocused}
       data-focus-visible={isFocusVisible}
       data-inert={!isSelected ? "true" : undefined}
-      inert={!isSelected ? "true" : undefined}
+      // makes the browser ignore the element and its children when tabbing
+      // TODO: invert inert when switching to React 19 (ref: https://github.com/facebook/react/issues/17157)
+      // @ts-ignore
+      inert={!isSelected ? "" : undefined}
       {...(isSelected && mergeProps(tabPanelProps, focusProps, otherProps))}
       className={slots.panel?.({class: tabPanelStyles})}
       data-slot="panel"

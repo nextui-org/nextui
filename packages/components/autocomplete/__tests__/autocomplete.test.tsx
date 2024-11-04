@@ -1,6 +1,6 @@
 import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
@@ -48,6 +48,20 @@ const itemsSectionData = [
   },
 ];
 
+const ControlledAutocomplete = <T extends object>(props: AutocompleteProps<T>) => {
+  const [selectedKey, setSelectedKey] = React.useState<React.Key | null>("cat");
+
+  return (
+    <Autocomplete
+      {...props}
+      aria-label="Favorite Animal"
+      label="Favorite Animal"
+      selectedKey={selectedKey}
+      onSelectionChange={setSelectedKey}
+    />
+  );
+};
+
 const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
   <Autocomplete label="Favorite Animal" {...props}>
     <AutocompleteItem key="penguin" value="penguin">
@@ -63,6 +77,12 @@ const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
 );
 
 describe("Autocomplete", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<AutocompleteExample />);
 
@@ -158,14 +178,12 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
-    // assert that input is focused
+    // assert that the autocomplete input is focused
     expect(autocomplete).toHaveFocus();
   });
 
@@ -187,9 +205,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -197,9 +213,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -209,16 +223,130 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    // click the clear button
+    await user.click(clearButton);
 
     // assert that the input has empty value
     expect(autocomplete).toHaveValue("");
 
     // assert that input is focused
     expect(autocomplete).toHaveFocus();
+  });
+
+  it("should keep the ListBox open after clicking clear button", async () => {
+    const wrapper = render(
+      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await user.click(options[0]);
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // click the clear button
+    await user.click(clearButton);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("should clear value after clicking clear button (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="autocomplete" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await user.click(options[0]);
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    /// click the clear button
+    await user.click(clearButton);
+
+    // assert that the input has empty value
+    expect(autocomplete).toHaveValue("");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+  });
+
+  it("should keep the ListBox open after clicking clear button (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="autocomplete" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await user.click(options[0]);
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // click the clear button
+    await user.click(clearButton);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
   });
 
   it("should open and close listbox by clicking selector button", async () => {
@@ -247,9 +375,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox by clicking selector button
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -258,9 +384,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
 
     // close the select listbox by clicking selector button again
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -291,17 +415,13 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the autocomplete is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -340,23 +460,17 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
     // open the autocomplete listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
-
-    // assert that input is not focused
-    expect(autocomplete).not.toHaveFocus();
   });
 
   it("should set the input after selection", async () => {
@@ -377,9 +491,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -392,9 +504,7 @@ describe("Autocomplete", () => {
     expect(options.length).toBe(3);
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     // assert that the input has target selection
     expect(autocomplete).toHaveValue("Penguin");
@@ -453,9 +563,7 @@ describe("Autocomplete", () => {
     expect(selectorButton2).not.toBeNull();
 
     // open the select listbox by clicking selector button in the first autocomplete
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the first autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -464,9 +572,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
 
     // close the select listbox by clicking the second autocomplete
-    await act(async () => {
-      await userEvent.click(selectorButton2);
-    });
+    await user.click(selectorButton2);
 
     // assert that the first autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -529,7 +635,7 @@ describe("Autocomplete", () => {
           <form data-testid="form">
             <AutocompleteExample
               defaultInputValue="Penguin"
-              validate={(v) => (v === "Penguin" ? "Invalid value" : null)}
+              validate={(v) => (v.inputValue === "Penguin" ? "Invalid value" : null)}
               validationBehavior="aria"
             />
           </form>,
@@ -558,6 +664,60 @@ describe("Autocomplete", () => {
         expect(input).not.toHaveAttribute("aria-invalid");
       });
     });
+  });
+
+  it("should work when key equals textValue", async () => {
+    const wrapper = render(
+      <Autocomplete
+        aria-label="Favorite Animal"
+        data-testid="when-key-equals-textValue"
+        defaultSelectedKey="cat"
+        items={itemsData}
+        label="Favorite Animal"
+      >
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("when-key-equals-textValue");
+
+    const user = userEvent.setup();
+
+    await user.click(autocomplete);
+
+    expect(autocomplete).toHaveValue("cat");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete).toHaveValue("dog");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+
+  it("should work when key equals textValue (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="when-key-equals-textValue" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("when-key-equals-textValue");
+
+    const user = userEvent.setup();
+
+    await user.click(autocomplete);
+
+    expect(autocomplete).toHaveValue("cat");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let listboxItems = wrapper.getAllByRole("option");
+
+    await user.click(listboxItems[1]);
+
+    expect(autocomplete).toHaveValue("dog");
+    expect(autocomplete).toHaveAttribute("aria-expanded", "false");
   });
 });
 

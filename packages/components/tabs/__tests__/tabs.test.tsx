@@ -1,6 +1,6 @@
 import * as React from "react";
-import {act, render, fireEvent} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {act, render, fireEvent, within} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
 import {Tabs, Tab, TabsProps} from "../src";
@@ -11,7 +11,7 @@ type Item = {
   content?: React.ReactNode;
 };
 
-let tabs: Item[] = [
+let defaultItems: Item[] = [
   {
     id: "item1",
     label: "Item1 ",
@@ -50,6 +50,11 @@ function getPlacementTemplate(position: TabsProps["placement"]) {
 const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Tabs", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -71,12 +76,12 @@ describe("Tabs", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toBeCalledTimes(0);
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
-      <Tabs aria-label="Tabs static test" items={tabs}>
+      <Tabs aria-label="Tabs static test" items={defaultItems}>
         {(item) => (
           <Tab key={item.id} title={item.label}>
             <div>{item.content}</div>
@@ -86,6 +91,40 @@ describe("Tabs", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("renders property", () => {
+    const wrapper = render(
+      <Tabs aria-label="Tabs property test">
+        {defaultItems.map((item) => (
+          <Tab key={item.id} title={item.label}>
+            <div>{item.content}</div>
+          </Tab>
+        ))}
+      </Tabs>,
+    );
+    const tablist = wrapper.getByRole("tablist");
+
+    expect(tablist).toBeTruthy();
+    const tabs = within(tablist).getAllByRole("tab");
+
+    expect(tabs.length).toBe(3);
+
+    for (let tab of tabs) {
+      expect(tab).toHaveAttribute("tabindex");
+      expect(tab).toHaveAttribute("aria-selected");
+      const isSelected = tab.getAttribute("aria-selected") === "true";
+
+      if (isSelected) {
+        expect(tab).toHaveAttribute("aria-controls");
+        const tabpanel = document.getElementById(tab.getAttribute("aria-controls")!);
+
+        expect(tabpanel).toBeTruthy();
+        expect(tabpanel).toHaveAttribute("aria-labelledby", tab.id);
+        expect(tabpanel).toHaveAttribute("role", "tabpanel");
+        expect(tabpanel).toHaveTextContent(defaultItems[0]?.content as string);
+      }
+    }
   });
 
   it("ref should be forwarded", () => {
@@ -134,26 +173,17 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "false");
     expect(tab2).toHaveAttribute("aria-selected", "true");
     expect(tab3).toHaveAttribute("aria-selected", "false");
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "false");
     expect(tab2).toHaveAttribute("aria-selected", "false");
     expect(tab3).toHaveAttribute("aria-selected", "true");
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "true");
     expect(tab2).toHaveAttribute("aria-selected", "false");
     expect(tab3).toHaveAttribute("aria-selected", "false");
@@ -186,22 +216,13 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab2).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab3).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowLeft]");
-    });
-
+    await user.keyboard("[ArrowLeft]");
     expect(tab2).toHaveFocus();
 
     expect(tab1).toHaveAttribute("aria-selected", "true");
@@ -246,10 +267,7 @@ describe("Tabs", () => {
 
     const tab2 = wrapper.getByTestId("item2");
 
-    await act(async () => {
-      await userEvent.click(tab2);
-    });
-
+    await user.click(tab2);
     expect(tab2).toHaveAttribute("aria-selected", "false");
   });
 
@@ -362,16 +380,10 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab2).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowLeft]");
-    });
-
+    await user.keyboard("[ArrowLeft]");
     expect(tab1).toHaveFocus();
 
     expect(input).toHaveValue("23");
