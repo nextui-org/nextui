@@ -148,6 +148,9 @@ const corePlugin = (
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
+  const createStripeGradient = (stripeColor: string, backgroundColor: string) =>
+    `linear-gradient(45deg,  hsl(var(--${prefix}-${stripeColor})) 25%,  hsl(var(--${prefix}-${backgroundColor})) 25%,  hsl(var(--${prefix}-${backgroundColor})) 50%,  hsl(var(--${prefix}-${stripeColor})) 50%,  hsl(var(--${prefix}-${stripeColor})) 75%,  hsl(var(--${prefix}-${backgroundColor})) 75%,  hsl(var(--${prefix}-${backgroundColor})))`;
+
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
       // add base classNames
@@ -212,9 +215,16 @@ const corePlugin = (
             medium: `var(--${prefix}-box-shadow-medium)`,
             large: `var(--${prefix}-box-shadow-large)`,
           },
+          backgroundSize: {
+            "stripe-size": "1.25rem 1.25rem",
+          },
           backgroundImage: {
-            "stripe-gradient":
-              "linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent)",
+            "stripe-gradient-default": createStripeGradient("default-200", "default-400"),
+            "stripe-gradient-primary": createStripeGradient("primary-200", "primary"),
+            "stripe-gradient-secondary": createStripeGradient("secondary-200", "secondary"),
+            "stripe-gradient-success": createStripeGradient("success-200", "success"),
+            "stripe-gradient-warning": createStripeGradient("warning-200", "warning"),
+            "stripe-gradient-danger": createStripeGradient("danger-200", "danger"),
           },
           transitionDuration: {
             0: "0ms",
