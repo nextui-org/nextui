@@ -148,14 +148,14 @@ export const useSandpack = ({
 
   //   if (hasComponents) {
   //     let deps = {
-  //       "@nextui-org/theme": "dev-v2",
-  //       "@nextui-org/system": "dev-v2",
+  //       "@nextui-org/theme": "canary",
+  //       "@nextui-org/system": "canary",
   //     };
 
   //     nextUIComponents.forEach((component) => {
   //       deps = {
   //         ...deps,
-  //         [`@nextui-org/${component}`]: "dev-v2",
+  //         [`@nextui-org/${component}`]: "canary",
   //       };
   //     });
 
@@ -164,7 +164,7 @@ export const useSandpack = ({
 
   //   return {
   //     ...deps,
-  //     "@nextui-org/react": "dev-v2",
+  //     "@nextui-org/react": "canary",
   //   };
   // }, [hasComponents, nextUIComponents, component]);
 

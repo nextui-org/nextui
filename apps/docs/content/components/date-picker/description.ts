@@ -6,7 +6,7 @@ export default function App() {
       <DatePicker 
         label="Birth date"
         className="max-w-[284px]"
-        description={"Thiis is my birth date."}
+        description={"This is my birth date."}
       />
     </div>
   );

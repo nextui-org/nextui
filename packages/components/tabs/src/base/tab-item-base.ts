@@ -1,5 +1,5 @@
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
-import {ReactNode} from "react";
+import {ReactNode, RefObject} from "react";
 interface Props<T extends object = {}> extends Omit<ItemProps<"button", T>, "children" | "title"> {
   /**
    * The content of the component.
@@ -18,6 +18,8 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"button", T>, "chi
   isDisabled?: boolean;
   /** Whether the tab selection should occur on press up instead of press down. */
   shouldSelectOnPressUp?: boolean;
+  /** A ref to the tab item. */
+  tabRef?: RefObject<HTMLButtonElement>;
 }
 
 export type TabItemProps<T extends object = {}> = Props<T>;

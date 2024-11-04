@@ -194,6 +194,43 @@ describe("DatePicker", () => {
       expect(getByTestId("foo")).toHaveAttribute("role", "group");
     });
 
+    it("should work with startContent", () => {
+      const {getByText} = render(<DatePicker label="Date" startContent={<div>start</div>} />);
+
+      expect(getByText("start")).toBeInTheDocument();
+    });
+
+    it("should work with endContent", () => {
+      const {getByText} = render(<DatePicker endContent={<div>end</div>} label="Date" />);
+
+      expect(getByText("end")).toBeInTheDocument();
+    });
+
+    it("should work with startContent and endContent", () => {
+      const {getByText} = render(
+        <DatePicker endContent={<div>end</div>} label="Date" startContent={<div>start</div>} />,
+      );
+
+      expect(getByText("start")).toBeInTheDocument();
+      expect(getByText("end")).toBeInTheDocument();
+    });
+
+    it("should work with selectorButtonPlacement", () => {
+      const {getByRole} = render(
+        <DatePicker label="Date" selectorButtonPlacement="start" startContent={<div>start</div>} />,
+      );
+
+      const button = getByRole("button");
+
+      expect(button).toHaveTextContent("start");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+
+      expect(dialog).toBeInTheDocument();
+    });
+
     it("should apply custom dateInput classNames", function () {
       const {getByRole, getByText} = render(
         <DatePicker
