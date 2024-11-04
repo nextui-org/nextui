@@ -44,6 +44,7 @@ export * from "@nextui-org/calendar";
 export * from "@nextui-org/date-input";
 export * from "@nextui-org/date-picker";
 export * from "@nextui-org/form";
+export * from "@nextui-org/alert";
 
 /**
  * React Aria - Exports

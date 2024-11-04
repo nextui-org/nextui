@@ -145,6 +145,13 @@
           "path": "/docs/components/autocomplete.mdx"
         },
         {
+          "key": "alert",
+          "title": "Alert",
+          "keywords": "alert, notification, message",
+          "path": "/docs/components/alert.mdx",
+          "isNew": true
+        },
+        {
           "key": "avatar",
           "title": "Avatar",
           "keywords": "avatar, profile picture, user representation, identity",
@@ -280,7 +287,8 @@
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog box, popup, overlay, content focus",
-          "path": "/docs/components/modal.mdx"
+          "path": "/docs/components/modal.mdx",
+          "updated": true
         },
         {
           "key": "navbar",
