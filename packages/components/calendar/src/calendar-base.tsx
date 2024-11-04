@@ -3,12 +3,11 @@ import type {As, HTMLNextUIProps} from "@nextui-org/system";
 import type {ButtonProps} from "@nextui-org/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
-import {Fragment} from "react";
-import {useState} from "react";
+import {Fragment, useState} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
-import {AnimatePresence, LazyMotion, domAnimation, MotionConfig} from "framer-motion";
+import {AnimatePresence, LazyMotion, MotionConfig} from "framer-motion";
 import {ResizablePanel} from "@nextui-org/framer-utils";
 
 import {ChevronLeftIcon} from "./chevron-left";
@@ -18,6 +17,8 @@ import {transition} from "./calendar-transitions";
 import {CalendarHeader} from "./calendar-header";
 import {CalendarPicker} from "./calendar-picker";
 import {useCalendarContext} from "./calendar-context";
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
   Component?: As;
