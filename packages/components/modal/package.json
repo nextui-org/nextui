@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "@nextui-org/use-disclosure": "workspace:*",
+    "@nextui-org/use-draggable": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
@@ -63,6 +64,7 @@
     "@nextui-org/checkbox": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/link": "workspace:*",
+    "@nextui-org/switch": "workspace:*",
     "react-lorem-component": "0.13.0",
     "framer-motion": "^11.0.22",
     "clean-package": "2.2.0",

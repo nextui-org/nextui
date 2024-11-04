@@ -287,7 +287,8 @@
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog box, popup, overlay, content focus",
-          "path": "/docs/components/modal.mdx"
+          "path": "/docs/components/modal.mdx",
+          "updated": true
         },
         {
           "key": "navbar",
