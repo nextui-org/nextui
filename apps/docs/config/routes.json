@@ -146,6 +146,13 @@
           "path": "/docs/components/autocomplete.mdx"
         },
         {
+          "key": "alert",
+          "title": "Alert",
+          "keywords": "alert, notification, message",
+          "path": "/docs/components/alert.mdx",
+          "isNew": true
+        },
+        {
           "key": "avatar",
           "title": "Avatar",
           "keywords": "avatar, profile picture, user representation, identity",
@@ -248,6 +255,13 @@
           "path": "/docs/components/dropdown.mdx"
         },
         {
+          "key": "drawer",
+          "title": "Drawer",
+          "keywords": "drawer, panel, slide, overlay",
+          "path": "/docs/components/drawer.mdx",
+          "newPost": true
+        },
+        {
           "key": "image",
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
@@ -281,7 +295,8 @@
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog box, popup, overlay, content focus",
-          "path": "/docs/components/modal.mdx"
+          "path": "/docs/components/modal.mdx",
+          "updated": true
         },
         {
           "key": "navbar",
