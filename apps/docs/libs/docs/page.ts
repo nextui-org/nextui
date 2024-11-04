@@ -1,6 +1,6 @@
-import type {MDX} from "contentlayer/core";
+import type {MDX} from "contentlayer2/core";
 
-import * as Local from "contentlayer/source-files";
+import * as Local from "contentlayer2/source-files";
 
 import {TAG, FORCE_TAG, CONTENT_PATH, ASSETS_PATH} from "./config";
 

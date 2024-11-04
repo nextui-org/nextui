@@ -1,5 +1,6 @@
 import * as React from "react";
-import {act, render, fireEvent} from "@testing-library/react";
+import {render, fireEvent} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter, useDraggable} from "../src";
 
@@ -41,7 +42,7 @@ describe("Modal", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toBeCalledTimes(0);
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {
@@ -84,7 +85,7 @@ describe("Modal", () => {
     expect(modal).toHaveAttribute("aria-describedby", modalBody.id);
   });
 
-  test("should fire 'onOpenChange' callback when close button is clicked", () => {
+  test("should fire 'onOpenChange' callback when close button is clicked", async () => {
     const onClose = jest.fn();
 
     const {getByLabelText} = render(
@@ -99,9 +100,9 @@ describe("Modal", () => {
 
     const closeButton = getByLabelText("Close");
 
-    act(() => {
-      closeButton.click();
-    });
+    const user = userEvent.setup();
+
+    await user.click(closeButton);
 
     expect(onClose).toHaveBeenCalled();
   });
