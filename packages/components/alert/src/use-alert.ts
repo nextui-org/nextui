@@ -1,38 +1,60 @@
+import type {ButtonProps} from "@nextui-org/button";
+
 import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
 import {AlertSlots, SlotsToClasses} from "@nextui-org/theme";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {AlertVariantProps} from "@nextui-org/theme/src/components/alert";
 import {ReactNode, useCallback, useMemo} from "react";
+import {mergeProps} from "@react-aria/utils";
 import {alert} from "@nextui-org/theme";
-import {useState} from "react";
-import {objectToDeps} from "@nextui-org/shared-utils";
+import {useControlledState} from "@react-stately/utils";
+import {dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
   ref?: ReactRef<HTMLDivElement | null>;
-
   /**
    * title of the alert message
    */
   title?: string;
-
   /**
    * Main body of the alert message
    */
   description: ReactNode;
-
+  /**
+   * Icon to be displayed in the alert - overrides the default icon
+   */
+  icon?: ReactNode;
+  /**
+   * Whether the alert is visible.
+   * @default false
+   */
+  isVisible?: boolean;
+  /**
+   * Whether the alert should be visible by default.
+   * @default false
+   */
+  isDefaultVisible?: boolean;
+  /**
+   * The event handler for the alert visibility state.
+   * @param isVisible boolean
+   * @returns void
+   */
+  onVisibleChange?: (isVisible: boolean) => void;
   /**
    *  whether the alert can be closed by user
    */
   isClosable?: boolean;
-
+  /**
+   * Props for the close button
+   */
+  closeButtonProps?: Omit<ButtonProps, "children">;
   /**
    * function which is called when close button is clicked
    */
   onClose?: () => void;
-
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
@@ -57,20 +79,58 @@ export type UseAlertProps = Props & AlertVariantProps;
 export function useAlert(originalProps: UseAlertProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, alert.variantKeys);
 
-  const {title, description, onClose, isClosable, ref, classNames} = props;
+  const {
+    as,
+    title: titleProp,
+    children,
+    description,
+    onClose,
+    isClosable,
+    ref,
+    icon,
+    isVisible: isVisibleProp,
+    isDefaultVisible,
+    onVisibleChange,
+    closeButtonProps = {},
+    classNames,
+    ...otherProps
+  } = props;
 
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = useControlledState<boolean>(
+    isVisibleProp,
+    isDefaultVisible ?? true,
+    onVisibleChange,
+  );
 
-  const handleClose = () => {
-    setIsVisible(false);
-    onClose?.();
-  };
+  const title = titleProp || children;
+
+  const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
+
   const domRef = useDOMRef(ref);
 
-  const slots = useMemo(() => alert({...variantProps}), [objectToDeps(variantProps)]);
+  const handleClose = useCallback(() => {
+    setIsVisible(false);
+    onClose?.();
+  }, [setIsVisible, onClose]);
+
+  const slots = useMemo(
+    () => alert({hasDescription: !isEmpty(description), ...variantProps}),
+    [description, objectToDeps(variantProps)],
+  );
 
   const getBaseProps = useCallback<PropGetter>(() => {
     return {
+      "data-visible": dataAttr(isVisible),
+      "data-closeable": dataAttr(isClosable),
+      "data-has-title": dataAttr(!isEmpty(title)),
+      "data-has-description": dataAttr(!isEmpty(description)),
+      ...mergeProps(
+        filterDOMProps(otherProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        filterDOMProps(props),
+      ),
       className: slots.base({class: classNames?.base}),
     };
   }, [slots, classNames?.base]);
@@ -93,20 +153,24 @@ export function useAlert(originalProps: UseAlertProps) {
     };
   }, [slots, classNames?.title]);
 
-  const getCloseButtonProps = useCallback<PropGetter>(() => {
-    return {
+  const getCloseButtonProps = useCallback<PropGetter>(
+    () => ({
+      ...closeButtonProps,
       className: slots.closeButton({class: classNames?.closeButton}),
-    };
-  }, [slots, classNames?.closeButton]);
+    }),
+    [slots, classNames?.closeButton],
+  );
 
-  const getAlertIconProps = useCallback<PropGetter>(() => {
-    return {
+  const getAlertIconProps = useCallback<PropGetter>(
+    () => ({
       className: slots.alertIcon({class: classNames?.alertIcon}),
-    };
-  }, [slots, classNames?.alertIcon]);
+    }),
+    [slots, classNames?.alertIcon],
+  );
 
   return {
     title,
+    icon,
     description,
     isClosable,
     domRef,

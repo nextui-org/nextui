@@ -148,7 +148,8 @@
           "key": "alert",
           "title": "Alert",
           "keywords": "alert, notification, message",
-          "path": "/docs/components/alert.mdx"
+          "path": "/docs/components/alert.mdx",
+          "isNew": true
         },
         {
           "key": "avatar",

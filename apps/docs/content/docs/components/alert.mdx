@@ -9,11 +9,11 @@ import {alertContent} from "@/content/components/alert";
 
 Alerts are temporary notifications that provide concise feedback about an action or event.
 
-<ComponentLinks component="alert"/>
+<ComponentLinks component="alert" />
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Installation
 
@@ -24,12 +24,11 @@ Alerts are temporary notifications that provide concise feedback about an action
     npm: "npm install @nextui-org/alert",
     yarn: "yarn add @nextui-org/alert",
     pnpm: "pnpm add @nextui-org/alert",
-    bun: "bun add @nextui-org/alert"
+    bun: "bun add @nextui-org/alert",
   }}
 />
 
 ## Import
-
 
 <ImportTabs
   commands={{
@@ -39,70 +38,65 @@ Alerts are temporary notifications that provide concise feedback about an action
 />
 
 ## Usage
-- It accepts `title` and `description` as props for the alert message.
-- `title` is an optional property.
 
 <CodeDemo title="Usage" files={alertContent.usage} />
+
+### Colors
+
+Alert comes with 6 color variants to convey different meanings.
+
+<CodeDemo title="Colors" files={alertContent.colors} />
+
+### Variants
+
+<CodeDemo title="Variants" files={alertContent.variants} />
 
 ### Radius
 
 <CodeDemo title="Radius" files={alertContent.radius} />
 
-### Colors
+### With Icon
 
-<CodeDemo title="Colors" files={alertContent.colors} />
+By default, Alert displays an appropriate icon based on the `color` prop. You can override this by providing a custom icon using the `icon` prop.
 
+<CodeDemo title="With Icon" files={alertContent.withIcon} />
 
-### isClosable
+### Controlled Visibility
 
-If `isClosable` is true, a close button appears on the alert, which can be used to close it.
+You can control the alert visibility using the `isVisible` and `onVisibleChange` props.
 
-> **Note**: If the `onClose` is passed, the close button is visible regardless of the `isClosable` property.
+<CodeDemo title="Controlled" files={alertContent.controlled} />
 
-<CodeDemo title="isClosable" files={alertContent.isClosable} />
+### Custom Styles
 
+You can customize the alert by passing custom Tailwind CSS classes to the component slots.
 
-<Spacer y={4} />
-
-## Slots
-
-- **base**:
-  Alert wrapper, it handles alignment, placement, and general appearance.
-- **mainWrapper**:
-  Wraps the `title` and `description` of the alert.
-- **closeButton**:
-  The `closeButton`, it is in the top-right corner of alert.
-- **description**:
-  The description of the alert.
-- **title**:
-  The title of the alert.
-- **closeIcon**:
-  The close icon that is wrapped inside the `closeButton`.
-- **alertIcon**:
-  icon that appears at the top-left corner.
-
-<Spacer y={4} />
-
-### Custom Alert Styles
-
-You can customize the alert styles  by using the `classNames` property.
-
-Here's an example of how to customize the alert styles:
-
-<CodeDemo title="Custom Alert Styles" files={alertContent.customStyles} />
-
-<Spacer y={4} />
+<CodeDemo title="Custom Styles" files={alertContent.customStyles} />
 
 ### Custom Implementation
 
-In case you need to customize the alert even further, you can use the `useAlert` hook to create your own implementation.
+You can use the `useAlert` hook to create your own alert component.
 
-<CodeDemo
-  showPreview={false}
-  showOpenInCodeSandbox={true}
-  title="Custom Implementation"
-  files={alertContent.customImpl}
-/>
+<CodeDemo showPreview={false} title="Custom Implementation" files={alertContent.customImpl} />
+
+<Spacer y={4} />
+
+## Data Attributes
+
+Alert has the following attributes on the `base` element:
+
+- **data-visible**: When the alert is visible
+- **data-closeable**: When the alert can be closed
+- **data-has-title**: When the alert has a title
+- **data-has-description**: When the alert has a description
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Alert has role of `alert`
+- Close button has aria-label="Close" by default
+- When closed, alert is removed from the DOM
 
 <Spacer y={4} />
 
@@ -110,16 +104,21 @@ In case you need to customize the alert even further, you can use the `useAlert`
 
 ### Alert Props
 
-| Attribute        | Type                                                                         | Description                                                  | Default   |
-| ---------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
-| title            | `string`                                                                     | Title for alert                                              | -         |
-| description      | `ReactNode`                                                                  | Description for alert message                                | -         |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The alert color theme.                                       | `default` |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The alert border radius.                                     | `md`      |
-| isClosable       | `boolean`                                                                    | Whether the close button should be displayed.                | `false`    |
+| Attribute        | Type                                                                        | Description                                 | Default   |
+| ---------------- | --------------------------------------------------------------------------- | ------------------------------------------- | --------- |
+| title            | `string`                                                                    | The alert title                             | -         |
+| icon             | `ReactNode`                                                                 | The alert icon - overrides the default icon | -         |
+| description      | `ReactNode`                                                                 | The alert description                       | -         |
+| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The alert color theme                       | `default` |
+| variant          | `solid` \| `bordered` \| `flat`                                             | The alert variant                           | `flat`    |
+| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The alert border radius                     | `md`      |
+| isVisible        | `boolean`                                                                   | Whether the alert is visible                | -         |
+| isClosable       | `boolean`                                                                   | Whether the alert can be closed             | `false`   |
+| closeButtonProps | `ButtonProps`                                                               | Props for the close button                  | -         |
 
 ### Alert Events
 
-| Attribute    | Type                        | Description                                                 |
-| ------------ | --------------------------- | ----------------------------------------------------------- |
-| onClose      | `() => void`                | Handler that is called when the close button is clicked.    |
+| Attribute       | Type                           | Description                                      |
+| --------------- | ------------------------------ | ------------------------------------------------ |
+| onClose         | `() => void`                   | Handler called when the close button is clicked  |
+| onVisibleChange | `(isVisible: boolean) => void` | Handler called when the alert visibility changes |

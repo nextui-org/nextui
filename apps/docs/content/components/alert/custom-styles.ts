@@ -1,36 +1,25 @@
 const App = `import {Alert} from "@nextui-org/react";
 
 export default function App() {
-  const title = "Email Sent!!";
-  const description = "You will get a reply soon";
+  const title = "Success";
+  const description = "Thanks for subscribing to our newsletter!";
   
   return (
-    <div className="flex items-center justify-center w-screen">
+    <div className="flex items-center justify-center w-full">
       <Alert
         title={title}
         description={description}
         classNames={{
-          base: [
-            "bg-slate-100",
+           base: [
+            "bg-background",
             "border",
+            "border-foreground-400",
             "shadow",
             "hover:bg-slate-200",
-            "focus-within:!bg-slate-100",
-            "dark:bg-slate-900",
-            "dark:hover:bg-slate-800",
-            "dark:border-slate-800",
-            "dark:focus-within:!bg-slate-900",
-            "cursor-pointer"
+            "cursor-pointer",
           ],
-          title: [
-            "text-base",
-            "text-slate-500",
-            "font-bold"
-          ],
-          description: [
-            "text-base",
-            "text-slate-500",
-          ],
+          title: ["text-base", "text-foreground", "font-semibold"],
+          description: ["text-base", "text-foreground-600"],
         }}
       />
     </div>
