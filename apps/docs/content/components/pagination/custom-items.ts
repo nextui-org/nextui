@@ -59,7 +59,7 @@ export default function App() {
     onPrevious,
     setPage,
     className,
-  }: PaginationItemRenderProps<HTMLButtonElement>) => {
+  }: PaginationItemRenderProps) => {
     if (value === PaginationItemType.NEXT) {
       return (
         <button key={key} className={cn(className, "bg-default-200/50 min-w-8 w-8 h-8")} onClick={onNext}>

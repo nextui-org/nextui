@@ -13,7 +13,7 @@ Date Range Picker combines two DateInputs and a RangeCalendar popover to allow u
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -92,7 +92,7 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo title="With Error Message" files={dateRangePickerContent.errorMessage} />
 
-You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult]((https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51)).
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult](https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51).
 
 <CodeDemo title="With Error Message Function" files={dateRangePickerContent.errorMessageFunction} />
 
@@ -112,7 +112,13 @@ DateRangePicker automatically includes time fields when a `CalendarDateTime` or 
 
 You can use the `selector` to add content to the start and end of the date-range-picker.
 
-<CodeDemo title="Start and End Content" files={dateRangePickerContent.selectorIcon} />
+<CodeDemo title="Selector Icon" files={dateRangePickerContent.selectorIcon} />
+
+### Selector Button Placement
+
+You can change the position of the selector button by setting the `selectorButtonPlacement` property to `start` or `end`.
+
+<CodeDemo title="Selector Button Placement" files={dateRangePickerContent.selectorButtonPlacement} />
 
 ### Controlled
 
@@ -397,6 +403,7 @@ You can customize the `DateRangePicker` component by passing custom Tailwind CSS
 | allowsNonContiguousRanges | `boolean`                                                                                                                                                | enables a range to be selected even if there are unavailable dates in the middle                                                                                        | `false`                                                              |
 | popoverProps              | [PopoverProps](/docs/components/popover#api)                                                                                                             | Props to be passed to the popover component.                                                                                                                            | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }`     |
 | selectorButtonProps       | `ButtonProps`                                                                                                                                            | Props to be passed to the selector button component.                                                                                                                    | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| selectorButtonPlacement   | `start` \| `end`                                                                                                                                         | The position of the selector button.                                                                                                                                    | `end`                                                                |
 | calendarProps             | `CalendarProps`                                                                                                                                          | Props to be passed to the selector button component.                                                                                                                    | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
 | timeInputProps            | `TimeInputProps`                                                                                                                                         | Props to be passed to the time input component.                                                                                                                         | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
 | disableAnimation          | `boolean`                                                                                                                                                | Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                                           | `false`                                                              |

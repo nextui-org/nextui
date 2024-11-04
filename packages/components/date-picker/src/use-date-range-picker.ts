@@ -215,10 +215,11 @@ export function useDateRangePicker<T extends DateValue>({
             props.className,
           ),
         }),
+        shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+          ? popoverProps.shouldCloseOnInteractOutside
+          : (element: Element) =>
+              ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
       },
-      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
-        ? popoverProps.shouldCloseOnInteractOutside
-        : (element: Element) => ariaShouldCloseOnInteractOutside(element, domRef, state),
     } as PopoverProps;
   };
 
@@ -394,7 +395,6 @@ export function useDateRangePicker<T extends DateValue>({
       endContent,
       errorMessage,
       isInvalid,
-      startContent,
       validationDetails,
       validationErrors,
       shouldLabelBeOutside,
@@ -421,6 +421,7 @@ export function useDateRangePicker<T extends DateValue>({
     label: originalProps.label,
     slots,
     classNames,
+    startContent,
     endContent,
     selectorIcon,
     showTimeField,

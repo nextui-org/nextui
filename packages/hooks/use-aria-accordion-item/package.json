@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-accordion-item",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "Internal impl for react aria accordion item",
   "keywords": [
     "use-aria-accordion-item"
@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/button": "3.9.5",
-    "@react-aria/focus": "3.17.1",
-    "@react-stately/tree": "3.8.1",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/button": "3.9.8",
+    "@react-aria/focus": "3.18.2",
+    "@react-stately/tree": "3.8.4",
+    "@react-types/shared": "3.24.1"
   },
   "peerDependencies": {
     "react": ">=18"

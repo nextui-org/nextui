@@ -34,7 +34,7 @@ import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
-import {TwitterIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
+import {XIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
@@ -209,8 +209,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               className={navLinkClasses}
               color="foreground"
               data-active={includes(pathname, "components")}
-              href="/docs/components/avatar"
-              onClick={() => handlePressNavbarItem("Components", "/docs/components/avatar")}
+              href="/docs/components/accordion"
+              onClick={() => handlePressNavbarItem("Components", "/docs/components/accordion")}
             >
               Components
             </NextLink>
@@ -325,12 +325,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
         <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
-            aria-label="Twitter"
+            aria-label="X"
             className="p-1"
             href={siteConfig.links.twitter}
             onPress={() => handlePressNavbarItem("Twitter", siteConfig.links.twitter)}
           >
-            <TwitterIcon className="text-default-600 dark:text-default-500" />
+            <XIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <Link
             isExternal

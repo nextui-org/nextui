@@ -1,4 +1,4 @@
-import {renderHook, act} from "@testing-library/react-hooks";
+import {renderHook, act} from "@testing-library/react";
 
 import {usePagination} from "../src";
 
@@ -97,6 +97,6 @@ describe("usePagination", () => {
     const {result} = renderHook(() => usePagination({total: 10, onChange}));
 
     act(() => result.current.setPage(5));
-    expect(onChange).toBeCalledWith(5);
+    expect(onChange).toHaveBeenCalledWith(5);
   });
 });

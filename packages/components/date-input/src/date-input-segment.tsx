@@ -22,7 +22,6 @@ export const DateInputSegment: React.FC<DateInputSegmentProps> = ({
   ...otherProps
 }) => {
   const ref = useRef(null);
-
   let {segmentProps} = useDateSegment(segment, state, ref);
 
   return (

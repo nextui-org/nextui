@@ -13,7 +13,7 @@ DatePickers combine a DateInput and a Calendar popover to allow users to enter o
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -77,7 +77,7 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo title="With Error Message" files={datePickerContent.errorMessage} />
 
-You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult]((https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51)).
+You can also pass an error message as a function. This allows for dynamic error message handling based on the [ValidationResult](https://github.com/adobe/react-spectrum/blob/1cacbf1d438675feb3859fee54b17e620b458d9c/packages/%40react-types/shared/src/inputs.d.ts#L44-L51).
 
 <CodeDemo title="With Error Message Function" files={datePickerContent.errorMessageFunction} />
 
@@ -95,7 +95,13 @@ You can show month and year pickers in the calendar popover by setting the `show
 
 You can use the `selector` to add content to the start and end of the date-picker.
 
-<CodeDemo title="Start and End Content" files={datePickerContent.selectorIcon} />
+<CodeDemo title="Selector Icon" files={datePickerContent.selectorIcon} />
+
+### Selector Button Placement
+
+You can change the position of the selector button by setting the `selectorButtonPlacement` property to `start` or `end`.
+
+<CodeDemo title="Selector Button Placement" files={datePickerContent.selectorButtonPlacement} />
 
 ### Controlled
 
@@ -279,7 +285,7 @@ import {I18nProvider} from "@react-aria/i18n";
 `DatePicker` has the following attributes on the `base` element:
 
 - **data-slot**:
-  All slots have this prop. which slot the element represents(e.g. `canlendar`).
+  All slots have this prop. which slot the element represents(e.g. `calendar`).
 - **data-open**:
   Indicates if the calendar popover is open.
 - **data-invalid**:
@@ -340,10 +346,11 @@ import {I18nProvider} from "@react-aria/i18n";
 | hideTimeZone            | `boolean`                                                                                                                                                | Whether to hide the time zone abbreviation.                                                                                                                   | `false`                                                              |
 | shouldForceLeadingZeros | `boolean`                                                                                                                                                | Whether to always show leading zeros in the month, day, and hour fields.                                                                                      | `true`                                                               |
 | CalendarBottomContent   | `ReactNode`                                                                                                                                              | Bottom content to be rendered in the calendar component.                                                                                                      |                                                                      |
-| showMonthAndYearPickers | `boolean`                                                                                                                                                | Whether the calendar should show month and year pickers.                                                                                                      | `false`                                                              |
-| popoverProps            | `PopoverProps`                                                                                                                                           | Props to be passed to the popover component.                                                                                                                  | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }`     |
-| selectorButtonProps     | `ButtonProps`                                                                                                                                            | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
-| calendarProps           | `CalendarProps`                                                                                                                                          | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| showMonthAndYearPickers | `boolean` \| `undefined`                                                                                                                                 | Whether the calendar should show month and year pickers.                                                                                                      | false                                                                |
+| popoverProps            | `PopoverProps` \| `undefined`                                                                                                                            | Props to be passed to the popover component.                                                                                                                  | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }`     |
+| selectorButtonProps     | `ButtonProps` \| `undefined`                                                                                                                             | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| selectorButtonPlacement | `start` \| `end`                                                                                                                                         | The position of the selector button.                                                                                                                          | `end`                                                                |
+| calendarProps           | `CalendarProps` \| `undefined`                                                                                                                           | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
 | timeInputProps          | `TimeInputProps`                                                                                                                                         | Props to be passed to the time input component.                                                                                                               | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
 | disableAnimation        | `boolean`                                                                                                                                                | Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                                 | `false`                                                              |
 | classNames              | `Record<"base" \| "selectorButton" \| "selectorIcon" \| "popoverContent" \| "calendar" \| "calendarContent" \| "timeInputLabel" \| "timeInput", string>` | Allows to set custom class names for the date-picker slots.                                                                                                   | -                                                                    |

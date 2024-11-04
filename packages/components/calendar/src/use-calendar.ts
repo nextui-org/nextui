@@ -8,7 +8,7 @@ import {useCalendar as useAriaCalendar} from "@react-aria/calendar";
 import {useCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
-import {chain} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
 import {CalendarBaseProps} from "./calendar-base";
@@ -69,7 +69,7 @@ export function useCalendar<T extends DateValue>({
   const baseStyles = clsx(classNames?.base, className);
 
   const buttonPickerProps: ButtonProps = {
-    ...buttonPickerPropsProp,
+    ...mergeProps(buttonPickerPropsProp, {isDisabled: originalProps.isDisabled}),
     onPress: chain(buttonPickerPropsProp?.onPress, () => setIsHeaderExpanded(!isHeaderExpanded)),
   };
 

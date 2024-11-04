@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/user",
-  "version": "2.0.31",
+  "version": "2.0.34",
   "description": "Flexible User Profile Component.",
   "keywords": [
     "user"
@@ -43,8 +43,8 @@
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/utils": "3.24.1"
+    "@react-aria/focus": "3.18.2",
+    "@react-aria/utils": "3.25.2"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

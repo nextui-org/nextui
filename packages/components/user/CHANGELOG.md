@@ -1,5 +1,36 @@
 # @nextui-org/user
 
+## 2.0.34
+
+### Patch Changes
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/avatar@2.0.33
+  - @nextui-org/react-utils@2.0.17
+
+## 2.0.33
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/avatar@2.0.32
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.0.32
+
+### Patch Changes
+
+- [#3387](https://github.com/nextui-org/nextui/pull/3387) [`c5ab49afa`](https://github.com/nextui-org/nextui/commit/c5ab49afa4b34ff52a7dc95fcc1709f5e3fdaf0b) Thanks [@wingkwong](https://github.com/wingkwong)! - removed `name` from `avatarProps` in `use-user.ts` (#3369)
+
+- Updated dependencies [[`6951b1fba`](https://github.com/nextui-org/nextui/commit/6951b1fba03652f95babe3a490caa2a061b8cb12), [`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/avatar@2.0.31
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
 ## 2.0.31
 
 ### Patch Changes
