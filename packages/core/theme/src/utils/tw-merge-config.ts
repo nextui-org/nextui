@@ -1,7 +1,6 @@
-import type {Config} from "tailwind-merge";
 export const COMMON_UNITS = ["small", "medium", "large"];
 
-export const twMergeConfig: Partial<Config> = {
+export const twMergeConfig = {
   theme: {
     opacity: ["disabled"],
     spacing: ["divider"],
