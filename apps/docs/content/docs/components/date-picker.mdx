@@ -93,7 +93,13 @@ You can also pass an error message as a function. This allows for dynamic error 
 
 You can use the `selector` to add content to the start and end of the date-picker.
 
-<CodeDemo title="Start and End Content" files={datePickerContent.selectorIcon} />
+<CodeDemo title="Selector Icon" files={datePickerContent.selectorIcon} />
+
+### Selector Button Placement
+
+You can change the position of the selector button by setting the `selectorButtonPlacement` property to `start` or `end`.
+
+<CodeDemo title="Selector Button Placement" files={datePickerContent.selectorButtonPlacement} />
 
 ### Controlled
 
@@ -277,7 +283,7 @@ import {I18nProvider} from "@react-aria/i18n";
 `DatePicker` has the following attributes on the `base` element:
 
 - **data-slot**:
-  All slots have this prop. which slot the element represents(e.g. `canlendar`).
+  All slots have this prop. which slot the element represents(e.g. `calendar`).
 - **data-open**:
   Indicates if the calendar popover is open.
 - **data-invalid**:
@@ -342,6 +348,7 @@ import {I18nProvider} from "@react-aria/i18n";
 | showMonthAndYearPickers | `boolean` \| `undefined`                                                                                                                                 | Whether the calendar should show month and year pickers.                                                                                                      | false                                                                |
 | popoverProps            | `PopoverProps` \| `undefined`                                                                                                                            | Props to be passed to the popover component.                                                                                                                  | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }`     |
 | selectorButtonProps     | `ButtonProps` \| `undefined`                                                                                                                             | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
+| selectorButtonPlacement | `start` \| `end`                                                                                                                                         | The position of the selector button.                                                                                                                          | `end`                                                                |
 | calendarProps           | `CalendarProps` \| `undefined`                                                                                                                           | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
 | timeInputProps          | `TimeInputProps`                                                                                                                                         | Props to be passed to the time input component.                                                                                                               | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
 | disableAnimation        | `boolean`                                                                                                                                                | Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                                 | `false`                                                              |

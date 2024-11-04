@@ -150,6 +150,7 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                 "scrollbar-hide overflow-x-scroll": hideScrollBar,
               })}
               style={style}
+              translate="no"
             >
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({line, key: i});

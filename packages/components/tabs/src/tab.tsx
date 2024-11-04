@@ -1,7 +1,7 @@
 import type {TabItemProps as BaseTabItemProps} from "./base/tab-item-base";
 
 import {forwardRef} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {useDOMRef, filterDOMProps, mergeRefs} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import scrollIntoView from "scroll-into-view-if-needed";
@@ -44,6 +44,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
     disableCursorAnimation,
     shouldSelectOnPressUp,
     onClick,
+    tabRef,
     ...otherProps
   } = props;
 
@@ -94,7 +95,7 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
 
   return (
     <Component
-      ref={domRef}
+      ref={mergeRefs(domRef, tabRef)}
       data-disabled={dataAttr(isDisabledItem)}
       data-focus={dataAttr(isFocused)}
       data-focus-visible={dataAttr(isFocusVisible)}

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
-import {act, fireEvent, render} from "@testing-library/react";
+import {fireEvent, render} from "@testing-library/react";
 import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
@@ -67,10 +67,7 @@ describe("DateInput", () => {
         />,
       );
 
-      await act(async () => {
-        await user.tab();
-      });
-
+      await user.tab();
       await user.keyboard("01011980");
 
       expect(tree.getByText("Date unavailable.")).toBeInTheDocument();
@@ -205,17 +202,13 @@ describe("DateInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[0]).toHaveFocus();
 
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[1]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
@@ -236,22 +229,14 @@ describe("DateInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[0]).toHaveFocus();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[1]).toHaveFocus();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[2]).toHaveFocus();
       expect(onBlurSpy).toHaveBeenCalledTimes(0);
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(onBlurSpy).toHaveBeenCalledTimes(1);
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(2);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
@@ -266,9 +251,7 @@ describe("DateInput", () => {
       expect(onKeyDownSpy).not.toHaveBeenCalled();
       expect(onKeyUpSpy).not.toHaveBeenCalled();
 
-      await act(() => {
-        user.tab();
-      });
+      await user.tab();
 
       expect(segments[0]).toHaveFocus();
       expect(onKeyDownSpy).not.toHaveBeenCalled();
