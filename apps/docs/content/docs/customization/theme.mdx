@@ -14,7 +14,7 @@ TailwindCSS plugin. This plugin, which is based on the [tw-colors](https://githu
 plugin developed by [L-Blondy](https://github.com/L-Blondy), allows you to customize color schemes,
 layout configurations, and more, across different components of your application.
 
-<CarbonAd />
+<CarbonAd/>
 
 ## What is a Theme?
 
@@ -28,7 +28,11 @@ app's look and feel.
 The first step to using NextUI's theming capability is adding the `nextui` plugin to your
 `tailwind.config.js` file. Below is an example of how to do this:
 
-```js {8,13-14}
+<Blockquote color="primary">
+**Note**: If you are using pnpm and monorepo architecture, please make sure you are pointing to the ROOT `node_modules`
+</Blockquote>
+
+```js {9,14-15}
 // tailwind.config.js
 const {nextui} = require("@nextui-org/react");
 
@@ -36,6 +40,7 @@ const {nextui} = require("@nextui-org/react");
 module.exports = {
   content: [
     // ...
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
@@ -210,11 +215,6 @@ type FontThemeUnit = {
 };
 
 interface LayoutTheme {
-  /**
-   * Base unit token that defines a consistent spacing scale across
-   * the components.
-   */
-  spacingUnit?: number;
   /**
    * The default font size applied across the components.
    */

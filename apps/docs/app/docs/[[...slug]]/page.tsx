@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 
 import {notFound} from "next/navigation";
-import {allDocs} from "contentlayer/generated";
+import {allDocs} from "contentlayer2/generated";
 import {Link} from "@nextui-org/react";
 
 import {MDXContent} from "@/components/mdx-content";
@@ -83,7 +83,7 @@ export default async function DocPage({params}: DocPageProps) {
   if (!doc) {
     notFound();
   }
-  const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}/${CONTENT_PATH}${currentRoute?.path}`;
+  const editUrl = `${GITHUB_URL}/${REPO_NAME}/edit/${TAG}${CONTENT_PATH}${currentRoute?.path}`;
 
   return (
     <>

@@ -1,5 +1,127 @@
 # @nextui-org/input
 
+## 2.2.5
+
+### Patch Changes
+
+- [#2958](https://github.com/nextui-org/nextui/pull/2958) [`985c2e1dd`](https://github.com/nextui-org/nextui/commit/985c2e1dd3642e3087aa0555a3c3ae4ea182b099) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - Fixed hover and focus of input when label placement is outside-left (#2328)
+
+- [#3643](https://github.com/nextui-org/nextui/pull/3643) [`3d6865586`](https://github.com/nextui-org/nextui/commit/3d6865586fe7cec850925c8e8ff42155a97c43ea) Thanks [@ryxxn](https://github.com/ryxxn)! - disable clear button when input is read-only
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/react-utils@2.0.17
+
+## 2.2.4
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+- Updated dependencies [[`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34)]:
+  - @nextui-org/use-safe-layout-effect@2.0.6
+  - @nextui-org/react-utils@2.0.16
+  - @nextui-org/shared-icons@2.0.9
+  - @nextui-org/shared-utils@2.0.7
+
+## 2.2.3
+
+### Patch Changes
+
+- [#3300](https://github.com/nextui-org/nextui/pull/3300) [`edd48a09c`](https://github.com/nextui-org/nextui/commit/edd48a09ccab2b0b1c0371d1f3fe23447b07fb54) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add accessible name to the icon button (#2802, #2808)
+
+- [#3268](https://github.com/nextui-org/nextui/pull/3268) [`93f178781`](https://github.com/nextui-org/nextui/commit/93f17878154a6351c38c8ef4806b5fb20e4fa217) Thanks [@wingkwong](https://github.com/wingkwong)! - revised styles and logic for input with file type (#2397, #2311, #2965)
+
+- Updated dependencies [[`f5d94f96e`](https://github.com/nextui-org/nextui/commit/f5d94f96e4cffed1d4aeef971c89f8d283effd49)]:
+  - @nextui-org/shared-utils@2.0.6
+  - @nextui-org/react-utils@2.0.15
+
+## 2.2.2
+
+### Patch Changes
+
+- [#3240](https://github.com/nextui-org/nextui/pull/3240) [`47c2472fb`](https://github.com/nextui-org/nextui/commit/47c2472fb22bfe1c0c357b5ba12e5606eba0d65b) Thanks [@wingkwong](https://github.com/wingkwong)! - bump react-aria dependencies
+
+- [#3174](https://github.com/nextui-org/nextui/pull/3174) [`dbb4b8ee5`](https://github.com/nextui-org/nextui/commit/dbb4b8ee564114bfb0ef93467ed9ef6a3ff7e2e7) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix input display with hidden type (#3170)
+
+- Updated dependencies [[`3500147d7`](https://github.com/nextui-org/nextui/commit/3500147d7fbe53bc01ae24749fdeaf87c37c0d12), [`b9bb06ff3`](https://github.com/nextui-org/nextui/commit/b9bb06ff37f99bfc438e848706ec79b4c7b7c5d3)]:
+  - @nextui-org/shared-icons@2.0.8
+  - @nextui-org/react-utils@2.0.14
+
+## 2.2.1
+
+### Patch Changes
+
+- [#3119](https://github.com/nextui-org/nextui/pull/3119) [`685995a12`](https://github.com/nextui-org/nextui/commit/685995a125cc3db26c6adb67ed9f7245b87e792a) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version to `3.24.1` and bump `@react-types/shared` to `3.23.1`
+
+## 2.2.0
+
+### Minor Changes
+
+- [#2987](https://github.com/nextui-org/nextui/pull/2987) [`540aa2124`](https://github.com/nextui-org/nextui/commit/540aa2124b45b65a40e73f5aea2b90405fe1fe9a) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Change validationBehavior from native to aria by default, with the option to change via props.
+
+### Patch Changes
+
+- [#2929](https://github.com/nextui-org/nextui/pull/2929) [`422770cc6`](https://github.com/nextui-org/nextui/commit/422770cc6bcdd1d4c51257654ab718f3c19d6cb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add support for disabling the animations globally.
+
+## 2.1.21
+
+### Patch Changes
+
+- [#2796](https://github.com/nextui-org/nextui/pull/2796) [`355235320`](https://github.com/nextui-org/nextui/commit/35523532030468837939d127b68bee30bbc4e2b0) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixes the isClearable function in the input component (#2791)
+
+- [#2072](https://github.com/nextui-org/nextui/pull/2072) [`1dacf52f3`](https://github.com/nextui-org/nextui/commit/1dacf52f305a410cbf59d067d1977024d982ad03) Thanks [@black197](https://github.com/black197)! - Fix #2069 keep input component's position steady
+
+## 2.1.20
+
+### Patch Changes
+
+- Updated dependencies [[`eccc2f2f3`](https://github.com/nextui-org/nextui/commit/eccc2f2f3d856eefb2cc7c07b94e1c4cefd4d7d0)]:
+  - @nextui-org/react-utils@2.0.13
+
+## 2.1.19
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.12
+
+## 2.1.18
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fixed react-hook-form uncontrolled components (#1969)
+
+- [#2316](https://github.com/nextui-org/nextui/pull/2316) [`52dafd08f`](https://github.com/nextui-org/nextui/commit/52dafd08f178483e79dc847b61d1c761af26eb8e) Thanks [@mrbadri](https://github.com/mrbadri)! - Add RTL support to the input component
+
+- Updated dependencies [[`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14), [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14)]:
+  - @nextui-org/react-utils@2.0.11
+  - @nextui-org/shared-icons@2.0.7
+  - @nextui-org/shared-utils@2.0.5
+
+## 2.1.17
+
+### Patch Changes
+
+- [#2371](https://github.com/nextui-org/nextui/pull/2371) [`e4ba43b4e`](https://github.com/nextui-org/nextui/commit/e4ba43b4e39203566614ac0aa58e844e9421c86e) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed input label overlapping issue (#2255)
+
+- [#2028](https://github.com/nextui-org/nextui/pull/2028) [`0ba165f0f`](https://github.com/nextui-org/nextui/commit/0ba165f0fd2257f5b8302b32a9f5eb1ecde8d890) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1979 labelPlacement is outside when not having a label for input, autocomplete and select components.
+
+- [#2031](https://github.com/nextui-org/nextui/pull/2031) [`436ba1cd8`](https://github.com/nextui-org/nextui/commit/436ba1cd8412dc044651ab38ff2ed770f35377ff) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1984 input clearable feature fixed
+
+- [#2274](https://github.com/nextui-org/nextui/pull/2274) [`e6f36281c`](https://github.com/nextui-org/nextui/commit/e6f36281cb8bcf6784c2fee47860f618dea9346c) Thanks [@Prakash7895](https://github.com/Prakash7895)! - Fix #2268, when using a number input and with a 0 for the initial value, the label (default or labelPlacement='inside') does not animate to the correct position. Even when the user is setting the value to 0, the label does not alter its state unless a number other than 0 is inputted.
+
 ## 2.1.16
 
 ### Patch Changes
@@ -118,7 +240,7 @@
 
 - [#1543](https://github.com/nextui-org/nextui/pull/1543) [`043b8420c`](https://github.com/nextui-org/nextui/commit/043b8420cfb659cbb6bb36404807ec3cc8ac8592) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #1492 \n
 
-  - Select adn Input spaces fixed on helper wrapper
+  - Select and Input spaces fixed on helper wrapper
   - New select wrapper added `mainWrapper` which contains the helperWrapper and the trigger slots
   - Outside input with start content fixed
 
@@ -205,7 +327,7 @@
 
 - [#1359](https://github.com/nextui-org/nextui/pull/1359) [`a30cec48`](https://github.com/nextui-org/nextui/commit/a30cec4810988fb1962f3a61e0fc0362de08b171) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - \n
 
-  - react-aria packages updgraded to the latest version
+  - react-aria packages upgraded to the latest version
   - image storybooks fixed
   - other bug fixes..
 

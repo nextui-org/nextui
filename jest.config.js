@@ -18,11 +18,6 @@ module.exports = {
     ],
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
-  setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect", "./scripts/setup-test.ts"],
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.json",
-    },
-  },
+  setupFilesAfterEnv: ["@testing-library/jest-dom", "./scripts/setup-test.ts"],
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
 };

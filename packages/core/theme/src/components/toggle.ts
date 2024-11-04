@@ -30,7 +30,7 @@ import {groupDataFocusVisibleClasses} from "../utils";
  */
 const toggle = tv({
   slots: {
-    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent",
+    base: "group relative max-w-fit inline-flex items-center justify-start cursor-pointer touch-none tap-highlight-transparent select-none",
     wrapper: [
       "px-1",
       "relative",
@@ -54,10 +54,10 @@ const toggle = tv({
       "rounded-full",
       "origin-right",
     ],
-    startContent: "z-0 absolute left-1.5 text-current",
-    endContent: "z-0 absolute right-1.5 text-default-600",
+    startContent: "z-0 absolute start-1.5 text-current",
+    endContent: "z-0 absolute end-1.5 text-default-600",
     thumbIcon: "text-black",
-    label: "relative text-foreground select-none",
+    label: "relative text-foreground select-none ms-2",
   },
   variants: {
     color: {
@@ -100,33 +100,33 @@ const toggle = tv({
     },
     size: {
       sm: {
-        wrapper: "w-10 h-6 mr-2",
+        wrapper: "w-10 h-6",
         thumb: [
           "w-4 h-4 text-tiny",
           //selected
-          "group-data-[selected=true]:ml-4",
+          "group-data-[selected=true]:ms-4",
         ],
         endContent: "text-tiny",
         startContent: "text-tiny",
         label: "text-small",
       },
       md: {
-        wrapper: "w-12 h-7 mr-2",
+        wrapper: "w-12 h-7",
         thumb: [
           "w-5 h-5 text-small",
           //selected
-          "group-data-[selected=true]:ml-5",
+          "group-data-[selected=true]:ms-5",
         ],
         endContent: "text-small",
         startContent: "text-small",
         label: "text-medium",
       },
       lg: {
-        wrapper: "w-14 h-8 mr-2",
+        wrapper: "w-14 h-8",
         thumb: [
           "w-6 h-6 text-medium",
           //selected
-          "group-data-[selected=true]:ml-6",
+          "group-data-[selected=true]:ms-6",
         ],
         endContent: "text-medium",
         startContent: "text-medium",
@@ -166,7 +166,6 @@ const toggle = tv({
     color: "primary",
     size: "md",
     isDisabled: false,
-    disableAnimation: false,
   },
   compoundVariants: [
     {

@@ -19,6 +19,13 @@
           "path": "/docs/guide/installation.mdx"
         },
         {
+          "key": "cli",
+          "title": "CLI",
+          "keywords": "cli, command line interface",
+          "path": "/docs/guide/cli.mdx",
+          "newPost": true
+        },
+        {
           "key": "design-principles",
           "title": "Design Principles",
           "keywords": "design principles, nextui",
@@ -28,8 +35,7 @@
           "key": "routing",
           "title": "Routing",
           "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
-          "path": "/docs/guide/routing.mdx",
-          "newPost": true
+          "path": "/docs/guide/routing.mdx"
         },
         {
           "key": "upgrade-to-v2",
@@ -85,7 +91,8 @@
         {
           "key": "layout",
           "title": "Layout",
-          "path": "/docs/customization/layout.mdx"
+          "path": "/docs/customization/layout.mdx",
+          "updated": true
         },
         {
           "key": "colors",
@@ -126,12 +133,6 @@
       "defaultOpen": true,
       "routes": [
         {
-          "key": "avatar",
-          "title": "Avatar",
-          "keywords": "avatar, profile picture, user representation, identity",
-          "path": "/docs/components/avatar.mdx"
-        },
-        {
           "key": "accordion",
           "title": "Accordion",
           "keywords": "accordion, collapse, expandable sections, content hiding",
@@ -141,14 +142,33 @@
           "key": "autocomplete",
           "title": "Autocomplete",
           "keywords": "autocomplete, auto suggest, search, typeahead",
-          "path": "/docs/components/autocomplete.mdx",
-          "newPost": true
+          "path": "/docs/components/autocomplete.mdx"
+        },
+        {
+          "key": "alert",
+          "title": "Alert",
+          "keywords": "alert, notification, message",
+          "path": "/docs/components/alert.mdx",
+          "isNew": true
+        },
+        {
+          "key": "avatar",
+          "title": "Avatar",
+          "keywords": "avatar, profile picture, user representation, identity",
+          "path": "/docs/components/avatar.mdx"
         },
         {
           "key": "badge",
           "title": "Badge",
           "keywords": "badge, markers, status indication, count display",
-          "path": "/docs/components/badge.mdx"
+          "path": "/docs/components/badge.mdx",
+          "updated": true
+        },
+        {
+          "key": "breadcrumbs",
+          "title": "Breadcrumbs",
+          "keywords": "breadcrumbs, navigation, path, trail, location",
+          "path": "/docs/components/breadcrumbs.mdx"
         },
         {
           "key": "button",
@@ -157,10 +177,10 @@
           "path": "/docs/components/button.mdx"
         },
         {
-          "key": "breadcrumbs",
-          "title": "Breadcrumbs",
-          "keywords": "breadcrumbs, navigation, path, trail, location",
-          "path": "/docs/components/breadcrumbs.mdx",
+          "key": "calendar",
+          "title": "Calendar",
+          "keywords": "calendar, date picker, month picker, year picker",
+          "path": "/docs/components/calendar.mdx",
           "newPost": true
         },
         {
@@ -173,7 +193,8 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx"
+          "path": "/docs/components/checkbox.mdx",
+          "updated": true
         },
         {
           "key": "checkbox-group",
@@ -200,6 +221,27 @@
           "path": "/docs/components/code.mdx"
         },
         {
+          "key": "date-input",
+          "title": "Date Input",
+          "keywords": "date-input, time, input, timezone",
+          "path": "/docs/components/date-input.mdx",
+          "newPost": true
+        },
+        {
+          "key": "date-picker",
+          "title": "Date Picker",
+          "keywords": "date-picker, time, input, timezone",
+          "path": "/docs/components/date-picker.mdx",
+          "newPost": true
+        },
+        {
+          "key": "date-range-picker",
+          "title": "Date Range Picker",
+          "keywords": "date-range-picker, date-picker, time, input, timezone",
+          "path": "/docs/components/date-range-picker.mdx",
+          "newPost": true
+        },
+        {
           "key": "divider",
           "title": "Divider",
           "keywords": "divider, boundary, separator, section divider",
@@ -209,8 +251,14 @@
           "key": "dropdown",
           "title": "Dropdown",
           "keywords": "dropdown, menu, selection, option list",
-          "path": "/docs/components/dropdown.mdx",
-          "updated": true
+          "path": "/docs/components/dropdown.mdx"
+        },
+        {
+          "key": "drawer",
+          "title": "Drawer",
+          "keywords": "drawer, panel, slide, overlay",
+          "path": "/docs/components/drawer.mdx",
+          "newPost": true
         },
         {
           "key": "image",
@@ -234,21 +282,20 @@
           "key": "link",
           "title": "Link",
           "keywords": "link, navigation, href, web page connection",
-          "path": "/docs/components/link.mdx",
-          "updated": true
+          "path": "/docs/components/link.mdx"
         },
         {
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx",
-          "updated": true
+          "path": "/docs/components/listbox.mdx"
         },
         {
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog box, popup, overlay, content focus",
-          "path": "/docs/components/modal.mdx"
+          "path": "/docs/components/modal.mdx",
+          "updated": true
         },
         {
           "key": "navbar",
@@ -281,6 +328,19 @@
           "path": "/docs/components/radio-group.mdx"
         },
         {
+          "key": "range-calendar",
+          "title": "Range Calendar",
+          "keywords": "range calendar, date picker, month picker, year picker",
+          "path": "/docs/components/range-calendar.mdx",
+          "newPost": true
+        },
+        {
+          "key": "scroll-shadow",
+          "title": "Scroll Shadow",
+          "keywords": "scroll shadow, scroll indicator, scroll bar, scroll position",
+          "path": "/docs/components/scroll-shadow.mdx"
+        },
+        {
           "key": "select",
           "title": "Select",
           "keywords": "select, selection, option list, multiple choice",
@@ -290,19 +350,20 @@
           "key": "skeleton",
           "title": "Skeleton",
           "keywords": "skeleton, loading state, placeholder, content preview",
-          "path": "/docs/components/skeleton.mdx"
+          "path": "/docs/components/skeleton.mdx",
+          "updated": true
+        },
+        {
+          "key": "slider",
+          "title": "Slider",
+          "keywords": "slider, range input, value selector, sliding control",
+          "path": "/docs/components/slider.mdx"
         },
         {
           "key": "snippet",
           "title": "Snippet",
           "keywords": "snippet, code block, programming, code example",
           "path": "/docs/components/snippet.mdx"
-        },
-        {
-          "key": "scroll-shadow",
-          "title": "Scroll Shadow",
-          "keywords": "scroll shadow, scroll indicator, scroll bar, scroll position",
-          "path": "/docs/components/scroll-shadow.mdx"
         },
         {
           "key": "spacer",
@@ -323,13 +384,6 @@
           "path": "/docs/components/switch.mdx"
         },
         {
-          "key": "slider",
-          "title": "Slider",
-          "keywords": "slider, range input, value selector, sliding control",
-          "path": "/docs/components/slider.mdx",
-          "newPost": true
-        },
-        {
           "key": "table",
           "title": "Table",
           "keywords": "table, data display, grid, spreadsheet",
@@ -346,20 +400,49 @@
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",
-          "path": "/docs/components/textarea.mdx",
-          "updated": true
+          "path": "/docs/components/textarea.mdx"
+        },
+        {
+          "key": "time-input",
+          "title": "Time Input",
+          "keywords": "timeinput, time, input, timezone",
+          "path": "/docs/components/time-input.mdx",
+          "newPost": true
         },
         {
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx"
+          "path": "/docs/components/tooltip.mdx",
+          "updated": true
         },
         {
           "key": "user",
           "title": "User",
           "keywords": "user, account, user profile, identity",
           "path": "/docs/components/user.mdx"
+        }
+      ]
+    },
+    {
+      "key": "api-references",
+      "title": "API References",
+      "defaultOpen": true,
+      "keywords": "api references, nextui, api",
+      "routes": [
+        {
+          "key": "cli-api",
+          "title": "NextUI CLI",
+          "keywords": "api references, nextui, api, cli",
+          "path": "/docs/api-references/cli-api.mdx",
+          "updated": true
+        },
+        {
+          "key": "nextui-provider",
+          "title": "NextUI Provider",
+          "keywords": "api references, nextui, api, nextui provider",
+          "path": "/docs/api-references/nextui-provider.mdx",
+          "updated": true
         }
       ]
     }
@@ -394,6 +477,12 @@
           "title": "Figma",
           "keywords": "figma, nextui, design, ui kit",
           "path": "/figma"
+        },
+        {
+          "key": "roadmap",
+          "title": "Roadmap",
+          "keywords": "roadmap, nextui",
+          "path": "#"
         }
       ]
     }

@@ -1,10 +1,16 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {render} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Menu, MenuItem, MenuSection} from "../src";
 
 describe("Menu", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Menu aria-label="Actions" onAction={alert}>
@@ -109,6 +115,7 @@ describe("Menu", () => {
       <Menu aria-label="Actions" items={menuItems}>
         {(section: any) => (
           <MenuSection aria-label={section.title} items={section.children} title={section.title}>
+            {/* @ts-ignore */}
             {(item: any) => <MenuItem key={item.key}>{item.name}</MenuItem>}
           </MenuSection>
         )}
@@ -145,11 +152,8 @@ describe("Menu", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(menuItems[1]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(menuItems[1]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should work with multiple selection (controlled)", async () => {
@@ -179,11 +183,8 @@ describe("Menu", () => {
 
     expect(menuItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(menuItems[0]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(menuItems[0]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should show checkmarks if selectionMode is single and has a selected item", () => {
@@ -272,5 +273,74 @@ describe("Menu", () => {
     let checkmark1 = menuItems[0].querySelector("svg");
 
     expect(checkmark1).toBeFalsy();
+  });
+
+  it("should dispatch onAction events correctly", async () => {
+    let onAction = jest.fn();
+
+    const wrapper = render(
+      <Menu aria-label="Actions" onAction={onAction}>
+        <MenuItem key="new">New file</MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await user.click(menuItems[1]);
+    expect(onAction).toHaveBeenCalledTimes(1);
+  });
+
+  it("should not dispatch onAction events if item is disabled", async () => {
+    let onAction = jest.fn();
+
+    const wrapper = render(
+      <Menu aria-label="Actions" onAction={onAction}>
+        <MenuItem key="new">New file</MenuItem>
+        <MenuItem key="copy" isDisabled>
+          Copy link
+        </MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await user.click(menuItems[1]);
+    expect(onAction).toHaveBeenCalledTimes(0);
+  });
+
+  it("should dispatch onPress, onAction and onClick events", async () => {
+    let onPress = jest.fn();
+    let onClick = jest.fn();
+    let onAction = jest.fn();
+
+    const wrapper = render(
+      <Menu aria-label="Actions" onAction={onAction}>
+        <MenuItem key="new" onClick={onClick} onPress={onPress}>
+          New file
+        </MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let menuItems = wrapper.getAllByRole("menuitem");
+
+    await user.click(menuItems[0]);
+
+    expect(onAction).toHaveBeenCalledTimes(1);
+    expect(onPress).toHaveBeenCalledTimes(1);
+    expect(onClick).toHaveBeenCalledTimes(1);
   });
 });

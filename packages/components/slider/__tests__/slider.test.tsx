@@ -1,10 +1,16 @@
 import * as React from "react";
 import {render, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Slider, SliderValue} from "../src";
 
 describe("Slider", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Slider />);
 
@@ -138,9 +144,7 @@ describe("Slider", () => {
     expect(output).toHaveTextContent("50");
 
     // change slider value
-    await act(async () => {
-      await userEvent.click(button);
-    });
+    await user.click(button);
 
     expect(slider).toHaveProperty("value", "55");
     expect(slider).toHaveAttribute("aria-valuetext", "55");
@@ -201,9 +205,7 @@ describe("Slider", () => {
     expect(rightSlider).toHaveAttribute("aria-valuetext", "20");
 
     // change slider value
-    await act(async () => {
-      await userEvent.click(button);
-    });
+    await user.click(button);
 
     expect(leftSlider).toHaveProperty("value", "15");
     expect(leftSlider).toHaveAttribute("aria-valuetext", "15");
@@ -212,5 +214,156 @@ describe("Slider", () => {
     expect(rightSlider).toHaveAttribute("aria-valuetext", "25");
 
     expect(setValues).toStrictEqual([[15, 25]]);
+  });
+
+  it("should supports hideThumb", async function () {
+    const {container} = render(<Slider hideThumb defaultValue={20} label="The Label" />);
+
+    const track = container.querySelector("[data-slot='track']");
+
+    expect(track).toHaveAttribute("data-thumb-hidden", "true");
+  });
+
+  it("should supports marks", async function () {
+    const {container} = render(
+      <Slider
+        hideThumb
+        defaultValue={20}
+        label="The Label"
+        marks={[
+          {
+            value: 0.2,
+            label: "20%",
+          },
+          {
+            value: 0.5,
+            label: "50%",
+          },
+          {
+            value: 0.8,
+            label: "80%",
+          },
+        ]}
+        maxValue={1}
+        minValue={0}
+        step={0.1}
+      />,
+    );
+
+    const marks = container.querySelectorAll("[data-slot='mark']");
+
+    expect(marks).toHaveLength(3);
+  });
+
+  it("should supports marks with hideThumb", async function () {
+    const {container} = render(
+      <Slider
+        hideThumb
+        defaultValue={20}
+        label="The Label"
+        marks={[
+          {
+            value: 0.2,
+            label: "20%",
+          },
+          {
+            value: 0.5,
+            label: "50%",
+          },
+          {
+            value: 0.8,
+            label: "80%",
+          },
+        ]}
+        maxValue={1}
+        minValue={0}
+        step={0.1}
+      />,
+    );
+
+    const track = container.querySelector("[data-slot='track']");
+
+    expect(track).toHaveAttribute("data-thumb-hidden", "true");
+
+    const marks = container.querySelectorAll("[data-slot='mark']");
+
+    expect(marks).toHaveLength(3);
+  });
+
+  it("should move thumb after clicking mark (single thumb)", async function () {
+    const {getByRole, container} = render(
+      <Slider
+        hideThumb
+        defaultValue={0.2}
+        label="The Label"
+        marks={[
+          {
+            value: 0.2,
+            label: "20%",
+          },
+          {
+            value: 0.5,
+            label: "50%",
+          },
+          {
+            value: 0.8,
+            label: "80%",
+          },
+        ]}
+        maxValue={1}
+        minValue={0}
+        step={0.1}
+      />,
+    );
+
+    const marks = container.querySelectorAll("[data-slot='mark']");
+
+    expect(marks).toHaveLength(3);
+
+    await user.click(marks[1]);
+    const slider = getByRole("slider");
+
+    expect(slider).toHaveProperty("value", "0.5");
+    expect(slider).toHaveAttribute("aria-valuetext", "0.5");
+  });
+
+  it("should move thumb after clicking mark (left and right thumbs)", async function () {
+    const {getAllByRole, container} = render(
+      <Slider
+        hideThumb
+        defaultValue={[0.2, 0.8]}
+        label="The Label"
+        marks={[
+          {
+            value: 0.2,
+            label: "20%",
+          },
+          {
+            value: 0.5,
+            label: "50%",
+          },
+          {
+            value: 0.8,
+            label: "80%",
+          },
+        ]}
+        maxValue={1}
+        minValue={0}
+        step={0.1}
+      />,
+    );
+
+    const marks = container.querySelectorAll("[data-slot='mark']");
+
+    expect(marks).toHaveLength(3);
+
+    await user.click(marks[1]);
+    const [leftSlider, rightSlider] = getAllByRole("slider");
+
+    expect(leftSlider).toHaveProperty("value", "0.5");
+    expect(leftSlider).toHaveAttribute("aria-valuetext", "0.5");
+
+    expect(rightSlider).toHaveProperty("value", "0.8");
+    expect(rightSlider).toHaveAttribute("aria-valuetext", "0.8");
   });
 });

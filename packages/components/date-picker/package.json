@@ -1,0 +1,71 @@
+{
+  "name": "@nextui-org/date-picker",
+  "version": "2.1.8",
+  "description": "A date picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.",
+  "keywords": [
+    "date-picker"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/date-picker"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "@nextui-org/system": ">=2.1.0",
+    "@nextui-org/theme": ">=2.2.0",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@internationalized/date": "3.5.5",
+    "@nextui-org/aria-utils": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/calendar": "workspace:*",
+    "@nextui-org/date-input": "workspace:*",
+    "@nextui-org/popover": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@react-aria/datepicker": "3.11.2",
+    "@react-aria/i18n": "3.12.2",
+    "@react-aria/utils": "3.25.2",
+    "@react-stately/datepicker": "3.10.2",
+    "@react-stately/overlays": "3.6.10",
+    "@react-stately/utils": "3.10.3",
+    "@react-types/datepicker": "3.8.2",
+    "@react-types/shared": "3.24.1"
+  },
+  "devDependencies": {
+    "@nextui-org/radio": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/test-utils": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

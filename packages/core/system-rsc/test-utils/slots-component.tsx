@@ -1,10 +1,13 @@
 import type {HTMLNextUIProps} from "../src/types";
+import type {VariantProps} from "@nextui-org/theme";
 
 import React, {useMemo} from "react";
-import {SlotsToClasses, tv, type VariantProps} from "@nextui-org/theme";
+import {SlotsToClasses, tv} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {objectToDeps} from "@nextui-org/shared-utils";
+import clsx from "clsx";
 
-import {cn, forwardRef, mapPropsVariants} from "../src/utils";
+import {forwardRef, mapPropsVariants} from "../src/utils";
 
 const card = tv({
   slots: {
@@ -13,7 +16,7 @@ const card = tv({
       "flex-col",
       "relative",
       "overflow-hidden",
-      "height-auto",
+      "h-auto",
       "outline-none",
       "text-foreground",
       "box-border",
@@ -168,9 +171,9 @@ export const Card = forwardRef<"div", CardProps>((originalProps, ref) => {
 
   const {header, footer, className, children, classNames, ...otherProps} = props;
 
-  const styles = useMemo(() => card({...variantProps}), [...Object.values(variantProps)]);
+  const styles = useMemo(() => card({...variantProps}), [objectToDeps(variantProps)]);
 
-  const baseStyles = cn(classNames?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const domRef = useDOMRef(ref);
 

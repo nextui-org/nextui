@@ -48,8 +48,12 @@ const pagination = tv({
       "pointer-events-none",
       "z-20",
     ],
-    forwardIcon:
-      "hidden group-hover:block group-data-[focus-visible=true]:block data-[before=true]:rotate-180",
+    forwardIcon: [
+      "hidden",
+      "group-hover:block",
+      "group-data-[focus-visible=true]:block",
+      "data-[before=true]:rotate-180",
+    ],
     ellipsis: "group-hover:hidden group-data-[focus-visible=true]:hidden",
     chevronNext: "rotate-180",
   },
@@ -108,12 +112,12 @@ const pagination = tv({
         wrapper: "gap-0 shadow-sm",
         item: [
           "shadow-none",
-          "first-of-type:rounded-r-none",
-          "last-of-type:rounded-l-none",
+          "first-of-type:rounded-e-none",
+          "last-of-type:rounded-s-none",
           "[&:not(:first-of-type):not(:last-of-type)]:rounded-none",
         ],
-        prev: "!rounded-r-none",
-        next: "!rounded-l-none",
+        prev: "!rounded-e-none",
+        next: "!rounded-s-none",
       },
     },
     isDisabled: {
@@ -154,7 +158,6 @@ const pagination = tv({
     isCompact: false,
     isDisabled: false,
     showShadow: false,
-    disableAnimation: false,
     disableCursorAnimation: false,
   },
   compoundVariants: [
@@ -206,7 +209,7 @@ const pagination = tv({
       isCompact: true,
       variant: "bordered",
       class: {
-        item: "[&:not(:first-of-type)]:ml-[calc(theme(borderWidth.2)*-1)]",
+        item: "[&:not(:first-of-type)]:ms-[calc(theme(borderWidth.2)*-1)]",
       },
     },
     /**

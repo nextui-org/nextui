@@ -81,6 +81,11 @@ export default {
         type: "boolean",
       },
     },
+    shouldCloseOnScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
     disableAnimation: {
       control: {
         type: "boolean",
@@ -106,7 +111,6 @@ const defaultProps = {
   placement: "top",
   offset: 7,
   defaultOpen: false,
-  disableAnimation: false,
 };
 
 const content = (
@@ -122,7 +126,7 @@ const Template = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button disableAnimation={!!args.disableAnimation}>Open Popover</Button>
+        <Button>Open Popover</Button>
       </PopoverTrigger>
       {content}
     </Popover>
@@ -133,7 +137,7 @@ const WithTitlePropsTemplate = (args: PopoverProps) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button disableAnimation={!!args.disableAnimation}>Open Popover</Button>
+        <Button>Open Popover</Button>
       </PopoverTrigger>
       <PopoverContent>
         {(titleProps) => (

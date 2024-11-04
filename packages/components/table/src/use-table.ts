@@ -12,11 +12,16 @@ import type {TableCollection} from "@react-types/table";
 import {ReactNode, Key, useCallback} from "react";
 import {useTableState} from "@react-stately/table";
 import {AriaTableProps, useTable as useReactAriaTable} from "@react-aria/table";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  PropGetter,
+  useProviderContext,
+} from "@nextui-org/system";
 import {table} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactRef} from "@nextui-org/react-utils";
 import {useMemo} from "react";
 import {CheckboxProps} from "@nextui-org/checkbox";
@@ -118,7 +123,7 @@ interface Props<T> extends HTMLNextUIProps<"table"> {
 
 export type UseTableProps<T = object> = Props<T> &
   TableStateProps<T> &
-  Omit<AriaTableProps<T>, "layout"> &
+  Omit<AriaTableProps, "layout"> &
   TableVariantProps;
 
 export type ValuesType<T = object> = {
@@ -140,6 +145,8 @@ export type ValuesType<T = object> = {
 };
 
 export function useTable<T extends object>(originalProps: UseTableProps<T>) {
+  const globalContext = useProviderContext();
+
   const [props, variantProps] = mapPropsVariants(originalProps, table.variantKeys);
 
   const {
@@ -149,9 +156,8 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
     children,
     className,
     classNames,
-    layoutNode,
     removeWrapper = false,
-    disableAnimation = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
     selectionMode = "none",
     topContentPlacement = "inside",
     bottomContentPlacement = "inside",
@@ -181,7 +187,10 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
 
   const {collection} = state;
 
-  const {gridProps} = useReactAriaTable<T>({...originalProps, layout: layoutNode}, state, domRef);
+  // Exclude the layout prop because it has a name conflict and is deprecated in useTable.
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const {layout, ...otherOriginalProps} = originalProps;
+  const {gridProps} = useReactAriaTable<T>({...otherOriginalProps}, state, domRef);
 
   const isSelectable = selectionMode !== "none";
   const isMultiSelectable = selectionMode === "multiple";
@@ -193,7 +202,7 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
         isSelectable,
         isMultiSelectable,
       }),
-    [...Object.values(variantProps), isSelectable, isMultiSelectable],
+    [objectToDeps(variantProps), isSelectable, isMultiSelectable],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -262,6 +271,9 @@ export function useTable<T extends object>(originalProps: UseTableProps<T>) {
         }),
         props,
       ),
+      // avoid typeahead debounce wait for input / textarea
+      // so that typing with space won't be blocked
+      onKeyDownCapture: undefined,
       ref: domRef,
       className: slots.table({class: clsx(classNames?.table, props?.className)}),
     }),

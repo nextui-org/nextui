@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
-import {motion} from "framer-motion";
+import {LazyMotion, domAnimation, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 
 import {hideOnScrollVariants} from "./navbar-transitions";
@@ -31,14 +31,16 @@ const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   return (
     <NavbarProvider value={context}>
       {context.shouldHideOnScroll ? (
-        <motion.nav
-          animate={context.isHidden ? "hidden" : "visible"}
-          initial={false}
-          variants={hideOnScrollVariants}
-          {...mergeProps(context.getBaseProps(), context.motionProps)}
-        >
-          {content}
-        </motion.nav>
+        <LazyMotion features={domAnimation}>
+          <m.nav
+            animate={context.isHidden ? "hidden" : "visible"}
+            initial={false}
+            variants={hideOnScrollVariants}
+            {...mergeProps(context.getBaseProps(), context.motionProps)}
+          >
+            {content}
+          </m.nav>
+        </LazyMotion>
       ) : (
         <Component {...context.getBaseProps()}>{content}</Component>
       )}

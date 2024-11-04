@@ -1,5 +1,64 @@
 # @nextui-org/system-rsc
 
+## 2.1.6
+
+### Patch Changes
+
+- [#3559](https://github.com/nextui-org/nextui/pull/3559) [`44e89a077`](https://github.com/nextui-org/nextui/commit/44e89a0779c1c98fe275c864fe12834d19302b9c) Thanks [@awesome-pro](https://github.com/awesome-pro)! - added missing `StringToBoolean<keyof V[K]>[]` (#3530)
+
+## 2.1.5
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.1.4
+
+### Patch Changes
+
+- [#3503](https://github.com/nextui-org/nextui/pull/3503) [`5591138bf`](https://github.com/nextui-org/nextui/commit/5591138bff4a393f614c4cb0d505901560c4ceea) Thanks [@wingkwong](https://github.com/wingkwong)! - handled defaultVariants null case in extendVariants (#3502)
+
+## 2.1.3
+
+### Patch Changes
+
+- [#3336](https://github.com/nextui-org/nextui/pull/3336) [`0cdfdb48b`](https://github.com/nextui-org/nextui/commit/0cdfdb48bcb7eecb752fc6a3033d3bdd2335872b) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix onSelectionChange type incorrect (#2512)
+
+- [#3299](https://github.com/nextui-org/nextui/pull/3299) [`f785d1fb0`](https://github.com/nextui-org/nextui/commit/f785d1fb0460df73912bcd6614bc78d46db14e6b) Thanks [@wingkwong](https://github.com/wingkwong)! - fixed `extendVariants` when having `defaultVariants` (#3009)
+
+## 2.1.2
+
+### Patch Changes
+
+- [#2915](https://github.com/nextui-org/nextui/pull/2915) [`e3afa4789`](https://github.com/nextui-org/nextui/commit/e3afa4789a1ac0fa929b2acaca5bd9c520567ab8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - The `cn` utility was moved the `theme` package and updated to support NextUI custom classes.
+
+- [#3018](https://github.com/nextui-org/nextui/pull/3018) [`1109baea6`](https://github.com/nextui-org/nextui/commit/1109baea6ac6aa3feb2be90ef065f61b2c2a06a9) Thanks [@wingkwong](https://github.com/wingkwong)! - fix incorrect tailwind classnames
+
+## 2.1.1
+
+### Patch Changes
+
+- [#2758](https://github.com/nextui-org/nextui/pull/2758) [`74eda3128`](https://github.com/nextui-org/nextui/commit/74eda312883b2e17df26f71442aba9fb3cd240be) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Named exports for rsc packages, "use client;" directive added to "@nextui-org/react" package
+
+## 2.1.0
+
+### Minor Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2522](https://github.com/nextui-org/nextui/pull/2522) [`c5049edfd`](https://github.com/nextui-org/nextui/commit/c5049edfde7edaee2081d70e581739be9dcae2f9) Thanks [@wingkwong](https://github.com/wingkwong)! - Fixed unexpected props on a DOM element (#2474)
+
 ## 2.0.11
 
 ### Patch Changes

@@ -32,16 +32,7 @@ const modal = tv({
       "z-50",
       "overflow-x-auto",
       "justify-center",
-      //  mobile animation vars
-      "[--scale-enter:100%]",
-      "[--scale-exit:100%]",
-      "[--slide-enter:0px]",
-      "[--slide-exit:80px]",
-      // tablet/desktop animation vars
-      "sm:[--scale-enter:100%]",
-      "sm:[--scale-exit:103%]",
-      "sm:[--slide-enter:0px]",
-      "sm:[--slide-exit:0px]",
+      "h-[--visual-viewport-height]",
     ],
     base: [
       "flex",
@@ -68,7 +59,7 @@ const modal = tv({
       "outline-none",
       "select-none",
       "top-1",
-      "right-1",
+      "end-1",
       "p-2",
       "text-foreground-500",
       "rounded-full",
@@ -109,7 +100,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] !rounded-none",
+        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] min-h-[100dvh] !rounded-none",
       },
     },
     radius: {
@@ -165,12 +156,28 @@ const modal = tv({
         base: "overflow-y-hidden",
       },
       inside: {
-        base: "max-h-[calc(100%_-_7.5rem)]",
+        base: "max-h-[calc(100%_-_8rem)]",
         body: "overflow-y-auto",
       },
       outside: {
         wrapper: "items-start sm:items-start overflow-y-auto",
         base: "my-16",
+      },
+    },
+    disableAnimation: {
+      false: {
+        wrapper: [
+          //  mobile animation vars
+          "[--scale-enter:100%]",
+          "[--scale-exit:100%]",
+          "[--slide-enter:0px]",
+          "[--slide-exit:80px]",
+          // tablet/desktop animation vars
+          "sm:[--scale-enter:100%]",
+          "sm:[--scale-exit:103%]",
+          "sm:[--slide-enter:0px]",
+          "sm:[--slide-exit:0px]",
+        ],
       },
     },
   },
@@ -193,61 +200,7 @@ const modal = tv({
   ],
 });
 
-const drawer = tv({
-  slots: {
-    base: ["absolute", "m-0", "sm:m-0", "overflow-y-auto"],
-  },
-  variants: {
-    size: {
-      xs: {
-        base: "max-w-xs max-h-[20rem]",
-      },
-      sm: {
-        base: "max-w-sm max-h-[24rem]",
-      },
-      md: {
-        base: "max-w-md max-h-[28rem]",
-      },
-      lg: {
-        base: "max-w-lg max-h-[32rem]",
-      },
-      xl: {
-        base: "max-w-xl max-h-[36rem]",
-      },
-      "2xl": {
-        base: "max-w-2xl max-h-[42rem]",
-      },
-      "3xl": {
-        base: "max-w-3xl max-h-[48rem]",
-      },
-      "4xl": {
-        base: "max-w-4xl max-h-[56rem]",
-      },
-      "5xl": {
-        base: "max-w-5xl max-h-[64rem]",
-      },
-      full: {
-        base: "max-w-full max-h-full h-[100dvh] !rounded-none",
-      },
-    },
-    placement: {
-      top: {
-        base: "inset-x-0 top-0 max-w-[none] rounded-t-none",
-      },
-      right: {
-        base: "inset-y-0 right-0 max-h-[none] rounded-r-none",
-      },
-      bottom: {
-        base: "inset-x-0 bottom-0 max-w-[none] rounded-b-none",
-      },
-      left: {
-        base: "inset-y-0 left-0 max-h-[none] rounded-l-none",
-      },
-    },
-  },
-});
-
 export type ModalVariantProps = VariantProps<typeof modal>;
 export type ModalSlots = keyof ReturnType<typeof modal>;
 
-export {modal, drawer};
+export {modal};

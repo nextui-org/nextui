@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "2.0.15",
+  "version": "2.2.6",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "tsup src !src/extend-variants.d.ts --dts",
-    "dev": "yarn build:fast -- --watch",
+    "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src !src/extend-variants.d.ts",
@@ -34,11 +34,13 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
+    "framer-motion": ">=10.17.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
+    "framer-motion": "^11.0.22",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
@@ -52,10 +54,13 @@
     ]
   },
   "dependencies": {
+    "@internationalized/date": "3.5.5",
+    "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/system-rsc": "workspace:*",
-    "@react-aria/i18n": "^3.8.4",
-    "@react-aria/overlays": "^3.18.1",
-    "@react-aria/utils": "^3.21.1",
-    "@react-stately/utils": "^3.8.0"
+    "@react-aria/i18n": "3.12.2",
+    "@react-aria/overlays": "3.23.2",
+    "@react-aria/utils": "3.25.2",
+    "@react-stately/utils": "3.10.3",
+    "@react-types/datepicker": "3.8.2"
   }
 }

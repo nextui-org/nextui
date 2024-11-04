@@ -1,5 +1,40 @@
 # @nextui-org/react-rsc-utils
 
+## 2.0.14
+
+### Patch Changes
+
+- [#3597](https://github.com/nextui-org/nextui/pull/3597) [`446a6bf57`](https://github.com/nextui-org/nextui/commit/446a6bf57c3c9e6acadd6629411b33353b305590) Thanks [@wingkwong](https://github.com/wingkwong)! - added react to peerDependencies to remove react copy from react-rsc-utils bundle (#3531)
+
+## 2.0.13
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.0.12
+
+### Patch Changes
+
+- [#2758](https://github.com/nextui-org/nextui/pull/2758) [`74eda3128`](https://github.com/nextui-org/nextui/commit/74eda312883b2e17df26f71442aba9fb3cd240be) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Named exports for rsc packages, "use client;" directive added to "@nextui-org/react" package
+
+## 2.0.11
+
+### Patch Changes
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.3.0
+
+- [#2618](https://github.com/nextui-org/nextui/pull/2618) [`dc0bcf13a`](https://github.com/nextui-org/nextui/commit/dc0bcf13a5e9aa0450938bcca47cd4c696066f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - - Calendar component added
+
+  - objectToDeps function applied all across components
+  - `useMeasure` hook added
+  - `useIntersectionObserver` hook added
+  - `framer-transitions` renamed to `framer-utils`
+  - `ResizablePanel` component added to `framer-utils`
+  - `test-utils` updated
+
+- [#2437](https://github.com/nextui-org/nextui/pull/2437) [`f864dc397`](https://github.com/nextui-org/nextui/commit/f864dc3974993b29ea5048483d7e0e998e8bef56) Thanks [@wingkwong](https://github.com/wingkwong)! - include enterKeyHint in dom-props (#2432)
+
 ## 2.0.10
 
 ### Patch Changes

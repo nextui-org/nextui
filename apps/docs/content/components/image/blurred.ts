@@ -5,9 +5,9 @@ export default function App() {
     <Image
       isBlurred
       width={240}
-      src="https://nextui-docs-v2.vercel.app/images/album-cover.png"
+      src="https://nextui.org/images/album-cover.png"
       alt="NextUI Album Cover"
-      classNames="m-5"
+      className="m-5"
     />
   );
 }`;

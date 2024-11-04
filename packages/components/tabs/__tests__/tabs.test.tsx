@@ -1,9 +1,9 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {act, render, fireEvent, within} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {focus} from "@nextui-org/test-utils";
 
-import {Tabs, Tab} from "../src";
+import {Tabs, Tab, TabsProps} from "../src";
 
 type Item = {
   id: string;
@@ -11,7 +11,7 @@ type Item = {
   content?: React.ReactNode;
 };
 
-let tabs: Item[] = [
+let defaultItems: Item[] = [
   {
     id: "item1",
     label: "Item1 ",
@@ -29,7 +29,36 @@ let tabs: Item[] = [
   },
 ];
 
+function getPlacementTemplate(position: TabsProps["placement"]) {
+  return (
+    <Tabs aria-label="Tabs static test" data-testid="tabWrapper" placement={position}>
+      <Tab key="item1" title="Item 1">
+        <div>Content 1</div>
+      </Tab>
+      <Tab key="item2" title="Item 2">
+        <div>Content 2</div>
+      </Tab>
+      <Tab key="item3" title="Item 3">
+        <div>Content 3</div>
+      </Tab>
+    </Tabs>
+  );
+}
+
+// e.g. console.error Warning: Function components cannot be given refs.
+// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
+const spy = jest.spyOn(console, "error").mockImplementation(() => {});
+
 describe("Tabs", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
   it("should render correctly (static)", () => {
     const wrapper = render(
       <Tabs aria-label="Tabs static test">
@@ -46,11 +75,13 @@ describe("Tabs", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("should render correctly (dynamic)", () => {
     const wrapper = render(
-      <Tabs aria-label="Tabs static test" items={tabs}>
+      <Tabs aria-label="Tabs static test" items={defaultItems}>
         {(item) => (
           <Tab key={item.id} title={item.label}>
             <div>{item.content}</div>
@@ -60,6 +91,40 @@ describe("Tabs", () => {
     );
 
     expect(() => wrapper.unmount()).not.toThrow();
+  });
+
+  it("renders property", () => {
+    const wrapper = render(
+      <Tabs aria-label="Tabs property test">
+        {defaultItems.map((item) => (
+          <Tab key={item.id} title={item.label}>
+            <div>{item.content}</div>
+          </Tab>
+        ))}
+      </Tabs>,
+    );
+    const tablist = wrapper.getByRole("tablist");
+
+    expect(tablist).toBeTruthy();
+    const tabs = within(tablist).getAllByRole("tab");
+
+    expect(tabs.length).toBe(3);
+
+    for (let tab of tabs) {
+      expect(tab).toHaveAttribute("tabindex");
+      expect(tab).toHaveAttribute("aria-selected");
+      const isSelected = tab.getAttribute("aria-selected") === "true";
+
+      if (isSelected) {
+        expect(tab).toHaveAttribute("aria-controls");
+        const tabpanel = document.getElementById(tab.getAttribute("aria-controls")!);
+
+        expect(tabpanel).toBeTruthy();
+        expect(tabpanel).toHaveAttribute("aria-labelledby", tab.id);
+        expect(tabpanel).toHaveAttribute("role", "tabpanel");
+        expect(tabpanel).toHaveTextContent(defaultItems[0]?.content as string);
+      }
+    }
   });
 
   it("ref should be forwarded", () => {
@@ -108,26 +173,17 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "false");
     expect(tab2).toHaveAttribute("aria-selected", "true");
     expect(tab3).toHaveAttribute("aria-selected", "false");
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "false");
     expect(tab2).toHaveAttribute("aria-selected", "false");
     expect(tab3).toHaveAttribute("aria-selected", "true");
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab1).toHaveAttribute("aria-selected", "true");
     expect(tab2).toHaveAttribute("aria-selected", "false");
     expect(tab3).toHaveAttribute("aria-selected", "false");
@@ -160,22 +216,13 @@ describe("Tabs", () => {
       focus(tab1);
     });
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab2).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowRight]");
-    });
-
+    await user.keyboard("[ArrowRight]");
     expect(tab3).toHaveFocus();
 
-    await act(async () => {
-      await userEvent.keyboard("[ArrowLeft]");
-    });
-
+    await user.keyboard("[ArrowLeft]");
     expect(tab2).toHaveFocus();
 
     expect(tab1).toHaveAttribute("aria-selected", "true");
@@ -220,10 +267,138 @@ describe("Tabs", () => {
 
     const tab2 = wrapper.getByTestId("item2");
 
-    await act(async () => {
-      await userEvent.click(tab2);
+    await user.click(tab2);
+    expect(tab2).toHaveAttribute("aria-selected", "false");
+  });
+
+  it("should change the position of the tabs", () => {
+    const wrapper = render(getPlacementTemplate("top"));
+
+    const tabWrapper = wrapper.getByTestId("tabWrapper").parentNode;
+
+    expect(tabWrapper).toHaveAttribute("data-placement", "top");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
+
+    // Test bottom position
+    wrapper.rerender(getPlacementTemplate("bottom"));
+
+    expect(tabWrapper).toHaveAttribute("data-placement", "bottom");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
+
+    // Test start position
+    wrapper.rerender(getPlacementTemplate("start"));
+
+    expect(tabWrapper).toHaveAttribute("data-placement", "start");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "vertical");
+
+    // Test end position
+    wrapper.rerender(getPlacementTemplate("end"));
+
+    expect(tabWrapper).toHaveAttribute("data-placement", "end");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "vertical");
+  });
+
+  it("should change the orientation of the tabs", () => {
+    const wrapper = render(
+      <Tabs isVertical aria-label="Tabs static test" data-testid="tabWrapper">
+        <Tab key="item1" title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" title="Item 2">
+          <div>Content 2</div>
+        </Tab>
+        <Tab key="item3" title="Item 3">
+          <div>Content 3</div>
+        </Tab>
+      </Tabs>,
+    );
+
+    const tabWrapper = wrapper.getByTestId("tabWrapper").parentNode;
+
+    expect(tabWrapper).toHaveAttribute("data-placement", "start");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "vertical");
+
+    // Test horizontal orientation
+    wrapper.rerender(
+      <Tabs aria-label="Tabs static test" data-testid="tabWrapper" isVertical={false}>
+        <Tab key="item1" title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+        <Tab key="item2" title="Item 2">
+          <div>Content 2</div>
+        </Tab>
+        <Tab key="item3" title="Item 3">
+          <div>Content 3</div>
+        </Tab>
+      </Tabs>,
+    );
+
+    expect(tabWrapper).toHaveAttribute("data-placement", "top");
+    expect(tabWrapper).toHaveAttribute("data-vertical", "horizontal");
+  });
+
+  test("should destory inactive tab panels", () => {
+    const {container} = render(
+      <Tabs aria-label="Tabs test (destroyInactiveTabPanel=true)">
+        <Tab key="tab1" data-testid="item1" title="Tab 1">
+          <input className="border-2" data-testid="input" id="firstTab" />
+        </Tab>
+        <Tab key="tab2" data-testid="item2" title="Tab 2">
+          <p id="secondTab">second tab content</p>
+        </Tab>
+      </Tabs>,
+    );
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(1);
+  });
+
+  test("should not destory inactive tab panels", async () => {
+    const wrapper = render(
+      <Tabs aria-label="Tabs test (destroyInactiveTabPanel=false)" destroyInactiveTabPanel={false}>
+        <Tab key="tab1" data-testid="item1" title="Tab 1">
+          <input className="border-2" data-testid="input" id="firstTab" />
+        </Tab>
+        <Tab key="tab2" data-testid="item2" title="Tab 2">
+          <p id="secondTab">second tab content</p>
+        </Tab>
+      </Tabs>,
+    );
+
+    const {container} = wrapper;
+
+    expect(container.querySelectorAll("[data-slot='panel']")).toHaveLength(2);
+
+    const tab1 = wrapper.getByTestId("item1");
+    const tab2 = wrapper.getByTestId("item2");
+    const input = wrapper.getByTestId("input");
+
+    fireEvent.change(input, {target: {value: "23"}});
+
+    expect(input).toHaveValue("23");
+
+    act(() => {
+      focus(tab1);
     });
 
-    expect(tab2).toHaveAttribute("aria-selected", "false");
+    await user.keyboard("[ArrowRight]");
+    expect(tab2).toHaveFocus();
+
+    await user.keyboard("[ArrowLeft]");
+    expect(tab1).toHaveFocus();
+
+    expect(input).toHaveValue("23");
+  });
+
+  test("should forward ref to the tab item", () => {
+    const ref = React.createRef<HTMLButtonElement>();
+
+    render(
+      <Tabs aria-label="Tabs static test">
+        <Tab key="item1" tabRef={ref} title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+      </Tabs>,
+    );
+    expect(ref.current).not.toBeNull();
   });
 });

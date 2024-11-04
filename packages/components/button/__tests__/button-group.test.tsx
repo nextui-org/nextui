@@ -35,7 +35,7 @@ describe("ButtonGroup", () => {
     let button = wrapper.getByTestId("button-test");
 
     userEvent.click(button);
-    expect(handler).toBeCalledTimes(0);
+    expect(handler).toHaveBeenCalledTimes(0);
   });
 
   it("should render different variants", () => {

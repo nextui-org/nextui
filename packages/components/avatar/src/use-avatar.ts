@@ -1,11 +1,11 @@
 import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {DOMElement, DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {avatar} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback} from "react";
 import {useImage} from "@nextui-org/use-image";
@@ -96,7 +96,8 @@ interface Props extends HTMLNextUIProps<"span"> {
 export type UseAvatarProps = Props &
   Omit<AvatarVariantProps, "children" | "isInGroup" | "isInGridGroup">;
 
-export function useAvatar(props: UseAvatarProps = {}) {
+export function useAvatar(originalProps: UseAvatarProps = {}) {
+  const globalContext = useProviderContext();
   const groupContext = useAvatarGroupContext();
   const isInGroup = !!groupContext;
 
@@ -123,8 +124,9 @@ export function useAvatar(props: UseAvatarProps = {}) {
     imgProps,
     className,
     onError,
+    disableAnimation: disableAnimationProp,
     ...otherProps
-  } = props;
+  } = originalProps;
 
   const Component = as || "span";
 
@@ -133,10 +135,13 @@ export function useAvatar(props: UseAvatarProps = {}) {
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing();
   const {isHovered, hoverProps} = useHover({isDisabled});
+  const disableAnimation = disableAnimationProp ?? globalContext?.disableAnimation ?? false;
 
   const imageStatus = useImage({src, onError, ignoreFallback});
 
   const isImgLoaded = imageStatus === "loaded";
+
+  const shouldFilterDOMProps = typeof ImgComponent === "string";
 
   /**
    * Fallback avatar applies under 2 conditions:
@@ -156,9 +161,19 @@ export function useAvatar(props: UseAvatarProps = {}) {
         isBordered,
         isDisabled,
         isInGroup,
+        disableAnimation,
         isInGridGroup: groupContext?.isGrid ?? false,
       }),
-    [color, radius, size, isBordered, isDisabled, isInGroup, groupContext?.isGrid],
+    [
+      color,
+      radius,
+      size,
+      isBordered,
+      isDisabled,
+      disableAnimation,
+      isInGroup,
+      groupContext?.isGrid,
+    ],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -188,9 +203,15 @@ export function useAvatar(props: UseAvatarProps = {}) {
       src: src,
       "data-loaded": dataAttr(isImgLoaded),
       className: slots.img({class: classNames?.img}),
-      ...mergeProps(imgProps, props),
+      ...mergeProps(
+        imgProps,
+        props,
+        filterDOMProps({disableAnimation} as DOMAttributes<DOMElement>, {
+          enabled: shouldFilterDOMProps,
+        }),
+      ),
     }),
-    [slots, isImgLoaded, imgProps, src, imgRef],
+    [slots, isImgLoaded, imgProps, disableAnimation, src, imgRef, shouldFilterDOMProps],
   );
 
   return {

@@ -1,6 +1,6 @@
 "use client";
 
-import {BlogPost} from "contentlayer/generated";
+import {BlogPost} from "contentlayer2/generated";
 import {Card, CardFooter, CardBody, CardHeader, Link, Avatar, Image} from "@nextui-org/react";
 import Balancer from "react-wrap-balancer";
 import {format, parseISO} from "date-fns";
@@ -57,7 +57,7 @@ const BlogPostCard = (post: BlogPost) => {
             </CardBody>
             <CardFooter className="flex justify-between items-center">
               <time className="block text-small text-default-500" dateTime={post.date}>
-                {format(parseISO(post.date), "LLLL d, yyyy")}
+                {format(parseISO(post.date), "LLLL d, yyyy")} {post?.draft && " (Draft)"}
               </time>
               <Avatar size="sm" src={post.author?.avatar} />
             </CardFooter>

@@ -11,11 +11,12 @@ import {AriaListBoxOptions} from "@react-aria/listbox";
 import {useMenuTrigger} from "@react-aria/menu";
 import {ListKeyboardDelegate, useTypeSelect} from "@react-aria/selection";
 import {chain, filterDOMProps, mergeProps, useId} from "@react-aria/utils";
-import {FocusEvent, HTMLAttributes, RefObject, useMemo} from "react";
+import {FocusEvent, HTMLAttributes, RefObject, useMemo, Key} from "react";
+import {ValidationResult} from "@react-types/shared";
 
 export type MultiSelectProps<T> = MultiSelectStateProps<T>;
 
-export interface MultiSelectAria<T> {
+export interface MultiSelectAria<T> extends ValidationResult {
   /** Props for the label element. */
   labelProps: HTMLAttributes<HTMLElement>;
   /** Props for the popup trigger element. */
@@ -63,7 +64,7 @@ export function useMultiSelect<T>(
 
           const key =
             state.selectedKeys.size > 0
-              ? delegate.getKeyAbove(state.selectedKeys.values().next().value)
+              ? delegate.getKeyAbove(state.selectedKeys.values().next().value as Key)
               : delegate.getFirstKey();
 
           if (key) {
@@ -77,7 +78,7 @@ export function useMultiSelect<T>(
 
           const key =
             state.selectedKeys.size > 0
-              ? delegate.getKeyBelow(state.selectedKeys.values().next().value)
+              ? delegate.getKeyBelow(state.selectedKeys.values().next().value as Key)
               : delegate.getFirstKey();
 
           if (key) {
@@ -99,10 +100,13 @@ export function useMultiSelect<T>(
       state.setSelectedKeys([key]);
     },
   });
+  const {isInvalid, validationErrors, validationDetails} = state.displayValidation;
 
   const {labelProps, fieldProps, descriptionProps, errorMessageProps} = useField({
     ...props,
     labelElementType: "span",
+    isInvalid,
+    errorMessage: props.errorMessage || validationErrors,
   });
 
   typeSelectProps.onKeyDown = typeSelectProps.onKeyDownCapture;
@@ -190,5 +194,8 @@ export function useMultiSelect<T>(
     },
     descriptionProps,
     errorMessageProps,
+    isInvalid,
+    validationErrors,
+    validationDetails,
   };
 }

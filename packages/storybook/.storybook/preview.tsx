@@ -1,33 +1,35 @@
 import React from "react";
 import {themes} from "@storybook/theming";
 import {NextUIProvider} from "@nextui-org/system/src/provider";
-import type { Preview } from '@storybook/react';
+import type {Preview} from "@storybook/react";
 
-import './style.css'
+import "./style.css";
+import { withStrictModeSwitcher } from "./addons/react-strict-mode";
 
-const decorators: Preview['decorators'] = [
-    (Story, {globals: {locale}}) => {
-      const direction =
-        // @ts-ignore
-        locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
+const decorators: Preview["decorators"] = [
+  (Story, {globals: {locale, disableAnimation}}) => {
+    const direction =
+      // @ts-ignore
+      locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
-      return (
-        <NextUIProvider locale={locale}>
-          <div className="bg-dark" lang={locale} dir={direction}>
-            <Story />
-          </div>
-        </NextUIProvider>
-      );
-    },
-  ]
+    return (
+      <NextUIProvider locale={locale} disableAnimation={disableAnimation}>
+        <div className="bg-dark" lang={locale} dir={direction}>
+          <Story />
+        </div>
+      </NextUIProvider>
+    );
+  },
+  ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : []),
+];
 
-  const commonTheme = {
-    brandTitle: "NextUI",
-    brandUrl: "https://nextui.org",
-    brandTarget: "_self",
-  }
+const commonTheme = {
+  brandTitle: "NextUI",
+  brandUrl: "https://nextui.org",
+  brandTarget: "_self",
+};
 
-const parameters: Preview['parameters'] = {
+const parameters: Preview["parameters"] = {
   actions: {argTypesRegex: "^on[A-Z].*"},
   options: {
     storySort: {
@@ -103,7 +105,7 @@ const locales = [
   "zh-TW",
 ];
 
-const globalTypes: Preview['globalTypes'] = {
+const globalTypes: Preview["globalTypes"] = {
   locale: {
     toolbar: {
       icon: "globe",
@@ -115,10 +117,23 @@ const globalTypes: Preview['globalTypes'] = {
       })),
     },
   },
+  disableAnimation: {
+    name: "Disable Animation",
+    description: "Disable all animations in the stories",
+    toolbar: {
+      icon: "photodrag",
+      items: [
+        {value: true, title: "True"},
+        {value: false, title: "False"},
+      ],
+    },
+  },
 };
 
-export default {
+const preview: Preview = {
   decorators,
   parameters,
-  globalTypes
-} satisfies Preview;
+  globalTypes,
+};
+
+export default preview;
