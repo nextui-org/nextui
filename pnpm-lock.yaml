@@ -1512,10 +1512,10 @@ importers:
         version: link:../../utilities/shared-utils
       '@nextui-org/system':
         specifier: '>=2.0.0'
-        version: 2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5))))(framer-motion@11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5))))(framer-motion@11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@nextui-org/theme':
         specifier: '>=2.0.0'
-        version: 2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5)))
+        version: 2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5)))
       react-aria-components:
         specifier: ^1.2.1
         version: 1.3.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -2922,6 +2922,9 @@ importers:
       '@nextui-org/dropdown':
         specifier: workspace:*
         version: link:../../components/dropdown
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../../components/form
       '@nextui-org/framer-utils':
         specifier: workspace:*
         version: link:../../utilities/framer-utils
@@ -18280,18 +18283,18 @@ snapshots:
 
   '@nextui-org/shared-utils@2.0.8': {}
 
-  '@nextui-org/system-rsc@2.1.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5))))(react@18.2.0)':
+  '@nextui-org/system-rsc@2.1.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5))))(react@18.2.0)':
     dependencies:
-      '@nextui-org/theme': 2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5)))
+      '@nextui-org/theme': 2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5)))
       '@react-types/shared': 3.23.1(react@18.2.0)
       clsx: 1.2.1
       react: 18.2.0
 
-  '@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5))))(framer-motion@11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@nextui-org/system@2.2.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5))))(framer-motion@11.2.12(@emotion/is-prop-valid@0.8.8)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@internationalized/date': 3.5.5
       '@nextui-org/react-utils': 2.0.17(react@18.2.0)
-      '@nextui-org/system-rsc': 2.1.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5))))(react@18.2.0)
+      '@nextui-org/system-rsc': 2.1.6(@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5))))(react@18.2.0)
       '@react-aria/i18n': 3.11.1(react@18.2.0)
       '@react-aria/overlays': 3.22.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@react-aria/utils': 3.24.1(react@18.2.0)
@@ -18302,7 +18305,7 @@ snapshots:
     transitivePeerDependencies:
       - '@nextui-org/theme'
 
-  '@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5)))':
+  '@nextui-org/theme@2.2.11(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5)))':
     dependencies:
       clsx: 1.2.1
       color: 4.2.3
@@ -18315,8 +18318,8 @@ snapshots:
       lodash.mapkeys: 4.6.0
       lodash.omit: 4.5.0
       tailwind-merge: 1.14.0
-      tailwind-variants: 0.1.20(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5)))
-      tailwindcss: 3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@20.5.1)(typescript@4.9.5))
+      tailwind-variants: 0.1.20(tailwindcss@3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5)))
+      tailwindcss: 3.4.3(ts-node@10.9.2(@swc/core@1.4.13(@swc/helpers@0.5.9))(@types/node@15.14.9)(typescript@4.9.5))
 
   '@nicolo-ribaudo/chokidar-2@2.1.8-no-fsevents.3':
     optional: true
@@ -18580,13 +18583,15 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/cache@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))':
+  '@parcel/cache@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)':
     dependencies:
       '@parcel/core': 2.12.0(@swc/helpers@0.5.9)
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
       '@parcel/logger': 2.12.0
       '@parcel/utils': 2.12.0
       lmdb: 2.8.5
+    transitivePeerDependencies:
+      - '@swc/helpers'
 
   '@parcel/codeframe@2.12.0':
     dependencies:
@@ -18646,7 +18651,7 @@ snapshots:
   '@parcel/core@2.12.0(@swc/helpers@0.5.9)':
     dependencies:
       '@mischnic/json-sourcemap': 0.1.1
-      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))
+      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
       '@parcel/diagnostic': 2.12.0
       '@parcel/events': 2.12.0
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
@@ -19061,7 +19066,7 @@ snapshots:
 
   '@parcel/types@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)':
     dependencies:
-      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))
+      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
       '@parcel/diagnostic': 2.12.0
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
       '@parcel/package-manager': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.9))(@swc/helpers@0.5.9)
@@ -22008,7 +22013,7 @@ snapshots:
       '@typescript-eslint/scope-manager': 5.62.0
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/typescript-estree': 5.62.0(typescript@5.6.2)
-      debug: 4.3.4
+      debug: 4.3.7
       eslint: 7.32.0
     optionalDependencies:
       typescript: 5.6.2
@@ -22095,7 +22100,7 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 5.62.0
       '@typescript-eslint/visitor-keys': 5.62.0
-      debug: 4.3.4
+      debug: 4.3.7
       globby: 11.1.0
       is-glob: 4.0.3
       semver: 7.6.0
@@ -30649,7 +30654,7 @@ snapshots:
       micromatch: 4.0.5
       normalize-path: 3.0.0
       object-hash: 3.0.0
-      picocolors: 1.0.0
+      picocolors: 1.1.0
       postcss: 8.4.38
       postcss-import: 15.1.0(postcss@8.4.38)
       postcss-js: 4.0.1(postcss@8.4.38)
