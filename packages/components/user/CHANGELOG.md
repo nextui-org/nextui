@@ -1,5 +1,12 @@
 # @nextui-org/user
 
+## 2.1.0-beta.3
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/avatar@2.1.0-beta.3
+
 ## 2.1.0-beta.2
 
 ### Patch Changes
