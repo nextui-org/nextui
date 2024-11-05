@@ -1,5 +1,15 @@
 # @nextui-org/select
 
+## 2.3.0-beta.2
+
+### Patch Changes
+
+- [#3966](https://github.com/nextui-org/nextui/pull/3966) [`a2d653137`](https://github.com/nextui-org/nextui/commit/a2d653137d61465a88dfa3830bb3a44e3a7faa87) Thanks [@mstfblci](https://github.com/mstfblci)! - - Fixed a UI sliding issue caused by the helper wrapper being rendered when `isInvalid` was false but `errorMessage` was present
+
+- Updated dependencies []:
+  - @nextui-org/popover@2.2.0-beta.1
+  - @nextui-org/listbox@2.2.0-beta.1
+
 ## 2.3.0-beta.1
 
 ### Patch Changes
