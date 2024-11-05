@@ -1,5 +1,25 @@
 # @nextui-org/react
 
+## 2.5.0-beta.4
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/avatar@2.1.0-beta.4
+  - @nextui-org/image@2.1.0-beta.4
+  - @nextui-org/accordion@2.1.0-beta.1
+  - @nextui-org/autocomplete@2.2.0-beta.2
+  - @nextui-org/badge@2.1.0-beta.1
+  - @nextui-org/card@2.1.0-beta.1
+  - @nextui-org/chip@2.1.0-beta.1
+  - @nextui-org/dropdown@2.2.0-beta.1
+  - @nextui-org/listbox@2.2.0-beta.1
+  - @nextui-org/navbar@2.1.0-beta.1
+  - @nextui-org/select@2.3.0-beta.2
+  - @nextui-org/user@2.1.0-beta.4
+  - @nextui-org/checkbox@2.2.0-beta.1
+  - @nextui-org/table@2.1.0-beta.1
+
 ## 2.5.0-beta.3
 
 ### Patch Changes

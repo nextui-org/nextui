@@ -1,5 +1,11 @@
 # @nextui-org/use-image
 
+## 2.0.7-beta.4
+
+### Patch Changes
+
+- [#3998](https://github.com/nextui-org/nextui/pull/3998) [`52f6274e9`](https://github.com/nextui-org/nextui/commit/52f6274e9baecc928ee7cbb6a8110b72931061b8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - use-image hook logic restore to the previous one to avoid nextjs hydration issues
+
 ## 2.0.7-beta.3
 
 ### Patch Changes
