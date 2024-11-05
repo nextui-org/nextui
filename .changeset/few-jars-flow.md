@@ -58,8 +58,8 @@
 "@nextui-org/use-is-mobile": minor
 "@nextui-org/use-pagination": minor
 "@nextui-org/aria-utils": minor
-"@nextui-org/use-ssr": patch
-"@nextui-org/use-disclosure": patch
+"@nextui-org/use-ssr": minor
+"@nextui-org/use-disclosure": minor
 "@nextui-org/use-theme": minor
 ---
 
