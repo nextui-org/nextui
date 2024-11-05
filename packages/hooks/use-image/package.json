@@ -34,8 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@testing-library/react-hooks": "^8.0.1"
+    "@nextui-org/use-safe-layout-effect": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18"
