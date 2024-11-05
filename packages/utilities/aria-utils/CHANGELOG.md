@@ -1,5 +1,17 @@
 # @nextui-org/aria-utils
 
+## 2.1.0-beta.0
+
+### Minor Changes
+
+- [#3732](https://github.com/nextui-org/nextui/pull/3732) [`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+### Patch Changes
+
+- Updated dependencies [[`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb)]:
+  - @nextui-org/system@2.3.0-beta.0
+  - @nextui-org/shared-utils@2.0.9-beta.0
+
 ## 2.0.26
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @nextui-org/use-aria-toggle-button
 
+## 2.1.0-beta.0
+
+### Minor Changes
+
+- [#3732](https://github.com/nextui-org/nextui/pull/3732) [`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+### Patch Changes
+
+- Updated dependencies [[`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d)]:
+  - @nextui-org/use-aria-button@2.1.0-beta.0
+
 ## 2.0.10
 
 ### Patch Changes
