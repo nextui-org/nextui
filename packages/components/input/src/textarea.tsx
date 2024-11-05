@@ -3,7 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
-import {TrashIcon} from "@nextui-org/shared-icons";
+import {CloseFilledIcon} from "@nextui-org/shared-icons";
 
 import {UseInputProps, useInput} from "./use-input";
 
@@ -123,7 +123,7 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
     );
 
     const clearButtonContent = useMemo(() => {
-      return isClearable ? <button {...getClearButtonProps()}>{<TrashIcon />}</button> : null;
+      return isClearable ? <button {...getClearButtonProps()}>{<CloseFilledIcon />}</button> : null;
     }, [isClearable, getClearButtonProps]);
 
     const innerWrapper = useMemo(() => {
