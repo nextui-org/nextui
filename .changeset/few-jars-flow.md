@@ -1,8 +1,10 @@
 ---
 "@nextui-org/table": patch
 "@nextui-org/accordion": patch
+"@nextui-org/alert": patch
 "@nextui-org/autocomplete": patch
 "@nextui-org/avatar": patch
+"@nextui-org/badge": patch
 "@nextui-org/breadcrumbs": patch
 "@nextui-org/button": patch
 "@nextui-org/calendar": patch
@@ -11,9 +13,12 @@
 "@nextui-org/chip": patch
 "@nextui-org/date-input": patch
 "@nextui-org/date-picker": patch
-"@nextui-org/divider": patch
 "@nextui-org/dropdown": patch
 "@nextui-org/input": patch
+"@nextui-org/code": patch
+"@nextui-org/divider": patch
+"@nextui-org/image": patch
+"@nextui-org/drawer": patch
 "@nextui-org/kbd": patch
 "@nextui-org/link": patch
 "@nextui-org/listbox": patch
@@ -24,8 +29,13 @@
 "@nextui-org/popover": patch
 "@nextui-org/progress": patch
 "@nextui-org/radio": patch
+"@nextui-org/scroll-shadow": patch
+"@nextui-org/ripple": patch
 "@nextui-org/select": patch
 "@nextui-org/slider": patch
+"@nextui-org/skeleton": patch
+"@nextui-org/spacer": patch
+"@nextui-org/spinner": patch
 "@nextui-org/snippet": patch
 "@nextui-org/switch": patch
 "@nextui-org/tabs": patch

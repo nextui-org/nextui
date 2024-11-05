@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "@nextui-org/theme": ">=2.1.0"
+    "@nextui-org/theme": ">=2.3.0"
   },
   "devDependencies": {
     "react": "^18.0.0",
