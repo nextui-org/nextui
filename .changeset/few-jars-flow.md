@@ -58,6 +58,7 @@
 "@nextui-org/use-is-mobile": minor
 "@nextui-org/use-pagination": minor
 "@nextui-org/aria-utils": minor
+"@nextui-org/use-ssr": minor
 ---
 
 update react-aria version
