@@ -104,7 +104,6 @@ export function useHiddenSelect<T>(
       // required: validationBehavior === "native" && isRequired,
       required: isRequired,
       disabled: isDisabled,
-      size: state.collection.size,
       value:
         selectionMode === "multiple"
           ? [...state.selectedKeys].map((k) => String(k))

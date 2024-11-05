@@ -882,3 +882,33 @@ describe("Select with React Hook Form", () => {
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });
+
+describe("validationBehavior=native", () => {
+  it("should not submit form when required field is empty", async () => {
+    const onSubmit = jest.fn();
+
+    const {getByTestId} = render(
+      <form onSubmit={onSubmit}>
+        <Select
+          isRequired
+          data-testid="select"
+          label="Test"
+          // validationBehavior="native"
+        >
+          <SelectItem key="one">One</SelectItem>
+          <SelectItem key="two">Two</SelectItem>
+          <SelectItem key="three">Three</SelectItem>
+        </Select>
+        <button data-testid="button" type="submit">
+          Submit
+        </button>
+      </form>,
+    );
+
+    const user = userEvent.setup();
+
+    await user.click(getByTestId("button"));
+
+    expect(onSubmit).toHaveBeenCalledTimes(0);
+  });
+});
