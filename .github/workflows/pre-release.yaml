@@ -54,7 +54,7 @@ jobs:
 
       - name: Publish to NPM
         id: publish-to-npm
-        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): :package: version packages') }}"
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
         uses: changesets/action@v1
         with:
           publish: pnpm run release
