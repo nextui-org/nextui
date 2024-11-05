@@ -1,5 +1,11 @@
 # @nextui-org/use-image
 
+## 2.0.7-beta.3
+
+### Patch Changes
+
+- [`1c05c6d77`](https://github.com/nextui-org/nextui/commit/1c05c6d77b10f6b18f3c34d36eece7702704267a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - server validation added to the use-image hook
+
 ## 2.0.7-beta.2
 
 ### Patch Changes
