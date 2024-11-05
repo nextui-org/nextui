@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.2.0-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
 ## 2.2.0-beta.0
 
 ### Minor Changes

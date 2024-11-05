@@ -1,5 +1,16 @@
 # @nextui-org/slider
 
+## 2.3.0-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/tooltip@2.1.0-beta.1
+  - @nextui-org/react-utils@2.0.18-beta.1
+  - @nextui-org/shared-utils@2.0.9-beta.1
+
 ## 2.3.0-beta.0
 
 ### Minor Changes

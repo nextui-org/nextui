@@ -1,5 +1,58 @@
 # @nextui-org/react
 
+## 2.5.0-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/accordion@2.1.0-beta.1
+  - @nextui-org/alert@2.1.0-beta.1
+  - @nextui-org/autocomplete@2.2.0-beta.1
+  - @nextui-org/avatar@2.1.0-beta.1
+  - @nextui-org/badge@2.1.0-beta.1
+  - @nextui-org/breadcrumbs@2.1.0-beta.1
+  - @nextui-org/button@2.1.0-beta.1
+  - @nextui-org/calendar@2.1.0-beta.1
+  - @nextui-org/card@2.1.0-beta.1
+  - @nextui-org/checkbox@2.2.0-beta.1
+  - @nextui-org/chip@2.1.0-beta.1
+  - @nextui-org/code@2.1.0-beta.1
+  - @nextui-org/date-input@2.2.0-beta.1
+  - @nextui-org/date-picker@2.2.0-beta.1
+  - @nextui-org/divider@2.1.0-beta.1
+  - @nextui-org/drawer@2.1.0-beta.1
+  - @nextui-org/dropdown@2.2.0-beta.1
+  - @nextui-org/image@2.1.0-beta.1
+  - @nextui-org/input@2.3.0-beta.1
+  - @nextui-org/kbd@2.1.0-beta.1
+  - @nextui-org/link@2.1.0-beta.1
+  - @nextui-org/listbox@2.2.0-beta.1
+  - @nextui-org/menu@2.1.0-beta.1
+  - @nextui-org/modal@2.1.0-beta.1
+  - @nextui-org/navbar@2.1.0-beta.1
+  - @nextui-org/pagination@2.1.0-beta.1
+  - @nextui-org/popover@2.2.0-beta.1
+  - @nextui-org/progress@2.1.0-beta.1
+  - @nextui-org/radio@2.2.0-beta.1
+  - @nextui-org/ripple@2.1.0-beta.1
+  - @nextui-org/scroll-shadow@2.2.0-beta.1
+  - @nextui-org/select@2.3.0-beta.1
+  - @nextui-org/skeleton@2.1.0-beta.1
+  - @nextui-org/slider@2.3.0-beta.1
+  - @nextui-org/snippet@2.1.0-beta.1
+  - @nextui-org/spacer@2.1.0-beta.1
+  - @nextui-org/spinner@2.1.0-beta.1
+  - @nextui-org/switch@2.1.0-beta.1
+  - @nextui-org/table@2.1.0-beta.1
+  - @nextui-org/tabs@2.1.0-beta.1
+  - @nextui-org/tooltip@2.1.0-beta.1
+  - @nextui-org/user@2.1.0-beta.1
+  - @nextui-org/system@2.3.0-beta.1
+  - @nextui-org/theme@2.3.0-beta.1
+  - @nextui-org/framer-utils@2.0.26-beta.1
+
 ## 2.5.0-beta.0
 
 ### Minor Changes
