@@ -112,7 +112,8 @@
         {
           "key": "dark-mode",
           "title": "Dark mode",
-          "path": "/docs/customization/dark-mode.mdx"
+          "path": "/docs/customization/dark-mode.mdx",
+          "updated": true
         },
         {
           "key": "override-styles",
@@ -143,6 +144,13 @@
           "title": "Autocomplete",
           "keywords": "autocomplete, auto suggest, search, typeahead",
           "path": "/docs/components/autocomplete.mdx"
+        },
+        {
+          "key": "alert",
+          "title": "Alert",
+          "keywords": "alert, notification, message",
+          "path": "/docs/components/alert.mdx",
+          "isNew": true
         },
         {
           "key": "avatar",
@@ -253,6 +261,13 @@
           "path": "/docs/components/file-upload.mdx"
         },
         {
+          "key": "drawer",
+          "title": "Drawer",
+          "keywords": "drawer, panel, slide, overlay",
+          "path": "/docs/components/drawer.mdx",
+          "newPost": true
+        },
+        {
           "key": "image",
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
@@ -286,7 +301,8 @@
           "key": "modal",
           "title": "Modal",
           "keywords": "modal, dialog box, popup, overlay, content focus",
-          "path": "/docs/components/modal.mdx"
+          "path": "/docs/components/modal.mdx",
+          "updated": true
         },
         {
           "key": "navbar",

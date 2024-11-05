@@ -34,12 +34,14 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/use-safe-layout-effect": "workspace:*"
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@testing-library/react-hooks": "^8.0.1"
   },
   "peerDependencies": {
     "react": ">=18"
   },
   "devDependencies": {
+    "@nextui-org/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0"
   },

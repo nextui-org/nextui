@@ -39,3 +39,5 @@ export * from "./calendar";
 export * from "./date-input";
 export * from "./date-picker";
 export * from "./file-upload";
+export * from "./alert";
+export * from "./drawer";
