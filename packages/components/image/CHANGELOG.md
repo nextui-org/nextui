@@ -1,5 +1,12 @@
 # @nextui-org/image
 
+## 2.1.0-beta.2
+
+### Patch Changes
+
+- Updated dependencies [[`98b13d9a9`](https://github.com/nextui-org/nextui/commit/98b13d9a9368ed188f62e3e7ff885ed3ec7c3f5a)]:
+  - @nextui-org/use-image@2.0.7-beta.2
+
 ## 2.1.0-beta.1
 
 ### Patch Changes
