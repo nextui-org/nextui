@@ -1,5 +1,11 @@
 # @nextui-org/use-ref-state
 
+## 2.0.8-beta.0
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
 ## 2.0.7
 
 ### Patch Changes
