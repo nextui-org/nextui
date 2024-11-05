@@ -1,7 +1,8 @@
-import {useMemo} from "react";
+import {useMemo, useState} from "react";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useHover} from "@react-aria/interactions";
 import {Radio} from "@nextui-org/radio";
+import {chain} from "@react-aria/utils";
 
 import {useRatingContext} from "./rating-context";
 import {RatingIcon} from "./rating-icon";
@@ -24,6 +25,7 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
     classNames,
     isSingleSelection,
     name,
+    focusWithin,
     onChange,
     onBlur,
     setRatingValue,
@@ -59,6 +61,7 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
 
   const segmentStyles = slots.iconSegment({class: clsx(classNames?.iconSegment)});
   const {isHovered, hoverProps} = useHover({});
+  const [isKeyPress, setIsKeyPress] = useState(false);
 
   const radioButtons = useMemo(() => {
     const numButtons = Math.floor(1 / precision);
@@ -95,8 +98,13 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
                 data-slot="radio"
                 name={name}
                 value={radioButtonValue.toString()}
-                onBlur={onBlur}
+                onBlur={chain(onBlur, () => {
+                  setIsKeyPress(false);
+                })}
                 onChange={onChange}
+                onKeyUp={() => {
+                  setIsKeyPress(true);
+                }}
               />
             </div>
           );
@@ -109,6 +117,9 @@ const RatingSegment = ({index, icon, fillColor}: RatingSegmentProps) => {
     <div
       className={segmentStyles}
       data-hovered={dataAttr(isHovered)}
+      data-selected={dataAttr(
+        index + 1 == Math.ceil(ratingValue.selectedValue) && isKeyPress && focusWithin,
+      )}
       data-slot="segment"
       {...hoverProps}
     >

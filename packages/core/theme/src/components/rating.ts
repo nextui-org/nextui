@@ -6,10 +6,19 @@ const rating = tv({
   slots: {
     base: "flex flex-col w-fit cursor-pointer",
     mainWrapper: "relative",
-    iconWrapper: "inline-flex gap-x-0",
-    iconSegment: ["relative"],
+    iconWrapper: [
+      "inline-flex",
+      "gap-x-0",
+      "border border-2 border-transparent data-[selected=true]:border-default-200",
+    ],
+    iconSegment: [
+      "relative",
+      "p-0.5",
+      "border border-2 border-transparent data-[selected=true]:border-default-200",
+    ],
     icon: [],
     input: [],
+    label: [],
     radioButtonsWrapper: ["absolute inset-0 top-0 flex"],
     radioButtonWrapper: ["col-span-1 inset-0 overflow-hidden opacity-0"],
     description: ["text-tiny", "text-foreground-400"],

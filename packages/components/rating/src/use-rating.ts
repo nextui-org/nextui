@@ -9,8 +9,8 @@ import {
 import {rating} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactNode, useCallback, useMemo, useRef} from "react";
-import {useHover} from "@react-aria/interactions";
+import {ReactNode, useCallback, useMemo, useRef, useState} from "react";
+import {useHover, useFocusWithin} from "@react-aria/interactions";
 import {mergeProps} from "@react-aria/utils";
 import {useLocale} from "@react-aria/i18n";
 import {AriaTextFieldProps} from "@react-types/textfield";
@@ -92,6 +92,7 @@ interface Props extends HTMLNextUIProps<"div"> {
    *    input: "input-classes",
    *    radioButtonsWrapper: "radio-buttons-wrapper-classes",
    *    radioButtonWrapper: "radio-button-wrapper-classes",
+   *    label: "label-classes",
    *    description: "description-classes",
    *    errorMessage: "error-message-classes",
    * }} />
@@ -217,12 +218,19 @@ export function useRating(originalProps: UseRatingProps) {
   const shouldConsiderHover = Math.abs(Math.floor(1 / precision) - 1 / precision) < Number.EPSILON;
 
   const baseStyles = clsx(classNames?.base, className);
+  const [focusWithin, setFocusWithin] = useState(false);
+  const {focusWithinProps} = useFocusWithin({
+    onFocusWithinChange: (focusWithin: boolean) => {
+      setFocusWithin(focusWithin);
+    },
+  });
+
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         ref: baseDomRef,
         className: slots.base({class: baseStyles}),
-        ...mergeProps(props),
+        ...mergeProps(props, focusWithinProps),
         "data-slot": "base",
         "data-disabled": dataAttr(isDisabled),
         "data-invalid": dataAttr(isInvalid),
@@ -253,6 +261,7 @@ export function useRating(originalProps: UseRatingProps) {
         ...mergeProps(props, hoverProps),
         "data-slot": "icon-wrapper",
         "data-hover": dataAttr(isIconWrapperHovered),
+        "data-selected": dataAttr(ratingValue.selectedValue == 0 && focusWithin),
       };
     },
     [iconWrapperRef, slots, hoverProps, ratingValue, setRatingValue],
@@ -287,6 +296,7 @@ export function useRating(originalProps: UseRatingProps) {
       classNames: {
         errorMessage: slots.errorMessage({class: classNames?.errorMessage}),
         description: slots.description({class: classNames?.description}),
+        label: slots.label({class: classNames?.label}),
       },
       validate: originalProps.validate,
       label: label,
@@ -324,6 +334,7 @@ export function useRating(originalProps: UseRatingProps) {
     icon,
     defaultValue,
     value,
+    focusWithin,
     setRatingValue,
     getBaseProps,
     getMainWrapperProps,
