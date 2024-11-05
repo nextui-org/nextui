@@ -164,12 +164,15 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
   const buttonsElement = useMemo(() => {
     if (!buttons) {
+      const uploadButtonElement =
+        uploadButton && cloneElement(uploadButton, {disabled: props.isDisabled});
+
       return (
         <div className={styles.buttons()}>
           {multiple && files.length !== 0 && addButtonElement}
           {files.length !== 0 && resetButtonElement}
           {browseButtonElement}
-          {uploadButton}
+          {uploadButtonElement}
         </div>
       );
     }

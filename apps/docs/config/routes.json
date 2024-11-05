@@ -258,7 +258,8 @@
           "key": "file-upload",
           "title": "File Upload",
           "keywords": "file, upload, browse",
-          "path": "/docs/components/file-upload.mdx"
+          "path": "/docs/components/file-upload.mdx",
+          "newPost": true
         },
         {
           "key": "drawer",

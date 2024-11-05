@@ -4,7 +4,8 @@ import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {fileUpload} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {objectToDeps} from "@nextui-org/shared-utils";
-import {ReactHTMLElement, useMemo} from "react";
+import {ReactElement, useMemo} from "react";
+import {ButtonProps} from "@nextui-org/button";
 
 interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
@@ -19,7 +20,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Custom Browse Button.
    */
-  browseButton?: ReactHTMLElement<HTMLButtonElement>;
+  browseButton?: ReactElement<ButtonProps>;
   /**
    * A different text for the browse button.
    */
@@ -27,15 +28,15 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Custom Add Button.
    */
-  addButton?: ReactHTMLElement<HTMLButtonElement>;
+  addButton?: ReactElement<ButtonProps>;
   /**
    * Custom Reset Button.
    */
-  resetButton?: ReactHTMLElement<HTMLButtonElement>;
+  resetButton?: ReactElement<ButtonProps>;
   /**
    * Custom Upload Button.
    */
-  uploadButton?: ReactHTMLElement<HTMLButtonElement>;
+  uploadButton?: ReactElement<ButtonProps>;
   /**
    * Custom element to display buttons such as the browse button in customized design and order.
    */
@@ -43,7 +44,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
     onBrowse: () => void,
     onAdd: () => void,
     onReset: () => void,
-  ) => ReactHTMLElement<HTMLElement>;
+  ) => ReactElement<HTMLElement>;
   /**
    * If set to true, multiple files can be selected from the device.
    * @default false
@@ -52,11 +53,11 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
   /**
    * Custom Element for an Upload File Item.
    */
-  fileItemElement?: (file: File) => ReactHTMLElement<HTMLElement>;
+  fileItemElement?: (file: File) => ReactElement<HTMLElement>;
   /**
    * Custom Element for topbar of the component.
    */
-  topbar?: ReactHTMLElement<HTMLElement>;
+  topbar?: ReactElement<HTMLElement>;
   /**
    * Triggered when file(s) selected, added or removed.
    */
