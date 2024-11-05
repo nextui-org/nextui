@@ -32,8 +32,9 @@
 "@nextui-org/tooltip": patch
 "@nextui-org/user": patch
 "@nextui-org/react": minor
-"@nextui-org/system": patch
-"@nextui-org/system-rsc": patch
+"@nextui-org/system": minor
+"@nextui-org/theme": minor
+"@nextui-org/system-rsc": minor
 "@nextui-org/use-aria-accordion": patch
 "@nextui-org/use-aria-accordion-item": patch
 "@nextui-org/use-aria-button": patch
