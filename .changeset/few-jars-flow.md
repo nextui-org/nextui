@@ -41,7 +41,6 @@
 "@nextui-org/use-aria-menu": minor
 "@nextui-org/use-aria-modal-overlay": minor
 "@nextui-org/use-aria-multiselect": minor
-"@nextui-org/use-aria-overlay": minor
 "@nextui-org/use-aria-toggle-button": minor
 "@nextui-org/use-disclosure": minor
 "@nextui-org/use-intersection-observer": minor
