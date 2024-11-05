@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/snippet",
-  "version": "2.0.43",
+  "version": "2.1.0-beta.0",
   "description": "Display a snippet of copyable code for the command line.",
   "keywords": [
     "snippet"
@@ -37,8 +37,8 @@
     "react": ">=18",
     "react-dom": ">=18",
     "framer-motion": ">=11.5.6",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/button": "workspace:*",
