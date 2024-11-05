@@ -1,5 +1,28 @@
 # @nextui-org/modal
 
+## 2.0.41
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/use-aria-modal-overlay@2.0.13
+
+## 2.0.40
+
+### Patch Changes
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- [#3691](https://github.com/nextui-org/nextui/pull/3691) [`3e06ef64c`](https://github.com/nextui-org/nextui/commit/3e06ef64cc5da30f7b2ab209d9d669e6ac8478ca) Thanks [@wingkwong](https://github.com/wingkwong)! - adjust modal position when keyboard appears (#2837)
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/use-aria-modal-overlay@2.0.12
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/framer-utils@2.0.25
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.39
 
 ### Patch Changes

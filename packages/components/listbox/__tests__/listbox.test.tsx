@@ -1,10 +1,16 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {render} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Listbox, ListboxItem, ListboxSection} from "../src";
 
 describe("Listbox", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Listbox aria-label="Actions" onAction={alert}>
@@ -145,11 +151,8 @@ describe("Listbox", () => {
 
     expect(listboxItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(listboxItems[1]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(listboxItems[1]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should work with multiple selection (controlled)", async () => {
@@ -179,11 +182,8 @@ describe("Listbox", () => {
 
     expect(listboxItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(listboxItems[0]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(listboxItems[0]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should show checkmarks if selectionMode is single and has a selected item", () => {

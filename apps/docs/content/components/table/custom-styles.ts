@@ -220,8 +220,8 @@ const users = [
 
 export {columns, users, statusOptions};`;
 
-const utils = `export function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+const utils = `export function capitalize(s) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : "";
 }`;
 
 const PlusIcon = `export const PlusIcon = ({size = 24, width, height, ...props}) => (

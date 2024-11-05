@@ -10,7 +10,7 @@ import {tv} from "../utils/tv";
 const datePicker = tv({
   slots: {
     base: "group w-full",
-    selectorButton: "-mr-2 text-inherit",
+    selectorButton: "-mx-2 text-inherit",
     selectorIcon: "text-lg text-inherit pointer-events-none flex-shrink-0",
     popoverContent: "p-0 w-full",
     calendar: "w-[calc(var(--visible-months)_*_var(--calendar-width))] shadow-none",

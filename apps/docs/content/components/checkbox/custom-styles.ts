@@ -7,13 +7,13 @@ export default function App() {
     name: "Junior Garcia",
     avatar: "https://avatars.githubusercontent.com/u/30373425?v=4",
     username: "jrgarciadev",
-    url: "https://twitter.com/jrgarciadev",
+    url: "https://x.com/jrgarciadev",
     role: "Software Developer",
     status: "Active",
   }
 
   return (
-    <Checkbox       
+    <Checkbox
       aria-label={user.name}
       classNames={{
         base: cn(

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-scroll-position",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "Provides the logic to control the scroll over an element",
   "keywords": [
     "use-scroll-position"

@@ -199,15 +199,7 @@ export function useImage(originalProps: UseImageProps) {
         maxWidth: w,
       },
     };
-  }, [
-    slots,
-    showLoading,
-    showFallback,
-    showSkeleton,
-    loadingSrc,
-    fallbackSrc,
-    classNames?.wrapper,
-  ]);
+  }, [slots, showFallback, fallbackSrc, classNames?.wrapper, w]);
 
   const getBlurredImgProps = useCallback<PropGetter>(() => {
     return {

@@ -92,7 +92,7 @@ const progress = tv(
       },
       isStriped: {
         true: {
-          indicator: "bg-stripe-gradient bg-[length:1.25rem_1.25rem]",
+          indicator: "bg-stripe-gradient-default bg-stripe-size",
         },
       },
       isIndeterminate: {
@@ -127,6 +127,43 @@ const progress = tv(
         isIndeterminate: false,
         class: {
           indicator: "!transition-none motion-reduce:transition-none",
+        },
+      },
+      {
+        color: "primary",
+        isStriped: true,
+        class: {
+          indicator: "bg-stripe-gradient-primary bg-stripe-size",
+        },
+      },
+      {
+        color: "secondary",
+        isStriped: true,
+        class: {
+          indicator: "bg-stripe-gradient-secondary bg-stripe-size",
+        },
+      },
+      {
+        color: "success",
+        isStriped: true,
+        class: {
+          indicator: "bg-stripe-gradient-success bg-stripe-size",
+        },
+      },
+
+      {
+        color: "warning",
+        isStriped: true,
+        class: {
+          indicator: "bg-stripe-gradient-warning bg-stripe-size",
+        },
+      },
+
+      {
+        color: "danger",
+        isStriped: true,
+        class: {
+          indicator: "bg-stripe-gradient-danger bg-stripe-size",
         },
       },
     ],
