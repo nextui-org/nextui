@@ -1,5 +1,12 @@
 # @nextui-org/react-utils
 
+## 2.0.18-beta.0
+
+### Patch Changes
+
+- Updated dependencies [[`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb)]:
+  - @nextui-org/shared-utils@2.0.9-beta.0
+
 ## 2.0.17
 
 ### Patch Changes

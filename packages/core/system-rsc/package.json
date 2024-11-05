@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system-rsc",
-  "version": "2.1.6",
+  "version": "2.2.0-beta.0",
   "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "react": ">=18",
-    "@nextui-org/theme": ">=2.3.0"
+    "@nextui-org/theme": ">=2.3.0-beta.0"
   },
   "devDependencies": {
     "react": "^18.0.0",
