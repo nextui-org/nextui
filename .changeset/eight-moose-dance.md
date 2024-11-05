@@ -1,6 +1,6 @@
 ---
-"@nextui-org/input": major
-"@nextui-org/theme": major
+"@nextui-org/input": patch
+"@nextui-org/theme": patch
 ---
 
 I have made a change so that when both endContent and isClearable are specified, endContent no longer replaces the Clear button. Now, both endContent and the Clear button will be displayed.
