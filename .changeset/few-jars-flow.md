@@ -59,7 +59,6 @@
 "@nextui-org/use-pagination": minor
 "@nextui-org/aria-utils": minor
 "@nextui-org/use-ssr": minor
-"@nextui-org/use-disclosure": minor
 "@nextui-org/use-theme": minor
 ---
 
