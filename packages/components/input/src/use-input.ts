@@ -363,7 +363,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ref: domRef,
         "data-slot": "input",
         "data-filled": dataAttr(isFilled),
         "data-filled-within": dataAttr(isFilledWithin),
@@ -384,6 +383,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ),
         "aria-readonly": dataAttr(originalProps.isReadOnly),
         onChange: chain(inputProps.onChange, onChange),
+        ref: domRef,
       };
     },
     [

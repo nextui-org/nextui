@@ -14,6 +14,10 @@ export function mockImage() {
     onerror: VoidFunction = () => {};
     src = "";
     alt = "";
+    naturalWidth = 100;
+    get complete() {
+      return status === "loaded";
+    }
     hasAttribute(name: string) {
       return name in this;
     }

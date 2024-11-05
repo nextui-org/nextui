@@ -6,6 +6,7 @@ import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {Checkbox} from "@nextui-org/checkbox";
 import {Link} from "@nextui-org/link";
+import {Switch} from "@nextui-org/switch";
 import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
 import Lorem from "react-lorem-component";
 
@@ -17,6 +18,7 @@ import {
   ModalFooter,
   ModalProps,
   useDisclosure,
+  useDraggable,
 } from "../src";
 
 export default {
@@ -202,6 +204,60 @@ const OpenChangeTemplate = (args: ModalProps) => {
     </div>
   );
 };
+const DraggableTemplate = (args: ModalProps) => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+  const targetRef = React.useRef(null);
+
+  const {moveProps} = useDraggable({targetRef});
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          <ModalHeader {...moveProps}>Modal Title</ModalHeader>
+          <ModalBody>
+            <Lorem count={1} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onPress={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+  );
+};
+const DraggableOverflowTemplate = (args: ModalProps) => {
+  const {isOpen, onOpen, onClose, onOpenChange} = useDisclosure();
+  const targetRef = React.useRef(null);
+  const [disableDraggable, setDisableDraggable] = React.useState(false);
+  const [canOverflow, setCanOverflow] = React.useState(true);
+
+  const {moveProps} = useDraggable({targetRef, isDisabled: disableDraggable, canOverflow});
+
+  return (
+    <div className="flex flex-col gap-2">
+      <Button onPress={onOpen}>Open Modal</Button>
+      <Switch isSelected={disableDraggable} onValueChange={setDisableDraggable}>
+        Disable Draggable
+      </Switch>
+      <Switch isSelected={canOverflow} onValueChange={setCanOverflow}>
+        Overflow viewport
+      </Switch>
+      <Modal {...args} ref={targetRef} isOpen={isOpen} onOpenChange={onOpenChange}>
+        <ModalContent>
+          <ModalHeader {...moveProps}>Modal Title</ModalHeader>
+          <ModalBody>
+            <Lorem count={1} />
+          </ModalBody>
+          <ModalFooter>
+            <Button onPress={onClose}>Close</Button>
+          </ModalFooter>
+        </ModalContent>
+      </Modal>
+    </div>
+  );
+};
 
 export const Default = {
   render: Template,
@@ -274,5 +330,21 @@ export const CustomMotion = {
         },
       },
     },
+  },
+};
+
+export const Draggable = {
+  render: DraggableTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const DraggableOverflow = {
+  render: DraggableOverflowTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
