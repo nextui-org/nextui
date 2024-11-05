@@ -5,12 +5,18 @@ import {CloseIcon} from "@nextui-org/shared-icons";
 export interface FileUploadItemProps extends HTMLNextUIProps<"div"> {
   file: File;
   onFileRemove: (name: string) => void;
+  isDisabled?: boolean;
 }
 
-const FileUploadItem: React.FC<FileUploadItemProps> = ({file, onFileRemove, ...otherProps}) => {
+const FileUploadItem: React.FC<FileUploadItemProps> = ({
+  file,
+  onFileRemove,
+  isDisabled,
+  ...otherProps
+}) => {
   return (
     <div {...otherProps}>
-      <Button onClick={() => onFileRemove(file.name)}>
+      <Button isDisabled={isDisabled} onClick={() => onFileRemove(file.name)}>
         <CloseIcon />
       </Button>
       <span>{file.name}</span>

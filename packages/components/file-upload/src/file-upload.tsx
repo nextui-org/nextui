@@ -67,6 +67,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
               key={file.name}
               className={styles.item()}
               file={file}
+              isDisabled={props.isDisabled}
               onFileRemove={(name) => {
                 if (props.isDisabled) return;
                 const newFiles = files.filter((file) => file.name !== name);
@@ -237,10 +238,12 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
       {topbarElement}
 
-      <div className={styles.items()}>
-        {children}
-        {items}
-      </div>
+      {(files.length || children) && (
+        <div className={styles.items()}>
+          {children}
+          {items}
+        </div>
+      )}
 
       {buttonsElement}
     </Component>
