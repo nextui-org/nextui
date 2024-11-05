@@ -1,5 +1,12 @@
 # @nextui-org/avatar
 
+## 2.1.0-beta.4
+
+### Patch Changes
+
+- Updated dependencies [[`52f6274e9`](https://github.com/nextui-org/nextui/commit/52f6274e9baecc928ee7cbb6a8110b72931061b8)]:
+  - @nextui-org/use-image@2.0.7-beta.4
+
 ## 2.1.0-beta.3
 
 ### Patch Changes
