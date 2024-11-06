@@ -24,6 +24,7 @@ export default {
 
 const defaultProps = {
   multiple: false,
+  accept: "*",
   ...fileUpload.defaultVariants,
 };
 

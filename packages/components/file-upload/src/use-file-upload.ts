@@ -51,6 +51,10 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
    */
   multiple?: boolean;
   /**
+   * Accept certain file format(s).
+   */
+  accept?: string;
+  /**
    * Custom Element for an Upload File Item.
    */
   fileItemElement?: (file: File) => ReactElement<HTMLElement>;

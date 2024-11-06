@@ -1,20 +1,21 @@
 const App = `
+import React from "react";
 import {FileUpload} from "@nextui-org/react";
-import {useEffect} from "react";
+import {filesFromApi} from "./filesFromApi";
 
-const filesFromApi = async () => {
-  return [
-    new File([], "file1", {type: "jpg"}),
-    new File([], "file2", {type: "jpg"}),
-    new File([], "file3", {type: "jpg"}),
-  ];
-}
+const filesFromApi= new Promise((res) => {
+  res([
+    new File(['dummy content'], "file1.jpg", {type: "image/jpeg"}),
+    new File(['dummy content'], "file2.jpg", {type: "image/jpeg"}),
+    new File(['dummy content'], "file3.jpg", {type: "image/jpeg"}),
+  ]);
+});
 
 export default function App() {
-  const [files, setFiles] = useState<File[]>();
+  const [files, setFiles] = React.useState([]);
 
-  useEffect(() => {
-    filesFromApi().then(files => setFiles(files));
+  React.useEffect(() => {
+    filesFromApi.then(files => setFiles(files));
   }, []);
 
   return (

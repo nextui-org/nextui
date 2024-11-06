@@ -1,7 +1,8 @@
+import {clsx} from "@nextui-org/shared-utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {ReactElement} from "react";
 
-type FileSize = `${number} KB` | `${number} MB`;
+type FileSize = `${number} KB` | `${number} MB` | `${number}KB` | `${number}MB`;
 
 export interface FileUploadTopbarProps extends HTMLNextUIProps<"div"> {
   /**
@@ -56,25 +57,31 @@ const FileUploadTopbar: React.FC<FileUploadTopbarProps> = ({
   maxAllowedSizeElement,
   totalMaxAllowedSize,
   totalMaxAllowedSizeElement,
+  className,
   ...otherProps
 }) => {
   return (
-    <div {...otherProps}>
+    <div
+      aria-label="File upload constraints"
+      className={clsx("flex gap-2 text-sm text-default-500", className)}
+      role="region"
+      {...otherProps}
+    >
       {maxItems > 1 &&
         (maxItemsElement ?? (
-          <span>
+          <span aria-label={`${maxItemsText}: ${maxItems}`}>
             {maxItemsText}: {maxItems}
           </span>
         ))}
       {maxAllowedSize &&
         (maxAllowedSizeElement ?? (
-          <span>
+          <span aria-label={`${maxAllowedSizeText}: ${maxAllowedSize}`}>
             {maxAllowedSizeText}: {maxAllowedSize}
           </span>
         ))}
       {totalMaxAllowedSize &&
         (totalMaxAllowedSizeElement ?? (
-          <span>
+          <span aria-label={`${totalMaxAllowedSizeText}: ${totalMaxAllowedSize}`}>
             {totalMaxAllowedSizeText}: {totalMaxAllowedSize}
           </span>
         ))}

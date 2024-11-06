@@ -19,6 +19,8 @@ describe("FileUpload", () => {
   it("should render correctly", () => {
     const wrapper = render(<FileUpload />);
 
+    expect(wrapper.getByRole("button")).toBeInTheDocument();
+    expect(wrapper.container).toMatchSnapshot();
     expect(() => wrapper.unmount()).not.toThrow();
   });
 

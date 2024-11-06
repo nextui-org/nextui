@@ -18,6 +18,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     className,
     classNames,
     multiple,
+    accept,
     browseButton,
     browseButtonText,
     addButton,
@@ -64,13 +65,18 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
         if (!fileItemElement) {
           return (
             <FileUploadItem
-              key={file.name}
+              key={`${file.name}-${file.lastModified}-${file.size}`}
               className={styles.item()}
               file={file}
               isDisabled={props.isDisabled}
-              onFileRemove={(name) => {
+              onFileRemove={(fileToRemove) => {
                 if (props.isDisabled) return;
-                const newFiles = files.filter((file) => file.name !== name);
+                const newFiles = files.filter((file) => {
+                  const fileInfo = `${file.name}-${file.lastModified}-${file.size}`;
+                  const fileToRemoveInfo = `${fileToRemove.name}-${fileToRemove.lastModified}-${fileToRemove.size}`;
+
+                  return fileInfo !== fileToRemoveInfo;
+                });
 
                 updateFiles(newFiles);
               }}
@@ -204,6 +210,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
     <Component ref={domRef} className={baseStyles} {...otherProps}>
       <input
         ref={inputFileRef}
+        accept={accept}
         className="hidden"
         multiple={multiple}
         title="file upload"
@@ -223,6 +230,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
       <input
         ref={singleInputFileRef}
+        accept={accept}
         className="hidden"
         title="single file upload"
         type="file"
@@ -231,8 +239,7 @@ const FileUpload = forwardRef<"div", FileUploadProps>((props, ref) => {
 
           if (!singleFile) return;
           if (files.find((file) => file.name === singleFile.name)) return;
-          files.push(singleFile);
-          updateFiles([...files]);
+          updateFiles([...files, singleFile]);
         }}
       />
 

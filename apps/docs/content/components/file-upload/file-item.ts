@@ -1,6 +1,5 @@
 const App = `
 import {FileUpload} from "@nextui-org/react";
-import {SearchIcon, DeleteIcon} from "@nextui-org/shared-icons";
 
 export default function App() {
   return (
