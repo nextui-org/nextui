@@ -1,4 +1,4 @@
-import {uniqBy} from "lodash";
+import {uniqBy} from "@nextui-org/shared-utils";
 import fetch from "node-fetch";
 
 import {__PROD__} from "./env";

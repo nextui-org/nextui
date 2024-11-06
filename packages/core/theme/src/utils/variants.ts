@@ -30,11 +30,11 @@ const bordered = {
 
 const flat = {
   default: "bg-default/40 text-default-700",
-  primary: "bg-primary/20 text-primary-700",
-  secondary: "bg-secondary/20 text-secondary-700",
-  success: "bg-success/20 text-success-800 dark:text-success",
-  warning: "bg-warning/20 text-warning-800 dark:text-warning",
-  danger: "bg-danger/20 text-danger-800 dark:text-danger-500",
+  primary: "bg-primary/20 text-primary-600",
+  secondary: "bg-secondary/20 text-secondary-600",
+  success: "bg-success/20 text-success-700 dark:text-success",
+  warning: "bg-warning/20 text-warning-700 dark:text-warning",
+  danger: "bg-danger/20 text-danger-600 dark:text-danger-500",
   foreground: "bg-foreground/10 text-foreground",
 };
 
