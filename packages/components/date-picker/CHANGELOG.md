@@ -1,5 +1,12 @@
 # @nextui-org/date-picker
 
+## 2.2.0-beta.2
+
+### Patch Changes
+
+- Updated dependencies [[`563c1585a`](https://github.com/nextui-org/nextui/commit/563c1585a3c1a32e8272ec4641cfabeaaac3296c)]:
+  - @nextui-org/popover@2.2.0-beta.2
+
 ## 2.2.0-beta.1
 
 ### Patch Changes

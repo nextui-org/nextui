@@ -1,5 +1,18 @@
 # @nextui-org/react
 
+## 2.5.0-beta.5
+
+### Patch Changes
+
+- Updated dependencies [[`563c1585a`](https://github.com/nextui-org/nextui/commit/563c1585a3c1a32e8272ec4641cfabeaaac3296c)]:
+  - @nextui-org/popover@2.2.0-beta.2
+  - @nextui-org/autocomplete@2.2.0-beta.3
+  - @nextui-org/date-picker@2.2.0-beta.2
+  - @nextui-org/dropdown@2.2.0-beta.2
+  - @nextui-org/select@2.3.0-beta.3
+  - @nextui-org/breadcrumbs@2.1.0-beta.1
+  - @nextui-org/navbar@2.1.0-beta.1
+
 ## 2.5.0-beta.4
 
 ### Patch Changes

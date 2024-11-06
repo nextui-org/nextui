@@ -1,5 +1,11 @@
 # @nextui-org/popover
 
+## 2.2.0-beta.2
+
+### Patch Changes
+
+- [#4003](https://github.com/nextui-org/nextui/pull/4003) [`563c1585a`](https://github.com/nextui-org/nextui/commit/563c1585a3c1a32e8272ec4641cfabeaaac3296c) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix: element.ref was removed in React 19
+
 ## 2.2.0-beta.1
 
 ### Patch Changes
