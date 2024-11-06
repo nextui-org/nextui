@@ -884,7 +884,13 @@ describe("Select with React Hook Form", () => {
 });
 
 describe("validationBehavior=native", () => {
-  it("should not submit form when required field is empty", async () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
+  it("supports server validation", async () => {
     const onSubmit = jest.fn();
 
     const {getByTestId} = render(
@@ -893,6 +899,7 @@ describe("validationBehavior=native", () => {
           isRequired
           data-testid="select"
           label="Test"
+          name="select"
           // validationBehavior="native"
         >
           <SelectItem key="one">One</SelectItem>
@@ -905,10 +912,28 @@ describe("validationBehavior=native", () => {
       </form>,
     );
 
-    const user = userEvent.setup();
+    const button = getByTestId("button");
+    const select = getByTestId("select");
+    const input = document.querySelector("[name=select]");
 
-    await user.click(getByTestId("button"));
+    expect(input).toHaveAttribute("required");
+    expect(select).not.toHaveAttribute("aria-describedby");
 
+    await user.click(button);
+
+    expect(select).toHaveAttribute("aria-describedby");
+    expect(input.validity.valid).toBe(false);
     expect(onSubmit).toHaveBeenCalledTimes(0);
+
+    expect(document.activeElement).toBe(select);
+
+    await user.keyboard("[ArrowRight]");
+
+    expect(select).not.toHaveAttribute("aria-describedby");
+    expect(input.validity.valid).toBe(true);
+
+    await user.click(button);
+
+    expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

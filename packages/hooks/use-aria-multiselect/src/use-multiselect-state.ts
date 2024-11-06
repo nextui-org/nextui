@@ -71,6 +71,8 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
       if (props.selectionMode === "single") {
         triggerState.close();
       }
+
+      validationState.commitValidation();
     },
   });
 
@@ -101,7 +103,6 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
       if (listState.collection.size !== 0) {
         setFocusStrategy(focusStrategy);
         triggerState.toggle();
-        validationState.commitValidation();
       }
     },
     isFocused,
