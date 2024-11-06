@@ -54,7 +54,7 @@
     ]
   },
   "dependencies": {
-    "@internationalized/date": "3.5.5",
+    "@internationalized/date": "3.5.6",
     "@nextui-org/react-utils": "workspace:*",
     "@react-aria/i18n": "3.12.3",
     "@nextui-org/system-rsc": "workspace:*",
