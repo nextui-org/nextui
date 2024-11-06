@@ -2,13 +2,13 @@ import {forwardRef} from "@nextui-org/system";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon, CloseIcon} from "@nextui-org/shared-icons";
-import {Listbox} from "@nextui-org/listbox";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {ForwardedRef, ReactElement, Ref} from "react";
 import {AnimatePresence} from "framer-motion";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
+import VirtualizedListbox from "./virtualizedlistbox";
 
 interface Props<T> extends UseAutocompleteProps<T> {}
 
@@ -36,7 +36,13 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   const popoverContent = isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
       <ScrollShadow {...getListBoxWrapperProps()}>
-        <Listbox {...listboxProps} />
+        <VirtualizedListbox
+          {...listboxProps}
+          virtualization={{
+            maxListboxHeight: 300,
+            itemHeight: 32,
+          }}
+        />
       </ScrollShadow>
     </FreeSoloPopover>
   ) : listboxProps.state?.collection.size === 0 ? (
