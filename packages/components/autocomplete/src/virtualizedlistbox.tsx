@@ -5,9 +5,9 @@ import {
   FixedSizeList as ReactWindowVirtualizedList,
   ListChildComponentProps as ReactWindowListChildComponentProps,
 } from "react-window";
-import {ListboxItem, ListboxSection, useListbox} from "@nextui-org/listbox";
-import {UseListboxProps} from "@nextui-org/listbox/src/use-listbox";
-
+import {UseListboxProps, useListbox} from "@nextui-org/listbox/src/use-listbox";
+import ListboxItem from "@nextui-org/listbox/src/listbox-item";
+import ListboxSection from "@nextui-org/listbox/src/listbox-section";
 interface Props<T> extends UseListboxProps<T> {}
 
 function VirtualizedListbox<T extends object>(

@@ -39,7 +39,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
         <VirtualizedListbox
           {...listboxProps}
           virtualization={{
-            maxListboxHeight: 300,
+            maxListboxHeight: 256,
             itemHeight: 32,
           }}
         />
