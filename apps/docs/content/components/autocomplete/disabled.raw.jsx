@@ -31,14 +31,12 @@ export const animals = [
 export default function App() {
   return (
     <Autocomplete
+      isDisabled
       className="max-w-xs"
       defaultItems={animals}
       defaultSelectedKey="cat"
       label="Favorite Animal"
       placeholder="Search an animal"
-      scrollShadowProps={{
-        isEnabled: false,
-      }}
     >
       {(item) => <AutocompleteItem key={item.value}>{item.label}</AutocompleteItem>}
     </Autocomplete>
