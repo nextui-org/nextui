@@ -568,8 +568,6 @@ describe("Dropdown", () => {
     // open the dropdown listbox by clicking dropdown button in the first dropdown
     await user.click(dropdown);
 
-    // TODO: 落ちてる
-
     // assert that the first dropdown listbox is open
     expect(dropdown).toHaveAttribute("aria-expanded", "true");
 
