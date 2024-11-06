@@ -29,6 +29,7 @@ const input = tv({
       "z-10",
       "pointer-events-none",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "block",
@@ -184,11 +185,12 @@ const input = tv({
       true: {
         base: "w-full",
       },
+      false: {},
     },
     isClearable: {
       true: {
         input:
-          "peer pr-6 data-[filled=true]:[--clearable-padding-right-has-end-content:theme(spacing.4)] pr-6 rtl:pr-0 rtl:pl-6",
+          "peer pe-6 input-search-cancel-button-none data-[filled=true]:[--clearable-padding-right-has-end-content:theme(spacing.4)]",
         clearButton:
           "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block right-3 [--clearable-right-has-end-content:theme(spacing.5)]",
       },
@@ -208,8 +210,7 @@ const input = tv({
     },
     isRequired: {
       true: {
-        label:
-          "after:content-['*'] after:text-danger after:ml-0.5 rtl:after:ml-[unset] rtl:after:mr-0.5",
+        label: "after:content-['*'] after:text-danger after:ms-0.5",
       },
     },
     isMultiline: {
@@ -601,7 +602,7 @@ const input = tv({
       labelPlacement: "outside",
       isMultiline: false,
       class: {
-        base: "group relative justify-end",
+        base: "relative justify-end",
         label: [
           "pb-0",
           "z-20",

@@ -13,7 +13,7 @@ Requirements:
 
 ---
 
-
+<CarbonAd/>
 
 ## Automatic Installation
 
@@ -48,14 +48,24 @@ You will be prompted to configure your project:
 ```
 
 Install the dependencies to start the local server:
-```codeBlock bash
-cd my-nextui-app && npm install
-```
+<PackageManagers
+  commands={{
+    npm: "cd my-nextui-app && npm install",
+    yarn: "cd my-nextui-app && yarn install",
+    pnpm: "cd my-nextui-app && pnpm install",
+    bun: "cd my-nextui-app && bun install",
+  }}
+/>
 
 Start the local server:
-```codeBlock bash
-npm run dev
-```
+<PackageManagers
+  commands={{
+    npm: "npm run dev",
+    yarn: "yarn run dev",
+    pnpm: "pnpm run dev",
+    bun: "bun run dev",
+  }}
+/>
 
 ### Adding the Components
 Once your NextUI project is ready to develop, you can add individual components using the CLI. For example, to add a button component:

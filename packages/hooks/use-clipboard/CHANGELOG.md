@@ -1,5 +1,17 @@
 # @nextui-org/use-clipboard
 
+## 2.0.8-beta.0
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+## 2.0.7
+
+### Patch Changes
+
+- [#3607](https://github.com/nextui-org/nextui/pull/3607) [`eda316ab2`](https://github.com/nextui-org/nextui/commit/eda316ab24d390065931daf3aa816cbdbff4fb9a) Thanks [@AnYiEE](https://github.com/AnYiEE)! - ensure exposed functions wrap by `useCallback`
+
 ## 2.0.6
 
 ### Patch Changes

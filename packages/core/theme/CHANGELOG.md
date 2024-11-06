@@ -1,5 +1,95 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/shared-utils@2.0.9-beta.1
+
+## 2.3.0-beta.0
+
+### Minor Changes
+
+- [#3732](https://github.com/nextui-org/nextui/pull/3732) [`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+### Patch Changes
+
+- [#3869](https://github.com/nextui-org/nextui/pull/3869) [`0cf91395c`](https://github.com/nextui-org/nextui/commit/0cf91395c7c66a69fb05c7fca4a30cbad9e1e0f8) Thanks [@macci001](https://github.com/macci001)! - fix label placement in input and select
+
+- [#3768](https://github.com/nextui-org/nextui/pull/3768) [`781b85566`](https://github.com/nextui-org/nextui/commit/781b85566ee5eac3f505625462c4f5f14e36ed3a) Thanks [@macci001](https://github.com/macci001)! - fix the fullWidth variant in input and select component. (#3745)
+
+- [#3912](https://github.com/nextui-org/nextui/pull/3912) [`38a54ab49`](https://github.com/nextui-org/nextui/commit/38a54ab497781e17799b37f0061ba50f2dc44e09) Thanks [@sanuj21](https://github.com/sanuj21)! - remove the pseudo cancel btn from input (#3907)
+
+- [#3868](https://github.com/nextui-org/nextui/pull/3868) [`af3c4f706`](https://github.com/nextui-org/nextui/commit/af3c4f706bb88eae02eee594a6db68cdd33bbe88) Thanks [@macci001](https://github.com/macci001)! - replace the use of RTL-specific styles with logical properties.
+
+- [#3657](https://github.com/nextui-org/nextui/pull/3657) [`ae73de1a6`](https://github.com/nextui-org/nextui/commit/ae73de1a61c26e78235ce2d4c38159d486b55d56) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `tailwind-merge` version (#3614)
+
+- [#3909](https://github.com/nextui-org/nextui/pull/3909) [`ad6393ab3`](https://github.com/nextui-org/nextui/commit/ad6393ab33362119203455ef5c8ffbfe1ffa96a1) Thanks [@wingkwong](https://github.com/wingkwong)! - apply tw nested group (#3544, #2324, #2959)
+
+- [#3523](https://github.com/nextui-org/nextui/pull/3523) [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb) Thanks [@wingkwong](https://github.com/wingkwong)! - replaced lodash with native approaches
+
+- [#3248](https://github.com/nextui-org/nextui/pull/3248) [`cb1b3135b`](https://github.com/nextui-org/nextui/commit/cb1b3135bc7e811c9c2e163d4778f9f6eb2ef8c8) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add support for selectorButtonPlacement property (#3015)
+
+- [#3938](https://github.com/nextui-org/nextui/pull/3938) [`a5cac4561`](https://github.com/nextui-org/nextui/commit/a5cac45619e529cf9850f02f416b6bc7cba77f3f) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - added stripe color gradients for progress (#1933)
+
+- [#3982](https://github.com/nextui-org/nextui/pull/3982) [`d90ad05b1`](https://github.com/nextui-org/nextui/commit/d90ad05b13b36617009cb0e5f57f299aa7bb7bd0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - introduced Alert component (#2250)
+
+- [#3927](https://github.com/nextui-org/nextui/pull/3927) [`a0d7141db`](https://github.com/nextui-org/nextui/commit/a0d7141db314c6bea27df6b8beb15dae3b1bcb93) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - separator icon RTL support in Breadcrumbs component (#2486)
+
+- [#3523](https://github.com/nextui-org/nextui/pull/3523) [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb) Thanks [@wingkwong](https://github.com/wingkwong)! - framer motion optimization (#3340)
+
+- [#3861](https://github.com/nextui-org/nextui/pull/3861) [`8a33eabb2`](https://github.com/nextui-org/nextui/commit/8a33eabb2583202fcc8fbc33e8f2ed23bb45f1a4) Thanks [@ShrinidhiUpadhyaya](https://github.com/ShrinidhiUpadhyaya)! - show margin only with label in Switch component (#3791)
+
+- [#3764](https://github.com/nextui-org/nextui/pull/3764) [`559436d46`](https://github.com/nextui-org/nextui/commit/559436d462bdb8739d8c817d1aa98607969d8a07) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `data-[hover=true]:` for ghost button with danger color
+
+- Updated dependencies [[`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb)]:
+  - @nextui-org/shared-utils@2.0.9-beta.0
+
+## 2.2.11
+
+### Patch Changes
+
+- [#3754](https://github.com/nextui-org/nextui/pull/3754) [`5517a0578`](https://github.com/nextui-org/nextui/commit/5517a0578b5514cf2a4ddec53528d25d7f616cd0) Thanks [@wingkwong](https://github.com/wingkwong)! - remove tw nested group (rollback PR3658)
+
+## 2.2.10
+
+### Patch Changes
+
+- [#3658](https://github.com/nextui-org/nextui/pull/3658) [`5b5a9746e`](https://github.com/nextui-org/nextui/commit/5b5a9746e33ce50c1d282577997a23829fd842f8) Thanks [@wingkwong](https://github.com/wingkwong)! - applied tw nested group (#3544, #2324, #2959)
+
+- [#2110](https://github.com/nextui-org/nextui/pull/2110) [`bc0f72fc2`](https://github.com/nextui-org/nextui/commit/bc0f72fc2704c33b3530add1731c82302fd26884) Thanks [@black197](https://github.com/black197)! - fix(theme): use data-hover instead of hover (#2095)
+
+- [#3486](https://github.com/nextui-org/nextui/pull/3486) [`324fd6d3c`](https://github.com/nextui-org/nextui/commit/324fd6d3c1fb7e6f3ecb462a150182ffe1c7f132) Thanks [@awesome-pro](https://github.com/awesome-pro)! - fixed the shadow clipping of card inside listbox or menubox item (#3480)
+
+- [#2038](https://github.com/nextui-org/nextui/pull/2038) [`deb15078c`](https://github.com/nextui-org/nextui/commit/deb15078cc61fea30b9e4f6c98eddad244420276) Thanks [@amirhhashemi](https://github.com/amirhhashemi)! - Improved RTL support for the input component
+
+- [#3000](https://github.com/nextui-org/nextui/pull/3000) [`81da063d6`](https://github.com/nextui-org/nextui/commit/81da063d6ab80e1b352ebfda78ed26a47a239c49) Thanks [@chirokas](https://github.com/chirokas)! - Improve clear button pointer events, keyboard reopen issue on mobile
+
+- [#3217](https://github.com/nextui-org/nextui/pull/3217) [`9d6bcb580`](https://github.com/nextui-org/nextui/commit/9d6bcb580a7bde6ff846fdfb679ec6e0a16410e6) Thanks [@chirokas](https://github.com/chirokas)! - Fix skeleton overflow issue (#3214 #3670)
+
+- [#2684](https://github.com/nextui-org/nextui/pull/2684) [`142f394cb`](https://github.com/nextui-org/nextui/commit/142f394cb5d25c97c919782d03f74c3b310eab0c) Thanks [@HydenLiu](https://github.com/HydenLiu)! - set the min-height of base height to 100dvh where size equals `full` (#2681)
+
+- [#2097](https://github.com/nextui-org/nextui/pull/2097) [`06b97d05a`](https://github.com/nextui-org/nextui/commit/06b97d05a8ce65b08bef4838f43c2bb990c72e10) Thanks [@amirhhashemi](https://github.com/amirhhashemi)! - Improved RTL support for the table component
+
+- [#2041](https://github.com/nextui-org/nextui/pull/2041) [`6f44cd6a9`](https://github.com/nextui-org/nextui/commit/6f44cd6a98f7fa848496e2bd9ca933cd6796bf3f) Thanks [@amirhhashemi](https://github.com/amirhhashemi)! - Improved RTL support for the select component
+
+- [#3691](https://github.com/nextui-org/nextui/pull/3691) [`3e06ef64c`](https://github.com/nextui-org/nextui/commit/3e06ef64cc5da30f7b2ab209d9d669e6ac8478ca) Thanks [@wingkwong](https://github.com/wingkwong)! - adjust modal position when keyboard appears (#2837)
+
+- [#2946](https://github.com/nextui-org/nextui/pull/2946) [`59ea6b745`](https://github.com/nextui-org/nextui/commit/59ea6b7457345b8b1f241143301b5a9bf81054e4) Thanks [@rockey2020](https://github.com/rockey2020)! - export default-layout in theme
+
+- [#3656](https://github.com/nextui-org/nextui/pull/3656) [`55c92981e`](https://github.com/nextui-org/nextui/commit/55c92981e009b1721e8288341402feb1ebec08f3) Thanks [@ameybh](https://github.com/ameybh)! - fixed arrow keys order when html has dir="rtl" (#3641, #3642)
+
+- [#3552](https://github.com/nextui-org/nextui/pull/3552) [`97f233b34`](https://github.com/nextui-org/nextui/commit/97f233b346e07c766fb25a2ca16a78d4aa8ce2fe) Thanks [@awesome-pro](https://github.com/awesome-pro)! - fixed the double click need in chrome for checkbox, switch and radiobuttons (#3528)
+
+- [#3663](https://github.com/nextui-org/nextui/pull/3663) [`46cc01908`](https://github.com/nextui-org/nextui/commit/46cc01908e99797cfc9c60762fef6d95dc6c0b6a) Thanks [@macci001](https://github.com/macci001)! - The color of the selected value in SELECT component was `text-foreground-500` instead of `text-default-foreground`. Also label slot in SELECT component's UNDERLINE had no effect of color variant. The change includes the fix for the mentioned issues (#3659).
+
+- [#3738](https://github.com/nextui-org/nextui/pull/3738) [`54bd9cdd6`](https://github.com/nextui-org/nextui/commit/54bd9cdd6de72bb0032e5e8f9dc2007ca3aadb0d) Thanks [@rileybutterfield](https://github.com/rileybutterfield)! - Updates the text colors for the flat variant in the theme so that elements using this variant are accessible (#3738)
+
+- [#2044](https://github.com/nextui-org/nextui/pull/2044) [`fe30dc8cc`](https://github.com/nextui-org/nextui/commit/fe30dc8cc0c109f7f537be79c8c13a3f5fa1c0f7) Thanks [@amirhhashemi](https://github.com/amirhhashemi)! - Improved RTL support for the pagination component
+
 ## 2.2.9
 
 ### Patch Changes

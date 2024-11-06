@@ -220,8 +220,8 @@ const users = [
 
 export {columns, users, statusOptions};`;
 
-const utils = `export function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+const utils = `export function capitalize(s) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : "";
 }`;
 
 const PlusIcon = `export const PlusIcon = ({size = 24, width, height, ...props}) => (
@@ -611,13 +611,13 @@ export default function App() {
       td: [
         // changing the rows border radius
         // first
-        "group-data-[first=true]:first:before:rounded-none",
-        "group-data-[first=true]:last:before:rounded-none",
+        "group-data-[first=true]/tr:first:before:rounded-none",
+        "group-data-[first=true]/tr:last:before:rounded-none",
         // middle
-        "group-data-[middle=true]:before:rounded-none",
+        "group-data-[middle=true]/tr:before:rounded-none",
         // last
-        "group-data-[last=true]:first:before:rounded-none",
-        "group-data-[last=true]:last:before:rounded-none",
+        "group-data-[last=true]/tr:first:before:rounded-none",
+        "group-data-[last=true]/tr:last:before:rounded-none",
       ],
     }),
     [],
@@ -966,13 +966,13 @@ export default function App() {
       td: [
         // changing the rows border radius
         // first
-        "group-data-[first=true]:first:before:rounded-none",
-        "group-data-[first=true]:last:before:rounded-none",
+        "group-data-[first=true]/tr:first:before:rounded-none",
+        "group-data-[first=true]/tr:last:before:rounded-none",
         // middle
-        "group-data-[middle=true]:before:rounded-none",
+        "group-data-[middle=true]/tr:before:rounded-none",
         // last
-        "group-data-[last=true]:first:before:rounded-none",
-        "group-data-[last=true]:last:before:rounded-none",
+        "group-data-[last=true]/tr:first:before:rounded-none",
+        "group-data-[last=true]/tr:last:before:rounded-none",
       ],
     }),
     [],

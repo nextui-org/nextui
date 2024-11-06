@@ -1,5 +1,30 @@
 # @nextui-org/use-real-shape
 
+## 2.0.18-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/react-utils@2.0.18-beta.1
+
+## 2.0.18-beta.0
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.18-beta.0
+
+## 2.0.17
+
+### Patch Changes
+
+- [#3607](https://github.com/nextui-org/nextui/pull/3607) [`eda316ab2`](https://github.com/nextui-org/nextui/commit/eda316ab24d390065931daf3aa816cbdbff4fb9a) Thanks [@AnYiEE](https://github.com/AnYiEE)! - ensure exposed functions wrap by `useCallback`
+
+- Updated dependencies []:
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.16
 
 ### Patch Changes

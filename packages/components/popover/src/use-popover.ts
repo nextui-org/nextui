@@ -2,11 +2,11 @@ import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-or
 import type {HTMLMotionProps} from "framer-motion";
 import type {PressEvent} from "@react-types/shared";
 
-import {RefObject, Ref} from "react";
+import {RefObject, Ref, useEffect} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
+import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {
   HTMLNextUIProps,
@@ -118,6 +118,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     boundaryElement,
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
+    shouldCloseOnScroll,
     motionProps,
     className,
     classNames,
@@ -169,6 +170,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       containerPadding,
       updatePositionDeps,
       isKeyboardDismissDisabled,
+      shouldCloseOnScroll,
       shouldCloseOnInteractOutside,
     },
     state,
@@ -298,9 +300,11 @@ export function usePopover(originalProps: UsePopoverProps) {
     [slots, state.isOpen, classNames, underlayProps],
   );
 
-  usePreventScroll({
-    isDisabled: !(shouldBlockScroll && state.isOpen),
-  });
+  useEffect(() => {
+    if (state.isOpen && domRef?.current) {
+      return ariaHideOutside([domRef?.current]);
+    }
+  }, [state.isOpen, domRef]);
 
   return {
     state,
@@ -316,6 +320,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     isOpen: state.isOpen,
     onClose: state.close,
     disableAnimation,
+    shouldBlockScroll,
     backdrop: originalProps.backdrop ?? "transparent",
     motionProps,
     getBackdropProps,

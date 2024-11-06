@@ -1,5 +1,17 @@
 # @nextui-org/test-utils
 
+## 2.0.7-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+## 2.0.7-beta.0
+
+### Patch Changes
+
+- [#3987](https://github.com/nextui-org/nextui/pull/3987) [`90cb5b14a`](https://github.com/nextui-org/nextui/commit/90cb5b14abcf70878896ea83b0b8bce0795d97fd) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix cached image flashing due to use-image always returning pending initially. The fix was to check if the image is loaded instantly through HTMLImageElement.complete attribute and use that to initialize the state.
+
 ## 2.0.6
 
 ### Patch Changes

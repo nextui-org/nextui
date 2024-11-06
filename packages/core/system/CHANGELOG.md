@@ -1,5 +1,39 @@
 # @nextui-org/system
 
+## 2.3.0-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/system-rsc@2.2.0-beta.1
+  - @nextui-org/react-utils@2.0.18-beta.1
+
+## 2.3.0-beta.0
+
+### Minor Changes
+
+- [#3732](https://github.com/nextui-org/nextui/pull/3732) [`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+### Patch Changes
+
+- [#3523](https://github.com/nextui-org/nextui/pull/3523) [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb) Thanks [@wingkwong](https://github.com/wingkwong)! - update `framer-motion` versions
+
+- Updated dependencies [[`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d)]:
+  - @nextui-org/system-rsc@2.2.0-beta.0
+  - @nextui-org/react-utils@2.0.18-beta.0
+
+## 2.2.6
+
+### Patch Changes
+
+- [#2943](https://github.com/nextui-org/nextui/pull/2943) [`4ac7674d1`](https://github.com/nextui-org/nextui/commit/4ac7674d1ec8ed60925412fe1bd1f01ee9f1555a) Thanks [@wingkwong](https://github.com/wingkwong)! - Fix missing `useHref` logic (#2934)
+
+- Updated dependencies [[`44e89a077`](https://github.com/nextui-org/nextui/commit/44e89a0779c1c98fe275c864fe12834d19302b9c)]:
+  - @nextui-org/system-rsc@2.1.6
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.2.5
 
 ### Patch Changes

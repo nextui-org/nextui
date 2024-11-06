@@ -45,7 +45,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
     return (
       <>
         {isClearable && (
-          <span
+          <button
             {...getClearButtonProps(
               endContent
                 ? {
@@ -57,7 +57,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
             )}
           >
             {<CloseFilledIcon />}
-          </span>
+          </button>
         )}
         {endContent && <div ref={endContentWrapperRef}>{endContent}</div>}
       </>
@@ -65,15 +65,18 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
   }, [isClearable, endContent, getClearButtonProps]);
 
   const helperWrapper = useMemo(() => {
-    if (!hasHelper) return null;
+    const shouldShowError = isInvalid && errorMessage;
+    const hasContent = shouldShowError || description;
+
+    if (!hasHelper || !hasContent) return null;
 
     return (
       <div {...getHelperWrapperProps()}>
-        {isInvalid && errorMessage ? (
+        {shouldShowError ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
+        ) : (
           <div {...getDescriptionProps()}>{description}</div>
-        ) : null}
+        )}
       </div>
     );
   }, [

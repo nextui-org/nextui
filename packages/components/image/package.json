@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/image",
-  "version": "2.0.31",
+  "version": "2.1.0-beta.4",
   "description": "A simple image component",
   "keywords": [
     "image"
@@ -36,8 +36,8 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",

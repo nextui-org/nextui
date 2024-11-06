@@ -1,5 +1,98 @@
 # @nextui-org/select
 
+## 2.3.0-beta.3
+
+### Patch Changes
+
+- Updated dependencies [[`563c1585a`](https://github.com/nextui-org/nextui/commit/563c1585a3c1a32e8272ec4641cfabeaaac3296c)]:
+  - @nextui-org/popover@2.2.0-beta.2
+
+## 2.3.0-beta.2
+
+### Patch Changes
+
+- [#3966](https://github.com/nextui-org/nextui/pull/3966) [`a2d653137`](https://github.com/nextui-org/nextui/commit/a2d653137d61465a88dfa3830bb3a44e3a7faa87) Thanks [@mstfblci](https://github.com/mstfblci)! - - Fixed a UI sliding issue caused by the helper wrapper being rendered when `isInvalid` was false but `errorMessage` was present
+
+- Updated dependencies []:
+  - @nextui-org/popover@2.2.0-beta.1
+  - @nextui-org/listbox@2.2.0-beta.1
+
+## 2.3.0-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/listbox@2.2.0-beta.1
+  - @nextui-org/popover@2.2.0-beta.1
+  - @nextui-org/scroll-shadow@2.2.0-beta.1
+  - @nextui-org/spinner@2.1.0-beta.1
+  - @nextui-org/use-aria-button@2.1.0-beta.1
+  - @nextui-org/use-aria-multiselect@2.3.0-beta.1
+  - @nextui-org/aria-utils@2.1.0-beta.1
+  - @nextui-org/react-utils@2.0.18-beta.1
+  - @nextui-org/shared-icons@2.0.10-beta.0
+  - @nextui-org/shared-utils@2.0.9-beta.1
+
+## 2.3.0-beta.0
+
+### Minor Changes
+
+- [#3732](https://github.com/nextui-org/nextui/pull/3732) [`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+### Patch Changes
+
+- [#3853](https://github.com/nextui-org/nextui/pull/3853) [`488a18f52`](https://github.com/nextui-org/nextui/commit/488a18f525465817ce56e81db8e502399a7572b7) Thanks [@macci001](https://github.com/macci001)! - update label placement in Select to use `shouldLabelBeOutside` instead of `isOutsideLeft`, resolving multiline label placement issues (#3841).
+
+- [#3523](https://github.com/nextui-org/nextui/pull/3523) [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb) Thanks [@wingkwong](https://github.com/wingkwong)! - update `framer-motion` versions
+
+- Updated dependencies [[`0cf91395c`](https://github.com/nextui-org/nextui/commit/0cf91395c7c66a69fb05c7fca4a30cbad9e1e0f8), [`a2e562b03`](https://github.com/nextui-org/nextui/commit/a2e562b03f79b52b0b35f07104b3585ea05e2cb6), [`781b85566`](https://github.com/nextui-org/nextui/commit/781b85566ee5eac3f505625462c4f5f14e36ed3a), [`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d), [`38a54ab49`](https://github.com/nextui-org/nextui/commit/38a54ab497781e17799b37f0061ba50f2dc44e09), [`af3c4f706`](https://github.com/nextui-org/nextui/commit/af3c4f706bb88eae02eee594a6db68cdd33bbe88), [`ae73de1a6`](https://github.com/nextui-org/nextui/commit/ae73de1a61c26e78235ce2d4c38159d486b55d56), [`ad6393ab3`](https://github.com/nextui-org/nextui/commit/ad6393ab33362119203455ef5c8ffbfe1ffa96a1), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`cb1b3135b`](https://github.com/nextui-org/nextui/commit/cb1b3135bc7e811c9c2e163d4778f9f6eb2ef8c8), [`a5cac4561`](https://github.com/nextui-org/nextui/commit/a5cac45619e529cf9850f02f416b6bc7cba77f3f), [`d90ad05b1`](https://github.com/nextui-org/nextui/commit/d90ad05b13b36617009cb0e5f57f299aa7bb7bd0), [`a0d7141db`](https://github.com/nextui-org/nextui/commit/a0d7141db314c6bea27df6b8beb15dae3b1bcb93), [`9f6839faf`](https://github.com/nextui-org/nextui/commit/9f6839faf9fe05c766571bcb71028bd3236d6e3a), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`8a33eabb2`](https://github.com/nextui-org/nextui/commit/8a33eabb2583202fcc8fbc33e8f2ed23bb45f1a4), [`559436d46`](https://github.com/nextui-org/nextui/commit/559436d462bdb8739d8c817d1aa98607969d8a07)]:
+  - @nextui-org/theme@2.3.0-beta.0
+  - @nextui-org/listbox@2.2.0-beta.0
+  - @nextui-org/popover@2.2.0-beta.0
+  - @nextui-org/scroll-shadow@2.2.0-beta.0
+  - @nextui-org/spinner@2.1.0-beta.0
+  - @nextui-org/system@2.3.0-beta.0
+  - @nextui-org/use-aria-button@2.1.0-beta.0
+  - @nextui-org/use-aria-multiselect@2.3.0-beta.0
+  - @nextui-org/aria-utils@2.1.0-beta.0
+  - @nextui-org/shared-utils@2.0.9-beta.0
+  - @nextui-org/react-utils@2.0.18-beta.0
+
+## 2.2.7
+
+### Patch Changes
+
+- [#3759](https://github.com/nextui-org/nextui/pull/3759) [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14) Thanks [@wingkwong](https://github.com/wingkwong)! - rollback pr3467. rescheduled to v2.5.0.
+
+- Updated dependencies [[`4c01d1824`](https://github.com/nextui-org/nextui/commit/4c01d1824d4dde22d89232968a3a4c48fe04678f), [`229388422`](https://github.com/nextui-org/nextui/commit/2293884229541e363b1983fea88ba6e3bee6be14)]:
+  - @nextui-org/popover@2.1.29
+  - @nextui-org/use-aria-multiselect@2.2.5
+  - @nextui-org/aria-utils@2.0.26
+  - @nextui-org/listbox@2.1.27
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+
+## 2.2.6
+
+### Patch Changes
+
+- [#3568](https://github.com/nextui-org/nextui/pull/3568) [`5c8cc7a42`](https://github.com/nextui-org/nextui/commit/5c8cc7a42d1e7a7957c0273ab21555f01d5bac8f) Thanks [@sohan01fw](https://github.com/sohan01fw)! - Fixed toggle issue while clicking on label of select component unexpectedly open and close the model instantly. The removal of code block containing `group-data-[filled=true]:pointer-events-auto` prevent from any unwanted user interactions and resolve the flickering issue (#3558)
+
+- [#3598](https://github.com/nextui-org/nextui/pull/3598) [`74792f7bf`](https://github.com/nextui-org/nextui/commit/74792f7bff9ffe735d3954e01b5383d969a51caf) Thanks [@wingkwong](https://github.com/wingkwong)! - added missing onChange when there are more than 300 items (#3455)
+
+- [#3467](https://github.com/nextui-org/nextui/pull/3467) [`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
+
+- Updated dependencies [[`123b7fbc9`](https://github.com/nextui-org/nextui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae), [`d621b2923`](https://github.com/nextui-org/nextui/commit/d621b2923e7c90e73bea996e5918b744223e896c), [`19c331be7`](https://github.com/nextui-org/nextui/commit/19c331be75f1d03048c7b2dc92c2c9b62865cc11), [`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/popover@2.1.28
+  - @nextui-org/use-aria-multiselect@2.2.4
+  - @nextui-org/listbox@2.1.26
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/scroll-shadow@2.1.20
+  - @nextui-org/spinner@2.0.34
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.2.5
 
 ### Patch Changes

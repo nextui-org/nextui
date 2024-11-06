@@ -15,6 +15,7 @@ import {useDatePickerState} from "@react-stately/datepicker";
 import {AriaDatePickerProps, useDatePicker as useAriaDatePicker} from "@react-aria/datepicker";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 
@@ -68,6 +69,7 @@ export function useDatePicker<T extends DateValue>({
 
   const {
     domRef,
+    startContent,
     endContent,
     selectorIcon,
     createCalendar,
@@ -192,6 +194,9 @@ export function useDatePicker<T extends DateValue>({
           ),
         }),
       },
+      shouldCloseOnInteractOutside: popoverProps?.shouldCloseOnInteractOutside
+        ? popoverProps.shouldCloseOnInteractOutside
+        : (element: Element) => ariaShouldCloseOnInteractOutside(element, popoverTriggerRef, state),
     };
   };
 
@@ -200,8 +205,11 @@ export function useDatePicker<T extends DateValue>({
       ...ariaCalendarProps,
       ...calendarProps,
       classNames: {
-        base: slots.calendar({class: classNames?.calendar}),
-        content: slots.calendarContent({class: classNames?.calendarContent}),
+        ...calendarProps.classNames,
+        base: slots.calendar({class: clsx(classNames?.base, calendarProps.classNames?.base)}),
+        content: slots.calendarContent({
+          class: clsx(classNames?.calendarContent, calendarProps.classNames?.content),
+        }),
       },
     };
   };
@@ -224,6 +232,7 @@ export function useDatePicker<T extends DateValue>({
 
   return {
     state,
+    startContent,
     endContent,
     selectorIcon,
     showTimeField,
