@@ -116,7 +116,18 @@ export type UseAutocompleteProps<T> = Props<T> &
   Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
   ComboBoxProps<T> &
   AsyncLoadable &
-  AutocompleteVariantProps;
+  AutocompleteVariantProps & {
+    /**
+     * The height of each item in the listbox.
+     * This is required for virtualized listboxes to calculate the height of each item.
+     */
+    itemHeight?: number;
+    /**
+     * The max height of the listbox (which will be rendered in a popover).
+     * This is required for virtualized listboxes to set the maximum height of the listbox.
+     */
+    maxListboxHeight?: number;
+  };
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
   const globalContext = useProviderContext();
@@ -429,6 +440,11 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ({
       state,
       ref: listBoxRef,
+      isVirtualized: true,
+      virtualization: {
+        maxListboxHeight: originalProps.maxListboxHeight ?? 256,
+        itemHeight: originalProps.itemHeight ?? 32,
+      },
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),

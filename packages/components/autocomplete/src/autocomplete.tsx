@@ -36,14 +36,7 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
   const popoverContent = isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
       <ScrollShadow {...getListBoxWrapperProps()}>
-        <Listbox
-          isVirtualized={true}
-          virtualization={{
-            maxListboxHeight: 300,
-            itemHeight: 32,
-          }}
-          {...listboxProps}
-        />
+        <Listbox {...listboxProps} />
       </ScrollShadow>
     </FreeSoloPopover>
   ) : listboxProps.state?.collection.size === 0 ? (

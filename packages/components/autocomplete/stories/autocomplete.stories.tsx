@@ -106,7 +106,7 @@ interface LargeDatasetSchema {
   description: string;
 }
 
-export function generateLargeDataset(n: number): LargeDatasetSchema[] {
+function generateLargeDataset(n: number): LargeDatasetSchema[] {
   const dataset: LargeDatasetSchema[] = [];
 
   const items = [
@@ -1129,5 +1129,26 @@ export const TenThousandList = {
     ...defaultProps,
     placeholder: "Search...",
     numItems: 10000,
+  },
+};
+
+export const CustomMaxListboxHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+    maxListboxHeight: 400,
+  },
+};
+
+export const CustomItemHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+    maxListboxHeight: 400,
+    itemHeight: 40,
   },
 };
