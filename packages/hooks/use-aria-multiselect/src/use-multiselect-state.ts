@@ -87,6 +87,8 @@ export function useMultiSelectState<T extends object>({
       if (props.selectionMode === "single") {
         triggerState.close();
       }
+
+      validationState.commitValidation();
     },
   });
 
