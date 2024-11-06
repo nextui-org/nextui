@@ -1,19 +1,22 @@
-import {ForwardedRef, ReactElement, Ref} from "react";
+import {ReactElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {
   FixedSizeList as ReactWindowVirtualizedList,
   ListChildComponentProps as ReactWindowListChildComponentProps,
 } from "react-window";
-import {UseListboxProps, useListbox} from "@nextui-org/listbox/src/use-listbox";
-import ListboxItem from "@nextui-org/listbox/src/listbox-item";
-import ListboxSection from "@nextui-org/listbox/src/listbox-section";
-interface Props<T> extends UseListboxProps<T> {}
 
-function VirtualizedListbox<T extends object>(
-  props: Props<T> & VirtualizationProps,
-  ref: ForwardedRef<HTMLUListElement>,
-) {
+import ListboxItem from "./listbox-item";
+import ListboxSection from "./listbox-section";
+import {VirtualizationProps} from "./listbox";
+import {UseListboxReturn} from "./use-listbox";
+
+interface Props extends UseListboxReturn {
+  isVirtualized?: boolean;
+  virtualization?: VirtualizationProps;
+}
+
+function VirtualizedListbox(props: Props) {
   const {
     Component,
     state,
@@ -29,10 +32,15 @@ function VirtualizedListbox<T extends object>(
     disableAnimation,
     getEmptyContentProps,
     getListProps,
-  } = useListbox<T>({...props, ref});
+  } = props;
 
   const {virtualization} = props;
 
+  if (!virtualization) {
+    throw new Error(
+      "You are using a virtualized listbox. VirtualizedListbox requires 'virtualization' props with 'maxListboxHeight' and 'itemHeight' properties. This error might have originated from autocomplete components that use VirtualizedListbox. Please provide these props to use the virtualized listbox.",
+    );
+  }
   const {maxListboxHeight, itemHeight} = virtualization;
 
   const listHeight = Math.min(maxListboxHeight, itemHeight * state.collection.size);
@@ -110,18 +118,7 @@ function VirtualizedListbox<T extends object>(
   );
 }
 
-VirtualizedListbox.displayName = "NextUI.Listbox";
-
-export type ListboxProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
-
-export type VirtualizationProps = {
-  virtualization: {
-    maxListboxHeight: number;
-    itemHeight: number;
-  };
-};
+VirtualizedListbox.displayName = "NextUI.VirtualizedListbox";
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(VirtualizedListbox) as <T extends object>(
-  props: ListboxProps<T> & VirtualizationProps,
-) => ReactElement;
+export default forwardRef(VirtualizedListbox) as (props: Props) => ReactElement;
