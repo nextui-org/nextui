@@ -77,7 +77,7 @@ const getCloseOnSelect = <T extends object>(
   return props?.closeOnSelect;
 };
 
-export function useDropdown(props: UseDropdownProps) {
+export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
   const globalContext = useProviderContext();
 
   const {
@@ -212,4 +212,18 @@ export function useDropdown(props: UseDropdownProps) {
   };
 }
 
-export type UseDropdownReturn = ReturnType<typeof useDropdown>;
+// export type UseDropdownReturn = ReturnType<typeof useDropdown>;
+
+export type UseDropdownReturn = {
+  Component: string | React.ElementType;
+  menuRef: React.RefObject<HTMLUListElement>;
+  menuProps: any;
+  classNames: string;
+  closeOnSelect: boolean;
+  onClose: () => void;
+  autoFocus: any;
+  disableAnimation: boolean;
+  getPopoverProps: PropGetter;
+  getMenuProps: <T extends object>(props?: Partial<MenuProps<T>>, ref?: Ref<any>) => MenuProps;
+  getMenuTriggerProps: (props?: any, ref?: Ref<any>) => any;
+};

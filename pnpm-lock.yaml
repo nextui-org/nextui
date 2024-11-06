@@ -58,8 +58,8 @@ importers:
         specifier: 3.5.7
         version: 3.5.7(react@18.3.1)
       '@react-types/shared':
-        specifier: 3.24.1
-        version: 3.24.1(react@18.3.1)
+        specifier: 3.25.0
+        version: 3.25.0(react@18.3.1)
       '@storybook/react':
         specifier: ^7.4.6
         version: 7.6.20(encoding@0.1.13)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(typescript@4.9.5)
@@ -3029,6 +3029,9 @@ importers:
       '@nextui-org/divider':
         specifier: workspace:*
         version: link:../../components/divider
+      '@nextui-org/drawer':
+        specifier: workspace:*
+        version: link:../../components/drawer
       '@nextui-org/dropdown':
         specifier: workspace:*
         version: link:../../components/dropdown
@@ -3549,7 +3552,7 @@ importers:
   packages/hooks/use-draggable:
     dependencies:
       '@react-aria/interactions':
-        specifier: ^3.22.4
+        specifier: 3.22.4
         version: 3.22.4(react@18.3.1)
     devDependencies:
       clean-package:
@@ -18489,13 +18492,15 @@ snapshots:
     transitivePeerDependencies:
       - '@parcel/core'
 
-  '@parcel/cache@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))':
+  '@parcel/cache@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)':
     dependencies:
       '@parcel/core': 2.12.0(@swc/helpers@0.5.13)
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)
       '@parcel/logger': 2.12.0
       '@parcel/utils': 2.12.0
       lmdb: 2.8.5
+    transitivePeerDependencies:
+      - '@swc/helpers'
 
   '@parcel/codeframe@2.12.0':
     dependencies:
@@ -18555,7 +18560,7 @@ snapshots:
   '@parcel/core@2.12.0(@swc/helpers@0.5.13)':
     dependencies:
       '@mischnic/json-sourcemap': 0.1.1
-      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))
+      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)
       '@parcel/diagnostic': 2.12.0
       '@parcel/events': 2.12.0
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)
@@ -18970,7 +18975,7 @@ snapshots:
 
   '@parcel/types@2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)':
     dependencies:
-      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))
+      '@parcel/cache': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)
       '@parcel/diagnostic': 2.12.0
       '@parcel/fs': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)
       '@parcel/package-manager': 2.12.0(@parcel/core@2.12.0(@swc/helpers@0.5.13))(@swc/helpers@0.5.13)
