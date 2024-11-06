@@ -8,7 +8,7 @@ import {
   Button,
 } from "@nextui-org/react";
 
-export const ChevronDownIcon = (props) => (
+const ChevronDownIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"

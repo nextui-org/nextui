@@ -1,6 +1,6 @@
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 
-export const ShoppingCartIcon = (props) => (
+const ShoppingCartIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -29,6 +29,7 @@ export const ShoppingCartIcon = (props) => (
     />
   </svg>
 );
+
 export default function App() {
   return (
     <Breadcrumbs
