@@ -1,0 +1,64 @@
+{
+  "name": "@nextui-org/drawer",
+  "version": "2.0.0",
+  "description": "Used to render a content that slides in from the side of the screen.",
+  "keywords": [
+    "drawer"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/drawer"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "@nextui-org/theme": ">=2.0.0",
+    "@nextui-org/system": ">=2.0.0"
+  },
+  "dependencies": {
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/modal": "workspace:*"
+  },
+  "devDependencies": {
+    "@nextui-org/theme": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/input": "workspace:*",
+    "@nextui-org/checkbox": "workspace:*",
+    "@nextui-org/button": "workspace:*",
+    "@nextui-org/link": "workspace:*",
+    "@nextui-org/switch": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/use-disclosure": "workspace:*",
+    "react-lorem-component": "0.13.0",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

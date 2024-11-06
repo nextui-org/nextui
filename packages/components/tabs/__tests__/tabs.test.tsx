@@ -388,4 +388,17 @@ describe("Tabs", () => {
 
     expect(input).toHaveValue("23");
   });
+
+  test("should forward ref to the tab item", () => {
+    const ref = React.createRef<HTMLButtonElement>();
+
+    render(
+      <Tabs aria-label="Tabs static test">
+        <Tab key="item1" tabRef={ref} title="Item 1">
+          <div>Content 1</div>
+        </Tab>
+      </Tabs>,
+    );
+    expect(ref.current).not.toBeNull();
+  });
 });

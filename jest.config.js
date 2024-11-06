@@ -19,10 +19,5 @@ module.exports = {
   },
   transformIgnorePatterns: ["[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"],
   setupFilesAfterEnv: ["@testing-library/jest-dom", "./scripts/setup-test.ts"],
-  globals: {
-    "ts-jest": {
-      tsconfig: "tsconfig.json",
-    },
-  },
   watchPlugins: ["jest-watch-typeahead/filename", "jest-watch-typeahead/testname"],
 };

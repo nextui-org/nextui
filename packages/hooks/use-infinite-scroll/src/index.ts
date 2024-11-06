@@ -1,5 +1,5 @@
-import debounce from "lodash.debounce";
 import {useLayoutEffect, useRef, useCallback} from "react";
+import {debounce} from "@nextui-org/shared-utils";
 
 export interface UseInfiniteScrollProps {
   /**
