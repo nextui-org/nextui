@@ -837,9 +837,6 @@ describe("Dropdown", () => {
       let menuItems = wrapper.getAllByRole("menuitem");
 
       await user.click(menuItems[0]);
-      expect(onOpenChange).toHaveBeenCalledTimes(1);
-
-      await user.click(menuItems[1]);
       expect(onOpenChange).toHaveBeenCalledTimes(2);
     });
   });
