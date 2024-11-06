@@ -11,10 +11,4 @@
   "tailwindCSS.experimental.classRegex": [
     ["([\"'`][^\"'`]*.*?[\"'`])", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
-  "cSpell.words": [
-    "nextui",
-    "clsx",
-    "listbox"
-  ]
-
 }
