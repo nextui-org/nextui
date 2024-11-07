@@ -190,9 +190,9 @@ const input = tv({
     isClearable: {
       true: {
         input:
-          "peer pe-6 input-search-cancel-button-none data-[filled=true]:data-[is-end-content=true]:ltr:pr-[calc(var(--end-content-width)+theme(spacing.4))] data-[filled=true]:data-[is-end-content=true]:rtl:pl-[calc(var(--end-content-width)+theme(spacing.4))]",
+          "peer pe-6 input-search-cancel-button-none data-[filled=true]:data-[is-end-content=true]:pr-[calc(var(--end-content-width)+theme(spacing.4))] data-[filled=true]:data-[is-end-content=true]:rtl:pl-[calc(var(--end-content-width)+theme(spacing.4))] rtl:!pr-auto",
         clearButton:
-          "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block data-[is-end-content=false]:ltr:right-3 data-[is-end-content=false]:rtl:left-3 data-[is-end-content=true]:ltr:right-[calc(var(--end-content-width)+theme(spacing.5))] data-[is-end-content=true]:rtl:left-[calc(var(--end-content-width)+theme(spacing.5))]",
+          "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block data-[is-end-content=false]:right-3 data-[is-end-content=false]:rtl:left-3 data-[is-end-content=true]:right-[calc(var(--end-content-width)+theme(spacing.5))] data-[is-end-content=true]:rtl:left-[calc(var(--end-content-width)+theme(spacing.5))] rtl:!right-auto",
       },
     },
     isDisabled: {
