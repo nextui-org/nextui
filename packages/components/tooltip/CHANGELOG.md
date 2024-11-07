@@ -1,5 +1,19 @@
 # @nextui-org/tooltip
 
+## 2.1.0-beta.3
+
+### Patch Changes
+
+- [#4010](https://github.com/nextui-org/nextui/pull/4010) [`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
+
+- Updated dependencies [[`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df)]:
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.1
+  - @nextui-org/aria-utils@2.1.0-beta.3
+  - @nextui-org/dom-animation@2.0.1-beta.3
+  - @nextui-org/framer-utils@2.0.26-beta.3
+  - @nextui-org/react-utils@2.0.18-beta.3
+  - @nextui-org/shared-utils@2.0.9-beta.3
+
 ## 2.1.0-beta.2
 
 ### Patch Changes
