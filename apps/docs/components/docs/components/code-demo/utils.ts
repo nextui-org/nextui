@@ -2,7 +2,7 @@ import {get} from "lodash";
 
 import {FileCode} from "./types";
 
-const importRegex = /^(import)\s(?!type(of\s|\s)(?!from)).*?$/gm;
+const importRegex = /^(import\s+(?!type\s+\{)[\s\S]*?;)/gm;
 
 const exportDefaultRegex = /export\s+default\s+function\s+\w+\s*\(\s*\)\s*\{/;
 
@@ -29,7 +29,7 @@ export const transformCode = (code: string, imports = {}, compName = "App") => {
       // replace match with const Name = () => (
       return `const ${compName} = () => {`;
     })
-    .replace("export", "");
+    .replace(/export/g, "");
 
   // add render(<App/>) to cleanedCode if has const App = () => {
   if (cleanedCode.includes(`const App = () => {`)) {
