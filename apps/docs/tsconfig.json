@@ -3,15 +3,21 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"],
-      "tailwind-variants": ["./node_modules/tailwind-variants"],
-      "contentlayer2/generated": ["./.contentlayer/generated"]
+      "@/*": [
+        "./*"
+      ],
+      "tailwind-variants": [
+        "./node_modules/tailwind-variants"
+      ],
+      "contentlayer2/generated": [
+        "./.contentlayer/generated"
+      ]
     },
     "allowJs": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "incremental": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "plugins": [
       {
         "name": "next"
@@ -29,5 +35,8 @@
     ".contentlayer/generated",
     "global.d.ts"
   ],
-  "exclude": ["node_modules", "next-redirect.js"]
+  "exclude": [
+    "node_modules",
+    "next-redirect.js"
+  ]
 }
