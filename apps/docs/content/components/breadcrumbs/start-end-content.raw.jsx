@@ -1,6 +1,6 @@
 import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
 
-const HomeIcon = (props) => (
+export const HomeIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -18,7 +18,7 @@ const HomeIcon = (props) => (
   </svg>
 );
 
-const MusicIcon = (props) => (
+export const MusicIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -44,7 +44,7 @@ const MusicIcon = (props) => (
   </svg>
 );
 
-const ArtistIcon = (props) => (
+export const ArtistIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -62,7 +62,7 @@ const ArtistIcon = (props) => (
   </svg>
 );
 
-const AlbumIcon = (props) => (
+export const AlbumIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
@@ -96,7 +96,7 @@ const AlbumIcon = (props) => (
   </svg>
 );
 
-const SongIcon = (props) => (
+export const SongIcon = (props) => (
   <svg
     aria-hidden="true"
     fill="none"
