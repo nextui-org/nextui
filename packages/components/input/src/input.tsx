@@ -1,10 +1,14 @@
 import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {useMemo, useEffect, useState, useRef} from "react";
+import {useMemo, useEffect, useState, useRef, CSSProperties} from "react";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseInputProps, useInput} from "./use-input";
 
 export interface InputProps extends Omit<UseInputProps, "isMultiline"> {}
+
+export interface ClearButtonCSSProperties {
+  "--end-content-width": string;
+}
 
 const Input = forwardRef<"input", InputProps>((props, ref) => {
   const {
@@ -50,10 +54,13 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
               endContent
                 ? {
                     style: {
-                      right: `calc(${endContentWidth}px + var(--clearable-right-has-end-content))`,
-                    },
+                      "--end-content-width": `${endContentWidth}px`,
+                    } as CSSProperties & ClearButtonCSSProperties,
+                    "data-is-end-content": true,
                   }
-                : undefined,
+                : {
+                    "data-is-end-content": false,
+                  },
             )}
           >
             {<CloseFilledIcon />}
@@ -99,10 +106,13 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
               endContent && isClearable
                 ? {
                     style: {
-                      paddingRight: `calc(${endContentWidth}px + var(--clearable-padding-right-has-end-content))`,
-                    },
+                      "--end-content-width": `${endContentWidth}px`,
+                    } as CSSProperties & ClearButtonCSSProperties,
+                    "data-is-end-content": true,
                   }
-                : undefined,
+                : {
+                    "data-is-end-content": false,
+                  },
             )}
           />
           {end}
