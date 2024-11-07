@@ -1,5 +1,11 @@
 # @nextui-org/use-draggable
 
+## 2.0.1-beta.2
+
+### Patch Changes
+
+- [#4008](https://github.com/nextui-org/nextui/pull/4008) [`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React 19 added to peerDeps
+
 ## 2.0.1-beta.1
 
 ### Patch Changes
