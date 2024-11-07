@@ -2,7 +2,7 @@ import {get} from "lodash";
 
 import {FileCode} from "./types";
 
-const importRegex = /^(import)\s(?!type(of\s|\s)(?!from)).*?$/gm;
+const importRegex = /^(import\s+(?!type\s+\{)[\s\S]*?;)/gm;
 
 const exportDefaultRegex = /export\s+default\s+function\s+\w+\s*\(\s*\)\s*\{/;
 
