@@ -34,9 +34,9 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18 || ^19.0.0-rc.0",
-    "react-dom": ">=18 || ^19.0.0-rc.0",
-    "framer-motion": ">=11.5.6"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
