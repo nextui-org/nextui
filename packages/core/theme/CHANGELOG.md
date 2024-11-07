@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.4
+
+### Patch Changes
+
+- [#3881](https://github.com/nextui-org/nextui/pull/3881) [`54be700e0`](https://github.com/nextui-org/nextui/commit/54be700e04386e95cead7ce63d87015347dd166f) Thanks [@macci001](https://github.com/macci001)! - making input and select styling consistent(#3876)
+
 ## 2.3.0-beta.3
 
 ### Patch Changes
