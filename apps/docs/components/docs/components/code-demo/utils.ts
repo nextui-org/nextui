@@ -29,7 +29,7 @@ export const transformCode = (code: string, imports = {}, compName = "App") => {
       // replace match with const Name = () => (
       return `const ${compName} = () => {`;
     })
-    .replace("export", "");
+    .replace(/export/g, "");
 
   // add render(<App/>) to cleanedCode if has const App = () => {
   if (cleanedCode.includes(`const App = () => {`)) {
