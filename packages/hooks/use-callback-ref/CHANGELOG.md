@@ -1,5 +1,14 @@
 # @nextui-org/use-callback-ref
 
+## 2.0.7-beta.0
+
+### Patch Changes
+
+- [#4008](https://github.com/nextui-org/nextui/pull/4008) [`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React 19 added to peerDeps
+
+- Updated dependencies [[`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89)]:
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.0
+
 ## 2.0.6
 
 ### Patch Changes
