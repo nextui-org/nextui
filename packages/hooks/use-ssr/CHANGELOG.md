@@ -1,5 +1,11 @@
 # @nextui-org/use-ssr
 
+## 2.0.7-beta.1
+
+### Patch Changes
+
+- [#4010](https://github.com/nextui-org/nextui/pull/4010) [`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
+
 ## 2.0.7-beta.0
 
 ### Patch Changes

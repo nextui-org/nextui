@@ -1,5 +1,25 @@
 # @nextui-org/autocomplete
 
+## 2.2.0-beta.5
+
+### Patch Changes
+
+- [#4010](https://github.com/nextui-org/nextui/pull/4010) [`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
+
+- Updated dependencies [[`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df)]:
+  - @nextui-org/button@2.1.0-beta.3
+  - @nextui-org/input@2.3.0-beta.4
+  - @nextui-org/listbox@2.2.0-beta.3
+  - @nextui-org/popover@2.2.0-beta.4
+  - @nextui-org/scroll-shadow@2.2.0-beta.3
+  - @nextui-org/spinner@2.1.0-beta.3
+  - @nextui-org/use-aria-button@2.1.0-beta.3
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.1
+  - @nextui-org/aria-utils@2.1.0-beta.3
+  - @nextui-org/react-utils@2.0.18-beta.3
+  - @nextui-org/shared-icons@2.0.10-beta.2
+  - @nextui-org/shared-utils@2.0.9-beta.3
+
 ## 2.2.0-beta.4
 
 ### Patch Changes
