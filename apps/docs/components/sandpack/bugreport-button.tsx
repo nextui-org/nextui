@@ -1,7 +1,7 @@
 import React from "react";
 import {usePathname} from "next/navigation";
 import {Tooltip, Button} from "@nextui-org/react";
-import {capitalize, last} from "lodash";
+import {capitalize} from "@nextui-org/shared-utils";
 
 import {BugIcon} from "@/components/icons";
 import {ISSUE_REPORT_URL} from "@/libs/github/constants";
@@ -9,7 +9,7 @@ import {ISSUE_REPORT_URL} from "@/libs/github/constants";
 export const BugReportButton = () => {
   const pathname = usePathname();
 
-  const componentTitle = capitalize(last(pathname?.split("/")));
+  const componentTitle = capitalize(pathname?.split("/")?.at(-1) ?? "");
 
   const handlePress = () => {
     window.open(`${ISSUE_REPORT_URL}${componentTitle}`, "_blank");

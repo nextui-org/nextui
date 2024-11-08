@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/autocomplete",
-  "version": "2.1.7",
+  "version": "2.2.0-beta.5",
   "description": "An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.",
   "keywords": [
     "autocomplete"
@@ -34,11 +34,11 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.0.0",
-    "@nextui-org/theme": ">=2.1.0",
-    "framer-motion": ">=10.17.0",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "@nextui-org/system": ">=2.3.0-beta.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
@@ -53,16 +53,16 @@
     "@nextui-org/spinner": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/combobox": "3.9.1",
-    "@react-aria/focus": "3.17.1",
+    "@react-aria/combobox": "3.10.3",
+    "@react-aria/focus": "3.18.2",
     "@react-aria/form": "3.0.5",
-    "@react-aria/i18n": "3.11.1",
-    "@react-aria/interactions": "3.21.3",
-    "@react-aria/utils": "3.24.1",
-    "@react-aria/visually-hidden": "3.8.12",
-    "@react-stately/combobox": "3.8.4",
-    "@react-types/combobox": "3.11.1",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/i18n": "3.12.2",
+    "@react-aria/interactions": "3.22.2",
+    "@react-aria/utils": "3.25.2",
+    "@react-aria/visually-hidden": "3.8.15",
+    "@react-stately/combobox": "3.9.2",
+    "@react-types/combobox": "3.12.1",
+    "@react-types/shared": "3.24.1"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
@@ -71,9 +71,9 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
-    "@react-stately/data": "3.11.4",
+    "@react-stately/data": "3.11.6",
     "clean-package": "2.2.0",
-    "framer-motion": "^11.0.28",
+    "framer-motion": "11.9.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.51.3"

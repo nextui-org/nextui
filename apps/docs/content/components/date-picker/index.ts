@@ -10,6 +10,7 @@ import errorMessageFunction from "./error-message-function";
 import withMonthAndYearPickers from "./with-month-and-year-pickers";
 import withTimeField from "./with-time-field";
 import selectorIcon from "./selector-icon";
+import selectorButtonPlacement from "./selector-button-placement";
 import controlled from "./controlled";
 import timeZones from "./time-zones";
 import granularity from "./granularity";
@@ -33,6 +34,7 @@ export const datePickerContent = {
   withMonthAndYearPickers,
   withTimeField,
   selectorIcon,
+  selectorButtonPlacement,
   controlled,
   timeZones,
   granularity,

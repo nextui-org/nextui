@@ -10,7 +10,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <NextUIProvider>
       <div className="w-screen h-screen p-8 flex items-start justify-center">
         <App />
-      </div>  
+      </div>
     </NextUIProvider>
   </React.StrictMode>
 );`;

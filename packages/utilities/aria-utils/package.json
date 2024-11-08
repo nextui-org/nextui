@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/aria-utils",
-  "version": "2.0.26",
+  "version": "2.1.0-beta.3",
   "description": "A package for managing @react-aria nextui utils.",
   "keywords": [
     "aria-utils"
@@ -34,18 +34,18 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/system": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-rsc-utils": "workspace:*",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/collections": "3.10.7",
-    "@react-stately/overlays": "3.6.7",
-    "@react-types/overlays": "3.8.7",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/utils": "3.25.2",
+    "@react-stately/collections": "3.10.9",
+    "@react-stately/overlays": "3.6.10",
+    "@react-types/overlays": "3.8.9",
+    "@react-types/shared": "3.24.1"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
