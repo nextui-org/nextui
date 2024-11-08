@@ -85,12 +85,13 @@
     "@nextui-org/date-picker": "workspace:*",
     "@nextui-org/alert": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
+    "@nextui-org/drawer": "workspace:*",
     "@react-aria/visually-hidden": "3.8.15"
   },
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "framer-motion": ">=10.17.0"
+    "framer-motion": ">=11.5.6"
   },
   "devDependencies": {
     "react": "^18.0.0",

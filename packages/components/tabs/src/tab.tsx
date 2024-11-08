@@ -123,6 +123,8 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
       type={Component === "button" ? "button" : undefined}
     >
       {isSelected && !disableAnimation && !disableCursorAnimation && isMounted ? (
+        // use synchronous loading for domMax here
+        // since lazy loading produces different behaviour
         <LazyMotion features={domMax}>
           <m.span
             className={slots.cursor({class: classNames?.cursor})}
