@@ -524,7 +524,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           class: clsx(
             classNames?.clearButton,
             props?.className,
-            isMultiline ? "relative block opacity-100 p-0 -m-0 end-0" : "",
+            isMultiline ? (isFilled ? "relative block opacity-100 p-0 -m-0 end-0" : "") : "",
           ),
         }),
         ...mergeProps(clearPressProps, clearFocusProps),
