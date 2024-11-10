@@ -9,6 +9,8 @@ import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
+import {useCalendarContext} from "./calendar-context";
+
 const CalendarPickerItem = forwardRef<
   HTMLButtonElement,
   HTMLNextUIProps<"button"> & AriaButtonProps
@@ -24,6 +26,8 @@ const CalendarPickerItem = forwardRef<
     } as AriaButtonProps,
     domRef,
   );
+
+  const {setIsHeaderExpanded} = useCalendarContext();
 
   const {isFocusVisible, isFocused, focusProps} = useFocusRing({
     autoFocus,
@@ -46,6 +50,11 @@ const CalendarPickerItem = forwardRef<
         ariaButtonProps,
         filterDOMProps(otherProps, {enabled: true}),
       )}
+      onClick={(e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsHeaderExpanded?.(false);
+      }}
     >
       {children}
     </button>
