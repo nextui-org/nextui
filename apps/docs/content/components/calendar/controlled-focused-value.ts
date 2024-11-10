@@ -1,5 +1,5 @@
-import App from "./controlled-focused-value.ts.raw.jsx?raw";
-import AppTs from "./controlled-focused-value.ts.raw.tsx?raw";
+import App from "./controlled-focused-value.raw.jsx?raw";
+import AppTs from "./controlled-focused-value.raw.tsx?raw";
 
 const react = {
   "/App.jsx": App,
