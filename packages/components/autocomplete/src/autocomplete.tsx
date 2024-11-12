@@ -2,11 +2,11 @@ import {forwardRef} from "@nextui-org/system";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {ChevronDownIcon, CloseIcon} from "@nextui-org/shared-icons";
+import {Listbox} from "@nextui-org/listbox";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {ForwardedRef, ReactElement, Ref} from "react";
 import {AnimatePresence} from "framer-motion";
-import {Listbox} from "@nextui-org/listbox";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 

@@ -18,9 +18,9 @@ interface Props<T> extends UseListboxProps<T> {
 }
 
 function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
-  const {isVirtualized, ...listboxProps} = props;
+  const {isVirtualized, ...restProps} = props;
 
-  const useListboxProps = useListbox<T>({...listboxProps, ref});
+  const useListboxProps = useListbox<T>({...restProps, ref});
 
   const {
     Component,
