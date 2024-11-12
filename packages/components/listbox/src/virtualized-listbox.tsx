@@ -1,10 +1,7 @@
-import {ReactElement} from "react";
+import {ReactElement, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
-import {
-  FixedSizeList as ReactWindowVirtualizedList,
-  ListChildComponentProps as ReactWindowListChildComponentProps,
-} from "react-window";
+import {useVirtualizer} from "@tanstack/react-virtual";
 
 import ListboxItem from "./listbox-item";
 import ListboxSection from "./listbox-section";
@@ -45,10 +42,23 @@ function VirtualizedListbox(props: Props) {
 
   const listHeight = Math.min(maxListboxHeight, itemHeight * state.collection.size);
 
+  const parentRef = useRef(null);
+
+  const rowVirtualizer = useVirtualizer({
+    count: state.collection.size,
+    getScrollElement: () => parentRef.current,
+    estimateSize: () => itemHeight,
+  });
+
+  const virtualItems = rowVirtualizer.getVirtualItems();
+
   const renderRow = ({
     index,
-    style: reactWindowVirtualizedStyle,
-  }: ReactWindowListChildComponentProps) => {
+    style: virtualizerStyle,
+  }: {
+    index: number;
+    style: React.CSSProperties;
+  }) => {
     const item = [...state.collection][index];
 
     const itemProps = {
@@ -67,7 +77,7 @@ function VirtualizedListbox(props: Props) {
           key={item.key}
           {...itemProps}
           itemClasses={itemClasses}
-          style={{...reactWindowVirtualizedStyle, ...itemProps.style}}
+          style={{...virtualizerStyle, ...itemProps.style}}
         />
       );
     }
@@ -78,7 +88,7 @@ function VirtualizedListbox(props: Props) {
         {...itemProps}
         classNames={mergeProps(itemClasses, item.props?.classNames)}
         shouldHighlightOnFocus={shouldHighlightOnFocus}
-        style={{...reactWindowVirtualizedStyle, ...itemProps.style}}
+        style={{...virtualizerStyle, ...itemProps.style}}
       />
     );
 
@@ -96,16 +106,37 @@ function VirtualizedListbox(props: Props) {
           <div {...getEmptyContentProps()} />
         </li>
       )}
-      {listHeight > 0 && itemHeight > 0 && (
-        <ReactWindowVirtualizedList
-          height={listHeight}
-          itemCount={state.collection.size}
-          itemSize={itemHeight}
-          width="100%"
-        >
-          {renderRow}
-        </ReactWindowVirtualizedList>
-      )}
+      <div
+        ref={parentRef}
+        style={{
+          height: maxListboxHeight,
+          overflow: "auto",
+        }}
+      >
+        {listHeight > 0 && itemHeight > 0 && (
+          <div
+            style={{
+              height: `${rowVirtualizer.getTotalSize()}px`,
+              width: "100%",
+              position: "relative",
+            }}
+          >
+            {virtualItems.map((virtualItem) =>
+              renderRow({
+                index: virtualItem.index,
+                style: {
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: `${virtualItem.size}px`,
+                  transform: `translateY(${virtualItem.start}px)`,
+                },
+              }),
+            )}
+          </div>
+        )}
+      </div>
     </Component>
   );
 
