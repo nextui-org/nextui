@@ -436,19 +436,26 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 
-  const getListBoxProps = () =>
-    ({
+  const getListBoxProps = () => {
+    // We prefer to use the normal listbox without 3rd party virtualizer package
+    // if dataset is small
+    const isVirtualized = state.collection.size > 50;
+
+    return {
       state,
       ref: listBoxRef,
-      isVirtualized: true,
-      virtualization: {
-        maxListboxHeight: originalProps.maxListboxHeight ?? 256,
-        itemHeight: originalProps.itemHeight ?? 32,
-      },
+      isVirtualized,
+      virtualization: isVirtualized
+        ? {
+            maxListboxHeight: originalProps.maxListboxHeight ?? 256,
+            itemHeight: originalProps.itemHeight ?? 32,
+          }
+        : undefined,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
-    } as ListboxProps);
+    } as ListboxProps;
+  };
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
     const popoverProps = mergeProps(slotsProps.popoverProps, props);
@@ -495,6 +502,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         props?.className,
       ),
     }),
+    style: {
+      maxHeight: originalProps.maxListboxHeight ?? 256,
+    },
   });
 
   const getEndContentWrapperProps: PropGetter = (props: any = {}) => ({
