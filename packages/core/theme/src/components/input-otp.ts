@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 const inputOtp = tv({
   slots: {
     base: ["relative", "flex", "flex-col", "w-fit"],
-    inputWrapper: [],
+    wrapper: ["group", "flex items-center", "has-[:disabled]:opacity-60"],
     input: [
       "absolute",
       "inset-0",
@@ -38,11 +38,11 @@ const inputOtp = tv({
       "text-2xl",
       "h-[50%]",
       "w-px",
-      "bg-white",
+      "bg-foreground",
     ],
     helperWrapper: ["text-xs", "mt-0.5", "font-extralight", ""],
-    errorMessage: ["text-tiny text-danger w-full"],
-    description: ["text-tiny text-foreground-400"],
+    errorMessage: ["text-xs text-danger w-full"],
+    description: ["text-xs text-foreground-400"],
   },
   variants: {
     variant: {
@@ -134,14 +134,14 @@ const inputOtp = tv({
       variant: "flat",
       color: "default",
       class: {
-        segment: "data-[has-value=true]:text-default-foreground",
+        segment: ["bg-default-200", "data-[active=true]:bg-default-400"],
       },
     },
     {
       variant: "flat",
       color: "primary",
       class: {
-        segment: ["bg-primary-50", "data-[active=true]:bg-primary-100", "text-primary"],
+        segment: ["bg-primary-100", "data-[active=true]:bg-primary-200", "text-primary"],
         caret: ["bg-primary"],
         passwordChar: ["bg-primary"],
       },
@@ -150,7 +150,7 @@ const inputOtp = tv({
       variant: "flat",
       color: "secondary",
       class: {
-        segment: ["bg-secondary-50", "data-[active=true]:bg-secondary-100", "text-secondary"],
+        segment: ["bg-secondary-100", "data-[active=true]:bg-secondary-200", "text-secondary"],
         caret: ["bg-secondary"],
         passwordChar: ["bg-secondary"],
       },
@@ -159,7 +159,7 @@ const inputOtp = tv({
       variant: "flat",
       color: "success",
       class: {
-        segment: ["bg-success-50", "data-[active=true]:bg-success-100", "text-success"],
+        segment: ["bg-success-100", "data-[active=true]:bg-success-200", "text-success"],
         caret: ["bg-success"],
         passwordChar: ["bg-success"],
       },
@@ -168,7 +168,7 @@ const inputOtp = tv({
       variant: "flat",
       color: "warning",
       class: {
-        segment: ["bg-warning-50", "data-[active=true]:bg-warning-100", "text-warning"],
+        segment: ["bg-warning-100", "data-[active=true]:bg-warning-200", "text-warning"],
         caret: ["bg-warning"],
         passwordChar: ["bg-warning"],
       },
@@ -177,7 +177,7 @@ const inputOtp = tv({
       variant: "flat",
       color: "danger",
       class: {
-        segment: ["bg-danger-50", "data-[active=true]:bg-danger-100", "text-danger"],
+        segment: ["bg-danger-100", "data-[active=true]:bg-danger-200", "text-danger"],
         caret: ["bg-danger"],
         passwordChar: ["bg-danger"],
       },
@@ -187,7 +187,7 @@ const inputOtp = tv({
       variant: "faded",
       color: "default",
       class: {
-        segment: "data-[has-value=true]:text-default-foreground",
+        segment: "bg-default-200",
       },
     },
     {
@@ -195,7 +195,7 @@ const inputOtp = tv({
       color: "primary",
       class: {
         segment: [
-          "bg-primary-50",
+          "bg-primary-100",
           "text-primary",
           "border-1",
           "border-primary-200",
@@ -211,7 +211,7 @@ const inputOtp = tv({
       color: "secondary",
       class: {
         segment: [
-          "bg-secondary-50",
+          "bg-secondary-100",
           "text-secondary",
           "border-1",
           "border-secondary-200",
@@ -227,7 +227,7 @@ const inputOtp = tv({
       color: "success",
       class: {
         segment: [
-          "bg-success-50",
+          "bg-success-100",
           "text-success",
           "border-1",
           "border-success-200",
@@ -243,7 +243,7 @@ const inputOtp = tv({
       color: "warning",
       class: {
         segment: [
-          "bg-warning-50",
+          "bg-warning-100",
           "text-warning",
           "border-1",
           "border-warning-200",
@@ -259,7 +259,7 @@ const inputOtp = tv({
       color: "danger",
       class: {
         segment: [
-          "bg-danger-50",
+          "bg-danger-100",
           "text-danger",
           "border-1",
           "border-danger-200",

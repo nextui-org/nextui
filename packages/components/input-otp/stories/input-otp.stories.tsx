@@ -79,6 +79,30 @@ const RequiredTemplate = (args) => {
   );
 };
 
+const ErrorMessageFunctionTemplate = (args) => {
+  const {register, handleSubmit} = useForm({
+    defaultValues: {
+      otp: "",
+    },
+  });
+
+  const onSubmit = (data: any) => {
+    // eslint-disable-next-line no-console
+    alert("Submitted value: " + JSON.stringify(data));
+  };
+
+  return (
+    <div className="flex flex-col">
+      <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
+        <InputOtp {...args} length={4} {...register("otp", {required: true})} />
+        <button className={button({class: "w-fit"})} type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
+};
+
 const ControlledTemplate = (args) => {
   const [value, setValue] = React.useState("");
 
@@ -183,16 +207,8 @@ export const WithErrorMessage = {
   },
 };
 
-export const Password = {
-  render: Template,
-  args: {
-    ...defaultProps,
-    type: "password",
-  },
-};
-
 export const WithErrorMessageFunction = {
-  render: WithReactHookFormTemplate,
+  render: ErrorMessageFunctionTemplate,
   args: {
     ...defaultProps,
     length: 4,
@@ -203,6 +219,14 @@ export const WithErrorMessageFunction = {
         return "Value is too short";
       }
     },
+  },
+};
+
+export const Password = {
+  render: RequiredTemplate,
+  args: {
+    ...defaultProps,
+    type: "password",
   },
 };
 

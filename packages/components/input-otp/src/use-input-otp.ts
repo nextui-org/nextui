@@ -12,16 +12,14 @@ import {
   useProviderContext,
 } from "@nextui-org/system";
 import {inputOtp} from "@nextui-org/theme";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
+import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useCallback, useMemo} from "react";
-import {useFocusRing} from "@react-aria/focus";
-import {mergeProps} from "@react-aria/utils";
-import {useHover} from "@react-aria/interactions";
+import {chain, mergeProps} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
-import {AriaTextFieldOptions, useTextField} from "@react-aria/textfield";
 import {useControlledState} from "@react-stately/utils";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {useFormValidationState} from "@react-stately/form";
+import {useFormValidation} from "@react-aria/form";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -43,7 +41,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * Callback that will be fired when the value has length equal to otp length
    */
-  onFill?: (v?: string) => void;
+  onComplete?: (v?: string) => void;
   /**
    * Boolean to disable the input-otp component.
    */
@@ -95,12 +93,12 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     className,
     classNames,
     length = 4,
-    onFill = () => {},
+    onComplete = () => {},
     onValueChange = () => {},
     allowedKeys = "^[0-9]*$",
     validationBehavior = globalContext?.validationBehavior ?? "aria",
     type,
-    ...otherProps
+    name,
   } = props;
 
   const Component = as || "div";
@@ -111,11 +109,8 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const handleValueChange = useCallback(
     (value: string | undefined) => {
       onValueChange(value ?? "");
-      if (value && value?.length === length) {
-        onFill(value);
-      }
     },
-    [onValueChange, onFill, length],
+    [onValueChange],
   );
 
   const [value, setValue] = useControlledState(
@@ -126,70 +121,30 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
 
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
-  const isDisabled = originalProps.isDisabled ?? false;
+  const isDisabled = originalProps.isDisabled;
   const baseStyles = clsx(classNames?.base, className);
 
-  const {focusProps, isFocused: isInputFocused} = useFocusRing({isTextInput: true});
-  const allowedKeysRegex = new RegExp(allowedKeys);
-  const isFilled = !isEmpty(value);
-  const {isHovered, hoverProps} = useHover({isDisabled: !!originalProps?.isDisabled});
+  const validationState = useFormValidationState({
+    ...props,
+    validationBehavior,
+    value,
+  });
 
-  const onKeyDownCapture = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    const key = e.key;
-
-    if (key === "Backspace") {
-      return;
-    }
-    if (key === "ArrowLeft" || key === "ArrowRight") {
-      e.stopPropagation();
-      e.preventDefault();
-
-      return;
-    }
-    if (!allowedKeysRegex.test(key)) {
-      e.stopPropagation();
-      e.preventDefault();
-
-      return;
-    }
-
-    return;
-  };
-
-  type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
+  useFormValidation(props, validationState, inputRef);
 
   const {
-    inputProps,
     isInvalid: isAriaInvalid,
     validationErrors,
     validationDetails,
-    descriptionProps,
-    errorMessageProps,
-  } = useTextField(
-    {
-      ...originalProps,
-      validationBehavior,
-      autoCapitalize: originalProps.autoCapitalize as AutoCapitalize,
-      value: value,
-      "aria-label": safeAriaLabel(
-        originalProps["aria-label"],
-        originalProps.label,
-        originalProps.placeholder,
-      ),
-      inputElementType: "input",
-      onChange: setValue,
-      minLength: length,
-      maxLength: length,
-    },
-    inputRef,
-  );
-
-  const isReadOnly = originalProps.isReadOnly ?? false;
+  } = validationState.displayValidation;
+  const isReadOnly = originalProps.isReadOnly;
+  const isRequired = originalProps.isRequired;
   const isInvalid = originalProps.isInvalid || isAriaInvalid;
   const errorMessage =
     typeof props.errorMessage === "function"
       ? props.errorMessage({isInvalid, validationErrors, validationDetails})
       : props.errorMessage || validationErrors?.join(" ");
+
   const description = props.description;
   const hasHelper = !!description || !!errorMessage;
 
@@ -204,12 +159,6 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     [objectToDeps(variantProps), disableAnimation, isInvalid],
   );
 
-  useSafeLayoutEffect(() => {
-    if (!inputRef.current) return;
-
-    setValue(inputRef.current.value);
-  }, [inputRef.current]);
-
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
@@ -217,72 +166,44 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         className: slots.base({
           class: baseStyles,
         }),
-        onKeyDownCapture: onKeyDownCapture,
         "data-slot": "base",
-        "data-filled": dataAttr(isFilled),
-        "data-focus": dataAttr(isInputFocused),
-        "data-hover": dataAttr(isHovered),
         "data-disabled": dataAttr(isDisabled),
         "data-invalid": dataAttr(isInvalid),
         "data-required": dataAttr(originalProps?.isRequired),
         "data-readonly": dataAttr(originalProps?.isReadOnly),
+        "data-filled": dataAttr(value.length === length),
+        role: "base",
         ...props,
       };
     },
-    [baseDomRef, slots, baseStyles, isFilled, isInputFocused, isDisabled],
+    [baseDomRef, slots, baseStyles, isDisabled],
   );
 
-  const getInputWrapperProps: PropGetter = useCallback(
-    (props = {}) => {
-      return {
-        className: slots.inputWrapper({
-          class: clsx(classNames?.inputWrapper, props?.className),
-        }),
-        "data-slot": "input-wrapper",
-        ...mergeProps(otherProps, props),
-      };
-    },
-    [slots, classNames?.inputWrapper],
-  );
-
-  const getInputProps: PropGetter = useCallback(
-    (props = {}) => {
-      return {
-        ref: inputRef,
-        className: slots.input({
-          class: clsx(classNames?.input, props?.className),
-        }),
-        maxLength: length,
-        minLength: length,
-        value,
-        disabled: isDisabled,
-        ...mergeProps(
-          focusProps,
-          hoverProps,
-          inputProps,
-          filterDOMProps(otherProps, {
-            enabled: true,
-            omitEventNames: new Set(Object.keys(inputProps)),
-          }),
-          props,
-        ),
-        placeholder: "",
-        "data-slot": "input",
-        "data-focus": dataAttr(isInputFocused),
-        "data-filled": dataAttr(isFilled),
-        "data-disabled": dataAttr(isDisabled),
-      };
-    },
+  const getInputOtpProps = useCallback(
+    () => ({
+      required: isRequired,
+      disabled: isDisabled,
+      readOnly: isReadOnly,
+      pattern: allowedKeys,
+      ref: inputRef,
+      name: name,
+      value: value,
+      onChange: chain(setValue),
+      onBlur: props.onBlur,
+      onComplete: onComplete,
+    }),
     [
-      inputRef,
-      slots,
-      classNames?.input,
-      length,
-      value,
+      isRequired,
       isDisabled,
+      isReadOnly,
+      allowedKeys,
+      inputRef,
+      name,
+      length,
+      props.onChange,
       setValue,
-      isInputFocused,
-      isFilled,
+      props.onBlur,
+      onComplete,
     ],
   );
 
@@ -320,7 +241,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
           class: clsx(classNames?.errorMessage, props?.className),
         }),
         "data-slot": "error-message",
-        ...mergeProps(errorMessageProps, props),
+        ...mergeProps(props),
       };
     },
     [slots, classNames?.errorMessage],
@@ -333,7 +254,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
           class: clsx(classNames?.description, props?.className),
         }),
         "data-slot": "description",
-        ...mergeProps(descriptionProps, props),
+        ...mergeProps(props),
       };
     },
     [slots, classNames?.description],
@@ -344,7 +265,6 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     inputRef,
     length,
     value,
-    isInputFocused,
     classNames,
     slots,
     hasHelper,
@@ -353,8 +273,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     errorMessage,
     type,
     getBaseProps,
-    getInputWrapperProps,
-    getInputProps,
+    getInputOtpProps,
     getSegmentWrapperProps,
     getHelperWrapperProps,
     getErrorMessageProps,

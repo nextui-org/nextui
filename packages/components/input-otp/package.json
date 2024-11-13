@@ -42,12 +42,12 @@
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/focus": "3.17.1",
     "@react-aria/utils": "3.24.1",
+    "@react-aria/form": "3.0.8",
     "@react-stately/utils": "3.10.1",
+    "@react-stately/form": "3.0.5",
     "@react-types/textfield": "3.9.3",
-    "@react-aria/textfield": "3.14.5"
+    "input-otp": "1.4.1"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

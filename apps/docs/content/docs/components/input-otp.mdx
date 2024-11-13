@@ -115,7 +115,7 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 ## Slots
 
 - **base**: InputOtp wrapper, it handles alignment, placement, and general appearance.
-- **inputWrapper**: Wraps the underlying `input` element of the InputOtp.
+- **wrapper**: Wraps the underlying input-otp component. Sent as `containerClassName` prop to underlying input-otp component.
 - **input**: The input element.
 - **segmentWrapper**: Wraps all the segment elements.
 - **segment**: The segment element.
@@ -137,10 +137,6 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
   When the input-otp is required. Based on `isRequired` prop.
 - **data-readonly**:
   When the input-otp is readonly. Based on `isReadOnly` prop.
-- **data-hover**:
-  When the input-otp is being hovered. Based on [useHover](https://react-spectrum.adobe.com/react-aria/useHover.html)
-- **data-focus**:
-  When the input-otp is being focused. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
 - **data-filled**:
   When the input-otp is completely filled.
 - **data-disabled**:
@@ -150,7 +146,7 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 
 ## Accessibility
 
-- Built with a native `<input>` element.
+- Built on top of [input-otp](https://github.com/guilhermerodz/input-otp).
 - Required and invalid states exposed to assistive technology via ARIA.
 - Support for description and error message help text linked to the input-otp via ARIA.
 
@@ -178,7 +174,6 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 | isDisabled         | `boolean`                                                                                                                                                              | Whether the input-otp is disabled.                                                                                                                                | `false`   |
 | isInvalid          | `boolean`                                                                                                                                                              | Whether the input-otp is invalid.                                                                                                                                 | `false`   |
 | baseRef            | `RefObject<HTMLDivElement>`                                                                                                                                            | The ref to the base element.                                                                                                                                      | -         |
-| validationState    | `valid` \| `invalid`                                                                                                                                                   | Whether the input-otp should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead.                                         | -         |
 | disableAnimation   | `boolean`                                                                                                                                                              | Whether the input-otp should be animated.                                                                                                                         | `false`   |
 | classNames         | `Record<"base"｜ "inputWrapper"｜ "input"｜ "segmentWrapper"｜ "segment" ｜ "caret" ｜ "passwordChar" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>`     | Allows to set custom class names for the Input slots.                                                                                                             | -         |
 
@@ -188,4 +183,4 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 | ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
 | onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's value changes. You can pull out the new value by accessing `event.target.value` (string). |
 | onValueChange | `(value: string) => void`             | Handler that is called when the element's value changes.                                                                            |
-| onFill        | `(value: string) => void`             | Handler that is called when the element's value is completely filled.                                                               |
+| onComplete    | `(value: string) => void`             | Handler that is called when the element's value is completely filled.                                                               |

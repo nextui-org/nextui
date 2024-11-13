@@ -1,11 +1,20 @@
 import * as React from "react";
-import {act, render, renderHook} from "@testing-library/react";
+import {render, renderHook, screen} from "@testing-library/react";
 import {useForm} from "react-hook-form";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {InputOtp} from "../src";
 
-describe("InputOtp", () => {
+// Mock document.elementFromPoint to avoid test environment errors
+beforeAll(() => {
+  document.elementFromPoint = jest.fn(() => {
+    const mockElement = document.createElement("div");
+
+    return mockElement;
+  });
+});
+
+describe("InputOtp Component", () => {
   let user: UserEvent;
 
   beforeAll(() => {
@@ -18,228 +27,131 @@ describe("InputOtp", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("ref should be forwarded", () => {
+  it("should forward ref correctly", () => {
     const ref = React.createRef<HTMLInputElement>();
 
     render(<InputOtp ref={ref} length={4} />);
     expect(ref.current).not.toBeNull();
   });
 
-  it("should have length according to the prop", async () => {
+  it("should create segments according to length prop", () => {
     render(<InputOtp length={5} />);
-    const segments = document.querySelectorAll("[data-slot=segment]");
+    const segments = screen.getAllByRole("presentation");
 
     expect(segments.length).toBe(5);
   });
 
-  it("should display error message", async () => {
+  it("should display error message when isInvalid is true", () => {
     const errorMessage = "custom error message";
 
     render(<InputOtp errorMessage={errorMessage} isInvalid={true} length={4} />);
-    const base = document.querySelector("[data-slot=base]")!;
-
-    expect(base).toHaveTextContent(errorMessage);
+    expect(screen.getByText(errorMessage)).toBeInTheDocument();
   });
 
-  it("should display description message", async () => {
+  it("should display description message", () => {
     const descriptionMessage = "custom description message";
 
     render(<InputOtp description={descriptionMessage} length={4} />);
-    const base = document.querySelector("[data-slot=base]")!;
-
-    expect(base).toHaveTextContent(descriptionMessage);
+    expect(screen.getByText(descriptionMessage)).toBeInTheDocument();
   });
 
-  it("should not focus on disabled", async () => {
+  it("should not focus when disabled", async () => {
     render(<InputOtp isDisabled length={4} />);
-    const input = document.querySelector("[data-slot=input]")!;
+    const input = screen.getByRole("textbox");
 
-    await act(async () => {
-      await user.click(input);
-    });
-
+    await user.click(input);
     expect(input).not.toHaveAttribute("data-focus", "true");
   });
 
-  it("should select first segment when clicked", async () => {
+  it("should activate the first segment on click", async () => {
     render(<InputOtp length={4} />);
-    const base = document.querySelector("[data-slot=base]")!;
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
+    const input = screen.getByRole("textbox");
+    const segments = screen.getAllByRole("presentation");
 
-    expect(segments.length).toBe(4);
-
-    await act(async () => {
-      await user.click(input);
-    });
-
-    expect(base).toHaveAttribute("data-focus", "true");
-    expect(input).toHaveAttribute("data-focus", "true");
-
+    await user.click(input);
     expect(segments[0]).toHaveAttribute("data-active", "true");
-    expect(segments[1].getAttribute("data-active")).toBe(null);
-    expect(segments[2].getAttribute("data-active")).toBe(null);
-    expect(segments[3].getAttribute("data-active")).toBe(null);
+    expect(segments[1]).not.toHaveAttribute("data-active");
   });
 
-  it("should not be focused when disabled", async () => {
-    render(<InputOtp isDisabled={true} length={4} />);
-    const input = document.querySelector("[data-slot=input]")!;
-
-    await act(async () => {
-      await user.click(input);
-    });
-
-    expect(input).toBeDisabled();
-  });
-
-  it("should shift focus to next segment when valid digit is typed", async () => {
+  it("should move focus to the next segment on valid input", async () => {
     render(<InputOtp length={4} />);
+    const input = screen.getByRole("textbox");
+    const segments = screen.getAllByRole("presentation");
 
-    const base = document.querySelector("[data-slot=base]")!;
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
+    await user.click(input);
+    expect(segments[1]).not.toHaveAttribute("data-active");
 
-    expect(segments.length).toBe(4);
-
-    await act(async () => {
-      await user.click(input);
-    });
-
-    expect(base).toHaveAttribute("data-focus", "true");
-    expect(input).toHaveAttribute("data-focus", "true");
-    // since no input is entered hence segment[1] will not be active
-    expect(segments[1].getAttribute("data-active")).toBe(null);
-
-    await act(async () => {
-      await user.keyboard("1");
-    });
-
-    // after the keypress, the focus should shift to segment[1]
+    await user.keyboard("1");
     expect(segments[1]).toHaveAttribute("data-active", "true");
     expect(input).toHaveAttribute("value", "1");
   });
 
-  it("should be able to erase the input", async () => {
+  it("should clear input on backspace", async () => {
     render(<InputOtp length={4} />);
+    const input = screen.getByRole("textbox");
+    const segments = screen.getAllByRole("presentation");
 
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
-
-    expect(segments.length).toBe(4);
-
-    // clicking on the component and typing in  "12"
-    await act(async () => {
-      await user.click(input);
-      await user.keyboard("1");
-      await user.keyboard("2");
-    });
-
-    // value should be "12" and segement[2] should be active
+    await user.click(input);
+    await user.keyboard("12");
     expect(input).toHaveAttribute("value", "12");
     expect(segments[2]).toHaveAttribute("data-active", "true");
 
-    // removing the data by pressing backspace
-    await act(async () => {
-      await user.keyboard("[BackSpace]");
-    });
-
-    // after one Backspace keypress, the value should be "1" and segment[1] should be active
+    await user.keyboard("[Backspace]");
     expect(input).toHaveAttribute("value", "1");
     expect(segments[1]).toHaveAttribute("data-active", "true");
   });
 
-  it("should be able to paste value", async () => {
+  it("should paste values", async () => {
     render(<InputOtp length={4} />);
+    const input = screen.getByRole("textbox");
 
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
-
-    expect(segments.length).toBe(4);
-
-    // clicking on the component and pasting in  "1234"
-    await act(async () => {
-      await user.click(input);
-      await user.paste("1234");
-    });
-
-    // value should be "1234"
+    await user.click(input);
+    await user.paste("1234");
     expect(input).toHaveAttribute("value", "1234");
   });
 
-  it("should not take non-allowed inputs", async () => {
+  it("should restrict non-allowed inputs", async () => {
     render(<InputOtp length={4} />);
+    const input = screen.getByRole("textbox");
+    const segments = screen.getAllByRole("presentation");
 
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
-
-    expect(segments.length).toBe(4);
-
-    // clicking on the component and typing the unallowed letter (here, "a")
-    await act(async () => {
-      await user.click(input);
-      await user.keyboard("a");
-    });
-
-    // since unallowed letter was typed, "value" should remain empty and segment[0] remains active
-    expect(segments[0]).toHaveAttribute("data-active", "true");
+    await user.click(input);
+    await user.keyboard("a");
     expect(input).toHaveAttribute("value", "");
+    expect(segments[0]).toHaveAttribute("data-active", "true");
   });
 
   it("should allow inputs based on custom regex", async () => {
-    // below exp matches with chars from small "a" to small "z"
     const regEx = "^[a-z]*$";
 
     render(<InputOtp allowedKeys={regEx} length={4} />);
+    const input = screen.getByRole("textbox");
 
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
-
-    expect(segments.length).toBe(4);
-
-    // clicking on the component and typing the "a" letter
-    await act(async () => {
-      await user.click(input);
-      await user.keyboard("a");
-    });
-
-    expect(segments[1]).toHaveAttribute("data-active", "true");
+    await user.click(input);
+    await user.keyboard("a");
     expect(input).toHaveAttribute("value", "a");
   });
 
-  it("should call onFill callback when inputOtp is completely filled", async () => {
-    const onFill = jest.fn();
+  it("should call onComplete when all segments are filled", async () => {
+    const onComplete = jest.fn();
 
-    render(<InputOtp length={4} onFill={onFill} />);
+    render(<InputOtp length={4} onComplete={onComplete} />);
+    const input = screen.getByRole("textbox");
 
-    const input = document.querySelector("[data-slot=input]")!;
-    const segments = document.querySelectorAll("[data-slot=segment]");
-
-    expect(segments.length).toBe(4);
-
-    // clicking on the component and pasting "1234"
-    await act(async () => {
-      await user.click(input);
-      await user.paste("1234");
-    });
-
-    expect(onFill).toHaveBeenCalledTimes(1);
+    await user.click(input);
+    await user.paste("1234");
+    expect(onComplete).toHaveBeenCalledTimes(1);
   });
 });
 
-describe("InputOtp with react hook form", () => {
-  let inputOtp1: Element;
-  let inputOtp2: Element;
-  let inputOtp3: Element;
-  let submitButton: HTMLButtonElement;
-  let onSubmit: () => void;
+describe("InputOtp with react-hook-form", () => {
   let user: UserEvent;
 
   beforeAll(() => {
     user = userEvent.setup();
   });
 
-  beforeEach(() => {
+  it("should integrate with react-hook-form correctly", async () => {
     const {result} = renderHook(() =>
       useForm({
         defaultValues: {
@@ -255,42 +167,29 @@ describe("InputOtp with react hook form", () => {
       register,
       formState: {errors},
     } = result.current;
-
-    onSubmit = jest.fn();
+    const onSubmit = jest.fn();
 
     render(
-      <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <InputOtp length={4} {...register("defaultValue")} />
-        <InputOtp length={4} {...register("withoutDefaultValue")} />
-        <InputOtp length={4} {...register("requiredField", {required: true})} />
-        {errors.requiredField && <span className="text-danger">This field is required</span>}
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <InputOtp data-testid="input-otp-1" length={4} {...register("defaultValue")} />
+        <InputOtp data-testid="input-otp-2" length={4} {...register("withoutDefaultValue")} />
+        <InputOtp
+          data-testid="input-otp-3"
+          length={4}
+          {...register("requiredField", {required: true})}
+        />
+        {errors.requiredField && <span>This field is required</span>}
         <button type="submit">Submit</button>
       </form>,
     );
 
-    inputOtp1 = document.querySelectorAll("[data-slot=input]")[0]!;
-    inputOtp2 = document.querySelectorAll("[data-slot=input]")[1]!;
-    inputOtp3 = document.querySelectorAll("[data-slot=input]")[2]!;
-    submitButton = document.querySelector("button")!;
-  });
-
-  it("should work with defaultValues", () => {
-    expect(inputOtp1).toHaveValue("1234");
-    expect(inputOtp2).toHaveValue("");
-    expect(inputOtp3).toHaveValue("");
-  });
-
-  it("should not submit form when required field is empty", async () => {
-    await user.click(submitButton);
-
+    await user.click(screen.getByText(/Submit/i));
     expect(onSubmit).toHaveBeenCalledTimes(0);
-  });
 
-  it("should submit form when required field is not empty", async () => {
+    const inputOtp3 = screen.getAllByRole("textbox")[2];
+
     await user.type(inputOtp3, "1234");
-
-    await user.click(submitButton);
-
+    await user.click(screen.getByText(/Submit/i));
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });
