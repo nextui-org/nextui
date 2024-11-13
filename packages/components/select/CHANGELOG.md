@@ -1,5 +1,18 @@
 # @nextui-org/select
 
+## 2.3.0-beta.6
+
+### Patch Changes
+
+- Updated dependencies [[`5339b2571`](https://github.com/nextui-org/nextui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7)]:
+  - @nextui-org/shared-utils@2.0.9-beta.4
+  - @nextui-org/listbox@2.2.0-beta.4
+  - @nextui-org/popover@2.2.0-beta.5
+  - @nextui-org/scroll-shadow@2.2.0-beta.4
+  - @nextui-org/spinner@2.1.0-beta.4
+  - @nextui-org/aria-utils@2.1.0-beta.4
+  - @nextui-org/react-utils@2.0.18-beta.4
+
 ## 2.3.0-beta.5
 
 ### Patch Changes

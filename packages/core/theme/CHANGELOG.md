@@ -1,5 +1,12 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.5
+
+### Patch Changes
+
+- Updated dependencies [[`5339b2571`](https://github.com/nextui-org/nextui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7)]:
+  - @nextui-org/shared-utils@2.0.9-beta.4
+
 ## 2.3.0-beta.4
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @nextui-org/shared-utils
 
+## 2.0.9-beta.4
+
+### Patch Changes
+
+- [#4039](https://github.com/nextui-org/nextui/pull/4039) [`5339b2571`](https://github.com/nextui-org/nextui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7) Thanks [@wingkwong](https://github.com/wingkwong)! - support inert value with boolean type for react 19 (#4038)
+
 ## 2.0.9-beta.3
 
 ### Patch Changes
