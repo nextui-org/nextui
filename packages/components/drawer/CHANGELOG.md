@@ -1,5 +1,14 @@
 # @nextui-org/drawer
 
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- [#4057](https://github.com/nextui-org/nextui/pull/4057) [`d947b9283`](https://github.com/nextui-org/nextui/commit/d947b92833c8e4abc16dae72466cdb922313e9c8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Drawer styles and transition improved
+
+- Updated dependencies [[`d947b9283`](https://github.com/nextui-org/nextui/commit/d947b92833c8e4abc16dae72466cdb922313e9c8)]:
+  - @nextui-org/modal@2.1.0-beta.6
+
 ## 2.1.0-beta.5
 
 ### Patch Changes

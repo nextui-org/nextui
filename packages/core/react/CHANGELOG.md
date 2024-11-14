@@ -1,5 +1,13 @@
 # @nextui-org/react
 
+## 2.5.0-beta.11
+
+### Patch Changes
+
+- Updated dependencies [[`d947b9283`](https://github.com/nextui-org/nextui/commit/d947b92833c8e4abc16dae72466cdb922313e9c8)]:
+  - @nextui-org/drawer@2.1.0-beta.6
+  - @nextui-org/modal@2.1.0-beta.6
+
 ## 2.5.0-beta.10
 
 ### Patch Changes
