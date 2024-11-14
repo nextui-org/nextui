@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.6
+
+### Patch Changes
+
+- [#4054](https://github.com/nextui-org/nextui/pull/4054) [`0f55c491b`](https://github.com/nextui-org/nextui/commit/0f55c491b73da8944f9b38f2ad7486d1b89f8b7a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Alert design improved
+
 ## 2.3.0-beta.5
 
 ### Patch Changes

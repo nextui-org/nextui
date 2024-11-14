@@ -1,5 +1,11 @@
 # @nextui-org/shared-icons
 
+## 2.0.10-beta.3
+
+### Patch Changes
+
+- [#4054](https://github.com/nextui-org/nextui/pull/4054) [`0f55c491b`](https://github.com/nextui-org/nextui/commit/0f55c491b73da8944f9b38f2ad7486d1b89f8b7a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Alert design improved
+
 ## 2.0.10-beta.2
 
 ### Patch Changes
