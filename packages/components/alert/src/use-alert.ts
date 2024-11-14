@@ -168,6 +168,13 @@ export function useAlert(originalProps: UseAlertProps) {
     [slots, classNames?.alertIcon],
   );
 
+  const getIconWrapperProps = useCallback<PropGetter>(
+    () => ({
+      className: slots.iconWrapper({class: classNames?.iconWrapper}),
+    }),
+    [slots, classNames?.iconWrapper],
+  );
+
   return {
     title,
     icon,
@@ -184,5 +191,6 @@ export function useAlert(originalProps: UseAlertProps) {
     isVisible,
     onClose,
     getAlertIconProps,
+    getIconWrapperProps,
   };
 }

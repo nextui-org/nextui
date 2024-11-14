@@ -45,6 +45,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
     isVisible,
     onClose,
     getAlertIconProps,
+    getIconWrapperProps,
   } = useAlert({...props, ref});
 
   if (!isVisible) return null;
@@ -55,7 +56,9 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
 
   return (
     <div ref={domRef} role="alert" {...getBaseProps()}>
-      {customIcon || <IconComponent {...getAlertIconProps()} />}
+      <div {...getIconWrapperProps()}>
+        {customIcon || <IconComponent {...getAlertIconProps()} />}
+      </div>
       <div {...getMainWrapperProps()}>
         {title && <div {...getTitleProps()}>{title}</div>}
         {!isEmpty(description) && <div {...getDescriptionProps()}>{description}</div>}

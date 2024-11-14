@@ -19,7 +19,7 @@ export default {
       control: {
         type: "select",
       },
-      options: ["solid", "flat", "bordered"],
+      options: ["solid", "flat", "bordered", "faded"],
     },
     radius: {
       control: {

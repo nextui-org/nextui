@@ -110,10 +110,12 @@ Alert has the following attributes on the `base` element:
 | icon             | `ReactNode`                                                                 | The alert icon - overrides the default icon | -         |
 | description      | `ReactNode`                                                                 | The alert description                       | -         |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The alert color theme                       | `default` |
-| variant          | `solid` \| `bordered` \| `flat`                                             | The alert variant                           | `flat`    |
+| variant          | `solid` \| `bordered` \| `flat` \| `faded`                                  | The alert variant                           | `flat`    |
 | radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The alert border radius                     | `md`      |
 | isVisible        | `boolean`                                                                   | Whether the alert is visible                | -         |
 | isClosable       | `boolean`                                                                   | Whether the alert can be closed             | `false`   |
+| hideIcon         | `boolean`                                                                   | Whether the icon is hidden                  | `false`   |
+| hideIconWrapper  | `boolean`                                                                   | Whether the icon wrapper is hidden          | `false`   |
 | closeButtonProps | `ButtonProps`                                                               | Props for the close button                  | -         |
 
 ### Alert Events
