@@ -1,5 +1,12 @@
 # @nextui-org/drawer
 
+## 2.1.0-beta.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/modal@2.1.0-beta.5
+
 ## 2.1.0-beta.4
 
 ### Patch Changes
