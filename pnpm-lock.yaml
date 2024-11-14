@@ -1466,12 +1466,18 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
     devDependencies:
+      '@nextui-org/avatar':
+        specifier: workspace:*
+        version: link:../avatar
       '@nextui-org/button':
         specifier: workspace:*
         version: link:../button
       '@nextui-org/checkbox':
         specifier: workspace:*
         version: link:../checkbox
+      '@nextui-org/image':
+        specifier: workspace:*
+        version: link:../image
       '@nextui-org/input':
         specifier: workspace:*
         version: link:../input
@@ -1490,6 +1496,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../../core/theme
+      '@nextui-org/tooltip':
+        specifier: workspace:*
+        version: link:../tooltip
       '@nextui-org/use-disclosure':
         specifier: workspace:*
         version: link:../../hooks/use-disclosure

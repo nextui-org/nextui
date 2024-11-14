@@ -5,6 +5,7 @@ import placement from "./placement";
 import form from "./form";
 import backdrop from "./backdrop";
 import customMotion from "./custom-motion";
+import customStyles from "./custom-styles";
 
 export const drawerContent = {
   usage,
@@ -14,4 +15,5 @@ export const drawerContent = {
   form,
   backdrop,
   customMotion,
+  customStyles,
 };
