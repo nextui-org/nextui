@@ -1,12 +1,4 @@
-const App = `import {Snippet} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Snippet hideCopyButton color="primary" variant="solid">
-      npm install @nextui-org/react
-    </Snippet>
-  );
-}`;
+import App from "./without-copy.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
