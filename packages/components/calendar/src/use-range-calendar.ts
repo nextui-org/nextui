@@ -8,6 +8,8 @@ import {useRangeCalendar as useAriaRangeCalendar} from "@react-aria/calendar";
 import {useRangeCalendarState} from "@react-stately/calendar";
 import {createCalendar} from "@internationalized/date";
 import {clsx} from "@nextui-org/shared-utils";
+import {ButtonProps} from "@nextui-org/button";
+import {chain} from "@react-aria/utils";
 
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
 import {CalendarBaseProps} from "./calendar-base";
@@ -22,6 +24,7 @@ interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBasePro
 export type UseRangeCalendarProps<T extends DateValue> = Props<T> & AriaRangeCalendarProps<T>;
 
 export function useRangeCalendar<T extends DateValue>({
+  buttonPickerProps: buttonPickerPropsProp,
   className,
   ...originalProps
 }: UseRangeCalendarProps<T>) {
@@ -41,6 +44,7 @@ export function useRangeCalendar<T extends DateValue>({
     visibleMonths,
     disableAnimation,
     createCalendar: createCalendarProp,
+    showMonthAndYearPickers,
     baseProps,
     getPrevButtonProps,
     getNextButtonProps,
@@ -72,6 +76,11 @@ export function useRangeCalendar<T extends DateValue>({
 
   const baseStyles = clsx(classNames?.base, className);
 
+  const buttonPickerProps: ButtonProps = {
+    ...buttonPickerPropsProp,
+    onPress: chain(buttonPickerPropsProp?.onPress, () => setIsHeaderExpanded(!isHeaderExpanded)),
+  };
+
   const getBaseCalendarProps = (props = {}): CalendarBaseProps => {
     return {
       ...baseProps,
@@ -79,6 +88,7 @@ export function useRangeCalendar<T extends DateValue>({
       showHelper,
       topContent,
       bottomContent,
+      buttonPickerProps,
       calendarRef: domRef,
       calendarProps: calendarProps,
       prevButtonProps: getPrevButtonProps(prevButtonProps),
@@ -102,6 +112,7 @@ export function useRangeCalendar<T extends DateValue>({
       isHeaderExpanded,
       setIsHeaderExpanded,
       visibleMonths,
+      showMonthAndYearPickers,
       classNames,
       disableAnimation,
     }),
@@ -114,6 +125,7 @@ export function useRangeCalendar<T extends DateValue>({
       setIsHeaderExpanded,
       visibleMonths,
       disableAnimation,
+      showMonthAndYearPickers,
     ],
   );
 

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/snippet",
-  "version": "2.0.43",
+  "version": "2.1.0-beta.5",
   "description": "Display a snippet of copyable code for the command line.",
   "keywords": [
     "snippet"
@@ -34,11 +34,11 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=10.17.0",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/button": "workspace:*",
@@ -47,8 +47,8 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/utils": "3.24.1"
+    "@react-aria/focus": "3.18.2",
+    "@react-aria/utils": "3.25.2"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

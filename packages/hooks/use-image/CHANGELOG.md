@@ -1,5 +1,53 @@
 # @nextui-org/use-image
 
+## 2.0.7-beta.6
+
+### Patch Changes
+
+- [#4010](https://github.com/nextui-org/nextui/pull/4010) [`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
+
+- Updated dependencies [[`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df)]:
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.1
+
+## 2.0.7-beta.5
+
+### Patch Changes
+
+- [#4008](https://github.com/nextui-org/nextui/pull/4008) [`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React 19 added to peerDeps
+
+- Updated dependencies [[`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89)]:
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.0
+
+## 2.0.7-beta.4
+
+### Patch Changes
+
+- [#3998](https://github.com/nextui-org/nextui/pull/3998) [`52f6274e9`](https://github.com/nextui-org/nextui/commit/52f6274e9baecc928ee7cbb6a8110b72931061b8) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - use-image hook logic restore to the previous one to avoid nextjs hydration issues
+
+## 2.0.7-beta.3
+
+### Patch Changes
+
+- [`1c05c6d77`](https://github.com/nextui-org/nextui/commit/1c05c6d77b10f6b18f3c34d36eece7702704267a) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - server validation added to the use-image hook
+
+## 2.0.7-beta.2
+
+### Patch Changes
+
+- [#3993](https://github.com/nextui-org/nextui/pull/3993) [`98b13d9a9`](https://github.com/nextui-org/nextui/commit/98b13d9a9368ed188f62e3e7ff885ed3ec7c3f5a) Thanks [@wingkwong](https://github.com/wingkwong)! - fix Image ReferenceError in SSR
+
+## 2.0.7-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+## 2.0.7-beta.0
+
+### Patch Changes
+
+- [#3987](https://github.com/nextui-org/nextui/pull/3987) [`90cb5b14a`](https://github.com/nextui-org/nextui/commit/90cb5b14abcf70878896ea83b0b8bce0795d97fd) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - fix cached image flashing due to use-image always returning pending initially. The fix was to check if the image is loaded instantly through HTMLImageElement.complete attribute and use that to initialize the state.
+
 ## 2.0.6
 
 ### Patch Changes

@@ -8,7 +8,7 @@ export default function App() {
         label={"Birth date"} 
         defaultValue={parseDate("2024-04-04")} 
         placeholderValue={new CalendarDate(1995, 11, 6)} 
-        description={"Thiis is my birth date."}
+        description={"This is my birth date."}
         isInvalid
         errorMessage="Please enter a valid date."
         className="max-w-xs"

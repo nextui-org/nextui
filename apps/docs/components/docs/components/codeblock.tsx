@@ -3,8 +3,8 @@ import type {TransformTokensTypes} from "./helper";
 
 import React, {forwardRef, useEffect} from "react";
 import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
-import {debounce, omit} from "lodash";
-import BaseHighlight, {defaultProps} from "prism-react-renderer";
+import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
+import {debounce, omit} from "@nextui-org/shared-utils";
 import {cn} from "@nextui-org/react";
 
 import {transformTokens} from "./helper";
