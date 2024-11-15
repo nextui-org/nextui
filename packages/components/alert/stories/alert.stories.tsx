@@ -78,7 +78,7 @@ const RadiusTemplate = (args) => {
 const VariantTemplate = (args) => {
   return (
     <div className="flex flex-col w-full">
-      {["solid", "flat", "bordered"].map((variant) => (
+      {["solid", "flat", "bordered", "faded"].map((variant) => (
         <div key={variant} className="w-full flex items-center my-3">
           <Alert {...args} isClosable title={`This is a ${variant} alert`} variant={variant} />
         </div>
@@ -103,6 +103,77 @@ const CloseableTemplate = (args) => {
   );
 };
 
+const WithEndContentTemplate = (args) => {
+  return (
+    <Alert
+      {...args}
+      color="warning"
+      description="Upgrade to a paid plan to continue"
+      endContent={
+        <Button color="warning" size="sm" variant="flat">
+          Upgrade
+        </Button>
+      }
+      title="You have no credits left"
+      variant="faded"
+    />
+  );
+};
+
+export const CustomStylesTemplate = (args) => {
+  const [isVisible, setIsVisible] = React.useState(true);
+
+  return (
+    <>
+      {!isVisible && (
+        <Button
+          className="bg-background text-default-700 font-medium border-1 shadow-small"
+          size="sm"
+          variant="bordered"
+          onPress={() => setIsVisible(true)}
+        >
+          Show Alert
+        </Button>
+      )}
+      <Alert
+        {...args}
+        classNames={{
+          base: [
+            "bg-default-50 dark:bg-background",
+            "relative before:content-[''] before:absolute before:z-10",
+            "before:left-0 before:top-[-1px] before:bottom-[-1px] before:w-1 before:bg-secondary",
+            "rounded-l-none border-l-0",
+          ],
+          mainWrapper: "pt-1",
+          iconWrapper: "border-1 border-secondary-200 dark:bg-transparent",
+          alertIcon: "text-secondary",
+        }}
+        isVisible={isVisible}
+        title="The documents you requested are ready to be viewed"
+        variant="faded"
+        onClose={() => setIsVisible(false)}
+      >
+        <div className="flex items-center gap-1 mt-3">
+          <Button
+            className="bg-background text-default-700 font-medium border-1 shadow-small"
+            size="sm"
+            variant="bordered"
+          >
+            View documents
+          </Button>
+          <Button
+            className="text-default-500 font-medium underline underline-offset-4"
+            size="sm"
+            variant="light"
+          >
+            Maybe later
+          </Button>
+        </div>
+      </Alert>
+    </>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -122,6 +193,7 @@ export const Color = {
   render: ColorTemplate,
   args: {
     ...defaultProps,
+    variant: "faded",
   },
 };
 
@@ -172,21 +244,16 @@ export const Closable = {
   },
 };
 
-export const CustomWithClassNames = {
-  render: Template,
+export const WithEndContent = {
+  render: WithEndContentTemplate,
   args: {
     ...defaultProps,
-    classNames: {
-      base: [
-        "bg-background",
-        "border",
-        "border-foreground-400",
-        "shadow",
-        "hover:bg-slate-200",
-        "cursor-pointer",
-      ],
-      title: ["text-base", "text-foreground", "font-semibold"],
-      description: ["text-base", "text-foreground-600"],
-    },
+  },
+};
+
+export const CustomStyles = {
+  render: CustomStylesTemplate,
+  args: {
+    ...defaultProps,
   },
 };

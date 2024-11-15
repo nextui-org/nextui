@@ -28,6 +28,14 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   icon?: ReactNode;
   /**
+   * Content to be displayed in the end side of the alert
+   */
+  endContent?: ReactNode;
+  /**
+   * Content to be displayed in the start side of the alert
+   */
+  startContent?: ReactNode;
+  /**
    * Whether the alert is visible.
    * @default false
    */
@@ -81,17 +89,21 @@ export function useAlert(originalProps: UseAlertProps) {
 
   const {
     as,
-    title: titleProp,
+    title,
     children,
     description,
     onClose,
     isClosable,
     ref,
     icon,
+    startContent,
+    endContent,
     isVisible: isVisibleProp,
     isDefaultVisible,
     onVisibleChange,
-    closeButtonProps = {},
+    closeButtonProps = {
+      size: "sm",
+    },
     classNames,
     ...otherProps
   } = props;
@@ -101,8 +113,6 @@ export function useAlert(originalProps: UseAlertProps) {
     isDefaultVisible ?? true,
     onVisibleChange,
   );
-
-  const title = titleProp || children;
 
   const Component = as || "div";
   const shouldFilterDOMProps = typeof Component === "string";
@@ -178,9 +188,12 @@ export function useAlert(originalProps: UseAlertProps) {
   return {
     title,
     icon,
+    children,
     description,
     isClosable,
     domRef,
+    endContent,
+    startContent,
     getBaseProps,
     getMainWrapperProps,
     getDescriptionProps,

@@ -5,6 +5,7 @@ import customImpl from "./custom-impl";
 import customStyles from "./custom-styles";
 import variants from "./variants";
 import withIcon from "./with-icon";
+import withAction from "./with-action";
 import controlled from "./controlled";
 
 export const alertContent = {
@@ -15,5 +16,6 @@ export const alertContent = {
   customStyles,
   variants,
   withIcon,
+  withAction,
   controlled,
 };
