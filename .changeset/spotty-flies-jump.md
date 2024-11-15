@@ -1,6 +1,6 @@
 ---
-"@nextui-org/input-otp": minor
-"@nextui-org/theme": minor
+"@nextui-org/input-otp": patch
+"@nextui-org/theme": patch
 ---
 
 Adding new input-otp component.
