@@ -149,6 +149,13 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 - Built on top of [input-otp](https://github.com/guilhermerodz/input-otp).
 - Required and invalid states exposed to assistive technology via ARIA.
 - Support for description and error message help text linked to the input-otp via ARIA.
+- Keyboard navigation:
+  - Tab: Moves focus between input segments
+  - Arrow keys: Navigate between segments
+  - Backspace: Clears current segment and moves focus to previous segment
+- ARIA attributes:
+  - `aria-invalid`: Indicates validation state
+  - `aria-required`: Indicates if the input is required
 
 <Spacer y={4} />
 

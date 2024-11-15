@@ -1,7 +1,7 @@
 import {forwardRef} from "@nextui-org/system";
 import {useMemo} from "react";
 import {OTPInput} from "input-otp";
-import {clsx} from "@nextui-org/shared-utils";
+import {cn} from "@nextui-org/theme";
 
 import {UseInputOtpProps, useInputOtp} from "./use-input-otp";
 import {InputOtpProvider} from "./input-otp-context";
@@ -53,13 +53,13 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
     getDescriptionProps,
   ]);
 
-  const wrapperStyles = clsx(classNames?.wrapper);
+  const wrapperStyles = cn(classNames?.wrapper);
 
   return (
     <InputOtpProvider value={context}>
       <Component {...getBaseProps()}>
         <OTPInput
-          containerClassName={clsx(slots.wrapper?.({class: wrapperStyles}))}
+          containerClassName={cn(slots.wrapper?.({class: wrapperStyles}))}
           maxLength={length}
           minLength={length}
           render={({slots}) => (

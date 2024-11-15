@@ -11,11 +11,11 @@ import {
   PropGetter,
   useProviderContext,
 } from "@nextui-org/system";
-import {inputOtp} from "@nextui-org/theme";
+import {cn, inputOtp} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useCallback, useMemo} from "react";
-import {chain, mergeProps} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useControlledState} from "@react-stately/utils";
 import {useFormValidationState} from "@react-stately/form";
@@ -122,7 +122,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
   const isDisabled = originalProps.isDisabled;
-  const baseStyles = clsx(classNames?.base, className);
+  const baseStyles = cn(classNames?.base, className);
 
   const validationState = useFormValidationState({
     ...props,
@@ -156,7 +156,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         isInvalid,
         isReadOnly,
       }),
-    [objectToDeps(variantProps), disableAnimation, isInvalid],
+    [objectToDeps(variantProps), disableAnimation, isInvalid, isReadOnly],
   );
 
   const getBaseProps: PropGetter = useCallback(
@@ -172,11 +172,14 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         "data-required": dataAttr(originalProps?.isRequired),
         "data-readonly": dataAttr(originalProps?.isReadOnly),
         "data-filled": dataAttr(value.length === length),
+        "aria-label": "One-time password input",
+        "aria-required": dataAttr(originalProps.isRequired),
+        "aria-readonly": dataAttr(originalProps?.isReadOnly),
         role: "base",
         ...props,
       };
     },
-    [baseDomRef, slots, baseStyles, isDisabled],
+    [baseDomRef, slots, baseStyles, isDisabled, isInvalid, isRequired, isReadOnly, value, length],
   );
 
   const getInputOtpProps = useCallback(
@@ -188,7 +191,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       ref: inputRef,
       name: name,
       value: value,
-      onChange: chain(setValue),
+      onChange: setValue,
       onBlur: props.onBlur,
       onComplete: onComplete,
     }),
@@ -199,8 +202,8 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       allowedKeys,
       inputRef,
       name,
+      value,
       length,
-      props.onChange,
       setValue,
       props.onBlur,
       onComplete,
@@ -211,10 +214,11 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     (props = {}) => {
       return {
         className: slots.segmentWrapper({
-          class: clsx(classNames?.segmentWrapper, props?.className),
+          class: cn(classNames?.segmentWrapper, props?.className),
         }),
         "data-slot": "segment-wrapper",
         "data-disabled": dataAttr(isDisabled),
+        "aria-label": "One-time password digits",
         ...props,
       };
     },
@@ -225,7 +229,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     (props = {}) => {
       return {
         className: slots.helperWrapper({
-          class: clsx(classNames?.helperWrapper, props?.className),
+          class: cn(classNames?.helperWrapper, props?.className),
         }),
         "data-slot": "helper-wrapper",
         ...props,
@@ -238,7 +242,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     (props = {}) => {
       return {
         className: slots.errorMessage({
-          class: clsx(classNames?.errorMessage, props?.className),
+          class: cn(classNames?.errorMessage, props?.className),
         }),
         "data-slot": "error-message",
         ...mergeProps(props),
@@ -251,7 +255,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     (props = {}) => {
       return {
         className: slots.description({
-          class: clsx(classNames?.description, props?.className),
+          class: cn(classNames?.description, props?.className),
         }),
         "data-slot": "description",
         ...mergeProps(props),

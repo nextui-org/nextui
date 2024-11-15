@@ -1,34 +1,35 @@
 import {SlotProps} from "input-otp";
 import {useMemo} from "react";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {dataAttr} from "@nextui-org/shared-utils";
+import {cn} from "@nextui-org/theme";
 
 import {useInputOtpContext} from "./input-otp-context";
 
 export const InputOtpSegment = (props: SlotProps) => {
   const {classNames, slots, type} = useInputOtpContext();
 
-  const passwordCharStyles = clsx(classNames?.passwordChar);
-  const caretStyles = clsx(classNames?.caret);
-  const segmentStyles = clsx(classNames?.segment);
+  const passwordCharStyles = cn(classNames?.passwordChar);
+  const caretStyles = cn(classNames?.caret);
+  const segmentStyles = cn(classNames?.segment);
 
   const displayValue = useMemo(() => {
     if (props.isActive && !props.char) {
-      return <div className={clsx(slots.caret?.({class: caretStyles}))} />;
+      return <div className={cn(slots.caret?.({class: caretStyles}))} />;
     }
     if (props.char) {
       return type === "password" ? (
-        <div className={clsx(slots.passwordChar?.({class: passwordCharStyles}))} />
+        <div className={cn(slots.passwordChar?.({class: passwordCharStyles}))} />
       ) : (
         <div>{props.char}</div>
       );
     }
 
     return <div>{props.placeholderChar}</div>;
-  }, [props.char, props.isActive, type]);
+  }, [props.char, props.isActive, props.placeholderChar, type]);
 
   return (
     <div
-      className={clsx(slots.segment?.({class: segmentStyles}))}
+      className={cn(slots.segment?.({class: segmentStyles}))}
       data-active={dataAttr(props.isActive)}
       data-has-value={dataAttr(!!props.char)}
       data-slot="segment"

@@ -1,7 +1,7 @@
 import {InputOtp} from "@nextui-org/react";
 
 export default function App() {
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState < string > "";
 
   return (
     <div className="flex flex-col items-start gap-4">

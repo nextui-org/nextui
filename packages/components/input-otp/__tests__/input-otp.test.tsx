@@ -108,6 +108,21 @@ describe("InputOtp Component", () => {
     await user.click(input);
     await user.paste("1234");
     expect(input).toHaveAttribute("value", "1234");
+
+    // Test partial paste
+    await user.clear(input);
+    await user.paste("12");
+    expect(input).toHaveAttribute("value", "12");
+
+    // Test longer input
+    await user.clear(input);
+    await user.paste("12345");
+    expect(input).toHaveAttribute("value", "1234");
+
+    // Test invalid characters
+    await user.clear(input);
+    await user.paste("12ab");
+    expect(input).toHaveAttribute("value", "");
   });
 
   it("should restrict non-allowed inputs", async () => {
@@ -141,6 +156,15 @@ describe("InputOtp Component", () => {
     await user.click(input);
     await user.paste("1234");
     expect(onComplete).toHaveBeenCalledTimes(1);
+
+    expect(onComplete).toHaveBeenCalledWith("1234");
+
+    // Test partial input followed by paste
+    await user.clear(input);
+    await user.keyboard("1");
+    await user.paste("234");
+    expect(onComplete).toHaveBeenCalledTimes(2);
+    expect(onComplete).toHaveBeenCalledWith("1234");
   });
 });
 
