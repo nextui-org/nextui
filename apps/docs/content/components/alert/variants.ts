@@ -3,15 +3,9 @@ const App = `import {Alert} from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex flex-col gap-4 w-full">
-      <Alert variant="solid">
-        A solid variant alert
-      </Alert>
-      <Alert variant="bordered">
-        A bordered variant alert
-      </Alert>
-      <Alert variant="flat">
-        A flat variant alert
-      </Alert>
+      {["solid", "bordered", "flat", "faded"].map((variant) => (
+        <Alert key={variant} variant={variant} color="danger" title={\`This is a \${variant} variant alert\`}/>
+      ))}
     </div>
   );
 }`;

@@ -13,6 +13,8 @@ export default function App() {
           title={title}
           description={description}
           isVisible={isVisible} 
+          variant="faded"
+          color="success"
           onClose={() => setIsVisible(false)}
         />
       ) : (

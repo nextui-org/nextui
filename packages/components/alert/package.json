@@ -47,9 +47,9 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "@react-stately/utils": "3.10.1",
-    "@react-aria/utils": "3.24.1",
-    "@nextui-org/button": "workspace:*"
+    "@react-aria/utils": "3.24.1"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
