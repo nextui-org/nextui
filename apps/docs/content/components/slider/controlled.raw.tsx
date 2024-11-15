@@ -1,5 +1,7 @@
+import type {SliderValue} from "@nextui-org/react";
+
 import React from "react";
-import {Slider, Button, SliderValue} from "@nextui-org/react";
+import {Slider, Button} from "@nextui-org/react";
 
 export const VolumeHighIcon = (props) => (
   <svg
