@@ -1,17 +1,4 @@
-const App = `import {Image} from "@nextui-org/react";
-import NextImage from "next/image";
-
-export default function App() {
-  return (
-    <Image
-      as={NextImage}
-      width={300}
-      height={200}
-      src="https://nextui.org/images/hero-card-complete.jpeg"
-      alt="NextUI hero Image"
-    />
-  );
-}`;
+import App from "./nextjs.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
