@@ -7,6 +7,7 @@ import variants from "./variants";
 import withIcon from "./with-icon";
 import withAction from "./with-action";
 import controlled from "./controlled";
+import withoutIcon from "./without-icon";
 
 export const alertContent = {
   colors,
@@ -18,4 +19,5 @@ export const alertContent = {
   withIcon,
   withAction,
   controlled,
+  withoutIcon,
 };
