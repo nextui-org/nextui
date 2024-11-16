@@ -31,7 +31,7 @@ export interface NextUIProviderProps
    * Provides a client side router to all nested components such as
    * Link, Menu, Tabs, Table, etc.
    */
-  navigate?: (path: string) => void;
+  navigate?: (path: string) => void | Promise<void>;
   /**
    * Convert an `href` provided to a link component to a native `href`
    * For example, a router might accept hrefs relative to a base path,
