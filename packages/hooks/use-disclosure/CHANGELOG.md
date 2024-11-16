@@ -1,5 +1,14 @@
 # @nextui-org/use-disclosure
 
+## 2.1.0-beta.6
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+- Updated dependencies [[`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
+  - @nextui-org/use-callback-ref@2.0.7-beta.4
+
 ## 2.1.0-beta.5
 
 ### Patch Changes

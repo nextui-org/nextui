@@ -1,5 +1,17 @@
 # @nextui-org/alert
 
+## 2.1.0-beta.10
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+- Updated dependencies [[`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
+  - @nextui-org/button@2.1.0-beta.7
+  - @nextui-org/react-utils@2.0.18-beta.7
+  - @nextui-org/shared-icons@2.0.10-beta.6
+  - @nextui-org/shared-utils@2.0.9-beta.7
+
 ## 2.1.0-beta.9
 
 ### Patch Changes

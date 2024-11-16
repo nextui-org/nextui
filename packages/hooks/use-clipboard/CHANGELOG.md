@@ -1,5 +1,11 @@
 # @nextui-org/use-clipboard
 
+## 2.0.8-beta.5
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
 ## 2.0.8-beta.4
 
 ### Patch Changes
