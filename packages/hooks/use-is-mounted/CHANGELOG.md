@@ -1,5 +1,11 @@
 # @nextui-org/use-is-mounted
 
+## 2.0.7-beta.3
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
 ## 2.0.7-beta.2
 
 ### Patch Changes
