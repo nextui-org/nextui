@@ -241,6 +241,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     children: children as CollectionChildren<T>,
     isRequired: originalProps.isRequired,
     isDisabled: originalProps.isDisabled,
+    isInvalid: originalProps.isInvalid,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
