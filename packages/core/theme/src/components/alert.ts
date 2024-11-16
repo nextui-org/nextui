@@ -146,7 +146,7 @@ const alert = tv({
       class: {
         base: [
           colorVariants.flat.default,
-          "bg-default-100 dark:bg-default-50",
+          "bg-default-100 dark:bg-default-50/50",
           "text-default-foreground",
         ],
         description: "text-default-600",
@@ -158,7 +158,7 @@ const alert = tv({
       variant: ["flat", "faded"],
       color: "primary",
       class: {
-        base: [colorVariants.flat.primary, "bg-primary-50"],
+        base: [colorVariants.flat.primary, "bg-primary-50 dark:bg-primary-50/50"],
         closeButton: "text-primary-500 data-[hover]:bg-primary-200",
         iconWrapper: "bg-primary-50 dark:bg-primary-100 border-primary-100",
       },
@@ -167,7 +167,7 @@ const alert = tv({
       variant: ["flat", "faded"],
       color: "secondary",
       class: {
-        base: [colorVariants.flat.secondary, "bg-secondary-50"],
+        base: [colorVariants.flat.secondary, "bg-secondary-50 dark:bg-secondary-50/50"],
         closeButton: "text-secondary-500 data-[hover]:bg-secondary-200",
         iconWrapper: "bg-secondary-50 dark:bg-secondary-100 border-secondary-100",
       },
@@ -176,7 +176,7 @@ const alert = tv({
       variant: ["flat", "faded"],
       color: "success",
       class: {
-        base: [colorVariants.flat.success, "bg-success-50"],
+        base: [colorVariants.flat.success, "bg-success-50 dark:bg-success-50/50"],
         closeButton: "text-success-500 data-[hover]:bg-success-200",
         iconWrapper: "bg-success-50 dark:bg-success-100 border-success-100",
       },
@@ -185,7 +185,7 @@ const alert = tv({
       variant: ["flat", "faded"],
       color: "warning",
       class: {
-        base: [colorVariants.flat.warning, "bg-warning-50"],
+        base: [colorVariants.flat.warning, "bg-warning-50 dark:bg-warning-50/50"],
         closeButton: "text-warning-500 data-[hover]:bg-warning-200",
         iconWrapper: "bg-warning-50 dark:bg-warning-100 border-warning-100",
       },
@@ -194,7 +194,7 @@ const alert = tv({
       variant: ["flat", "faded"],
       color: "danger",
       class: {
-        base: [colorVariants.flat.danger, "bg-danger-50"],
+        base: [colorVariants.flat.danger, "bg-danger-50 dark:bg-danger-50/50"],
         closeButton: "text-danger-500 data-[hover]:bg-danger-200",
         iconWrapper: "bg-danger-50 dark:bg-danger-100 border-danger-100",
       },
@@ -211,7 +211,7 @@ const alert = tv({
       variant: "faded",
       color: "primary",
       class: {
-        base: "border-primary-200",
+        base: "border-primary-200 dark:border-primary-100",
       },
     },
     {
@@ -225,14 +225,14 @@ const alert = tv({
       variant: "faded",
       color: "success",
       class: {
-        base: "border-success-200 dark:border-success-100",
+        base: "border-success-300 dark:border-success-100",
       },
     },
     {
       variant: "faded",
       color: "warning",
       class: {
-        base: "border-warning-200 dark:border-warning-100",
+        base: "border-warning-300 dark:border-warning-100",
       },
     },
     {

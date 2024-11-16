@@ -24,9 +24,7 @@ const iconMap = {
 
 export type AlertColor = keyof typeof iconMap;
 
-export interface AlertProps extends Omit<UseAlertProps, "hasDescription"> {
-  color: AlertColor;
-}
+export interface AlertProps extends Omit<UseAlertProps, "hasDescription"> {}
 
 const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   const {
