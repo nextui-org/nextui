@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.12
+
+### Patch Changes
+
+- [#4094](https://github.com/nextui-org/nextui/pull/4094) [`b9d5d4925`](https://github.com/nextui-org/nextui/commit/b9d5d492519778a4bf071748ec9f2b4e25d8373f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Virtualization support added to Listbox & Autocomplete
+
 ## 2.3.0-beta.11
 
 ### Patch Changes
