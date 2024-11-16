@@ -1,5 +1,15 @@
 # @nextui-org/system
 
+## 2.3.0-beta.5
+
+### Patch Changes
+
+- [#4083](https://github.com/nextui-org/nextui/pull/4083) [`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
+- Updated dependencies [[`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2)]:
+  - @nextui-org/system-rsc@2.2.0-beta.4
+  - @nextui-org/react-utils@2.0.18-beta.5
+
 ## 2.3.0-beta.4
 
 ### Patch Changes

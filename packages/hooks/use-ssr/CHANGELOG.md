@@ -1,5 +1,11 @@
 # @nextui-org/use-ssr
 
+## 2.0.7-beta.2
+
+### Patch Changes
+
+- [#4083](https://github.com/nextui-org/nextui/pull/4083) [`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
 ## 2.0.7-beta.1
 
 ### Patch Changes
