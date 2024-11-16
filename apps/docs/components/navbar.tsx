@@ -312,7 +312,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <GithubIcon />
             <span className="text-small font-medium">{githubInfo.stars.formatted}</span>
           </Link>
-          <ThemeSwitch className="border-1 border-default-200 rounded-full h-full min-w-10 min-h-10 flex items-center justify-center" />
+          <ThemeSwitch
+            className="border-1 border-default-200 rounded-full h-full min-w-10 min-h-10 flex items-center justify-center"
+            classNames={{
+              wrapper: "!text-default-400 dark:!text-default-500",
+            }}
+          />
         </NavbarItem>
         {/* <NavbarItem className="hidden md:flex">
           <Button
