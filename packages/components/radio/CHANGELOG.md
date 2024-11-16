@@ -1,5 +1,15 @@
 # @nextui-org/radio
 
+## 2.2.0-beta.6
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
+- Updated dependencies [[`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb)]:
+  - @nextui-org/react-utils@2.0.18-beta.6
+  - @nextui-org/shared-utils@2.0.9-beta.6
+
 ## 2.2.0-beta.5
 
 ### Patch Changes

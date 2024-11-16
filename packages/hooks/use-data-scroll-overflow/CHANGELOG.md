@@ -1,5 +1,14 @@
 # @nextui-org/use-data-scroll-overflow
 
+## 2.1.8-beta.6
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
+- Updated dependencies [[`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb)]:
+  - @nextui-org/shared-utils@2.0.9-beta.6
+
 ## 2.1.8-beta.5
 
 ### Patch Changes
