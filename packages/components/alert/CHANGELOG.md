@@ -1,5 +1,14 @@
 # @nextui-org/alert
 
+## 2.1.0-beta.7
+
+### Patch Changes
+
+- [#4073](https://github.com/nextui-org/nextui/pull/4073) [`70dc75983`](https://github.com/nextui-org/nextui/commit/70dc7598388022fca04255c3c1623468a38a3803) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Alert compoentn styles improved
+
+- Updated dependencies []:
+  - @nextui-org/button@2.1.0-beta.4
+
 ## 2.1.0-beta.6
 
 ### Patch Changes
