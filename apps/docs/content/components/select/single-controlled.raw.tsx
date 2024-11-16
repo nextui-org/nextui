@@ -1,5 +1,7 @@
+import type {Selection} from "@nextui-org/react";
+
 import React from "react";
-import {Select, SelectItem, Selection} from "@nextui-org/react";
+import {Select, SelectItem} from "@nextui-org/react";
 
 export const animals = [
   {key: "cat", label: "Cat"},

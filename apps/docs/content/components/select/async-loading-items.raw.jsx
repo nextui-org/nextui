@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-
 import {Select, SelectItem} from "@nextui-org/react";
 import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 
@@ -38,8 +36,10 @@ export function usePokemonList({fetchDelay = 0} = {}) {
       setItems((prevItems) => [...prevItems, ...json.results]);
     } catch (error) {
       if (error.name === "AbortError") {
+        // eslint-disable-next-line no-console
         console.log("Fetch aborted");
       } else {
+        // eslint-disable-next-line no-console
         console.error("There was an error with the fetch operation:", error);
       }
     } finally {
