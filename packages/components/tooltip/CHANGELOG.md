@@ -1,5 +1,19 @@
 # @nextui-org/tooltip
 
+## 2.1.0-beta.7
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+- Updated dependencies [[`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.4
+  - @nextui-org/aria-utils@2.1.0-beta.7
+  - @nextui-org/dom-animation@2.0.1-beta.6
+  - @nextui-org/framer-utils@2.0.26-beta.7
+  - @nextui-org/react-utils@2.0.18-beta.7
+  - @nextui-org/shared-utils@2.0.9-beta.7
+
 ## 2.1.0-beta.6
 
 ### Patch Changes
