@@ -110,6 +110,12 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Whether to enable virtualization of the listbox items.
+   * By default, virtualization is automatically enabled when the number of items is greater than 50.
+   * @default undefined
+   */
+  isVirtualized?: boolean;
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
@@ -169,6 +175,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
+    isVirtualized,
+    maxListboxHeight = 256,
+    itemHeight = 32,
     validationBehavior = globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
@@ -437,18 +446,17 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     } as unknown as InputProps);
 
   const getListBoxProps = () => {
-    // We prefer to use the normal listbox without 3rd party virtualizer package
-    // if dataset is small
-    const isVirtualized = state.collection.size > 50;
+    // Use isVirtualized prop if defined, otherwise fallback to default behavior
+    const shouldVirtualize = isVirtualized ?? state.collection.size > 50;
 
     return {
       state,
       ref: listBoxRef,
-      isVirtualized,
-      virtualization: isVirtualized
+      isVirtualized: shouldVirtualize,
+      virtualization: shouldVirtualize
         ? {
-            maxListboxHeight: originalProps.maxListboxHeight ?? 256,
-            itemHeight: originalProps.itemHeight ?? 32,
+            maxListboxHeight,
+            itemHeight,
           }
         : undefined,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {

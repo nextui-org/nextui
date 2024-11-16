@@ -2,6 +2,7 @@ import {ReactElement, useRef} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useVirtualizer} from "@tanstack/react-virtual";
+import {isEmpty} from "@nextui-org/shared-utils";
 
 import ListboxItem from "./listbox-item";
 import ListboxSection from "./listbox-section";
@@ -33,7 +34,10 @@ function VirtualizedListbox(props: Props) {
 
   const {virtualization} = props;
 
-  if (!virtualization) {
+  if (
+    !virtualization ||
+    (!isEmpty(virtualization) && !virtualization.maxListboxHeight && !virtualization.itemHeight)
+  ) {
     throw new Error(
       "You are using a virtualized listbox. VirtualizedListbox requires 'virtualization' props with 'maxListboxHeight' and 'itemHeight' properties. This error might have originated from autocomplete components that use VirtualizedListbox. Please provide these props to use the virtualized listbox.",
     );
