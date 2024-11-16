@@ -1,40 +1,4 @@
-const App = `import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
-
-export default function App() {
-  const content = (
-    <PopoverContent>
-      <div className="px-1 py-2">
-        <div className="text-small font-bold">Popover Content</div>
-        <div className="text-tiny">This is the popover content</div>
-      </div>
-    </PopoverContent>
-  );
-
-  const colors = [
-    "default",
-    "primary",
-    "secondary",
-    "success",
-    "warning",
-    "danger",
-    "foreground",
-  ];
-
-  return (
-    <div className="flex flex-wrap gap-4">
-      {colors.map((color) => (
-        <Popover key={color} placement="top" color={color}>
-          <PopoverTrigger>
-            <Button color={color} className="capitalize">
-              {color}
-            </Button>
-          </PopoverTrigger>
-          {content}
-        </Popover>
-      ))}
-    </div>
-  );
-}`;
+import App from "./colors.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
