@@ -9,6 +9,7 @@ import errorMessage from "./error-message";
 import errorMessageFunction from "./error-message-function";
 import withTimeField from "./with-time-field";
 import selectorIcon from "./selector-icon";
+import selectorButtonPlacement from "./selector-button-placement";
 import controlled from "./controlled";
 import timeZones from "./time-zones";
 import granularity from "./granularity";
@@ -19,6 +20,7 @@ import visibleMonth from "./visible-month";
 import pageBehavior from "./page-behavior";
 import nonContigous from "./non-contiguous";
 import presets from "./presets";
+import withMonthAndYearPickers from "./with-month-and-year-pickers";
 import customStyles from "./custom-styles";
 
 export const dateRangePickerContent = {
@@ -33,6 +35,7 @@ export const dateRangePickerContent = {
   errorMessageFunction,
   withTimeField,
   selectorIcon,
+  selectorButtonPlacement,
   controlled,
   timeZones,
   granularity,
@@ -43,5 +46,6 @@ export const dateRangePickerContent = {
   pageBehavior,
   nonContigous,
   presets,
+  withMonthAndYearPickers,
   customStyles,
 };

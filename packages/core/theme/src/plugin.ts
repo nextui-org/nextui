@@ -5,12 +5,8 @@
 
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
-import get from "lodash.get";
-import omit from "lodash.omit";
-import forEach from "lodash.foreach";
-import mapKeys from "lodash.mapkeys";
-import kebabCase from "lodash.kebabcase";
 import deepMerge from "deepmerge";
+import {omit, kebabCase, mapKeys} from "@nextui-org/shared-utils";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
@@ -63,7 +59,7 @@ const resolveConfig = (
     // flatten color definitions
     const flatColors = flattenThemeObject(colors) as Record<string, string>;
 
-    const flatLayout = layout ? mapKeys(layout, (value, key) => kebabCase(key)) : {};
+    const flatLayout = layout ? mapKeys(layout, (_, key) => kebabCase(key)) : {};
 
     // resolved.variants
     resolved.variants.push({
@@ -152,6 +148,9 @@ const corePlugin = (
 ) => {
   const resolved = resolveConfig(themes, defaultTheme, prefix);
 
+  const createStripeGradient = (stripeColor: string, backgroundColor: string) =>
+    `linear-gradient(45deg,  hsl(var(--${prefix}-${stripeColor})) 25%,  hsl(var(--${prefix}-${backgroundColor})) 25%,  hsl(var(--${prefix}-${backgroundColor})) 50%,  hsl(var(--${prefix}-${stripeColor})) 50%,  hsl(var(--${prefix}-${stripeColor})) 75%,  hsl(var(--${prefix}-${backgroundColor})) 75%,  hsl(var(--${prefix}-${backgroundColor})))`;
+
   return plugin(
     ({addBase, addUtilities, addVariant}) => {
       // add base classNames
@@ -216,9 +215,16 @@ const corePlugin = (
             medium: `var(--${prefix}-box-shadow-medium)`,
             large: `var(--${prefix}-box-shadow-large)`,
           },
+          backgroundSize: {
+            "stripe-size": "1.25rem 1.25rem",
+          },
           backgroundImage: {
-            "stripe-gradient":
-              "linear-gradient(45deg, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent)",
+            "stripe-gradient-default": createStripeGradient("default-200", "default-400"),
+            "stripe-gradient-primary": createStripeGradient("primary-200", "primary"),
+            "stripe-gradient-secondary": createStripeGradient("secondary-200", "secondary"),
+            "stripe-gradient-success": createStripeGradient("success-200", "success"),
+            "stripe-gradient-warning": createStripeGradient("warning-200", "warning"),
+            "stripe-gradient-danger": createStripeGradient("danger-200", "danger"),
           },
           transitionDuration: {
             0: "0ms",
@@ -246,8 +252,8 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
     addCommonColors = false,
   } = config;
 
-  const userLightColors = get(themeObject, "light.colors", {});
-  const userDarkColors = get(themeObject, "dark.colors", {});
+  const userLightColors = themeObject?.light?.colors || {};
+  const userDarkColors = themeObject?.dark?.colors || {};
 
   const defaultLayoutObj =
     userLayout && typeof userLayout === "object"
@@ -268,7 +274,7 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
   // get other themes from the config different from light and dark
   let otherThemes = omit(themeObject, ["light", "dark"]) || {};
 
-  forEach(otherThemes, ({extend, colors, layout}, themeName) => {
+  Object.entries(otherThemes).forEach(([themeName, {extend, colors, layout}]) => {
     const baseTheme = extend && isBaseTheme(extend) ? extend : defaultExtendTheme;
 
     if (colors && typeof colors === "object") {
@@ -283,12 +289,12 @@ export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugi
   });
 
   const light: ConfigTheme = {
-    layout: deepMerge(baseLayouts.light, get(themeObject, "light.layout", {})),
+    layout: deepMerge(baseLayouts.light, themeObject?.light?.layout || {}),
     colors: deepMerge(semanticColors.light, userLightColors),
   };
 
   const dark = {
-    layout: deepMerge(baseLayouts.dark, get(themeObject, "dark.layout", {})),
+    layout: deepMerge(baseLayouts.dark, themeObject?.dark?.layout || {}),
     colors: deepMerge(semanticColors.dark, userDarkColors),
   };
 

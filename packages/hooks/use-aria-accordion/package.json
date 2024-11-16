@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-accordion",
-  "version": "2.0.7",
+  "version": "2.1.0-beta.6",
   "description": "React-aria useAccordion hooks with custom implementations",
   "keywords": [
     "use-aria-accordion"
@@ -34,16 +34,16 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/button": "3.9.5",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/selection": "3.18.1",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/tree": "3.8.1",
-    "@react-types/accordion": "3.0.0-alpha.21",
-    "@react-types/shared": "3.23.1"
+    "@react-aria/button": "3.9.8",
+    "@react-aria/focus": "3.18.2",
+    "@react-aria/selection": "3.19.3",
+    "@react-aria/utils": "3.25.2",
+    "@react-stately/tree": "3.8.4",
+    "@react-types/accordion": "3.0.0-alpha.23",
+    "@react-types/shared": "3.24.1"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

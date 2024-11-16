@@ -226,7 +226,6 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     ref: domRef,
     inputRef,
     description,
-    startContent,
     validationState,
     shouldForceLeadingZeros,
     isInvalid,
@@ -275,6 +274,7 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
 
   return {
     domRef,
+    startContent,
     endContent,
     selectorIcon,
     createCalendar,

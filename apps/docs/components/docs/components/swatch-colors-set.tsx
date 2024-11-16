@@ -4,7 +4,7 @@ import {commonColors, semanticColors} from "@nextui-org/theme";
 import {useClipboard} from "@nextui-org/use-clipboard";
 import {useState} from "react";
 import {useTheme} from "next-themes";
-import {get, isEmpty} from "lodash";
+import {get, isEmpty} from "@nextui-org/shared-utils";
 
 type ColorsItem = {
   color: string;
@@ -106,7 +106,7 @@ const SemanticSwatch = ({
   let value: string = "";
   const [colorName, colorScale] = color.split("-");
 
-  let currentPalette = get(semanticColors, theme ?? "", {});
+  const currentPalette = get(semanticColors, theme ?? "", {});
 
   if (!colorScale) {
     value = get(currentPalette, `${colorName}.DEFAULT`, "");
