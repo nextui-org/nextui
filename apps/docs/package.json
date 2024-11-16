@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "rimraf .contentlayer && concurrently \"contentlayer2 dev\" \"next dev\"",
-    "build": "contentlayer2 build && next build",
+    "build": "contentlayer2 build && next build && pnpm update:github-info && pnpm update:search-meta",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,6 +12,7 @@
     "preinstall": "node preinstall.js",
     "build:sponsors": "tsx scripts/build-sponsors.ts",
     "update:search-meta": "tsx scripts/update-search-meta.ts",
+    "update:github-info": "tsx scripts/update-github-info.ts",
     "postbuild": "next-sitemap"
   },
   "dependencies": {

@@ -33,12 +33,13 @@ import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
-import {XIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
+import {GithubIcon, SearchLinearIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
 import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
 import {trackEvent} from "@/utils/va";
+import githubInfo from "@/config/github-info.json";
 
 export interface NavbarProps {
   routes: Route[];
@@ -92,22 +93,26 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   const searchButton = (
     <Button
       aria-label="Quick search"
-      className="text-sm font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20"
+      className="border-1 px-3 border-default-200 rounded-full text-small font-normal text-default-500 bg-transparent"
       endContent={
-        <Kbd className="hidden py-0.5 px-2 lg:inline-block" keys={commandKey}>
+        <Kbd
+          className="hidden text-xs rounded-full py-0.5 px-1.5 lg:inline-block"
+          keys={commandKey}
+        >
           K
         </Kbd>
       }
       startContent={
         <SearchLinearIcon
           className="text-base text-default-400 pointer-events-none flex-shrink-0"
-          size={18}
+          size={16}
           strokeWidth={2}
         />
       }
+      variant="bordered"
       onPress={handleOpenCmdk}
     >
-      Quick Search...
+      Search
     </Button>
   );
 
@@ -236,35 +241,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Figma
             </NextLink>
           </NavbarItem>
-          {/* hide feedback and changelog at this moment */}
-          {/* <NavbarItem>
-            <NextLink className={navLinkClasses} color="foreground" href="#">
-              <FbChangelogButton key="changelog" userName="" />
-            </NextLink>
-          </NavbarItem>
-          <NavbarItem>
-            <NextLink className={navLinkClasses} color="foreground" href="#">
-              <FbFeedbackButton key="feedback" userEmail="" />
-            </NextLink>
-          </NavbarItem> */}
           <NavbarItem>
             <FbRoadmapLink className={navLinkClasses} />
           </NavbarItem>
-          {/* <NavbarItem>
-            <Chip
-              as={NextLink}
-              className="hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
-              color="secondary"
-              href="/blog/v2.2.0"
-              variant="dot"
-              onClick={() => handlePressNavbarItem("Introducing v2.2.0", "/blog/v2.2.0")}
-            >
-              Introducing v2.2.0&nbsp;
-              <span aria-label="rocket emoji" role="img">
-                🚀
-              </span>
-            </Chip>
-          </NavbarItem> */}
         </ul>
       </NavbarContent>
 
@@ -274,8 +253,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             isExternal
             aria-label="Github"
             className="p-1"
-            href="https://github.com/nextui-org/nextui"
-            onClick={() => handlePressNavbarItem("Github", "https://github.com/nextui-org/nextui")}
+            href={siteConfig.links.github}
+            onPress={() => handlePressNavbarItem("Github", siteConfig.links.github)}
           >
             <GithubIcon className="text-default-600 dark:text-default-500" />
           </Link>
@@ -321,37 +300,20 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             </span>
           </Chip>
         </NavbarItem>
-        <NavbarItem className="hidden sm:flex">
-          <Link
-            isExternal
-            aria-label="X"
-            className="p-1"
-            href={siteConfig.links.twitter}
-            onPress={() => handlePressNavbarItem("Twitter", siteConfig.links.twitter)}
-          >
-            <XIcon className="text-default-600 dark:text-default-500" />
-          </Link>
-          <Link
-            isExternal
-            aria-label="Discord"
-            className="p-1"
-            href={siteConfig.links.discord}
-            onPress={() => handlePressNavbarItem("Discord", siteConfig.links.discord)}
-          >
-            <DiscordIcon className="text-default-600 dark:text-default-500" />
-          </Link>
+        <NavbarItem className="hidden sm:flex gap-2">
+          {searchButton}
           <Link
             isExternal
             aria-label="Github"
-            className="p-1"
+            className="flex gap-1 items-center h-10 px-2 border-1 border-default-200 rounded-full text-default-600 dark:text-default-500"
             href={siteConfig.links.github}
             onPress={() => handlePressNavbarItem("Github", siteConfig.links.github)}
           >
-            <GithubIcon className="text-default-600 dark:text-default-500" />
+            <GithubIcon />
+            <span className="text-small font-medium">{githubInfo.stars.formatted}</span>
           </Link>
-          <ThemeSwitch />
+          <ThemeSwitch className="border-1 border-default-200 rounded-full h-full min-w-10 min-h-10 flex items-center justify-center" />
         </NavbarItem>
-        <NavbarItem className="hidden lg:flex">{searchButton}</NavbarItem>
         {/* <NavbarItem className="hidden md:flex">
           <Button
             isExternal
