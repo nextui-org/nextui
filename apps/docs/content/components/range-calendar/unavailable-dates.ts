@@ -1,4 +1,4 @@
-import App from "./unavilable-dates.raw.jsx?raw";
+import App from "./unavailable-dates.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
