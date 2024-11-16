@@ -83,4 +83,4 @@
 "@nextui-org/test-utils": patch
 ---
 
-Fix build 2
+Fix build
