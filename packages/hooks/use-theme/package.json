@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-theme",
-  "version": "2.0.1-beta.3",
+  "version": "2.0.1-beta.6",
   "description": "React hook to switch between light and dark themes",
   "keywords": [
     "use-theme"

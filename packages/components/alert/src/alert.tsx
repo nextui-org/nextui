@@ -24,15 +24,16 @@ const iconMap = {
 
 export type AlertColor = keyof typeof iconMap;
 
-export interface AlertProps extends Omit<UseAlertProps, "hasDescription"> {
-  color: AlertColor;
-}
+export interface AlertProps extends Omit<UseAlertProps, "hasDescription"> {}
 
 const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   const {
     title,
     icon,
+    children,
     description,
+    endContent,
+    startContent,
     isClosable,
     domRef,
     handleClose,
@@ -56,14 +57,16 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
 
   return (
     <div ref={domRef} role="alert" {...getBaseProps()}>
+      {startContent}
       <div {...getIconWrapperProps()}>
         {customIcon || <IconComponent {...getAlertIconProps()} />}
       </div>
       <div {...getMainWrapperProps()}>
         {title && <div {...getTitleProps()}>{title}</div>}
         {!isEmpty(description) && <div {...getDescriptionProps()}>{description}</div>}
+        {children}
       </div>
-
+      {endContent}
       {(isClosable || onClose) && (
         <Button
           isIconOnly
