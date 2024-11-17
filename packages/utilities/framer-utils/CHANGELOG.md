@@ -1,5 +1,12 @@
 # @nextui-org/framer-utils
 
+## 2.0.26-beta.8
+
+### Patch Changes
+
+- Updated dependencies [[`4607fe2ff`](https://github.com/nextui-org/nextui/commit/4607fe2ff448a536496c2b59ccdfcb217379b6ed)]:
+  - @nextui-org/system@2.3.0-beta.8
+
 ## 2.0.26-beta.7
 
 ### Patch Changes
