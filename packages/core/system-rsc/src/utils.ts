@@ -18,6 +18,21 @@ export function forwardRef<
   return baseForwardRef(component) as InternalForwardRefRenderFunction<Component, Props, OmitKeys>;
 }
 
+export function wrapForwardRefTypes<
+  Component extends As,
+  Props extends object,
+  OmitKeys extends keyof any = never,
+>(
+  component: React.ForwardRefRenderFunction<
+    any,
+    RightJoinProps<PropsOf<Component>, Props> & {
+      as?: As;
+    }
+  >,
+) {
+  return component as InternalForwardRefRenderFunction<Component, Props, OmitKeys>;
+}
+
 export const toIterator = (obj: any) => {
   return {
     ...obj,
