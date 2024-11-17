@@ -5,12 +5,13 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: ["group inline-flex flex-col relative w-full"],
+    base: ["group inline-flex flex-col relative"],
     label: [
       "block",
       "absolute",
       "z-10",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "text-small",
@@ -22,9 +23,9 @@ const select = tv({
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
       "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
-    selectorIcon: "absolute right-3 rtl:left-3 rtl:right-[unset] w-4 h-4",
-    spinner: "absolute right-3 rtl:left-3 rtl:right-[unset]",
-    value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
+    selectorIcon: "absolute end-3 w-4 h-4",
+    spinner: "absolute end-3",
+    value: ["text-foreground-500", "font-normal", "w-full", "text-start"],
     listboxWrapper: "scroll-py-6 max-h-64 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
@@ -37,8 +38,8 @@ const select = tv({
       flat: {
         trigger: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-200",
-          "group-data-[focus=true]:bg-default-100",
+          "data-[hover=true]:bg-default-50",
+          "group-data-[focus=true]:bg-default-50",
         ],
       },
       faded: {
@@ -46,7 +47,7 @@ const select = tv({
           "bg-default-100",
           "border-medium",
           "border-default-200",
-          "data-[hover=true]:border-default-400",
+          "data-[hover=true]:border-default-400 data-[focus=true]:border-default-400 data-[open=true]:border-default-400",
         ],
         value: "group-data-[has-value=true]:text-default-foreground",
       },
@@ -57,8 +58,8 @@ const select = tv({
           "data-[hover=true]:border-default-400",
           "data-[open=true]:border-default-foreground",
           "data-[focus=true]:border-default-foreground",
-          "data-[focus=true]:border-default-foreground",
         ],
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
       underlined: {
         trigger: [
@@ -84,7 +85,7 @@ const select = tv({
           "data-[open=true]:after:w-full",
           "data-[focus=true]:after:w-full",
         ],
-        label: "group-data-[filled=true]:text-foreground",
+        value: "group-data-[has-value=true]:text-default-foreground",
       },
     },
     color: {
@@ -133,7 +134,7 @@ const select = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap items-start",
-        label: "relative pr-2 rtl:pl-2 rtl:pr-[unset] text-foreground",
+        label: "relative pe-2 text-foreground",
       },
       inside: {
         label: "text-tiny cursor-pointer",
@@ -143,6 +144,9 @@ const select = tv({
     fullWidth: {
       true: {
         base: "w-full",
+      },
+      false: {
+        base: "min-w-40",
       },
     },
     isDisabled: {
@@ -160,7 +164,7 @@ const select = tv({
     },
     isRequired: {
       true: {
-        label: "after:content-['*'] after:text-danger after:ml-0.5",
+        label: "after:content-['*'] after:text-danger after:ms-0.5",
       },
     },
     isMultiline: {
@@ -184,6 +188,7 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
+          // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
           "rtl:origin-top-right",
           "!duration-200",
           "!ease-out",
@@ -217,6 +222,7 @@ const select = tv({
       color: "default",
       class: {
         value: "group-data-[has-value=true]:text-default-foreground",
+        trigger: ["bg-default-100", "data-[hover=true]:bg-default-50"],
       },
     },
     {
@@ -224,9 +230,9 @@ const select = tv({
       color: "primary",
       class: {
         trigger: [
-          "bg-primary-50",
+          "bg-primary-100",
           "text-primary",
-          "data-[hover=true]:bg-primary-100",
+          "data-[hover=true]:bg-primary-50",
           "group-data-[focus=true]:bg-primary-50",
         ],
         value: "text-primary",
@@ -238,9 +244,9 @@ const select = tv({
       color: "secondary",
       class: {
         trigger: [
-          "bg-secondary-50",
+          "bg-secondary-100",
           "text-secondary",
-          "data-[hover=true]:bg-secondary-100",
+          "data-[hover=true]:bg-secondary-50",
           "group-data-[focus=true]:bg-secondary-50",
         ],
         value: "text-secondary",
@@ -252,10 +258,10 @@ const select = tv({
       color: "success",
       class: {
         trigger: [
-          "bg-success-50",
+          "bg-success-100",
           "text-success-600",
           "dark:text-success",
-          "data-[hover=true]:bg-success-100",
+          "data-[hover=true]:bg-success-50",
           "group-data-[focus=true]:bg-success-50",
         ],
         value: "text-success-600 dark:text-success",
@@ -267,10 +273,10 @@ const select = tv({
       color: "warning",
       class: {
         trigger: [
-          "bg-warning-50",
+          "bg-warning-100",
           "text-warning-600",
           "dark:text-warning",
-          "data-[hover=true]:bg-warning-100",
+          "data-[hover=true]:bg-warning-50",
           "group-data-[focus=true]:bg-warning-50",
         ],
         value: "text-warning-600 dark:text-warning",
@@ -282,10 +288,10 @@ const select = tv({
       color: "danger",
       class: {
         trigger: [
-          "bg-danger-50",
+          "bg-danger-100",
           "text-danger",
           "dark:text-danger-500",
-          "data-[hover=true]:bg-danger-100",
+          "data-[hover=true]:bg-danger-50",
           "group-data-[focus=true]:bg-danger-50",
         ],
         value: "text-danger dark:text-danger-500",
@@ -297,7 +303,8 @@ const select = tv({
       variant: "faded",
       color: "primary",
       class: {
-        trigger: "data-[hover=true]:border-primary",
+        trigger:
+          "data-[hover=true]:border-primary data-[focus=true]:border-primary data-[open=true]:border-primary",
         label: "text-primary",
       },
     },
@@ -305,7 +312,8 @@ const select = tv({
       variant: "faded",
       color: "secondary",
       class: {
-        trigger: "data-[hover=true]:border-secondary",
+        trigger:
+          "data-[hover=true]:border-secondary data-[focus=true]:border-secondary data-[open=true]:border-secondary",
         label: "text-secondary",
       },
     },
@@ -313,7 +321,8 @@ const select = tv({
       variant: "faded",
       color: "success",
       class: {
-        trigger: "data-[hover=true]:border-success",
+        trigger:
+          "data-[hover=true]:border-success data-[focus=true]:border-success data-[open=true]:border-success",
         label: "text-success",
       },
     },
@@ -321,7 +330,8 @@ const select = tv({
       variant: "faded",
       color: "warning",
       class: {
-        trigger: "data-[hover=true]:border-warning",
+        trigger:
+          "data-[hover=true]:border-warning data-[focus=true]:border-warning data-[open=true]:border-warning",
         label: "text-warning",
       },
     },
@@ -329,7 +339,8 @@ const select = tv({
       variant: "faded",
       color: "danger",
       class: {
-        trigger: "data-[hover=true]:border-danger",
+        trigger:
+          "data-[hover=true]:border-danger data-[focus=true]:border-danger data-[open=true]:border-danger",
         label: "text-danger",
       },
     },
@@ -535,27 +546,12 @@ const select = tv({
         trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },
-    //  labelPlacement=[inside, outside]
-    {
-      labelPlacement: ["inside", "outside"],
-      class: {
-        label: ["group-data-[filled=true]:pointer-events-auto"],
-      },
-    },
     {
       labelPlacement: "outside",
       isMultiline: false,
       class: {
         base: "group relative justify-end",
-        label: [
-          "pb-0",
-          "z-20",
-          "top-1/2",
-          "-translate-y-1/2",
-          "group-data-[filled=true]:left-0",
-          "rtl:group-data-[filled=true]:right-0",
-          "rtl:group-data-[filled=true]:left-[unset]",
-        ],
+        label: ["pb-0", "z-20", "top-1/2", "-translate-y-1/2", "group-data-[filled=true]:start-0"],
       },
     },
     // labelPlacement=[inside]
@@ -680,9 +676,7 @@ const select = tv({
       isMultiline: false,
       class: {
         label: [
-          "left-2",
-          "rtl:right-2",
-          "rtl:left-[unset]",
+          "start-2",
           "text-tiny",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
         ],
@@ -695,9 +689,7 @@ const select = tv({
       size: "md",
       class: {
         label: [
-          "left-3",
-          "rtl:right-3",
-          "rtl:left-[unset]",
+          "start-3",
           "text-small",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
         ],
@@ -710,9 +702,7 @@ const select = tv({
       size: "lg",
       class: {
         label: [
-          "left-3",
-          "rtl:right-3",
-          "rtl:left-[unset]",
+          "start-3",
           "text-medium",
           "group-data-[filled=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],

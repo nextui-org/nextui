@@ -1,4 +1,5 @@
-import "@testing-library/jest-dom/extend-expect";
+import "@testing-library/jest-dom";
+import { configure } from "@testing-library/react";
 
 const {getComputedStyle} = window;
 window.getComputedStyle = (elt) => getComputedStyle(elt);
@@ -29,3 +30,7 @@ global.ResizeObserver = jest.fn().mockImplementation(() => ({
   unobserve: jest.fn(),
   disconnect: jest.fn(),
 }));
+
+configure({
+  reactStrictMode: process.env.STRICT_MODE === "true",
+});

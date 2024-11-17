@@ -7,7 +7,7 @@ import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useRef} from "react";
+import {ReactNode, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -110,13 +110,30 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Whether to enable virtualization of the listbox items.
+   * By default, virtualization is automatically enabled when the number of items is greater than 50.
+   * @default undefined
+   */
+  isVirtualized?: boolean;
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
   Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
   ComboBoxProps<T> &
   AsyncLoadable &
-  AutocompleteVariantProps;
+  AutocompleteVariantProps & {
+    /**
+     * The height of each item in the listbox.
+     * This is required for virtualized listboxes to calculate the height of each item.
+     */
+    itemHeight?: number;
+    /**
+     * The max height of the listbox (which will be rendered in a popover).
+     * This is required for virtualized listboxes to set the maximum height of the listbox.
+     */
+    maxListboxHeight?: number;
+  };
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
   const globalContext = useProviderContext();
@@ -158,6 +175,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
+    isVirtualized,
+    maxListboxHeight = 256,
+    itemHeight = 32,
     validationBehavior = globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
@@ -317,11 +337,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     }
   }, [inputRef.current]);
 
+  // focus first non-disabled item
   useEffect(() => {
-    // set input focus
-    if (isOpen) {
-      onFocus(true);
+    let key = state.collection.getFirstKey();
 
+    while (key && state.disabledKeys.has(key)) {
+      key = state.collection.getKeyAfter(key);
+    }
+    state.selectionManager.setFocusedKey(key);
+  }, [state.collection, state.disabledKeys]);
+
+  useEffect(() => {
+    if (isOpen) {
       // apply the same with to the popover as the select
       if (popoverRef.current && inputWrapperRef.current) {
         let rect = inputWrapperRef.current.getBoundingClientRect();
@@ -361,20 +388,6 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     [objectToDeps(variantProps), isClearable, disableAnimation, className],
   );
 
-  const onClear = useCallback(() => {
-    state.setInputValue("");
-    state.setSelectedKey(null);
-    state.close();
-  }, [state]);
-
-  const onFocus = useCallback(
-    (isFocused: boolean) => {
-      inputRef.current?.focus();
-      state.setFocused(isFocused);
-    },
-    [state, inputRef],
-  );
-
   const getBaseProps: PropGetter = () => ({
     "data-invalid": dataAttr(isInvalid),
     "data-open": dataAttr(state.isOpen),
@@ -395,19 +408,22 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     ({
       ...mergeProps(buttonProps, slotsProps.clearButtonProps),
       // disable original focus and state toggle from react aria
-      onPressStart: () => {},
+      onPressStart: () => {
+        // this is in PressStart for mobile so that touching the clear button doesn't remove focus from
+        // the input and close the keyboard
+        inputRef.current?.focus();
+      },
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
-
         if (state.selectedItem) {
-          onClear();
+          state.setInputValue("");
+          state.setSelectedKey(null);
         } else {
           if (allowsCustomValue) {
             state.setInputValue("");
-            state.close();
           }
         }
-        inputRef?.current?.focus();
+        state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
       className: slots.clearButton({
@@ -429,14 +445,25 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 
-  const getListBoxProps = () =>
-    ({
+  const getListBoxProps = () => {
+    // Use isVirtualized prop if defined, otherwise fallback to default behavior
+    const shouldVirtualize = isVirtualized ?? state.collection.size > 50;
+
+    return {
       state,
       ref: listBoxRef,
+      isVirtualized: shouldVirtualize,
+      virtualization: shouldVirtualize
+        ? {
+            maxListboxHeight,
+            itemHeight,
+          }
+        : undefined,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
-    } as ListboxProps);
+    } as ListboxProps;
+  };
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
     const popoverProps = mergeProps(slotsProps.popoverProps, props);
@@ -483,19 +510,28 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         props?.className,
       ),
     }),
+    style: {
+      maxHeight: originalProps.maxListboxHeight ?? 256,
+    },
   });
 
   const getEndContentWrapperProps: PropGetter = (props: any = {}) => ({
     className: slots.endContentWrapper({
       class: clsx(classNames?.endContentWrapper, props?.className),
     }),
-    onClick: (e) => {
-      const inputFocused = inputRef.current === document.activeElement;
-
-      if (!inputFocused && !state.isFocused && e.currentTarget === e.target) {
-        onFocus(true);
+    onPointerDown: chain(props.onPointerDown, (e: React.PointerEvent) => {
+      if (e.button === 0 && e.currentTarget === e.target) {
+        inputRef.current?.focus();
       }
-    },
+    }),
+    onMouseDown: chain(props.onMouseDown, (e: React.MouseEvent) => {
+      if (e.button === 0 && e.currentTarget === e.target) {
+        // Chrome and Firefox on touch Windows devices require mouse down events
+        // to be canceled in addition to pointer events, or an extra asynchronous
+        // focus event will be fired.
+        e.preventDefault();
+      }
+    }),
   });
 
   return {

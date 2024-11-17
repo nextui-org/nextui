@@ -10,10 +10,10 @@ const calendar = tv({
       "rounded-large overflow-x-auto bg-default-50 dark:bg-background",
       "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
     ],
-    prevButton: [],
-    nextButton: [],
+    prevButton: ["order-1"],
+    nextButton: ["order-3"],
     headerWrapper: [
-      "px-4 py-2 flex items-center justify-between gap-2 bg-content1 overflow-hidden",
+      "px-4 py-2 flex items-center justify-between gap-2 bg-content1 overflow-hidden rtl:flex-row-reverse",
       "[&_.chevron-icon]:flex-none",
       // month/year picker wrapper
       "after:content-['']",
@@ -21,7 +21,7 @@ const calendar = tv({
       "after:w-full after:h-0",
       "after:absolute after:top-0 after:left-0",
     ],
-    header: "flex w-full items-center justify-center gap-2 z-10",
+    header: "flex w-full items-center justify-center gap-2 z-10 order-2",
     title: "text-default-500 text-small font-medium",
     content: "w-[calc(var(--visible-months)_*_var(--calendar-width))]",
     gridWrapper: "flex max-w-full overflow-hidden pb-2 h-auto relative",

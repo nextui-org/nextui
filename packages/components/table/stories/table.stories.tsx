@@ -22,6 +22,7 @@ import {
   TableProps,
   getKeyValue,
 } from "../src";
+import {Switch} from "../../switch/src";
 
 export default {
   title: "Components/Table",
@@ -146,6 +147,46 @@ const StaticTemplate = (args: TableProps) => (
         <TableCell>William Howard</TableCell>
         <TableCell>Community Manager</TableCell>
         <TableCell>Vacation</TableCell>
+      </TableRow>
+    </TableBody>
+  </Table>
+);
+
+const TableWithSwitchTemplate = (args: TableProps) => (
+  <Table aria-label="Table with Switch" {...args}>
+    <TableHeader>
+      <TableColumn>NAME</TableColumn>
+      <TableColumn>ROLE</TableColumn>
+      <TableColumn>ACTIVE</TableColumn>
+    </TableHeader>
+    <TableBody>
+      <TableRow key="1">
+        <TableCell>Tony Reichert</TableCell>
+        <TableCell>CEO</TableCell>
+        <TableCell>
+          <Switch />
+        </TableCell>
+      </TableRow>
+      <TableRow key="2">
+        <TableCell>Zoey Lang</TableCell>
+        <TableCell>Technical Lead</TableCell>
+        <TableCell>
+          <Switch />
+        </TableCell>
+      </TableRow>
+      <TableRow key="3">
+        <TableCell>Jane Fisher</TableCell>
+        <TableCell>Senior Developer</TableCell>
+        <TableCell>
+          <Switch />
+        </TableCell>
+      </TableRow>
+      <TableRow key="4">
+        <TableCell>William Howard</TableCell>
+        <TableCell>Community Manager</TableCell>
+        <TableCell>
+          <Switch />
+        </TableCell>
       </TableRow>
     </TableBody>
   </Table>
@@ -1059,5 +1100,13 @@ export const DisableAnimation = {
     selectionMode: "multiple",
     color: "secondary",
     disableAnimation: true,
+  },
+};
+
+export const TableWithSwitch = {
+  render: TableWithSwitchTemplate,
+  args: {
+    ...defaultProps,
+    selectionMode: "multiple",
   },
 };

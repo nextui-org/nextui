@@ -30,7 +30,7 @@ describe("Accordion", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toBeCalledTimes(0);
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {
@@ -121,9 +121,7 @@ describe("Accordion", () => {
 
     expect(button).toHaveAttribute("aria-expanded", "false");
 
-    await act(async () => {
-      await user.click(button);
-    });
+    await user.click(button);
 
     expect(button).toHaveAttribute("aria-expanded", "true");
   });
@@ -163,18 +161,12 @@ describe("Accordion", () => {
     const second = wrapper.getByTestId("item-2");
     const secondButton = second.querySelector("button") as HTMLElement;
 
-    act(() => {
-      focus(firstButton);
-    });
-
-    await act(async () => {
-      await user.keyboard("[ArrowDown]");
-    });
+    await focus(firstButton);
+    await user.keyboard("[ArrowDown]");
     expect(secondButton).toHaveFocus();
 
-    await act(async () => {
-      await user.keyboard("[ArrowUp]");
-    });
+    await user.keyboard("[ArrowUp]");
+
     expect(firstButton).toHaveFocus();
   });
 
@@ -200,14 +192,10 @@ describe("Accordion", () => {
       focus(secondButton);
     });
 
-    await act(async () => {
-      await user.keyboard("[Home]");
-    });
+    await user.keyboard("[Home]");
     expect(firstButton).toHaveFocus();
 
-    await act(async () => {
-      await user.keyboard("[End]");
-    });
+    await user.keyboard("[End]");
     expect(secondButton).toHaveFocus();
   });
 
@@ -233,9 +221,7 @@ describe("Accordion", () => {
       focus(firstButton);
     });
 
-    await act(async () => {
-      await user.keyboard("[Tab]");
-    });
+    await user.keyboard("[Tab]");
     expect(secondButton).toHaveFocus();
   });
 
@@ -276,10 +262,7 @@ describe("Accordion", () => {
 
     expect(button).toHaveAttribute("aria-expanded", "false");
 
-    await act(async () => {
-      await user.click(button);
-    });
-
+    await user.click(button);
     expect(button).toHaveAttribute("aria-expanded", "true");
   });
 
@@ -300,17 +283,11 @@ describe("Accordion", () => {
 
     expect(item1.querySelector("[role='region']")).toBeInTheDocument();
 
-    await act(async () => {
-      await user.click(button);
-    });
-
+    await user.click(button);
     const item2 = wrapper.getByTestId("item-2");
     const button2 = item2.querySelector("button") as HTMLElement;
 
-    await act(async () => {
-      await user.click(button2);
-    });
-
+    await user.click(button2);
     expect(item1.querySelector("[role='region']")).toBeInTheDocument();
     expect(item2.querySelector("[role='region']")).toBeInTheDocument();
   });
@@ -331,29 +308,22 @@ describe("Accordion", () => {
 
     const firstButton = await wrapper.getByRole("button", {name: "Accordion Item 1"});
 
-    await act(() => {
+    act(() => {
       focus(firstButton);
     });
-    await act(async () => {
-      await user.keyboard("[Tab]");
-    });
+
+    await user.keyboard("[Tab]");
     expect(input).toHaveFocus();
 
-    await act(async () => {
-      await user.keyboard("aaa");
-    });
+    await user.keyboard("aaa");
     expect(input).toHaveValue("aaa");
 
-    await act(async () => {
-      await user.keyboard("[ArrowLeft]");
-      await user.keyboard("b");
-    });
+    await user.keyboard("[ArrowLeft]");
+    await user.keyboard("b");
     expect(input).toHaveValue("aaba");
 
-    await act(async () => {
-      await user.keyboard("[ArrowRight]");
-      await user.keyboard("c");
-    });
+    await user.keyboard("[ArrowRight]");
+    await user.keyboard("c");
     expect(input).toHaveValue("aabac");
   });
 

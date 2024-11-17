@@ -1,5 +1,53 @@
 # @nextui-org/use-scroll-position
 
+## 2.0.10-beta.4
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+## 2.0.10-beta.3
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
+## 2.0.10-beta.2
+
+### Patch Changes
+
+- [#4083](https://github.com/nextui-org/nextui/pull/4083) [`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
+## 2.0.10-beta.1
+
+### Patch Changes
+
+- [#4010](https://github.com/nextui-org/nextui/pull/4010) [`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
+
+## 2.0.10-beta.0
+
+### Patch Changes
+
+- [#4008](https://github.com/nextui-org/nextui/pull/4008) [`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React 19 added to peerDeps
+
+## 2.0.9
+
+### Patch Changes
+
+- [#3247](https://github.com/nextui-org/nextui/pull/3247) [`b0728e3c3`](https://github.com/nextui-org/nextui/commit/b0728e3c3841ce6abb6ed6d4617ddb5242077324) Thanks [@vetan2](https://github.com/vetan2)! - re-attach scroll event behavior in `useScrollPosition`
+
+## 2.0.8
+
+### Patch Changes
+
+- [#3512](https://github.com/nextui-org/nextui/pull/3512) [`2d2d300a1`](https://github.com/nextui-org/nextui/commit/2d2d300a12dbe20ca7ebd125daf3dce74efcbf34) Thanks [@wingkwong](https://github.com/wingkwong)! - fix conflicting versions in npm
+
+## 2.0.7
+
+### Patch Changes
+
+- [#3315](https://github.com/nextui-org/nextui/pull/3315) [`35e709de7`](https://github.com/nextui-org/nextui/commit/35e709de7d3300c2de0b9158d098b10ef185d6ca) Thanks [@pratyush3124](https://github.com/pratyush3124)! - clearing throttleTimeout when it is supposed to be null in useScrollPosition (#3139)
+
 ## 2.0.6
 
 ### Patch Changes

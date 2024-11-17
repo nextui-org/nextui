@@ -18,7 +18,7 @@ import {
   dataFocusVisibleClasses,
 } from "@nextui-org/react";
 import Link from "next/link";
-import {isEmpty} from "lodash";
+import {isEmpty} from "@nextui-org/shared-utils";
 import {usePathname, useRouter} from "next/navigation";
 
 import {ScrollArea} from "../scroll-area";
@@ -171,7 +171,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
         </span>
         {isUpdated && (
           <Chip
-            className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
+            className="ml-1 py-1 text-tiny text-default-500 dark:text-default-400 bg-default-100 dark:bg-default-100/50"
             color="default"
             size="sm"
             variant="flat"

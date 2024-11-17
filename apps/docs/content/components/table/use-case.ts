@@ -74,7 +74,7 @@ const users = [
     age: "29",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     email: "brian.kim@example.com",
-    status: "Active",
+    status: "active",
   },
   {
     id: 7,
@@ -448,8 +448,8 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
 };`;
 
-const utils = `export function capitalize(str) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+const utils = `export function capitalize(s) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : "";
 }`;
 
 const PlusIcon = `export const PlusIcon = ({size = 24, width, height, ...props}) => (
@@ -544,8 +544,8 @@ const ChevronDownIcon = `export const ChevronDownIcon = ({strokeWidth = 1.5, ...
   </svg>
 );`;
 
-const utilsTs = `export function capitalize(str: string) {
-  return str.charAt(0).toUpperCase() + str.slice(1);
+const utilsTs = `export function capitalize(s: string) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1).toLowerCase() : "";
 }`;
 
 const PlusIconTs = `import {IconSvgProps} from "./types";

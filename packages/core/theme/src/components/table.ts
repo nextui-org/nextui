@@ -56,25 +56,21 @@ const table = tv({
     table: "min-w-full h-auto",
     thead: "[&>tr]:first:rounded-lg",
     tbody: "",
-    tr: ["group", "outline-none", ...dataFocusVisibleClasses],
+    tr: ["group/tr", "outline-none", ...dataFocusVisibleClasses],
     th: [
-      "group",
+      "group/th",
       "px-3",
       "h-10",
+      "text-start",
       "align-middle",
       "bg-default-100",
       "whitespace-nowrap",
       "text-foreground-500",
       "text-tiny",
       "font-semibold",
-      "first:rounded-l-lg",
-      "rtl:first:rounded-r-lg",
-      "rtl:first:rounded-l-[unset]",
-      "last:rounded-r-lg",
-      "rtl:last:rounded-l-lg",
-      "rtl:last:rounded-r-[unset]",
+      "first:rounded-s-lg",
+      "last:rounded-e-lg",
       "outline-none",
-      "data-[sortable=true]:transition-colors",
       "data-[sortable=true]:cursor-pointer",
       "data-[hover=true]:text-foreground-400",
       ...dataFocusVisibleClasses,
@@ -99,19 +95,19 @@ const table = tv({
       "before:opacity-0",
       "data-[selected=true]:before:opacity-100",
       // disabled
-      "group-data-[disabled=true]:text-foreground-300",
-      "group-data-[disabled=true]:cursor-not-allowed",
+      "group-data-[disabled=true]/tr:text-foreground-300",
+      "group-data-[disabled=true]/tr:cursor-not-allowed",
     ],
     tfoot: "",
     sortIcon: [
-      "ml-2",
+      "ms-2",
       "mb-px",
       "opacity-0",
       "text-inherit",
       "inline-block",
       "transition-transform-opacity",
       "data-[visible=true]:opacity-100",
-      "group-data-[hover=true]:opacity-100",
+      "group-data-[hover=true]/th:opacity-100",
       "data-[direction=ascending]:rotate-180",
     ],
     emptyWrapper: "text-foreground-400 align-middle text-center h-40",
@@ -182,9 +178,9 @@ const table = tv({
     isStriped: {
       true: {
         td: [
-          "group-data-[odd=true]:before:bg-default-100",
-          "group-data-[odd=true]:before:opacity-100",
-          "group-data-[odd=true]:before:-z-10",
+          "group-data-[odd=true]/tr:before:bg-default-100",
+          "group-data-[odd=true]/tr:before:opacity-100",
+          "group-data-[odd=true]/tr:before:-z-10",
         ],
       },
     },
@@ -203,8 +199,8 @@ const table = tv({
       true: {
         tr: "cursor-default",
         td: [
-          "group-aria-[selected=false]:group-data-[hover=true]:before:bg-default-100",
-          "group-aria-[selected=false]:group-data-[hover=true]:before:opacity-70",
+          "group-aria-[selected=false]/tr:group-data-[hover=true]/tr:before:bg-default-100",
+          "group-aria-[selected=false]/tr:group-data-[hover=true]/tr:before:opacity-70",
         ],
       },
     },
@@ -212,32 +208,17 @@ const table = tv({
       true: {
         td: [
           // first
-          "group-data-[first=true]:first:before:rounded-tl-lg",
-          "group-data-[first=true]:rtl:first:before:rounded-tr-lg",
-          "group-data-[first=true]:rtl:first:before:rounded-tl-[unset]",
-          "group-data-[first=true]:last:before:rounded-tr-lg",
-          "group-data-[first=true]:rtl:last:before:rounded-tl-lg",
-          "group-data-[first=true]:rtl:last:before:rounded-tr-[unset]",
+          "group-data-[first=true]/tr:first:before:rounded-ts-lg",
+          "group-data-[first=true]/tr:last:before:rounded-te-lg",
           // middle
-          "group-data-[middle=true]:before:rounded-none",
+          "group-data-[middle=true]/tr:before:rounded-none",
           // last
-          "group-data-[last=true]:first:before:rounded-bl-lg",
-          "group-data-[last=true]:rtl:first:before:rounded-br-lg",
-          "group-data-[last=true]:rtl:first:before:rounded-bl-[unset]",
-          "group-data-[last=true]:last:before:rounded-br-lg",
-          "group-data-[last=true]:rtl:last:before:rounded-bl-lg",
-          "group-data-[last=true]:rtl:last:before:rounded-br-[unset]",
+          "group-data-[last=true]/tr:first:before:rounded-bs-lg",
+          "group-data-[last=true]/tr:last:before:rounded-be-lg",
         ],
       },
       false: {
-        td: [
-          "first:before:rounded-l-lg",
-          "rtl:first:before:rounded-r-lg",
-          "rtl:first:before:rounded-l-[unset]",
-          "last:before:rounded-r-lg",
-          "rtl:last:before:rounded-l-lg",
-          "rtl:last:before:rounded-r-[unset]",
-        ],
+        td: ["first:before:rounded-s-lg", "last:before:rounded-e-lg"],
       },
     },
     fullWidth: {
@@ -278,42 +259,42 @@ const table = tv({
       isStriped: true,
       color: "default",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-default/60",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-default/60",
       },
     },
     {
       isStriped: true,
       color: "primary",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-primary/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-primary/20",
       },
     },
     {
       isStriped: true,
       color: "secondary",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-secondary/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-secondary/20",
       },
     },
     {
       isStriped: true,
       color: "success",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-success/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-success/20",
       },
     },
     {
       isStriped: true,
       color: "warning",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-warning/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-warning/20",
       },
     },
     {
       isStriped: true,
       color: "danger",
       class: {
-        td: "group-data-[odd=true]:data-[selected=true]:before:bg-danger/20",
+        td: "group-data-[odd=true]/tr:data-[selected=true]/tr:before:bg-danger/20",
       },
     },
   ],

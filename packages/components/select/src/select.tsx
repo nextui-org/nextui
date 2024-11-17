@@ -29,7 +29,7 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
     endContent,
     placeholder,
     renderValue,
-    isOutsideLeft,
+    shouldLabelBeOutside,
     disableAnimation,
     getBaseProps,
     getLabelProps,
@@ -53,15 +53,18 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   const clonedIcon = cloneElement(selectorIcon as ReactElement, getSelectorIconProps());
 
   const helperWrapper = useMemo(() => {
-    if (!hasHelper) return null;
+    const shouldShowError = isInvalid && errorMessage;
+    const hasContent = shouldShowError || description;
+
+    if (!hasHelper || !hasContent) return null;
 
     return (
       <div {...getHelperWrapperProps()}>
-        {isInvalid && errorMessage ? (
+        {shouldShowError ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
+        ) : (
           <div {...getDescriptionProps()}>{description}</div>
-        ) : null}
+        )}
       </div>
     );
   }, [
@@ -117,10 +120,10 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   return (
     <div {...getBaseProps()}>
       <HiddenSelect {...getHiddenSelectProps()} />
-      {isOutsideLeft ? labelContent : null}
+      {shouldLabelBeOutside ? labelContent : null}
       <div {...getMainWrapperProps()}>
         <Component {...getTriggerProps()}>
-          {!isOutsideLeft ? labelContent : null}
+          {!shouldLabelBeOutside ? labelContent : null}
           <div {...getInnerWrapperProps()}>
             {startContent}
             <span {...getValueProps()}>{renderSelectedItem}</span>

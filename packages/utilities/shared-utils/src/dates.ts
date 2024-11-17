@@ -16,7 +16,7 @@ export function getGregorianYearOffset(identifier: string): number {
     case "islamic-umalqura":
       return -579;
     case "persian":
-      return 622;
+      return -600;
     case "roc":
     case "japanese":
     case "gregory":
