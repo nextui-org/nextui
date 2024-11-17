@@ -260,7 +260,11 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           </Link>
         </NavbarItem>
         <NavbarItem className="flex h-full items-center">
-          <ThemeSwitch />
+          <ThemeSwitch
+            classNames={{
+              wrapper: "!text-default-500 dark:!text-default-500",
+            }}
+          />
         </NavbarItem>
         <NavbarItem className="flex h-full items-center">
           <button

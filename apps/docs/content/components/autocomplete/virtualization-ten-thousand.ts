@@ -39,7 +39,7 @@ export default function App() {
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
       <Autocomplete 
         isVirtualized
-        label="Search from 1000 items" 
+        label="Search from 10000 items" 
         className="max-w-xs"
         defaultItems={items}
         placeholder="Search..."
