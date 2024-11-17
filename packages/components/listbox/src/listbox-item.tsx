@@ -1,5 +1,5 @@
 import {useMemo, ReactNode} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {wrapForwardRefTypes} from "@nextui-org/system";
 
 import {UseListboxItemProps, useListboxItem} from "./use-listbox-item";
 import {ListboxSelectedIcon} from "./listbox-selected-icon";
@@ -9,7 +9,7 @@ export interface ListboxItemProps<T extends object = object> extends UseListboxI
 /**
  * @internal
  */
-const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
+const ListboxItem = wrapForwardRefTypes<"li", ListboxItemProps>((props) => {
   const {
     Component,
     rendered,

@@ -21,6 +21,7 @@ export {
   mapPropsVariants,
   mapPropsVariantsWithCommon,
   isNextUIEl,
+  wrapForwardRefTypes,
 } from "./utils";
 
 export {extendVariants} from "./extend-variants";

@@ -25,6 +25,7 @@ export {
   mapPropsVariantsWithCommon,
   isNextUIEl,
   extendVariants,
+  wrapForwardRefTypes,
 } from "@nextui-org/system-rsc";
 
 export type {SupportedCalendars} from "./types";

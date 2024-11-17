@@ -1,5 +1,5 @@
 import {useMemo, ReactNode} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {wrapForwardRefTypes} from "@nextui-org/system";
 
 import {UseMenuItemProps, useMenuItem} from "./use-menu-item";
 import {MenuSelectedIcon} from "./menu-selected-icon";
@@ -9,7 +9,7 @@ export interface MenuItemProps<T extends object = object> extends UseMenuItemPro
 /**
  * @internal
  */
-const MenuItem = forwardRef<"li", MenuItemProps>((props, _) => {
+const MenuItem = wrapForwardRefTypes<"li", MenuItemProps>((props) => {
   const {
     Component,
     slots,
