@@ -8,29 +8,31 @@ import {
   User,
 } from "@nextui-org/react";
 
-export const PlusIcon = (props) => (
-  <svg
-    aria-hidden="true"
-    fill="none"
-    focusable="false"
-    height="1em"
-    role="presentation"
-    viewBox="0 0 24 24"
-    width="1em"
-    {...props}
-  >
-    <g
+export const PlusIcon = (props) => {
+  return (
+    <svg
+      aria-hidden="true"
       fill="none"
-      stroke="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth={1.5}
+      focusable="false"
+      height="1em"
+      role="presentation"
+      viewBox="0 0 24 24"
+      width="1em"
+      {...props}
     >
-      <path d="M6 12h12" />
-      <path d="M12 18V6" />
-    </g>
-  </svg>
-);
+      <g
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={1.5}
+      >
+        <path d="M6 12h12" />
+        <path d="M12 18V6" />
+      </g>
+    </svg>
+  );
+};
 
 export default function App() {
   return (
