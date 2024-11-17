@@ -1,4 +1,4 @@
-import App from "./page-behaviour.raw.jsx?raw";
+import App from "./page-behavior.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
