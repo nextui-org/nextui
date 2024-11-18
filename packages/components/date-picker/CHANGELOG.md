@@ -1,5 +1,88 @@
 # @nextui-org/date-picker
 
+## 2.2.0-beta.10
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/button@2.1.0-beta.7
+  - @nextui-org/calendar@2.1.0-beta.9
+  - @nextui-org/date-input@2.2.0-beta.7
+  - @nextui-org/popover@2.2.0-beta.9
+  - @nextui-org/aria-utils@2.1.0-beta.8
+
+## 2.2.0-beta.9
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+- Updated dependencies [[`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
+  - @nextui-org/button@2.1.0-beta.7
+  - @nextui-org/calendar@2.1.0-beta.8
+  - @nextui-org/date-input@2.2.0-beta.7
+  - @nextui-org/popover@2.2.0-beta.8
+  - @nextui-org/aria-utils@2.1.0-beta.7
+  - @nextui-org/react-utils@2.0.18-beta.7
+  - @nextui-org/shared-icons@2.0.10-beta.6
+  - @nextui-org/shared-utils@2.0.9-beta.7
+
+## 2.2.0-beta.8
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
+- Updated dependencies [[`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb)]:
+  - @nextui-org/button@2.1.0-beta.6
+  - @nextui-org/calendar@2.1.0-beta.7
+  - @nextui-org/date-input@2.2.0-beta.6
+  - @nextui-org/popover@2.2.0-beta.7
+  - @nextui-org/aria-utils@2.1.0-beta.6
+  - @nextui-org/react-utils@2.0.18-beta.6
+  - @nextui-org/shared-icons@2.0.10-beta.5
+  - @nextui-org/shared-utils@2.0.9-beta.6
+
+## 2.2.0-beta.7
+
+### Patch Changes
+
+- [#4083](https://github.com/nextui-org/nextui/pull/4083) [`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
+- Updated dependencies [[`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2)]:
+  - @nextui-org/button@2.1.0-beta.5
+  - @nextui-org/calendar@2.1.0-beta.6
+  - @nextui-org/date-input@2.2.0-beta.5
+  - @nextui-org/popover@2.2.0-beta.6
+  - @nextui-org/aria-utils@2.1.0-beta.5
+  - @nextui-org/react-utils@2.0.18-beta.5
+  - @nextui-org/shared-icons@2.0.10-beta.4
+  - @nextui-org/shared-utils@2.0.9-beta.5
+
+## 2.2.0-beta.6
+
+### Patch Changes
+
+- Updated dependencies [[`0f55c491b`](https://github.com/nextui-org/nextui/commit/0f55c491b73da8944f9b38f2ad7486d1b89f8b7a)]:
+  - @nextui-org/shared-icons@2.0.10-beta.3
+  - @nextui-org/button@2.1.0-beta.4
+  - @nextui-org/calendar@2.1.0-beta.5
+  - @nextui-org/date-input@2.2.0-beta.4
+  - @nextui-org/popover@2.2.0-beta.5
+
+## 2.2.0-beta.5
+
+### Patch Changes
+
+- Updated dependencies [[`5339b2571`](https://github.com/nextui-org/nextui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7)]:
+  - @nextui-org/calendar@2.1.0-beta.4
+  - @nextui-org/shared-utils@2.0.9-beta.4
+  - @nextui-org/button@2.1.0-beta.4
+  - @nextui-org/date-input@2.2.0-beta.4
+  - @nextui-org/popover@2.2.0-beta.5
+  - @nextui-org/aria-utils@2.1.0-beta.4
+  - @nextui-org/react-utils@2.0.18-beta.4
+
 ## 2.2.0-beta.4
 
 ### Patch Changes

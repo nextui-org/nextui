@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/drawer",
-  "version": "2.1.0-beta.3",
+  "version": "2.1.0-beta.10",
   "description": "Used to render a content that slides in from the side of the screen.",
   "keywords": [
     "drawer"
@@ -50,7 +50,10 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/input": "workspace:*",
     "@nextui-org/checkbox": "workspace:*",
+    "@nextui-org/tooltip": "workspace:*",
+    "@nextui-org/image": "workspace:*",
     "@nextui-org/button": "workspace:*",
+    "@nextui-org/avatar": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/switch": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",

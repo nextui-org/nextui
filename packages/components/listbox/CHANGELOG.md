@@ -1,5 +1,70 @@
 # @nextui-org/listbox
 
+## 2.2.0-beta.9
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.1.0-beta.8
+
+## 2.2.0-beta.8
+
+### Patch Changes
+
+- [#4094](https://github.com/nextui-org/nextui/pull/4094) [`b9d5d4925`](https://github.com/nextui-org/nextui/commit/b9d5d492519778a4bf071748ec9f2b4e25d8373f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Virtualization support added to Listbox & Autocomplete
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.7
+
+## 2.2.0-beta.7
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+- Updated dependencies [[`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
+  - @nextui-org/divider@2.1.0-beta.7
+  - @nextui-org/use-is-mobile@2.1.0-beta.6
+  - @nextui-org/aria-utils@2.1.0-beta.7
+  - @nextui-org/react-utils@2.0.18-beta.7
+  - @nextui-org/shared-utils@2.0.9-beta.7
+
+## 2.2.0-beta.6
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
+- Updated dependencies [[`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb)]:
+  - @nextui-org/divider@2.1.0-beta.6
+  - @nextui-org/use-is-mobile@2.1.0-beta.5
+  - @nextui-org/aria-utils@2.1.0-beta.6
+  - @nextui-org/react-utils@2.0.18-beta.6
+  - @nextui-org/shared-utils@2.0.9-beta.6
+
+## 2.2.0-beta.5
+
+### Patch Changes
+
+- [#4083](https://github.com/nextui-org/nextui/pull/4083) [`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
+- Updated dependencies [[`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2)]:
+  - @nextui-org/divider@2.1.0-beta.5
+  - @nextui-org/use-is-mobile@2.1.0-beta.4
+  - @nextui-org/aria-utils@2.1.0-beta.5
+  - @nextui-org/react-utils@2.0.18-beta.5
+  - @nextui-org/shared-utils@2.0.9-beta.5
+
+## 2.2.0-beta.4
+
+### Patch Changes
+
+- Updated dependencies [[`5339b2571`](https://github.com/nextui-org/nextui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7)]:
+  - @nextui-org/shared-utils@2.0.9-beta.4
+  - @nextui-org/divider@2.1.0-beta.4
+  - @nextui-org/aria-utils@2.1.0-beta.4
+  - @nextui-org/react-utils@2.0.18-beta.4
+
 ## 2.2.0-beta.3
 
 ### Patch Changes

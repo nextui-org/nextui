@@ -143,14 +143,15 @@
           "key": "autocomplete",
           "title": "Autocomplete",
           "keywords": "autocomplete, auto suggest, search, typeahead",
-          "path": "/docs/components/autocomplete.mdx"
+          "path": "/docs/components/autocomplete.mdx",
+          "updated": true
         },
         {
           "key": "alert",
           "title": "Alert",
           "keywords": "alert, notification, message",
           "path": "/docs/components/alert.mdx",
-          "isNew": true
+          "newPost": true
         },
         {
           "key": "avatar",
@@ -162,8 +163,7 @@
           "key": "badge",
           "title": "Badge",
           "keywords": "badge, markers, status indication, count display",
-          "path": "/docs/components/badge.mdx",
-          "updated": true
+          "path": "/docs/components/badge.mdx"
         },
         {
           "key": "breadcrumbs",
@@ -175,14 +175,14 @@
           "key": "button",
           "title": "Button",
           "keywords": "button, interactive, action trigger, click events",
-          "path": "/docs/components/button.mdx"
+          "path": "/docs/components/button.mdx",
+          "updated": true
         },
         {
           "key": "calendar",
           "title": "Calendar",
           "keywords": "calendar, date picker, month picker, year picker",
-          "path": "/docs/components/calendar.mdx",
-          "newPost": true
+          "path": "/docs/components/calendar.mdx"
         },
         {
           "key": "card",
@@ -194,8 +194,7 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx",
-          "updated": true
+          "path": "/docs/components/checkbox.mdx"
         },
         {
           "key": "checkbox-group",
@@ -225,22 +224,18 @@
           "key": "date-input",
           "title": "Date Input",
           "keywords": "date-input, time, input, timezone",
-          "path": "/docs/components/date-input.mdx",
-          "newPost": true
-        },
+          "path": "/docs/components/date-input.mdx"        },
         {
           "key": "date-picker",
           "title": "Date Picker",
           "keywords": "date-picker, time, input, timezone",
-          "path": "/docs/components/date-picker.mdx",
-          "newPost": true
+          "path": "/docs/components/date-picker.mdx"
         },
         {
           "key": "date-range-picker",
           "title": "Date Range Picker",
           "keywords": "date-range-picker, date-picker, time, input, timezone",
-          "path": "/docs/components/date-range-picker.mdx",
-          "newPost": true
+          "path": "/docs/components/date-range-picker.mdx"
         },
         {
           "key": "divider",
@@ -332,8 +327,7 @@
           "key": "range-calendar",
           "title": "Range Calendar",
           "keywords": "range calendar, date picker, month picker, year picker",
-          "path": "/docs/components/range-calendar.mdx",
-          "newPost": true
+          "path": "/docs/components/range-calendar.mdx"
         },
         {
           "key": "scroll-shadow",
@@ -351,8 +345,7 @@
           "key": "skeleton",
           "title": "Skeleton",
           "keywords": "skeleton, loading state, placeholder, content preview",
-          "path": "/docs/components/skeleton.mdx",
-          "updated": true
+          "path": "/docs/components/skeleton.mdx"
         },
         {
           "key": "slider",
@@ -394,8 +387,7 @@
           "key": "tabs",
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
-          "path": "/docs/components/tabs.mdx",
-          "updated": true
+          "path": "/docs/components/tabs.mdx"
         },
         {
           "key": "textarea",
@@ -407,15 +399,13 @@
           "key": "time-input",
           "title": "Time Input",
           "keywords": "timeinput, time, input, timezone",
-          "path": "/docs/components/time-input.mdx",
-          "newPost": true
+          "path": "/docs/components/time-input.mdx"
         },
         {
           "key": "tooltip",
           "title": "Tooltip",
           "keywords": "tooltip, hint, descriptive message, hover info",
-          "path": "/docs/components/tooltip.mdx",
-          "updated": true
+          "path": "/docs/components/tooltip.mdx"
         },
         {
           "key": "user",

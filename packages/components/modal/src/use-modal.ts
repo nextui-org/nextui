@@ -88,7 +88,6 @@ export function useModal(originalProps: UseModalProps) {
     as,
     className,
     classNames,
-
     isOpen,
     defaultOpen,
     onOpenChange,
@@ -162,6 +161,7 @@ export function useModal(originalProps: UseModalProps) {
     "data-open": dataAttr(state.isOpen),
     "data-dismissable": dataAttr(isDismissable),
     "aria-modal": dataAttr(true),
+    "data-placement": originalProps?.placement ?? "right",
     "aria-labelledby": headerMounted ? headerId : undefined,
     "aria-describedby": bodyMounted ? bodyId : undefined,
   });

@@ -4,7 +4,7 @@ import {HTMLNextUIProps} from "@nextui-org/system";
 import {useLocale} from "@react-aria/i18n";
 import {useCalendarGrid} from "@react-aria/calendar";
 import {m} from "framer-motion";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {dataAttr, getInertValue} from "@nextui-org/shared-utils";
 
 import {CalendarCell} from "./calendar-cell";
 import {slideVariants} from "./calendar-transitions";
@@ -40,9 +40,8 @@ export function CalendarMonth(props: CalendarMonthProps) {
       className={slots?.gridBodyRow({class: classNames?.gridBodyRow})}
       data-slot="grid-body-row"
       // makes the browser ignore the element and its children when tabbing
-      // TODO: invert inert when switching to React 19 (ref: https://github.com/facebook/react/issues/17157)
       // @ts-ignore
-      inert={isHeaderExpanded ? "" : undefined}
+      inert={getInertValue(!!isHeaderExpanded)}
     >
       {state
         .getDatesInWeek(weekIndex, startDate)

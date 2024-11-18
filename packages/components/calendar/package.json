@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/calendar",
-  "version": "2.1.0-beta.3",
+  "version": "2.1.0-beta.9",
   "description": "A calendar displays one or more date grids and allows users to select a single date.",
   "keywords": [
     "calendar"

@@ -171,7 +171,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
         </span>
         {isUpdated && (
           <Chip
-            className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
+            className="ml-1 py-1 text-tiny text-default-500 dark:text-default-400 bg-default-100 dark:bg-default-100/50"
             color="default"
             size="sm"
             variant="flat"
