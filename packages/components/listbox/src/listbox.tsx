@@ -2,13 +2,26 @@ import {ForwardedRef, ReactElement, Ref} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 
-import {UseListboxProps, useListbox} from "./use-listbox";
+import {UseListboxProps, UseListboxReturn, useListbox} from "./use-listbox";
 import ListboxSection from "./listbox-section";
 import ListboxItem from "./listbox-item";
+import VirtualizedListbox from "./virtualized-listbox";
 
-interface Props<T> extends UseListboxProps<T> {}
+export interface VirtualizationProps {
+  maxListboxHeight: number;
+  itemHeight: number;
+}
+
+interface Props<T> extends UseListboxProps<T> {
+  isVirtualized?: boolean;
+  virtualization?: VirtualizationProps;
+}
 
 function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElement>) {
+  const {isVirtualized, ...restProps} = props;
+
+  const useListboxProps = useListbox<T>({...restProps, ref});
+
   const {
     Component,
     state,
@@ -24,7 +37,13 @@ function Listbox<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListE
     disableAnimation,
     getEmptyContentProps,
     getListProps,
-  } = useListbox<T>({...props, ref});
+  } = useListboxProps;
+
+  if (isVirtualized) {
+    return (
+      <VirtualizedListbox {...(props as Props<T>)} {...(useListboxProps as UseListboxReturn)} />
+    );
+  }
 
   const content = (
     <Component {...getListProps()}>
