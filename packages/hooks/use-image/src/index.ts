@@ -122,7 +122,7 @@ function setImageAndGetInitialStatus(
   if (!src) return "pending";
   if (ignoreFallback) return "loaded";
 
-  const img = new Image();
+  const img = document.createElement("img");
 
   img.src = src;
   if (crossOrigin) img.crossOrigin = crossOrigin;
