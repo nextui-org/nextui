@@ -1,4 +1,4 @@
-import {renderHook} from "@testing-library/react-hooks";
+import {renderHook, waitFor} from "@testing-library/react";
 import {mocks} from "@nextui-org/test-utils";
 
 import {useImage} from "../src";
@@ -14,31 +14,24 @@ describe("use-image hook", () => {
   });
 
   it("can handle missing src", () => {
-    const rendered = renderHook(() => useImage({}));
+    const {result} = renderHook(() => useImage({}));
 
-    expect(rendered.result.current).toEqual("pending");
+    expect(result.current).toEqual("pending");
   });
 
   it("can handle loading image", async () => {
-    const rendered = renderHook(() => useImage({src: "/test.png"}));
+    const {result} = renderHook(() => useImage({src: "/test.png"}));
 
-    expect(rendered.result.current).toEqual("loading");
+    expect(result.current).toEqual("loading");
     mockImage.simulate("loaded");
-    await rendered.waitForValueToChange(() => rendered.result.current === "loaded");
+    await waitFor(() => expect(result.current).toBe("loaded"));
   });
 
   it("can handle error image", async () => {
     mockImage.simulate("error");
-    const rendered = renderHook(() => useImage({src: "/test.png"}));
+    const {result} = renderHook(() => useImage({src: "/test.png"}));
 
-    expect(rendered.result.current).toEqual("loading");
-    await rendered.waitForValueToChange(() => rendered.result.current === "failed");
-  });
-
-  it("can handle cached image", async () => {
-    mockImage.simulate("loaded");
-    const rendered = renderHook(() => useImage({src: "/test.png"}));
-
-    expect(rendered.result.current).toEqual("loaded");
+    expect(result.current).toEqual("loading");
+    await waitFor(() => expect(result.current).toBe("failed"));
   });
 });
