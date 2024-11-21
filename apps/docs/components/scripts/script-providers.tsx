@@ -1,8 +1,6 @@
 import * as React from "react";
-import {Analytics} from "@vercel/analytics/react";
 import Script from "next/script";
 
-import {__PROD__} from "@/utils";
 
 export function ScriptProviders() {
   return (
@@ -23,7 +21,6 @@ export function ScriptProviders() {
         src="https://widget.kapa.ai/kapa-widget.bundle.js"
         strategy="afterInteractive"
       />
-      {__PROD__ && <Analytics />}
     </>
   );
 }

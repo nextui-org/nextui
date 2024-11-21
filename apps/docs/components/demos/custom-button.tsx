@@ -2,11 +2,11 @@
 
 import {useRef} from "react";
 import {Button} from "@nextui-org/react";
-
-import {trackEvent} from "@/utils/va";
+import {usePostHog} from "posthog-js/react";
 
 export const CustomButton = () => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const posthog = usePostHog();
 
   const handleConfetti = async () => {
     const {clientWidth, clientHeight} = document.documentElement;
@@ -29,7 +29,7 @@ export const CustomButton = () => {
       },
     });
 
-    trackEvent("LandingPage - Confetti Button", {
+    posthog.capture("LandingPage - Confetti Button", {
       action: "press",
       category: "landing-page",
     });
