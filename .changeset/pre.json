@@ -89,6 +89,7 @@
     "@nextui-org/test-utils": "2.0.6"
   },
   "changesets": [
+    "angry-maps-serve",
     "calm-trees-serve",
     "cold-dolls-vanish",
     "curly-zoos-thank",
@@ -135,6 +136,7 @@
     "ten-paws-relate",
     "tender-buses-sort",
     "thirty-cheetahs-guess",
+    "tough-brooms-hunt",
     "tricky-fans-draw",
     "twelve-papayas-clean",
     "twelve-trains-smile",
