@@ -4,20 +4,22 @@ import NextLink from "next/link";
 import {Button, Link, Chip, Snippet} from "@nextui-org/react";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import dynamic from "next/dynamic";
+import {usePostHog} from "posthog-js/react";
 
 import {FloatingComponents} from "./floating-components";
 
 import {GithubIcon} from "@/components/icons";
 import {title, subtitle} from "@/components/primitives";
-import {trackEvent} from "@/utils/va";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
   ssr: false,
 });
 
 export const Hero = () => {
+  const posthog = usePostHog();
+
   const handlePressAnnouncement = (name: string, url: string) => {
-    trackEvent("NavbarItem", {
+    posthog.capture("NavbarItem", {
       name,
       action: "press",
       category: "home - gero",
@@ -68,7 +70,7 @@ export const Hero = () => {
             radius="full"
             size="lg"
             onPress={() => {
-              trackEvent("Hero - Get Started", {
+              posthog.capture("Hero - Get Started", {
                 name: "Get Started",
                 action: "click",
                 category: "landing-page",
@@ -84,7 +86,7 @@ export const Hero = () => {
               radius: "full",
             }}
             onCopy={() => {
-              trackEvent("Hero - Copy Install Command", {
+              posthog.capture("Hero - Copy Install Command", {
                 name: "Copy",
                 action: "click",
                 category: "landing-page",
@@ -105,7 +107,7 @@ export const Hero = () => {
             startContent={<GithubIcon />}
             variant="bordered"
             onPress={() => {
-              trackEvent("Hero - Github", {
+              posthog.capture("Hero - Github", {
                 name: "Github",
                 action: "click",
                 category: "landing-page",

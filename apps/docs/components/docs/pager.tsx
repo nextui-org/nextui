@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import {Link} from "@nextui-org/react";
+import {usePostHog} from "posthog-js/react";
 import {useRouter} from "next/navigation";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 
@@ -9,7 +10,6 @@ import manifest from "@/config/routes.json";
 import {removeFromLast} from "@/utils";
 import {Route} from "@/libs/docs/page";
 import {useDocsRoute} from "@/hooks/use-docs-route";
-import {trackEvent} from "@/utils/va";
 
 export interface FooterNavProps {
   currentRoute?: Route;
@@ -20,8 +20,10 @@ export const DocsPager: React.FC<FooterNavProps> = ({currentRoute}) => {
 
   const {prevRoute, nextRoute} = useDocsRoute(manifest.routes, currentRoute);
 
+  const posthog = usePostHog();
+
   const handlePress = (path: string) => {
-    trackEvent("DocsPager - Click", {
+    posthog.capture("DocsPager - Click", {
       category: "docs",
       action: "click",
       data: path || "",
