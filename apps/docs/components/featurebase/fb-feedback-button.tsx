@@ -1,8 +1,7 @@
 "use client";
 
 import {useEffect} from "react";
-
-import {trackEvent} from "@/utils/va";
+import {usePostHog} from "posthog-js/react";
 
 type Props = {
   className?: string;
@@ -10,6 +9,8 @@ type Props = {
 
 // ref: https://developers.featurebase.app/install/feedback-widget/setup
 export const FbFeedbackButton = ({className}: Props) => {
+  const posthog = usePostHog();
+
   useEffect(() => {
     const win = window as any;
 
@@ -27,7 +28,7 @@ export const FbFeedbackButton = ({className}: Props) => {
   }, []);
 
   const fbButtonOnClick = () => {
-    trackEvent("Featurebase - Feedback", {
+    posthog.capture("Featurebase - Feedback", {
       name: "featurebase-feedback",
       action: "press",
       category: "featurebase",

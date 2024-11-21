@@ -28,6 +28,7 @@ import {motion, AnimatePresence} from "framer-motion";
 import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
+import {usePostHog} from "posthog-js/react";
 
 import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
@@ -38,7 +39,6 @@ import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
 import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
-import {trackEvent} from "@/utils/va";
 
 export interface NavbarProps {
   routes: Route[];
@@ -59,6 +59,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const cmdkStore = useCmdkStore();
 
+  const posthog = usePostHog();
+
   useEffect(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -71,7 +73,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const handleOpenCmdk = () => {
     cmdkStore.onOpen();
-    trackEvent("Navbar - Search", {
+    posthog.capture("Navbar - Search", {
       name: "navbar - search",
       action: "press",
       category: "cmdk",
@@ -126,7 +128,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   };
 
   const handlePressNavbarItem = (name: string, url: string) => {
-    trackEvent("NavbarItem", {
+    posthog.capture("NavbarItem", {
       name,
       action: "press",
       category: "navbar",
