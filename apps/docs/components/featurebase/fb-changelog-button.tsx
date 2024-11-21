@@ -1,8 +1,7 @@
 "use client";
 
 import {useEffect} from "react";
-
-import {trackEvent} from "@/utils/va";
+import {usePostHog} from "posthog-js/react";
 
 type Props = {
   className?: string;
@@ -10,6 +9,8 @@ type Props = {
 
 // ref: https://developers.featurebase.app/install/changelog-widget/install
 export const FbChangelogButton = ({className}: Props) => {
+  const posthog = usePostHog();
+
   useEffect(() => {
     const win = window as any;
 
@@ -31,7 +32,7 @@ export const FbChangelogButton = ({className}: Props) => {
   const fbButtonOnClick = () => {
     (window as any).Featurebase("manually_open_changelog_popup");
 
-    trackEvent("Featurebase - Changelog", {
+    posthog.capture("Featurebase - Changelog", {
       name: "featurebase-changelog",
       action: "press",
       category: "featurebase",

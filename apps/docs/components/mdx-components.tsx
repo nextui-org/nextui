@@ -3,6 +3,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
 import {Language} from "prism-react-renderer";
 import NextImage from "next/image";
+import {usePostHog} from "posthog-js/react";
 
 import {ThemeSwitch} from "./theme-switch";
 
@@ -12,7 +13,6 @@ import * as DocsComponents from "@/components/docs/components";
 import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components/virtual-anchor";
-import {trackEvent} from "@/utils/va";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
@@ -123,6 +123,7 @@ const Code = ({
   const isMultiLine = (children as string)?.split?.("\n")?.length > 2;
   const language = (className?.replace(/language-/, "") ?? "jsx") as Language;
   const codeString = String(children).trim();
+  const posthog = usePostHog();
 
   if (!className) {
     return <InlineCode>{children}</InlineCode>;
@@ -146,7 +147,7 @@ const Code = ({
       }}
       codeString={codeString}
       onCopy={() => {
-        trackEvent("MDXComponents - Copy", {
+        posthog.capture("MDXComponents - Copy", {
           category: "docs",
           action: "copyCode",
         });
@@ -159,9 +160,10 @@ const Code = ({
 
 const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => {
   const isExternal = href?.startsWith("http");
+  const posthog = usePostHog();
 
   const handlePress = () => {
-    trackEvent("MDXComponents - Click", {
+    posthog.capture("MDXComponents - Click", {
       category: "docs",
       action: "click",
       data: href || "",

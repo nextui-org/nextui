@@ -6,9 +6,9 @@ import {SwitchProps, useSwitch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
 import {clsx} from "@nextui-org/shared-utils";
 import {useIsSSR} from "@react-aria/ssr";
+import {usePostHog} from "posthog-js/react";
 
 import {SunLinearIcon, MoonIcon} from "@/components/icons";
-import {trackEvent} from "@/utils/va";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -18,11 +18,12 @@ export interface ThemeSwitchProps {
 export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
   const {theme, setTheme} = useTheme();
   const isSSR = useIsSSR();
+  const posthog = usePostHog();
 
   const onChange = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
 
-    trackEvent("ThemeChange", {
+    posthog.capture("ThemeChange", {
       action: "click",
       category: "theme",
       data: theme === "light" ? "dark" : "light",
