@@ -86,6 +86,7 @@
     "@nextui-org/alert": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/drawer": "workspace:*",
+    "@nextui-org/rating": "workspace:*",
     "@react-aria/visually-hidden": "3.8.15"
   },
   "peerDependencies": {

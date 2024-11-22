@@ -2263,6 +2263,70 @@ importers:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
 
+  packages/components/rating:
+    dependencies:
+      '@nextui-org/radio':
+        specifier: workspace:*
+        version: link:../radio
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
+      '@react-aria/focus':
+        specifier: 3.17.1
+        version: 3.17.1(react@18.3.1)
+      '@react-aria/i18n':
+        specifier: 3.11.1
+        version: 3.11.1(react@18.3.1)
+      '@react-aria/textfield':
+        specifier: 3.14.5
+        version: 3.14.5(react@18.3.1)
+      '@react-aria/utils':
+        specifier: 3.24.1
+        version: 3.24.1(react@18.3.1)
+      '@react-aria/visually-hidden':
+        specifier: 3.8.12
+        version: 3.8.12(react@18.3.1)
+      '@react-stately/slider':
+        specifier: 3.5.4
+        version: 3.5.4(react@18.3.1)
+      '@react-stately/utils':
+        specifier: 3.10.1
+        version: 3.10.1(react@18.3.1)
+      '@react-types/textfield':
+        specifier: 3.9.3
+        version: 3.9.3(react@18.3.1)
+    devDependencies:
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/test-utils':
+        specifier: workspace:*
+        version: link:../../utilities/test-utils
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: ^18.2.0
+        version: 18.3.1
+      react-dom:
+        specifier: ^18.2.0
+        version: 18.3.1(react@18.3.1)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.53.1(react@18.3.1)
+
   packages/components/ripple:
     dependencies:
       '@nextui-org/dom-animation':
@@ -3025,6 +3089,9 @@ importers:
       '@nextui-org/radio':
         specifier: workspace:*
         version: link:../../components/radio
+      '@nextui-org/rating':
+        specifier: workspace:*
+        version: link:../../components/rating
       '@nextui-org/ripple':
         specifier: workspace:*
         version: link:../../components/ripple
@@ -6754,6 +6821,11 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
 
+  '@react-aria/textfield@3.14.5':
+    resolution: {integrity: sha512-hj7H+66BjB1iTKKaFXwSZBZg88YT+wZboEXZ0DNdQB2ytzoz/g045wBItUuNi4ZjXI3P+0AOZznVMYadWBAmiA==}
+    peerDependencies:
+      react: ^18.2.0
+
   '@react-aria/textfield@3.14.8':
     resolution: {integrity: sha512-FHEvsHdE1cMR2B7rlf+HIneITrC40r201oLYbHAp3q26jH/HUujzFBB9I20qhXjyBohMWfQLqJhSwhs1VW1RJQ==}
     peerDependencies:
@@ -6913,6 +6985,11 @@ packages:
 
   '@react-stately/selection@3.17.0':
     resolution: {integrity: sha512-It3LRTaFOavybuDBvBH2mvCh73OL4awqvN4tZ0JzLzMtaYSBe9+YmFasYrzB0o7ca17B2q1tpUmsNWaAgIqbLA==}
+    peerDependencies:
+      react: ^18.2.0
+
+  '@react-stately/slider@3.5.4':
+    resolution: {integrity: sha512-Jsf7K17dr93lkNKL9ij8HUcoM1sPbq8TvmibD6DhrK9If2lje+OOL8y4n4qreUnfMT56HCAeS9wCO3fg3eMyrw==}
     peerDependencies:
       react: ^18.2.0
 
@@ -7113,6 +7190,11 @@ packages:
 
   '@react-types/tabs@3.3.9':
     resolution: {integrity: sha512-3Q9kRVvg/qDyeJR/W1+C2z2OyvDWQrSLvOCvAezX5UKzww4rBEAA8OqBlyDwn7q3fiwrh/m64l6p+dbln+RdxQ==}
+    peerDependencies:
+      react: ^18.2.0
+
+  '@react-types/textfield@3.9.3':
+    resolution: {integrity: sha512-DoAY6cYOL0pJhgNGI1Rosni7g72GAt4OVr2ltEx2S9ARmFZ0DBvdhA9lL2nywcnKMf27PEJcKMXzXc10qaHsJw==}
     peerDependencies:
       react: ^18.2.0
 
@@ -19799,6 +19881,19 @@ snapshots:
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
 
+  '@react-aria/textfield@3.14.5(react@18.3.1)':
+    dependencies:
+      '@react-aria/focus': 3.18.2(react@18.3.1)
+      '@react-aria/form': 3.0.8(react@18.3.1)
+      '@react-aria/label': 3.7.11(react@18.3.1)
+      '@react-aria/utils': 3.25.2(react@18.3.1)
+      '@react-stately/form': 3.0.5(react@18.3.1)
+      '@react-stately/utils': 3.10.3(react@18.3.1)
+      '@react-types/shared': 3.24.1(react@18.3.1)
+      '@react-types/textfield': 3.9.6(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+
   '@react-aria/textfield@3.14.8(react@18.3.1)':
     dependencies:
       '@react-aria/focus': 3.18.2(react@18.3.1)
@@ -20086,6 +20181,14 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.3.1
 
+  '@react-stately/slider@3.5.4(react@18.3.1)':
+    dependencies:
+      '@react-stately/utils': 3.10.3(react@18.3.1)
+      '@react-types/shared': 3.24.1(react@18.3.1)
+      '@react-types/slider': 3.7.6(react@18.3.1)
+      '@swc/helpers': 0.5.13
+      react: 18.3.1
+
   '@react-stately/slider@3.5.7(react@18.3.1)':
     dependencies:
       '@react-stately/utils': 3.10.3(react@18.3.1)
@@ -20320,6 +20423,11 @@ snapshots:
       react: 18.3.1
 
   '@react-types/tabs@3.3.9(react@18.3.1)':
+    dependencies:
+      '@react-types/shared': 3.24.1(react@18.3.1)
+      react: 18.3.1
+
+  '@react-types/textfield@3.9.3(react@18.3.1)':
     dependencies:
       '@react-types/shared': 3.24.1(react@18.3.1)
       react: 18.3.1

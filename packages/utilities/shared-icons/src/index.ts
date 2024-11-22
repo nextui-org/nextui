@@ -37,6 +37,15 @@ export * from "./info-circle";
 export * from "./warning";
 export * from "./danger";
 export * from "./success";
+export * from "./star";
+export * from "./heart";
+export * from "./like";
+export * from "./music";
+export * from "./happy-emojicon";
+export * from "./angry-emojicon";
+export * from "./straight-emojicon";
+export * from "./sad-emojicon";
+
 // sets
 export * from "./bulk";
 export * from "./bold";
