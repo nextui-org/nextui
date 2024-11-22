@@ -14,11 +14,10 @@ export interface CalendarMonthProps extends HTMLNextUIProps<"table">, CalendarPr
   startDate: CalendarDate;
   currentMonth: number;
   direction: number;
-  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 export function CalendarMonth(props: CalendarMonthProps) {
-  const {startDate, direction, currentMonth, renderCellContent} = props;
+  const {startDate, direction, currentMonth} = props;
 
   const {locale} = useLocale();
   const weeksInMonth = getWeeksInMonth(startDate, locale);
@@ -55,7 +54,6 @@ export function CalendarMonth(props: CalendarMonthProps) {
               currentMonth={startDate}
               date={date}
               isPickerVisible={isHeaderExpanded}
-              renderCellContent={renderCellContent}
               slots={slots}
               state={state}
             />

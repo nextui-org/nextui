@@ -11,25 +11,20 @@ import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {dataAttr} from "@nextui-org/shared-utils";
 
+import {useCalendarContext} from "./calendar-context";
+
 export interface CalendarCellProps extends HTMLNextUIProps<"td">, AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
   isPickerVisible?: boolean;
   slots?: CalendarReturnType;
   classNames?: SlotsToClasses<CalendarSlots>;
   currentMonth: CalendarDate;
-  renderCellContent?: (date: CalendarDate) => React.ReactNode;
 }
 
 export function CalendarCell(originalProps: CalendarCellProps) {
-  const {
-    state,
-    slots,
-    isPickerVisible,
-    currentMonth,
-    classNames,
-    renderCellContent,
-    ...otherProps
-  } = originalProps;
+  const {state, slots, isPickerVisible, currentMonth, classNames, ...otherProps} = originalProps;
+
+  const {renderCellContent} = useCalendarContext();
 
   const ref = useRef<HTMLDivElement>(null);
 

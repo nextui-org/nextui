@@ -464,6 +464,7 @@ describe("Calendar", () => {
       expect(year).toHaveAttribute("data-value", "2567");
     });
   });
+
   describe("Custom cell content", () => {
     it("should render custom content in the calendar cells", () => {
       const renderCellContent = (date: CalendarDate) => (
