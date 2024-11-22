@@ -1,6 +1,6 @@
 ---
-"@nextui-org/input": minor
-"@nextui-org/theme": minor 
+"@nextui-org/input": patch
+"@nextui-org/theme": patch 
 ---
 
 introduce `outside-top` prop to input (#3058)
