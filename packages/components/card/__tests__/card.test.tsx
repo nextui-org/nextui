@@ -1,6 +1,6 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
-import {act} from "@testing-library/react-hooks";
+import userEvent from "@testing-library/user-event";
 
 import {Card} from "../src";
 
@@ -24,15 +24,15 @@ describe("Card", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("should be clicked when is pressable", () => {
+  it("should be clicked when is pressable", async () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Card disableRipple isPressable onPress={onPress} />);
 
     const button = getByRole("button");
 
-    act(() => {
-      button.click();
-    });
+    const user = userEvent.setup();
+
+    await user.click(button);
 
     expect(onPress).toHaveBeenCalled();
   });

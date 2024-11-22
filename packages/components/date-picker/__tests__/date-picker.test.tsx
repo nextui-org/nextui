@@ -194,6 +194,43 @@ describe("DatePicker", () => {
       expect(getByTestId("foo")).toHaveAttribute("role", "group");
     });
 
+    it("should work with startContent", () => {
+      const {getByText} = render(<DatePicker label="Date" startContent={<div>start</div>} />);
+
+      expect(getByText("start")).toBeInTheDocument();
+    });
+
+    it("should work with endContent", () => {
+      const {getByText} = render(<DatePicker endContent={<div>end</div>} label="Date" />);
+
+      expect(getByText("end")).toBeInTheDocument();
+    });
+
+    it("should work with startContent and endContent", () => {
+      const {getByText} = render(
+        <DatePicker endContent={<div>end</div>} label="Date" startContent={<div>start</div>} />,
+      );
+
+      expect(getByText("start")).toBeInTheDocument();
+      expect(getByText("end")).toBeInTheDocument();
+    });
+
+    it("should work with selectorButtonPlacement", () => {
+      const {getByRole} = render(
+        <DatePicker label="Date" selectorButtonPlacement="start" startContent={<div>start</div>} />,
+      );
+
+      const button = getByRole("button");
+
+      expect(button).toHaveTextContent("start");
+
+      triggerPress(button);
+
+      const dialog = getByRole("dialog");
+
+      expect(dialog).toBeInTheDocument();
+    });
+
     it("should apply custom dateInput classNames", function () {
       const {getByRole, getByText} = render(
         <DatePicker
@@ -246,19 +283,13 @@ describe("DatePicker", () => {
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
 
-      await act(async () => {
-        await user.tab();
-      });
-
+      await user.tab();
       expect(segments[0]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
 
-      await act(async () => {
-        await user.tab();
-      });
-
+      await user.tab();
       expect(segments[1]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
@@ -288,19 +319,13 @@ describe("DatePicker", () => {
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
 
-      await act(async () => {
-        await user.tab();
-      });
-
+      await user.tab();
       expect(segments[0]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
 
-      await act(() => {
-        user.click(document.body);
-      });
-
+      await user.click(document.body);
       expect(document.body).toHaveFocus();
       expect(onBlurSpy).toHaveBeenCalledTimes(1);
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(2);
@@ -375,10 +400,7 @@ describe("DatePicker", () => {
       expect(document.activeElement).toBe(button);
       expect(button).toHaveFocus();
 
-      await act(async () => {
-        await user.tab();
-      });
-
+      await user.tab();
       expect(document.body).toHaveFocus();
     });
 
@@ -391,10 +413,7 @@ describe("DatePicker", () => {
       expect(onKeyDownSpy).not.toHaveBeenCalled();
       expect(onKeyUpSpy).not.toHaveBeenCalled();
 
-      await act(async () => {
-        await user.tab();
-      });
-
+      await user.tab();
       expect(segments[0]).toHaveFocus();
       expect(onKeyDownSpy).not.toHaveBeenCalled();
       expect(onKeyUpSpy).toHaveBeenCalledTimes(1);

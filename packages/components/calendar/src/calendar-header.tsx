@@ -99,6 +99,7 @@ export function CalendarHeader(props: CalendarHeaderProps) {
   return showMonthAndYearPickers ? (
     <Button
       {...headerProps}
+      aria-label="switch to year and month view"
       disableAnimation={disableAnimation}
       endContent={<ChevronDownIcon className="chevron-icon" />}
       onKeyDown={handleKeyDown}

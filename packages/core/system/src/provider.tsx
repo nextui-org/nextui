@@ -6,7 +6,7 @@ import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
 import {useMemo} from "react";
-import {MotionGlobalConfig} from "framer-motion";
+import {MotionConfig, MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
 
@@ -22,6 +22,12 @@ export interface NextUIProviderProps
    * animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
    */
   skipFramerMotionAnimations?: boolean;
+  /**
+   * Defines a new default transition for the entire tree.
+   * @default "never"
+   * See: https://www.framer.com/motion/motion-config/#props
+   */
+  reducedMotion?: "user" | "always" | "never";
   /**
    * The locale to apply to the children.
    * @default "en-US"
@@ -45,10 +51,11 @@ export interface NextUIProviderProps
 export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   children,
   navigate,
+  disableAnimation,
   useHref,
-  disableAnimation = false,
   disableRipple = false,
   skipFramerMotionAnimations = disableAnimation,
+  reducedMotion = "never",
   validationBehavior = "aria",
   locale = "en-US",
   // if minDate / maxDate are not specified in `defaultDates`
@@ -91,7 +98,9 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   return (
     <ProviderContext value={context}>
       <I18nProvider locale={locale}>
-        <OverlayProvider {...otherProps}>{contents}</OverlayProvider>
+        <MotionConfig reducedMotion={reducedMotion}>
+          <OverlayProvider {...otherProps}>{contents}</OverlayProvider>
+        </MotionConfig>
       </I18nProvider>
     </ProviderContext>
   );

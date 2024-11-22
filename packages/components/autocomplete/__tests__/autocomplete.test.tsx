@@ -1,6 +1,7 @@
+import "@testing-library/jest-dom";
 import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
@@ -77,6 +78,12 @@ const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
 );
 
 describe("Autocomplete", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<AutocompleteExample />);
 
@@ -172,9 +179,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -201,9 +206,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -211,9 +214,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -224,9 +225,7 @@ describe("Autocomplete", () => {
     expect(clearButton).not.toBeNull();
 
     // click the clear button
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    await user.click(clearButton);
 
     // assert that the input has empty value
     expect(autocomplete).toHaveValue("");
@@ -253,9 +252,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -263,9 +260,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -276,9 +271,7 @@ describe("Autocomplete", () => {
     expect(clearButton).not.toBeNull();
 
     // click the clear button
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    await user.click(clearButton);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -294,9 +287,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -304,9 +295,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -317,9 +306,7 @@ describe("Autocomplete", () => {
     expect(clearButton).not.toBeNull();
 
     /// click the clear button
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    await user.click(clearButton);
 
     // assert that the input has empty value
     expect(autocomplete).toHaveValue("");
@@ -338,9 +325,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -348,9 +333,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -361,9 +344,7 @@ describe("Autocomplete", () => {
     expect(clearButton).not.toBeNull();
 
     // click the clear button
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    await user.click(clearButton);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -395,9 +376,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox by clicking selector button
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -406,9 +385,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
 
     // close the select listbox by clicking selector button again
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -439,17 +416,13 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the autocomplete is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -488,17 +461,14 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
     // open the autocomplete listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -522,9 +492,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -537,9 +505,7 @@ describe("Autocomplete", () => {
     expect(options.length).toBe(3);
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     // assert that the input has target selection
     expect(autocomplete).toHaveValue("Penguin");
@@ -598,9 +564,7 @@ describe("Autocomplete", () => {
     expect(selectorButton2).not.toBeNull();
 
     // open the select listbox by clicking selector button in the first autocomplete
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the first autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -609,9 +573,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
 
     // close the select listbox by clicking the second autocomplete
-    await act(async () => {
-      await userEvent.click(selectorButton2);
-    });
+    await user.click(selectorButton2);
 
     // assert that the first autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");

@@ -4,34 +4,36 @@ import NextLink from "next/link";
 import {Button, Link, Chip, Snippet} from "@nextui-org/react";
 import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import dynamic from "next/dynamic";
+import {usePostHog} from "posthog-js/react";
 
 import {FloatingComponents} from "./floating-components";
 
 import {GithubIcon} from "@/components/icons";
 import {title, subtitle} from "@/components/primitives";
-import {trackEvent} from "@/utils/va";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
   ssr: false,
 });
 
 export const Hero = () => {
+  const posthog = usePostHog();
+
   const handlePressAnnouncement = (name: string, url: string) => {
-    trackEvent("NavbarItem", {
+    posthog.capture("NavbarItem", {
       name,
       action: "press",
-      category: "home - gero",
+      category: "home - hero",
       data: url,
     });
   };
 
   return (
     <section className="flex relative overflow-hidden lg:overflow-visible w-full flex-nowrap justify-between items-center h-[calc(100vh_-_64px)] 2xl:h-[calc(84vh_-_64px)]">
-      <div className="flex relative z-20 flex-col gap-6 w-full lg:w-1/2 xl:mt-10">
-        <div className="w-full flex justify-center md:hidden">
+      <div className="relative z-20 flex flex-col w-full gap-6 lg:w-1/2 xl:mt-10">
+        <div className="flex justify-center w-full md:hidden">
           <Chip
             as={NextLink}
-            className="bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80 transition-colors cursor-pointer"
+            className="transition-colors cursor-pointer bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80"
             color="default"
             href="/blog/v2.3.0"
             variant="dot"
@@ -43,7 +45,7 @@ export const Hero = () => {
             </span>
           </Chip>
         </div>
-        <div className="text-center leading-8 md:leading-10 md:text-left">
+        <div className="leading-8 text-center md:leading-10 md:text-left">
           <div className="inline-block">
             <h1 className={title()}>Make&nbsp;</h1>
             <h1 className={title({color: "violet"})}>beautiful&nbsp;</h1>
@@ -53,7 +55,7 @@ export const Hero = () => {
         <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
           Beautiful, fast and modern React UI library.
         </h2>
-        <div className="flex flex-col md:flex-row items-center gap-4">
+        <div className="flex flex-col items-center gap-4 md:flex-row">
           <Button
             as={NextLink}
             className="w-full md:h-11 md:w-auto"
@@ -68,7 +70,7 @@ export const Hero = () => {
             radius="full"
             size="lg"
             onPress={() => {
-              trackEvent("Hero - Get Started", {
+              posthog.capture("Hero - Get Started", {
                 name: "Get Started",
                 action: "click",
                 category: "landing-page",
@@ -79,12 +81,12 @@ export const Hero = () => {
             Get Started
           </Button>
           <Snippet
-            className="w-full rounded-full hidden md:flex sm:w-auto"
+            className="hidden w-full rounded-full md:flex sm:w-auto"
             copyButtonProps={{
               radius: "full",
             }}
             onCopy={() => {
-              trackEvent("Hero - Copy Install Command", {
+              posthog.capture("Hero - Copy Install Command", {
                 name: "Copy",
                 action: "click",
                 category: "landing-page",
@@ -105,7 +107,7 @@ export const Hero = () => {
             startContent={<GithubIcon />}
             variant="bordered"
             onPress={() => {
-              trackEvent("Hero - Github", {
+              posthog.capture("Hero - Github", {
                 name: "Github",
                 action: "click",
                 category: "landing-page",

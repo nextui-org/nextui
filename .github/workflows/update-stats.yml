@@ -1,0 +1,42 @@
+name: Update Stats
+
+on:
+  schedule:
+    # Runs every Monday at 00:00 UTC
+    - cron: '0 0 * * 1'
+  # Allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  update-stats:
+    name: Update Stats
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Update search metadata
+        run: pnpm update:search-meta
+
+      - name: Update GitHub info
+        run: pnpm update:github-info
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit-message: "chore(stats): update project statistics"
+          title: "chore(stats): 📊 Update project statistics"
+          body: |
+            This PR updates the project statistics including:
+            - Search metadata
+            - GitHub repository information
+            
+            This is an automated PR generated weekly.
+          branch: chore/update-stats
+          base: main
+          delete-branch: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

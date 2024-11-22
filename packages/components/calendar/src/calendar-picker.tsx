@@ -2,6 +2,7 @@ import type {CalendarPickerProps} from "./use-calendar-picker";
 
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useCallback} from "react";
+import {getInertValue} from "@nextui-org/shared-utils";
 
 import {CalendarPickerItem} from "./calendar-picker-item";
 import {useCalendarPicker} from "./use-calendar-picker";
@@ -66,9 +67,8 @@ export function CalendarPicker(props: CalendarPickerProps) {
       })}
       data-slot="picker-wrapper"
       // makes the browser ignore the element and its children when tabbing
-      // TODO: invert inert when switching to React 19 (ref: https://github.com/facebook/react/issues/17157)
       // @ts-ignore
-      inert={isHeaderExpanded ? undefined : ""}
+      inert={getInertValue(!isHeaderExpanded)}
     >
       <div
         ref={highlightRef}

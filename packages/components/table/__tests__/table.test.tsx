@@ -1,6 +1,6 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Table, TableHeader, TableCell, TableColumn, TableBody, TableRow} from "../src";
 
@@ -16,6 +16,12 @@ let items = [
 ];
 
 describe("Table", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Table aria-label="Test example table">
@@ -131,7 +137,7 @@ describe("Table", () => {
     expect(wrapper.getAllByRole("gridcell")).toHaveLength(4);
   });
 
-  it("should work with single selectionMode='single'", () => {
+  it("should work with single selectionMode='single'", async () => {
     const onRowAction = jest.fn();
 
     const wrapper = render(
@@ -163,14 +169,11 @@ describe("Table", () => {
     // get the first row
     const row1 = wrapper.getAllByRole("row")[1];
 
-    act(() => {
-      row1.click();
-    });
-
+    await user.click(row1);
     expect(onRowAction).toHaveBeenCalledTimes(1);
   });
 
-  it("should work with single selectionMode='multiple'", () => {
+  it("should work with single selectionMode='multiple'", async () => {
     const onRowAction = jest.fn();
 
     const wrapper = render(
@@ -207,15 +210,13 @@ describe("Table", () => {
     const row1 = wrapper.getAllByRole("row")[1];
     const row2 = wrapper.getAllByRole("row")[2];
 
-    act(() => {
-      row1.click();
-      row2.click();
-    });
+    await user.click(row1);
+    await user.click(row2);
 
     expect(onRowAction).toHaveBeenCalledTimes(2);
   });
 
-  it("should set the proper aria-sort on an ascending sorted column header", () => {
+  it("should set the proper aria-sort on an ascending sorted column header", async () => {
     const wrapper = render(
       <Table aria-label="Static Table">
         <TableHeader>

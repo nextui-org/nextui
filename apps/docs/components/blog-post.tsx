@@ -1,20 +1,22 @@
 "use client";
 
-import {BlogPost} from "contentlayer/generated";
+import {BlogPost} from "contentlayer2/generated";
 import {Card, CardFooter, CardBody, CardHeader, Link, Avatar, Image} from "@nextui-org/react";
 import Balancer from "react-wrap-balancer";
 import {format, parseISO} from "date-fns";
 import NextLink from "next/link";
 import {AnimatePresence, motion} from "framer-motion";
+import {usePostHog} from "posthog-js/react";
 
 import {useIsMounted} from "@/hooks/use-is-mounted";
-import {trackEvent} from "@/utils/va";
 
 const BlogPostCard = (post: BlogPost) => {
   const isMounted = useIsMounted();
 
+  const posthog = usePostHog();
+
   const handlePress = () => {
-    trackEvent("BlogPostCard - Selection", {
+    posthog.capture("BlogPostCard - Selection", {
       name: post.title,
       action: "click",
       category: "blog",

@@ -1,6 +1,6 @@
 import * as React from "react";
 import {render, fireEvent, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {Button} from "@nextui-org/button";
 
 import {Popover, PopoverContent, PopoverTrigger} from "../src";
@@ -11,6 +11,12 @@ import {Select, SelectItem} from "../../select/src";
 const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Popover", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   afterEach(() => {
     jest.clearAllMocks();
   });
@@ -30,7 +36,7 @@ describe("Popover", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("should not throw error when clicking trigger button", () => {
+  it("should not throw error when clicking trigger button", async () => {
     const wrapper = render(
       <Popover>
         <PopoverTrigger>
@@ -44,11 +50,9 @@ describe("Popover", () => {
     const trigger = wrapper.getByTestId("trigger-test");
 
     // open popover
-    act(() => {
-      trigger.click();
-    });
+    await user.click(trigger);
 
-    expect(spy).toBeCalledTimes(0);
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {
@@ -130,7 +134,7 @@ describe("Popover", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should work with NextUI button", () => {
+  it("should work with NextUI button", async () => {
     const onClose = jest.fn();
 
     const wrapper = render(
@@ -149,15 +153,11 @@ describe("Popover", () => {
     const trigger = wrapper.getByTestId("trigger-test");
 
     // open popover
-    act(() => {
-      trigger.click();
-    });
+    await user.click(trigger);
     expect(onClose).toHaveBeenCalledTimes(0);
 
     // close popover
-    act(() => {
-      trigger.click();
-    });
+    await user.click(trigger);
 
     expect(onClose).toHaveBeenCalledTimes(1);
   });
@@ -193,9 +193,7 @@ describe("Popover", () => {
     expect(popover2).not.toBeNull();
 
     // open the popover by clicking popover in the first popover
-    await act(async () => {
-      await userEvent.click(popover);
-    });
+    await user.click(popover);
 
     // assert that the first popover is open
     expect(popover).toHaveAttribute("aria-expanded", "true");
@@ -204,9 +202,7 @@ describe("Popover", () => {
     expect(popover2).toHaveAttribute("aria-expanded", "false");
 
     // close the popover by clicking the second popover
-    await act(async () => {
-      await userEvent.click(popover2);
-    });
+    await user.click(popover2);
 
     // assert that the first popover is closed
     expect(popover).toHaveAttribute("aria-expanded", "false");
@@ -232,9 +228,7 @@ describe("Popover", () => {
     const trigger = wrapper.getByTestId("trigger-test");
 
     // open popover
-    await act(async () => {
-      await userEvent.click(trigger);
-    });
+    await user.click(trigger);
 
     const {getByRole} = wrapper;
 
@@ -260,9 +254,9 @@ describe("Popover", () => {
 
     await act(async () => {
       // open popover
-      await userEvent.click(trigger);
+      await user.click(trigger);
       // close popover
-      await userEvent.click(trigger);
+      await user.click(trigger);
       // assert that the focus is restored back to trigger
       expect(trigger).toHaveFocus();
     });
@@ -286,27 +280,21 @@ describe("Popover", () => {
 
     const popover = wrapper.getByTestId("popover");
 
-    await act(async () => {
-      // open popover
-      await userEvent.click(popover);
-    });
+    // open popover
+    await user.click(popover);
 
     // assert that the popover is open
     expect(popover).toHaveAttribute("aria-expanded", "true");
 
     const select = wrapper.getByTestId("select");
 
-    await act(async () => {
-      // open select
-      await userEvent.click(select);
-    });
+    // open select
+    await user.click(select);
 
     // assert that the select is open
     expect(select).toHaveAttribute("aria-expanded", "true");
 
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the select is closed
     expect(select).toHaveAttribute("aria-expanded", "false");
@@ -334,9 +322,7 @@ describe("Popover", () => {
     const popover = wrapper.getByTestId("popover");
 
     // open popover
-    await act(async () => {
-      await userEvent.click(popover);
-    });
+    await user.click(popover);
 
     // assert that the popover is open
     expect(popover).toHaveAttribute("aria-expanded", "true");
@@ -347,4 +333,37 @@ describe("Popover", () => {
     // assert that the popover is closed
     expect(popover).toHaveAttribute("aria-expanded", "false");
   });
+});
+
+it("should close popover on scroll when shouldCloseOnScroll is false", async () => {
+  const wrapper = render(
+    <Popover shouldCloseOnScroll={false}>
+      <PopoverTrigger>
+        <Button data-testid="popover">Open popover</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <Select data-testid="select" label="Select country">
+          <SelectItem key="argentina">Argentina</SelectItem>
+          <SelectItem key="venezuela">Venezuela</SelectItem>
+          <SelectItem key="brazil">Brazil</SelectItem>
+        </Select>
+      </PopoverContent>
+    </Popover>,
+  );
+
+  const popover = wrapper.getByTestId("popover");
+
+  // open popover
+  await act(async () => {
+    await userEvent.click(popover);
+  });
+
+  // assert that the popover is open
+  expect(popover).toHaveAttribute("aria-expanded", "true");
+
+  // scroll it
+  fireEvent.scroll(document.body);
+
+  // assert that the popover is still open
+  expect(popover).toHaveAttribute("aria-expanded", "true");
 });

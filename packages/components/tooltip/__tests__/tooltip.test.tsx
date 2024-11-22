@@ -30,7 +30,7 @@ describe("Tooltip", () => {
 
     expect(() => wrapper.unmount()).not.toThrow();
 
-    expect(spy).toBeCalledTimes(0);
+    expect(spy).toHaveBeenCalledTimes(0);
   });
 
   it("ref should be forwarded", () => {
