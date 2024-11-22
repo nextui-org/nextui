@@ -1,9 +1,9 @@
 ---
-"@nextui-org/autocomplete": minor
-"@nextui-org/checkbox": minor
-"@nextui-org/date-picker": minor
-"@nextui-org/input": minor
-"@nextui-org/radio": minor
+"@nextui-org/autocomplete": patch
+"@nextui-org/checkbox": patch
+"@nextui-org/date-picker": patch
+"@nextui-org/input": patch
+"@nextui-org/radio": patch
 ---
 
 support server validation with form
