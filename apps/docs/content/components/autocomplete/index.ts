@@ -26,6 +26,10 @@ import customSectionsStyle from "./custom-sections-style";
 import customStyles from "./custom-styles";
 import customEmptyContentMessage from "./custom-empty-content-message";
 import readOnly from "./read-only";
+import virtualization from "./virtualization";
+import virtualizationTenThousand from "./virtualization-ten-thousand";
+import virtualizationMaxListboxHeight from "./virtualization-max-listbox-height";
+import virtualizationCustomItemHeight from "./virtualization-custom-item-height";
 
 export const autocompleteContent = {
   usage,
@@ -56,4 +60,8 @@ export const autocompleteContent = {
   customStyles,
   customEmptyContentMessage,
   readOnly,
+  virtualization,
+  virtualizationTenThousand,
+  virtualizationMaxListboxHeight,
+  virtualizationCustomItemHeight,
 };

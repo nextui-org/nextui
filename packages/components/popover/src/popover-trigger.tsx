@@ -29,9 +29,13 @@ const PopoverTrigger = forwardRef<"button", PopoverTriggerProps>((props, _) => {
     };
   }, [children]);
 
+  // Accessing the ref from props, else fallback to element.ref
+  // https://github.com/facebook/react/pull/28348
+  const childRef = child.props.ref ?? (child as any).ref;
+
   const {onPress, isDisabled, ...restProps} = useMemo(() => {
-    return getTriggerProps(mergeProps(otherProps, child.props), child.ref);
-  }, [getTriggerProps, child.props, otherProps, child.ref]);
+    return getTriggerProps(mergeProps(otherProps, child.props), childRef);
+  }, [getTriggerProps, child.props, otherProps, childRef]);
 
   // validates if contains a NextUI Button as a child
   const [, triggerChildren] = pickChildren(children, Button);

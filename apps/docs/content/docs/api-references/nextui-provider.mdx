@@ -116,12 +116,12 @@ interface AppProviderProps {
     import {GregorianCalendar} from '@internationalized/date';
 
     function createCalendar(identifier) {
-    switch (identifier) {
-      case 'gregory':
-        return new GregorianCalendar();
-      default:
-        throw new Error(`Unsupported calendar ${identifier}`);
-    }
+      switch (identifier) {
+        case 'gregory':
+          return new GregorianCalendar();
+        default:
+          throw new Error(`Unsupported calendar ${identifier}`);
+      }
     }
     ```
 
@@ -167,6 +167,15 @@ or mark the field as required or invalid via ARIA.
 - **Type**: `native | aria`
 - **Default**: `aria`
 
+`reducedMotion`
+
+- **Description**: Controls the motion preferences for the entire application, allowing developers to respect user settings for reduced motion. 
+The available options are:
+  - `"user"`: Adapts to the user's device settings for reduced motion.
+  - `"always"`: Disables all animations.
+  - `"never"`: Keeps all animations active.
+- **Type**: `"user" | "always" | "never"`
+- **Default**: `"never"`
 ---
 
 ## Types

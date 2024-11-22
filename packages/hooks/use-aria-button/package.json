@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-button",
-  "version": "2.0.10",
+  "version": "2.1.0-beta.6",
   "description": "Internal hook to handle button a11y and events, this is based on react-aria button hook but without the onClick warning",
   "keywords": [
     "use-aria-button"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@react-aria/focus": "3.18.4",

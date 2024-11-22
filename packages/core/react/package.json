@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "2.4.8",
+  "version": "2.5.0-beta.19",
   "description": "🚀 Beautiful and modern React UI library.",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -90,9 +90,9 @@
     "@react-aria/visually-hidden": "3.8.17"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=11.5.6"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
   },
   "devDependencies": {
     "react": "^18.0.0",
