@@ -12,6 +12,7 @@ import internationalCalendars from "./international-calendars";
 import visibleMonths from "./visible-months";
 import pageBehaviour from "./page-behaviour";
 import presets from "./presets";
+import customCellContent from "./custom-cell-content";
 
 export const rangeCalendarContent = {
   usage,
@@ -28,4 +29,5 @@ export const rangeCalendarContent = {
   visibleMonths,
   pageBehaviour,
   presets,
+  customCellContent,
 };

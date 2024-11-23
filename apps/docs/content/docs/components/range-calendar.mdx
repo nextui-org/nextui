@@ -13,8 +13,6 @@ A range calendar consists of a grouping element containing one or more date grid
 
 ---
 
-
-
 ## Installation
 
 <PackageManagers
@@ -32,8 +30,8 @@ A range calendar consists of a grouping element containing one or more date grid
 
 <ImportTabs
   commands={{
-    main: 'import {RangeCalendar} from "@nextui-org/react";',
-    individual: 'import {RangeCalendar} from "@nextui-org/calendar";',
+    main: 'import {RangeCalendar, CalendarCellContent, CalendarCellButton, CalendarCellBody} from "@nextui-org/react";',
+    individual: 'import {RangeCalendar, CalendarCellContent, CalendarCellButton, CalendarCellBody} from "@nextui-org/calendar";',
   }}
 />
 
@@ -44,6 +42,56 @@ A RangeCalendar has no selection by default. An initial, uncontrolled value can 
 Date values are provided using objects in the [@internationalized/date](https://react-spectrum.adobe.com/internationalized/date/) package. This library handles correct international date manipulation across calendars, time zones, and other localization concerns.
 
 <CodeDemo title="Usage" files={rangeCalendarContent.usage} />
+
+### Custom Cell Content
+
+The Calendar component supports customizing the cell content in two ways:
+
+1. Using a render function:
+```tsx
+<RangeCalendar>
+  {(date, cellState) => (
+    <CalendarCellContent>
+      <CalendarCellButton>
+        <span 
+          className={
+            getDayOfWeek(date, locale) === 0 
+              ? "text-red-500" 
+              : "text-default-500"
+          }
+        >
+          {date.day}
+        </span>
+      </CalendarCellButton>
+    </CalendarCellContent>
+  )}
+</RangeCalendar>
+```
+
+2. Using component composition:
+```tsx
+<RangeCalendar>
+  <CalendarCellContent>
+    <CalendarCellButton />
+    <CalendarCellBody>
+      <div className="flex flex-col w-full gap-0.5 justify-center items-center p-0.5">
+        <span className="bg-red-600 h-1 w-full rounded-full" />
+        <span className="bg-green-600 h-1 w-full rounded-full" />
+        <span className="bg-yellow-600 h-1 w-full rounded-full" />
+      </div>
+    </CalendarCellBody>
+  </CalendarCellContent>
+</RangeCalendar>
+```
+
+The calendar provides three components for cell customization:
+- `CalendarCellContent`: Wrapper component for the entire cell content
+- `CalendarCellButton`: Interactive button element that handles selection
+- `CalendarCellBody`: Container for additional content below the button
+
+These components inherit all calendar states (selected, disabled, etc.) and maintain proper accessibility.
+
+<CodeDemo title="Custom Cell Content" files={rangeCalendarContent.customCellContent} />
 
 ### Disabled
 
@@ -131,6 +179,21 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
 
 <CodeDemo title="Presets" files={rangeCalendarContent.presets} />
 
+### Custom Cell Content
+
+The Calendar component supports customizing the cell content in two ways:
+
+<CodeDemo title="Custom Cell" files={rangeCalendarContent.customCellContent} />
+
+The Calendar provides three components for cell customization:
+
+- `CalendarCellContent`: The wrapper component for the cell content
+- `CalendarCellButton`: The interactive button element that handles selection
+- `CalendarCellBody`: Additional content container below the button
+
+These components inherit all calendar states (selected, disabled, etc.) and maintain proper accessibility.
+
+
 ## Slots
 
 - **base**: Calendar wrapper, it handles alignment, placement, and general appearance.
@@ -147,7 +210,9 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
 - **gridBody**: The date grid body element (e.g. `<tbody>`).
 - **gridBodyRow**: The date grid body row element (e.g. `<tr>`).
 - **cell**: The date grid cell element (e.g. `<td>`).
+- **cellContent**: The wrapper for custom cell content.
 - **cellButton**: The button element within the cell.
+- **cellBody**: The container for additional cell content.
 - **pickerWrapper**: The wrapper for the picker
 - **pickerMonthList**: The month list picker.
 - **pickerYearList**: The year list picker.

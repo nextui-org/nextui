@@ -129,6 +129,20 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
 
 <CodeDemo title="Presets" files={calendarContent.presets} />
 
+### Custom Cell Content
+
+The Calendar component supports customizing the cell content in two ways:
+
+<CodeDemo title="Custom Cell" files={calendarContent.customCellContent} />
+
+The Calendar provides three components for cell customization:
+
+- `CalendarCellContent`: The wrapper component for the cell content
+- `CalendarCellButton`: The interactive button element that handles selection
+- `CalendarCellBody`: Additional content container below the button
+
+These components inherit all calendar states (selected, disabled, etc.) and maintain proper accessibility.
+
 ## Slots
 
 - **base**: Calendar wrapper, it handles alignment, placement, and general appearance.
@@ -145,7 +159,9 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
 - **gridBody**: The date grid body element (e.g. `<tbody>`).
 - **gridBodyRow**: The date grid body row element (e.g. `<tr>`).
 - **cell**: The date grid cell element (e.g. `<td>`).
+- **cellContent**: The wrapper for custom cell content.
 - **cellButton**: The button element within the cell.
+- **cellBody**: The container for additional cell content.
 - **pickerWrapper**: The wrapper for the picker
 - **pickerMonthList**: The month list picker.
 - **pickerYearList**: The year list picker.
