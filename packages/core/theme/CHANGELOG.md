@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.13
+
+### Patch Changes
+
+- [#3321](https://github.com/nextui-org/nextui/pull/3321) [`341b5de79`](https://github.com/nextui-org/nextui/commit/341b5de7947655e6b18fa09045f7e10fba5b8c59) Thanks [@winchesHe](https://github.com/winchesHe)! - move circular-progress tv to progress
+
 ## 2.3.0-beta.12
 
 ### Patch Changes

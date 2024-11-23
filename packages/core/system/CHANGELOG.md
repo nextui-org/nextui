@@ -1,5 +1,11 @@
 # @nextui-org/system
 
+## 2.3.0-beta.8
+
+### Patch Changes
+
+- [#3470](https://github.com/nextui-org/nextui/pull/3470) [`4607fe2ff`](https://github.com/nextui-org/nextui/commit/4607fe2ff448a536496c2b59ccdfcb217379b6ed) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Add reducedMotion setting to Provider (#3395)
+
 ## 2.3.0-beta.7
 
 ### Patch Changes

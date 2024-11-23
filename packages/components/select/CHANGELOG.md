@@ -1,5 +1,27 @@
 # @nextui-org/select
 
+## 2.3.0-beta.13
+
+### Patch Changes
+
+- [#4126](https://github.com/nextui-org/nextui/pull/4126) [`9e8beabab`](https://github.com/nextui-org/nextui/commit/9e8beababea60dc499cc0989a0720fe25a10a823) Thanks [@tianenpang](https://github.com/tianenpang)! - Fix the label placement when the `Select` has a `placeholder` or `description`.
+
+- Updated dependencies []:
+  - @nextui-org/listbox@2.2.0-beta.9
+  - @nextui-org/popover@2.2.0-beta.9
+  - @nextui-org/scroll-shadow@2.2.0-beta.7
+  - @nextui-org/spinner@2.1.0-beta.7
+
+## 2.3.0-beta.12
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/listbox@2.2.0-beta.9
+  - @nextui-org/popover@2.2.0-beta.9
+  - @nextui-org/scroll-shadow@2.2.0-beta.7
+  - @nextui-org/aria-utils@2.1.0-beta.8
+
 ## 2.3.0-beta.11
 
 ### Patch Changes
