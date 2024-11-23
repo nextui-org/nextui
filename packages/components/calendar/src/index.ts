@@ -1,7 +1,7 @@
 import Calendar from "./calendar";
 import RangeCalendar from "./range-calendar";
 import CalendarCellContent from "./calendar-cell-content";
-import CalendarCellButton from "./calendar-cell-button";
+import CalendarCellHeader from "./calendar-cell-header";
 import CalendarCellBody from "./calendar-cell-body";
 
 // export types
@@ -19,4 +19,4 @@ export {useRangeCalendar} from "./use-range-calendar";
 export {CalendarProvider, useCalendarContext} from "./calendar-context";
 
 // export component
-export {Calendar, RangeCalendar, CalendarCellContent, CalendarCellButton, CalendarCellBody};
+export {Calendar, RangeCalendar, CalendarCellContent, CalendarCellHeader, CalendarCellBody};

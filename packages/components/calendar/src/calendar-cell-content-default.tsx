@@ -2,7 +2,7 @@ import React from "react";
 import {CalendarDate} from "@internationalized/date";
 
 import {CalendarCellContent} from "./calendar-cell-content";
-import {CalendarCellButton} from "./calendar-cell-button";
+import {CalendarCellHeader} from "./calendar-cell-header";
 
 export interface CalendarCellContentDefaultProps {
   date: CalendarDate;
@@ -11,7 +11,7 @@ export interface CalendarCellContentDefaultProps {
 export const CalendarCellContentDefault: React.FC<CalendarCellContentDefaultProps> = ({date}) => {
   return (
     <CalendarCellContent>
-      <CalendarCellButton>{date.day}</CalendarCellButton>
+      <CalendarCellHeader>{date.day}</CalendarCellHeader>
     </CalendarCellContent>
   );
 };

@@ -751,18 +751,17 @@ describe("RangeCalendar", () => {
 
   describe("Custom cell content", () => {
     it("should render custom content in the range calendar cells", () => {
-      const renderCellContent = (date: CalendarDate) => (
-        <div>
-          {date.day}
-          <span>*</span>
-        </div>
-      );
-
       const wrapper = render(
         <RangeCalendar
           defaultValue={{start: new CalendarDate(2024, 6, 25), end: new CalendarDate(2024, 6, 26)}}
-          renderCellContent={renderCellContent}
-        />,
+        >
+          {(date) => (
+            <div>
+              {date.day}
+              <span>*</span>
+            </div>
+          )}
+        </RangeCalendar>,
       );
 
       const gridCells = wrapper.getAllByRole("gridcell");

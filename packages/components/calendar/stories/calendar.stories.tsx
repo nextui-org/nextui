@@ -20,7 +20,7 @@ import {
   CalendarProps,
   DateValue,
   CalendarCellContent,
-  CalendarCellButton,
+  CalendarCellHeader,
   CalendarCellBody,
 } from "../src";
 
@@ -271,17 +271,31 @@ const CustomCellTemplate = (args: CalendarProps) => {
   return (
     <div className="flex gap-4">
       <div className="flex flex-col items-center gap-4">
-        <Calendar {...args}>
-          <CalendarCellContent>
-            <CalendarCellButton />
-            <CalendarCellBody>
-              <div className="flex flex-col w-full gap-0.5 justify-center items-center p-0.5">
-                <span className="bg-red-600 h-1 w-full rounded-full" />
-                <span className="bg-green-600 h-1 w-full rounded-full" />
-                <span className="bg-yellow-600 h-1 w-full rounded-full" />
-              </div>
-            </CalendarCellBody>
-          </CalendarCellContent>
+        <Calendar {...args} calendarWidth={340}>
+          {(date) => (
+            <CalendarCellContent>
+              <CalendarCellHeader />
+              <CalendarCellBody>
+                <div className="flex flex-col w-full text-tiny gap-0.5 px-0.5">
+                  {date.day % 5 === 0 && (
+                    <span className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1">
+                      Birth day
+                    </span>
+                  )}
+                  {date.day % 4 === 0 && (
+                    <span className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1">
+                      MTG
+                    </span>
+                  )}
+                  {date.day % 2 === 0 && (
+                    <span className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1">
+                      MTG
+                    </span>
+                  )}
+                </div>
+              </CalendarCellBody>
+            </CalendarCellContent>
+          )}
         </Calendar>
       </div>
       <div className="flex flex-col items-center gap-4">
@@ -293,9 +307,9 @@ const CustomCellTemplate = (args: CalendarProps) => {
 
             return (
               <CalendarCellContent>
-                <CalendarCellButton>
+                <CalendarCellHeader>
                   <span className={style}>{date.day}</span>
-                </CalendarCellButton>
+                </CalendarCellHeader>
               </CalendarCellContent>
             );
           }}

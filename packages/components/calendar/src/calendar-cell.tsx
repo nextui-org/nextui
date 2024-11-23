@@ -1,107 +1,122 @@
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
-import type {HTMLNextUIProps} from "@nextui-org/system";
-import type {AriaCalendarCellProps} from "@react-aria/calendar";
 
-import {useRef} from "react";
 import {CalendarDate, getDayOfWeek, isSameDay, isSameMonth, isToday} from "@internationalized/date";
-import {useCalendarCell as useAriaCalendarCell} from "@react-aria/calendar";
+import {AriaCalendarCellProps, useCalendarCell} from "@react-aria/calendar";
+import {HTMLNextUIProps} from "@nextui-org/system";
+import {mergeProps} from "@react-aria/utils";
 import {useLocale} from "@react-aria/i18n";
+import {useFocusRing} from "@react-aria/focus";
+import {useHover} from "@react-aria/interactions";
+import {useRef} from "react";
 
-import {CalendarCellProvider} from "./calendar-cell-context";
-import {useCalendarContext} from "./calendar-context";
+import {CalendarCellContextType, CalendarCellProvider} from "./calendar-cell-context";
 import {CalendarCellContentDefault} from "./calendar-cell-content-default";
+import {useCalendarContext} from "./calendar-context";
 
-type CalendarCellBaseProps = Omit<HTMLNextUIProps<"td">, "children">;
-
-export interface CalendarCellProps extends CalendarCellBaseProps, AriaCalendarCellProps {
+export interface CalendarCellProps extends HTMLNextUIProps<"td">, AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
   isPickerVisible?: boolean;
   slots?: CalendarReturnType;
   classNames?: SlotsToClasses<CalendarSlots>;
   currentMonth: CalendarDate;
-  cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
 }
 
-export const CalendarCell = ({
-  state,
-  date,
-  currentMonth,
-  isPickerVisible,
-  slots: propSlots,
-  classNames: propClassNames,
-  ...otherProps
-}: CalendarCellProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const {locale} = useLocale();
-  const {slots: contextSlots, classNames: contextClassNames, cellContent} = useCalendarContext();
+export function CalendarCell(originalProps: CalendarCellProps) {
+  const {state, slots, isPickerVisible, currentMonth, classNames, ...props} = originalProps;
 
-  const slots = propSlots || contextSlots;
-  const classNames = propClassNames || contextClassNames;
+  const ref = useRef<HTMLButtonElement>(null);
+  const {cellContent} = useCalendarContext();
 
-  const {cellProps, buttonProps, isSelected, isDisabled, isInvalid, formattedDate} =
-    useAriaCalendarCell(
-      {
-        ...otherProps,
-        date,
-        isDisabled: !isSameMonth(date, currentMonth) || isPickerVisible,
-      },
-      state,
-      ref,
-    );
+  const {
+    cellProps,
+    buttonProps,
+    isPressed,
+    isSelected,
+    isDisabled,
+    isFocused,
+    isInvalid,
+    formattedDate,
+  } = useCalendarCell(
+    {
+      ...props,
+      isDisabled: !isSameMonth(props.date, currentMonth) || isPickerVisible,
+    },
+    state,
+    ref,
+  );
 
-  const isUnavailable = state.isCellUnavailable(date);
-  const isOutsideMonth = !isSameMonth(date, currentMonth);
-  const isTodayDate = isToday(date, state.timeZone);
-  const isPressable = !isDisabled && !isUnavailable && !state.isReadOnly;
-
-  // Special handling for range selection states
+  const isUnavailable = state.isCellUnavailable(props.date);
   const isLastSelectedBeforeDisabled =
-    !isDisabled && !isInvalid && state.isCellUnavailable(date.add({days: 1}));
+    !isDisabled && !isInvalid && state.isCellUnavailable(props.date.add({days: 1}));
   const isFirstSelectedAfterDisabled =
-    !isDisabled && !isInvalid && state.isCellUnavailable(date.subtract({days: 1}));
+    !isDisabled && !isInvalid && state.isCellUnavailable(props.date.subtract({days: 1}));
   const highlightedRange = "highlightedRange" in state && state.highlightedRange;
   const isSelectionStart =
-    isSelected && highlightedRange ? isSameDay(date, highlightedRange.start) : false;
+    isSelected && highlightedRange ? isSameDay(props.date, highlightedRange.start) : false;
   const isSelectionEnd =
-    isSelected && highlightedRange ? isSameDay(date, highlightedRange.end) : false;
-  const dayOfWeek = getDayOfWeek(date, locale);
+    isSelected && highlightedRange ? isSameDay(props.date, highlightedRange.end) : false;
+  const {locale} = useLocale();
+  const dayOfWeek = getDayOfWeek(props.date, locale);
   const isRangeStart =
-    isSelected && (isFirstSelectedAfterDisabled || dayOfWeek === 0 || date.day === 1);
+    isSelected && (isFirstSelectedAfterDisabled || dayOfWeek === 0 || props.date.day === 1);
   const isRangeEnd =
     isSelected &&
     (isLastSelectedBeforeDisabled ||
       dayOfWeek === 6 ||
-      date.day === currentMonth.calendar.getDaysInMonth(currentMonth));
+      props.date.day === currentMonth.calendar.getDaysInMonth(currentMonth));
 
-  const cellContextValue = {
-    date,
+  const {focusProps, isFocusVisible} = useFocusRing();
+  const {hoverProps, isHovered} = useHover({
+    isDisabled: isDisabled || isUnavailable || state.isReadOnly,
+  });
+
+  const cellContextValue: CalendarCellContextType = {
+    // Core date and state
+    date: props.date,
     state,
     buttonProps,
+    formattedDate,
+
+    // Selection states
     isSelected,
-    isDisabled,
-    isInvalid,
-    isUnavailable,
-    isOutsideMonth,
-    isToday: isTodayDate,
-    isPressable,
     isRangeSelection: isSelected && "highlightedRange" in state,
     isRangeStart,
     isRangeEnd,
     isSelectionStart,
     isSelectionEnd,
-    formattedDate,
+
+    // Interaction states
+    isDisabled,
+    isPressable: !isDisabled && !isUnavailable && !state.isReadOnly,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+    isHovered,
+
+    // Validation states
+    isInvalid,
+    isUnavailable,
+
+    // Display states
+    isOutsideMonth: !isSameMonth(props.date, currentMonth),
+    isToday: isToday(props.date, state.timeZone),
+    isReadOnly: state.isReadOnly,
   };
 
   return (
-    <td {...cellProps} className={slots?.cell({class: classNames?.cell})} data-slot="cell">
-      <CalendarCellProvider value={cellContextValue}>
-        {typeof cellContent === "function"
-          ? cellContent(date)
-          : cellContent ?? <CalendarCellContentDefault date={date} />}
-      </CalendarCellProvider>
+    <td className={slots?.cell({class: classNames?.cell})} data-slot="cell" {...cellProps}>
+      <span
+        {...mergeProps(buttonProps, hoverProps, focusProps)}
+        ref={ref}
+        className={slots?.cellButton({class: classNames?.cellButton})}
+      >
+        <CalendarCellProvider value={cellContextValue}>
+          {typeof cellContent === "function"
+            ? cellContent(props.date)
+            : cellContent ?? <CalendarCellContentDefault date={props.date} />}
+        </CalendarCellProvider>
+      </span>
     </td>
   );
-};
-
-CalendarCell.displayName = "NextUI.CalendarCell";
+}

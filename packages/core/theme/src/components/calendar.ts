@@ -28,13 +28,15 @@ const calendar = tv({
     grid: "w-full border-collapse z-0",
     gridHeader: "bg-content1 shadow-[0px_20px_20px_0px_rgb(0_0_0/0.05)]",
     gridHeaderRow: "px-4 pb-2 flex justify-center text-default-400",
-    gridHeaderCell: "flex w-8 justify-center items-center font-medium text-small",
-    gridBody: "",
-    gridBodyRow: "flex justify-center items-center first:mt-2",
-    cell: "py-0.5 px-0",
-    cellContent: "flex flex-col gap-0.5",
-    cellButton: [
-      "w-8 h-8 flex items-center text-foreground justify-center rounded-full",
+    gridHeaderCell: "flex w-full justify-center items-center font-medium text-small",
+    gridBody: "w-full h-full",
+    gridBodyRow: "flex h-full justify-start items-start first:mt-2",
+    cell: "py-0.5 px-0 w-full h-full",
+    cellButton: ["relative w-full h-full justify-start", ...dataFocusVisibleClasses],
+    cellContent: "flex flex-col w-full gap-0.5 justify-start items-center ",
+    cellHeaderWrapper: ["flex w-full h-full justify-center items-center"],
+    cellHeader: [
+      "w-8 h-8 flex items-center text-foreground justify-center rounded-full shrink-0",
       "box-border appearance-none select-none whitespace-nowrap font-normal",
       "subpixel-antialiased overflow-hidden tap-highlight-transparent",
       "data-[disabled=true]:text-default-300",
@@ -44,7 +46,6 @@ const calendar = tv({
       "data-[unavailable=true]:text-default-300",
       "data-[unavailable=true]:cursor-default",
       "data-[unavailable=true]:line-through",
-      ...dataFocusVisibleClasses,
     ],
     cellBody: "w-full h-full",
     pickerWrapper:
@@ -73,16 +74,20 @@ const calendar = tv({
     // @internal
     isRange: {
       true: {
-        cellButton: [
+        cellHeaderWrapper: [
           // base
           "relative",
           "overflow-visible",
 
           // before pseudo element
           "before:content-[''] before:absolute before:inset-0 before:z-[-1] before:rounded-none",
+          "after:content-[''] after:absolute after:inset-0 after:z-[-1] after:rounded-none",
 
           // hide before pseudo element when the selected cell is outside the month
           "data-[outside-month=true]:before:hidden",
+          "data-[selected=true]:data-[range-selection=true]:data-[outside-month=true]:bg-transparent",
+          "data-[selected=true]:data-[range-selection=true]:data-[outside-month=true]:text-default-300",
+          "data-[outside-month=true]:after:hidden",
           "data-[selected=true]:data-[range-selection=true]:data-[outside-month=true]:bg-transparent",
           "data-[selected=true]:data-[range-selection=true]:data-[outside-month=true]:text-default-300",
 
@@ -92,10 +97,26 @@ const calendar = tv({
           // start (pseudo)
           "data-[range-start=true]:before:rounded-l-full",
           "data-[selection-start=true]:before:rounded-l-full",
+          "data-[range-start=true]:before:w-8",
+          "data-[selection-start=true]:before:w-8",
+          "data-[range-start=true]:before:justify-self-center",
+          "data-[selection-start=true]:before:justify-self-center",
+          "data-[range-start=true]:after:w-1/2",
+          "data-[selection-start=true]:after:w-1/2",
+          "data-[range-start=true]:after:justify-self-end",
+          "data-[selection-start=true]:after:justify-self-end",
 
           // end (pseudo)
           "data-[range-end=true]:before:rounded-r-full",
           "data-[selection-end=true]:before:rounded-r-full",
+          "data-[range-end=true]:before:w-8",
+          "data-[selection-end=true]:before:w-8",
+          "data-[range-end=true]:before:justify-self-center",
+          "data-[selection-end=true]:before:justify-self-center",
+          "data-[range-end=true]:after:w-1/2",
+          "data-[selection-end=true]:after:w-1/2",
+          "data-[range-end=true]:after:justify-self-start",
+          "data-[selection-end=true]:after:justify-self-start",
 
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:rounded-full",
@@ -108,7 +129,7 @@ const calendar = tv({
     },
     hideDisabledDates: {
       true: {
-        cellButton: "data-[disabled=true]:data-[outside-month=true]:opacity-0",
+        cellHeader: "data-[disabled=true]:data-[outside-month=true]:opacity-0",
       },
       false: {},
     },
@@ -132,20 +153,20 @@ const calendar = tv({
     },
     showShadow: {
       true: {
-        cellButton: "data-[selected=true]:shadow-md",
+        cellHeader: "data-[selected=true]:shadow-md",
       },
       false: {
-        cellButton: "shadow-none data-[selected=true]:shadow-none",
+        cellHeader: "shadow-none data-[selected=true]:shadow-none",
       },
     },
     disableAnimation: {
       true: {
-        cellButton: "transition-none",
+        cellHeader: "transition-none",
       },
       false: {
         headerWrapper: ["[&_.chevron-icon]:transition-transform", "after:transition-height"],
         grid: "transition-opacity",
-        cellButton: ["origin-center transition-[transform,background-color,color] !duration-150"],
+        cellHeader: ["origin-center transition-[transform,background-color,color] !duration-150"],
         pickerWrapper: "transition-opacity !duration-250",
         pickerItem: "transition-opacity",
       },
@@ -163,7 +184,7 @@ const calendar = tv({
       isRange: false,
       color: "foreground",
       class: {
-        cellButton: [
+        cellHeader: [
           "data-[hover=true]:bg-default-200",
           "data-[selected=true]:bg-foreground",
           "data-[selected=true]:text-background",
@@ -178,7 +199,7 @@ const calendar = tv({
       isRange: false,
       color: "primary",
       class: {
-        cellButton: [
+        cellHeader: [
           "data-[selected=true]:bg-primary",
           "data-[selected=true]:text-primary-foreground",
           "data-[hover=true]:bg-primary-50",
@@ -192,7 +213,7 @@ const calendar = tv({
       isRange: false,
       color: "secondary",
       class: {
-        cellButton: [
+        cellHeader: [
           "data-[selected=true]:bg-secondary",
           "data-[selected=true]:text-secondary-foreground",
           "data-[hover=true]:bg-secondary-50",
@@ -206,7 +227,7 @@ const calendar = tv({
       isRange: false,
       color: "success",
       class: {
-        cellButton: [
+        cellHeader: [
           "data-[selected=true]:bg-success",
           "data-[selected=true]:text-success-foreground",
           "data-[hover=true]:bg-success-100",
@@ -224,7 +245,7 @@ const calendar = tv({
       isRange: false,
       color: "warning",
       class: {
-        cellButton: [
+        cellHeader: [
           "data-[selected=true]:bg-warning",
           "data-[selected=true]:text-warning-foreground",
           "data-[hover=true]:bg-warning-100",
@@ -242,7 +263,7 @@ const calendar = tv({
       isRange: false,
       color: "danger",
       class: {
-        cellButton: [
+        cellHeader: [
           "data-[selected=true]:bg-danger",
           "data-[selected=true]:text-danger-foreground",
           "data-[hover=true]:bg-danger-100",
@@ -261,11 +282,13 @@ const calendar = tv({
       isRange: true,
       color: "foreground",
       class: {
-        cellButton: [
+        cellHeaderWrapper: [
           // middle
           "data-[selected=true]:data-[range-selection=true]:before:bg-foreground/10",
           "data-[selected=true]:data-[range-selection=true]:text-foreground",
-
+          "data-[selected=true]:data-[range-selection=true]:after:bg-foreground/10",
+        ],
+        cellHeader: [
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-foreground",
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-background",
@@ -280,11 +303,13 @@ const calendar = tv({
       isRange: true,
       color: "primary",
       class: {
-        cellButton: [
+        cellHeaderWrapper: [
           // middle
           "data-[selected=true]:data-[range-selection=true]:before:bg-primary-50",
           "data-[selected=true]:data-[range-selection=true]:text-primary",
-
+          "data-[selected=true]:data-[range-selection=true]:after:bg-primary-50",
+        ],
+        cellHeader: [
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-primary",
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-primary-foreground",
@@ -299,11 +324,13 @@ const calendar = tv({
       isRange: true,
       color: "secondary",
       class: {
-        cellButton: [
+        cellHeaderWrapper: [
           // middle
           "data-[selected=true]:data-[range-selection=true]:before:bg-secondary-50",
           "data-[selected=true]:data-[range-selection=true]:text-secondary",
-
+          "data-[selected=true]:data-[range-selection=true]:after:bg-secondary-50",
+        ],
+        cellHeader: [
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-secondary",
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-secondary-foreground",
@@ -318,13 +345,16 @@ const calendar = tv({
       isRange: true,
       color: "success",
       class: {
-        cellButton: [
+        cellHeaderWrapper: [
           // middle
           "data-[selected=true]:data-[range-selection=true]:before:bg-success-100",
           "data-[selected=true]:data-[range-selection=true]:text-success-600",
           "dark:data-[selected=true]:data-[range-selection=true]:before:bg-success-50",
           "dark:data-[selected=true]:data-[range-selection=true]:text-success-500",
-
+          "data-[selected=true]:data-[range-selection=true]:after:bg-success-100",
+          "dark:data-[selected=true]:data-[range-selection=true]:after:bg-success-50",
+        ],
+        cellHeader: [
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-success",
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-success-foreground",
@@ -341,12 +371,15 @@ const calendar = tv({
       isRange: true,
       color: "warning",
       class: {
-        cellButton: [
+        cellHeaderWrapper: [
           // middle
           "data-[selected=true]:data-[range-selection=true]:before:bg-warning-100",
           "dark:data-[selected=true]:data-[range-selection=true]:before:bg-warning-50",
           "data-[selected=true]:data-[range-selection=true]:text-warning-500",
-
+          "data-[selected=true]:data-[range-selection=true]:after:bg-warning-100",
+          "dark:data-[selected=true]:data-[range-selection=true]:after:bg-warning-50",
+        ],
+        cellHeader: [
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-warning",
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-warning-foreground",
@@ -361,11 +394,13 @@ const calendar = tv({
       isRange: true,
       color: "danger",
       class: {
-        cellButton: [
+        cellHeaderWrapper: [
           // middle
           "data-[selected=true]:data-[range-selection=true]:before:bg-danger-50",
           "data-[selected=true]:data-[range-selection=true]:text-danger-500",
-
+          "data-[selected=true]:data-[range-selection=true]:after:bg-danger-50",
+        ],
+        cellHeader: [
           // start (selected)
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:bg-danger",
           "data-[selected=true]:data-[selection-start=true]:data-[range-selection=true]:text-danger-foreground",
@@ -381,42 +416,42 @@ const calendar = tv({
       showShadow: true,
       color: "foreground",
       class: {
-        cellButton: "data-[selected=true]:shadow-foreground/40",
+        cellHeader: "data-[selected=true]:shadow-foreground/40",
       },
     },
     {
       showShadow: true,
       color: "primary",
       class: {
-        cellButton: "data-[selected=true]:shadow-primary/40",
+        cellHeader: "data-[selected=true]:shadow-primary/40",
       },
     },
     {
       showShadow: true,
       color: "secondary",
       class: {
-        cellButton: "data-[selected=true]:shadow-secondary/40",
+        cellHeader: "data-[selected=true]:shadow-secondary/40",
       },
     },
     {
       showShadow: true,
       color: "success",
       class: {
-        cellButton: "data-[selected=true]:shadow-success/40",
+        cellHeader: "data-[selected=true]:shadow-success/40",
       },
     },
     {
       showShadow: true,
       color: "warning",
       class: {
-        cellButton: "data-[selected=true]:shadow-warning/40",
+        cellHeader: "data-[selected=true]:shadow-warning/40",
       },
     },
     {
       showShadow: true,
       color: "danger",
       class: {
-        cellButton: "data-[selected=true]:shadow-danger/40",
+        cellHeader: "data-[selected=true]:shadow-danger/40",
       },
     },
     // showShadow & isRange
@@ -424,7 +459,7 @@ const calendar = tv({
       showShadow: true,
       isRange: true,
       class: {
-        cellButton: [
+        cellHeader: [
           // remove shadow from middle
           "data-[selected=true]:shadow-none",
           // add shadow to start (selected)

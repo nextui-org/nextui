@@ -467,18 +467,15 @@ describe("Calendar", () => {
 
   describe("Custom cell content", () => {
     it("should render custom content in the calendar cells", () => {
-      const renderCellContent = (date: CalendarDate) => (
-        <div>
-          {date.day}
-          <span>*</span>
-        </div>
-      );
-
       const wrapper = render(
-        <Calendar
-          defaultValue={new CalendarDate(2024, 3, 31)}
-          renderCellContent={renderCellContent}
-        />,
+        <Calendar defaultValue={new CalendarDate(2024, 3, 31)}>
+          {(date) => (
+            <div>
+              {date.day}
+              <span>*</span>
+            </div>
+          )}
+        </Calendar>,
       );
 
       const gridCells = wrapper.getAllByRole("gridcell");
