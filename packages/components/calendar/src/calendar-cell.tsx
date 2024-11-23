@@ -20,7 +20,7 @@ export interface CalendarCellProps extends CalendarCellBaseProps, AriaCalendarCe
   slots?: CalendarReturnType;
   classNames?: SlotsToClasses<CalendarSlots>;
   currentMonth: CalendarDate;
-  cellContent?: (date: CalendarDate) => React.ReactNode;
+  cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
 }
 
 export const CalendarCell = ({
@@ -95,7 +95,9 @@ export const CalendarCell = ({
   return (
     <td {...cellProps} className={slots?.cell({class: classNames?.cell})} data-slot="cell">
       <CalendarCellProvider value={cellContextValue}>
-        {cellContent ? cellContent(date) : <CalendarCellContentDefault date={date} />}
+        {typeof cellContent === "function"
+          ? cellContent(date)
+          : cellContent ?? <CalendarCellContentDefault date={date} />}
       </CalendarCellProvider>
     </td>
   );

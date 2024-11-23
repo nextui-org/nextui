@@ -87,7 +87,7 @@ interface Props extends NextUIBaseProps {
    * @param cellState The state of the calendar cell
    * @returns ReactNode
    */
-  cellContent?: (date: CalendarDate) => React.ReactNode;
+  cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
   /**
    * This function helps to reduce the bundle size by providing a custom calendar system.
    *
@@ -183,7 +183,7 @@ export type ContextType<T extends CalendarState | RangeCalendarState> = {
   setIsHeaderExpanded?: (isExpanded: boolean) => void;
   classNames?: SlotsToClasses<CalendarSlots>;
   disableAnimation?: boolean;
-  cellContent?: (date: CalendarDate) => React.ReactNode;
+  cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
 };
 
 export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {

@@ -13,7 +13,7 @@ interface Props<T extends DateValue>
   /**
    * The calendar cell render function
    */
-  children?: (date: CalendarDate) => React.ReactNode;
+  children?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
 }
 
 function Calendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {

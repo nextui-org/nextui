@@ -8,13 +8,21 @@ import {
   isWeekend,
   startOfWeek,
   startOfMonth,
+  getDayOfWeek,
 } from "@internationalized/date";
 import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
 
-import {Calendar, CalendarProps, DateValue} from "../src";
+import {
+  Calendar,
+  CalendarProps,
+  DateValue,
+  CalendarCellContent,
+  CalendarCellButton,
+  CalendarCellBody,
+} from "../src";
 
 export default {
   title: "Components/Calendar",
@@ -258,29 +266,40 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
 };
 
 const CustomCellTemplate = (args: CalendarProps) => {
+  const {locale} = useLocale();
+
   return (
     <div className="flex gap-4">
       <div className="flex flex-col items-center gap-4">
-        <Calendar
-          {...args}
-          calendarWidth={300}
-          classNames={{
-            gridHeaderCell: "w-12",
-            cell: "h-12",
-            cellButton: "w-12 h-full rounded-xl",
-          }}
-        />
+        <Calendar {...args}>
+          <CalendarCellContent>
+            <CalendarCellButton />
+            <CalendarCellBody>
+              <div className="flex flex-col w-full gap-0.5 justify-center items-center p-0.5">
+                <span className="bg-red-600 h-1 w-full rounded-full" />
+                <span className="bg-green-600 h-1 w-full rounded-full" />
+                <span className="bg-yellow-600 h-1 w-full rounded-full" />
+              </div>
+            </CalendarCellBody>
+          </CalendarCellContent>
+        </Calendar>
       </div>
       <div className="flex flex-col items-center gap-4">
-        <Calendar
-          {...args}
-          calendarWidth="30em"
-          classNames={{
-            gridHeaderCell: "w-16",
-            cell: "w-16",
-            cellButton: "w-16 h-full rounded-xl",
+        <Calendar {...args}>
+          {(date) => {
+            const dayOfWeek = getDayOfWeek(date, locale);
+            const style =
+              dayOfWeek === 0 ? "text-red-500" : dayOfWeek === 6 ? "text-blue-500" : "inherit";
+
+            return (
+              <CalendarCellContent>
+                <CalendarCellButton>
+                  <span className={style}>{date.day}</span>
+                </CalendarCellButton>
+              </CalendarCellContent>
+            );
           }}
-        />
+        </Calendar>
       </div>
     </div>
   );
@@ -409,11 +428,5 @@ export const CustomCellContent = {
   render: CustomCellTemplate,
   args: {
     ...defaultProps,
-    renderCellContent: (date) => (
-      <div className="flex flex-col gap-0">
-        {date.day}
-        <span className="text-tiny text-default-500 text-center">•</span>
-      </div>
-    ),
   },
 };
