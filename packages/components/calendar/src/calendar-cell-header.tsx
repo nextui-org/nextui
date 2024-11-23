@@ -5,11 +5,11 @@ import {dataAttr} from "@nextui-org/shared-utils";
 import {useCalendarCell} from "./calendar-cell-context";
 import {useCalendarContext} from "./calendar-context";
 
-export interface CalendarCellButtonProps extends HTMLNextUIProps<"div"> {
+export interface CalendarCellHeaderProps extends HTMLNextUIProps<"div"> {
   children?: React.ReactNode;
 }
 
-export const CalendarCellHeader = ({children}: CalendarCellButtonProps) => {
+export const CalendarCellHeader = ({children}: CalendarCellHeaderProps) => {
   const {slots, classNames} = useCalendarContext();
   const {
     date,

@@ -1,10 +1,10 @@
-const App = `import {RangeCalendar, CalendarCellContent, CalendarCellButton, CalendarCellBody} from "@nextui-org/react";
+const App = `import {RangeCalendar, CalendarCellContent, CalendarCellHeader, CalendarCellBody} from "@nextui-org/react";
 
 export default function App() {
   return (
     <RangeCalendar>
       <CalendarCellContent>
-        <CalendarCellButton />
+        <CalendarCellHeader />
         <CalendarCellBody>
           <div className="flex flex-col w-full gap-0.5 justify-center items-center p-0.5">
             <span className="bg-red-600 h-1 w-full rounded-full" />

@@ -33,8 +33,8 @@ A range calendar consists of a grouping element containing one or more date grid
 
 <ImportTabs
   commands={{
-    main: 'import {RangeCalendar, CalendarCellContent, CalendarCellButton, CalendarCellBody} from "@nextui-org/react";',
-    individual: 'import {RangeCalendar, CalendarCellContent, CalendarCellButton, CalendarCellBody} from "@nextui-org/calendar";',
+    main: 'import {RangeCalendar, CalendarCellContent, CalendarCellHeader, CalendarCellBody} from "@nextui-org/react";',
+    individual: 'import {RangeCalendar, CalendarCellContent, CalendarCellHeader, CalendarCellBody} from "@nextui-org/calendar";',
   }}
 />
 
@@ -55,7 +55,7 @@ The Calendar component supports customizing the cell content in two ways:
 <RangeCalendar>
   {(date, cellState) => (
     <CalendarCellContent>
-      <CalendarCellButton>
+      <CalendarCellHeader>
         <span 
           className={
             getDayOfWeek(date, locale) === 0 
@@ -65,7 +65,7 @@ The Calendar component supports customizing the cell content in two ways:
         >
           {date.day}
         </span>
-      </CalendarCellButton>
+      </CalendarCellHeader>
     </CalendarCellContent>
   )}
 </RangeCalendar>
@@ -75,7 +75,7 @@ The Calendar component supports customizing the cell content in two ways:
 ```tsx
 <RangeCalendar>
   <CalendarCellContent>
-    <CalendarCellButton />
+    <CalendarCellHeader />
     <CalendarCellBody>
       <div className="flex flex-col w-full gap-0.5 justify-center items-center p-0.5">
         <span className="bg-red-600 h-1 w-full rounded-full" />
@@ -89,7 +89,7 @@ The Calendar component supports customizing the cell content in two ways:
 
 The calendar provides three components for cell customization:
 - `CalendarCellContent`: Wrapper component for the entire cell content
-- `CalendarCellButton`: Interactive button element that handles selection
+- `CalendarCellHeader`: Interactive button element that handles selection
 - `CalendarCellBody`: Container for additional content below the button
 
 These components inherit all calendar states (selected, disabled, etc.) and maintain proper accessibility.
