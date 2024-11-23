@@ -17,13 +17,13 @@ export default function App() {
   );
 }`;
 
-const AppTs = `import {Calendar, CalendarCellContent, CalendarCellButton, CalendarCellBody} from "@nextui-org/react";
+const AppTs = `import {Calendar, CalendarCellContent, CalendarCellHeader, CalendarCellBody} from "@nextui-org/react";
 
 export default function App() {
   return (
     <Calendar>
       <CalendarCellContent>
-        <CalendarCellButton />
+        <CalendarCellHeader />
         <CalendarCellBody>
           <div className="flex flex-col w-full gap-0.5 justify-center items-center p-0.5">
             <span className="bg-red-600 h-1 w-full rounded-full" />

@@ -197,7 +197,7 @@ The Calendar component supports customizing the cell content in two ways:
 The Calendar provides three components for cell customization:
 
 - `CalendarCellContent`: The wrapper component for the cell content
-- `CalendarCellButton`: The interactive button element that handles selection
+- `CalendarCellHeader`: The interactive header element that handles selection
 - `CalendarCellBody`: Additional content container below the button
 
 These components inherit all calendar states (selected, disabled, etc.) and maintain proper accessibility.
@@ -219,8 +219,10 @@ These components inherit all calendar states (selected, disabled, etc.) and main
 - **gridBody**: The date grid body element (e.g. `<tbody>`).
 - **gridBodyRow**: The date grid body row element (e.g. `<tr>`).
 - **cell**: The date grid cell element (e.g. `<td>`).
-- **cellContent**: The wrapper for custom cell content.
 - **cellButton**: The button element within the cell.
+- **cellContent**: The wrapper for custom cell content.
+- **cellHeaderWrapper**: The wrapper for the cell header content.
+- **cellHeader**: The header element within the cell that handles selection.
 - **cellBody**: The container for additional cell content.
 - **pickerWrapper**: The wrapper for the picker
 - **pickerMonthList**: The month list picker.
