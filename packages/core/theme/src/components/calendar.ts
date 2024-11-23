@@ -32,6 +32,7 @@ const calendar = tv({
     gridBody: "",
     gridBodyRow: "flex justify-center items-center first:mt-2",
     cell: "py-0.5 px-0",
+    cellContent: "flex flex-col gap-0.5",
     cellButton: [
       "w-8 h-8 flex items-center text-foreground justify-center rounded-full",
       "box-border appearance-none select-none whitespace-nowrap font-normal",
@@ -45,6 +46,7 @@ const calendar = tv({
       "data-[unavailable=true]:line-through",
       ...dataFocusVisibleClasses,
     ],
+    cellBody: "w-full h-wull",
     pickerWrapper:
       "absolute inset-x-0 top-0 flex w-full h-[var(--picker-height)] justify-center opacity-0 pointer-events-none",
     pickerMonthList: "items-start",

@@ -82,11 +82,12 @@ interface Props extends NextUIBaseProps {
    */
   onHeaderExpandedChange?: (isExpanded: boolean) => void;
   /**
-   * Custom render function for calendar cell content
+   * Function to custom render the content of the calendar cell
    * @param date The date to render
+   * @param cellState The state of the calendar cell
    * @returns ReactNode
    */
-  renderCellContent?: (date: CalendarDate) => React.ReactNode;
+  cellContent?: (date: CalendarDate) => React.ReactNode;
   /**
    * This function helps to reduce the bundle size by providing a custom calendar system.
    *
@@ -182,7 +183,7 @@ export type ContextType<T extends CalendarState | RangeCalendarState> = {
   setIsHeaderExpanded?: (isExpanded: boolean) => void;
   classNames?: SlotsToClasses<CalendarSlots>;
   disableAnimation?: boolean;
-  renderCellContent?: (date: CalendarDate) => React.ReactNode;
+  cellContent?: (date: CalendarDate) => React.ReactNode;
 };
 
 export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
@@ -214,7 +215,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isHeaderExpanded: isHeaderExpandedProp,
     isHeaderDefaultExpanded,
     onHeaderExpandedChange = () => {},
-    renderCellContent,
+    cellContent,
     createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
     minValue = globalContext?.defaultDates?.minDate ??
       new CalendarDate(calendarProp, 1900 + gregorianYearOffset, 1, 1),
@@ -335,7 +336,7 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isHeaderExpanded,
     showMonthAndYearPickers,
     disableAnimation,
-    renderCellContent,
+    cellContent,
     createCalendar: createCalendarProp,
     getPrevButtonProps,
     getNextButtonProps,

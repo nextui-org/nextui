@@ -1,5 +1,6 @@
 import type {DateValue} from "@internationalized/date";
 import type {ForwardedRef, ReactElement, Ref} from "react";
+import type {CalendarDate} from "@internationalized/date";
 
 import {forwardRef} from "@nextui-org/system";
 
@@ -14,10 +15,22 @@ interface Props<T extends DateValue>
     | "onHeaderExpandedChange"
     | "isHeaderWrapperExpanded"
     | "showMonthAndYearPickers"
-  > {}
+    | "children"
+  > {
+  /**
+   * The calendar cell render function
+   */
+  children?: (date: CalendarDate) => React.ReactNode;
+}
 
 function RangeCalendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {context, getBaseCalendarProps} = useRangeCalendar<T>({...props, ref});
+  const {children, ...otherProps} = props;
+
+  const {context, getBaseCalendarProps} = useRangeCalendar<T>({
+    ...otherProps,
+    ref,
+    cellContent: children,
+  });
 
   return (
     <CalendarProvider value={context}>

@@ -23,7 +23,7 @@ export type UseRangeCalendarProps<T extends DateValue> = Props<T> & AriaRangeCal
 
 export function useRangeCalendar<T extends DateValue>({
   className,
-  renderCellContent,
+  cellContent,
   ...originalProps
 }: UseRangeCalendarProps<T>) {
   const {
@@ -105,7 +105,7 @@ export function useRangeCalendar<T extends DateValue>({
       visibleMonths,
       classNames,
       disableAnimation,
-      renderCellContent,
+      cellContent,
     }),
     [
       state,
@@ -116,7 +116,7 @@ export function useRangeCalendar<T extends DateValue>({
       setIsHeaderExpanded,
       visibleMonths,
       disableAnimation,
-      renderCellContent,
+      cellContent,
     ],
   );
 
