@@ -30,7 +30,7 @@ const calendar = tv({
     gridHeaderRow: "px-4 pb-2 flex justify-center text-default-400",
     gridHeaderCell: "flex w-full justify-center items-center font-medium text-small",
     gridBody: "w-full h-full",
-    gridBodyRow: "flex h-full justify-start items-start first:mt-2",
+    gridBodyRow: "flex h-full px-4 justify-start items-start first:mt-2",
     cell: "py-0.5 px-0 w-full h-full",
     cellButton: ["relative w-full h-full justify-start", ...dataFocusVisibleClasses],
     cellContent: "flex flex-col w-full gap-0.5 justify-start items-center ",
