@@ -61,8 +61,11 @@ export const CalendarCell = ({
   const isFirstSelectedAfterDisabled =
     !isDisabled && !isInvalid && state.isCellUnavailable(date.subtract({days: 1}));
   const highlightedRange = "highlightedRange" in state && state.highlightedRange;
-  const isSelectionStart = isSelected && highlightedRange ? isSameDay(date, highlightedRange.start) : false;
-  const isSelectionEnd = isSelected && highlightedRange ? isSameDay(date, highlightedRange.end) : false;
+  const isSelectionStart =
+    isSelected && highlightedRange ? isSameDay(date, highlightedRange.start) : false;
+  const isSelectionEnd =
+    isSelected && highlightedRange ? isSameDay(date, highlightedRange.end) : false;
+  const dayOfWeek = getDayOfWeek(date, locale);
   const isRangeStart =
     isSelected && (isFirstSelectedAfterDisabled || dayOfWeek === 0 || date.day === 1);
   const isRangeEnd =
