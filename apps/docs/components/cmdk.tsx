@@ -15,6 +15,7 @@ import {isAppleDevice, isWebKit} from "@react-aria/utils";
 import {create} from "zustand";
 import {isEmpty, intersectionBy} from "@nextui-org/shared-utils";
 import {writeStorage, useLocalStorage} from "@rehooks/local-storage";
+import {usePostHog} from "posthog-js/react";
 
 import {
   DocumentCodeBoldIcon,
@@ -25,7 +26,6 @@ import {
 
 import searchData from "@/config/search-meta.json";
 import {useUpdateEffect} from "@/hooks/use-update-effect";
-import {trackEvent} from "@/utils/va";
 
 const hideOnPaths = ["examples"];
 
@@ -139,6 +139,8 @@ export const Cmdk: FC<{}> = () => {
 
   const {isOpen, onClose, onOpen} = useCmdkStore();
 
+  const posthog = usePostHog();
+
   const [recentSearches] = useLocalStorage<SearchResultItem[]>(RECENT_SEARCHES_KEY);
 
   const addToRecentSearches = (item: SearchResultItem) => {
@@ -196,7 +198,7 @@ export const Cmdk: FC<{}> = () => {
 
       const matches = intersectionBy(...matchesForEachWord, "objectID").slice(0, MAX_RESULTS);
 
-      trackEvent("Cmdk - Search", {
+      posthog.capture("Cmdk - Search", {
         name: "cmdk - search",
         action: "search",
         category: "cmdk",
@@ -219,7 +221,7 @@ export const Cmdk: FC<{}> = () => {
         e.preventDefault();
         isOpen ? onClose() : onOpen();
 
-        trackEvent("Cmdk - Open/Close", {
+        posthog.capture("Cmdk - Open/Close", {
           name: "cmdk - open/close",
           action: "keydown",
           category: "cmdk",
@@ -241,7 +243,7 @@ export const Cmdk: FC<{}> = () => {
       router.push(item.url);
       addToRecentSearches(item);
 
-      trackEvent("Cmdk - ItemSelect", {
+      posthog.capture("Cmdk - ItemSelect", {
         name: item.content,
         action: "click",
         category: "cmdk",

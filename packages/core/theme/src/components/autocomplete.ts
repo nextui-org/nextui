@@ -5,7 +5,7 @@ import {tv} from "../utils/tv";
 const autocomplete = tv({
   slots: {
     base: "group inline-flex flex-column w-full",
-    listboxWrapper: "scroll-py-6 max-h-64 w-full",
+    listboxWrapper: "scroll-py-6 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
     endContentWrapper: "relative flex h-full items-center -mr-2",
