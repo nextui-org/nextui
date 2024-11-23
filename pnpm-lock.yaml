@@ -337,8 +337,8 @@ importers:
         specifier: 3.17.1
         version: 3.17.1(react@18.3.1)
       '@react-aria/i18n':
-        specifier: 3.11.1
-        version: 3.11.1(react@18.3.1)
+        specifier: 3.12.2
+        version: 3.12.2(react@18.3.1)
       '@react-aria/interactions':
         specifier: 3.21.3
         version: 3.21.3(react@18.3.1)
@@ -6636,11 +6636,6 @@ packages:
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
-
-  '@react-aria/i18n@3.11.1':
-    resolution: {integrity: sha512-vuiBHw1kZruNMYeKkTGGnmPyMnM5T+gT8bz97H1FqIq1hQ6OPzmtBZ6W6l6OIMjeHI5oJo4utTwfZl495GALFQ==}
-    peerDependencies:
-      react: ^18.2.0
 
   '@react-aria/i18n@3.12.2':
     resolution: {integrity: sha512-PvEyC6JWylTpe8dQEWqQwV6GiA+pbTxHQd//BxtMSapRW3JT9obObAnb/nFhj3HthkUvqHyj0oO1bfeN+mtD8A==}
@@ -19539,18 +19534,6 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
-
-  '@react-aria/i18n@3.11.1(react@18.3.1)':
-    dependencies:
-      '@internationalized/date': 3.5.5
-      '@internationalized/message': 3.1.5
-      '@internationalized/number': 3.5.4
-      '@internationalized/string': 3.2.4
-      '@react-aria/ssr': 3.9.5(react@18.3.1)
-      '@react-aria/utils': 3.25.2(react@18.3.1)
-      '@react-types/shared': 3.24.1(react@18.3.1)
-      '@swc/helpers': 0.5.15
-      react: 18.3.1
 
   '@react-aria/i18n@3.12.2(react@18.3.1)':
     dependencies:
