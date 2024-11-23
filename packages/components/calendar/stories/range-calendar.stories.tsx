@@ -52,8 +52,6 @@ export default {
   },
 } as Meta<typeof RangeCalendar>;
 
-delete calendar.defaultVariants?.showMonthAndYearPickers;
-
 const defaultProps = {
   ...calendar.defaultVariants,
   visibleMonths: 1,
@@ -422,6 +420,14 @@ export const InvalidDates = {
   render: InvalidDatesTemplate,
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithMonthAndYearPickers = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    showMonthAndYearPickers: true,
   },
 };
 

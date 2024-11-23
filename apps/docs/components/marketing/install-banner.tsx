@@ -5,13 +5,13 @@ import {ArrowRightIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {Code} from "@nextui-org/react";
+import {usePostHog} from "posthog-js/react";
 
 import {FeaturesGrid} from "./features-grid";
 
 import {sectionWrapper, subtitle, title} from "@/components/primitives";
 import {GithubIcon, NoteLinearIcon, NextJsIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
-import {trackEvent} from "@/utils/va";
 
 const bannerSuggestions = [
   {
@@ -35,6 +35,8 @@ const bannerSuggestions = [
 
 export const InstallBanner = () => {
   const isMounted = useIsMounted();
+
+  const posthog = usePostHog();
 
   return (
     <section
@@ -71,7 +73,7 @@ export const InstallBanner = () => {
               radius="full"
               size="md"
               onClick={() => {
-                trackEvent("InstallBanner - Get Started", {
+                posthog.capture("InstallBanner - Get Started", {
                   action: "press",
                   category: "landing-page",
                   data: "/docs/guide/installation",
@@ -90,7 +92,7 @@ export const InstallBanner = () => {
               startContent={<GithubIcon />}
               variant="bordered"
               onClick={() => {
-                trackEvent("InstallBanner - Github", {
+                posthog.capture("InstallBanner - Github", {
                   action: "press",
                   category: "landing-page",
                   data: "https://github.com/nextui-org/nextui",

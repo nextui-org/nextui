@@ -4,15 +4,17 @@ import {Icon} from "@iconify/react/dist/offline";
 import arrowRightIcon from "@iconify/icons-solar/arrow-right-linear";
 import {usePathname} from "next/navigation";
 import {useEffect} from "react";
+import {usePostHog} from "posthog-js/react";
 
-import {trackEvent} from "@/utils/va";
 import emitter from "@/libs/emitter";
 
 const hideOnPaths = ["examples"];
 
 export const ProBanner = () => {
+  const posthog = usePostHog();
+
   const handleClick = () => {
-    trackEvent("NextUI Pro Banner", {
+    posthog.capture("NextUI Pro Banner", {
       action: "click",
       category: "landing-page",
     });

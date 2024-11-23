@@ -1,8 +1,7 @@
 "use client";
 
 import {Link} from "@nextui-org/react";
-
-import {trackEvent} from "@/utils/va";
+import {usePostHog} from "posthog-js/react";
 
 export type Sponsor = {
   name: string;
@@ -11,13 +10,15 @@ export type Sponsor = {
 };
 
 export const SponsorItem = ({name, href, logo}: Sponsor) => {
+  const posthog = usePostHog();
+
   return (
     <Link
       isExternal
       className="flex flex-col items-center justify-center"
       href={href}
       onClick={() => {
-        trackEvent("Hero - Sponsors", {
+        posthog.capture("Hero - Sponsors", {
           name,
           action: "click",
           category: "hero",

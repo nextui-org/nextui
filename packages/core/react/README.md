@@ -39,7 +39,7 @@ Visit [https://storybook.nextui.org](https://storybook.nextui.org/) to view the 
 Canary versions are available after every merge into `canary` branch. You can install the packages with the tag `canary` in npm to use the latest changes before the next production release.
 
 - [Documentation](https://canary.nextui.org/docs)
-- [Storybook](https://canary-storybook.nextui.org)
+- [Storybook](https://canary-sb.nextui.org)
 
 ## Community
 
@@ -47,7 +47,7 @@ We're excited to see the community adopt NextUI, raise issues, and provide feedb
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
 
 - [Discord](https://discord.gg/9b6yyZKmH4)
-- [Twitter](https://twitter.com/getnextui)
+- [X](https://x.com/getnextui)
 - [GitHub Discussions](https://github.com/nextui-org/nextui/discussions)
 
 ## Contributing

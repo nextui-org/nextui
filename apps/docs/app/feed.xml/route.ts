@@ -1,5 +1,5 @@
 import Rss from "rss";
-import {allBlogPosts} from "contentlayer/generated";
+import {allBlogPosts} from "contentlayer2/generated";
 
 import {siteConfig} from "@/config/site";
 import {allCoreContent} from "@/libs/contentlayer";

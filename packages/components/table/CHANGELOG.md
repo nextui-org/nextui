@@ -1,5 +1,15 @@
 # @nextui-org/table
 
+## 2.0.40
+
+### Patch Changes
+
+- Updated dependencies [[`f36df4362`](https://github.com/nextui-org/nextui/commit/f36df4362f572e8e233d4357f43600265cd5b8d5)]:
+  - @nextui-org/shared-utils@2.0.8
+  - @nextui-org/checkbox@2.1.5
+  - @nextui-org/spacer@2.0.33
+  - @nextui-org/react-utils@2.0.17
+
 ## 2.0.39
 
 ### Patch Changes

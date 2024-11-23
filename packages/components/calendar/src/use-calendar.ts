@@ -13,14 +13,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
 import {CalendarBaseProps} from "./calendar-base";
 
-interface Props extends UseCalendarBaseProps {
-  /**
-   * Props for the button picker, which is used to select the month, year and expand the header.
-   */
-  buttonPickerProps?: ButtonProps;
-}
-
-export type UseCalendarProps<T extends DateValue> = Props & AriaCalendarProps<T>;
+export type UseCalendarProps<T extends DateValue> = UseCalendarBaseProps & AriaCalendarProps<T>;
 
 export function useCalendar<T extends DateValue>({
   buttonPickerProps: buttonPickerPropsProp,

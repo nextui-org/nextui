@@ -24,22 +24,21 @@ import {isAppleDevice} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
-import {includes} from "lodash";
 import {motion, AnimatePresence} from "framer-motion";
 import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
+import {usePostHog} from "posthog-js/react";
 
 import {currentVersion} from "@/utils/version";
 import {siteConfig} from "@/config/site";
 import {Route} from "@/libs/docs/page";
 import {LargeLogo, SmallLogo, ThemeSwitch} from "@/components";
-import {TwitterIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
+import {XIcon, GithubIcon, DiscordIcon, SearchLinearIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {DocsSidebar} from "@/components/docs/sidebar";
 import {useCmdkStore} from "@/components/cmdk";
 import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
-import {trackEvent} from "@/utils/va";
 
 export interface NavbarProps {
   routes: Route[];
@@ -60,6 +59,8 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const cmdkStore = useCmdkStore();
 
+  const posthog = usePostHog();
+
   useEffect(() => {
     if (isMenuOpen) {
       setIsMenuOpen(false);
@@ -72,7 +73,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const handleOpenCmdk = () => {
     cmdkStore.onOpen();
-    trackEvent("Navbar - Search", {
+    posthog.capture("Navbar - Search", {
       name: "navbar - search",
       action: "press",
       category: "cmdk",
@@ -127,7 +128,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   };
 
   const handlePressNavbarItem = (name: string, url: string) => {
-    trackEvent("NavbarItem", {
+    posthog.capture("NavbarItem", {
       name,
       action: "press",
       category: "navbar",
@@ -197,7 +198,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(docsPaths, pathname)}
+              data-active={docsPaths.includes(pathname)}
               href="/docs/guide/introduction"
               onClick={() => handlePressNavbarItem("Docs", "/docs/guide/introduction")}
             >
@@ -208,9 +209,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(pathname, "components")}
-              href="/docs/components/avatar"
-              onClick={() => handlePressNavbarItem("Components", "/docs/components/avatar")}
+              data-active={pathname.includes("components")}
+              href="/docs/components/accordion"
+              onClick={() => handlePressNavbarItem("Components", "/docs/components/accordion")}
             >
               Components
             </NextLink>
@@ -219,7 +220,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(pathname, "blog")}
+              data-active={pathname.includes("blog")}
               href="/blog"
               onClick={() => handlePressNavbarItem("Blog", "/blog")}
             >
@@ -230,7 +231,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <NextLink
               className={navLinkClasses}
               color="foreground"
-              data-active={includes(pathname, "figma")}
+              data-active={pathname.includes("figma")}
               href="/figma"
               onClick={() => handlePressNavbarItem("Figma", "/figma")}
             >
@@ -325,12 +326,12 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
         <NavbarItem className="hidden sm:flex">
           <Link
             isExternal
-            aria-label="Twitter"
+            aria-label="X"
             className="p-1"
             href={siteConfig.links.twitter}
             onPress={() => handlePressNavbarItem("Twitter", siteConfig.links.twitter)}
           >
-            <TwitterIcon className="text-default-600 dark:text-default-500" />
+            <XIcon className="text-default-600 dark:text-default-500" />
           </Link>
           <Link
             isExternal

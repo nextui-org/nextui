@@ -1,12 +1,11 @@
 "use client";
 
 import React, {ReactNode} from "react";
+import {usePostHog} from "posthog-js/react";
 import {tv} from "tailwind-variants";
 import {Card, CardHeader, CardBody, LinkProps, SlotsToClasses} from "@nextui-org/react";
 import {useRouter} from "next/navigation";
 import {LinkIcon} from "@nextui-org/shared-icons";
-
-import {trackEvent} from "@/utils/va";
 
 const styles = tv({
   slots: {
@@ -37,10 +36,12 @@ interface FeaturesGridProps {
 export const FeaturesGrid: React.FC<FeaturesGridProps> = ({features, classNames, ...props}) => {
   const router = useRouter();
 
+  const posthog = usePostHog();
+
   const slots = styles();
 
   const handleClick = (feat: Feature) => {
-    trackEvent("FeaturesGrid - Click", {
+    posthog.capture("FeaturesGrid - Click", {
       name: feat.title,
       action: "click",
       category: "docs",
@@ -72,7 +73,7 @@ export const FeaturesGrid: React.FC<FeaturesGridProps> = ({features, classNames,
           <CardHeader className={slots.header({class: classNames?.header})}>
             <div className={slots.iconWrapper({class: classNames?.iconWrapper})}>{feat.icon}</div>
             <p className={slots.title({class: classNames?.title})}>{feat.title}</p>
-            {feat.isExternal && <LinkIcon className="text-white" height={18} width={18} />}
+            {feat.isExternal && <LinkIcon height={18} width={18} />}
           </CardHeader>
           {feat.description ? (
             <CardBody className={slots.body({class: classNames?.body})}>

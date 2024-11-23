@@ -32,6 +32,7 @@ const modal = tv({
       "z-50",
       "overflow-x-auto",
       "justify-center",
+      "h-[--visual-viewport-height]",
     ],
     base: [
       "flex",
@@ -58,9 +59,7 @@ const modal = tv({
       "outline-none",
       "select-none",
       "top-1",
-      "right-1",
-      "rtl:left-1",
-      "rtl:right-[unset]",
+      "end-1",
       "p-2",
       "text-foreground-500",
       "rounded-full",
@@ -101,7 +100,7 @@ const modal = tv({
         base: "max-w-5xl",
       },
       full: {
-        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] !rounded-none",
+        base: "my-0 mx-0 sm:mx-0 sm:my-0 max-w-full h-[100dvh] min-h-[100dvh] !rounded-none",
       },
     },
     radius: {

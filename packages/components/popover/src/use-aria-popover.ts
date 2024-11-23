@@ -1,7 +1,7 @@
 import {RefObject, useEffect} from "react";
 import {
-  AriaPopoverProps,
   useOverlay,
+  AriaPopoverProps,
   PopoverAria,
   useOverlayPosition,
   AriaOverlayProps,
@@ -37,6 +37,11 @@ export interface Props {
    * @default []
    */
   updatePositionDeps?: any[];
+  /**
+   * Whether the popover should close on scroll.
+   * @default true
+   */
+  shouldCloseOnScroll?: boolean;
 }
 
 export type ReactAriaPopoverProps = Props & Omit<AriaPopoverProps, "placement"> & AriaOverlayProps;
@@ -60,6 +65,7 @@ export function useReactAriaPopover(
     boundaryElement,
     isDismissable = true,
     shouldCloseOnBlur = true,
+    shouldCloseOnScroll = true,
     placement: placementProp = "top",
     containerPadding,
     shouldCloseOnInteractOutside,
@@ -102,7 +108,7 @@ export function useReactAriaPopover(
     containerPadding,
     placement: toReactAriaPlacement(placementProp),
     offset: showArrow ? offset + 3 : offset,
-    onClose: isNonModal ? state.close : () => {},
+    onClose: isNonModal && shouldCloseOnScroll ? state.close : () => {},
   });
 
   useSafeLayoutEffect(() => {

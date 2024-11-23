@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.1.6
+
+### Patch Changes
+
+- [#3559](https://github.com/nextui-org/nextui/pull/3559) [`44e89a077`](https://github.com/nextui-org/nextui/commit/44e89a0779c1c98fe275c864fe12834d19302b9c) Thanks [@awesome-pro](https://github.com/awesome-pro)! - added missing `StringToBoolean<keyof V[K]>[]` (#3530)
+
 ## 2.1.5
 
 ### Patch Changes

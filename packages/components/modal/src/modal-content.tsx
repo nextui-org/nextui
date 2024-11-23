@@ -6,9 +6,9 @@ import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
-import {domAnimation, LazyMotion, m} from "framer-motion";
+import {LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
-import {chain, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps, useViewportSize} from "@react-aria/utils";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {KeyboardEvent} from "react";
 
@@ -20,6 +20,8 @@ type KeysToOmit = "children" | "role";
 export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div", KeysToOmit> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
+
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
 const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
   const {as, children, role = "dialog", ...otherProps} = props;
@@ -41,6 +43,8 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
   } = useModalContext();
 
   const Component = as || DialogComponent || "div";
+
+  const viewport = useViewportSize();
 
   const {dialogProps} = useDialog(
     {
@@ -97,8 +101,18 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
+  // set the height dynamically to avoid keyboard covering the bottom modal
+  const viewportStyle = {
+    "--visual-viewport-height": viewport.height + "px",
+  };
+
   const contents = disableAnimation ? (
-    <div className={slots.wrapper({class: classNames?.wrapper})} data-slot="wrapper">
+    <div
+      className={slots.wrapper({class: classNames?.wrapper})}
+      data-slot="wrapper"
+      // @ts-ignore
+      style={viewportStyle}
+    >
       {content}
     </div>
   ) : (
@@ -111,6 +125,8 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
         initial="exit"
         variants={scaleInOut}
         {...motionProps}
+        // @ts-ignore
+        style={viewportStyle}
       >
         {content}
       </m.div>

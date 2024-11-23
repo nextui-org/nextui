@@ -1,6 +1,7 @@
 /**
  * Part of this code is taken from @chakra-ui/react package ❤️
  */
+
 import type {ImgHTMLAttributes, SyntheticEvent} from "react";
 
 import {useCallback, useEffect, useRef, useState} from "react";
@@ -46,7 +47,6 @@ type Status = "loading" | "failed" | "pending" | "loaded";
 export type FallbackStrategy = "onError" | "beforeLoadOrError";
 
 type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
-
 /**
  * React hook that loads an image in the browser,
  * and lets us know the `status` so we can show image
@@ -63,6 +63,7 @@ type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
  * }
  * ```
  */
+
 export function useImage(props: UseImageProps = {}) {
   const {loading, src, srcSet, onLoad, onError, crossOrigin, sizes, ignoreFallback} = props;
 
@@ -131,9 +132,3 @@ export function useImage(props: UseImageProps = {}) {
    */
   return ignoreFallback ? "loaded" : status;
 }
-
-export const shouldShowFallbackImage = (status: Status, fallbackStrategy: FallbackStrategy) =>
-  (status !== "loaded" && fallbackStrategy === "beforeLoadOrError") ||
-  (status === "failed" && fallbackStrategy === "onError");
-
-export type UseImageReturn = ReturnType<typeof useImage>;

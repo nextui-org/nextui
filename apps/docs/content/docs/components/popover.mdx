@@ -14,7 +14,7 @@ additional rich content on top of something.
 
 ---
 
-
+<CarbonAd/>
 
 ## Installation
 
@@ -167,7 +167,8 @@ You can customize the `Popover` component by passing custom Tailwind CSS classes
 | showArrow                 | `boolean`                                                                   | Whether the popover should have an arrow.                                                                                                                    | `false`         |
 | shouldFlip                | `boolean`                                                                   | Whether the popover should change its placement and flip when it's about to overflow its boundary area.                                                      | `true`          |
 | triggerScaleOnOpen        | `boolean`                                                                   | Whether the trigger should scale down when the popover is open.                                                                                              | `true`          |
-| shouldBlockScroll         | `boolean`                                                                   | Whether to block scrolling outside the popover.                                                                                                              | `false`         |
+| shouldBlockScroll         | `boolean`                                                                   | Whether the popover should block the scroll outside the popover.                                                                                             | `true`          |
+| shouldCloseOnScroll       | `boolean`                                                                   | Wheather the popover should close on scroll                                                                                                    | `false`         |
 | isKeyboardDismissDisabled | `boolean`                                                                   | Whether pressing the escape key to close the popover should be disabled.                                                                                     | `false`         |
 | shouldCloseOnBlur         | `boolean`                                                                   | Whether the popover should close when focus is lost or moves outside it.                                                                                     | `false`         |
 | motionProps               | [MotionProps](#motion-props)                                                | The props to modify the framer motion animation. Use the `variants` API to create your own animation.                                                        |                 |

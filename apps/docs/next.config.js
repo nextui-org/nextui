@@ -1,4 +1,4 @@
-const withContentlayer = require("next-contentlayer").withContentlayer;
+const withContentlayer = require("next-contentlayer2").withContentlayer;
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -21,6 +21,22 @@ const nextConfig = {
       "i.pravatar.cc",
       "nextui.org",
     ],
+  },
+  rewrites: async () => {
+    return [
+      {
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+        source: "/ingest/static/:path*",
+      },
+      {
+        destination: "https://us.i.posthog.com/:path*",
+        source: "/ingest/:path*",
+      },
+      {
+        destination: "https://us.i.posthog.com/decide",
+        source: "/ingest/decide",
+      },
+    ];
   },
 };
 
