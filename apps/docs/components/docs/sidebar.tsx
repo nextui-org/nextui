@@ -1,6 +1,7 @@
 "use client";
 
 import {FC, useEffect, useState} from "react";
+import {usePostHog} from "posthog-js/react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
 import {BaseItem} from "@nextui-org/aria-utils";
@@ -27,7 +28,6 @@ import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
-import {trackEvent} from "@/utils/va";
 import {FbFeedbackButton} from "@/components/featurebase/fb-feedback-button";
 import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
 import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
@@ -66,6 +66,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 
   const router = useRouter();
   const pathname = usePathname();
+  const posthog = usePostHog();
 
   const paths = item.props.path
     ? getRoutePaths(item.props.path, item.props?.tag)
@@ -109,7 +110,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       } else {
         router.push(paths.pathname);
 
-        trackEvent("SidebarDocs", {
+        posthog.capture("SidebarDocs", {
           category: "docs",
           action: "click",
           data: paths.pathname || "",
