@@ -1,13 +1,12 @@
-import { dirname, join } from "path";
+import {dirname, join} from "path";
 import remarkGfm from "remark-gfm";
-import type { StorybookConfig } from '@storybook/react-vite';
-import react from '@vitejs/plugin-react';
+import type {StorybookConfig} from "@storybook/react-vite";
 
 const config: StorybookConfig = {
   stories: [
     "./welcome.mdx",
     "../../components/**/stories/**/*.stories.@(js|jsx|ts|tsx)",
-    "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)"
+    "../../core/theme/stories/*.stories.@(js|jsx|ts|tsx)",
   ],
 
   staticDirs: ["../public"],
@@ -18,7 +17,7 @@ const config: StorybookConfig = {
     getAbsolutePath("@storybook/addon-links"),
     getAbsolutePath("storybook-dark-mode"),
     {
-      name: '@storybook/addon-docs',
+      name: "@storybook/addon-docs",
       options: {
         mdxPluginOptions: {
           mdxCompileOptions: {
