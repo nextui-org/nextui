@@ -1,6 +1,7 @@
 import { dirname, join } from "path";
 import remarkGfm from "remark-gfm";
 import type { StorybookConfig } from '@storybook/react-vite';
+import react from '@vitejs/plugin-react';
 
 const config: StorybookConfig = {
   stories: [
@@ -41,10 +42,6 @@ const config: StorybookConfig = {
   typescript: {
     reactDocgen: false,
   },
-
-  docs: {
-    autodocs: true
-  }
 };
 
 function getAbsolutePath(value) {

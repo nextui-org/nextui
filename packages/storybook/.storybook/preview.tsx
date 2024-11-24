@@ -30,7 +30,6 @@ const commonTheme = {
 };
 
 const parameters: Preview["parameters"] = {
-  actions: {argTypesRegex: "^on[A-Z].*"},
   options: {
     storySort: {
       method: "alphabetical",
@@ -134,6 +133,7 @@ const preview: Preview = {
   decorators,
   parameters,
   globalTypes,
+  tags: ["autodocs"]
 };
 
 export default preview;
