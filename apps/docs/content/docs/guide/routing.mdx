@@ -269,7 +269,7 @@ function RootRoute() {
   return (
     <NextUIProvider 
       navigate={(to, options) => router.navigate({ to, ...options })}
-      useHref={(to) => router.buildLocation(to).href}
+      useHref={(to) => router.buildLocation({ to }).href}
     >
       {/* You app here... */}
     </NextUIProvider>

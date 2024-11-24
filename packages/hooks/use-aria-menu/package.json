@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-menu",
-  "version": "2.0.7",
+  "version": "2.1.0-beta.6",
   "description": "React-aria useMenu hooks with custom implementations",
   "keywords": [
     "use-aria-menu"
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@react-aria/utils": "3.25.2",

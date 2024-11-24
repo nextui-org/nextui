@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "rimraf .contentlayer && concurrently \"contentlayer2 dev\" \"next dev\"",
-    "build": "contentlayer2 build && next build",
+    "build": "contentlayer2 build && next build ",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
     "lint": "next lint",
@@ -12,10 +12,12 @@
     "preinstall": "node preinstall.js",
     "build:sponsors": "tsx scripts/build-sponsors.ts",
     "update:search-meta": "tsx scripts/update-search-meta.ts",
+    "update:github-info": "tsx scripts/update-github-info.ts",
     "postbuild": "next-sitemap"
   },
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.6.4",
+    "@emotion/is-prop-valid": "^1.3.1",
     "@iconify/icons-solar": "^1.2.3",
     "@iconify/react": "^4.1.1",
     "@internationalized/date": "3.5.5",
@@ -49,7 +51,6 @@
     "@react-stately/layout": "3.13.9",
     "@react-stately/tree": "3.8.1",
     "@rehooks/local-storage": "^2.4.5",
-    "@vercel/analytics": "^1.2.2",
     "canvas-confetti": "^1.9.2",
     "cmdk": "^0.2.0",
     "color2k": "^2.0.2",
@@ -70,6 +71,7 @@
     "parse-numeric-range": "1.2.0",
     "prism-react-renderer": "^1.2.1",
     "querystring": "^0.2.1",
+    "posthog-js": "1.187.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",

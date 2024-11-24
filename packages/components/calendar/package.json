@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/calendar",
-  "version": "2.0.12",
+  "version": "2.1.0-beta.9",
   "description": "A calendar displays one or more date grids and allows users to select a single date.",
   "keywords": [
     "calendar"
@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.1.0",
-    "@nextui-org/theme": ">=2.2.0",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "@nextui-org/system": ">=2.3.0-beta.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/react-utils": "workspace:*",

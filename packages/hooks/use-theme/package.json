@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-theme",
-  "version": "2.0.0",
+  "version": "2.0.1-beta.6",
   "description": "React hook to switch between light and dark themes",
   "keywords": [
     "use-theme"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
