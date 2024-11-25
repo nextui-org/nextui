@@ -1,11 +1,10 @@
 "use client";
 
 import NextLink from "next/link";
+import {usePostHog} from "posthog-js/react";
 import arrowRightUpIcon from "@iconify/icons-solar/arrow-right-up-linear";
 import {Icon} from "@iconify/react/dist/offline";
 import {clsx} from "@nextui-org/shared-utils";
-
-import {trackEvent} from "@/utils/va";
 
 type Props = {
   className?: string;
@@ -13,8 +12,10 @@ type Props = {
 };
 
 export const FbRoadmapLink = ({className, innerClassName}: Props) => {
+  const posthog = usePostHog();
+
   const fbLinkOnClick = () => {
-    trackEvent("Featurebase - Roadmap", {
+    posthog.capture("Featurebase - Roadmap", {
       name: "featurebase-roadmap",
       action: "press",
       category: "featurebase",

@@ -39,7 +39,7 @@ Visit [https://storybook.nextui.org](https://storybook.nextui.org/) to view the 
 Canary versions are available after every merge into `canary` branch. You can install the packages with the tag `canary` in npm to use the latest changes before the next production release.
 
 - [Documentation](https://canary.nextui.org/docs)
-- [Storybook](https://canary-storybook.nextui.org)
+- [Storybook](https://canary-sb.nextui.org)
 
 ## Community
 

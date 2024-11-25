@@ -3,6 +3,7 @@
 import {FC, useMemo, useRef} from "react";
 import {Avatar, AvatarProps, Button, Spacer, Tooltip} from "@nextui-org/react";
 import {clamp} from "@nextui-org/shared-utils";
+import {usePostHog} from "posthog-js/react";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
 
@@ -12,7 +13,6 @@ import {OpenCollectiveIcon, PatreonIcon, HeartBoldIcon, PlusLinearIcon} from "@/
 import {Sponsor, SPONSOR_TIERS, SPONSOR_COLORS, getTier} from "@/libs/docs/sponsors";
 import {SonarPulse} from "@/components/sonar-pulse";
 import {useIsMobile} from "@/hooks/use-media-query";
-import {trackEvent} from "@/utils/va";
 
 export interface SupportProps {
   sponsors: Sponsor[];
@@ -95,6 +95,7 @@ const getSponsorAvatarStyles = (index: number, sponsors: Sponsor[] = []) => {
 export const Support: FC<SupportProps> = ({sponsors = []}) => {
   const sonarRef = useRef(null);
   const isMobile = useIsMobile();
+  const posthog = usePostHog();
 
   const handleExternalLinkClick = (href: string) => {
     if (!href) return;
@@ -102,7 +103,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
   };
 
   const handleBecomeSponsor = () => {
-    trackEvent("Support - Become a sponsor", {
+    posthog.capture("Support - Become a sponsor", {
       action: "click",
       category: "landing-page",
     });
