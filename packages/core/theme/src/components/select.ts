@@ -39,6 +39,7 @@ const select = tv({
       "appearance-none",
       "outline-none",
       "select-none",
+      "opacity-70",
       "hover:!opacity-100",
       "cursor-pointer",
       "active:!opacity-70",
