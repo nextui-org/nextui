@@ -143,6 +143,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
       className={clsx({
         "z-[100001]": isMenuOpen,
       })}
+      classNames={{
+        base: "fixed top-[44px]",
+      }}
       isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"

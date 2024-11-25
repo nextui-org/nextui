@@ -45,7 +45,7 @@ export const ProBanner = () => {
   if (!shouldBeVisible) return null;
 
   return (
-    <div className="relative z-50 isolate flex items-center gap-x-6 overflow-hidden bg-background border-b-1 border-divider px-6 py-2 sm:px-3.5 sm:before:flex-1">
+    <div className="sticky top-0 z-50 isolate flex items-center gap-x-6 overflow-hidden bg-background border-b-1 border-divider px-6 py-2 sm:px-3.5 sm:before:flex-1">
       <div
         aria-hidden="true"
         className="absolute left-[max(-7rem,calc(50%-52rem))] top-1/2 -z-10 -translate-y-1/2 transform-gpu blur-2xl"
@@ -82,7 +82,7 @@ export const ProBanner = () => {
             🚀
           </span>
           <span
-            className="inline-flex md:ml-1 animate-text-gradient font-medium bg-clip-text text-transparent bg-[linear-gradient(90deg,#D6009A_0%,#8a56cc_50%,#D6009A_100%)] dark:bg-[linear-gradient(90deg,#FFEBF9_0%,#8a56cc_50%,#FFEBF9_100%)]"
+            className="inline-flex font-medium md:ml-1 animate-text-gradient font-medium bg-clip-text text-transparent bg-[linear-gradient(90deg,#D6009A_0%,#8a56cc_50%,#D6009A_100%)] dark:bg-[linear-gradient(90deg,#FFEBF9_0%,#338EF7_50%,#FFEBF9_100%)]"
             style={{
               fontSize: "inherit",
               backgroundSize: "200%",
@@ -91,7 +91,7 @@ export const ProBanner = () => {
               color: "transparent",
             }}
           >
-            Ship faster with beautiful components
+            Black Friday: 40% OFF - Ends November 29th
           </span>
         </a>
         <a
