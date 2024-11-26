@@ -55,11 +55,23 @@ Alert comes with 6 color variants to convey different meanings.
 
 <CodeDemo title="Radius" files={alertContent.radius} />
 
-### With Icon
+### Custom Icon
 
 By default, Alert displays an appropriate icon based on the `color` prop. You can override this by providing a custom icon using the `icon` prop.
 
-<CodeDemo title="With Icon" files={alertContent.withIcon} />
+<CodeDemo title="Custom Icon" files={alertContent.withIcon} />
+
+### Without Icon
+
+You can hide the icon by setting the `hideIcon` prop to `true`.
+
+<CodeDemo title="Without Icon" files={alertContent.withoutIcon} />
+
+### With Action
+
+Alert supports an `endContent` prop for additional actions.
+
+<CodeDemo title="With Action" files={alertContent.withAction} />
 
 ### Controlled Visibility
 
@@ -92,6 +104,18 @@ Alert has the following attributes on the `base` element:
 
 <Spacer y={4} />
 
+### Slots
+
+Alert has the following slots:
+
+- `base`: The main alert container element
+- `title`: The title element
+- `description`: The description element
+- `mainWrapper`: The wrapper for the title and description content
+- `closeButton`: The close button element
+- `iconWrapper`: The wrapper for the alert icon
+- `alertIcon`: The alert icon element
+
 ## Accessibility
 
 - Alert has role of `alert`
@@ -110,10 +134,14 @@ Alert has the following attributes on the `base` element:
 | icon             | `ReactNode`                                                                 | The alert icon - overrides the default icon | -         |
 | description      | `ReactNode`                                                                 | The alert description                       | -         |
 | color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The alert color theme                       | `default` |
-| variant          | `solid` \| `bordered` \| `flat`                                             | The alert variant                           | `flat`    |
+| variant          | `solid` \| `bordered` \| `flat` \| `faded`                                  | The alert variant                           | `flat`    |
 | radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The alert border radius                     | `md`      |
+| startContent     | `ReactNode`                                                                 | The alert start content                     | -         |
+| endContent       | `ReactNode`                                                                 | The alert end content                       | -         |
 | isVisible        | `boolean`                                                                   | Whether the alert is visible                | -         |
 | isClosable       | `boolean`                                                                   | Whether the alert can be closed             | `false`   |
+| hideIcon         | `boolean`                                                                   | Whether the icon is hidden                  | `false`   |
+| hideIconWrapper  | `boolean`                                                                   | Whether the icon wrapper is hidden          | `false`   |
 | closeButtonProps | `ButtonProps`                                                               | Props for the close button                  | -         |
 
 ### Alert Events

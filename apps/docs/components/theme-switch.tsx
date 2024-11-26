@@ -8,7 +8,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import {useIsSSR} from "@react-aria/ssr";
 import {usePostHog} from "posthog-js/react";
 
-import {SunFilledIcon, MoonFilledIcon} from "@/components/icons";
+import {SunLinearIcon, MoonIcon} from "@/components/icons";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -59,8 +59,8 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
               "rounded-lg",
               "flex items-center justify-center",
               "group-data-[selected=true]:bg-transparent",
-              "!text-default-600 dark:!text-default-500",
-              "pt-px",
+              "!text-default-600 dark:!text-default-300",
+              "pt-0",
               "px-0",
               "mx-0",
             ],
@@ -68,7 +68,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
           ),
         })}
       >
-        {!isSelected || isSSR ? <SunFilledIcon size={22} /> : <MoonFilledIcon size={22} />}
+        {!isSelected || isSSR ? <SunLinearIcon size={22} /> : <MoonIcon size={22} />}
       </div>
     </Component>
   );

@@ -100,6 +100,58 @@ const items = animalsData.map((item) => (
   </AutocompleteItem>
 ));
 
+interface LargeDatasetSchema {
+  label: string;
+  value: string;
+  description: string;
+}
+
+function generateLargeDataset(n: number): LargeDatasetSchema[] {
+  const dataset: LargeDatasetSchema[] = [];
+
+  const items = [
+    "Cat",
+    "Dog",
+    "Elephant",
+    "Lion",
+    "Tiger",
+    "Giraffe",
+    "Dolphin",
+    "Penguin",
+    "Zebra",
+    "Shark",
+    "Whale",
+    "Otter",
+    "Crocodile",
+  ];
+
+  for (let i = 0; i < n; i++) {
+    const item = items[i % items.length];
+
+    dataset.push({
+      label: `${item}${i}`,
+      value: `${item.toLowerCase()}${i}`,
+      description: "Sample description",
+    });
+  }
+
+  return dataset;
+}
+
+const LargeDatasetTemplate = (args: AutocompleteProps & {numItems: number}) => {
+  const largeDataset = generateLargeDataset(args.numItems);
+
+  return (
+    <Autocomplete label={`Search from ${args.numItems} items`} {...args}>
+      {largeDataset.map((item, index) => (
+        <AutocompleteItem key={index} value={item.value}>
+          {item.label}
+        </AutocompleteItem>
+      ))}
+    </Autocomplete>
+  );
+};
+
 const Template = (args: AutocompleteProps) => (
   <Autocomplete label="Favorite Animal" {...args}>
     <AutocompleteItem key="red_panda">Red Panda</AutocompleteItem>
@@ -1059,5 +1111,44 @@ export const FullyControlled = {
   render: FullyControlledTemplate,
   args: {
     ...defaultProps,
+  },
+};
+
+export const OneThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+  },
+};
+
+export const TenThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 10000,
+  },
+};
+
+export const CustomMaxListboxHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+    maxListboxHeight: 400,
+  },
+};
+
+export const CustomItemHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+    maxListboxHeight: 400,
+    itemHeight: 40,
   },
 };

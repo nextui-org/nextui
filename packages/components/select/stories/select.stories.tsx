@@ -357,6 +357,43 @@ const LabelPlacementTemplate = ({color, variant, ...args}: SelectProps) => (
         </Select>
       </div>
     </div>
+    <div className="w-full max-w-2xl flex flex-col gap-3">
+      <h3>With placeholder and description</h3>
+      <div className="w-full flex flex-row items-end gap-4">
+        <Select
+          color={color}
+          description="Select your favorite animal"
+          label="Favorite Animal"
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+        >
+          {items}
+        </Select>
+        <Select
+          color={color}
+          description="Select your favorite animal"
+          label="Favorite Animal"
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+          labelPlacement="outside"
+        >
+          {items}
+        </Select>
+        <Select
+          color={color}
+          description="Select your favorite animal"
+          label="Favorite Animal"
+          placeholder="Select an animal"
+          variant={variant}
+          {...args}
+          labelPlacement="outside-left"
+        >
+          {items}
+        </Select>
+      </div>
+    </div>
   </div>
 );
 

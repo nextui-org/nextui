@@ -76,15 +76,18 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
   }, [clearButton, endContent]);
 
   const helperWrapper = useMemo(() => {
-    if (!hasHelper) return null;
+    const shouldShowError = isInvalid && errorMessage;
+    const hasContent = shouldShowError || description;
+
+    if (!hasHelper || !hasContent) return null;
 
     return (
       <div {...getHelperWrapperProps()}>
-        {isInvalid && errorMessage ? (
+        {shouldShowError ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : description ? (
+        ) : (
           <div {...getDescriptionProps()}>{description}</div>
-        ) : null}
+        )}
       </div>
     );
   }, [

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react-utils",
-  "version": "2.0.17",
+  "version": "2.0.18-beta.7",
   "description": "A set of utilities for react on client side",
   "keywords": [
     "react-utils"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",

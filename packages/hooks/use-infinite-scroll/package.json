@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-infinite-scroll",
-  "version": "2.1.5",
+  "version": "2.1.6-beta.7",
   "description": "A hook for handling infinite scroll based on the IntersectionObserver API",
   "keywords": [
     "use-infinite-scroll"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*"
