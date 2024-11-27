@@ -1,5 +1,6 @@
-import {Form as AriaForm, FormProps} from "react-aria-components";
 import {useProviderContext} from "@nextui-org/system";
+
+import {Form as AriaForm, FormProps} from "./base-form";
 
 export const Form = (props: FormProps) => {
   const globalContext = useProviderContext();
