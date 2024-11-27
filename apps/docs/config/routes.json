@@ -35,13 +35,15 @@
           "key": "routing",
           "title": "Routing",
           "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
-          "path": "/docs/guide/routing.mdx"
+          "path": "/docs/guide/routing.mdx",
+          "updated": true
         },
         {
           "key": "form",
           "title": "Forms",
           "keywords": "forms, form validation, nextui",
-          "path": "/docs/guide/form.mdx"
+          "path": "/docs/guide/form.mdx",
+          "newPost": true
         },
         {
           "key": "upgrade-to-v2",
@@ -200,13 +202,15 @@
           "key": "checkbox",
           "title": "Checkbox",
           "keywords": "checkbox, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox.mdx"
+          "path": "/docs/components/checkbox.mdx",
+          "updated": true
         },
         {
           "key": "checkbox-group",
           "title": "Checkbox Group",
           "keywords": "checkbox group, binary choice, selection control, toggle",
-          "path": "/docs/components/checkbox-group.mdx"
+          "path": "/docs/components/checkbox-group.mdx",
+          "updated": true
         },
         {
           "key": "chip",
@@ -230,7 +234,8 @@
           "key": "date-input",
           "title": "Date Input",
           "keywords": "date-input, time, input, timezone",
-          "path": "/docs/components/date-input.mdx"        },
+          "path": "/docs/components/date-input.mdx"
+        },
         {
           "key": "date-picker",
           "title": "Date Picker",
@@ -272,7 +277,8 @@
           "key": "input",
           "title": "Input",
           "keywords": "input, text box, form field, data entry",
-          "path": "/docs/components/input.mdx"
+          "path": "/docs/components/input.mdx",
+          "updated": true
         },
         {
           "key": "kbd",
@@ -327,7 +333,8 @@
           "key": "radio-group",
           "title": "Radio Group",
           "keywords": "radio group, selection set, option selection, exclusive choices",
-          "path": "/docs/components/radio-group.mdx"
+          "path": "/docs/components/radio-group.mdx",
+          "updated": true
         },
         {
           "key": "range-calendar",
@@ -345,7 +352,8 @@
           "key": "select",
           "title": "Select",
           "keywords": "select, selection, option list, multiple choice",
-          "path": "/docs/components/select.mdx"
+          "path": "/docs/components/select.mdx",
+          "updated": true
         },
         {
           "key": "skeleton",
@@ -381,7 +389,8 @@
           "key": "switch",
           "title": "Switch",
           "keywords": "switch, toggle, binary input, on/off control",
-          "path": "/docs/components/switch.mdx"
+          "path": "/docs/components/switch.mdx",
+          "updated": true
         },
         {
           "key": "table",
@@ -399,7 +408,8 @@
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",
-          "path": "/docs/components/textarea.mdx"
+          "path": "/docs/components/textarea.mdx",
+          "updated": true
         },
         {
           "key": "time-input",
