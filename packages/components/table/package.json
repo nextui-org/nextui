@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/table",
-  "version": "2.1.0-beta.8",
+  "version": "2.1.0-beta.9",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"

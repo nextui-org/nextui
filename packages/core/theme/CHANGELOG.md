@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.14
+
+### Patch Changes
+
+- [#4105](https://github.com/nextui-org/nextui/pull/4105) [`256d46277`](https://github.com/nextui-org/nextui/commit/256d462771c19d6ca5b969d0ec44419fb560f0ac) Thanks [@winchesHe](https://github.com/winchesHe)! - Add truncate class to the list item to avoid overflow the wrapper
+
 ## 2.3.0-beta.13
 
 ### Patch Changes

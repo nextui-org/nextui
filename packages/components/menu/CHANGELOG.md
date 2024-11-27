@@ -1,5 +1,14 @@
 # @nextui-org/menu
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- [#4105](https://github.com/nextui-org/nextui/pull/4105) [`256d46277`](https://github.com/nextui-org/nextui/commit/256d462771c19d6ca5b969d0ec44419fb560f0ac) Thanks [@winchesHe](https://github.com/winchesHe)! - Add truncate class to the list item to avoid overflow the wrapper
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.7
+
 ## 2.1.0-beta.8
 
 ### Patch Changes
