@@ -89,16 +89,15 @@ You can use the `value` and `onValueChange` properties to control the input valu
 
 <CodeDemo title="Controlled" files={textareaContent.controlled} />
 
+> **Note**: NextUI `Textarea` also supports native events like `onChange`, useful for form libraries
+> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
 ### Clear Button
 
 If you pass the `isClearable` property to the textarea, it will have a clear button at the
 end of the textarea, it will be visible when the textarea has a value.
 
 <CodeDemo title="Clear Button" files={textareaContent.clearButton} />
-
-> **Note**: NextUI `Textarea` also supports native events like `onChange`, useful for form libraries
-> such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
-
 ## Slots
 
 - **base**: Input wrapper, it handles alignment, placement, and general appearance.
