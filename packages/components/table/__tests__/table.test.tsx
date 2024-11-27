@@ -2,7 +2,6 @@ import * as React from "react";
 import {act, render, fireEvent} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 
-
 import {Table, TableHeader, TableCell, TableColumn, TableBody, TableRow} from "../src";
 import {keyCodes} from "../../../utilities/test-utils/src";
 

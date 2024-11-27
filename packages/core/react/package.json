@@ -83,10 +83,11 @@
     "@nextui-org/calendar": "workspace:*",
     "@nextui-org/date-input": "workspace:*",
     "@nextui-org/date-picker": "workspace:*",
-    "@nextui-org/alert": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/drawer": "workspace:*",
-    "@react-aria/visually-hidden": "3.8.15"
+    "@nextui-org/form": "workspace:*",
+    "@nextui-org/alert": "workspace:*",
+    "@react-aria/visually-hidden": "3.8.17"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
