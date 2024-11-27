@@ -40,7 +40,7 @@
     "@nextui-org/use-is-mobile": "workspace:*",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@react-aria/focus": "3.17.1",
-    "@react-aria/i18n": "3.11.1",
+    "@react-aria/i18n": "3.12.2",
     "@react-aria/interactions": "3.21.3",
     "@react-aria/selection": "3.18.1",
     "@react-aria/ssr": "3.9.4",
