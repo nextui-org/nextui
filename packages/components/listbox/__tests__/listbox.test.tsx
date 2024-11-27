@@ -273,4 +273,30 @@ describe("Listbox", () => {
 
     expect(checkmark1).toBeFalsy();
   });
+
+  it("should truncate the text if the child is not a string", () => {
+    const wrapper = render(
+      <Listbox>
+        <ListboxItem key="new">New file</ListboxItem>
+      </Listbox>,
+    );
+
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem).toHaveProperty("className", expect.stringContaining("truncate"));
+  });
+
+  it("should not truncate the text if the child is a string", () => {
+    const wrapper = render(
+      <Listbox>
+        <ListboxItem key="new">
+          <div>New file</div>
+        </ListboxItem>
+      </Listbox>,
+    );
+
+    const menuItem = wrapper.getByText("New file").parentElement;
+
+    expect(menuItem).not.toHaveProperty("className", expect.stringContaining("truncate"));
+  });
 });

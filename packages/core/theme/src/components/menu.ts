@@ -144,6 +144,17 @@ const menuItem = tv({
         base: "data-[hover=true]:transition-colors",
       },
     },
+    // If the child isn't a string, the truncate such as `overflow, white-space, text-overflow` css won't be extended to the child, so we remove the truncate class here
+    hasTitleTextChild: {
+      true: {
+        title: "truncate",
+      },
+    },
+    hasDescriptionTextChild: {
+      true: {
+        description: "truncate",
+      },
+    },
   },
   defaultVariants: {
     variant: "solid",
