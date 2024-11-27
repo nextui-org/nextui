@@ -82,7 +82,11 @@ const ControlledTemplate = (args: RangeCalendarProps) => {
         <RangeCalendar
           aria-label="Date range (controlled)"
           value={value}
-          onChange={setValue}
+          onChange={(newValue) => {
+            if (newValue) {
+              setValue(newValue);
+            }
+          }}
           {...args}
           color="secondary"
         />
@@ -163,7 +167,11 @@ const InvalidDatesTemplate = (args: RangeCalendarProps) => {
       errorMessage={isInvalid ? "Stay dates cannot fall on weekends" : undefined}
       isInvalid={isInvalid}
       value={date}
-      onChange={setDate}
+      onChange={(newValue) => {
+        if (newValue) {
+          setDate(newValue);
+        }
+      }}
     />
   );
 };
@@ -285,7 +293,11 @@ const PresetsTemplate = (args: RangeCalendarProps) => {
           </ButtonGroup>
         }
         value={value}
-        onChange={setValue}
+        onChange={(newValue) => {
+          if (newValue) {
+            setValue(newValue);
+          }
+        }}
         onFocusChange={setFocusedValue}
         {...args}
       />
@@ -305,18 +317,30 @@ const CustomCellTemplate = (args: RangeCalendarProps) => {
               <CalendarCellHeader />
               <CalendarCellBody>
                 <div className="flex flex-col w-full text-tiny gap-0.5 px-0.5">
-                  {date.day % 5 === 0 && (
-                    <span className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1">
+                  {date.day % 7 === 0 && (
+                    <span
+                      aria-label="Birthday event"
+                      className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1"
+                      role="status"
+                    >
                       Birth day
                     </span>
                   )}
-                  {date.day % 4 === 0 && (
-                    <span className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1">
+                  {date.day % 5 === 0 && (
+                    <span
+                      aria-label="Birthday event"
+                      className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1"
+                      role="status"
+                    >
                       MTG
                     </span>
                   )}
-                  {date.day % 2 === 0 && (
-                    <span className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1">
+                  {date.day % 3 === 0 && (
+                    <span
+                      aria-label="Birthday event"
+                      className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1"
+                      role="status"
+                    >
                       MTG
                     </span>
                   )}

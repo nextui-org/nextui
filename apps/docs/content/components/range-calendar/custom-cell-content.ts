@@ -7,19 +7,31 @@ export default function App() {
         <CalendarCellContent>
           <CalendarCellHeader />
           <CalendarCellBody>
-            <div className="flex flex-col w-full text-tiny gap-0.5 px-0.5">
+                <div className="flex flex-col w-full text-tiny gap-0.5 px-0.5">
               {date.day % 7 === 0 && (
-                <span className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1">
-                  Birth day
+                <span 
+                  className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1"
+                  role="status"
+                  aria-label="Birthday event"
+                > 
+                Birth day
                 </span>
               )}
               {date.day % 5 === 0 && (
-                <span className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1">
+                <span 
+                  className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1"
+                  role="status"
+                  aria-label="Birthday event"
+                > 
                   MTG
                 </span>
               )}
               {date.day % 3 === 0 && (
-                <span className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1">
+                <span 
+                  className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1"
+                  role="status"
+                  aria-label="Birthday event"
+                > 
                   MTG
                 </span>
               )}
