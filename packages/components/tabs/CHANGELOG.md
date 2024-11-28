@@ -1,5 +1,13 @@
 # @nextui-org/tabs
 
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/aria-utils@2.1.0-beta.11
+  - @nextui-org/framer-utils@2.0.26-beta.11
+
 ## 2.1.0-beta.10
 
 ### Patch Changes

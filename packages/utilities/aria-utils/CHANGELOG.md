@@ -1,5 +1,12 @@
 # @nextui-org/aria-utils
 
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- Updated dependencies [[`c8f2ec887`](https://github.com/nextui-org/nextui/commit/c8f2ec88752289913968331032b9e7f772c12ec4)]:
+  - @nextui-org/system@2.3.0-beta.11
+
 ## 2.1.0-beta.10
 
 ### Patch Changes

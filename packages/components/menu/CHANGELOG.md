@@ -1,5 +1,15 @@
 # @nextui-org/menu
 
+## 2.1.0-beta.12
+
+### Patch Changes
+
+- [#4156](https://github.com/nextui-org/nextui/pull/4156) [`d37007c69`](https://github.com/nextui-org/nextui/commit/d37007c69c3e1ff4a66d414cbb1a4a38bb22264c) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix menu item classNames not work (#4119)
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.9
+  - @nextui-org/aria-utils@2.1.0-beta.11
+
 ## 2.1.0-beta.11
 
 ### Patch Changes

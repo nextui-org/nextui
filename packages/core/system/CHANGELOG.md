@@ -1,5 +1,14 @@
 # @nextui-org/system
 
+## 2.3.0-beta.11
+
+### Patch Changes
+
+- [#4163](https://github.com/nextui-org/nextui/pull/4163) [`c8f2ec887`](https://github.com/nextui-org/nextui/commit/c8f2ec88752289913968331032b9e7f772c12ec4) Thanks [@wingkwong](https://github.com/wingkwong)! - align `navigate` function parameters with `@react-aria`
+
+- Updated dependencies []:
+  - @nextui-org/system-rsc@2.2.0-beta.8
+
 ## 2.3.0-beta.10
 
 ### Patch Changes

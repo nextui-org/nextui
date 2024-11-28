@@ -1,5 +1,15 @@
 # @nextui-org/button
 
+## 2.1.0-beta.10
+
+### Patch Changes
+
+- [#4161](https://github.com/nextui-org/nextui/pull/4161) [`17bf65799`](https://github.com/nextui-org/nextui/commit/17bf65799c39c2ee44ea9c0b23aa80315b2a5083) Thanks [@wingkwong](https://github.com/wingkwong)! - fix missing peer / dev dependency for framer-motion
+
+- Updated dependencies []:
+  - @nextui-org/ripple@2.1.0-beta.8
+  - @nextui-org/spinner@2.1.0-beta.9
+
 ## 2.1.0-beta.9
 
 ### Patch Changes

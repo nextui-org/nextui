@@ -1,5 +1,13 @@
 # @nextui-org/listbox
 
+## 2.2.0-beta.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.9
+  - @nextui-org/aria-utils@2.1.0-beta.11
+
 ## 2.2.0-beta.12
 
 ### Patch Changes
