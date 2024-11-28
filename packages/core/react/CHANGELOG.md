@@ -1,5 +1,12 @@
 # @nextui-org/react
 
+## 2.5.0-beta.22
+
+### Patch Changes
+
+- Updated dependencies [[`1e05a721f`](https://github.com/nextui-org/nextui/commit/1e05a721f9ba25403c023023a1e3efa44ac3bb74)]:
+  - @nextui-org/select@2.3.0-beta.16
+
 ## 2.5.0-beta.21
 
 ### Patch Changes
