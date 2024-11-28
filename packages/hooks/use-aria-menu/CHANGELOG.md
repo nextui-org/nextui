@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-menu
 
+## 2.1.0-beta.8
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
 ## 2.1.0-beta.7
 
 ### Patch Changes

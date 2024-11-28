@@ -1,5 +1,19 @@
 # @nextui-org/menu
 
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/divider@2.1.0-beta.9
+  - @nextui-org/use-aria-menu@2.1.0-beta.8
+  - @nextui-org/use-is-mobile@2.1.0-beta.8
+  - @nextui-org/aria-utils@2.1.0-beta.10
+  - @nextui-org/react-utils@2.0.18-beta.8
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
 ## 2.1.0-beta.10
 
 ### Patch Changes
