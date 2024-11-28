@@ -47,7 +47,8 @@
     "@react-stately/utils": "3.10.1",
     "@react-stately/form": "3.0.5",
     "@react-types/textfield": "3.9.3",
-    "input-otp": "1.4.1"
+    "input-otp": "1.4.1",
+    "@react-aria/focus": "3.18.4"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

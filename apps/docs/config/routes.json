@@ -289,7 +289,7 @@
         {
           "key": "input-otp",
           "title": "Input OTP",
-          "keywords": "input, otp, auth",
+          "keywords": "input, otp, auth, verification code",
           "path": "/docs/components/input-otp.mdx",
           "newPost": true
         },

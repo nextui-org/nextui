@@ -1743,6 +1743,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
+      '@react-aria/focus':
+        specifier: 3.18.4
+        version: 3.18.4(react@18.3.1)
       '@react-aria/form':
         specifier: 3.0.8
         version: 3.0.8(react@18.3.1)

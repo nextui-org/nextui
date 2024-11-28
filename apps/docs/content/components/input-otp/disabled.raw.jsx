@@ -3,7 +3,7 @@ import {InputOtp} from "@nextui-org/react";
 export default function App() {
   return (
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <InputOtp isDisabled defaultValue="123" length={4} />
+      <InputOtp isDisabled defaultValue="1234" length={4} />
     </div>
   );
 }

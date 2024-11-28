@@ -11,15 +11,17 @@ import {
   PropGetter,
   useProviderContext,
 } from "@nextui-org/system";
-import {cn, inputOtp} from "@nextui-org/theme";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {inputOtp} from "@nextui-org/theme";
+import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useCallback, useMemo} from "react";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useControlledState} from "@react-stately/utils";
 import {useFormValidationState} from "@react-stately/form";
 import {useFormValidation} from "@react-aria/form";
+import {useFocusRing} from "@react-aria/focus";
+import {OTPInputProps} from "input-otp";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -80,7 +82,13 @@ export type ValueTypes = {
   classNames: SlotsToClasses<InputOtpSlots>;
 };
 
-export type UseInputOtpProps = Props & InputOtpVariantProps & Omit<AriaTextFieldProps, "onChange">;
+export type UseInputOtpProps = Props &
+  InputOtpVariantProps &
+  Omit<AriaTextFieldProps, "onChange"> &
+  Omit<
+    Partial<OTPInputProps>,
+    "render" | "children" | "value" | "onChange" | keyof InputOtpVariantProps
+  >;
 
 export function useInputOtp(originalProps: UseInputOtpProps) {
   const globalContext = useProviderContext();
@@ -93,18 +101,33 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     className,
     classNames,
     length = 4,
-    onComplete = () => {},
+    autoFocus,
+    "aria-label": ariaLabel = "One-time password input",
     onValueChange = () => {},
     allowedKeys = "^[0-9]*$",
     validationBehavior = globalContext?.validationBehavior ?? "aria",
     type,
     name,
+    maxLength,
+    minLength,
+    textAlign = "center",
+    onComplete = () => {},
+    pushPasswordManagerStrategy,
+    pasteTransformer,
+    containerClassName,
+    noScriptCSSFallback,
+    ...otherProps
   } = props;
 
   const Component = as || "div";
 
   const inputRef = useDOMRef<HTMLInputElement>(ref);
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
+
+  const {isFocusVisible, isFocused, focusProps} = useFocusRing({
+    autoFocus,
+    isTextInput: true,
+  });
 
   const handleValueChange = useCallback(
     (value: string | undefined) => {
@@ -122,7 +145,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
   const isDisabled = originalProps.isDisabled;
-  const baseStyles = cn(classNames?.base, className);
+  const baseStyles = clsx(classNames?.base, className);
 
   const validationState = useFormValidationState({
     ...props,
@@ -172,29 +195,49 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         "data-required": dataAttr(originalProps?.isRequired),
         "data-readonly": dataAttr(originalProps?.isReadOnly),
         "data-filled": dataAttr(value.length === length),
-        "aria-label": "One-time password input",
+        "aria-label": ariaLabel,
         "aria-required": dataAttr(originalProps.isRequired),
         "aria-readonly": dataAttr(originalProps?.isReadOnly),
         role: "base",
-        ...props,
+        ...mergeProps(
+          filterDOMProps(otherProps, {
+            enabled: true,
+          }),
+          filterDOMProps(props),
+        ),
       };
     },
     [baseDomRef, slots, baseStyles, isDisabled, isInvalid, isRequired, isReadOnly, value, length],
   );
 
   const getInputOtpProps = useCallback(
-    () => ({
-      required: isRequired,
-      disabled: isDisabled,
-      readOnly: isReadOnly,
-      pattern: allowedKeys,
-      ref: inputRef,
-      name: name,
-      value: value,
-      onChange: setValue,
-      onBlur: props.onBlur,
-      onComplete: onComplete,
-    }),
+    (props: Partial<OTPInputProps> = {}) => {
+      const otpProps: Omit<OTPInputProps, "render" | "children"> & {
+        ref?: ReactRef<HTMLInputElement>;
+      } = {
+        ...focusProps,
+        required: isRequired,
+        disabled: isDisabled,
+        readOnly: isReadOnly,
+        pattern: allowedKeys,
+        maxLength: maxLength ?? length,
+        minLength: minLength ?? length,
+        textAlign,
+        ref: inputRef,
+        name: name,
+        value: value,
+        onChange: setValue,
+        onBlur: chain(focusProps.onBlur, props?.onBlur),
+        onComplete: onComplete,
+        pushPasswordManagerStrategy,
+        pasteTransformer,
+        noScriptCSSFallback,
+        containerClassName: slots.wrapper?.({class: clsx(classNames?.wrapper, containerClassName)}),
+        ...props,
+      };
+
+      return otpProps;
+    },
     [
       isRequired,
       isDisabled,
@@ -214,54 +257,54 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     (props = {}) => {
       return {
         className: slots.segmentWrapper({
-          class: cn(classNames?.segmentWrapper, props?.className),
+          class: clsx(classNames?.segmentWrapper, props?.className),
         }),
         "data-slot": "segment-wrapper",
         "data-disabled": dataAttr(isDisabled),
-        "aria-label": "One-time password digits",
+        "aria-label": ariaLabel,
         ...props,
       };
     },
-    [slots, classNames?.segmentWrapper, isDisabled],
+    [classNames?.segmentWrapper, isDisabled],
   );
 
   const getHelperWrapperProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         className: slots.helperWrapper({
-          class: cn(classNames?.helperWrapper, props?.className),
+          class: clsx(classNames?.helperWrapper, props?.className),
         }),
         "data-slot": "helper-wrapper",
         ...props,
       };
     },
-    [slots, classNames?.helperWrapper],
+    [classNames?.helperWrapper],
   );
 
   const getErrorMessageProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         className: slots.errorMessage({
-          class: cn(classNames?.errorMessage, props?.className),
+          class: clsx(classNames?.errorMessage, props?.className),
         }),
         "data-slot": "error-message",
-        ...mergeProps(props),
+        ...props,
       };
     },
-    [slots, classNames?.errorMessage],
+    [classNames?.errorMessage],
   );
 
   const getDescriptionProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         className: slots.description({
-          class: cn(classNames?.description, props?.className),
+          class: clsx(classNames?.description, props?.className),
         }),
         "data-slot": "description",
-        ...mergeProps(props),
+        ...props,
       };
     },
-    [slots, classNames?.description],
+    [classNames?.description],
   );
 
   return {
@@ -269,13 +312,15 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     inputRef,
     length,
     value,
-    classNames,
+    type,
     slots,
     hasHelper,
+    classNames,
     isInvalid,
     description,
     errorMessage,
-    type,
+    isFocusVisible,
+    isFocused,
     getBaseProps,
     getInputOtpProps,
     getSegmentWrapperProps,

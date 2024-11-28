@@ -7,11 +7,13 @@ import {inputOtpContent} from "@/content/components/input-otp";
 
 # Input OTP
 
-InputOtp is a component that allows users to enter OTP.
+The InputOtp component enables users to enter one-time passwords (OTP). It is built on top of the [input-otp](https://github.com/guilhermerodz/input-otp) library by [@guilherme_rodz](https://twitter.com/guilherme_rodz).
+
+<ComponentLinks component="input-otp" />
 
 ---
 
-
+<CarbonAd />
 
 ## Installation
 
@@ -22,10 +24,9 @@ InputOtp is a component that allows users to enter OTP.
     npm: "npm install @nextui-org/input-otp",
     yarn: "yarn add @nextui-org/input-otp",
     pnpm: "pnpm add @nextui-org/input-otp",
-    bun: "bun add @nextui-org/input-otp"
+    bun: "bun add @nextui-org/input-otp",
   }}
 />
-
 
 ## Import
 
@@ -42,75 +43,87 @@ InputOtp is a component that allows users to enter OTP.
 
 ## Disabled
 
-Passing `isDisabled` property will make `input-otp` disabled.
+The `isDisabled` prop disables user interaction with the `InputOtp` component.
 
 <CodeDemo title="Usage" files={inputOtpContent.disabled} />
 
 ## Read Only
 
-Passing `isReadOnly` property will make `input-otp` read only.
+The `isReadOnly` prop makes the `InputOtp` component read-only while maintaining its visual appearance.
 
 <CodeDemo title="Usage" files={inputOtpContent.readonly} />
 
-### Required
+## Required
 
-Passing `isRequired` property will make `input-otp` required.
+The `isRequired` prop marks the `InputOtp` as a required field.
 
 <CodeDemo title="Required" files={inputOtpContent.required} />
 
-### Sizes
+## Sizes
 
-Size of the `input-otp` can be changed by `size` property. By default, `size` property is set to `md`. 
+The size of the `InputOtp` can be customized using the `size` prop. The default value is `md`.
 
 <CodeDemo title="Size" files={inputOtpContent.sizes} />
 
-### Colors
+## Colors
 
-Color of the `input-otp` can be changed by `color` property.
+Color of the `InputOtp` can be changed by `color` property.
 
 <CodeDemo title="Color" files={inputOtpContent.colors} />
 
-### Variants
+## Variants
 
-Styling/Variant of the `input-otp` can be changed by `variant` property. By default, `variant` property is set to `flat`.
+Styling/Variant of the `InputOtp` can be changed by `variant` property. By default, `variant` property is set to `flat`.
 
 <CodeDemo title="Variant" files={inputOtpContent.variants} />
 
-### Radius
+## Radius
 
-Radius of the `input-otp` can be changed by `radius` property. By default, `radius` property is set to `md`.
+Radius of the `InputOtp` can be changed by `radius` property. By default, `radius` property is set to `md`.
 
 <CodeDemo title="Radius" files={inputOtpContent.radius} />
 
-### Password
+## Password
 
-InputOtp can be used as password/secured-pin input by setting `type` as `password`.
+`InputOtp` can be used as password/secured-pin input by setting `type` as `password`.
 
 <CodeDemo title="Password" files={inputOtpContent.password} />
 
-### Description
+## Description
 
-Description of the `input-otp` can be set by `description` property.
+Description of the `InputOtp` can be set by `description` property.
 
 <CodeDemo title="Description" files={inputOtpContent.description} />
 
-### Error Message
+## Error Message
 
-Custom error message of the `input-otp` can be set by `errorMessage` property.
+Custom error message of the `InputOtp` can be set by `errorMessage` property.
 
 <CodeDemo title="Error Message" files={inputOtpContent.errorMessage} />
 
-### Allowed Keys
+## Allowed Keys
 
-* Users are only allowed to type certain keys. Any input other than allowed keys is simply ignored.
-* Allowed Keys can be modified by `allowedKeys` property which accepts the regex of the keys which are allowed.
-* By default, the value of `allowedKeys` is `^[0-9]*$` (i.e. only numerical digits are allowed).
+- The `InputOtp` component only accepts specified input keys. Any other input is ignored.
+- You can customize the allowed keys using the `allowedKeys` prop, which accepts a regex pattern.
+- By default, `allowedKeys` is set to `^[0-9]*$` (only numerical digits).
 
 <CodeDemo title="Allowed Keys" files={inputOtpContent.allowedKeys} />
 
-### Controlled
+## Controlled
 
 <CodeDemo title="Controlled" files={inputOtpContent.controlled} />
+
+## React Hook Form
+
+You can use `InputOtp` with React Hook Form for form validation and submission handling.
+
+<CodeDemo title="React Hook Form" files={inputOtpContent.form} />
+
+## Custom Styles
+
+You can customize the styles of the `InputOtp` component using the `classNames` prop.
+
+<CodeDemo title="Custom Styles" files={inputOtpContent.customStyles} />
 
 ## Slots
 
@@ -119,8 +132,8 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 - **input**: The input element.
 - **segmentWrapper**: Wraps all the segment elements.
 - **segment**: The segment element.
-- **caret**: The caret represents the typing indicator of the InputOtp component. 
-- **passwordChar**: The passwordChar represents the text styling when input-type is password. 
+- **caret**: The caret represents the typing indicator of the InputOtp component.
+- **passwordChar**: The passwordChar represents the text styling when input-type is password.
 - **helperWrapper**: Wraps the `description` and the `errorMessage`.
 - **description**: The description of the InputOtp.
 - **errorMessage**: The error message of the InputOtp.
@@ -140,7 +153,18 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 - **data-filled**:
   When the input-otp is completely filled.
 - **data-disabled**:
-  When the input is disabled. Based on `isDisabled` prop.
+  When the input-otp is disabled. Based on `isDisabled` prop.
+
+`InputOtp` also has the following attributes on the `segment` element:
+
+- **data-active**:
+  When the segment is active.
+- **data-focus**:
+  When the segment is focused.
+- **data-focus-visible**:
+  When the segment is focused visible.
+- **data-has-value**:
+  When the segment has value.
 
 <Spacer y={4} />
 
@@ -163,26 +187,31 @@ Custom error message of the `input-otp` can be set by `errorMessage` property.
 
 ### InputOtp Props
 
-| Attribute          | Type                                                                                                                                                                   | Description                                                                                                                                                       | Default   |
-| ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| length             | `number`                                                                                                                                                               | The length of the input-otp.                                                                                                                                      | `4`       |
-| allowedKeys        | `regEx string`                                                                                                                                                                | The allowed keys for the input-otp.                                                                                                                               | `^[0-9]*$`|
-| variant            | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                                        | The variant of the input-otp.                                                                                                                                     | `flat`    |
-| color              | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                            | The color of the input-otp.                                                                                                                                       | `default` |
-| size               | `sm` \| `md` \| `lg`                                                                                                                                                   | The size of the input-otp.                                                                                                                                        | `md`      |
-| radius             | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                               | The radius of the input-otp.                                                                                                                                      | -         |
-| value              | `string`                                                                                                                                                               | The current value of the input-otp (controlled).                                                                                                                  | -         |
-| defaultValue       | `string`                                                                                                                                                               | The default value of the input-otp (uncontrolled).                                                                                                                | -         |
-| description        | `ReactNode`                                                                                                                                                            | A description for the input. Provides a hint such as specific requirements for what to choose.                                                                    | -         |
-| errorMessage       | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                                                  | An error message for the input-otp. It is only shown when `isInvalid` is set to `true`                                                                            | -         |                                                                                                                              | The position of the label.                                                                                                                                    | `inside`  |
-| fullWidth          | `boolean`                                                                                                                                                              | Whether the input-otp should take up the width of its parent.                                                                                                     | `false`    |
-| isRequired         | `boolean`                                                                                                                                                              | Whether user input-otp is required on the input before form submission.                                                                                           | `false`   |
-| isReadOnly         | `boolean`                                                                                                                                                              | Whether the input-otp can be selected but not changed by the user.                                                                                                |           |
-| isDisabled         | `boolean`                                                                                                                                                              | Whether the input-otp is disabled.                                                                                                                                | `false`   |
-| isInvalid          | `boolean`                                                                                                                                                              | Whether the input-otp is invalid.                                                                                                                                 | `false`   |
-| baseRef            | `RefObject<HTMLDivElement>`                                                                                                                                            | The ref to the base element.                                                                                                                                      | -         |
-| disableAnimation   | `boolean`                                                                                                                                                              | Whether the input-otp should be animated.                                                                                                                         | `false`   |
-| classNames         | `Record<"base"｜ "inputWrapper"｜ "input"｜ "segmentWrapper"｜ "segment" ｜ "caret" ｜ "passwordChar" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>`     | Allows to set custom class names for the Input slots.                                                                                                             | -         |
+| Attribute                   | Type                                                                                                                                                                  | Description                                                                                    | Default    |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
+| length                      | `number`                                                                                                                                                              | The length of the input-otp.                                                                   | `4`        |
+| allowedKeys                 | `regEx string`                                                                                                                                                        | The allowed keys for the input-otp.                                                            | `^[0-9]*$` |
+| variant                     | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                                       | The variant of the input-otp.                                                                  | `flat`     |
+| color                       | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                           | The color of the input-otp.                                                                    | `default`  |
+| size                        | `sm` \| `md` \| `lg`                                                                                                                                                  | The size of the input-otp.                                                                     | `md`       |
+| radius                      | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                              | The radius of the input-otp.                                                                   | -          |
+| value                       | `string`                                                                                                                                                              | The current value of the input-otp (controlled).                                               | -          |
+| defaultValue                | `string`                                                                                                                                                              | The default value of the input-otp (uncontrolled).                                             | -          |
+| description                 | `ReactNode`                                                                                                                                                           | Provides additional information or hints about the input requirements.                           | -          |
+| errorMessage                | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                                                 | An error message for the input-otp. It is only shown when `isInvalid` is set to `true`         | -          |
+| fullWidth                   | `boolean`                                                                                                                                                             | When true, the InputOtp expands to fill its parent container width.                          | `false`    |
+| isRequired                  | `boolean`                                                                                                                                                             | Marks the input as required for form submission.                                             | `false`    |
+| isReadOnly                  | `boolean`                                                                                                                                                             | When true, allows selection but prevents user modification.                                | `false`    |
+| isDisabled                  | `boolean`                                                                                                                                                             | Whether the input-otp is disabled.                                                             | `false`    |
+| isInvalid                   | `boolean`                                                                                                                                                             | Whether the input-otp is invalid.                                                              | `false`    |
+| baseRef                     | `RefObject<HTMLDivElement>`                                                                                                                                           | The ref to the base element.                                                                   | -          |
+| disableAnimation            | `boolean`                                                                                                                                                             | Whether the input-otp should be animated.                                                      | `false`    |
+| classNames                  | `Record<"base"｜ "inputWrapper"｜ "input"｜ "segmentWrapper"｜ "segment" ｜ "caret" ｜ "passwordChar" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the Input slots.                                          | -          |
+| textAlign                   | `left` \| `center` \| `right`                                                                                                                                         | The text alignment of the input segments                                                       | `center`   |
+| pushPasswordManagerStrategy | `"none"` \| `"hidden"` \| `"input"`                                                                                                                                   | Strategy for password manager support                                                          | -          |
+| pasteTransformer            | `(text: string) => string`                                                                                                                                            | A function to transform pasted text before it's inserted into the input.                      | -          |
+| containerClassName          | `string`                                                                                                                                                              | Class name for the input container                                                             | -          |
+| noScriptCSSFallback         | `string`                                                                                                                                                              | CSS fallback for when JavaScript is disabled                                                   | -          |
 
 ### InputOtp Events
 

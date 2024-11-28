@@ -6,11 +6,8 @@ export default function App() {
   return (
     <div className="w-full flex flex-col gap-4">
       {sizes.map((size) => (
-        <div
-          key={size}
-          className="flex flex-col w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4"
-        >
-          <div className="text-foreground/60">size: {size}</div>
+        <div key={size} className="flex flex-col w-full">
+          <div className="text-default-500">size: {size}</div>
           <InputOtp length={4} size={size} />
         </div>
       ))}

@@ -1,3 +1,5 @@
+import "@testing-library/jest-dom";
+
 import * as React from "react";
 import {render, renderHook, screen} from "@testing-library/react";
 import {useForm} from "react-hook-form";
@@ -191,9 +193,10 @@ describe("InputOtp with react-hook-form", () => {
       register,
       formState: {errors},
     } = result.current;
+
     const onSubmit = jest.fn();
 
-    render(
+    const {container} = render(
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputOtp data-testid="input-otp-1" length={4} {...register("defaultValue")} />
         <InputOtp data-testid="input-otp-2" length={4} {...register("withoutDefaultValue")} />
@@ -207,13 +210,29 @@ describe("InputOtp with react-hook-form", () => {
       </form>,
     );
 
-    await user.click(screen.getByText(/Submit/i));
+    const button = container.querySelector("button");
+
+    if (!button) {
+      throw new Error("Button not found");
+    }
+
+    await user.click(button);
+
     expect(onSubmit).toHaveBeenCalledTimes(0);
 
-    const inputOtp3 = screen.getAllByRole("textbox")[2];
+    const inputOtp3 = screen.getByTestId("input-otp-3");
+    const input = inputOtp3.querySelector("input");
 
-    await user.type(inputOtp3, "1234");
-    await user.click(screen.getByText(/Submit/i));
+    if (!input) {
+      throw new Error("Input not found");
+    }
+
+    await user.click(input);
+
+    await user.type(input, "1234");
+
+    await user.click(button);
+
     expect(onSubmit).toHaveBeenCalledTimes(1);
   });
 });

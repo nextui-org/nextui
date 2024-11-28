@@ -1,16 +1,18 @@
 import {SlotProps} from "input-otp";
 import {useMemo} from "react";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {cn} from "@nextui-org/theme";
 
 import {useInputOtpContext} from "./input-otp-context";
 
-export const InputOtpSegment = (props: SlotProps) => {
+export const InputOtpSegment = ({
+  ...props
+}: SlotProps & {isFocused?: boolean; isFocusVisible?: boolean}) => {
   const {classNames, slots, type} = useInputOtpContext();
 
-  const passwordCharStyles = cn(classNames?.passwordChar);
-  const caretStyles = cn(classNames?.caret);
-  const segmentStyles = cn(classNames?.segment);
+  const passwordCharStyles = clsx(classNames?.passwordChar);
+  const caretStyles = clsx(classNames?.caret);
+  const segmentStyles = clsx(classNames?.segment);
 
   const displayValue = useMemo(() => {
     if (props.isActive && !props.char) {
@@ -31,8 +33,10 @@ export const InputOtpSegment = (props: SlotProps) => {
     <div
       className={cn(slots.segment?.({class: segmentStyles}))}
       data-active={dataAttr(props.isActive)}
+      data-focus={dataAttr(props.isFocused && props.isActive)}
+      data-focus-visible={dataAttr(props.isFocusVisible && props.isActive)}
       data-has-value={dataAttr(!!props.char)}
-      data-slot="segment"
+      data-slot="segment2"
       role="presentation"
     >
       {displayValue}

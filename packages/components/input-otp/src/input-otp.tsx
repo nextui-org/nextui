@@ -1,7 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {useMemo} from "react";
 import {OTPInput} from "input-otp";
-import {cn} from "@nextui-org/theme";
 
 import {UseInputOtpProps, useInputOtp} from "./use-input-otp";
 import {InputOtpProvider} from "./input-otp-context";
@@ -9,18 +8,17 @@ import {InputOtpSegment} from "./input-otp-segment";
 
 export interface InputOtpProps extends UseInputOtpProps {}
 
-const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
+const InputOtp = forwardRef<"input", InputOtpProps>((props, ref) => {
   const context = useInputOtp({...props, ref});
 
   const {
     Component,
-    length,
     hasHelper,
     isInvalid,
     errorMessage,
     description,
-    slots,
-    classNames,
+    isFocusVisible,
+    isFocused,
     getBaseProps,
     getInputOtpProps,
     getSegmentWrapperProps,
@@ -53,25 +51,23 @@ const InputOtp = forwardRef<"div", InputOtpProps>((props, ref) => {
     getDescriptionProps,
   ]);
 
-  const wrapperStyles = cn(classNames?.wrapper);
-
   return (
     <InputOtpProvider value={context}>
       <Component {...getBaseProps()}>
         <OTPInput
-          containerClassName={cn(slots.wrapper?.({class: wrapperStyles}))}
-          maxLength={length}
-          minLength={length}
+          {...getInputOtpProps()}
           render={({slots}) => (
             <div {...getSegmentWrapperProps()}>
               {slots.map((slot, idx) => (
-                <InputOtpSegment key={idx} {...slot} />
+                <InputOtpSegment
+                  key={idx}
+                  {...slot}
+                  isFocusVisible={isFocusVisible}
+                  isFocused={isFocused}
+                />
               ))}
             </div>
           )}
-          {...getInputOtpProps()}
-          data-slot="input"
-          role="textbox"
         />
         {helperSection}
       </Component>

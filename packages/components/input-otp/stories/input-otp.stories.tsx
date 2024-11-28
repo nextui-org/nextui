@@ -193,7 +193,7 @@ export const WithDescription = {
   args: {
     ...defaultProps,
     length: 4,
-    description: "description for the otp component",
+    description: "Enter the 4 digit code sent to your email",
   },
 };
 
@@ -257,15 +257,30 @@ export const WithReactHookForm = {
 
 export const CustomWithClassNames = {
   render: Template,
-
   args: {
     ...defaultProps,
     length: 4,
     classNames: {
-      segment: "bg-gradient-to-tr from-pink-500 to-yellow-500",
-      caret: "bg-red-700",
+      segmentWrapper: "gap-x-0",
+      segment: [
+        "relative",
+        "h-10",
+        "w-10",
+        "border-y",
+        "border-r",
+        "first:rounded-l-md",
+        "first:border-l",
+        "last:rounded-r-md",
+        "border-default-200",
+        "data-[active=true]:border",
+        "data-[active=true]:z-20",
+        "data-[active=true]:ring-2",
+        "data-[active=true]:ring-offset-2",
+        "data-[active=true]:ring-offset-background",
+        "data-[active=true]:ring-foreground",
+      ],
     },
-    radius: "md",
-    description: "custom otp component",
+    radius: "none",
+    description: "Enter the 4 digit code sent to your email",
   },
 };
