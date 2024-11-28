@@ -1,12 +1,4 @@
-const App = `import {Tooltip, Button} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Tooltip showArrow={true} content="I am a tooltip">
-      <Button>Hover me</Button>
-    </Tooltip>
-  );
-}`;
+import App from "./arrow.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

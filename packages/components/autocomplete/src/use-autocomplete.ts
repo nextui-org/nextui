@@ -18,6 +18,7 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {ButtonProps} from "@nextui-org/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
@@ -110,16 +111,34 @@ interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>
    * Callback fired when the select menu is closed.
    */
   onClose?: () => void;
+  /**
+   * Whether to enable virtualization of the listbox items.
+   * By default, virtualization is automatically enabled when the number of items is greater than 50.
+   * @default undefined
+   */
+  isVirtualized?: boolean;
 }
 
 export type UseAutocompleteProps<T> = Props<T> &
   Omit<InputProps, "children" | "value" | "isClearable" | "defaultValue" | "classNames"> &
   ComboBoxProps<T> &
   AsyncLoadable &
-  AutocompleteVariantProps;
+  AutocompleteVariantProps & {
+    /**
+     * The height of each item in the listbox.
+     * This is required for virtualized listboxes to calculate the height of each item.
+     */
+    itemHeight?: number;
+    /**
+     * The max height of the listbox (which will be rendered in a popover).
+     * This is required for virtualized listboxes to set the maximum height of the listbox.
+     */
+    maxListboxHeight?: number;
+  };
 
 export function useAutocomplete<T extends object>(originalProps: UseAutocompleteProps<T>) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, autocomplete.variantKeys);
   const disableAnimation =
@@ -158,7 +177,10 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     clearButtonProps = {},
     showScrollIndicators = true,
     allowsCustomValue = false,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    isVirtualized,
+    maxListboxHeight = 256,
+    itemHeight = 32,
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     className,
     classNames,
     errorMessage,
@@ -425,14 +447,25 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onClick: chain(slotsProps.inputProps.onClick, otherProps.onClick),
     } as unknown as InputProps);
 
-  const getListBoxProps = () =>
-    ({
+  const getListBoxProps = () => {
+    // Use isVirtualized prop if defined, otherwise fallback to default behavior
+    const shouldVirtualize = isVirtualized ?? state.collection.size > 50;
+
+    return {
       state,
       ref: listBoxRef,
+      isVirtualized: shouldVirtualize,
+      virtualization: shouldVirtualize
+        ? {
+            maxListboxHeight,
+            itemHeight,
+          }
+        : undefined,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
-    } as ListboxProps);
+    } as ListboxProps;
+  };
 
   const getPopoverProps = (props: DOMAttributes = {}) => {
     const popoverProps = mergeProps(slotsProps.popoverProps, props);
@@ -479,6 +512,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
         props?.className,
       ),
     }),
+    style: {
+      maxHeight: originalProps.maxListboxHeight ?? 256,
+    },
   });
 
   const getEndContentWrapperProps: PropGetter = (props: any = {}) => ({

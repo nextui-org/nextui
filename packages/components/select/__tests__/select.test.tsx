@@ -723,11 +723,12 @@ describe("Select", () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should place the label outside when labelPlacement is outside", () => {
+  it("should place the label outside when labelPlacement is outside and isMultiline enabled", () => {
     const labelContent = "Favorite Animal Label";
 
     render(
       <Select
+        isMultiline
         aria-label="Favorite Animal"
         data-testid="select"
         label={labelContent}
@@ -778,6 +779,42 @@ describe("Select", () => {
     const trigger = document.querySelector("[data-slot=trigger]");
 
     expect(trigger).toHaveTextContent(labelContent);
+  });
+
+  it("should support controlled isInvalid prop", async () => {
+    function Test() {
+      const [isInvalid, setInvalid] = React.useState(false);
+
+      return (
+        <>
+          <Select
+            data-testid="select"
+            errorMessage="Invalid value"
+            isInvalid={isInvalid}
+            label="Test"
+            name="select"
+          >
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+          <button data-testid="button" onClick={() => setInvalid((isInvalid) => !isInvalid)}>
+            Click Me
+          </button>
+        </>
+      );
+    }
+
+    const {getByTestId} = render(<Test />);
+    const select = getByTestId("select");
+
+    expect(select).not.toHaveAttribute("aria-describedby");
+
+    await user.click(getByTestId("button"));
+    expect(select).toHaveAttribute("aria-describedby");
+    expect(document.getElementById(select.getAttribute("aria-describedby"))).toHaveTextContent(
+      "Invalid value",
+    );
   });
 });
 

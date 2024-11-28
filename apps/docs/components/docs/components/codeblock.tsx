@@ -1,7 +1,13 @@
+import type {Language, PrismTheme} from "prism-react-renderer";
+import type {TransformTokensTypes} from "./helper";
+
 import React, {forwardRef, useEffect} from "react";
 import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
 import {debounce, omit} from "@nextui-org/shared-utils";
+import {cn} from "@nextui-org/react";
+
+import {transformTokens} from "./helper";
 
 import defaultTheme from "@/libs/prism-theme";
 
@@ -142,21 +148,36 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
         {...props}
       >
         {({className, style, tokens, getLineProps, getTokenProps}) => (
-          <div className="w-full" data-language={language}>
-            <pre
-              ref={ref}
-              className={clsx(className, classNameProp, "flex max-w-full", {
+          <pre
+            ref={ref}
+            className={clsx(
+              className,
+              classNameProp,
+              `language-${codeLang}`,
+              "max-w-full contents",
+              {
                 "flex-col": isMultiLine,
-                "scrollbar-hide overflow-x-scroll": hideScrollBar,
-              })}
-              style={style}
-              translate="no"
-            >
-              {tokens.map((line, i) => {
+                "overflow-x-scroll scrollbar-hide": hideScrollBar,
+              },
+            )}
+            data-language={language}
+            style={style}
+          >
+            {transformTokens(tokens).map((line) => {
+              const folderLine = line[0] as TransformTokensTypes;
+
+              const isFolder = folderLine.types?.includes("folderStart");
+
+              const renderLine = (
+                line: TransformTokensTypes[],
+                i: number,
+                as: "div" | "span" = "div",
+              ) => {
+                const Tag = as;
                 const lineProps = getLineProps({line, key: i});
 
                 return (
-                  <div
+                  <Tag
                     {...omit(lineProps, ["key"])}
                     key={`${i}-${getUniqueID("line-wrapper")}`}
                     className={clsx(
@@ -167,25 +188,48 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                         "px-2": showLines,
                       },
                       {
-                        "before:content-[''] before:w-full before:h-full before:absolute before:z-0 before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background":
-                          shouldHighlightLine(i),
+                        "before:to-code-background before:absolute before:left-0 before:z-0 before:h-full before:w-full before:bg-gradient-to-r before:from-white/10 before:content-['']":
+                          isFolder ? false : shouldHighlightLine(i),
                       },
                     )}
                     data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
                     data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
                   >
                     {showLines && (
-                      <span className="select-none text-xs mr-6 opacity-30">{i + 1}</span>
+                      <span
+                        className={cn(
+                          "mr-6 select-none text-xs opacity-30",
+                          i + 1 >= 10 ? "mr-4" : "",
+                          i + 1 >= 100 ? "mr-2" : "",
+                          i + 1 >= 1000 ? "mr-0" : "",
+                        )}
+                      >
+                        {i + 1}
+                      </span>
                     )}
-                    {line.map((token, key) => {
-                      // Bun has no color style by default in the code block, so hack add in here
-                      const props = getTokenProps({token, key}) || {};
 
-                      return (
+                    {line.map((token, key) => {
+                      const props = getTokenProps({token, key}) || {};
+                      const isCopy = token.types.includes("copy");
+
+                      return isCopy ? (
+                        <span key={key} className="copy-token" style={{whiteSpace: "inherit"}}>
+                          {token.folderContent?.map((folderTokens) => {
+                            return folderTokens.map((token, index) => {
+                              // Hack for wrap line
+                              return token.content === "" ? (
+                                <div key={`${index}-${getUniqueID("line")}`} />
+                              ) : (
+                                <span key={`${index}-${getUniqueID("line")}`}>{token.content}</span>
+                              );
+                            });
+                          })}
+                        </span>
+                      ) : (
                         <span
                           {...omit(props, ["key"])}
                           key={`${key}-${getUniqueID("line")}`}
-                          className={className}
+                          className={cn(className, token.class)}
                           style={{
                             ...props.style,
                             ...(highlightStyleToken.some((t) => {
@@ -201,11 +245,29 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
                         />
                       );
                     })}
-                  </div>
+                  </Tag>
                 );
-              })}
-            </pre>
-          </div>
+              };
+              const renderFolderTokens = (tokens: TransformTokensTypes[][]) => {
+                return tokens.map((token, key) => {
+                  const index = key + folderLine.index! + 1;
+
+                  return renderLine(token, index);
+                });
+              };
+
+              return isFolder ? (
+                <details key={`${folderLine.index}`} open={folderLine.open ? true : undefined}>
+                  <summary className="cursor-pointer">
+                    {renderLine(folderLine.summaryContent as any, folderLine.index!, "span")}
+                  </summary>
+                  {renderFolderTokens(folderLine.folderContent as any)}
+                </details>
+              ) : (
+                renderLine(line, folderLine.index!)
+              );
+            })}
+          </pre>
         )}
       </BaseHighlight>
     );

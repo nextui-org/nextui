@@ -1,13 +1,4 @@
-const App = `import {DateRangePicker} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <DateRangePicker 
-      label="Stay duration" 
-      className="max-w-xs" 
-    />
-  );
-}`;
+import App from "./usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

@@ -1,10 +1,4 @@
-const App = `import {Chip} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Chip>Chip</Chip>
-  );
-}`;
+import App from "./usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

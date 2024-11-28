@@ -1,12 +1,12 @@
 import type {ModalProviderProps} from "@react-aria/overlays";
 import type {ProviderContextProps} from "./provider-context";
-import type {Href} from "@react-types/shared";
+import type {Href, RouterOptions} from "@react-types/shared";
 
 import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
 import {useMemo} from "react";
-import {MotionGlobalConfig} from "framer-motion";
+import {MotionConfig, MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
 
@@ -23,6 +23,12 @@ export interface NextUIProviderProps
    */
   skipFramerMotionAnimations?: boolean;
   /**
+   * Defines a new default transition for the entire tree.
+   * @default "never"
+   * See: https://www.framer.com/motion/motion-config/#props
+   */
+  reducedMotion?: "user" | "always" | "never";
+  /**
    * The locale to apply to the children.
    * @default "en-US"
    */
@@ -31,7 +37,7 @@ export interface NextUIProviderProps
    * Provides a client side router to all nested components such as
    * Link, Menu, Tabs, Table, etc.
    */
-  navigate?: (path: string) => void;
+  navigate?: (path: Href, routerOptions: RouterOptions | undefined) => void;
   /**
    * Convert an `href` provided to a link component to a native `href`
    * For example, a router might accept hrefs relative to a base path,
@@ -45,10 +51,11 @@ export interface NextUIProviderProps
 export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   children,
   navigate,
+  disableAnimation,
   useHref,
-  disableAnimation = false,
   disableRipple = false,
   skipFramerMotionAnimations = disableAnimation,
+  reducedMotion = "never",
   validationBehavior = "aria",
   locale = "en-US",
   // if minDate / maxDate are not specified in `defaultDates`
@@ -91,7 +98,9 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   return (
     <ProviderContext value={context}>
       <I18nProvider locale={locale}>
-        <OverlayProvider {...otherProps}>{contents}</OverlayProvider>
+        <MotionConfig reducedMotion={reducedMotion}>
+          <OverlayProvider {...otherProps}>{contents}</OverlayProvider>
+        </MotionConfig>
       </I18nProvider>
     </ProviderContext>
   );

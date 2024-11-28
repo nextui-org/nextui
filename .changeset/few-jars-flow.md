@@ -1,8 +1,10 @@
 ---
 "@nextui-org/table": minor
 "@nextui-org/accordion": minor
+"@nextui-org/alert": minor
 "@nextui-org/autocomplete": minor
 "@nextui-org/avatar": minor
+"@nextui-org/badge": minor
 "@nextui-org/breadcrumbs": minor
 "@nextui-org/button": minor
 "@nextui-org/calendar": minor
@@ -11,9 +13,12 @@
 "@nextui-org/chip": minor
 "@nextui-org/date-input": minor
 "@nextui-org/date-picker": minor
-"@nextui-org/divider": minor
 "@nextui-org/dropdown": minor
 "@nextui-org/input": minor
+"@nextui-org/code": minor
+"@nextui-org/divider": minor
+"@nextui-org/image": minor
+"@nextui-org/drawer": minor
 "@nextui-org/kbd": minor
 "@nextui-org/link": minor
 "@nextui-org/listbox": minor
@@ -24,8 +29,13 @@
 "@nextui-org/popover": minor
 "@nextui-org/progress": minor
 "@nextui-org/radio": minor
+"@nextui-org/scroll-shadow": minor
+"@nextui-org/ripple": minor
 "@nextui-org/select": minor
 "@nextui-org/slider": minor
+"@nextui-org/skeleton": minor
+"@nextui-org/spacer": minor
+"@nextui-org/spinner": minor
 "@nextui-org/snippet": minor
 "@nextui-org/switch": minor
 "@nextui-org/tabs": minor
@@ -33,6 +43,7 @@
 "@nextui-org/user": minor
 "@nextui-org/react": minor
 "@nextui-org/system": minor
+"@nextui-org/theme": minor
 "@nextui-org/system-rsc": minor
 "@nextui-org/use-aria-accordion": minor
 "@nextui-org/use-aria-accordion-item": minor
@@ -41,13 +52,14 @@
 "@nextui-org/use-aria-menu": minor
 "@nextui-org/use-aria-modal-overlay": minor
 "@nextui-org/use-aria-multiselect": minor
-"@nextui-org/use-aria-overlay": minor
 "@nextui-org/use-aria-toggle-button": minor
 "@nextui-org/use-disclosure": minor
 "@nextui-org/use-intersection-observer": minor
 "@nextui-org/use-is-mobile": minor
 "@nextui-org/use-pagination": minor
 "@nextui-org/aria-utils": minor
+"@nextui-org/use-ssr": minor
+"@nextui-org/use-theme": minor
 ---
 
 update react-aria version

@@ -1,6 +1,6 @@
 ---
-"@nextui-org/date-picker": minor
-"@nextui-org/theme": minor
+"@nextui-org/date-picker": patch
+"@nextui-org/theme": patch
 ---
 
 Add support for selectorButtonPlacement property (#3015)

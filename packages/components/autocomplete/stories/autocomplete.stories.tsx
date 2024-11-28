@@ -18,6 +18,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {PetBoldIcon, SearchLinearIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Button} from "@nextui-org/button";
+import {Form} from "@nextui-org/form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 
@@ -99,6 +100,58 @@ const items = animalsData.map((item) => (
     {item.label}
   </AutocompleteItem>
 ));
+
+interface LargeDatasetSchema {
+  label: string;
+  value: string;
+  description: string;
+}
+
+function generateLargeDataset(n: number): LargeDatasetSchema[] {
+  const dataset: LargeDatasetSchema[] = [];
+
+  const items = [
+    "Cat",
+    "Dog",
+    "Elephant",
+    "Lion",
+    "Tiger",
+    "Giraffe",
+    "Dolphin",
+    "Penguin",
+    "Zebra",
+    "Shark",
+    "Whale",
+    "Otter",
+    "Crocodile",
+  ];
+
+  for (let i = 0; i < n; i++) {
+    const item = items[i % items.length];
+
+    dataset.push({
+      label: `${item}${i}`,
+      value: `${item.toLowerCase()}${i}`,
+      description: "Sample description",
+    });
+  }
+
+  return dataset;
+}
+
+const LargeDatasetTemplate = (args: AutocompleteProps & {numItems: number}) => {
+  const largeDataset = generateLargeDataset(args.numItems);
+
+  return (
+    <Autocomplete label={`Search from ${args.numItems} items`} {...args}>
+      {largeDataset.map((item, index) => (
+        <AutocompleteItem key={index} value={item.value}>
+          {item.label}
+        </AutocompleteItem>
+      ))}
+    </Autocomplete>
+  );
+};
 
 const Template = (args: AutocompleteProps) => (
   <Autocomplete label="Favorite Animal" {...args}>
@@ -803,6 +856,33 @@ const WithReactHookFormTemplate = (args: AutocompleteProps) => {
   );
 };
 
+const ServerValidationTemplate = (args: AutocompleteProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      animals: "Please select a valid animal.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Autocomplete {...args} className="max-w-xs" label="Favorite Animal" name="animals">
+        <AutocompleteItem key="red_panda">Red Panda</AutocompleteItem>
+        <AutocompleteItem key="cat">Cat</AutocompleteItem>
+        <AutocompleteItem key="dog">Dog</AutocompleteItem>
+      </Autocomplete>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -978,6 +1058,13 @@ export const WithValidation = {
   },
 };
 
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const WithSections = {
   render: WithSectionsTemplate,
 
@@ -1059,5 +1146,44 @@ export const FullyControlled = {
   render: FullyControlledTemplate,
   args: {
     ...defaultProps,
+  },
+};
+
+export const OneThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+  },
+};
+
+export const TenThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 10000,
+  },
+};
+
+export const CustomMaxListboxHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+    maxListboxHeight: 400,
+  },
+};
+
+export const CustomItemHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Search...",
+    numItems: 1000,
+    maxListboxHeight: 400,
+    itemHeight: 40,
   },
 };

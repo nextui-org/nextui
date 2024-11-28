@@ -1,6 +1,7 @@
 "use client";
 
 import {FC, useEffect, useState} from "react";
+import {usePostHog} from "posthog-js/react";
 import {ChevronIcon} from "@nextui-org/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
 import {BaseItem} from "@nextui-org/aria-utils";
@@ -27,7 +28,6 @@ import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
-import {trackEvent} from "@/utils/va";
 import {FbFeedbackButton} from "@/components/featurebase/fb-feedback-button";
 import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
 import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
@@ -66,6 +66,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 
   const router = useRouter();
   const pathname = usePathname();
+  const posthog = usePostHog();
 
   const paths = item.props.path
     ? getRoutePaths(item.props.path, item.props?.tag)
@@ -109,7 +110,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       } else {
         router.push(paths.pathname);
 
-        trackEvent("SidebarDocs", {
+        posthog.capture("SidebarDocs", {
           category: "docs",
           action: "click",
           data: paths.pathname || "",
@@ -171,7 +172,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
         </span>
         {isUpdated && (
           <Chip
-            className="ml-1 py-1 text-tiny text-default-400 bg-default-100/50"
+            className="ml-1 py-1 text-tiny text-default-500 dark:text-default-400 bg-default-100 dark:bg-default-100/50"
             color="default"
             size="sm"
             variant="flat"
@@ -200,8 +201,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col gap-3outline-none w-full tap-highlight-transparent",
-
+        "flex flex-col outline-none w-full tap-highlight-transparent",
         hasChildNodes ? "mb-4" : "first:mt-4",
         // focus ring
         ...dataFocusVisibleClasses,
@@ -260,7 +260,7 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
   return (
     <ScrollArea
       ref={ref}
-      className="h-full lg:max-h-[calc(100vh_-_64px)]"
+      className="h-full max-w-[90%] lg:max-h-[calc(100vh_-_64px)]"
       role="tree"
       {...collectionProps}
     >

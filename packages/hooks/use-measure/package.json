@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-measure",
-  "version": "2.0.2",
+  "version": "2.0.3-beta.5",
   "description": "Hook that measure and track a element dimensions",
   "keywords": [
     "use-measure"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
