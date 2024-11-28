@@ -365,6 +365,25 @@ describe("Menu", () => {
 
     expect(menuItem.classList.contains("test2")).toBeTruthy();
   });
+  it("should merge menu item classNames with itemClasses", () => {
+    const wrapper = render(
+      <Menu itemClasses={{title: "test"}}>
+        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
+        <MenuItem>Delete file</MenuItem>
+      </Menu>,
+    );
+
+    const menuItemWithBoth = wrapper.getByText("New file");
+    const menuItemWithDefault = wrapper.getByText("Delete file");
+
+    // Check first MenuItem has both classes
+    expect(menuItemWithBoth.classList.contains("test2")).toBeTruthy();
+    expect(menuItemWithBoth.classList.contains("test")).toBeTruthy();
+
+    // Check second MenuItem only has the default class
+    expect(menuItemWithDefault.classList.contains("test")).toBeTruthy();
+    expect(menuItemWithDefault.classList.contains("test2")).toBeFalsy();
+  });
 
   it("should truncate the text if the child is not a string", () => {
     const wrapper = render(
