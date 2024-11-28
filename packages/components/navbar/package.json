@@ -64,6 +64,7 @@
     "@nextui-org/input": "workspace:*",
     "@nextui-org/link": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
+    "framer-motion": "11.9.0",
     "react-lorem-component": "0.13.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
