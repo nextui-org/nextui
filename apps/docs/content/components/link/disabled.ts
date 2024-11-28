@@ -1,10 +1,4 @@
-const App = `import {Link} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Link href="#" isDisabled>Disabled Link</Link>
-  );
-}`;
+import App from "./disabled.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

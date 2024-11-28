@@ -1,18 +1,4 @@
-const App = `import { Link, Button } from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Button
-      href="https://github.com/nextui-org/nextui"
-      as={Link}
-      color="primary"
-      showAnchorIcon
-      variant="solid"
-    >
-      Button Link
-    </Button>
-  );
-}`;
+import App from "./polymorphic.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

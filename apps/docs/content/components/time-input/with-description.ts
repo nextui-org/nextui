@@ -1,13 +1,4 @@
-const App = `import {TimeInput} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <TimeInput 
-      label="Event Time"
-      description="Please enter your meeting time" 
-    />
-  );
-}`;
+import App from "./with-description.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

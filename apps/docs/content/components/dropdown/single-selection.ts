@@ -1,85 +1,15 @@
-const App = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
-
-export default function App() {
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["text"]));
-
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys]
-  );
-
-  return (
-    <Dropdown>
-      <DropdownTrigger>
-        <Button 
-          variant="bordered" 
-          className="capitalize"
-        >
-          {selectedValue}
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu 
-        aria-label="Single selection example"
-        variant="flat"
-        disallowEmptySelection
-        selectionMode="single"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
-      >
-        <DropdownItem key="text">Text</DropdownItem>
-        <DropdownItem key="number">Number</DropdownItem>
-        <DropdownItem key="date">Date</DropdownItem>
-        <DropdownItem key="single_date">Single Date</DropdownItem>
-        <DropdownItem key="iteration">Iteration</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-  );
-}`;
-
-const AppTs = `import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
-import type { Selection } from "@nextui-org/react";
-
-export default function App() {
-  const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["text"]));
-
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys]
-  );
-
-  return (
-    <Dropdown>
-      <DropdownTrigger>
-        <Button 
-          variant="bordered" 
-          className="capitalize"
-        >
-          {selectedValue}
-        </Button>
-      </DropdownTrigger>
-      <DropdownMenu 
-        aria-label="Single selection example"
-        variant="flat"
-        disallowEmptySelection
-        selectionMode="single"
-        selectedKeys={selectedKeys}
-        onSelectionChange={setSelectedKeys}
-      >
-        <DropdownItem key="text">Text</DropdownItem>
-        <DropdownItem key="number">Number</DropdownItem>
-        <DropdownItem key="date">Date</DropdownItem>
-        <DropdownItem key="single_date">Single Date</DropdownItem>
-        <DropdownItem key="iteration">Iteration</DropdownItem>
-      </DropdownMenu>
-    </Dropdown>
-  );
-}`;
+import App from "./single-selection.raw.jsx?raw";
+import AppTs from "./single-selection.raw.tsx?raw";
 
 const react = {
   "/App.jsx": App,
+};
+
+const reactTs = {
   "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
+  ...reactTs,
 };
