@@ -360,8 +360,6 @@ export default function App() {
   });
   const [page, setPage] = React.useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
-
   const hasSearchFilter = Boolean(filterValue);
 
   const headerColumns = React.useMemo(() => {
@@ -387,22 +385,20 @@ export default function App() {
     return filteredUsers;
   }, [users, filterValue, statusFilter]);
 
-  const items = React.useMemo(() => {
+  const pages = Math.ceil(filteredItems.length / rowsPerPage);
+  
+  const sortedItems = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredItems.slice(start, end);
-  }, [page, filteredItems, rowsPerPage]);
-
-  const sortedItems = React.useMemo(() => {
-    return [...items].sort((a, b) => {
+    return [...filteredItems].sort((a, b) => {
       const first = a[sortDescriptor.column];
       const second = b[sortDescriptor.column];
       const cmp = first < second ? -1 : first > second ? 1 : 0;
 
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
     });
-  }, [sortDescriptor, items]);
+  }, [sortDescriptor, page, filteredItems, rowsPerPage]);
 
   const renderCell = React.useCallback((user, columnKey) => {
     const cellValue = user[columnKey];
@@ -598,11 +594,11 @@ export default function App() {
         <span className="text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
-            : \`\${selectedKeys.size} of \${items.length} selected\`}
+            : \`\${selectedKeys.size} of \${filteredItems.length} selected\`}
         </span>
       </div>
     );
-  }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
+  }, [selectedKeys, page, pages, hasSearchFilter]);
 
   const classNames = React.useMemo(
     () => ({
@@ -715,8 +711,6 @@ export default function App() {
   });
   const [page, setPage] = React.useState(1);
 
-  const pages = Math.ceil(users.length / rowsPerPage);
-
   const hasSearchFilter = Boolean(filterValue);
 
   const headerColumns = React.useMemo(() => {
@@ -742,22 +736,21 @@ export default function App() {
     return filteredUsers;
   }, [users, filterValue, statusFilter]);
 
-  const items = React.useMemo(() => {
+  const pages = Math.ceil(filteredItems.length / rowsPerPage);
+
+  const sortedItems = React.useMemo(() => {
     const start = (page - 1) * rowsPerPage;
     const end = start + rowsPerPage;
 
-    return filteredItems.slice(start, end);
-  }, [page, filteredItems, rowsPerPage]);
-
-  const sortedItems = React.useMemo(() => {
-    return [...items].sort((a: User, b: User) => {
+    return [...filteredItems].sort((a: User, b: User) => {
       const first = a[sortDescriptor.column as keyof User] as number;
       const second = b[sortDescriptor.column as keyof User] as number;
       const cmp = first < second ? -1 : first > second ? 1 : 0;
 
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
-    });
-  }, [sortDescriptor, items]);
+    }).slice(start, end);
+  }, [sortDescriptor, page, filteredItems, rowsPerPage]);
+
 
   const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
     const cellValue = user[columnKey as keyof User];
@@ -953,11 +946,11 @@ export default function App() {
         <span className="text-small text-default-400">
           {selectedKeys === "all"
             ? "All items selected"
-            : \`\${selectedKeys.size} of \${items.length} selected\`}
+            : \`\${selectedKeys.size} of \${filteredItems.length} selected\`}
         </span>
       </div>
     );
-  }, [selectedKeys, items.length, page, pages, hasSearchFilter]);
+  }, [selectedKeys, page, pages, hasSearchFilter]);
 
   const classNames = React.useMemo(
     () => ({
