@@ -1,5 +1,15 @@
 # @nextui-org/snippet
 
+## 2.1.0-beta.12
+
+### Patch Changes
+
+- [#4161](https://github.com/nextui-org/nextui/pull/4161) [`17bf65799`](https://github.com/nextui-org/nextui/commit/17bf65799c39c2ee44ea9c0b23aa80315b2a5083) Thanks [@wingkwong](https://github.com/wingkwong)! - fix missing peer / dev dependency for framer-motion
+
+- Updated dependencies [[`17bf65799`](https://github.com/nextui-org/nextui/commit/17bf65799c39c2ee44ea9c0b23aa80315b2a5083)]:
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/tooltip@2.1.0-beta.11
+
 ## 2.1.0-beta.11
 
 ### Patch Changes

@@ -1,5 +1,14 @@
 # @nextui-org/popover
 
+## 2.2.0-beta.12
+
+### Patch Changes
+
+- Updated dependencies [[`17bf65799`](https://github.com/nextui-org/nextui/commit/17bf65799c39c2ee44ea9c0b23aa80315b2a5083)]:
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/aria-utils@2.1.0-beta.11
+  - @nextui-org/framer-utils@2.0.26-beta.11
+
 ## 2.2.0-beta.11
 
 ### Patch Changes
