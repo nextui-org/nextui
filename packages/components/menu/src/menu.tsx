@@ -71,10 +71,7 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
   );
 }
 
-export type MenuProps<T extends object = object> = Omit<
-  Props<T>,
-  "hasChildItems" | "hasTitleTextChild" | "hasDescriptionTextChild"
-> & {ref?: Ref<HTMLElement>};
+export type MenuProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
 
 // forwardRef doesn't support generic parameters, so cast the result to the correct type
 export default forwardRef(Menu) as <T extends object>(props: MenuProps<T>) => ReactElement;
