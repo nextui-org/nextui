@@ -1,0 +1,57 @@
+{
+  "name": "@nextui-org/form",
+  "version": "2.0.0",
+  "description": "A form is a group of inputs that allows users submit data to a server and supports field validation errors.",
+  "keywords": [
+    "form"
+  ],
+  "author": "Junior Garcia <jrgarciadev@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/form"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "@nextui-org/system": ">=2.3.0-beta.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@react-aria/utils": "3.25.3",
+    "@react-types/shared": "3.25.0",
+    "@react-stately/form": "3.0.6",
+    "@react-types/form": "^3.7.8"
+  },
+  "devDependencies": {
+    "@nextui-org/button": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

@@ -1,5 +1,15 @@
 # @nextui-org/table
 
+## 2.1.0-beta.9
+
+### Patch Changes
+
+- [#3735](https://github.com/nextui-org/nextui/pull/3735) [`ee4870dc1`](https://github.com/nextui-org/nextui/commit/ee4870dc14b2a449fd22be4489b88e44f030329a) Thanks [@macci001](https://github.com/macci001)! - Currently, whenever any arrow-key keypress is triggered it navigates the focus to other cell/row. This creates an issue when the table cell contains a component which requires this keys for specific purpose (eg. if a table cell contains input component, it might need arrow keys for editing. But it is not possible because whenever the keypress triggers navigation). The PR adds an `isKeyboardNavigationDisabled` prop to disable the navigation.
+
+- Updated dependencies []:
+  - @nextui-org/checkbox@2.2.0-beta.7
+  - @nextui-org/spacer@2.1.0-beta.7
+
 ## 2.1.0-beta.8
 
 ### Patch Changes

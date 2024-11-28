@@ -5,6 +5,7 @@ import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 import {SendFilledIcon, PlusFilledIcon} from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
+import {Form} from "@nextui-org/form";
 
 import {Textarea, TextAreaProps} from "../src";
 
@@ -213,6 +214,29 @@ export const WithEndContent = {
   },
 };
 
+const ServerValidationTemplate = (args: TextAreaProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      comment: "Please provide a valid comment.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Textarea {...args} label="Comment" name="comment" />
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Controlled = {
   render: ControlledTemplate,
 
@@ -289,6 +313,14 @@ export const WithValidation = {
     isRequired: true,
     label: "Comment",
     placeholder: "Enter your comment (10-100 characters)",
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };
 

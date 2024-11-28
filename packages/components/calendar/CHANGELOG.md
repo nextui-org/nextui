@@ -1,5 +1,14 @@
 # @nextui-org/calendar
 
+## 2.1.0-beta.10
+
+### Patch Changes
+
+- [#4140](https://github.com/nextui-org/nextui/pull/4140) [`78a99b628`](https://github.com/nextui-org/nextui/commit/78a99b628e3fde8808a0cce3c69059d727afd49b) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `framer-motion` in `peerDependencies`
+
+- Updated dependencies []:
+  - @nextui-org/button@2.1.0-beta.7
+
 ## 2.1.0-beta.9
 
 ### Patch Changes

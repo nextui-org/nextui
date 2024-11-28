@@ -130,8 +130,10 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
         ...variantProps,
         isDisabled,
         disableAnimation,
+        hasTitleTextChild: typeof rendered === "string",
+        hasDescriptionTextChild: typeof description === "string",
       }),
-    [objectToDeps(variantProps), isDisabled, disableAnimation],
+    [objectToDeps(variantProps), isDisabled, disableAnimation, rendered, description],
   );
 
   const baseStyles = clsx(classNames?.base, className);
