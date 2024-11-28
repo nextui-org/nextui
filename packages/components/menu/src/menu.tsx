@@ -47,11 +47,12 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
           hideSelectedIcon,
           ...item.props,
         };
+        const mergedItemClasses = itemProps.classNames ?? itemClasses;
 
         if (item.type === "section") {
-          return <MenuSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
+          return <MenuSection key={item.key} {...itemProps} itemClasses={mergedItemClasses} />;
         }
-        let menuItem = <MenuItem key={item.key} {...itemProps} classNames={itemClasses} />;
+        let menuItem = <MenuItem key={item.key} {...itemProps} classNames={mergedItemClasses} />;
 
         if (item.wrapper) {
           menuItem = item.wrapper(menuItem);

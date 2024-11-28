@@ -343,4 +343,26 @@ describe("Menu", () => {
     expect(onPress).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it("should menuItem classNames work", () => {
+    const wrapper = render(
+      <Menu>
+        <MenuItem classNames={{title: "test"}}>New file</MenuItem>
+      </Menu>,
+    );
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem.classList.contains("test")).toBeTruthy();
+  });
+
+  it("should menuItem classNames override menu itemClasses", () => {
+    const wrapper = render(
+      <Menu itemClasses={{title: "test"}}>
+        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
+      </Menu>,
+    );
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem.classList.contains("test2")).toBeTruthy();
+  });
 });
