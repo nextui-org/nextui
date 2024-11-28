@@ -1,9 +1,9 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {alert} from "@nextui-org/theme";
+import {alert, cn} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 
-import {Alert} from "../src";
+import {Alert, AlertProps} from "../src";
 
 export default {
   title: "Components/Alert",
@@ -19,7 +19,7 @@ export default {
       control: {
         type: "select",
       },
-      options: ["solid", "flat", "bordered"],
+      options: ["solid", "flat", "bordered", "faded"],
     },
     radius: {
       control: {
@@ -78,7 +78,7 @@ const RadiusTemplate = (args) => {
 const VariantTemplate = (args) => {
   return (
     <div className="flex flex-col w-full">
-      {["solid", "flat", "bordered"].map((variant) => (
+      {["solid", "flat", "bordered", "faded"].map((variant) => (
         <div key={variant} className="w-full flex items-center my-3">
           <Alert {...args} isClosable title={`This is a ${variant} alert`} variant={variant} />
         </div>
@@ -103,6 +103,114 @@ const CloseableTemplate = (args) => {
   );
 };
 
+const WithEndContentTemplate = (args) => {
+  return (
+    <Alert
+      {...args}
+      color="warning"
+      description="Upgrade to a paid plan to continue"
+      endContent={
+        <Button color="warning" size="sm" variant="flat">
+          Upgrade
+        </Button>
+      }
+      title="You have no credits left"
+      variant="faded"
+    />
+  );
+};
+
+const CustomAlert = React.forwardRef<HTMLDivElement, AlertProps>(
+  (
+    {title, children, variant = "faded", color = "secondary", className, classNames, ...props},
+    ref,
+  ) => {
+    const colorClass = React.useMemo(() => {
+      switch (color) {
+        case "default":
+          return "before:bg-default-300";
+        case "primary":
+          return "before:bg-primary";
+        case "secondary":
+          return "before:bg-secondary";
+        case "success":
+          return "before:bg-success";
+        case "warning":
+          return "before:bg-warning";
+        case "danger":
+          return "before:bg-danger";
+        default:
+          return `before:bg-default-200`;
+      }
+    }, []);
+
+    return (
+      <Alert
+        ref={ref}
+        classNames={{
+          ...classNames,
+          base: cn(
+            [
+              "bg-default-50 dark:bg-background shadow-sm",
+              "border-1 border-default-200 dark:border-default-100",
+              "relative before:content-[''] before:absolute before:z-10",
+              "before:left-0 before:top-[-1px] before:bottom-[-1px] before:w-1",
+              "rounded-l-none border-l-0",
+              colorClass,
+            ],
+            classNames?.base,
+            className,
+          ),
+          mainWrapper: cn("pt-1", classNames?.mainWrapper),
+          iconWrapper: cn("dark:bg-transparent", classNames?.iconWrapper),
+        }}
+        color={color}
+        title={title}
+        variant={variant}
+        {...props}
+      >
+        <div className="flex items-center gap-1 mt-3">{children}</div>
+      </Alert>
+    );
+  },
+);
+
+CustomAlert.displayName = "CustomAlert";
+
+const CustomStylesTemplate = (args) => {
+  const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
+
+  return (
+    <div className="flex flex-col w-full gap-y-6">
+      {colors.map((color) => (
+        <CustomAlert
+          {...args}
+          key={color}
+          color={color}
+          title="The documents you requested are ready to be viewed"
+        >
+          <div className="flex items-center gap-1 mt-3">
+            <Button
+              className="bg-background text-default-700 font-medium border-1 shadow-small"
+              size="sm"
+              variant="bordered"
+            >
+              View documents
+            </Button>
+            <Button
+              className="text-default-500 font-medium underline underline-offset-4"
+              size="sm"
+              variant="light"
+            >
+              Maybe later
+            </Button>
+          </div>
+        </CustomAlert>
+      ))}
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -122,6 +230,7 @@ export const Color = {
   render: ColorTemplate,
   args: {
     ...defaultProps,
+    variant: "faded",
   },
 };
 
@@ -172,21 +281,16 @@ export const Closable = {
   },
 };
 
-export const CustomWithClassNames = {
-  render: Template,
+export const WithEndContent = {
+  render: WithEndContentTemplate,
   args: {
     ...defaultProps,
-    classNames: {
-      base: [
-        "bg-background",
-        "border",
-        "border-foreground-400",
-        "shadow",
-        "hover:bg-slate-200",
-        "cursor-pointer",
-      ],
-      title: ["text-base", "text-foreground", "font-semibold"],
-      description: ["text-base", "text-foreground-600"],
-    },
+  },
+};
+
+export const CustomStyles = {
+  render: CustomStylesTemplate,
+  args: {
+    ...defaultProps,
   },
 };

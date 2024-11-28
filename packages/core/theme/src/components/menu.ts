@@ -11,7 +11,7 @@ import {dataFocusVisibleClasses} from "../utils";
  */
 const menu = tv({
   slots: {
-    base: "w-full relative flex flex-col gap-1 p-1",
+    base: "w-full relative flex flex-col gap-1 p-1 overflow-hidden",
     list: "w-full flex flex-col gap-0.5 outline-none",
     emptyContent: [
       "h-10",
@@ -142,6 +142,17 @@ const menuItem = tv({
       true: {},
       false: {
         base: "data-[hover=true]:transition-colors",
+      },
+    },
+    // If the child isn't a string, the truncate such as `overflow, white-space, text-overflow` css won't be extended to the child, so we remove the truncate class here
+    hasTitleTextChild: {
+      true: {
+        title: "truncate",
+      },
+    },
+    hasDescriptionTextChild: {
+      true: {
+        description: "truncate",
       },
     },
   },

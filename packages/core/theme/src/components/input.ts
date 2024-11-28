@@ -75,7 +75,7 @@ const input = tv({
       flat: {
         inputWrapper: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-200",
+          "data-[hover=true]:bg-default-50",
           "group-data-[focus=true]:bg-default-100",
         ],
       },
@@ -84,7 +84,7 @@ const input = tv({
           "bg-default-100",
           "border-medium",
           "border-default-200",
-          "data-[hover=true]:border-default-400",
+          "data-[hover=true]:border-default-400 focus-within:border-default-400",
         ],
         value: "group-data-[has-value=true]:text-default-foreground",
       },
@@ -263,8 +263,8 @@ const input = tv({
       color: "primary",
       class: {
         inputWrapper: [
-          "bg-primary-50",
-          "data-[hover=true]:bg-primary-100",
+          "bg-primary-100",
+          "data-[hover=true]:bg-primary-50",
           "text-primary",
           "group-data-[focus=true]:bg-primary-50",
           "placeholder:text-primary",
@@ -278,9 +278,9 @@ const input = tv({
       color: "secondary",
       class: {
         inputWrapper: [
-          "bg-secondary-50",
+          "bg-secondary-100",
           "text-secondary",
-          "data-[hover=true]:bg-secondary-100",
+          "data-[hover=true]:bg-secondary-50",
           "group-data-[focus=true]:bg-secondary-50",
           "placeholder:text-secondary",
         ],
@@ -293,12 +293,12 @@ const input = tv({
       color: "success",
       class: {
         inputWrapper: [
-          "bg-success-50",
+          "bg-success-100",
           "text-success-600",
           "dark:text-success",
           "placeholder:text-success-600",
           "dark:placeholder:text-success",
-          "data-[hover=true]:bg-success-100",
+          "data-[hover=true]:bg-success-50",
           "group-data-[focus=true]:bg-success-50",
         ],
         input: "placeholder:text-success-600 dark:placeholder:text-success",
@@ -310,12 +310,12 @@ const input = tv({
       color: "warning",
       class: {
         inputWrapper: [
-          "bg-warning-50",
+          "bg-warning-100",
           "text-warning-600",
           "dark:text-warning",
           "placeholder:text-warning-600",
           "dark:placeholder:text-warning",
-          "data-[hover=true]:bg-warning-100",
+          "data-[hover=true]:bg-warning-50",
           "group-data-[focus=true]:bg-warning-50",
         ],
         input: "placeholder:text-warning-600 dark:placeholder:text-warning",
@@ -327,12 +327,12 @@ const input = tv({
       color: "danger",
       class: {
         inputWrapper: [
-          "bg-danger-50",
+          "bg-danger-100",
           "text-danger",
           "dark:text-danger-500",
           "placeholder:text-danger",
           "dark:placeholder:text-danger-500",
-          "data-[hover=true]:bg-danger-100",
+          "data-[hover=true]:bg-danger-50",
           "group-data-[focus=true]:bg-danger-50",
         ],
         input: "placeholder:text-danger dark:placeholder:text-danger-500",
