@@ -1,5 +1,15 @@
 # @nextui-org/table
 
+## 2.1.0-beta.10
+
+### Patch Changes
+
+- [#3036](https://github.com/nextui-org/nextui/pull/3036) [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00) Thanks [@ryo-manba](https://github.com/ryo-manba)! - The `layoutNode` prop has been removed due to the update to react-aria.
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/checkbox@2.2.0-beta.8
+  - @nextui-org/spacer@2.1.0-beta.8
+
 ## 2.1.0-beta.9
 
 ### Patch Changes

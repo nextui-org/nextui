@@ -1,5 +1,16 @@
 # @nextui-org/listbox
 
+## 2.2.0-beta.11
+
+### Patch Changes
+
+- [#3036](https://github.com/nextui-org/nextui/pull/3036) [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/divider@2.1.0-beta.8
+  - @nextui-org/use-is-mobile@2.1.0-beta.7
+  - @nextui-org/aria-utils@2.1.0-beta.9
+
 ## 2.2.0-beta.10
 
 ### Patch Changes
