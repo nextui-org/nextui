@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-draggable",
-  "version": "2.0.0",
+  "version": "2.0.1-beta.6",
   "description": "This hook can provide drag and drop interaction",
   "keywords": [
     "use-draggable"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",
@@ -50,6 +50,6 @@
     ]
   },
   "dependencies": {
-    "@react-aria/interactions": "^3.21.1"
+    "@react-aria/interactions": "3.22.4"
   }
 }

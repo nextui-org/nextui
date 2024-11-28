@@ -75,7 +75,7 @@ const ControlledTemplate = (args: CheckboxProps) => {
 const FormTemplate = (args: CheckboxProps) => {
   return (
     <form
-      className="flex flex-col items-start gap-4"
+      className="flex flex-col items-start gap-2"
       onSubmit={(e) => {
         e.preventDefault();
         const checkbox = e.target["check"] as HTMLInputElement;
