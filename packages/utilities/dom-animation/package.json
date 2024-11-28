@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/dom-animation",
-  "version": "2.0.0",
+  "version": "2.0.1-beta.6",
   "description": "Dom Animation from Framer Motion for dynamic import",
   "keywords": [
     "dom-animation"
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "framer-motion": ">=11.5.6"
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

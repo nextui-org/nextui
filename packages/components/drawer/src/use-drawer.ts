@@ -4,7 +4,7 @@ import {drawer} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useCallback, useMemo} from "react";
 import {TRANSITION_EASINGS} from "@nextui-org/framer-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx, isEmpty} from "@nextui-org/shared-utils";
 import {PropGetter} from "@nextui-org/system";
 
 interface Props extends Omit<ModalProps, "placement" | "scrollBehavior" | "children"> {
@@ -39,7 +39,7 @@ export function useDrawer(originalProps: UseDrawerProps) {
   const domRef = useDOMRef(ref);
 
   const motionProps = useMemo(() => {
-    if (drawerMotionProps !== void 0) return drawerMotionProps;
+    if (!isEmpty(drawerMotionProps)) return drawerMotionProps;
 
     const key = placement === "left" || placement === "right" ? "x" : "y";
 
@@ -49,9 +49,8 @@ export function useDrawer(originalProps: UseDrawerProps) {
           [key]: 0,
           transition: {
             [key]: {
-              bounce: 0,
-              duration: 0.3,
-              ease: TRANSITION_EASINGS.ease,
+              duration: 0.2,
+              ease: TRANSITION_EASINGS.easeOut,
             },
           },
         },
@@ -59,9 +58,8 @@ export function useDrawer(originalProps: UseDrawerProps) {
           [key]: placement === "top" || placement === "left" ? "-100%" : "100%",
           transition: {
             [key]: {
-              bounce: 0,
-              duration: 0.6,
-              ease: TRANSITION_EASINGS.ease,
+              duration: 0.1,
+              ease: TRANSITION_EASINGS.easeIn,
             },
           },
         },

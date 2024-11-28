@@ -723,11 +723,12 @@ describe("Select", () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should place the label outside when labelPlacement is outside", () => {
+  it("should place the label outside when labelPlacement is outside and isMultiline enabled", () => {
     const labelContent = "Favorite Animal Label";
 
     render(
       <Select
+        isMultiline
         aria-label="Favorite Animal"
         data-testid="select"
         label={labelContent}

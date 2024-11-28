@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/slider",
-  "version": "2.2.17",
+  "version": "2.3.0-beta.8",
   "description": "A slider allows a user to select one or more values within a range.",
   "keywords": [
     "slider"
@@ -34,22 +34,22 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "3.18.2",
-    "@react-aria/i18n": "3.12.2",
-    "@react-aria/interactions": "3.22.2",
-    "@react-aria/slider": "3.7.11",
-    "@react-aria/utils": "3.25.2",
-    "@react-aria/visually-hidden": "3.8.15",
-    "@react-stately/slider": "3.5.7"
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/i18n": "3.12.3",
+    "@react-aria/interactions": "3.22.4",
+    "@react-aria/slider": "3.7.13",
+    "@react-aria/utils": "3.25.3",
+    "@react-aria/visually-hidden": "3.8.17",
+    "@react-stately/slider": "3.5.8"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

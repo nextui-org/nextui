@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/accordion",
-  "version": "2.0.40",
+  "version": "2.1.0-beta.9",
   "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
   "keywords": [
     "react",
@@ -40,11 +40,11 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/aria-utils": "workspace:*",
@@ -55,13 +55,13 @@
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/use-aria-accordion": "workspace:*",
     "@nextui-org/dom-animation": "workspace:*",
-    "@react-aria/interactions": "3.22.2",
-    "@react-aria/focus": "3.18.2",
-    "@react-aria/utils": "3.25.2",
-    "@react-stately/tree": "3.8.4",
-    "@react-aria/button": "3.9.8",
-    "@react-types/accordion": "3.0.0-alpha.23",
-    "@react-types/shared": "3.24.1"
+    "@react-aria/interactions": "3.22.4",
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/utils": "3.25.3",
+    "@react-stately/tree": "3.8.5",
+    "@react-aria/button": "3.10.1",
+    "@react-types/accordion": "3.0.0-alpha.24",
+    "@react-types/shared": "3.25.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

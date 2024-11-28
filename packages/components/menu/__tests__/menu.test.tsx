@@ -343,4 +343,30 @@ describe("Menu", () => {
     expect(onPress).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
   });
+
+  it("should truncate the text if the child is not a string", () => {
+    const wrapper = render(
+      <Menu>
+        <MenuItem key="new">New file</MenuItem>
+      </Menu>,
+    );
+
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem).toHaveProperty("className", expect.stringContaining("truncate"));
+  });
+
+  it("should not truncate the text if the child is a string", () => {
+    const wrapper = render(
+      <Menu>
+        <MenuItem key="new">
+          <div>New file</div>
+        </MenuItem>
+      </Menu>,
+    );
+
+    const menuItem = wrapper.getByText("New file").parentElement;
+
+    expect(menuItem).not.toHaveProperty("className", expect.stringContaining("truncate"));
+  });
 });
