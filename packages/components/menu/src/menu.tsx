@@ -1,5 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {ForwardedRef, ReactElement, Ref} from "react";
+import {mergeClasses} from "@nextui-org/theme";
 
 import {UseMenuProps, useMenu} from "./use-menu";
 import MenuSection from "./menu-section";
@@ -48,10 +49,12 @@ function Menu<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLUListElem
           ...item.props,
         };
 
+        const mergedItemClasses = mergeClasses(itemClasses, itemProps?.classNames);
+
         if (item.type === "section") {
-          return <MenuSection key={item.key} {...itemProps} itemClasses={itemClasses} />;
+          return <MenuSection key={item.key} {...itemProps} itemClasses={mergedItemClasses} />;
         }
-        let menuItem = <MenuItem key={item.key} {...itemProps} classNames={itemClasses} />;
+        let menuItem = <MenuItem key={item.key} {...itemProps} classNames={mergedItemClasses} />;
 
         if (item.wrapper) {
           menuItem = item.wrapper(menuItem);
