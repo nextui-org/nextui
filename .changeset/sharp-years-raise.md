@@ -8,4 +8,4 @@
 "@nextui-org/system-rsc": patch
 ---
 
-fix forwardRef render functions not using ref
+Fix forwardRef render functions not using ref

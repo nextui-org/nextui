@@ -1,5 +1,4 @@
 import React, {Children, cloneElement, useMemo} from "react";
-import {wrapForwardRefTypes} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
 import {useAriaButton} from "@nextui-org/use-aria-button";
 import {Button} from "@nextui-org/button";
@@ -15,7 +14,7 @@ export interface PopoverTriggerProps {
  * PopoverTrigger opens the popover's content. It must be an interactive element
  * such as `button` or `a`.
  */
-const PopoverTrigger = wrapForwardRefTypes<"button", PopoverTriggerProps>((props) => {
+const PopoverTrigger = (props: PopoverTriggerProps) => {
   const {triggerRef, getTriggerProps} = usePopoverContext();
 
   const {children, ...otherProps} = props;
@@ -50,7 +49,7 @@ const PopoverTrigger = wrapForwardRefTypes<"button", PopoverTriggerProps>((props
     child,
     mergeProps(restProps, hasNextUIButton ? {onPress, isDisabled} : buttonProps),
   );
-});
+};
 
 PopoverTrigger.displayName = "NextUI.PopoverTrigger";
 
