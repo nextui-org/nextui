@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-disclosure",
-  "version": "2.1.0-beta.6",
+  "version": "2.1.0-beta.7",
   "description": "The hook in charge of managing modals",
   "keywords": [
     "use-disclosure"

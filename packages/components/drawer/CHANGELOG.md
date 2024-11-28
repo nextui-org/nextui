@@ -1,5 +1,13 @@
 # @nextui-org/drawer
 
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/modal@2.1.0-beta.11
+  - @nextui-org/framer-utils@2.0.26-beta.9
+
 ## 2.1.0-beta.10
 
 ### Patch Changes
