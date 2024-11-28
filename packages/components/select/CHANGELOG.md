@@ -1,5 +1,11 @@
 # @nextui-org/select
 
+## 2.3.0-beta.16
+
+### Patch Changes
+
+- [#4082](https://github.com/nextui-org/nextui/pull/4082) [`1e05a721f`](https://github.com/nextui-org/nextui/commit/1e05a721f9ba25403c023023a1e3efa44ac3bb74) Thanks [@chirokas](https://github.com/chirokas)! - Fix Controlled IsInvalid Prop In Select
+
 ## 2.3.0-beta.15
 
 ### Patch Changes
