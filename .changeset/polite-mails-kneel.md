@@ -35,7 +35,6 @@
 "@nextui-org/use-aria-menu": patch
 "@nextui-org/use-aria-modal-overlay": patch
 "@nextui-org/use-aria-multiselect": patch
-"@nextui-org/use-aria-overlay": patch
 "@nextui-org/use-aria-toggle-button": patch
 "@nextui-org/use-disclosure": patch
 "@nextui-org/use-intersection-observer": patch
