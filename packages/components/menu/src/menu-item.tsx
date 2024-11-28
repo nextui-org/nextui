@@ -1,5 +1,4 @@
 import {useMemo, ReactNode} from "react";
-import {wrapForwardRefTypes} from "@nextui-org/system";
 
 import {UseMenuItemProps, useMenuItem} from "./use-menu-item";
 import {MenuSelectedIcon} from "./menu-selected-icon";
@@ -9,7 +8,7 @@ export interface MenuItemProps<T extends object = object> extends UseMenuItemPro
 /**
  * @internal
  */
-const MenuItem = wrapForwardRefTypes<"li", MenuItemProps>((props) => {
+const MenuItem = (props: MenuItemProps) => {
   const {
     Component,
     FragmentWrapper,
@@ -68,7 +67,7 @@ const MenuItem = wrapForwardRefTypes<"li", MenuItemProps>((props) => {
       </FragmentWrapper>
     </Component>
   );
-});
+};
 
 MenuItem.displayName = "NextUI.MenuItem";
 

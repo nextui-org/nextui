@@ -2,7 +2,6 @@ import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
-import {wrapForwardRefTypes} from "@nextui-org/system";
 import {RemoveScroll} from "react-remove-scroll";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
@@ -21,7 +20,7 @@ export interface PopoverContentProps
 
 const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
-const PopoverContent = wrapForwardRefTypes<"div", PopoverContentProps>((props) => {
+const PopoverContent = (props: PopoverContentProps) => {
   const {as, children, className, ...otherProps} = props;
 
   const {
@@ -113,7 +112,7 @@ const PopoverContent = wrapForwardRefTypes<"div", PopoverContentProps>((props) =
       {contents}
     </div>
   );
-});
+};
 
 PopoverContent.displayName = "NextUI.PopoverContent";
 
