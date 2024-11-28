@@ -1,5 +1,24 @@
 # @nextui-org/select
 
+## 2.3.0-beta.17
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/listbox@2.2.0-beta.12
+  - @nextui-org/popover@2.2.0-beta.11
+  - @nextui-org/scroll-shadow@2.2.0-beta.8
+  - @nextui-org/spinner@2.1.0-beta.9
+  - @nextui-org/use-aria-button@2.1.0-beta.8
+  - @nextui-org/use-aria-multiselect@2.3.0-beta.8
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.5
+  - @nextui-org/aria-utils@2.1.0-beta.10
+  - @nextui-org/react-utils@2.0.18-beta.8
+  - @nextui-org/shared-icons@2.0.10-beta.7
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
 ## 2.3.0-beta.16
 
 ### Patch Changes
