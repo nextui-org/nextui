@@ -1,5 +1,13 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.18
+
+### Patch Changes
+
+- [#4172](https://github.com/nextui-org/nextui/pull/4172) [`004c4a4b3`](https://github.com/nextui-org/nextui/commit/004c4a4b3e44477f148937b12bb542e4b27fd322) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - introduce `isClearable` to Textarea component (#2348, #2112)
+
+- [#4141](https://github.com/nextui-org/nextui/pull/4141) [`922c4a567`](https://github.com/nextui-org/nextui/commit/922c4a5674a74be749db6abeffd153eaf7d3a5c7) Thanks [@wingkwong](https://github.com/wingkwong)! - revise label font size for lg (#3073)
+
 ## 2.3.0-beta.17
 
 ### Patch Changes

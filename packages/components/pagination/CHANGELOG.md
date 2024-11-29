@@ -1,5 +1,14 @@
 # @nextui-org/pagination
 
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- [#4168](https://github.com/nextui-org/nextui/pull/4168) [`0b5ceb93c`](https://github.com/nextui-org/nextui/commit/0b5ceb93ce098e5d76409190f2d57cd89c06b7e9) Thanks [@macci001](https://github.com/macci001)! - Fixes missing `<li>` wrapper when `href` prop is passed in `ListboxItem`, `MenuItem`, and `PaginationItem` (#4147)
+
+- Updated dependencies [[`004c4a4b3`](https://github.com/nextui-org/nextui/commit/004c4a4b3e44477f148937b12bb542e4b27fd322)]:
+  - @nextui-org/shared-icons@2.0.10-beta.8
+
 ## 2.1.0-beta.10
 
 ### Patch Changes
