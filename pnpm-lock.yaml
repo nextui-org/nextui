@@ -7,6 +7,8 @@ settings:
 overrides:
   react: ^18.2.0
   react-dom: ^18.2.0
+  node-fetch: 2.5.0
+  '@changesets/get-github-info': 0.6.0
 
 importers:
 
@@ -35,10 +37,13 @@ importers:
         version: 7.26.0(@babel/core@7.26.0)
       '@changesets/changelog-github':
         specifier: 0.4.6
-        version: 0.4.6(encoding@0.1.13)
+        version: 0.4.6
       '@changesets/cli':
         specifier: 2.24.1
         version: 2.24.1
+      '@changesets/get-github-info':
+        specifier: 0.6.0
+        version: 0.6.0
       '@changesets/get-release-plan':
         specifier: 3.0.12
         version: 3.0.12
@@ -201,6 +206,9 @@ importers:
       lint-staged:
         specifier: ^13.0.3
         version: 13.3.0(enquirer@2.4.1)
+      node-fetch:
+        specifier: 2.5.0
+        version: 2.5.0
       npm-check-updates:
         specifier: ^16.10.18
         version: 16.14.20
@@ -587,8 +595,8 @@ importers:
         specifier: ^4.1.8
         version: 4.2.3(next@13.5.1(@babel/core@7.26.0)(@opentelemetry/api@1.9.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       node-fetch:
-        specifier: ^3.2.10
-        version: 3.3.2
+        specifier: 2.5.0
+        version: 2.5.0
       postcss:
         specifier: ^8.4.21
         version: 8.4.49
@@ -4830,8 +4838,8 @@ packages:
   '@changesets/get-dependents-graph@1.3.6':
     resolution: {integrity: sha512-Q/sLgBANmkvUm09GgRsAvEtY3p1/5OCzgBE5vX3vgb5CvW0j7CEljocx5oPXeQSNph6FXulJlXV3Re/v3K3P3Q==}
 
-  '@changesets/get-github-info@0.5.2':
-    resolution: {integrity: sha512-JppheLu7S114aEs157fOZDjFqUDpm7eHdq5E8SSR0gUBTEK0cNSHsrSR5a66xs0z3RWuo46QvA3vawp8BxDHvg==}
+  '@changesets/get-github-info@0.6.0':
+    resolution: {integrity: sha512-v/TSnFVXI8vzX9/w3DU2Ol+UlTZcu3m0kXTjTT4KlAdwSvwutcByYwyYn9hwerPWfPkT2JfpoX0KgvCEi8Q/SA==}
 
   '@changesets/get-release-plan@3.0.12':
     resolution: {integrity: sha512-TlpEdpxV5ZQmNeHoD6KNKAc01wjRrcu9/CQqzmO4qAlX7ARA4pIuAxd8QZ1AQXv/l4qhHox7SUYH3VLHfarv5w==}
@@ -9002,10 +9010,6 @@ packages:
     resolution: {integrity: sha512-2iy1EkLdlBzQGvbweYRFxmFath8+K7+AKB0TlhHWkNuH+TmovaMH/Wp7V7R4u7f4SnX3OgLsU9t1NI9ioDnUpg==}
     engines: {node: '>=8'}
 
-  data-uri-to-buffer@4.0.1:
-    resolution: {integrity: sha512-0R9ikRb668HB7QDxT1vkpuUBtqc53YyAwMwGeUFKRojY/NWKvdZ+9UYtRfGmhqNbRkTSVpMbmyhXipFFv2cb/A==}
-    engines: {node: '>= 12'}
-
   data-urls@3.0.2:
     resolution: {integrity: sha512-Jy/tj3ldjZJo63sVAvg6LHt2mHvl4V6AgRAmNDtLdm7faqtsx+aJG42rsyCo9JCoRVKwPFzKlIPx3DIibwSIaQ==}
     engines: {node: '>=12'}
@@ -10023,10 +10027,6 @@ packages:
   fd-package-json@1.2.0:
     resolution: {integrity: sha512-45LSPmWf+gC5tdCQMNH4s9Sr00bIkiD9aN7dc5hqkrEw1geRYyDQS1v1oMHAW3ysfxfndqGsrDREHHjNNbKUfA==}
 
-  fetch-blob@3.2.0:
-    resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
-    engines: {node: ^12.20 || >= 14.13}
-
   fflate@0.4.8:
     resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
 
@@ -10149,10 +10149,6 @@ packages:
   format@0.2.2:
     resolution: {integrity: sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww==}
     engines: {node: '>=0.4.x'}
-
-  formdata-polyfill@4.0.10:
-    resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
-    engines: {node: '>=12.20.0'}
 
   fp-and-or@0.1.4:
     resolution: {integrity: sha512-+yRYRhpnFPWXSly/6V4Lw9IfOV26uu30kynGJ03PW+MnjOEQe45RZ141QcS0aJehYBYA50GfCDnsRbFJdhssRw==}
@@ -12263,25 +12259,12 @@ packages:
     resolution: {integrity: sha512-tmPX422rYgofd4epzrNoOXiE8XFZYOcCq1vD7MAXCDO+O+zndlA2ztdKKMa+EeuBG5tHETpr4ml4RGgpqDCCAg==}
     engines: {node: '>= 0.10.5'}
 
-  node-domexception@1.0.0:
-    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
-    engines: {node: '>=10.5.0'}
-
   node-fetch-native@1.6.4:
     resolution: {integrity: sha512-IhOigYzAKHd244OC0JIMIUrjzctirCmPkaIfhDeGcEETWof5zKYUW7e7MYvChGWh/4CJeXEgsRyGzuF334rOOQ==}
 
-  node-fetch@2.7.0:
-    resolution: {integrity: sha512-c4FRfUm/dbcWZ7U+1Wq0AwCyFL+3nt2bEw05wfxSz+DWpWsitgmSgYmy2dQdWyKC1694ELPqMs/YzUSNozLt8A==}
+  node-fetch@2.5.0:
+    resolution: {integrity: sha512-YuZKluhWGJwCcUu4RlZstdAxr8bFfOVHakc1mplwHkk8J+tqM1Y5yraYvIUpeX8aY7+crCwiELJq7Vl0o0LWXw==}
     engines: {node: 4.x || >=6.0.0}
-    peerDependencies:
-      encoding: ^0.1.0
-    peerDependenciesMeta:
-      encoding:
-        optional: true
-
-  node-fetch@3.3.2:
-    resolution: {integrity: sha512-dRB78srN/l6gqWulah9SrxeYnxeddIG30+GOqK/9OlLVyLg3HPnr6SqOWTWOXKRwC2eGYCkZ59NNuSgvSrpgOA==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
 
   node-gyp-build-optional-packages@5.1.1:
     resolution: {integrity: sha512-+P72GAjVAbTxjjwUmwjVrqrdZROD4nf8KgpBoDxqXXTiYZZt/ud60dE5yvCSr9lRO8e8yv6kgJIC0K0PfZFVQw==}
@@ -13254,8 +13237,8 @@ packages:
     resolution: {integrity: sha512-J6SDjUgDxQj5NusnOtdFxDwN/+HWykR8GELwctJ7mdqhcyy1xEc4SRFHUXvxTp661YaVKAjfRLZ9cCqS6tn32A==}
     engines: {node: '>=0.10.0'}
 
-  regex-recursion@4.2.1:
-    resolution: {integrity: sha512-QHNZyZAeKdndD1G3bKAbBEKOSSK4KOHQrAJ01N1LJeb0SoH4DJIeFhp0uUpETgONifS4+P3sOgoA1dhzgrQvhA==}
+  regex-recursion@4.3.0:
+    resolution: {integrity: sha512-5LcLnizwjcQ2ALfOj95MjcatxyqF5RPySx9yT+PaXu3Gox2vyAtLDjHB8NTJLtMGkvyau6nI3CfpwFCjPUIs/A==}
 
   regex-utilities@2.3.0:
     resolution: {integrity: sha512-8VhliFJAWRaUiVvREIiW2NXXTmHs4vMNnSzuJVhscgmGav3g9VDxLrQndI3dZZVVdp0ZO/5v0xmX516/7M9cng==}
@@ -14233,9 +14216,6 @@ packages:
     resolution: {integrity: sha512-Loo5UUvLD9ScZ6jh8beX1T6sO1w2/MpCRpEP7V280GKMVUQ0Jzar2U3UJPsrdbziLEMMhu3Ujnq//rhiFuIeag==}
     engines: {node: '>=6'}
 
-  tr46@0.0.3:
-    resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-
   tr46@1.0.1:
     resolution: {integrity: sha512-dTpowEjclQ7Kgx5SdBkqRzVhERQXov8/l9Ft9dVM9fmg0W0KQSVaXX9T4i6twCPNtYiZM53lpSSUAwJbFPOHxA==}
 
@@ -14788,15 +14768,8 @@ packages:
   web-namespaces@2.0.1:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
 
-  web-streams-polyfill@3.3.3:
-    resolution: {integrity: sha512-d2JWLCivmZYTSIoge9MsgFCZrt571BikcWGYkjC1khllbTeDlGqZ2D8vD8E/lJa8WGWbb7Plm8/XJYV7IJHZZw==}
-    engines: {node: '>= 8'}
-
   web-vitals@4.2.4:
     resolution: {integrity: sha512-r4DIlprAGwJ7YM11VZp4R884m0Vmgr6EAKe3P+kO0PPj3Unqyvv59rczf6UiGcb9Z8QxZVcqKNwv/g0WNdWwsw==}
-
-  webidl-conversions@3.0.1:
-    resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
   webidl-conversions@4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}
@@ -14854,9 +14827,6 @@ packages:
   whatwg-url@11.0.0:
     resolution: {integrity: sha512-RKT8HExMpoYx4igMiVMY83lN6UeITKJlBQ+vR/8ZJ8OCdSiN3RwCq+9gH0+Xzj0+5IrM6i4j/6LuvzbZIQgEcQ==}
     engines: {node: '>=12'}
-
-  whatwg-url@5.0.0:
-    resolution: {integrity: sha512-saE57nupxk6v3HY35+jzBwYa0rKSy0XR8JSxZPwgLr7ys0IBzhGviA1/TUGJLmSVqs8pb9AnvICXEuOHLprYTw==}
 
   whatwg-url@7.1.0:
     resolution: {integrity: sha512-WUu7Rg1DroM7oQvGWfOiAK21n74Gg+T4elXEQYkOhtyLeWiJFoOGLXPKI/9gzIie9CtwVLm8wtw6YJdKyxSjeg==}
@@ -16124,13 +16094,11 @@ snapshots:
     dependencies:
       '@changesets/types': 5.2.1
 
-  '@changesets/changelog-github@0.4.6(encoding@0.1.13)':
+  '@changesets/changelog-github@0.4.6':
     dependencies:
-      '@changesets/get-github-info': 0.5.2(encoding@0.1.13)
+      '@changesets/get-github-info': 0.6.0
       '@changesets/types': 5.1.0
       dotenv: 8.6.0
-    transitivePeerDependencies:
-      - encoding
 
   '@changesets/cli@2.24.1':
     dependencies:
@@ -16190,12 +16158,10 @@ snapshots:
       fs-extra: 7.0.1
       semver: 7.6.3
 
-  '@changesets/get-github-info@0.5.2(encoding@0.1.13)':
+  '@changesets/get-github-info@0.6.0':
     dependencies:
       dataloader: 1.4.0
-      node-fetch: 2.7.0(encoding@0.1.13)
-    transitivePeerDependencies:
-      - encoding
+      node-fetch: 2.5.0
 
   '@changesets/get-release-plan@3.0.12':
     dependencies:
@@ -21652,8 +21618,6 @@ snapshots:
 
   dargs@7.0.0: {}
 
-  data-uri-to-buffer@4.0.1: {}
-
   data-urls@3.0.2:
     dependencies:
       abab: 2.0.6
@@ -22917,11 +22881,6 @@ snapshots:
     dependencies:
       walk-up-path: 3.0.1
 
-  fetch-blob@3.2.0:
-    dependencies:
-      node-domexception: 1.0.0
-      web-streams-polyfill: 3.3.3
-
   fflate@0.4.8: {}
 
   figures@2.0.0:
@@ -23065,10 +23024,6 @@ snapshots:
       mime-types: 2.1.35
 
   format@0.2.2: {}
-
-  formdata-polyfill@4.0.10:
-    dependencies:
-      fetch-blob: 3.2.0
 
   fp-and-or@0.1.4: {}
 
@@ -25836,21 +25791,9 @@ snapshots:
     dependencies:
       minimatch: 3.1.2
 
-  node-domexception@1.0.0: {}
-
   node-fetch-native@1.6.4: {}
 
-  node-fetch@2.7.0(encoding@0.1.13):
-    dependencies:
-      whatwg-url: 5.0.0
-    optionalDependencies:
-      encoding: 0.1.13
-
-  node-fetch@3.3.2:
-    dependencies:
-      data-uri-to-buffer: 4.0.1
-      fetch-blob: 3.2.0
-      formdata-polyfill: 4.0.10
+  node-fetch@2.5.0: {}
 
   node-gyp-build-optional-packages@5.1.1:
     dependencies:
@@ -26140,7 +26083,7 @@ snapshots:
     dependencies:
       emoji-regex-xs: 1.0.0
       regex: 5.0.2
-      regex-recursion: 4.2.1
+      regex-recursion: 4.3.0
 
   oo-ascii-tree@1.105.0: {}
 
@@ -27086,7 +27029,7 @@ snapshots:
       extend-shallow: 3.0.2
       safe-regex: 1.1.0
 
-  regex-recursion@4.2.1:
+  regex-recursion@4.3.0:
     dependencies:
       regex-utilities: 2.3.0
 
@@ -28329,8 +28272,6 @@ snapshots:
       universalify: 0.2.0
       url-parse: 1.5.10
 
-  tr46@0.0.3: {}
-
   tr46@1.0.1:
     dependencies:
       punycode: 2.3.1
@@ -28936,11 +28877,7 @@ snapshots:
 
   web-namespaces@2.0.1: {}
 
-  web-streams-polyfill@3.3.3: {}
-
   web-vitals@4.2.4: {}
-
-  webidl-conversions@3.0.1: {}
 
   webidl-conversions@4.0.2: {}
 
@@ -29078,11 +29015,6 @@ snapshots:
     dependencies:
       tr46: 3.0.0
       webidl-conversions: 7.0.0
-
-  whatwg-url@5.0.0:
-    dependencies:
-      tr46: 0.0.3
-      webidl-conversions: 3.0.1
 
   whatwg-url@7.1.0:
     dependencies:
