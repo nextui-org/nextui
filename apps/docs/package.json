@@ -103,6 +103,7 @@
     "@next/bundle-analyzer": "^13.4.6",
     "@next/env": "^13.4.12",
     "@react-types/shared": "3.25.0",
+    "@react-types/calendar": "3.4.10",
     "@tailwindcss/typography": "^0.5.9",
     "@types/canvas-confetti": "^1.4.2",
     "@types/marked": "^5.0.0",
