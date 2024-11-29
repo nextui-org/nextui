@@ -34,4 +34,15 @@ jobs:
           git config user.name "github-actions[bot]"
           git add -A
           git commit -m "ci(changesets): exit pre-release mode"
-          git push
+          
+          # Create a new branch and push changes
+          git checkout -b exit-pre-release-branch
+          git push --set-upstream origin exit-pre-release-branch
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Exit pre-release mode"
+          body: "This PR exits pre-release mode by removing the pre.json file."
+          base: ${{ github.ref_name }}
+          head: exit-pre-release-branch
