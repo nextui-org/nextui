@@ -1,5 +1,14 @@
 # @nextui-org/listbox
 
+## 2.2.0-beta.14
+
+### Patch Changes
+
+- [#4168](https://github.com/nextui-org/nextui/pull/4168) [`0b5ceb93c`](https://github.com/nextui-org/nextui/commit/0b5ceb93ce098e5d76409190f2d57cd89c06b7e9) Thanks [@macci001](https://github.com/macci001)! - Fixes missing `<li>` wrapper when `href` prop is passed in `ListboxItem`, `MenuItem`, and `PaginationItem` (#4147)
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.9
+
 ## 2.2.0-beta.13
 
 ### Patch Changes

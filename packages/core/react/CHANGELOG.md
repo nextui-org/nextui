@@ -1,5 +1,55 @@
 # @nextui-org/react
 
+## 2.5.0-beta.26
+
+### Patch Changes
+
+- Updated dependencies [[`004c4a4b3`](https://github.com/nextui-org/nextui/commit/004c4a4b3e44477f148937b12bb542e4b27fd322), [`922c4a567`](https://github.com/nextui-org/nextui/commit/922c4a5674a74be749db6abeffd153eaf7d3a5c7), [`0b5ceb93c`](https://github.com/nextui-org/nextui/commit/0b5ceb93ce098e5d76409190f2d57cd89c06b7e9)]:
+  - @nextui-org/input@2.3.0-beta.12
+  - @nextui-org/theme@2.3.0-beta.18
+  - @nextui-org/listbox@2.2.0-beta.14
+  - @nextui-org/menu@2.1.0-beta.13
+  - @nextui-org/pagination@2.1.0-beta.11
+  - @nextui-org/accordion@2.1.0-beta.13
+  - @nextui-org/autocomplete@2.2.0-beta.17
+  - @nextui-org/drawer@2.1.0-beta.14
+  - @nextui-org/modal@2.1.0-beta.14
+  - @nextui-org/navbar@2.1.0-beta.11
+  - @nextui-org/popover@2.2.0-beta.12
+  - @nextui-org/select@2.3.0-beta.19
+  - @nextui-org/tabs@2.1.0-beta.11
+  - @nextui-org/alert@2.1.0-beta.14
+  - @nextui-org/avatar@2.1.0-beta.12
+  - @nextui-org/badge@2.1.0-beta.8
+  - @nextui-org/breadcrumbs@2.1.0-beta.11
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/calendar@2.1.0-beta.14
+  - @nextui-org/checkbox@2.2.0-beta.9
+  - @nextui-org/chip@2.1.0-beta.11
+  - @nextui-org/date-input@2.2.0-beta.9
+  - @nextui-org/date-picker@2.2.0-beta.15
+  - @nextui-org/dropdown@2.2.0-beta.14
+  - @nextui-org/link@2.1.0-beta.11
+  - @nextui-org/slider@2.3.0-beta.11
+  - @nextui-org/snippet@2.1.0-beta.13
+  - @nextui-org/switch@2.1.0-beta.9
+  - @nextui-org/table@2.1.0-beta.12
+  - @nextui-org/card@2.1.0-beta.10
+  - @nextui-org/code@2.1.0-beta.9
+  - @nextui-org/divider@2.1.0-beta.9
+  - @nextui-org/image@2.1.0-beta.11
+  - @nextui-org/input-otp@2.0.1-beta.0
+  - @nextui-org/kbd@2.1.0-beta.9
+  - @nextui-org/progress@2.1.0-beta.9
+  - @nextui-org/radio@2.2.0-beta.9
+  - @nextui-org/ripple@2.1.0-beta.8
+  - @nextui-org/scroll-shadow@2.2.0-beta.8
+  - @nextui-org/skeleton@2.1.0-beta.8
+  - @nextui-org/spacer@2.1.0-beta.9
+  - @nextui-org/spinner@2.1.0-beta.9
+  - @nextui-org/tooltip@2.1.0-beta.11
+  - @nextui-org/user@2.1.0-beta.12
+
 ## 2.5.0-beta.25
 
 ### Patch Changes

@@ -1,5 +1,16 @@
 # @nextui-org/date-picker
 
+## 2.2.0-beta.15
+
+### Patch Changes
+
+- Updated dependencies [[`004c4a4b3`](https://github.com/nextui-org/nextui/commit/004c4a4b3e44477f148937b12bb542e4b27fd322)]:
+  - @nextui-org/shared-icons@2.0.10-beta.8
+  - @nextui-org/popover@2.2.0-beta.12
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/calendar@2.1.0-beta.14
+  - @nextui-org/date-input@2.2.0-beta.9
+
 ## 2.2.0-beta.14
 
 ### Patch Changes
