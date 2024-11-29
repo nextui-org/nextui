@@ -3,6 +3,7 @@ import {Meta} from "@storybook/react";
 import {button, inputOtp} from "@nextui-org/theme";
 import {useForm} from "react-hook-form";
 import {ValidationResult} from "@react-types/shared";
+import {Button} from "@nextui-org/button";
 
 import {InputOtp} from "../src";
 
@@ -50,35 +51,6 @@ const Template = (args) => (
   </div>
 );
 
-const RequiredTemplate = (args) => {
-  const {
-    register,
-    formState: {errors},
-    handleSubmit,
-  } = useForm({
-    defaultValues: {
-      otp: "",
-    },
-  });
-
-  const onSubmit = (data: any) => {
-    // eslint-disable-next-line no-console
-    alert("Submitted value: " + JSON.stringify(data));
-  };
-
-  return (
-    <div className="flex flex-col">
-      <form className="flex flex-col gap-2" onSubmit={handleSubmit(onSubmit)}>
-        <InputOtp {...args} length={4} {...register("otp", {required: true})} />
-        {errors.otp && <div className="text-xs text-danger">This field is required</div>}
-        <button className={button({class: "w-fit"})} type="submit">
-          Submit
-        </button>
-      </form>
-    </div>
-  );
-};
-
 const ErrorMessageFunctionTemplate = (args) => {
   const {register, handleSubmit} = useForm({
     defaultValues: {
@@ -111,6 +83,58 @@ const ControlledTemplate = (args) => {
       <InputOtp {...args} length={4} value={value} onValueChange={setValue} />
       <p className="text-default-500 text-sm">Input value: {value}</p>
     </div>
+  );
+};
+
+const AllowedKeysTemplate = (args) => {
+  const allowedKeysConfig = [
+    {
+      name: "For below InputOtp, only lower-case alphabets (a to z) are allowed:",
+      value: "^[a-z]*$",
+    },
+    {
+      name: "For below InputOtp, only upper-case alphabets (A to Z) are allowed:",
+      value: "^[A-Z]*$",
+    },
+  ];
+
+  return (
+    <div className="w-full flex flex-wrap gap-6">
+      {allowedKeysConfig.map((config, idx) => (
+        <div key={idx} className="flex w-full flex-col flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
+          <div className="text-default-500">{config.name}</div>
+          <InputOtp allowedKeys={config.value} length={4} {...args} />
+        </div>
+      ))}
+    </div>
+  );
+};
+
+const RequiredTemplate = (args) => {
+  return (
+    <form
+      className="flex w-full flex-col items-start gap-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const otp = formData.get("otp");
+
+        alert(`OTP submitted: ${otp}`);
+      }}
+    >
+      <InputOtp
+        isRequired
+        aria-label="OTP input field"
+        length={4}
+        name="otp"
+        placeholder="Enter code"
+        validationBehavior="native"
+        {...args}
+      />
+      <Button size="sm" type="submit" variant="bordered">
+        Submit
+      </Button>
+    </form>
   );
 };
 
@@ -242,6 +266,13 @@ export const isInvalid = {
 
 export const Controlled = {
   render: ControlledTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const AllowedKeys = {
+  render: AllowedKeysTemplate,
   args: {
     ...defaultProps,
   },

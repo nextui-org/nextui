@@ -119,6 +119,12 @@ You can use `InputOtp` with React Hook Form for form validation and submission h
 
 <CodeDemo title="React Hook Form" files={inputOtpContent.form} />
 
+## Different Lengths & Validation
+
+The `InputOtp` component supports different lengths through the `length` property. You can set the number of input segments by passing a number value to the `length` prop. Common use cases include 4-digit PINs and 6-digit authentication codes.
+
+<CodeDemo title="Lengths" files={inputOtpContent.lengths} />
+
 ## Custom Styles
 
 You can customize the styles of the `InputOtp` component using the `classNames` prop.
@@ -132,11 +138,11 @@ You can customize the styles of the `InputOtp` component using the `classNames` 
 - **input**: The input element.
 - **segmentWrapper**: Wraps all the segment elements.
 - **segment**: The segment element.
-- **caret**: The caret represents the typing indicator of the InputOtp component.
+- **caret**: The caret represents the typing indicator of the input-otp component.
 - **passwordChar**: The passwordChar represents the text styling when input-type is password.
 - **helperWrapper**: Wraps the `description` and the `errorMessage`.
-- **description**: The description of the InputOtp.
-- **errorMessage**: The error message of the InputOtp.
+- **description**: The description of the input-otp.
+- **errorMessage**: The error message of the input-otp.
 
 <Spacer y={4} />
 

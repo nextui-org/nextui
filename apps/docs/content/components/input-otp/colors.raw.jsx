@@ -4,13 +4,10 @@ export default function App() {
   const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
 
   return (
-    <div className="w-full flex flex-wrap gap-6">
+    <div className="w-full flex flex-wrap gap-4">
       {colors.map((color) => (
-        <div
-          key={color}
-          className="inline-flex flex-col flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4"
-        >
-          <div className="text-foreground/60">color: {color}</div>
+        <div key={color}>
+          <div className="text-default-500">color: {color}</div>
           <InputOtp color={color} length={4} />
         </div>
       ))}

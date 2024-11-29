@@ -441,6 +441,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.53.2(react@18.3.1)
       react-icons:
         specifier: ^4.10.1
         version: 4.12.0(react@18.3.1)
@@ -1765,6 +1768,9 @@ importers:
         specifier: 1.4.1
         version: 1.4.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
     devDependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
       '@nextui-org/system':
         specifier: workspace:*
         version: link:../../core/system

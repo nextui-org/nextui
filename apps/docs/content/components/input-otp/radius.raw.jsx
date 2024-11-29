@@ -6,11 +6,8 @@ export default function App() {
   return (
     <div className="w-full flex flex-wrap gap-6">
       {radiusValues.map((radius) => (
-        <div
-          key={radius}
-          className="inline-flex flex-col flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4"
-        >
-          <div className="text-foreground/60">radius: {radius}</div>
+        <div key={radius}>
+          <div className="text-default-500">radius: {radius}</div>
           <InputOtp length={4} radius={radius} />
         </div>
       ))}

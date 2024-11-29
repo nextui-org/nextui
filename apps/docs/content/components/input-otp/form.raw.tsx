@@ -1,19 +1,23 @@
 import {InputOtp} from "@nextui-org/react";
-import {useForm, Controller} from "react-hook-form";
+import {useForm, Controller, SubmitHandler} from "react-hook-form";
 import {Button} from "@nextui-org/react";
+
+interface FormValues {
+  otp: string;
+}
 
 export default function App() {
   const {
     handleSubmit,
     control,
     formState: {errors},
-  } = useForm({
+  } = useForm<FormValues>({
     defaultValues: {
       otp: "",
     },
   });
 
-  const onSubmit = (data) => {
+  const onSubmit: SubmitHandler<FormValues> = (data) => {
     alert(JSON.stringify(data));
   };
 
@@ -25,7 +29,7 @@ export default function App() {
         render={({field}) => (
           <InputOtp
             {...field}
-            errorMessage={errors.otp && errors.otp.message}
+            errorMessage={errors.otp?.message}
             isInvalid={!!errors.otp}
             length={4}
           />

@@ -13,6 +13,7 @@ import controlled from "./controlled";
 import password from "./password";
 import form from "./form";
 import customStyles from "./custom-styles";
+import lengths from "./lengths";
 
 export const inputOtpContent = {
   usage,
@@ -30,4 +31,5 @@ export const inputOtpContent = {
   password,
   form,
   customStyles,
+  lengths,
 };
