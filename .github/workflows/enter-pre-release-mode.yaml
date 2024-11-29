@@ -38,9 +38,9 @@ jobs:
           git commit -m 'chore(pre-release): enter pre-release mode'
           
           # Create a new branch and force push changes
-          git branch -D changeset-branch || true  # Delete local branch if it exists
-          git checkout -b changeset-branch
-          git push --force --set-upstream origin changeset-branch
+          git branch -D exit-pre-release-branch || true  # Delete local branch if it exists
+          git checkout -b exit-pre-release-branch
+          git push --force --set-upstream origin exit-pre-release-branch
 
       - name: Create pull request to canary
         uses: peter-evans/create-pull-request@v7
@@ -48,4 +48,4 @@ jobs:
           title: "Pre-release changes for canary"
           body: "This PR includes pre-release changes for the canary branch."
           base: canary
-          head: changeset-branch
+          head: exit-pre-release-branch
