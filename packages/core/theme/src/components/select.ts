@@ -542,7 +542,7 @@ const select = tv({
       labelPlacement: "inside",
       size: "lg",
       class: {
-        label: "text-small",
+        label: "text-medium",
         trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },

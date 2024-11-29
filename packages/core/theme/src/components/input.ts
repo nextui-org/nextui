@@ -144,6 +144,7 @@ const input = tv({
         clearButton: "text-large",
       },
       lg: {
+        label: "text-medium",
         inputWrapper: "h-12 min-h-12 rounded-large",
         input: "text-medium",
         clearButton: "text-large",
@@ -177,7 +178,7 @@ const input = tv({
         label: "relative text-foreground pe-2 ps-2 pointer-events-auto",
       },
       inside: {
-        label: "text-tiny cursor-text",
+        label: "cursor-text",
         inputWrapper: "flex-col items-start justify-center gap-0",
         innerWrapper: "group-data-[has-label=true]:items-end",
       },
@@ -576,7 +577,6 @@ const input = tv({
       labelPlacement: "inside",
       size: "lg",
       class: {
-        label: "text-small",
         inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
