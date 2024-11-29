@@ -14,7 +14,7 @@ concurrency: ${{ github.workflow }}-${{ github.ref }}
 jobs:
   prerelease:
     name: changesets pre-release
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest-m-m
     permissions:
       contents: write
       pull-requests: write
@@ -66,6 +66,9 @@ jobs:
       - name: Build
         if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
         run: pnpm build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+
 
       - name: Publish to NPM
         id: publish-to-npm
