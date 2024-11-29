@@ -223,7 +223,7 @@ const input = tv({
         inputWrapper: "!h-auto",
         innerWrapper: "items-start group-data-[has-label=true]:items-start",
         input: "resize-none data-[hide-scroll=true]:scrollbar-hide",
-        clearButton: "absolute top-3 right-2 rtl:right-auto rtl:left-2 z-10",
+        clearButton: "absolute top-2 right-2 rtl:right-auto rtl:left-2 z-10",
       },
     },
     disableAnimation: {
