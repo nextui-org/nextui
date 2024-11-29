@@ -40,7 +40,7 @@ jobs:
           git push --set-upstream origin exit-pre-release-branch
 
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
           title: "Exit pre-release mode"
           body: "This PR exits pre-release mode by removing the pre.json file."

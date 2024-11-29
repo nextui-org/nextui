@@ -38,7 +38,7 @@ jobs:
           git push --set-upstream origin changeset-branch
 
       - name: Create pull request to canary
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
           title: "Pre-release changes for canary"
           body: "This PR includes pre-release changes for the canary branch."
