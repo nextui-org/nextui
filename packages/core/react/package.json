@@ -30,7 +30,6 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "prebuild": "node src/scripts/prebuild.js",
     "build": "tsup --dts",
     "postbuild": "node src/scripts/postbuild.js",
     "dev": "pnpm build:fast --watch",
