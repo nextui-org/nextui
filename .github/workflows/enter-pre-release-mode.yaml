@@ -33,9 +33,9 @@ jobs:
           git add -A
           git commit -m 'chore(pre-release): enter pre-release mode'
           
-          # Create a new branch and push changes
+          # Create a new branch and force push changes
           git checkout -b changeset-branch
-          git push --set-upstream origin changeset-branch
+          git push --force --set-upstream origin changeset-branch
 
       - name: Create pull request to canary
         uses: peter-evans/create-pull-request@v7
