@@ -24,6 +24,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
           
+          # Fetch latest changes and reset
+          git fetch origin
+          git reset --hard origin/${{ github.ref_name }}
+          
           if [ ${{ github.ref }} == 'refs/heads/canary' ]; then
             pnpm changeset:canary
           else
@@ -34,6 +38,7 @@ jobs:
           git commit -m 'chore(pre-release): enter pre-release mode'
           
           # Create a new branch and force push changes
+          git branch -D changeset-branch || true  # Delete local branch if it exists
           git checkout -b changeset-branch
           git push --force --set-upstream origin changeset-branch
 
