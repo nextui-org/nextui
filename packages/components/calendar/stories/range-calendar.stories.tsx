@@ -58,7 +58,7 @@ const ControlledTemplate = (args: RangeCalendarProps) => {
     end: today(getLocalTimeZone()).add({weeks: 1}),
   };
 
-  let [value, setValue] = React.useState<RangeValue<DateValue>>(defaultValue);
+  let [value, setValue] = React.useState<RangeValue<DateValue> | null>(defaultValue);
 
   return (
     <div className="flex flex-wrap gap-4">

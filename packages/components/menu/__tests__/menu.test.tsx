@@ -125,6 +125,46 @@ describe("Menu", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it("should not have anchor tag when href prop is not passed", () => {
+    render(
+      <Menu disallowEmptySelection aria-label="Actions" selectionMode="multiple">
+        <MenuItem key="new">New file</MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let anchorTag = document.getElementsByTagName("a")[0];
+
+    expect(anchorTag).toBeFalsy();
+  });
+
+  it("should have anchor tag when href prop is passed", () => {
+    const href = "http://www.nextui.org/";
+
+    render(
+      <Menu disallowEmptySelection aria-label="Actions" selectionMode="multiple">
+        <MenuItem key="new" href={href}>
+          New file
+        </MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let anchorTag = document.getElementsByTagName("a")[0];
+
+    expect(anchorTag).toBeTruthy();
+
+    expect(anchorTag).toHaveProperty("href", href);
+  });
+
   it("should work with single selection (controlled)", async () => {
     let onSelectionChange = jest.fn();
 

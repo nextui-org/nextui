@@ -87,7 +87,8 @@
     "@nextui-org/shared-utils": "2.0.8",
     "@nextui-org/stories-utils": "2.0.3",
     "@nextui-org/test-utils": "2.0.6",
-    "@nextui-org/form": "2.0.0"
+    "@nextui-org/form": "2.0.0",
+    "@nextui-org/input-otp": "2.0.0"
   },
   "changesets": [
     "angry-maps-serve",
@@ -142,6 +143,7 @@
     "soft-apricots-sleep",
     "sour-bikes-burn",
     "sour-seas-buy",
+    "spotty-flies-jump",
     "spotty-spies-call",
     "swift-news-complain",
     "tame-planes-think",

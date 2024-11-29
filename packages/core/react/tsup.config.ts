@@ -5,4 +5,5 @@ export default defineConfig({
   target: "es2019",
   entry: ["src/index.ts", "!src/scripts"],
   format: ["cjs", "esm"],
+  banner: {js: '"use client";'},
 });

@@ -141,6 +141,7 @@ const dateInput = tv({
         clearButton: "text-large",
       },
       lg: {
+        label: "text-medium",
         input: "text-medium",
         inputWrapper: "h-12 min-h-12 rounded-large",
       },
@@ -387,7 +388,7 @@ const dateInput = tv({
       labelPlacement: "inside",
       size: "lg",
       class: {
-        label: "text-small",
+        label: "text-medium",
         inputWrapper: "h-16 py-2.5 gap-0",
       },
     },
