@@ -14,7 +14,7 @@ import {
 import {useLocale} from "@react-aria/i18n";
 
 export default function App() {
-  let [value, setValue] = React.useState<RangeValue<DateValue>>({
+  let [value, setValue] = React.useState<RangeValue<DateValue> | null>({
     start: today(getLocalTimeZone()),
     end: today(getLocalTimeZone()).add({weeks: 1, days: 3}),
   });

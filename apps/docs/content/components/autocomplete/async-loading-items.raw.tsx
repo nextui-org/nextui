@@ -46,9 +46,12 @@ export function usePokemonList({fetchDelay = 0}: UsePokemonListProps = {}) {
       // Append new results to existing ones
       setItems((prevItems) => [...prevItems, ...json.results]);
     } catch (error) {
+      // @ts-ignore
       if (error.name === "AbortError") {
+        // eslint-disable-next-line no-console
         console.log("Fetch aborted");
       } else {
+        // eslint-disable-next-line no-console
         console.error("There was an error with the fetch operation:", error);
       }
     } finally {
