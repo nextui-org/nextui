@@ -334,3 +334,15 @@ export const IsInvalid = {
     errorMessage: "Please enter a valid description",
   },
 };
+
+export const Clearable = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    placeholder: "Enter your description",
+    defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    // eslint-disable-next-line no-console
+    onClear: () => console.log("textarea cleared"),
+  },
+};

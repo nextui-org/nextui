@@ -371,7 +371,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
         className: slots.input({
-          class: clsx(classNames?.input, isFilled ? "is-filled" : ""),
+          class: clsx(classNames?.input, isFilled ? "is-filled" : "", isMultiline ? "pe-0" : ""),
         }),
         ...mergeProps(
           focusProps,
@@ -518,7 +518,9 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
-        className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
+        className: slots.clearButton({
+          class: clsx(classNames?.clearButton, props?.className),
+        }),
         ...mergeProps(clearPressProps, clearFocusProps),
       };
     },

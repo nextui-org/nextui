@@ -37,6 +37,7 @@ export * from "./info-circle";
 export * from "./warning";
 export * from "./danger";
 export * from "./success";
+
 // sets
 export * from "./bulk";
 export * from "./bold";
