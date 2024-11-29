@@ -12,6 +12,7 @@ export interface ListboxItemProps<T extends object = object> extends UseListboxI
 const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
   const {
     Component,
+    FragmentWrapper,
     rendered,
     description,
     isSelectable,
@@ -22,6 +23,7 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
     endContent,
     hideSelectedIcon,
     disableAnimation,
+    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getWrapperProps,
@@ -45,19 +47,21 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
 
   return (
     <Component {...getItemProps()}>
-      {startContent}
-      {description ? (
-        <div {...getWrapperProps()}>
+      <FragmentWrapper {...fragmentWrapperProps}>
+        {startContent}
+        {description ? (
+          <div {...getWrapperProps()}>
+            <span {...getLabelProps()}>{rendered}</span>
+            <span {...getDescriptionProps()}>{description}</span>
+          </div>
+        ) : (
           <span {...getLabelProps()}>{rendered}</span>
-          <span {...getDescriptionProps()}>{description}</span>
-        </div>
-      ) : (
-        <span {...getLabelProps()}>{rendered}</span>
-      )}
-      {isSelectable && !hideSelectedIcon && (
-        <span {...getSelectedIconProps()}>{selectedContent}</span>
-      )}
-      {endContent}
+        )}
+        {isSelectable && !hideSelectedIcon && (
+          <span {...getSelectedIconProps()}>{selectedContent}</span>
+        )}
+        {endContent}
+      </FragmentWrapper>
     </Component>
   );
 });

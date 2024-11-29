@@ -2,7 +2,7 @@ import type {Ref} from "react";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 
-import {useMemo} from "react";
+import {Fragment, useMemo} from "react";
 import {PaginationItemValue} from "@nextui-org/use-pagination";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {chain, mergeProps, shouldClientNavigate, useRouter} from "@react-aria/utils";
@@ -64,10 +64,13 @@ export function usePaginationItem(props: UsePaginationItemProps) {
   } = props;
 
   const isLink = !!props?.href;
-  const Component = as || isLink ? "a" : "li";
+  const Component = as || "li";
   const shouldFilterDOMProps = typeof Component === "string";
-  const domRef = useDOMRef(ref);
 
+  const FragmentWrapper = isLink ? "a" : Fragment;
+  const fragmentWrapperProps = isLink ? {href: props.href} : {};
+
+  const domRef = useDOMRef(ref);
   const router = useRouter();
 
   const ariaLabel = useMemo(
@@ -129,6 +132,8 @@ export function usePaginationItem(props: UsePaginationItemProps) {
 
   return {
     Component,
+    FragmentWrapper,
+    fragmentWrapperProps,
     children,
     ariaLabel,
     isFocused,
