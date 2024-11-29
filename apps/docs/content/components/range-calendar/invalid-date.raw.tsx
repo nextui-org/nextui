@@ -12,7 +12,7 @@ export default function App() {
     end: today(getLocalTimeZone()).add({weeks: 1}),
   });
   let {locale} = useLocale();
-  let isInvalid = isWeekend(date?.start, locale) || isWeekend(date?.end, locale);
+  let isInvalid = isWeekend(date!.start, locale) || isWeekend(date!.end, locale);
 
   return (
     <RangeCalendar

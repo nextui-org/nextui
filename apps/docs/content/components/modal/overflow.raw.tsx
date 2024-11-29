@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Modal,
   ModalContent,
@@ -14,7 +15,7 @@ import {
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
   const [scrollBehavior, setScrollBehavior] =
-    React.useState < ModalProps["scrollBehavior"] > "inside";
+    React.useState<ModalProps["scrollBehavior"]>("inside");
 
   return (
     <div className="flex flex-col gap-2">
@@ -23,7 +24,7 @@ export default function App() {
         label="Select scroll behavior"
         orientation="horizontal"
         value={scrollBehavior}
-        onValueChange={setScrollBehavior}
+        onValueChange={(v) => setScrollBehavior(v as ModalProps["scrollBehavior"])}
       >
         <Radio value="inside">inside</Radio>
         <Radio value="outside">outside</Radio>
