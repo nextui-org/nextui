@@ -37,7 +37,6 @@ export * from "./info-circle";
 export * from "./warning";
 export * from "./danger";
 export * from "./success";
-export * from "./trash";
 
 // sets
 export * from "./bulk";

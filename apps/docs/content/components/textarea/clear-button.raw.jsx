@@ -5,9 +5,9 @@ export default function App() {
     <Textarea
       isClearable
       className="max-w-xs"
-      defaultValue="junior@nextui.org"
-      label="Email"
-      placeholder="Enter your email"
+      defaultValue="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      label="Description"
+      placeholder="Description"
       variant="bordered"
       // eslint-disable-next-line no-console
       onClear={() => console.log("textarea cleared")}

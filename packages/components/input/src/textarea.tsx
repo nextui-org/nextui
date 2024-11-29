@@ -87,7 +87,6 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getErrorMessageProps,
       isClearable,
       getClearButtonProps,
-      getHeaderWrapperProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
@@ -123,7 +122,11 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
     );
 
     const clearButtonContent = useMemo(() => {
-      return isClearable ? <button {...getClearButtonProps()}>{<CloseFilledIcon />}</button> : null;
+      return isClearable ? (
+        <button {...getClearButtonProps()}>
+          <CloseFilledIcon />
+        </button>
+      ) : null;
     }, [isClearable, getClearButtonProps]);
 
     const innerWrapper = useMemo(() => {
@@ -147,16 +150,9 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
         <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
-          {isClearable ? (
-            <div {...getHeaderWrapperProps()}>
-              {shouldLabelBeInside ? labelContent : <label {...getLabelProps()}>{}</label>}
-              {clearButtonContent}
-            </div>
-          ) : shouldLabelBeInside ? (
-            labelContent
-          ) : null}
-
+          {shouldLabelBeInside ? labelContent : null}
           {innerWrapper}
+          {clearButtonContent}
         </div>
         {hasHelper && hasHelperContent ? (
           <div {...getHelperWrapperProps()}>

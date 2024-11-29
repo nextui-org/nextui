@@ -414,11 +414,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-focus": dataAttr(isFocused),
         className: slots.inputWrapper({
-          class: clsx(
-            classNames?.inputWrapper,
-            isFilled ? "is-filled" : "",
-            isMultiline ? "flex-col items-start gap-0" : "",
-          ),
+          class: clsx(classNames?.inputWrapper, isFilled ? "is-filled" : ""),
         }),
         ...mergeProps(props, hoverProps),
         onClick: (e) => {
@@ -523,26 +519,12 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
         className: slots.clearButton({
-          class: clsx(
-            classNames?.clearButton,
-            props?.className,
-            isMultiline ? (isFilled ? "relative block opacity-100 p-0 -m-0 end-0" : "") : "",
-          ),
+          class: clsx(classNames?.clearButton, props?.className),
         }),
         ...mergeProps(clearPressProps, clearFocusProps),
       };
     },
     [slots, isClearButtonFocusVisible, clearPressProps, clearFocusProps, classNames?.clearButton],
-  );
-
-  const getHeaderWrapperProps: PropGetter = useCallback(
-    (props = {}) => {
-      return {
-        ...props,
-        className: slots.headerWrapper({class: clsx(classNames?.headerWrapper, props?.className)}),
-      };
-    },
-    [slots, classNames?.headerWrapper],
   );
 
   return {
@@ -575,7 +557,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     getDescriptionProps,
     getErrorMessageProps,
     getClearButtonProps,
-    getHeaderWrapperProps,
   };
 }
 

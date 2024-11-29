@@ -56,6 +56,13 @@ the end of the label and the textarea will be required.
 
 <CodeDemo title="Required" files={textareaContent.required} />
 
+### Clear Button
+
+If you pass the `isClearable` property to the textarea, it will have a clear button at the
+end of the textarea, it will be visible when the textarea has a value.
+
+<CodeDemo title="Clear Button" files={textareaContent.clearButton} />
+
 ### Autosize
 
 Textarea grows automatically based on the content, but you can also set a min and max height to
@@ -92,12 +99,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 > **Note**: NextUI `Textarea` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
-### Clear Button
 
-If you pass the `isClearable` property to the textarea, it will have a clear button at the
-end of the textarea, it will be visible when the textarea has a value.
-
-<CodeDemo title="Clear Button" files={textareaContent.clearButton} />
 ## Slots
 
 - **base**: Input wrapper, it handles alignment, placement, and general appearance.

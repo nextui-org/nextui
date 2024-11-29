@@ -51,10 +51,10 @@ const input = tv({
       "p-2",
       "-m-2",
       "z-10",
-      "hidden",
       "absolute",
       "end-3",
       "start-auto",
+      "pointer-events-none",
       "appearance-none",
       "outline-none",
       "select-none",
@@ -69,7 +69,6 @@ const input = tv({
     helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
-    headerWrapper: "flex pb-1 justify-between w-full items-center",
   },
   variants: {
     variant: {
@@ -193,7 +192,11 @@ const input = tv({
     isClearable: {
       true: {
         input: "peer pe-6 input-search-cancel-button-none",
-        clearButton: "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
+        clearButton: [
+          "peer-data-[filled=true]:pointer-events-auto",
+          "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
+          "peer-data-[filled=true]:scale-100",
+        ],
       },
     },
     isDisabled: {
@@ -220,6 +223,7 @@ const input = tv({
         inputWrapper: "!h-auto",
         innerWrapper: "items-start group-data-[has-label=true]:items-start",
         input: "resize-none data-[hide-scroll=true]:scrollbar-hide",
+        clearButton: "absolute top-3 right-2 rtl:right-auto rtl:left-2 z-10",
       },
     },
     disableAnimation: {
@@ -237,7 +241,14 @@ const input = tv({
           "motion-reduce:transition-none",
           "transition-[transform,color,left,opacity]",
         ],
-        clearButton: ["transition-opacity", "motion-reduce:transition-none"],
+        clearButton: [
+          "scale-90",
+          "ease-out",
+          "duration-150",
+          "transition-[opacity,transform]",
+          "motion-reduce:transition-none",
+          "motion-reduce:scale-100",
+        ],
       },
     },
   },
@@ -861,6 +872,18 @@ const input = tv({
       radius: "full",
       class: {
         inputWrapper: "data-[has-multiple-rows=true]:rounded-large",
+      },
+    },
+    // isClearable & isMultiline
+    {
+      isClearable: true,
+      isMultiline: true,
+      class: {
+        clearButton: [
+          "group-data-[has-value=true]:opacity-70 group-data-[has-value=true]:block",
+          "group-data-[has-value=true]:scale-100",
+          "group-data-[has-value=true]:pointer-events-auto",
+        ],
       },
     },
   ],
