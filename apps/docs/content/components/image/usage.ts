@@ -1,14 +1,4 @@
-const App = `import {Image} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Image
-      width={300}
-      alt="NextUI hero Image"
-      src="https://nextui.org/images/hero-card-complete.jpeg"
-    />
-  );
-}`;
+import App from "./usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

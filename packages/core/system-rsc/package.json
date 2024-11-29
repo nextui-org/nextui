@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system-rsc",
-  "version": "2.1.6",
+  "version": "2.2.0-beta.8",
   "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "@nextui-org/theme": ">=2.1.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0"
   },
   "devDependencies": {
     "react": "^18.0.0",
@@ -46,7 +46,7 @@
     "clean-package": "2.2.0"
   },
   "dependencies": {
-    "@react-types/shared": "3.24.1",
+    "@react-types/shared": "3.25.0",
     "clsx": "^1.2.1"
   },
   "clean-package": "../../../clean-package.config.json",

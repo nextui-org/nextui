@@ -125,6 +125,46 @@ describe("Menu", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it("should not have anchor tag when href prop is not passed", () => {
+    render(
+      <Menu disallowEmptySelection aria-label="Actions" selectionMode="multiple">
+        <MenuItem key="new">New file</MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let anchorTag = document.getElementsByTagName("a")[0];
+
+    expect(anchorTag).toBeFalsy();
+  });
+
+  it("should have anchor tag when href prop is passed", () => {
+    const href = "http://www.nextui.org/";
+
+    render(
+      <Menu disallowEmptySelection aria-label="Actions" selectionMode="multiple">
+        <MenuItem key="new" href={href}>
+          New file
+        </MenuItem>
+        <MenuItem key="copy">Copy link</MenuItem>
+        <MenuItem key="edit">Edit file</MenuItem>
+        <MenuItem key="delete" color="danger">
+          Delete file
+        </MenuItem>
+      </Menu>,
+    );
+
+    let anchorTag = document.getElementsByTagName("a")[0];
+
+    expect(anchorTag).toBeTruthy();
+
+    expect(anchorTag).toHaveProperty("href", href);
+  });
+
   it("should work with single selection (controlled)", async () => {
     let onSelectionChange = jest.fn();
 
@@ -342,5 +382,72 @@ describe("Menu", () => {
     expect(onAction).toHaveBeenCalledTimes(1);
     expect(onPress).toHaveBeenCalledTimes(1);
     expect(onClick).toHaveBeenCalledTimes(1);
+  });
+
+  it("should menuItem classNames work", () => {
+    const wrapper = render(
+      <Menu>
+        <MenuItem classNames={{title: "test"}}>New file</MenuItem>
+      </Menu>,
+    );
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem.classList.contains("test")).toBeTruthy();
+  });
+
+  it("should menuItem classNames override menu itemClasses", () => {
+    const wrapper = render(
+      <Menu itemClasses={{title: "test"}}>
+        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
+      </Menu>,
+    );
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem.classList.contains("test2")).toBeTruthy();
+  });
+  it("should merge menu item classNames with itemClasses", () => {
+    const wrapper = render(
+      <Menu itemClasses={{title: "test"}}>
+        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
+        <MenuItem>Delete file</MenuItem>
+      </Menu>,
+    );
+
+    const menuItemWithBoth = wrapper.getByText("New file");
+    const menuItemWithDefault = wrapper.getByText("Delete file");
+
+    // Check first MenuItem has both classes
+    expect(menuItemWithBoth.classList.contains("test2")).toBeTruthy();
+    expect(menuItemWithBoth.classList.contains("test")).toBeTruthy();
+
+    // Check second MenuItem only has the default class
+    expect(menuItemWithDefault.classList.contains("test")).toBeTruthy();
+    expect(menuItemWithDefault.classList.contains("test2")).toBeFalsy();
+  });
+
+  it("should truncate the text if the child is not a string", () => {
+    const wrapper = render(
+      <Menu>
+        <MenuItem key="new">New file</MenuItem>
+      </Menu>,
+    );
+
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem).toHaveProperty("className", expect.stringContaining("truncate"));
+  });
+
+  it("should not truncate the text if the child is a string", () => {
+    const wrapper = render(
+      <Menu>
+        <MenuItem key="new">
+          <div>New file</div>
+        </MenuItem>
+      </Menu>,
+    );
+
+    const menuItem = wrapper.getByText("New file").parentElement;
+
+    expect(menuItem).not.toHaveProperty("className", expect.stringContaining("truncate"));
   });
 });

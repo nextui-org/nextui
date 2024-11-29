@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react",
-  "version": "2.4.8",
+  "version": "2.5.0-beta.26",
   "description": "🚀 Beautiful and modern React UI library.",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
@@ -30,7 +30,6 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "prebuild": "node src/scripts/prebuild.js",
     "build": "tsup --dts",
     "postbuild": "node src/scripts/postbuild.js",
     "dev": "pnpm build:fast --watch",
@@ -62,6 +61,7 @@
     "@nextui-org/user": "workspace:*",
     "@nextui-org/progress": "workspace:*",
     "@nextui-org/input": "workspace:*",
+    "@nextui-org/input-otp": "workspace:*",
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/dropdown": "workspace:*",
     "@nextui-org/image": "workspace:*",
@@ -83,15 +83,16 @@
     "@nextui-org/calendar": "workspace:*",
     "@nextui-org/date-input": "workspace:*",
     "@nextui-org/date-picker": "workspace:*",
-    "@nextui-org/alert": "workspace:*",
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/drawer": "workspace:*",
-    "@react-aria/visually-hidden": "3.8.15"
+    "@nextui-org/form": "workspace:*",
+    "@nextui-org/alert": "workspace:*",
+    "@react-aria/visually-hidden": "3.8.17"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "framer-motion": ">=11.5.6"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1"
   },
   "devDependencies": {
     "react": "^18.0.0",

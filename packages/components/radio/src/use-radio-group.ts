@@ -11,6 +11,7 @@ import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/syste
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 import {RadioProps} from "./index";
 
@@ -63,6 +64,7 @@ export type ContextType = {
 
 export function useRadioGroup(props: UseRadioGroupProps) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const {
     as,
@@ -74,7 +76,7 @@ export function useRadioGroup(props: UseRadioGroupProps) {
     name,
     isInvalid: isInvalidProp,
     validationState,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
     size = "md",
     color = "primary",
     isDisabled = false,

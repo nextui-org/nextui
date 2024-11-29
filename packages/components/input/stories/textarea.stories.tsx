@@ -5,6 +5,7 @@ import {Meta} from "@storybook/react";
 import {input} from "@nextui-org/theme";
 import {SendFilledIcon, PlusFilledIcon} from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
+import {Form} from "@nextui-org/form";
 
 import {Textarea, TextAreaProps} from "../src";
 
@@ -213,6 +214,29 @@ export const WithEndContent = {
   },
 };
 
+const ServerValidationTemplate = (args: TextAreaProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      comment: "Please provide a valid comment.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Textarea {...args} label="Comment" name="comment" />
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Controlled = {
   render: ControlledTemplate,
 
@@ -292,6 +316,14 @@ export const WithValidation = {
   },
 };
 
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const IsInvalid = {
   render: Template,
 
@@ -300,5 +332,17 @@ export const IsInvalid = {
     isInvalid: true,
     defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     errorMessage: "Please enter a valid description",
+  },
+};
+
+export const Clearable = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    placeholder: "Enter your description",
+    defaultValue: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    // eslint-disable-next-line no-console
+    onClear: () => console.log("textarea cleared"),
   },
 };

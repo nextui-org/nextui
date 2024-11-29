@@ -241,6 +241,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     children: children as CollectionChildren<T>,
     isRequired: originalProps.isRequired,
     isDisabled: originalProps.isDisabled,
+    isInvalid: originalProps.isInvalid,
     defaultOpen,
     onOpenChange: (open) => {
       onOpenChange?.(open);
@@ -314,7 +315,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const hasPlaceholder = !!placeholder;
   const shouldLabelBeOutside =
     labelPlacement === "outside-left" ||
-    (labelPlacement === "outside" && (hasPlaceholder || !!originalProps.isMultiline));
+    (labelPlacement === "outside" &&
+      (!(hasPlaceholder || !!description) || !!originalProps.isMultiline));
   const shouldLabelBeInside = labelPlacement === "inside";
   const isOutsideLeft = labelPlacement === "outside-left";
 
