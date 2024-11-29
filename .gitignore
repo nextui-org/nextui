@@ -56,6 +56,7 @@ packages/**/*.backup.ts
 
 # ignore sitemap
 apps/**/sitemap.xml
+apps/**/sitemap-0.xml
 
 # turbo
 .turbo

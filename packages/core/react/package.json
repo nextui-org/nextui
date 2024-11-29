@@ -30,7 +30,6 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
-    "prebuild": "node src/scripts/prebuild.js",
     "build": "tsup --dts",
     "postbuild": "node src/scripts/postbuild.js",
     "dev": "pnpm build:fast --watch",
@@ -62,6 +61,7 @@
     "@nextui-org/user": "workspace:*",
     "@nextui-org/progress": "workspace:*",
     "@nextui-org/input": "workspace:*",
+    "@nextui-org/input-otp": "workspace:*",
     "@nextui-org/popover": "workspace:*",
     "@nextui-org/dropdown": "workspace:*",
     "@nextui-org/image": "workspace:*",
