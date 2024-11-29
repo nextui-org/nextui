@@ -53,7 +53,7 @@ export default function App() {
   // option is selected from the list box
   const onSelectionChange = (key: React.Key | null) => {
     setFieldState((prevState) => {
-      let selectedItem = prevState.items.find((option) => option.value === key);
+      let selectedItem = prevState.items.find((option) => option.key === key);
 
       return {
         inputValue: selectedItem?.label || "",
