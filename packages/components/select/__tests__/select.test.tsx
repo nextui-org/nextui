@@ -780,6 +780,42 @@ describe("Select", () => {
 
     expect(trigger).toHaveTextContent(labelContent);
   });
+
+  it("should support controlled isInvalid prop", async () => {
+    function Test() {
+      const [isInvalid, setInvalid] = React.useState(false);
+
+      return (
+        <>
+          <Select
+            data-testid="select"
+            errorMessage="Invalid value"
+            isInvalid={isInvalid}
+            label="Test"
+            name="select"
+          >
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+          <button data-testid="button" onClick={() => setInvalid((isInvalid) => !isInvalid)}>
+            Click Me
+          </button>
+        </>
+      );
+    }
+
+    const {getByTestId} = render(<Test />);
+    const select = getByTestId("select");
+
+    expect(select).not.toHaveAttribute("aria-describedby");
+
+    await user.click(getByTestId("button"));
+    expect(select).toHaveAttribute("aria-describedby");
+    expect(document.getElementById(select.getAttribute("aria-describedby"))).toHaveTextContent(
+      "Invalid value",
+    );
+  });
 });
 
 describe("Select with React Hook Form", () => {

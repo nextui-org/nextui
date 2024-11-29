@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/radio",
-  "version": "2.2.0-beta.7",
+  "version": "2.2.0-beta.9",
   "description": "Radios allow users to select a single option from a list of mutually exclusive options.",
   "keywords": [
     "radio"
@@ -40,16 +40,17 @@
     "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
+    "@nextui-org/form": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/focus": "3.18.2",
-    "@react-aria/interactions": "3.22.2",
-    "@react-aria/radio": "3.10.7",
-    "@react-aria/utils": "3.25.2",
-    "@react-aria/visually-hidden": "3.8.15",
-    "@react-stately/radio": "3.10.7",
-    "@react-types/radio": "3.8.3",
-    "@react-types/shared": "3.24.1"
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/interactions": "3.22.4",
+    "@react-aria/radio": "3.10.9",
+    "@react-aria/utils": "3.25.3",
+    "@react-aria/visually-hidden": "3.8.17",
+    "@react-stately/radio": "3.10.8",
+    "@react-types/radio": "3.8.4",
+    "@react-types/shared": "3.25.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

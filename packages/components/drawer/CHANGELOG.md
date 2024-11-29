@@ -1,5 +1,33 @@
 # @nextui-org/drawer
 
+## 2.1.0-beta.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/modal@2.1.0-beta.13
+  - @nextui-org/framer-utils@2.0.26-beta.11
+
+## 2.1.0-beta.12
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/modal@2.1.0-beta.12
+  - @nextui-org/framer-utils@2.0.26-beta.10
+  - @nextui-org/react-utils@2.0.18-beta.8
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/modal@2.1.0-beta.11
+  - @nextui-org/framer-utils@2.0.26-beta.9
+
 ## 2.1.0-beta.10
 
 ### Patch Changes

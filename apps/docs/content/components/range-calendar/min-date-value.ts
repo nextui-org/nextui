@@ -1,14 +1,4 @@
-const App = `import {RangeCalendar} from "@nextui-org/react";
-import {today, getLocalTimeZone} from "@internationalized/date";
-
-export default function App() {
-  return (
-    <RangeCalendar
-      aria-label="Date (Min Date Value)"
-      minValue={today(getLocalTimeZone())}
-    />
-  );
-}`;
+import App from "./min-date-value.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

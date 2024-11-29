@@ -19,7 +19,7 @@ const paddingLeftByLevel: Record<number, string> = {
   1: "pl-0",
   2: "pl-0",
   3: "pl-3",
-  4: "pl-3",
+  4: "pl-6",
 };
 
 export const DocsToc: FC<DocsTocProps> = ({headings}) => {

@@ -1,17 +1,4 @@
-const App = `import {Input} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Input
-      isReadOnly
-      type="email"
-      label="Email"
-      variant="bordered"
-      defaultValue="junior@nextui.org"
-      className="max-w-xs"
-    />
-  );
-}`;
+import App from "./readonly.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
