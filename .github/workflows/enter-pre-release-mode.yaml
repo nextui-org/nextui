@@ -23,11 +23,24 @@ jobs:
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
+          
           if [ ${{ github.ref }} == 'refs/heads/canary' ]; then
             pnpm changeset:canary
           else
             pnpm changeset:beta
           fi
+          
           git add -A
           git commit -m 'chore(pre-release): enter pre-release mode'
-          git push
+          
+          # Create a new branch and push changes
+          git checkout -b changeset-branch
+          git push --set-upstream origin changeset-branch
+
+      - name: Create pull request to canary
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: "Pre-release changes for canary"
+          body: "This PR includes pre-release changes for the canary branch."
+          base: canary
+          head: changeset-branch
