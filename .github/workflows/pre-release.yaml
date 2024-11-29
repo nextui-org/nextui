@@ -69,7 +69,6 @@ jobs:
         env:
           NODE_OPTIONS: "--max-old-space-size=4096"
 
-
       - name: Publish to NPM
         id: publish-to-npm
         if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
