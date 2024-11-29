@@ -1,13 +1,4 @@
-const App = `import {Calendar} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Calendar 
-      aria-label="Date (Show Month and Year Picker)" 
-      showMonthAndYearPickers 
-    />
-  );
-}`;
+import App from "./with-month-and-year-picker.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

@@ -1,5 +1,48 @@
 # @nextui-org/calendar
 
+## 2.1.0-beta.13
+
+### Patch Changes
+
+- Updated dependencies [[`17bf65799`](https://github.com/nextui-org/nextui/commit/17bf65799c39c2ee44ea9c0b23aa80315b2a5083)]:
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/framer-utils@2.0.26-beta.11
+
+## 2.1.0-beta.12
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/button@2.1.0-beta.9
+  - @nextui-org/use-aria-button@2.1.0-beta.8
+  - @nextui-org/dom-animation@2.0.1-beta.7
+  - @nextui-org/framer-utils@2.0.26-beta.10
+  - @nextui-org/react-utils@2.0.18-beta.8
+  - @nextui-org/shared-icons@2.0.10-beta.7
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
+## 2.1.0-beta.11
+
+### Patch Changes
+
+- [#3036](https://github.com/nextui-org/nextui/pull/3036) [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/button@2.1.0-beta.8
+  - @nextui-org/use-aria-button@2.1.0-beta.7
+  - @nextui-org/framer-utils@2.0.26-beta.9
+
+## 2.1.0-beta.10
+
+### Patch Changes
+
+- [#4140](https://github.com/nextui-org/nextui/pull/4140) [`78a99b628`](https://github.com/nextui-org/nextui/commit/78a99b628e3fde8808a0cce3c69059d727afd49b) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `framer-motion` in `peerDependencies`
+
+- Updated dependencies []:
+  - @nextui-org/button@2.1.0-beta.7
+
 ## 2.1.0-beta.9
 
 ### Patch Changes

@@ -21,6 +21,7 @@ import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup, RadioProps} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
+import {Form} from "@nextui-org/form";
 import {MoonIcon, SunIcon} from "@nextui-org/shared-icons";
 
 import {DateRangePicker, DateRangePickerProps} from "../src";
@@ -379,6 +380,30 @@ const PresetsTemplate = (args: DateRangePickerProps) => {
   );
 };
 
+const ServerValidationTemplate = (args: DateRangePickerProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      startDate: "Please select a valid start date.",
+      endDate: "Please select a valid end date.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <DateRangePicker {...args} endName="endDate" label="Date range" startName="startDate" />
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 const StartAndEndContentTemplate = (args: DateRangePickerProps) => {
   return (
     <div className="flex flex-col gap-4 w-full max-w-sm">
@@ -716,6 +741,13 @@ export const WithValidation = {
       }
     },
     label: "Date Range (Year 2024 or later)",
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
   },
 };
 

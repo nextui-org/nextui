@@ -1,13 +1,4 @@
-const App = `import {Checkbox} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <div className="flex gap-4">
-      <Checkbox isDisabled>Option</Checkbox>
-      <Checkbox isDisabled defaultSelected>Option</Checkbox>
-    </div>  
-  );
-}`;
+import App from "./disabled.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

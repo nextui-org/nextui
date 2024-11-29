@@ -44,22 +44,22 @@ NextUI exports 7 navbar-related components:
 <ImportTabs
   commands={{
     main: `import {
-  Navbar, 
-  NavbarBrand, 
-  NavbarContent, 
-  NavbarItem, 
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem
+    Navbar, 
+    NavbarBrand, 
+    NavbarContent, 
+    NavbarItem, 
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem
 } from "@nextui-org/react";`,
     individual: `import {
-  Navbar, 
-  NavbarBrand, 
-  NavbarContent, 
-  NavbarItem, 
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem
+    Navbar, 
+    NavbarBrand, 
+    NavbarContent, 
+    NavbarItem, 
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem
 } from "@nextui-org/navbar";`,
   }}
 />
@@ -117,7 +117,6 @@ If you want to remove the `open` / `close` animation, you can pass the `disableA
   asIframe
   title="With Menu"
   iframeInitialWidth={420}
-  highlightedLines="24"
   previewHeight="600px"
   iframeSrc="/examples/navbar/disable-menu-animation"
   files={navbarContent.disableMenuAnimation}
@@ -132,7 +131,6 @@ You can use the `isMenuOpen` and `onMenuOpenChange` props to control the navbar 
   title="Controlled Menu"
   iframeInitialWidth={420}
   previewHeight="600px"
-  highlightedLines="5,23-24"
   iframeSrc="/examples/navbar/controlled-menu"
   files={navbarContent.controlledMenu}
 />
@@ -206,7 +204,6 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
   title="Customizing the active item"
   previewHeight="420px"
   iframeSrc="/examples/navbar/custom-active-item"
-  highlightedLines="9-20"
   files={navbarContent.customActiveItem}
 />
 

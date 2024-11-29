@@ -1,16 +1,4 @@
-const App = `import {Input} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Input
-      isRequired
-      type="email"
-      label="Email"
-      defaultValue="junior@nextui.org"
-      className="max-w-xs"
-    />
-  );
-}`;
+import App from "./required.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

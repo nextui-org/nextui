@@ -1,6 +1,6 @@
 import type {ModalProviderProps} from "@react-aria/overlays";
 import type {ProviderContextProps} from "./provider-context";
-import type {Href} from "@react-types/shared";
+import type {Href, RouterOptions} from "@react-types/shared";
 
 import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
@@ -37,7 +37,7 @@ export interface NextUIProviderProps
    * Provides a client side router to all nested components such as
    * Link, Menu, Tabs, Table, etc.
    */
-  navigate?: (path: string) => void;
+  navigate?: (path: Href, routerOptions: RouterOptions | undefined) => void;
   /**
    * Convert an `href` provided to a link component to a native `href`
    * For example, a router might accept hrefs relative to a base path,

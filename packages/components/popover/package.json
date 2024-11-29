@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/popover",
-  "version": "2.2.0-beta.9",
+  "version": "2.2.0-beta.12",
   "description": "A popover is an overlay element positioned relative to a trigger.",
   "keywords": [
     "popover"
@@ -49,14 +49,14 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@nextui-org/dom-animation": "workspace:*",
-    "@react-aria/dialog": "3.5.17",
-    "@react-aria/focus": "3.18.2",
-    "@react-aria/interactions": "3.22.2",
-    "@react-aria/overlays": "3.23.2",
-    "@react-aria/utils": "3.25.2",
-    "@react-stately/overlays": "3.6.10",
-    "@react-types/button": "3.9.6",
-    "@react-types/overlays": "3.8.9",
+    "@react-aria/dialog": "3.5.19",
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/interactions": "3.22.4",
+    "@react-aria/overlays": "3.23.4",
+    "@react-aria/utils": "3.25.3",
+    "@react-stately/overlays": "3.6.11",
+    "@react-types/button": "3.10.0",
+    "@react-types/overlays": "3.8.10",
     "react-remove-scroll": "^2.5.6"
   },
   "devDependencies": {
