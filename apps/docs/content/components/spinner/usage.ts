@@ -1,10 +1,4 @@
-const App = `import {Spinner} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Spinner />
-  );
-}`;
+import App from "./usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

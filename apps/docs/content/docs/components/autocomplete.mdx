@@ -62,43 +62,43 @@ Autocomplete follows the [Collection Components API](https://react-spectrum.adob
 - **Static**: The usage example above shows the static implementation, which can be used when the full list of options is known ahead of time.
 - **Dynamic**: The example below can be used when the options come from an external data source such as an API call, or update over time.
 
-<CodeDemo title="Dynamic items" highlightedLines="8" files={autocompleteContent.dynamic} />
+<CodeDemo title="Dynamic items" files={autocompleteContent.dynamic} />
 
 ### Disabled
 
-<CodeDemo title="Disabled" highlightedLines="8" files={autocompleteContent.disabled} />
+<CodeDemo title="Disabled" files={autocompleteContent.disabled} />
 
 ### Disabled Items
 
 You can disable specific items by using the `disabledKeys` property.
 
-<CodeDemo title="Disabled Items" highlightedLines="11" files={autocompleteContent.disabledItems} />
+<CodeDemo title="Disabled Items" files={autocompleteContent.disabledItems} />
 
 ### Required
 
 If you pass the `isRequired` property to the autocomplete, it will have a `danger` asterisk at
 the end of the label and the autocomplete will be required.
 
-<CodeDemo title="Required" highlightedLines="8" files={autocompleteContent.required} />
+<CodeDemo title="Required" files={autocompleteContent.required} />
 
 ### Read Only
 
 If you pass the `isReadOnly` property to the Autocomplete, the Listbox will open to display
 all available options, but users won't be able to select any of the listed options.
 
-<CodeDemo title="Read Only" highlightedLines="8" files={autocompleteContent.readOnly} />
+<CodeDemo title="Read Only" files={autocompleteContent.readOnly} />
 
 ### Sizes
 
-<CodeDemo title="Sizes" highlightedLines="13,21" files={autocompleteContent.sizes} />
+<CodeDemo title="Sizes" files={autocompleteContent.sizes} />
 
 ### Colors
 
-<CodeDemo title="Colors" highlightedLines="20" files={autocompleteContent.colors} />
+<CodeDemo title="Colors" files={autocompleteContent.colors} />
 
 ### Variants
 
-<CodeDemo title="Variants" highlightedLines="13,21" files={autocompleteContent.variants} />
+<CodeDemo title="Variants" files={autocompleteContent.variants} />
 
 ### Label Placements
 
@@ -106,7 +106,6 @@ You can change the position of the label by setting the `labelPlacement` propert
 
 <CodeDemo
   title="Label Placements"
-  highlightedLines="20,34"
   files={autocompleteContent.labelPlacements}
 />
 
@@ -117,7 +116,7 @@ You can change the position of the label by setting the `labelPlacement` propert
 You can use the `startContent` and `endContent` properties to add content to the start and end of
 the autocomplete.
 
-<CodeDemo title="Start Content" highlightedLines="13" files={autocompleteContent.startContent} />
+<CodeDemo title="Start Content" files={autocompleteContent.startContent} />
 
 ### Item Start & End Content
 
@@ -133,7 +132,7 @@ By default, `Autocomplete` doesn't allow users to specify a value that doesn't e
 revert the input value to the current selected value on blur. By specifying `allowsCustomValue`, this behavior is
 suppressed and the user is free to enter any value within the field.
 
-<CodeDemo title="Custom Value" highlightedLines="8" files={autocompleteContent.customValue} />
+<CodeDemo title="Custom Value" files={autocompleteContent.customValue} />
 
 ### Custom Selector Icon
 
@@ -142,7 +141,6 @@ customize this icon by passing a custom one to the `selectorIcon` property.
 
 <CodeDemo
   title="Custom Selector Icon"
-  highlightedLines="15"
   files={autocompleteContent.customSelectorIcon}
 />
 
@@ -155,7 +153,6 @@ You can disable this shadow by passing using the `scrollShadowProps` property.
 
 <CodeDemo
   title="Without Scroll Shadow"
-  highlightedLines="13-15"
   files={autocompleteContent.withoutScrollShadow}
 />
 
@@ -165,7 +162,7 @@ You can disable this shadow by passing using the `scrollShadowProps` property.
 
 You can add a description to the autocomplete by passing the `description` property.
 
-<CodeDemo title="With Description" highlightedLines="10" files={autocompleteContent.description} />
+<CodeDemo title="With Description" files={autocompleteContent.description} />
 
 ### With Error Message
 
@@ -173,7 +170,6 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 <CodeDemo
   title="With Error Message"
-  highlightedLines="16-18"
   files={autocompleteContent.errorMessage}
 />
 
@@ -187,7 +183,7 @@ whether through typing or option selection.
 The example below uses `onSelectionChange` and `onInputChange` to update the selection and input value stored in
 React state.
 
-<CodeDemo title="Events" highlightedLines="25-26" files={autocompleteContent.events} />
+<CodeDemo title="Events" files={autocompleteContent.events} />
 
 ### Controlled
 
@@ -195,7 +191,6 @@ You can use the `selectedKey` and `onSelectionChange` properties to control the 
 
 <CodeDemo
   title="Controlled with onSelectionChange"
-  highlightedLines="15-16"
   files={autocompleteContent.controlled}
 />
 
@@ -226,7 +221,6 @@ import {useFilter} from "@react-aria/i18n";
   title="Fully Controlled"
   showPreview={false}
   showOpenInCodeSandbox={false}
-  highlightedLines="63-64,67,69-71"
   files={autocompleteContent.fullyControlled}
 />
 
@@ -257,7 +251,6 @@ The following example uses the `defaultFilter` prop to filter the list of option
 
 <CodeDemo
   title="Fully Controlled"
-  highlightedLines="22"
   files={autocompleteContent.customFiltering}
 />
 
@@ -285,7 +278,6 @@ import {useAsyncList} from "@react-stately/data";
   title="Asynchronous Filtering"
   showPreview={false}
   showOpenInCodeSandbox={false}
-  highlightedLines="27-29,33"
   files={autocompleteContent.asyncFiltering}
 />
 
@@ -314,7 +306,6 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
   showOpenInCodeSandbox={false}
   typescriptStrict={true}
   title="Asynchronous Loading"
-  highlightedLines="21-22,25,27"
   files={autocompleteContent.asyncLoadingItems}
 />
 

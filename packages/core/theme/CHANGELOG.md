@@ -1,5 +1,26 @@
 # @nextui-org/theme
 
+## 2.3.0-beta.16
+
+### Patch Changes
+
+- [#4156](https://github.com/nextui-org/nextui/pull/4156) [`d37007c69`](https://github.com/nextui-org/nextui/commit/d37007c69c3e1ff4a66d414cbb1a4a38bb22264c) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix menu item classNames not work (#4119)
+
+## 2.3.0-beta.15
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
+## 2.3.0-beta.14
+
+### Patch Changes
+
+- [#4105](https://github.com/nextui-org/nextui/pull/4105) [`256d46277`](https://github.com/nextui-org/nextui/commit/256d462771c19d6ca5b969d0ec44419fb560f0ac) Thanks [@winchesHe](https://github.com/winchesHe)! - Add truncate class to the list item to avoid overflow the wrapper
+
 ## 2.3.0-beta.13
 
 ### Patch Changes

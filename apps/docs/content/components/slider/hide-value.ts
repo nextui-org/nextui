@@ -1,19 +1,4 @@
-const App = `import {Slider} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Slider 
-      label="Temperature" 
-      color="danger"
-      hideValue={true}
-      step={0.01} 
-      maxValue={1} 
-      minValue={0} 
-      defaultValue={0.4}
-      className="max-w-md"
-    />
-  );
-}`;
+import App from "./hide-value.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

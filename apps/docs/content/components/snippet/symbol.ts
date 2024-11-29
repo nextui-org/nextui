@@ -1,10 +1,4 @@
-const App = `import {Snippet} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Snippet symbol="#" variant="bordered">npm install @nextui-org/react</Snippet>
-  );
-}`;
+import App from "./symbol.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

@@ -1,9 +1,9 @@
-const {nextui} = require("@nextui-org/theme/plugin");
+import {nextui} from '@nextui-org/theme/plugin';
 
-// /** @type {import('tailwindcss').Config} */
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   content: [
-    "./.storybook/welcome.stories.mdx",
+    "./.storybook/welcome.mdx",
     "../components/*/src/**/*.{js,jsx,ts,tsx}",
     "../components/*/stories/**/*.{js,jsx,ts,tsx}",
     "../core/theme/src/components/**/*.{js,jsx,ts,tsx}",

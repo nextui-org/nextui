@@ -18,6 +18,7 @@ import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
 import {PetBoldIcon, SearchLinearIcon, SelectorIcon} from "@nextui-org/shared-icons";
 import {Avatar} from "@nextui-org/avatar";
 import {Button} from "@nextui-org/button";
+import {Form} from "@nextui-org/form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 
@@ -855,6 +856,33 @@ const WithReactHookFormTemplate = (args: AutocompleteProps) => {
   );
 };
 
+const ServerValidationTemplate = (args: AutocompleteProps) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      animals: "Please select a valid animal.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Autocomplete {...args} className="max-w-xs" label="Favorite Animal" name="animals">
+        <AutocompleteItem key="red_panda">Red Panda</AutocompleteItem>
+        <AutocompleteItem key="cat">Cat</AutocompleteItem>
+        <AutocompleteItem key="dog">Dog</AutocompleteItem>
+      </Autocomplete>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+    </Form>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -1027,6 +1055,13 @@ export const WithValidation = {
 
       return "Please select a valid animal";
     },
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
   },
 };
 

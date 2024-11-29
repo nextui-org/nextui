@@ -1,5 +1,11 @@
 # @nextui-org/use-safe-layout-effect
 
+## 2.0.7-beta.5
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
 ## 2.0.7-beta.4
 
 ### Patch Changes

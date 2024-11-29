@@ -1,54 +1,15 @@
-const App = `import {DatePicker} from "@nextui-org/react";
-import {now, parseAbsoluteToLocal} from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
-
-export default function App() {
-  let [date, setDate] = React.useState(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
-
-  return (
-    <div className="flex flex-col gap-4">
-      <I18nProvider locale="hi-IN-u-ca-indian">
-        <DatePicker
-          showMonthAndYearPickers
-          variant="bordered"
-          className="max-w-md"
-          label="Appointment date"
-          value={date}
-          onChange={setDate}
-        />
-      </I18nProvider>
-    </div>
-  );
-}`;
-
-const AppTs = `import {DatePicker} from "@nextui-org/react";
-import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
-import {I18nProvider} from "@react-aria/i18n";
-
-export default function App() {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
-
-  return (
-    <div className="flex flex-col gap-4">
-      <I18nProvider locale="hi-IN-u-ca-indian">
-        <DatePicker
-          showMonthAndYearPickers
-          variant="bordered"
-          className="max-w-md"
-          label="Appointment date"
-          value={date}
-          onChange={setDate}
-        />
-      </I18nProvider>
-    </div>
-  );
-}`;
+import App from "./international-calendar.raw.jsx?raw";
+import AppTs from "./international-calendar.raw.tsx?raw";
 
 const react = {
   "/App.jsx": App,
+};
+
+const reactTs = {
   "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
+  ...reactTs,
 };

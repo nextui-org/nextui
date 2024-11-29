@@ -42,18 +42,18 @@ NextUI exports 5 dropdown-related components:
 <ImportTabs
   commands={{
     main: `import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownSection,
-  DropdownItem
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownSection,
+    DropdownItem
 } from "@nextui-org/react";`,
     individual: `import {
-  Dropdown,
-  DropdownTrigger,
-  DropdownMenu,
-  DropdownSection,
-  DropdownItem
+    Dropdown,
+    DropdownTrigger,
+    DropdownMenu,
+    DropdownSection,
+    DropdownItem
 } from "@nextui-org/dropdown";`,
   }}
 />
@@ -75,7 +75,7 @@ Dropdown follows the [Collection Components API](https://react-spectrum.adobe.co
 
 Dropdown items can be disabled using the `disabledKeys` prop to the `DropdownMenu` component.
 
-<CodeDemo title="Disabled Keys" highlightedLines="17" files={dropdownContent.disabledKeys} />
+<CodeDemo title="Disabled Keys" files={dropdownContent.disabledKeys} />
 
 > **Note**: It's important to have a unique key for each item, otherwise the disabled keys will not work.
 
@@ -83,13 +83,13 @@ Dropdown items can be disabled using the `disabledKeys` prop to the `DropdownMen
 
 You can use the `onAction` prop to get the key of the selected item.
 
-<CodeDemo title="Action event" highlightedLines="15" files={dropdownContent.action} />
+<CodeDemo title="Action event" files={dropdownContent.action} />
 
 ### Variants
 
 You can use the `variant` in the `DropdownMenu` component to change the `hover` style of the dropdown items.
 
-<CodeDemo title="Variants" highlightedLines="21-22" files={dropdownContent.variants} />
+<CodeDemo title="Variants" files={dropdownContent.variants} />
 
 ### Single Selection
 
@@ -115,7 +115,7 @@ You can set the `selectionMode` property as `multiple` to allow the user to sele
 
 You can use the `shortcut` prop to add a shortcut to the dropdown item.
 
-<CodeDemo title="With Shortcut" highlightedLines="14-19" files={dropdownContent.shortcut} />
+<CodeDemo title="With Shortcut" files={dropdownContent.shortcut} />
 
 > **Note**: Dropdown does not handle the shortcut event, you need to handle it yourself.
 
@@ -123,7 +123,7 @@ You can use the `shortcut` prop to add a shortcut to the dropdown item.
 
 It is possible to add icons to the dropdown items using the `startContent` / `endContent` props.
 
-<CodeDemo title="With Icons" highlightedLines="23,30,37,47" files={dropdownContent.icons} />
+<CodeDemo title="With Icons" files={dropdownContent.icons} />
 
 > **Note**: If you use `currentColor` as the icon color, the icon will have the same color as the item text.
 
@@ -133,7 +133,6 @@ You can use the `description` prop to add a description to the dropdown item.
 
 <CodeDemo
   title="With Description"
-  highlightedLines="23,31,39,50"
   files={dropdownContent.description}
 />
 
@@ -141,7 +140,7 @@ You can use the `description` prop to add a description to the dropdown item.
 
 You can use the `DropdownSection` component to group dropdown items.
 
-<CodeDemo title="With Sections" highlightedLines="20,46" files={dropdownContent.sections} />
+<CodeDemo title="With Sections" files={dropdownContent.sections} />
 
 > **Note**: Sections without a `title` must provide an `aria-label` for accessibility.
 
@@ -149,14 +148,14 @@ You can use the `DropdownSection` component to group dropdown items.
 
 You can use any component as a trigger for the dropdown menu, just wrap it in the `DropdownTrigger` component.
 
-<CodeDemo title="Custom Trigger" highlightedLines="17-18" files={dropdownContent.customTrigger} />
+<CodeDemo title="Custom Trigger" files={dropdownContent.customTrigger} />
 
 ### Changing the backdrop
 
 As we mentioned earlier, the `Dropdown` component is an extension of the [Popover](/docs/components/popover) component,
 so it accepts all the props of the Popover component, including the `backdrop` prop.
 
-<CodeDemo title="Changing the backdrop" highlightedLines="17" files={dropdownContent.backdrop} />
+<CodeDemo title="Changing the backdrop" files={dropdownContent.backdrop} />
 
 ### Routing
 
@@ -218,7 +217,6 @@ slots to customize the dropdown.
 
 <CodeDemo
   title="Custom Popover Styles"
-  highlightedLines="14-15"
   files={dropdownContent.customPopoverStyles}
 />
 
