@@ -68,17 +68,17 @@ z-index: 0;
     --code-highlighted-word3-bg-active: 116 223 162;
     --code-highlighted-word3-text: 209 244 224;
     /* sandpack + prism */
-    --code-string: 152 195 121;
+    --code-string: 83, 224, 192;
     --code-class: 145 180 213;
-    --code-punctuation: 220 220 220;
-    --code-number: 229 192 123;
+    --code-punctuation: 83, 224, 192;
+    --code-number: 83, 224, 192;
     --code-added: 116 223 162;
     --code-line-number: 212 212 216;
     --code-faded-line: 113 113 122;
     --code-comment: 113 113 122;
     --code-keyword: 198 120 221;
     --code-function: 97 175 239;
-    --code-tag: 224 108 117;
+    --code-tag: 83, 224, 192;
     --code-attr-name: 145 180 213;
     --code-language-javascript: 145 180 213;
   }

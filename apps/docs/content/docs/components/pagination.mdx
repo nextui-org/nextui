@@ -176,34 +176,143 @@ your own implementation.
 
 ### Pagination Props
 
-| Attribute              | Type                                                                                                                          | Description                                                              | Default   |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | --------- |
-| variant                | `flat` \| `bordered` \| `light` \| `faded`                                                                                    | The pagination variant.                                                  | `flat`    |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                   | The pagination color theme.                                              | `default` |
-| size                   | `sm` \| `md` \| `lg`                                                                                                          | The pagination size.                                                     | `md`      |
-| radius                 | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                      | The pagination border radius.                                            | `xl`      |
-| total                  | `number`                                                                                                                      | The total number of pages.                                               | `1`       |
-| dotsJump               | `number`                                                                                                                     | The number of pages that are added or subtracted on the '...' button.    | `5`       |
-| initialPage            | `number`                                                                                                                      | The initial page. (uncontrolled)                                         | `1`       |
-| page                   | `number`                                                                                                                      | The current page. (controlled)                                           | -         |
-| siblings               | `number`                                                                                                                      | The number of pages to show before and after the current page.           | `1`       |
-| boundaries             | `number`                                                                                                                      | The number of pages to show at the beginning and end of the pagination.  | `1`       |
-| loop                   | `boolean`                                                                                                                     | Whether the pagination should be looped.                                 | `false`   |
-| isCompact              | `boolean`                                                                                                                     | Whether the pagination should have a compact style.                      | `false`   |
-| isDisabled             | `boolean`                                                                                                                     | Whether the pagination is disabled.                                      | `false`   |
-| showShadow             | `boolean`                                                                                                                     | Whether the pagination cursor should have a shadow.                      | `false`   |
-| showControls           | `boolean`                                                                                                                     | Whether the pagination should have controls.                             | `false`   |
-| disableCursorAnimation | `boolean`                                                                                                                     | Whether the pagination cursor should be hidden.                          | `false`   |
-| renderItem             | [PaginationItemProps](#pagination-item-props)                                                                                 | The pagination item render function.                                     | -         |
-| getItemAriaLabel       | `(page: string) => string`                                                                                                    | A function that allows you to customize the pagination items aria-label. | -         |
-| disableAnimation       | `boolean`                                                                                                                     | Whether the pagination cursor should be animated.                        | `false`   |
-| classNames             | `Record<"base"｜ "wrapper" ｜ "prev"｜ "next" ｜ "item" ｜ "cursor" ｜ "forwardIcon" ｜ "ellipsis" ｜ "chevronNext", string>` | Allows to set custom class names for the pagination slots.               | -         |
+<APITable
+  data={[
+    {
+      attribute: "variant",
+      type: "flat | bordered | light | faded",
+      description: "The pagination variant.",
+      default: "flat"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The pagination color theme.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The pagination size.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The pagination border radius.",
+      default: "xl"
+    },
+    {
+      attribute: "total",
+      type: "number",
+      description: "The total number of pages.",
+      default: "1"
+    },
+    {
+      attribute: "dotsJump",
+      type: "number",
+      description: "The number of pages that are added or subtracted on the '...' button.",
+      default: "5"
+    },
+    {
+      attribute: "initialPage",
+      type: "number",
+      description: "The initial page. (uncontrolled)",
+      default: "1"
+    },
+    {
+      attribute: "page",
+      type: "number",
+      description: "The current page. (controlled)",
+      default: "-"
+    },
+    {
+      attribute: "siblings",
+      type: "number",
+      description: "The number of pages to show before and after the current page.",
+      default: "1"
+    },
+    {
+      attribute: "boundaries",
+      type: "number",
+      description: "The number of pages to show at the beginning and end of the pagination.",
+      default: "1"
+    },
+    {
+      attribute: "loop",
+      type: "boolean",
+      description: "Whether the pagination should be looped.",
+      default: "false"
+    },
+    {
+      attribute: "isCompact",
+      type: "boolean",
+      description: "Whether the pagination should have a compact style.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the pagination is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "showShadow",
+      type: "boolean",
+      description: "Whether the pagination cursor should have a shadow.",
+      default: "false"
+    },
+    {
+      attribute: "showControls",
+      type: "boolean",
+      description: "Whether the pagination should have controls.",
+      default: "false"
+    },
+    {
+      attribute: "disableCursorAnimation",
+      type: "boolean",
+      description: "Whether the pagination cursor should be hidden.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the pagination cursor should be animated.",
+      default: "false"
+    },
+    {
+      attribute: "renderItem",
+      type: "PaginationItemProps",
+      description: "The pagination item render function.",
+      default: "-"
+    },
+    {
+      attribute: "getItemAriaLabel",
+      type: "(page: string) => string",
+      description: "A function that allows you to customize the pagination items aria-label.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<'base' | 'wrapper' | 'prev' | 'next' | 'item' | 'cursor' | 'forwardIcon' | 'ellipsis' | 'chevronNext', string>",
+      description: "Allows to set custom class names for the pagination slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Pagination Events
 
-| Attribute | Type                     | Description                                                     |
-| --------- | ------------------------ | --------------------------------------------------------------- |
-| onChange  | `(page: number) => void` | Handler that is called when the pagination active page changes. |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "(page: number) => void",
+      description: "Handler that is called when the pagination active page changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 ---
 

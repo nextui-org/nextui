@@ -8,9 +8,11 @@ import * as reactHookForm from "react-hook-form";
 
 import {BgGridContainer} from "@/components/bg-grid-container";
 import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
+import {CopyButton} from "@/components/copy-button";
 
 export interface ReactLiveDemoProps {
   code: string;
+  files: string[];
   noInline?: boolean;
   height?: string | number;
   isCentered?: boolean;
@@ -27,8 +29,11 @@ export const scope = {
   ...reactHookForm,
 } as Record<string, unknown>;
 
+const DEFAULT_FILE = "/App.jsx";
+
 export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   code,
+  files,
   isGradientBox,
   gradientColor = "orange",
   isCentered = false,
@@ -38,6 +43,11 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
 }) => {
   const content = (
     <>
+      {files?.[DEFAULT_FILE] && (
+        <div className="absolute top-[-24px] right-[-8px]">
+          <CopyButton className="text-zinc-400" value={files?.[DEFAULT_FILE]} />
+        </div>
+      )}
       <LivePreview
         className={clsx("live-preview flex h-full w-full not-prose", {
           "justify-center items-center": isCentered,

@@ -56,9 +56,31 @@ Code is a component used to display inline code.
 
 ### Code Props
 
-| Attribute | Type                                                                        | Description              | Default   |
-| --------- | --------------------------------------------------------------------------- | ------------------------ | --------- |
-| children  | `ReactNode`                                                                 | The content of the code. | -         |
-| size      | `sm` \| `md` \| `lg`                                                        | The size of the code.    | `sm`      |
-| color     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the code.   | `default` |
-| radius    | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The radius of the code.  | `sm`      |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The content of the code.",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the code.",
+      default: "sm"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the code.",
+      default: "default"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The radius of the code.",
+      default: "sm"
+    }
+  ]}
+/>

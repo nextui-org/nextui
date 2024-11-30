@@ -128,21 +128,88 @@ Alert has the following slots:
 
 ### Alert Props
 
-| Attribute        | Type                                                                        | Description                                 | Default   |
-| ---------------- | --------------------------------------------------------------------------- | ------------------------------------------- | --------- |
-| title            | `string`                                                                    | The alert title                             | -         |
-| icon             | `ReactNode`                                                                 | The alert icon - overrides the default icon | -         |
-| description      | `ReactNode`                                                                 | The alert description                       | -         |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The alert color theme                       | `default` |
-| variant          | `solid` \| `bordered` \| `flat` \| `faded`                                  | The alert variant                           | `flat`    |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The alert border radius                     | `md`      |
-| startContent     | `ReactNode`                                                                 | The alert start content                     | -         |
-| endContent       | `ReactNode`                                                                 | The alert end content                       | -         |
-| isVisible        | `boolean`                                                                   | Whether the alert is visible                | -         |
-| isClosable       | `boolean`                                                                   | Whether the alert can be closed             | `false`   |
-| hideIcon         | `boolean`                                                                   | Whether the icon is hidden                  | `false`   |
-| hideIconWrapper  | `boolean`                                                                   | Whether the icon wrapper is hidden          | `false`   |
-| closeButtonProps | `ButtonProps`                                                               | Props for the close button                  | -         |
+<APITable
+  data={[
+    {
+      attribute: "title",
+      type: "string",
+      description: "The alert title",
+      default: "-"
+    },
+    {
+      attribute: "icon", 
+      type: "ReactNode",
+      description: "The alert icon - overrides the default icon",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode", 
+      description: "The alert description",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The alert color theme",
+      default: "default"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | flat | faded",
+      description: "The alert variant",
+      default: "flat"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The alert border radius",
+      default: "md"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The alert start content",
+      default: "-"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "The alert end content", 
+      default: "-"
+    },
+    {
+      attribute: "isVisible",
+      type: "boolean",
+      description: "Whether the alert is visible",
+      default: "-"
+    },
+    {
+      attribute: "isClosable",
+      type: "boolean",
+      description: "Whether the alert can be closed",
+      default: "false"
+    },
+    {
+      attribute: "hideIcon",
+      type: "boolean",
+      description: "Whether the icon is hidden",
+      default: "false"
+    },
+    {
+      attribute: "hideIconWrapper",
+      type: "boolean",
+      description: "Whether the icon wrapper is hidden",
+      default: "false"
+    },
+    {
+      attribute: "closeButtonProps",
+      type: "ButtonProps",
+      description: "Props for the close button",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Alert Events
 

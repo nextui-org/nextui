@@ -5,13 +5,13 @@ import {useClipboard} from "@nextui-org/use-clipboard";
 
 import {CopyLinearIcon} from "@/components/icons";
 
-export const CopyButton = () => {
+export const CopyButton = ({code: codeProp}: {code?: string}) => {
   const {copy, copied} = useClipboard();
 
   const {sandpack} = useSandpack();
 
   const copyHandler = () => {
-    const code = sandpack.files[sandpack.activeFile].code;
+    const code = codeProp ?? sandpack.files[sandpack.activeFile].code;
 
     copy(code);
   };

@@ -91,31 +91,122 @@ you can use it with NextUI `Image` component as well.
 - **zoomedWrapper**: The wrapper slot for the zoomed image it avoids the image content to overflow the parent container.
 - **blurredImg**: The wrapper slot for the duplicated blurred image.
 
+<Spacer y={4} />
+
 ## API
 
 ### Image Props
 
-| Attribute       | Type                                                                 | Description                                                                                                                                                                                                 | Default |
-| --------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| src             | `string`                                                             | The image source.                                                                                                                                                                                           | -       |
-| srcSet          | `string`                                                             | The image srcSet.                                                                                                                                                                                           | -       |
-| sizes           | `string`                                                             | The image sizes.                                                                                                                                                                                            | -       |
-| alt             | `string`                                                             | The image alt.                                                                                                                                                                                              | -       |
-| width           | `number`                                                             | The image width.                                                                                                                                                                                            | -       |
-| height          | `number`                                                             | The image height.                                                                                                                                                                                           | -       |
-| radius          | `none` \| `sm` \| `md` \| `lg` \| `full`                             | The image border radius.                                                                                                                                                                                    | `xl`    |
-| shadow          | `none` \| `sm` \| `md` \| `lg`                                       | The image shadow.                                                                                                                                                                                           | `none`  |
-| loading         | `eager` \| `lazy`                                                    | A loading strategy to use for the image.                                                                                                                                                                    | -       |
-| fallbackSrc     | `string`                                                             | The fallback image source.                                                                                                                                                                                  | -       |
-| isBlurred       | `boolean`                                                            | Whether the image should have a duplicated blurred image at the background.                                                                                                                                 | `false` |
-| isZoomed        | `boolean`                                                            | Whether the image should be zoomed when hovered.                                                                                                                                                            | `false` |
-| removeWrapper   | `boolean`                                                            | Whether to remove the wrapper element. This will cause the image to be rendered as a direct child of the parent element. If you set this prop as `true` neither the skeleton nor the zoom effect will work. | `false` |
-| disableSkeleton | `boolean`                                                            | Whether the image should disable the skeleton animation while loading.                                                                                                                                      | `false` |
-| classNames      | `Record<"img"｜ "wrapper"｜ "zoomedWrapper"｜ "blurredImg", string>` | Allows to set custom class names for the image slots.                                                                                                                                                       | -       |
+<APITable
+  data={[
+    {
+      attribute: "src",
+      type: "string",
+      description: "The image source.",
+      default: "-"
+    },
+    {
+      attribute: "srcSet",
+      type: "string",
+      description: "The image srcSet.",
+      default: "-"
+    },
+    {
+      attribute: "sizes",
+      type: "string",
+      description: "The image sizes.",
+      default: "-"
+    },
+    {
+      attribute: "alt",
+      type: "string",
+      description: "The image alt.",
+      default: "-"
+    },
+    {
+      attribute: "width",
+      type: "number",
+      description: "The image width.",
+      default: "-"
+    },
+    {
+      attribute: "height",
+      type: "number",
+      description: "The image height.",
+      default: "-"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The image border radius.",
+      default: "xl"
+    },
+    {
+      attribute: "shadow",
+      type: "none | sm | md | lg",
+      description: "The image shadow.",
+      default: "none"
+    },
+    {
+      attribute: "loading",
+      type: "eager | lazy",
+      description: "A loading strategy to use for the image.",
+      default: "-"
+    },
+    {
+      attribute: "fallbackSrc",
+      type: "string",
+      description: "The fallback image source.",
+      default: "-"
+    },
+    {
+      attribute: "isBlurred",
+      type: "boolean",
+      description: "Whether the image should have a duplicated blurred image at the background.",
+      default: "false"
+    },
+    {
+      attribute: "isZoomed",
+      type: "boolean",
+      description: "Whether the image should be zoomed when hovered.",
+      default: "false"
+    },
+    {
+      attribute: "removeWrapper",
+      type: "boolean",
+      description: "Whether to remove the wrapper element. This will cause the image to be rendered as a direct child of the parent element. If you set this prop as `true` neither the skeleton nor the zoom effect will work.",
+      default: "false"
+    },
+    {
+      attribute: "disableSkeleton",
+      type: "boolean",
+      description: "Whether the image should disable the skeleton animation while loading.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: 'Record<"img" | "wrapper" | "zoomedWrapper" | "blurredImg", string>',
+      description: "Allows to set custom class names for the image slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Image Events
 
-| Attribute | Type                                  | Description                                          |
-| --------- | ------------------------------------- | ---------------------------------------------------- |
-| onLoad    | `ReactEventHandler<HTMLImageElement>` | Handler that is called when the image load.          |
-| onError   | `() => void`                          | Handler that is called when the image fails to load. |
+<APITable
+  data={[
+    {
+      attribute: "onLoad",
+      type: "ReactEventHandler<HTMLImageElement>",
+      description: "Handler that is called when the image load.",
+      default: "-"
+    },
+    {
+      attribute: "onError",
+      type: "() => void",
+      description: "Handler that is called when the image fails to load.",
+      default: "-"
+    }
+  ]}
+/>

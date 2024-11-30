@@ -6,6 +6,7 @@ import NextImage from "next/image";
 import {usePostHog} from "posthog-js/react";
 
 import {ThemeSwitch} from "./theme-switch";
+import {InfoCircle} from "./icons/info-circle";
 
 import {Sandpack} from "@/components/sandpack";
 import {CarbonAd} from "@/components/ads/carbon-ad";
@@ -13,6 +14,15 @@ import * as DocsComponents from "@/components/docs/components";
 import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components/virtual-anchor";
+import {
+  Table as StaticTable,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableColumnHeader,
+  TableRoot,
+} from "@/components/static-table";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
@@ -103,9 +113,14 @@ const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
   );
 };
 
-const InlineCode = ({children}: {children?: React.ReactNode}) => {
+const InlineCode = ({children, className}: {children?: React.ReactNode; className?: string}) => {
   return (
-    <Components.Code className="font-normal text-default-700 bg-default-200/50 dark:bg-default-100/60 px-2 py-0.5">
+    <Components.Code
+      className={clsx(
+        "font-mono text-tiny rounded-md text-default-500 bg-default-100 dark:bg-default-100/80 px-1.5 py-0.5",
+        className,
+      )}
+    >
       {children}
     </Components.Code>
   );
@@ -187,6 +202,88 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
   );
 };
 
+interface APITableProps {
+  data: {
+    attribute: string;
+    type: string;
+    description: string;
+    default?: string;
+  }[];
+}
+
+export const APITable: React.FC<APITableProps> = ({data}) => {
+  return (
+    <TableRoot className="overflow-x-auto overflow-y-hidden">
+      <StaticTable aria-label="API table" className="w-full" layout="auto">
+        <TableHeader>
+          <TableRow>
+            <TableColumnHeader>Prop</TableColumnHeader>
+            <TableColumnHeader>Type</TableColumnHeader>
+            <TableColumnHeader>Default</TableColumnHeader>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.map((item, index) => (
+            <TableRow key={index} className="[&>td]:px-2 [&>td]:py-1.5 [&>td]:first:pt-4">
+              <TableCell className="flex items-center gap-1 font-mono text-small whitespace-nowrap">
+                <InlineCode className="text-default-700 bg-default-100 dark:bg-default-100/80">
+                  {item.attribute}
+                </InlineCode>
+                {item.description && (
+                  <Components.Tooltip
+                    classNames={{
+                      content: "max-w-[240px]",
+                    }}
+                    content={item.description}
+                    delay={0}
+                    placement="top"
+                  >
+                    <div className="flex items-center gap-1 cursor-help">
+                      <InfoCircle className="text-default-400" size={16} />
+                    </div>
+                  </Components.Tooltip>
+                )}
+              </TableCell>
+              <TableCell className="font-mono text-small whitespace-nowrap text-primary">
+                <InlineCode>
+                  <div className="flex max-w-[300px] flex-wrap text-wrap">{item.type}</div>
+                </InlineCode>
+              </TableCell>
+              <TableCell className="font-mono text-small whitespace-nowrap">
+                {item.default && item.default !== "-" ? (
+                  <InlineCode>
+                    {item.default !== "true" && item.default !== "false"
+                      ? `"${item.default}"`
+                      : item.default}
+                  </InlineCode>
+                ) : (
+                  <svg
+                    aria-hidden="true"
+                    className="text-default-400"
+                    fill="none"
+                    focusable="false"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    width="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M2 7.5C2 7.22386 2.22386 7 2.5 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H2.5C2.22386 8 2 7.77614 2 7.5Z"
+                      fill="currentColor"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </StaticTable>
+    </TableRoot>
+  );
+};
+
 export const MDXComponents = {
   /**
    * Next.js components
@@ -239,5 +336,6 @@ export const MDXComponents = {
       {...props}
     />
   ),
+  APITable,
   // Block,
 } as unknown as Record<string, React.ReactNode>;

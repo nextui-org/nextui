@@ -13,7 +13,7 @@ Buttons allow users to perform actions and choose with a single tap.
 
 ---
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Installation
 
@@ -24,7 +24,7 @@ Buttons allow users to perform actions and choose with a single tap.
     npm: "npm install @nextui-org/button",
     yarn: "yarn add @nextui-org/button",
     pnpm: "pnpm add @nextui-org/button",
-    bun: "bun add @nextui-org/button"
+    bun: "bun add @nextui-org/button",
   }}
 />
 
@@ -101,7 +101,12 @@ You can customize the `Button` component by passing custom Tailwind CSS classes 
 
 You can also use the `useButton` hook to create your own button component.
 
-<CodeDemo showPreview={false} showOpenInCodeSandbox={false} title="Custom Implementation" files={buttonContent.customImpl} />
+<CodeDemo
+  showPreview={false}
+  showOpenInCodeSandbox={false}
+  title="Custom Implementation"
+  files={buttonContent.customImpl}
+/>
 
 ## Button Group
 
@@ -158,45 +163,201 @@ building buttons that work well across devices and interaction methods.
 
 ### Button Props
 
-| Attribute        | Type                                                                         | Description                                                  | Default   |
-| ---------------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------ | --------- |
-| children         | `ReactNode`                                                                  | The content to display in the button.                        | -         |
-| variant          | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost` | The button appearance style.                                 | `solid`   |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The button color theme.                                      | `default` |
-| size             | `sm` \| `md` \| `lg`                                                         | The button size.                                             | `md`      |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The button border radius.                                    | -         |
-| startContent     | `ReactNode`                                                                  | The button start content.                                    | -         |
-| endContent       | `ReactNode`                                                                  | The button end content.                                      | -         |
-| spinner          | `ReactNode`                                                                  | Spinner to display when loading.                             | -         |
-| spinnerPlacement | `start` \| `end`                                                             | The spinner placement.                                       | `start`   |
-| fullWidth        | `boolean`                                                                    | Whether the button should take the full width of its parent. | `false`   |
-| isIconOnly       | `boolean`                                                                    | Whether the button should have the same width and height.    | `false`   |
-| isDisabled       | `boolean`                                                                    | Whether the button is disabled.                              | `false`   |
-| isLoading        | `boolean`                                                                    | Whether the button is loading.                               | `false`   |
-| disableRipple    | `boolean`                                                                    | Whether the button should display a ripple effect on press.  | `false`   |
-| disableAnimation | `boolean`                                                                    | Whether the button should display animations.                | `false`   |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The content to display in the button.",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: 'solid | bordered | light | flat | faded | shadow | ghost',
+      description: "The button appearance style.",
+      default: "solid"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The button color theme.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The button size.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The button border radius.",
+      default: "-"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The button start content.",
+      default: "-"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "The button end content.",
+      default: "-"
+    },
+    {
+      attribute: "spinner",
+      type: "ReactNode",
+      description: "Spinner to display when loading.",
+      default: "-"
+    },
+    {
+      attribute: "spinnerPlacement",
+      type: "start | end",
+      description: "The spinner placement.",
+      default: "start"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether the button should take the full width of its parent.",
+      default: "false"
+    },
+    {
+      attribute: "isIconOnly",
+      type: "boolean",
+      description: "Whether the button should have the same width and height.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the button is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isLoading",
+      type: "boolean",
+      description: "Whether the button is loading.",
+      default: "false"
+    },
+    {
+      attribute: "disableRipple",
+      type: "boolean",
+      description: "Whether the button should display a ripple effect on press.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the button should display animations.",
+      default: "false"
+    }
+  ]}
+/>
 
 ### Button Events
 
-| Attribute     | Type                           | Description                                                                                                     |
-| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      |
-| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 |
-| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     |
-| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    |
-| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. |
-| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                           |
-| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                          |
-| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                 |
+<APITable
+  data={[
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressChange",
+      type: "(isPressed: boolean) => void",
+      description: "Handler called when the press state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onPressUp",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press is released over the target, regardless of whether it started on the target or not.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is released.",
+      default: "-"
+    },
+    {
+      attribute: "onClick",
+      type: "MouseEventHandler",
+      description: "The native button click event handler (Deprecated) use onPress instead.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Button Group Props
 
-| Attribute  | Type                                                                         | Description                                     | Default   |
-| ---------- | ---------------------------------------------------------------------------- | ----------------------------------------------- | --------- |
-| children   | `ReactNode` \| `ReactNode[]`                                                 | The buttons to display.                         | -         |
-| variant    | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow` \| `ghost` | The buttons appearance style.                   | `solid`   |
-| color      | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`  | The buttons color theme.                        | `default` |
-| size       | `sm` \| `md` \| `lg`                                                         | The buttons size.                               | `md`      |
-| radius     | `none` \| `sm` \| `md` \| `lg` \| `full`                                     | The buttons border radius.                      | `xl`      |
-| fullWidth  | `boolean`                                                                    | Whether the buttons should take the full width. | `false`   |
-| isDisabled | `boolean`                                                                    | Whether the buttons are disabled.               | `false`   |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The buttons to display.",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | light | flat | faded | shadow | ghost",
+      description: "The buttons appearance style.",
+      default: "solid"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The buttons color theme.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The buttons size.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The buttons border radius.",
+      default: "xl"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether the buttons should take the full width.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the buttons are disabled.",
+      default: "false"
+    }
+  ]}
+/>

@@ -170,34 +170,158 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
 
 ### Avatar Props
 
-| Attribute    | Type                                                                        | Description                                                                  | Default   |
-| ------------ | --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | --------- |
-| src          | `string`                                                                    | The source URL of the image to be displayed.                                 | -         |
-| color        | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | Sets the avatar background color.                                            | `default` |
-| radius       | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | Sets the avatar border radius.                                               | `full`    |
-| size         | `sm` \| `md` \| `lg`                                                        | Sets the avatar size.                                                        | `md`      |
-| name         | `string`                                                                    | Displays the initials if the image is not provided or fails to load.         | -         |
-| icon         | `ReactNode`                                                                 | Displays a custom icon inside the avatar.                                    | -         |
-| fallback     | `ReactNode`                                                                 | A custom fallback component to display when the image fails to load.         | -         |
-| isBordered   | `boolean`                                                                   | If `true`, adds a border around the avatar.                                  | `false`   |
-| isDisabled   | `boolean`                                                                   | If `true`, disables the avatar and applies a disabled styling.               | `false`   |
-| isFocusable  | `boolean`                                                                   | If `true`, makes the avatar focusable for keyboard navigation.               | `false`   |
-| showFallback | `boolean`                                                                   | If `true`, shows the fallback icon or initials when the image fails to load. | `false`   |
-| ImgComponent | `React.ElementType`                                                         | The component to be used as the image element.                               | `img`     |
-| imgProps     | `ImgComponentProps`                                                         | Props to be passed to the image element.                                     | -         |
-| classNames   | `Record<"base"｜ "img"｜ "fallback"｜ "name"｜ "icon", string>`             | Allows to set custom class names for the avatar slots.                       | -         |
+<APITable
+  data={[
+    {
+      attribute: "src",
+      type: "string", 
+      description: "The source URL of the image to be displayed.",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "Sets the avatar background color.",
+      default: "default"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "Sets the avatar border radius.",
+      default: "full"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "Sets the avatar size.",
+      default: "md"
+    },
+    {
+      attribute: "name",
+      type: "string",
+      description: "Displays the initials if the image is not provided or fails to load.",
+      default: "-"
+    },
+    {
+      attribute: "icon",
+      type: "ReactNode",
+      description: "Displays a custom icon inside the avatar.",
+      default: "-"
+    },
+    {
+      attribute: "fallback",
+      type: "ReactNode",
+      description: "A custom fallback component to display when the image fails to load.",
+      default: "-"
+    },
+    {
+      attribute: "isBordered",
+      type: "boolean",
+      description: "If true, adds a border around the avatar.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean", 
+      description: "If true, disables the avatar and applies a disabled styling.",
+      default: "false"
+    },
+    {
+      attribute: "isFocusable",
+      type: "boolean",
+      description: "If true, makes the avatar focusable for keyboard navigation.",
+      default: "false"
+    },
+    {
+      attribute: "showFallback",
+      type: "boolean",
+      description: "If true, shows the fallback icon or initials when the image fails to load.",
+      default: "false"
+    },
+    {
+      attribute: "ImgComponent",
+      type: "React.ElementType",
+      description: "The component to be used as the image element.",
+      default: "img"
+    },
+    {
+      attribute: "imgProps",
+      type: "ImgComponentProps",
+      description: "Props to be passed to the image element.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\" | \"img\" | \"fallback\" | \"name\" | \"icon\", string>",
+      description: "Allows to set custom class names for the avatar slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Avatar Group Props
 
-| Attribute   | Type                               | Description                                         | Default |
-| ----------- | ---------------------------------- | --------------------------------------------------- | ------- |
-| max         | `number`                           | The maximum number of visible avatars               | `5`     |
-| total       | `number`                           | Control the number of avatar not visible            | -       |
-| size        | `AvatarProps['size']`              | Size of the avatars                                 | -       |
-| color       | `AvatarProps['color']`             | Color of the avatars                                | -       |
-| radius      | `AvatarProps['radius']`            | Radius of the avatars                               | -       |
-| isGrid      | `boolean`                          | Whether the avatars should be displayed in a grid   | `false` |
-| isDisabled  | `boolean`                          | Whether the avatars are disabled                    | -       |
-| isBordered  | `boolean`                          | Whether the avatars have a border                   | -       |
-| renderCount | `(count: number) => ReactNode`     | This allows you to render a custom count component. | -       |
-| classNames  | `Record<"base"｜ "count", string>` | Allows to set custom class names for the avatar group slots. | -  |
+<APITable
+  data={[
+    {
+      attribute: "max",
+      type: "number",
+      description: "The maximum number of visible avatars",
+      default: "5"
+    },
+    {
+      attribute: "total",
+      type: "number", 
+      description: "Control the number of avatar not visible",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "AvatarProps['size']",
+      description: "Size of the avatars",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "AvatarProps['color']",
+      description: "Color of the avatars",
+      default: "-"
+    },
+    {
+      attribute: "radius",
+      type: "AvatarProps['radius']",
+      description: "Radius of the avatars",
+      default: "-"
+    },
+    {
+      attribute: "isGrid",
+      type: "boolean",
+      description: "Whether the avatars should be displayed in a grid",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the avatars are disabled",
+      default: "-"
+    },
+    {
+      attribute: "isBordered",
+      type: "boolean",
+      description: "Whether the avatars have a border",
+      default: "-"
+    },
+    {
+      attribute: "renderCount",
+      type: "(count: number) => ReactNode",
+      description: "This allows you to render a custom count component.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\" | \"count\", string>",
+      description: "Allows to set custom class names for the avatar group slots.",
+      default: "-"
+    }
+  ]}
+/>

@@ -50,12 +50,24 @@ Spacer is a component used to add space between components.
 
 ### Spacer Props
 
-| Attribute | Type             | Description      | Default |
-| --------- | ---------------- | ---------------- | ------- |
-| x         | [Space](#spaces) | The x axis space | `1`     |
-| y         | [Space](#spaces) | The y axis space | `1`     |
+<APITable
+  data={[
+    {
+      attribute: "x",
+      type: "Space",
+      description: "The x axis space",
+      default: "1"
+    },
+    {
+      attribute: "y", 
+      type: "Space",
+      description: "The y axis space",
+      default: "1"
+    }
+  ]}
+/>
 
-### Spaces
+### Types
 
 ```ts
 type Space = 0 | "px" | 0.5 | 1 | 1.5 | 2 | 2.5 | 3 | 3.5 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 14 | 16 | 20 | 24 | 28 | 32 | 36 | 40 | 44 | 48 | 52 | 56 | 60 | 64 | 72 | 80 | 96;
