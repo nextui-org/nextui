@@ -7,7 +7,6 @@ on:
       - "packages/**"
     branches:
       - "beta/release-next"
-      - "canary"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
