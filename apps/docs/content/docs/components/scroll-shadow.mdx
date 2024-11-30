@@ -70,22 +70,61 @@ a specific position.
 
 ## API
 
-### ShadowScroll Props
+### ScrollShadow Props
 
-| Attribute     | Type                                                | Description                                     | Default    |
-| ------------- | --------------------------------------------------- | ----------------------------------------------- | ---------- |
-| size          | `number`                                            | The shadow size in pixels.                      | `40`       |
-| offset        | `number`                                            | The scroll offset to show the shadow in pixels. | `0`        |
-| hideScrollBar | `boolean`                                           | Whether to hide the scrollbar or not.           | `false`    |
-| orientation   | `horizontal` \| `vertical`                          | The scroll orientation.                         | `vertical` |
-| isEnabled     | `boolean`                                           | Whether the shadow is enabled or not.           | `true`     |
-| visibility    | [ScrollShadowVisibility](#scroll-shadow-visibility) | The shadow visibility. (controlled)             | `auto`     |
+<APITable
+  data={[
+    {
+      attribute: "size",
+      type: "number",
+      description: "The shadow size in pixels.",
+      default: "40"
+    },
+    {
+      attribute: "offset",
+      type: "number", 
+      description: "The scroll offset to show the shadow in pixels.",
+      default: "0"
+    },
+    {
+      attribute: "hideScrollBar",
+      type: "boolean",
+      description: "Whether to hide the scrollbar or not.",
+      default: "false"
+    },
+    {
+      attribute: "orientation",
+      type: "horizontal | vertical",
+      description: "The scroll orientation.",
+      default: "vertical"
+    },
+    {
+      attribute: "isEnabled",
+      type: "boolean",
+      description: "Whether the shadow is enabled or not.",
+      default: "true"
+    },
+    {
+      attribute: "visibility",
+      type: "ScrollShadowVisibility",
+      description: "The shadow visibility. (controlled)",
+      default: "auto"
+    }
+  ]}
+/>
 
-### ShadowScroll Events
+### ScrollShadow Events
 
-| Attribute          | Type                                           | Description                                          |
-| ------------------ | ---------------------------------------------- | ---------------------------------------------------- |
-| onVisibilityChange | `(visibility: ScrollShadowVisibility) => void` | Callback invoked when the shadow visibility changes. |
+<APITable
+  data={[
+    {
+      attribute: "onVisibilityChange",
+      type: "(visibility: ScrollShadowVisibility) => void",
+      description: "Callback invoked when the shadow visibility changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 <Spacer y={2} />
 

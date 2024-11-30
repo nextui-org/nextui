@@ -281,127 +281,503 @@ you to customize each item individually.
 
 ### Dropdown Props
 
-| Attribute         | Type                                     | Description                                                                                           | Default |
-| ----------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------- | ------- |
-| children\*        | `ReactNode[]`                            | The children to render. Usually a `DropdownTrigger` and `DropdownMenu` elements.                      | -       |
-| type              | `menu` \| `listbox`                      | Type of overlay that is opened by the dropdown trigger.                                               | `menu`  |
-| trigger           | `press` \| `longPress`                   | How the dropdown menu is triggered.                                                                   | `press` |
-| isDisabled        | `boolean`                                | Whether the dropdown trigger is disabled.                                                             | `false` |
-| closeOnSelect     | `boolean`                                | Whether the dropdown menu should be closed when an item is selected.                                  | `true`  |
-| shouldBlockScroll | `boolean`                                | Whether the dropdown menu should block scrolling outside the menu.                                    | `true`  |
-| PopoverProps      | [PopoverProps](/docs/components/popover) | Since the dropdown is an extension of the popover, it accepts all the props of the popover component. | -       |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode[]",
+      description: "The children to render. Usually a DropdownTrigger and DropdownMenu elements.",
+      default: "-"
+    },
+    {
+      attribute: "type",
+      type: "menu | listbox",
+      description: "Type of overlay that is opened by the dropdown trigger.",
+      default: "menu"
+    },
+    {
+      attribute: "trigger",
+      type: "press | longPress",
+      description: "How the dropdown menu is triggered.",
+      default: "press"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the dropdown trigger is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "closeOnSelect",
+      type: "boolean",
+      description: "Whether the dropdown menu should be closed when an item is selected.",
+      default: "true"
+    },
+    {
+      attribute: "shouldBlockScroll",
+      type: "boolean",
+      description: "Whether the dropdown menu should block scrolling outside the menu.",
+      default: "true"
+    },
+    {
+      attribute: "PopoverProps",
+      type: "PopoverProps",
+      description: "Since the dropdown is an extension of the popover, it accepts all the props of the popover component.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Dropdown Events
 
-| Attribute                    | Type                        | Description                                                                                                             |
-| ---------------------------- | --------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| onOpenChange                 | `(isOpen: boolean) => void` | Handler that is called when the dropdown's open state changes.                                                          |
-| shouldCloseOnInteractOutside | `(e: HTMLElement) => void`  | When user interacts with the argument element outside of the dropdown ref, return `true` if `onClose` should be called. |
-| onClose                      | `() => void`                | Handler that is called when the dropdown should close.                                                                  |
-
----
+<APITable
+  data={[
+    {
+      attribute: "onOpenChange",
+      type: "(isOpen: boolean) => void",
+      description: "Handler that is called when the dropdown's open state changes.",
+      default: "-"
+    },
+    {
+      attribute: "shouldCloseOnInteractOutside",
+      type: "(e: HTMLElement) => void",
+      description: "When user interacts with the argument element outside of the dropdown ref, return true if onClose should be called.",
+      default: "-"
+    },
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler that is called when the dropdown should close.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### DropdownTrigger Props
 
-| Attribute | Type        | Description                                                                                                                                                                   | Default |
-| --------- | ----------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children  | `ReactNode` | The dropdown trigger component, ensure the `children` passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility. | -       |
-
----
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The dropdown trigger component, ensure the children passed is focusable. Users can tab to it using their keyboard, and it can take a ref. It is critical for accessibility.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### DropdownMenu Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                             |             |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ----------- |
-| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The contents of the collection. It's usually the `DropdownItem` or `DropdownSection`. (static)          | -           |
-| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                               | -           |
-| variant                | `solid` \| `bordered` \| `light` \| `flat` \| `faded` \| `shadow`                                      | The dropdown items appearance style.                                                                    | `solid`     |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The dropdown items color theme.                                                                         | `default`   |
-| selectionMode          | `none` \| `single` \| `multiple`                                                                       | The type of selection that is allowed in the collection.                                                | -           |
-| selectedKeys           | `all` \| `Iterable<React.Key>`                                                                                          | The currently selected keys in the collection (controlled).                                             | -           |
-| disabledKeys           | `Iterable<React.Key>`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. | -           |
-| defaultSelectedKeys    | `all` \| `Iterable<React.Key>`                                                                                 | The initial selected keys in the collection (uncontrolled).                                             | -           |
-| disallowEmptySelection | `boolean`                                                                                              | Whether the collection allows empty selection.                                                          | `false`     |
-| autoFocus              | `boolean` \| `first` \| `last`                                                                         | Where the focus should be set.                                                                          | `false`     |
-| topContent             | `ReactNode`                                                                                            | The content to display above the listbox items.                                                         | -           |
-| bottomContent          | `ReactNode`                                                                                            | The content to display below the listbox items.                                                         | -           |
-| emptyContent           | `ReactNode`                                                                                            | The content to display when the collection is empty.                                                    | `No items.` |
-| hideEmptyContent       | `boolean`                                                                                              | Whether to not display the empty content when the collection is empty.                                  | `false`     |
-| hideSelectedIcon       | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                             | `false`     |
-| shouldFocusWrap        | `boolean`                                                                                              | Whether keyboard navigation is circular.                                                                | `false`     |
-| closeOnSelect          | `boolean`                                                                                              | Whether the dropdown menu should be closed when an item is selected.                                    | `true`      |
-| disableAnimation       | `boolean`                                                                                              | Whether to disable the animation of the dropdown items.                                                 | `false`     |
-| classNames             | `Record<"base"｜ "list"｜ "emptyContent", string>`                                                     | Allows to set custom class names for the dropdown menu slots.                                           | -           |
-| itemClasses            | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                                           | -           |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode | ((item: T) => ReactElement)",
+      description: "The contents of the collection. It's usually the DropdownItem or DropdownSection. (static)",
+      default: "-"
+    },
+    {
+      attribute: "items",
+      type: "Iterable<T>",
+      description: "Item objects in the collection. (dynamic)",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | light | flat | faded | shadow",
+      description: "The dropdown items appearance style.",
+      default: "solid"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The dropdown items color theme.",
+      default: "default"
+    },
+    {
+      attribute: "selectionMode",
+      type: "none | single | multiple",
+      description: "The type of selection that is allowed in the collection.",
+      default: "-"
+    },
+    {
+      attribute: "selectedKeys",
+      type: "all | Iterable<React.Key>",
+      description: "The currently selected keys in the collection (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "disabledKeys",
+      type: "Iterable<React.Key>",
+      description: "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.",
+      default: "-"
+    },
+    {
+      attribute: "defaultSelectedKeys",
+      type: "all | Iterable<React.Key>",
+      description: "The initial selected keys in the collection (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "disallowEmptySelection",
+      type: "boolean",
+      description: "Whether the collection allows empty selection.",
+      default: "false"
+    },
+    {
+      attribute: "autoFocus",
+      type: "boolean | first | last",
+      description: "Where the focus should be set.",
+      default: "false"
+    },
+    {
+      attribute: "topContent",
+      type: "ReactNode",
+      description: "The content to display above the listbox items.",
+      default: "-"
+    },
+    {
+      attribute: "bottomContent",
+      type: "ReactNode",
+      description: "The content to display below the listbox items.",
+      default: "-"
+    },
+    {
+      attribute: "emptyContent",
+      type: "ReactNode",
+      description: "The content to display when the collection is empty.",
+      default: "No items."
+    },
+    {
+      attribute: "hideEmptyContent",
+      type: "boolean",
+      description: "Whether to not display the empty content when the collection is empty.",
+      default: "false"
+    },
+    {
+      attribute: "hideSelectedIcon",
+      type: "boolean",
+      description: "Whether to hide the check icon when the items are selected.",
+      default: "false"
+    },
+    {
+      attribute: "shouldFocusWrap",
+      type: "boolean",
+      description: "Whether keyboard navigation is circular.",
+      default: "false"
+    },
+    {
+      attribute: "closeOnSelect",
+      type: "boolean",
+      description: "Whether the dropdown menu should be closed when an item is selected.",
+      default: "true"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable the animation of the dropdown items.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<base｜list｜emptyContent, string>",
+      description: "Allows to set custom class names for the dropdown menu slots.",
+      default: "-"
+    },
+    {
+      attribute: "itemClasses",
+      type: "Record<base｜wrapper｜title｜description｜shortcut｜selectedIcon, string>",
+      description: "Allows to set custom class names for the dropdown item slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### DropdownMenu Events
 
-| Attribute         | Type                          | Description                                                                |
-| ----------------- | ----------------------------- | -------------------------------------------------------------------------- |
-| onAction          | `(key: React.Key) => void`    | Handler that is called when an item is selected.                           |
-| onSelectionChange | `(keys: "all" \| Set<React.Key> & {anchorKey?: string; currentKey?: string}) => void` | Handler that is called when the selection changes.                         |
-| onClose           | `() => void`                  | Handler that is called when the menu should close after selecting an item. |
-
----
+<APITable
+  data={[
+    {
+      attribute: "onAction",
+      type: "(key: React.Key) => void",
+      description: "Handler that is called when an item is selected.",
+      default: "-"
+    },
+    {
+      attribute: "onSelectionChange",
+      type: "(keys: \"all\" | Set<React.Key> & {anchorKey?: string; currentKey?: string}) => void",
+      description: "Handler that is called when the selection changes.",
+      default: "-"
+    },
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler that is called when the menu should close after selecting an item.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### DropdownSection Props
 
-| Attribute        | Type                                                                                                   | Description                                                                                 | Default |
-| ---------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- | ------- |
-| children\*       | `ReactNode`                                                                                            | The contents of the dropdown section. Usually a list of `DropdownItem` components. (static) | -       |
-| title            | `string`                                                                                               | The title of the dropdown section.                                                          | -       |
-| items            | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | Item objects in the collection. (dynamic)                                                   | -       |
-| hideSelectedIcon | `boolean`                                                                                              | Whether to hide the check icon when the items are selected.                                 | `false` |
-| showDivider      | `boolean`                                                                                              | Whether to show the divider between the groups.                                             | `false` |
-| dividerProps     | [DividerProps](/docs/components/divider)                                                               | The divider component props.                                                                | -       |
-| classNames       | `Record<"base"｜ "heading"｜ "group"｜ "divider", string>`                                             | Allows to set custom class names for the dropdown section slots.                            | -       |
-| itemClasses      | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>`          | Allows to set custom class names for the dropdown item slots.                               | -       |
-
----
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "The contents of the dropdown section. Usually a list of DropdownItem components. (static)",
+      default: "-"
+    },
+    {
+      attribute: "title",
+      type: "string",
+      description: "The title of the dropdown section.",
+      default: "-"
+    },
+    {
+      attribute: "items",
+      type: "Iterable<T>",
+      description: "Item objects in the collection. (dynamic)",
+      default: "-"
+    },
+    {
+      attribute: "hideSelectedIcon",
+      type: "boolean",
+      description: "Whether to hide the check icon when the items are selected.",
+      default: "false"
+    },
+    {
+      attribute: "showDivider",
+      type: "boolean",
+      description: "Whether to show the divider between the groups.",
+      default: "false"
+    },
+    {
+      attribute: "dividerProps",
+      type: "DividerProps",
+      description: "The divider component props.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<base｜heading｜group｜divider, string>",
+      description: "Allows to set custom class names for the dropdown section slots.",
+      default: "-"
+    },
+    {
+      attribute: "itemClasses",
+      type: "Record<base｜wrapper｜title｜description｜shortcut｜selectedIcon, string>",
+      description: "Allows to set custom class names for the dropdown item slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### DropdownItem Props
 
-| Attribute        | Type                                                                                          | Description                                                                                                                                                                      | Default |
-| ---------------- | --------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
-| children\*       | `ReactNode`                                                                                   | The contents of the dropdown item.                                                                                                                                               | -       |
-| key              | `React.Key`                                                                                   | The unique key for the dropdown item.                                                                                                                                            | -       |
-| title            | `string` \| `ReactNode`                                                                       | The title of the dropdown item.                                                                                                                                                  | -       |
-| textValue        | `string`                                                                                      | A string representation of the item's contents, used for features like typeahead.                                                                                                | -       |
-| description      | `string` \| `ReactNode`                                                                       | The description of the dropdown item.                                                                                                                                            | -       |
-| shortcut         | `string` \| `ReactNode`                                                                       | The dropdown item keyboard shortcut.                                                                                                                                             | -       |
-| startContent     | `ReactNode`                                                                                   | The start content of the dropdown item.                                                                                                                                          | -       |
-| endContent       | `ReactNode`                                                                                   | The end content of the dropdown item. This is positioned after the shortcut and the selected icon.                                                                               | -       |
-| selectedIcon     | [SelectedIconProps](#dropdown-item-selected-icon-props)                                       | Custom icon to render when the item is selected.                                                                                                                                 | -       |
-| showDivider      | `boolean`                                                                                     | Whether to show a divider below the item.                                                                                                                                        | `false` |
-| href             | `string`                                                                                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
-| target           | `HTMLAttributeAnchorTarget`                                                                   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
-| rel              | `string`                                                                                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
-| download         | `boolean` \| `string`                                                                         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
-| ping             | `string`                                                                                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
-| referrerPolicy   | `HTMLAttributeReferrerPolicy`                                                                 | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
-| isDisabled       | `boolean`                                                                                     | Whether the dropdown item should be disabled. (**Deprecated**) pass **disabledKeys** to `DropdownMenu` instead.                                                                  | `false` |
-| isSelected       | `boolean`                                                                                     | Whether the dropdown item should be selected. (**Deprecated**) pass **selectedKeys** to `DropdownMenu` instead.                                                                  | `false` |
-| isReadOnly       | `boolean`                                                                                     | Whether the dropdown item press events should be ignored.                                                                                                                        | `false` |
-| hideSelectedIcon | `boolean`                                                                                     | Whether to hide the check icon when the item is selected.                                                                                                                        | `false` |
-| closeOnSelect    | `boolean`                                                                                     | Whether the dropdown menu should be closed when the item is selected.                                                                                                            | `true`  |
-| classNames       | `Record<"base"｜ "wrapper"｜ "title"｜ "description"｜ "shortcut" ｜ "selectedIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                                                                                    | -       |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "The contents of the dropdown item.",
+      default: "-"
+    },
+    {
+      attribute: "key",
+      type: "React.Key",
+      description: "The unique key for the dropdown item.",
+      default: "-"
+    },
+    {
+      attribute: "title",
+      type: "string | ReactNode",
+      description: "The title of the dropdown item.",
+      default: "-"
+    },
+    {
+      attribute: "textValue",
+      type: "string",
+      description: "A string representation of the item's contents, used for features like typeahead.",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "string | ReactNode",
+      description: "The description of the dropdown item.",
+      default: "-"
+    },
+    {
+      attribute: "shortcut",
+      type: "string | ReactNode",
+      description: "The dropdown item keyboard shortcut.",
+      default: "-"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The start content of the dropdown item.",
+      default: "-"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "The end content of the dropdown item. This is positioned after the shortcut and the selected icon.",
+      default: "-"
+    },
+    {
+      attribute: "selectedIcon",
+      type: "SelectedIconProps",
+      description: "Custom icon to render when the item is selected.",
+      default: "-"
+    },
+    {
+      attribute: "showDivider",
+      type: "boolean",
+      description: "Whether to show a divider below the item.",
+      default: "false"
+    },
+    {
+      attribute: "href",
+      type: "string",
+      description: "A URL to link to. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "target",
+      type: "HTMLAttributeAnchorTarget",
+      description: "The target window for the link. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "rel",
+      type: "string",
+      description: "The relationship between the linked resource and the current page. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "download",
+      type: "boolean | string",
+      description: "Causes the browser to download the linked URL. A string may be provided to suggest a file name. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "ping",
+      type: "string",
+      description: "A space-separated list of URLs to ping when the link is followed. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "referrerPolicy",
+      type: "HTMLAttributeReferrerPolicy",
+      description: "How much of the referrer to send when following the link. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the dropdown item should be disabled. (Deprecated) pass disabledKeys to DropdownMenu instead.",
+      default: "false"
+    },
+    {
+      attribute: "isSelected",
+      type: "boolean",
+      description: "Whether the dropdown item should be selected. (Deprecated) pass selectedKeys to DropdownMenu instead.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the dropdown item press events should be ignored.",
+      default: "false"
+    },
+    {
+      attribute: "hideSelectedIcon",
+      type: "boolean",
+      description: "Whether to hide the check icon when the item is selected.",
+      default: "false"
+    },
+    {
+      attribute: "closeOnSelect",
+      type: "boolean",
+      description: "Whether the dropdown menu should be closed when the item is selected.",
+      default: "true"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<base｜wrapper｜title｜description｜shortcut｜selectedIcon, string>",
+      description: "Allows to set custom class names for the dropdown item slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### DropdownItem Events
 
-| Attribute     | Type                           | Description                                                                                                                  |
-| ------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| onAction      | `() => void`                   | Handler that is called when the dropdown item is selected. (**Deprecated**) pass to `DropdownMenu` instead.                  |
-| onClose       | `() => void`                   | Handler that is called when the dropdown item should close after selecting. (**Deprecated**) pass to `DropdownMenu` instead. |
-| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                                   |
-| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                              |
-| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.                  |
-| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                                 |
-| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not.              |
-| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                                        |
-| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                                       |
-| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                              |
-
----
+<APITable
+  data={[
+    {
+      attribute: "onAction",
+      type: "() => void",
+      description: "Handler that is called when the dropdown item is selected. (Deprecated) pass to DropdownMenu instead.",
+      default: "-"
+    },
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler that is called when the dropdown item should close after selecting. (Deprecated) pass to DropdownMenu instead.",
+      default: "-"
+    },
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressChange",
+      type: "(isPressed: boolean) => void",
+      description: "Handler called when the press state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onPressUp",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press is released over the target, regardless of whether it started on the target or not.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is released.",
+      default: "-"
+    },
+    {
+      attribute: "onClick",
+      type: "MouseEventHandler",
+      description: "The native button click event handler (**Deprecated**) use **onPress** instead.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Types
 

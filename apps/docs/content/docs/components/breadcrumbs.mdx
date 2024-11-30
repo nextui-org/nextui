@@ -211,65 +211,235 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
 
 ### Breadcrumbs Props
 
-| Attribute           | Type                                                                           | Description                                                                     | Default      |
-| ------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- | ------------ |
-| children\*          | `ReactNode`                                                                    | The contents of the Breadcrumbs. Usually a list of `BreadcrumbItem` components. | -            |
-| variant             | `solid` \| `bordered` \| `light`                                               | The Breadcrumbs list appearance style.                                          | `solid`      |
-| color               | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The Breadcrumbs' items color theme.                                             | `foreground` |
-| size                | `sm` \| `md` \| `lg`                                                           | The Breadcrumbs' items size.                                                    | `md`         |
-| radius              | `none` \| `sm` \| `md` \| `lg` \| `full`                                       | The Breadcrumbs list border radius.                                             | -            |
-| underline           | `none` \| `active` \| `hover` \| `focus` \| `always`                           | The Breadcrumbs' items underline style.                                         | `none`       |
-| separator           | `ReactNode`                                                                    | The custom separator between Breadcrumbs. It is a chevron by default.           | -            |
-| maxItems            | `number`                                                                       | The maximum number of breadcrumbs to display.                                   | -            |
-| itemsBeforeCollapse | `number`                                                                       | The number of items to show before the ellipsis.                                | -            |
-| itemsAfterCollapse  | `number`                                                                       | The number of items to show after the ellipsis.                                 | -            |
-| hideSeparator       | `boolean`                                                                      | Whether to hide the separator between breadcrumbs.                              | `false`      |
-| isDisabled          | `boolean`                                                                      | Whether the Breadcrumbs are disabled except the last item.                      | `false`      |
-| disableAnimation    | `boolean`                                                                      | Whether the Breadcrumbs should display animations.                              | `false`      |
-| itemClasses         | `Record<"base"｜ "item"｜ "separator", string>`                                | Allows to set custom class names for the breadcrumbs item slots.                | -            |
-| classNames          | `Record<"base"｜ "list"｜ "ellipsis"｜ "separator", string>`                   | Allows to set custom class names for the breadcrumbs slots.                     | -            |
-
-### Breadcrumbs Functions
-
-| Attribute      | Type                                                | Description                                                |
-| -------------- | --------------------------------------------------- | ---------------------------------------------------------- |
-| renderEllipsis | [RenderEllipsisFunction](#render-ellipsis-function) | Handler called when the press is released over the target. |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "The contents of the Breadcrumbs. Usually a list of `BreadcrumbItem` components.",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | light",
+      description: "The Breadcrumbs list appearance style.",
+      default: "solid"
+    },
+    {
+      attribute: "color",
+      type: "foreground | primary | secondary | success | warning | danger",
+      description: "The Breadcrumbs' items color theme.",
+      default: "foreground"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The Breadcrumbs' items size.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The Breadcrumbs list border radius.",
+      default: "-"
+    },
+    {
+      attribute: "underline",
+      type: "none | active | hover | focus | always",
+      description: "The Breadcrumbs' items underline style.",
+      default: "none"
+    },
+    {
+      attribute: "separator",
+      type: "ReactNode",
+      description: "The custom separator between Breadcrumbs. It is a chevron by default.",
+      default: "-"
+    },
+    {
+      attribute: "maxItems",
+      type: "number",
+      description: "The maximum number of breadcrumbs to display.",
+      default: "-"
+    },
+    {
+      attribute: "itemsBeforeCollapse",
+      type: "number",
+      description: "The number of items to show before the ellipsis.",
+      default: "-"
+    },
+    {
+      attribute: "itemsAfterCollapse",
+      type: "number",
+      description: "The number of items to show after the ellipsis.",
+      default: "-"
+    },
+    {
+      attribute: "hideSeparator",
+      type: "boolean",
+      description: "Whether to hide the separator between breadcrumbs.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the Breadcrumbs are disabled except the last item.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the Breadcrumbs should display animations.",
+      default: "false"
+    },
+    {
+      attribute: "itemClasses",
+      type: "Record<\"base\" | \"item\" | \"separator\", string>",
+      description: "Allows to set custom class names for the breadcrumbs item slots.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\" | \"list\" | \"ellipsis\" | \"separator\", string>",
+      description: "Allows to set custom class names for the breadcrumbs slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Breadcrumbs Events
 
-| Attribute | Type                       | Description                                                                  |
-| --------- | -------------------------- | ---------------------------------------------------------------------------- |
-| onAction  | `(key: React.Key) => void` | Handler called when any breadcrumb item is pressed. It returns the item key. |
-
-<Spacer y={2} />
+<APITable
+  data={[
+    {
+      attribute: "onAction",
+      type: "(key: React.Key) => void",
+      description: "Handler called when any breadcrumb item is pressed. It returns the item key.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### BreadcrumbItem Props
 
-| Attribute        | Type                                                                           | Description                                               | Default      |
-| ---------------- | ------------------------------------------------------------------------------ | --------------------------------------------------------- | ------------ |
-| children\*       | `ReactNode`                                                                    | The contents of the item. Usually the link label or icon. | -            |
-| color            | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The item color theme.                                     | `foreground` |
-| size             | `sm` \| `md` \| `lg`                                                           | The item size.                                            | `md`         |
-| underline        | `none` \| `active` \| `hover` \| `focus` \| `always`                           | The item underline style.                                 | `none`       |
-| startContent     | `ReactNode`                                                                    | The item start content.                                   | -            |
-| endContent       | `ReactNode`                                                                    | The item end content.                                     | -            |
-| separator        | `ReactNode`                                                                    | The item custom separator. It is a chevron by default.    | -            |
-| isCurrent        | `boolean`                                                                      | Whether the item is the current/active one.               | `false`      |
-| isLast           | `boolean`                                                                      | Whether the item is the last one.                         | `false`      |
-| hideSeparator    | `boolean`                                                                      | Whether to hide the item separator.                       | `false`      |
-| isDisabled       | `boolean`                                                                      | Whether the item is disabled.                             | `false`      |
-| disableAnimation | `boolean`                                                                      | Whether the item should display animations.               | `false`      |
-| classNames       | `Record<"base"｜ "item"｜ "separator", string>`                                | Allows to set custom class names for the item slots.      | -            |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "The contents of the item. Usually the link label or icon.",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "foreground | primary | secondary | success | warning | danger",
+      description: "The item color theme.",
+      default: "foreground"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The item size.",
+      default: "md"
+    },
+    {
+      attribute: "underline",
+      type: "none | active | hover | focus | always",
+      description: "The item underline style.",
+      default: "none"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The item start content.",
+      default: "-"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "The item end content.",
+      default: "-"
+    },
+    {
+      attribute: "separator",
+      type: "ReactNode",
+      description: "The item custom separator. It is a chevron by default.",
+      default: "-"
+    },
+    {
+      attribute: "isCurrent",
+      type: "boolean",
+      description: "Whether the item is the current/active one.",
+      default: "false"
+    },
+    {
+      attribute: "isLast",
+      type: "boolean",
+      description: "Whether the item is the last one.",
+      default: "false"
+    },
+    {
+      attribute: "hideSeparator",
+      type: "boolean",
+      description: "Whether to hide the item separator.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the item is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the item should display animations.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\" | \"item\" | \"separator\", string>",
+      description: "Allows to set custom class names for the item slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### BreadcrumbItem Events
 
-| Attribute    | Type                         | Description                                                                                                 |
-| ------------ | ---------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| onPress      | `(e: PressEvent) => void`    | Handler called when the press is released over the target.                                                  |
-| onPressStart | `(e: PressEvent) => void`    | Handler called when a press interaction starts.                                                             |
-| onPressEnd   | `(e: PressEvent) => void`    | Handler called when a press interaction ends, either over the target or when the pointer leaves the target. |
-| onKeyDown    | `(e: KeyboardEvent) => void` | Handler called when a key is pressed.                                                                       |
-| onKeyUp      | `(e: KeyboardEvent) => void` | Handler called when a key is released.                                                                      |
+<APITable
+  data={[
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is released.",
+      default: "-"
+    }
+  ]}
+/>
 
 <Spacer y={2} />
 
