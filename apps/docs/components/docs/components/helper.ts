@@ -15,7 +15,7 @@ const endFlag = ["}", "]"];
 const specialStartFlag = ["("];
 const specialEndFlag = [")"];
 const defaultFoldFlagList = ["cn", "HTMLAttributes"];
-const defaultShowFlagList = ["Component", "forwardRef", "App", "Example"];
+const defaultShowFlagList = ["Component", "forwardRef", "App", "Example", "AddForm", "SignupForm"];
 
 /**
  * Transform tokens from `prism-react-renderer` to wrap them in folder structure
