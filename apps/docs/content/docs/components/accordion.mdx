@@ -189,69 +189,301 @@ Here's an example of how to customize the accordion styles:
 
 ### Accordion Props
 
-| Attribute                 | Type                                            | Description                                                                                             | Default  |
-| ------------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------------------- | -------- |
-| children                  | `ReactNode` \| `ReactNode[]`                    | The contents of the collection. Usually the array of `AccordionItem`                                    |          |
-| variant                   | `light` \| `shadow` \| `bordered` \| `splitted` | The accordion appearance style.                                                                         | `light`  |
-| selectionMode             | `none` \| `single` \| `multiple`                | The type of selection that is allowed in the collection.                                                |          |
-| selectionBehavior         | `toggle` \| `replace`                           | The accordion selection behavior.                                                                       | `toggle` |
-| isCompact                 | `boolean`                                       | Whether all Accordion items should be smaller.                                                          | `false`  |
-| isDisabled                | `boolean`                                       | Whether the Accordion items are disabled.                                                               |          |
-| showDivider               | `boolean`                                       | Whether to display a divider at the bottom of the each accordion item.                                  | `true`   |
-| dividerProps              | [DividerProps](/docs/components/divider)        | The divider component props.                                                                            | -        |
-| hideIndicator             | `boolean`                                       | Whether the Accordion items indicator is hidden.                                                        |          |
-| disableAnimation          | `boolean`                                       | Whether the Accordion items open/close animation is disabled.                                           |          |
-| disableIndicatorAnimation | `boolean`                                       | Whether the Accordion items indicator animation is disabled.                                            |          |
-| disallowEmptySelection    | `boolean`                                       | Whether the collection allows empty selection.                                                          |          |
-| keepContentMounted        | `boolean`                                       | Whether the Accordion items content should be always mounted.                                           | `false`  |
-| fullWidth                 | `boolean`                                       | Whether the accordion should take up the full width of its parent container.                            | `true`   |
-| motionProps               | `MotionProps`                                   | The motion properties of the Accordion.                                                                 |          |
-| disabledKeys              | `React.Key[]`                                   | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with. |          |
-| itemClasses               | [Classnames](#accordion-item-classnames)        | The accordion items classNames.                                                                         |          |
-| selectedKeys              | `all` \| `React.Key[]`                          | The currently selected keys in the collection (controlled).                                             |          |
-| defaultSelectedKeys       | `all` \| `React.Key[]`                          | The initial selected keys in the collection (uncontrolled).                                             |          |
-| disabledKeys              | `React.Key[]`                                   | The currently disabled keys in the collection (controlled).                                             |          |
+<APITable 
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "The contents of the collection. Usually the array of AccordionItem",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "light | shadow | bordered | splitted",
+      description: "The accordion appearance style.",
+      default: "light"
+    },
+    {
+      attribute: "selectionMode", 
+      type: "none | single | multiple",
+      description: "The type of selection that is allowed in the collection.",
+      default: "-"
+    },
+    {
+      attribute: "selectionBehavior",
+      type: "toggle | replace",
+      description: "The accordion selection behavior.",
+      default: "toggle"
+    },
+    {
+      attribute: "isCompact",
+      type: "boolean",
+      description: "Whether all Accordion items should be smaller.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean", 
+      description: "Whether the Accordion items are disabled.",
+      default: "false"
+    },
+    {
+      attribute: "showDivider",
+      type: "boolean",
+      description: "Whether to display a divider at the bottom of the each accordion item.",
+      default: "true"
+    },
+    {
+      attribute: "dividerProps",
+      type: "DividerProps",
+      description: "The divider component props.",
+      default: "-"
+    },
+    {
+      attribute: "hideIndicator",
+      type: "boolean",
+      description: "Whether the Accordion items indicator is hidden.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the Accordion items open/close animation is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableIndicatorAnimation",
+      type: "boolean",
+      description: "Whether the Accordion items indicator animation is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disallowEmptySelection",
+      type: "boolean",
+      description: "Whether the collection allows empty selection.",
+      default: "false"
+    },
+    {
+      attribute: "keepContentMounted",
+      type: "boolean",
+      description: "Whether the Accordion items content should be always mounted.",
+      default: "false"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether the accordion should take up the full width of its parent container.",
+      default: "true"
+    },
+    {
+      attribute: "motionProps",
+      type: "MotionProps",
+      description: "The motion properties of the Accordion.",
+      default: "-"
+    },
+    {
+      attribute: "disabledKeys",
+      type: "React.Key[]",
+      description: "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.",
+      default: "-"
+    },
+    {
+      attribute: "itemClasses",
+      type: "AccordionItemClassnames",
+      description: "The accordion items classNames.",
+      default: "-"
+    },
+    {
+      attribute: "selectedKeys",
+      type: "all | React.Key[]",
+      description: "The currently selected keys in the collection (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultSelectedKeys",
+      type: "all | React.Key[]",
+      description: "The initial selected keys in the collection (uncontrolled).",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Accordion Events
 
-| Attribute         | Type                                     | Description                                        |
-| ----------------- | ---------------------------------------- | -------------------------------------------------- |
-| onSelectionChange | `(keys: "all" ｜ Set<React.Key>) => any` | Handler that is called when the selection changes. |
+<APITable
+  data={[
+    {
+      attribute: "onSelectionChange",
+      type: "(keys: \"all\" | Set<React.Key>) => any",
+      description: "Handler that is called when the selection changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Accordion Item Props
 
-| Attribute                 | Type                                              | Description                                                                                                                  | Default |
-|---------------------------|---------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------|---------|
-| children                  | `ReactNode` \| `string`                           | The content of the component.                                                                                                |         |
-| title                     | `ReactNode` \| `string`                           | The accordion item title.                                                                                                    |         |
-| subtitle                  | `ReactNode` \| `string`                           | The accordion item subtitle.                                                                                                 |         |
-| indicator                 | [IndicatorProps](#accordion-item-indicator-props) | The accordion item `expanded` indicator, usually an arrow icon.                                                              |         |
-| startContent              | `ReactNode`                                       | The accordion item start content, usually an icon or avatar.                                                                 |         |
-| motionProps               | [MotionProps](#motion-props)                      | The props to modify the framer motion animation. Use the `variants` API to create your own animation.                        |         |
-| isCompact                 | `boolean`                                         | Whether the AccordionItem is compact.                                                                                        | `false` |
-| isDisabled                | `boolean`                                         | The current disabled status.                                                                                                 | `false` |
-| keepContentMounted        | `boolean`                                         | Whether the AccordionItem content is kept mounted when closed.                                                               | `false` |
-| hideIndicator             | `boolean`                                         | Whether the AccordionItem indicator is hidden.                                                                               | `false` |
-| disableAnimation          | `boolean`                                         | Whether the AccordionItem animation is disabled.                                                                             | `false` |
-| disableIndicatorAnimation | `boolean`                                         | Whether the AccordionItem indicator animation is disabled.                                                                   | `false` |
-| HeadingComponent          | `React.ElementType`                               | Customizable heading tag for Web accessibility. Use headings to describe content and use them consistently and semantically. | `h2`    |
-| classNames                | [Classnames](#accordion-item-classnames)          | Allows to set custom class names for the accordion item slots.                                                               | -       |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | string",
+      description: "The content of the component.",
+      default: "-"
+    },
+    {
+      attribute: "title",
+      type: "ReactNode | string",
+      description: "The accordion item title.",
+      default: "-"
+    },
+    {
+      attribute: "subtitle",
+      type: "ReactNode | string",
+      description: "The accordion item subtitle.",
+      default: "-"
+    },
+    {
+      attribute: "indicator",
+      type: "IndicatorProps",
+      description: "The accordion item expanded indicator, usually an arrow icon.",
+      default: "-"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The accordion item start content, usually an icon or avatar.",
+      default: "-"
+    },
+    {
+      attribute: "motionProps",
+      type: "MotionProps",
+      description: "The props to modify the framer motion animation. Use the variants API to create your own animation.",
+      default: "-"
+    },
+    {
+      attribute: "isCompact",
+      type: "boolean",
+      description: "Whether the AccordionItem is compact.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "The current disabled status.",
+      default: "false"
+    },
+    {
+      attribute: "keepContentMounted",
+      type: "boolean",
+      description: "Whether the AccordionItem content is kept mounted when closed.",
+      default: "false"
+    },
+    {
+      attribute: "hideIndicator",
+      type: "boolean",
+      description: "Whether the AccordionItem indicator is hidden.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the AccordionItem animation is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableIndicatorAnimation",
+      type: "boolean",
+      description: "Whether the AccordionItem indicator animation is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "HeadingComponent",
+      type: "React.ElementType",
+      description: "Customizable heading tag for Web accessibility. Use headings to describe content and use them consistently and semantically.",
+      default: "h2"
+    },
+    {
+      attribute: "classNames",
+      type: "AccordionItemClassnames",
+      description: "Allows to set custom class names for the accordion item slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Accordion Item Events
 
-| Attribute     | Type                           | Description                                                                                                     |
-| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- |
-| onFocus       | `(e: FocusEvent) => void`      | Handler that is called when the element receives focus.                                                         |
-| onBlur        | `(e: FocusEvent) => void`      | Handler that is called when the element loses focus.                                                            |
-| onFocusChange | `(isFocused: boolean) => void` | Handler that is called when the element's focus status changes.                                                 |
-| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler that is called when a key is pressed.                                                                   |
-| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler that is called when a key is released.                                                                  |
-| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      |
-| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 |
-| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     |
-| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    |
-| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. |
-| onClick       | `MouseEventHandler`            | The native button click event handler (**Deprecated**) use **onPress** instead.                                 |
+<APITable
+  data={[
+    {
+      attribute: "onFocus",
+      type: "(e: FocusEvent) => void",
+      description: "Handler that is called when the element receives focus.",
+      default: "-"
+    },
+    {
+      attribute: "onBlur",
+      type: "(e: FocusEvent) => void",
+      description: "Handler that is called when the element loses focus.",
+      default: "-"
+    },
+    {
+      attribute: "onFocusChange",
+      type: "(isFocused: boolean) => void",
+      description: "Handler that is called when the element's focus status changes.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is released.",
+      default: "-"
+    },
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressChange",
+      type: "(isPressed: boolean) => void",
+      description: "Handler called when the press state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onPressUp",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press is released over the target, regardless of whether it started on the target or not.",
+      default: "-"
+    },
+    {
+      attribute: "onClick",
+      type: "MouseEventHandler",
+      description: "The native button click event handler (Deprecated) use onPress instead.",
+      default: "-"
+    }
+  ]}
+/>
 
 ---
 
