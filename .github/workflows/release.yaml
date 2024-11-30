@@ -41,7 +41,7 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: Create canary release
+      - name: Create canary release
         if: steps.changesets.outputs.published != 'true'
         run: |
           git checkout canary
