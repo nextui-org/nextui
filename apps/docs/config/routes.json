@@ -46,12 +46,6 @@
           "newPost": true
         },
         {
-          "key": "form",
-          "title": "Forms",
-          "keywords": "forms, form validation, nextui",
-          "path": "/docs/guide/form.mdx"
-        },
-        {
           "key": "upgrade-to-v2",
           "title": "Upgrade to v2",
           "keywords": "upgrade, v2, nextui",
