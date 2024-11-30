@@ -1,4 +1,3 @@
-name: Enter pre-release mode
 on: workflow_dispatch
 
 jobs:
@@ -23,29 +22,11 @@ jobs:
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"
-          
-          # Fetch latest changes and reset
-          git fetch origin
-          git reset --hard origin/${{ github.ref_name }}
-          
           if [ ${{ github.ref }} == 'refs/heads/canary' ]; then
             pnpm changeset:canary
           else
             pnpm changeset:beta
           fi
-          
           git add -A
           git commit -m 'chore(pre-release): enter pre-release mode'
-          
-          # Create a new branch and force push changes
-          git branch -D exit-pre-release-branch || true  # Delete local branch if it exists
-          git checkout -b exit-pre-release-branch
-          git push --force --set-upstream origin exit-pre-release-branch
-
-      - name: Create pull request to canary
-        uses: peter-evans/create-pull-request@v7
-        with:
-          title: "Pre-release changes for canary"
-          body: "This PR includes pre-release changes for the canary branch."
-          base: canary
-          head: exit-pre-release-branch
+          git push
