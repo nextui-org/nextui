@@ -26,7 +26,7 @@ const select = tv({
     selectorIcon: "absolute end-3 w-4 h-4",
     spinner: "absolute end-3",
     value: ["text-foreground-500", "font-normal", "w-full", "text-start"],
-    listboxWrapper: "scroll-py-6 max-h-64 w-full",
+    listboxWrapper: "scroll-py-6 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
     helperWrapper: "p-1 flex relative flex-col gap-1.5",
