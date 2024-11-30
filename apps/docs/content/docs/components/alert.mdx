@@ -213,7 +213,19 @@ Alert has the following slots:
 
 ### Alert Events
 
-| Attribute       | Type                           | Description                                      |
-| --------------- | ------------------------------ | ------------------------------------------------ |
-| onClose         | `() => void`                   | Handler called when the close button is clicked  |
-| onVisibleChange | `(isVisible: boolean) => void` | Handler called when the alert visibility changes |
+<APITable
+  data={[
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler called when the close button is clicked",
+      default: "-"
+    },
+    {
+      attribute: "onVisibleChange",
+      type: "(isVisible: boolean) => void",
+      description: "Handler called when the alert visibility changes",
+      default: "-"
+    }
+  ]}
+/>
