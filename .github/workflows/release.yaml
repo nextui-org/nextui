@@ -22,11 +22,11 @@ jobs:
       - name: Install
         uses: ./.github/common-actions/install
 
-      - name: Build
-        run: pnpm build
-
       - name: Tests
         run: pnpm test
+
+      - name: Build
+        run: pnpm build
 
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
@@ -43,6 +43,7 @@ jobs:
 
       - name: Create canary release
         if: steps.changesets.outputs.published != 'true'
+        timeout-minutes: 15
         run: |
           git checkout canary
           pnpm version:canary
