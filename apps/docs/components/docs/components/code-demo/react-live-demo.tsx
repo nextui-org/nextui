@@ -44,8 +44,11 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   const content = (
     <>
       {files?.[DEFAULT_FILE] && (
-        <div className="absolute top-[-24px] right-[-8px]">
-          <CopyButton className="text-zinc-400" value={files?.[DEFAULT_FILE]} />
+        <div className="absolute top-[-28px] right-[-8px]">
+          <CopyButton
+            className="opacity-0 group-hover/code-demo:opacity-100 transition-opacity text-zinc-400"
+            value={files?.[DEFAULT_FILE]}
+          />
         </div>
       )}
       <LivePreview
@@ -70,12 +73,12 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
           color={gradientColor}
           to="top-right"
         >
-          <div className="max-w-full py-4 px-2 w-full h-full scrollbar-hide overflow-x-scroll">
+          <div className="group/code-demo max-w-full py-4 px-2 w-full h-full scrollbar-hide overflow-x-scroll">
             {content}
           </div>
         </GradientBox>
       ) : (
-        <BgGridContainer className={className}>{content}</BgGridContainer>
+        <BgGridContainer className={clsx(className, "group/code-demo")}>{content}</BgGridContainer>
       )}
     </LiveProvider>
   );
