@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.inputs.branch }}
           fetch-depth: 0
@@ -29,9 +29,11 @@ jobs:
         run: npx rimraf .changeset/pre.json
 
       - name: Commit and push changes
+       env:
+          GITHUB_TOKEN: ${{ secrets.GA_ACCESS_TOKEN }}
         run: |
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
+          git config user.email "jrgarciadev@gmail.com"
+          git config user.name "Junior Garcia [Github Actions]"
           git add -A
           git commit -m "ci(changesets): exit pre-release mode"
-          git push
+          git push  https://${{ secrets.GA_ACCESS_TOKEN }}@github.com/${{ github.repository }} ${{ github.event.inputs.branch }}
