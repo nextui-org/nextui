@@ -32,8 +32,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GA_ACCESS_TOKEN }}
         run: |
-          git config user.email "jrgarciadev@gmail.com"
-          git config user.name "Junior Garcia [Github Actions]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
           git add -A
           git commit -m "ci(changesets): exit pre-release mode"
-          git push  https://${{ secrets.GA_ACCESS_TOKEN }}@github.com/${{ github.repository }} ${{ github.event.inputs.branch }}
+          git push
