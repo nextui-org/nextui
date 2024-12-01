@@ -90,6 +90,12 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
               initial="exit"
               style={{willChange}}
               variants={transitionVariants}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              onFocus={(e) => {
+                e.stopPropagation();
+              }}
               onKeyDown={(e) => {
                 e.stopPropagation();
               }}
