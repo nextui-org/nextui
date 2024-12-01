@@ -27,6 +27,10 @@ import multipleControlledOnChange from "./multiple-controlled-onchange";
 import multipleWithChips from "./multiple-chips";
 import customSelectorIcon from "./custom-selector-icon";
 import customStyles from "./custom-styles";
+import virtualization from "./virtualization";
+import virtualizationTenThousand from "./virtualization-ten-thousand";
+import virtualizationCustomItemHeight from "./virtualization-custom-item-height";
+import virtualizationMaxListboxHeight from "./virtualization-max-listbox-height";
 
 export const selectContent = {
   usage,
@@ -58,4 +62,8 @@ export const selectContent = {
   multipleWithChips,
   customSelectorIcon,
   customStyles,
+  virtualization,
+  virtualizationTenThousand,
+  virtualizationCustomItemHeight,
+  virtualizationMaxListboxHeight,
 };
