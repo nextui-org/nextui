@@ -302,7 +302,8 @@
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx"
+          "path": "/docs/components/listbox.mdx",
+          "updated": true
         },
         {
           "key": "modal",

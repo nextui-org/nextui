@@ -1,4 +1,5 @@
 import type {MenuItemBaseProps} from "./base/menu-item-base";
+import type {MenuItemVariantProps} from "@nextui-org/theme";
 import type {Node} from "@react-types/shared";
 
 import {useMemo, useRef, useCallback, Fragment} from "react";
@@ -24,7 +25,8 @@ interface Props<T extends object> extends MenuItemBaseProps<T> {
 }
 
 export type UseMenuItemProps<T extends object> = Props<T> &
-  Omit<HTMLNextUIProps<"li">, keyof Props<T>>;
+  Omit<HTMLNextUIProps<"li">, keyof Props<T>> &
+  MenuItemVariantProps;
 
 export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>) {
   const globalContext = useProviderContext();

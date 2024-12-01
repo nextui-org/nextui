@@ -8,6 +8,8 @@ import {usePopoverContext} from "./popover-context";
 
 export interface PopoverTriggerProps {
   children?: React.ReactNode;
+  className?: string;
+  [key: string]: any;
 }
 
 /**

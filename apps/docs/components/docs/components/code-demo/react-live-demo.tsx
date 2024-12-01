@@ -5,6 +5,7 @@ import * as Components from "@nextui-org/react";
 import * as intlDateUtils from "@internationalized/date";
 import * as reactAriaI18n from "@react-aria/i18n";
 import * as reactHookForm from "react-hook-form";
+import {SandpackFiles} from "@codesandbox/sandpack-react/types";
 
 import {BgGridContainer} from "@/components/bg-grid-container";
 import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
@@ -12,7 +13,7 @@ import {CopyButton} from "@/components/copy-button";
 
 export interface ReactLiveDemoProps {
   code: string;
-  files: string[];
+  files: SandpackFiles;
   noInline?: boolean;
   height?: string | number;
   isCentered?: boolean;
@@ -47,7 +48,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
         <div className="absolute top-[-28px] right-[-8px]">
           <CopyButton
             className="opacity-0 group-hover/code-demo:opacity-100 transition-opacity text-zinc-400"
-            value={files?.[DEFAULT_FILE]}
+            value={files?.[DEFAULT_FILE] as string}
           />
         </div>
       )}
