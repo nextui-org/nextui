@@ -108,3 +108,4 @@ This release includes several improvements and bug fixes:
 - Updated Select label placement logic
 - Added missing framer-motion peer dependencies
 - Removed layoutNode prop from Table due to react-aria update 
+- Virtualization added to Autocomplete
