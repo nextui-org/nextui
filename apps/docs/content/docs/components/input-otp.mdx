@@ -193,36 +193,170 @@ You can customize the styles of the `InputOtp` component using the `classNames` 
 
 ### InputOtp Props
 
-| Attribute                   | Type                                                                                                                                                                  | Description                                                                                    | Default    |
-| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------- |
-| length                      | `number`                                                                                                                                                              | The length of the input-otp.                                                                   | `4`        |
-| allowedKeys                 | `regEx string`                                                                                                                                                        | The allowed keys for the input-otp.                                                            | `^[0-9]*$` |
-| variant                     | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                                       | The variant of the input-otp.                                                                  | `flat`     |
-| color                       | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                           | The color of the input-otp.                                                                    | `default`  |
-| size                        | `sm` \| `md` \| `lg`                                                                                                                                                  | The size of the input-otp.                                                                     | `md`       |
-| radius                      | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                              | The radius of the input-otp.                                                                   | -          |
-| value                       | `string`                                                                                                                                                              | The current value of the input-otp (controlled).                                               | -          |
-| defaultValue                | `string`                                                                                                                                                              | The default value of the input-otp (uncontrolled).                                             | -          |
-| description                 | `ReactNode`                                                                                                                                                           | Provides additional information or hints about the input requirements.                           | -          |
-| errorMessage                | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                                                                                                                 | An error message for the input-otp. It is only shown when `isInvalid` is set to `true`         | -          |
-| fullWidth                   | `boolean`                                                                                                                                                             | When true, the InputOtp expands to fill its parent container width.                          | `false`    |
-| isRequired                  | `boolean`                                                                                                                                                             | Marks the input as required for form submission.                                             | `false`    |
-| isReadOnly                  | `boolean`                                                                                                                                                             | When true, allows selection but prevents user modification.                                | `false`    |
-| isDisabled                  | `boolean`                                                                                                                                                             | Whether the input-otp is disabled.                                                             | `false`    |
-| isInvalid                   | `boolean`                                                                                                                                                             | Whether the input-otp is invalid.                                                              | `false`    |
-| baseRef                     | `RefObject<HTMLDivElement>`                                                                                                                                           | The ref to the base element.                                                                   | -          |
-| disableAnimation            | `boolean`                                                                                                                                                             | Whether the input-otp should be animated.                                                      | `false`    |
-| classNames                  | `Record<"base"｜ "inputWrapper"｜ "input"｜ "segmentWrapper"｜ "segment" ｜ "caret" ｜ "passwordChar" ｜ "helperWrapper" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the Input slots.                                          | -          |
-| textAlign                   | `left` \| `center` \| `right`                                                                                                                                         | The text alignment of the input segments                                                       | `center`   |
-| pushPasswordManagerStrategy | `"none"` \| `"hidden"` \| `"input"`                                                                                                                                   | Strategy for password manager support                                                          | -          |
-| pasteTransformer            | `(text: string) => string`                                                                                                                                            | A function to transform pasted text before it's inserted into the input.                      | -          |
-| containerClassName          | `string`                                                                                                                                                              | Class name for the input container                                                             | -          |
-| noScriptCSSFallback         | `string`                                                                                                                                                              | CSS fallback for when JavaScript is disabled                                                   | -          |
+<APITable
+  data={[
+    {
+      attribute: "length",
+      type: "number",
+      description: "The length of the input-otp.",
+      default: "4"
+    },
+    {
+      attribute: "allowedKeys",
+      type: "regEx string",
+      description: "The allowed keys for the input-otp.",
+      default: "^[0-9]*$"
+    },
+    {
+      attribute: "variant",
+      type: "flat | bordered | faded | underlined",
+      description: "The variant of the input-otp.",
+      default: "flat"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the input-otp.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the input-otp.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The radius of the input-otp.",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "string",
+      description: "The current value of the input-otp (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultValue",
+      type: "string",
+      description: "The default value of the input-otp (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "Provides additional information or hints about the input requirements.",
+      default: "-"
+    },
+    {
+      attribute: "errorMessage",
+      type: "ReactNode | ((v: ValidationResult) => ReactNode)",
+      description: "An error message for the input-otp. It is only shown when isInvalid is set to true",
+      default: "-"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "When true, the InputOtp expands to fill its parent container width.",
+      default: "false"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Marks the input as required for form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "When true, allows selection but prevents user modification.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the input-otp is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the input-otp is invalid.",
+      default: "false"
+    },
+    {
+      attribute: "baseRef",
+      type: "RefObject<HTMLDivElement>",
+      description: "The ref to the base element.",
+      default: "-"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the input-otp should be animated.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<'base' | 'inputWrapper' | 'input' | 'segmentWrapper' | 'segment' | 'caret' | 'passwordChar' | 'helperWrapper' | 'description' | 'errorMessage', string>",
+      description: "Allows to set custom class names for the Input slots.",
+      default: "-"
+    },
+    {
+      attribute: "textAlign",
+      type: "left | center | right",
+      description: "The text alignment of the input segments",
+      default: "center"
+    },
+    {
+      attribute: "pushPasswordManagerStrategy",
+      type: "'none' | 'hidden' | 'input'",
+      description: "Strategy for password manager support",
+      default: "-"
+    },
+    {
+      attribute: "pasteTransformer",
+      type: "(text: string) => string",
+      description: "A function to transform pasted text before it's inserted into the input.",
+      default: "-"
+    },
+    {
+      attribute: "containerClassName",
+      type: "string",
+      description: "Class name for the input container",
+      default: "-"
+    },
+    {
+      attribute: "noScriptCSSFallback",
+      type: "string",
+      description: "CSS fallback for when JavaScript is disabled",
+      default: "-"
+    }
+  ]}
+/>
 
 ### InputOtp Events
 
-| Attribute     | Type                                  | Description                                                                                                                         |
-| ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's value changes. You can pull out the new value by accessing `event.target.value` (string). |
-| onValueChange | `(value: string) => void`             | Handler that is called when the element's value changes.                                                                            |
-| onComplete    | `(value: string) => void`             | Handler that is called when the element's value is completely filled.                                                               |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "React.ChangeEvent<HTMLInputElement>",
+      description: "Handler that is called when the element's value changes. You can pull out the new value by accessing event.target.value (string).",
+      default: "-"
+    },
+    {
+      attribute: "onValueChange",
+      type: "(value: string) => void",
+      description: "Handler that is called when the element's value changes.",
+      default: "-"
+    },
+    {
+      attribute: "onComplete",
+      type: "(value: string) => void",
+      description: "Handler that is called when the element's value is completely filled.",
+      default: "-"
+    }
+  ]}
+/>

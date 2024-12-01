@@ -147,47 +147,213 @@ In case you need to customize the radio group even further, you can use the `use
 
 ### RadioGroup Props
 
-| Attribute          | Type                                                                        | Description                                                                                                                                                                                                             | Default    |
-| ------------------ | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| children           | `ReactNode` \| `ReactNode[]`                                                | The list of radio elements.                                                                                                                                                                                             | -          |
-| label              | `ReactNode`                                                                 | The label of the radio group.                                                                                                                                                                                           | -          |
-| size               | `sm` \| `md` \| `lg`                                                        | The size of the radios.                                                                                                                                                                                                 | `md`       |
-| color              | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the radios.                                                                                                                                                                                                | `primary`  |
-| orientation        | `horizontal` \| `vertical`                                                  | The orientation of the radio group.                                                                                                                                                                                     | `vertical` |
-| name               | `string`                                                                    | The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons).                                                       | -          |
-| value              | `string[]`                                                                  | The current selected value. (controlled).                                                                                                                                                                               | -          |
-| defaultValue       | `string[]`                                                                  | The default selected value. (uncontrolled).                                                                                                                                                                             | -          |
-| description        | `ReactNode`                                                                 | Radio group description .                                                                                                                                                                                               | -          |
-| errorMessage       | `ReactNode` \| `((v: ValidationResult) => ReactNode)`                       | Radio group error message.                                                                                                                                                                                              | -          |
-| validate           | `(value: string) => ValidationError ｜ true ｜ null ｜ undefined`            | Validate input values when committing (e.g. on blur), returning error messages for invalid values. Validation errors are displayed upon form submission if `validationBehavior` is set to `native`. For real-time validation, use the `isInvalid` prop.| -          |
-| validationBehavior | `native` \| `aria`                                                                                                                    | Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA.| `aria`     |
-| isDisabled         | `boolean`                                                                   | Whether the radio group is disabled.                                                                                                                                                                                    | `false`    |
-| isRequired         | `boolean`                                                                   | Whether user checkboxes are required on the input before form submission.                                                                                                                                               | `false`    |
-| isReadOnly         | `boolean`                                                                   | Whether the checkboxes can be selected but not changed by the user.                                                                                                                                                     | -          |
-| isInvalid          | `boolean`                                                                   | Whether the radio group is invalid.                                                                                                                                                                                     | `false`    |
-| validationState    | `valid` \| `invalid`                                                        | Whether the inputs should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead.                                                                                                  | `false`    |
-| disableAnimation   | `boolean`                                                                   | Whether the animation should be disabled.                                                                                                                                                                               | `false`    |
-| classNames         | `Record<"base"｜ "wrapper"｜ "label", string>`                              | Allows to set custom class names for the radio group slots.                                                                                                                                                             | -          |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]", 
+      description: "The list of radio elements.",
+      default: "-"
+    },
+    {
+      attribute: "label",
+      type: "ReactNode",
+      description: "The label of the radio group.",
+      default: "-"
+    },
+    {
+      attribute: "size", 
+      type: "sm | md | lg",
+      description: "The size of the radios.",
+      default: "md"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the radios.",
+      default: "primary"
+    },
+    {
+      attribute: "orientation",
+      type: "horizontal | vertical",
+      description: "The orientation of the radio group.",
+      default: "vertical"
+    },
+    {
+      attribute: "name",
+      type: "string",
+      description: "The name of the RadioGroup, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#name_and_radio_buttons).",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "string[]",
+      description: "The current selected value. (controlled)",
+      default: "-"
+    },
+    {
+      attribute: "defaultValue",
+      type: "string[]", 
+      description: "The default selected value. (uncontrolled)",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "Radio group description.",
+      default: "-"
+    },
+    {
+      attribute: "errorMessage",
+      type: "ReactNode | ((v: ValidationResult) => ReactNode)",
+      description: "Radio group error message.",
+      default: "-"
+    },
+    {
+      attribute: "validate",
+      type: "(value: string) => ValidationError | true | null | undefined",
+      description: "Validate input values when committing (e.g. on blur), returning error messages for invalid values. Validation errors are displayed upon form submission if `validationBehavior` is set to `native`. For real-time validation, use the `isInvalid` prop.",
+      default: "-"
+    },
+    {
+      attribute: "validationBehavior",
+      type: "native | aria",
+      description: "Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA.",
+      default: "aria"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the radio group is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean", 
+      description: "Whether user checkboxes are required on the input before form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the checkboxes can be selected but not changed by the user.",
+      default: "-"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the radio group is invalid.",
+      default: "false"
+    },
+    {
+      attribute: "validationState",
+      type: "valid | invalid",
+      description: "Whether the inputs should display its \"valid\" or \"invalid\" visual styling. (Deprecated) use isInvalid instead.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the animation should be disabled.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\" | \"wrapper\" | \"label\", string>",
+      description: "Allows to set custom class names for the radio group slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### RadioGroup Events
 
-| Attribute     | Type                                  | Description                                                                                                                         |
-| ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's value changes. You can pull out the new value by accessing `event.target.value` (string). |
-| onValueChange | `((value: string) => void)`           | Handler that is called when the value changes.                                                                                      |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "React.ChangeEvent<HTMLInputElement>",
+      description: "Handler that is called when the element's value changes. You can pull out the new value by accessing event.target.value (string).",
+      default: "-"
+    },
+    {
+      attribute: "onValueChange",
+      type: "((value: string) => void)",
+      description: "Handler that is called when the value changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Radio Props
 
-| Attribute        | Type                                                                                           | Description                                                                                    | Default   |
-| ---------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | --------- |
-| children         | `ReactNode`                                                                                    | The label of the radio.                                                                        | -         |
-| label            | `ReactNode`                                                                                    | The label of the radio.                                                                        | -         |
-| size             | `sm` \| `md` \| `lg`                                                                           | The size of the radio.                                                                         | `md`      |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                    | The color of the radio.                                                                        | `primary` |
-| description      | `ReactNode`                                                                                    | A description for the field. Provides a hint such as specific requirements for what to choose. | -         |
-| isDisabled       | `boolean`                                                                                      | Whether the radio is disabled.                                                                 | `false`   |
-| isRequired       | `boolean`                                                                                      | Whether user checkboxes are required on the input before form submission.                      | `false`   |
-| isReadOnly       | `boolean`                                                                                      | Whether the checkboxes can be selected but not changed by the user.                            | -         |
-| isInvalid        | `boolean`                                                                                      | Whether the radio is invalid. This is based on the radio group `validationState` prop.        | `false`   |
-| disableAnimation | `boolean`                                                                                      | Whether the animation should be disabled.                                                      | `false`   |
-| classNames       | `Record<"base"｜ "wrapper"｜ "labelWrapper" ｜ "label" ｜ "control" ｜ "description", string>` | Allows to set custom class names for the radio slots.                                          | -         |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The label of the radio.",
+      default: "-"
+    },
+    {
+      attribute: "label",
+      type: "ReactNode",
+      description: "The label of the radio.",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the radio.",
+      default: "md"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the radio.",
+      default: "primary"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "A description for the field. Provides a hint such as specific requirements for what to choose.",
+      default: "-"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the radio is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Whether user checkboxes are required on the input before form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the checkboxes can be selected but not changed by the user.",
+      default: "-"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the radio is invalid. This is based on the radio group validationState prop.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the animation should be disabled.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\" | \"wrapper\" | \"labelWrapper\" | \"label\" | \"control\" | \"description\", string>",
+      description: "Allows to set custom class names for the radio slots.",
+      default: "-"
+    }
+  ]}
+/>

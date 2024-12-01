@@ -425,108 +425,395 @@ You can customize the `Table` component by passing custom Tailwind CSS classes t
 
 ### Table Props
 
-| Attribute                     | Type                                                                                                                                                          | Description                                                                                                  | Default     |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | ----------- |
-| children\*                    | `ReactNode[]`                                                                                                                                                 | The elements that make up the table. Includes the `TableHeader`, `TableBody`, `TableColumn`, and `TableRow`. | -           |
-| color                         | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                   | Color of the selected rows, and checkboxes.                                                                  | `default`   |
-| layout                        | `auto` \| `fixed`                                                                                                                                             | Defines the layout of the table.                                                                             | `auto`      |
-| radius                        | `none` \| `sm` \| `md` \| `lg`                                                                                                                                | The border-radius of the table.                                                                              | `lg`        |
-| shadow                        | `none` \| `sm` \| `md` \| `lg`                                                                                                                                | The shadow size of the table.                                                                                | `sm`        |
-| hideHeader                    | `boolean`                                                                                                                                                     | Whether to hide the table header.                                                                            | `false`     |
-| isStriped                     | `boolean`                                                                                                                                                     | Whether to apply striped rows in the table.                                                                  | `false`     |
-| isCompact                     | `boolean`                                                                                                                                                     | Whether to apply compact style to the table.                                                                 | `false`     |
-| isHeaderSticky                | `boolean`                                                                                                                                                     | Whether to make the table header sticky.                                                                     | `false`     |
-| fullWidth                     | `boolean`                                                                                                                                                     | Whether to make the table full width.                                                                        | `true`      |
-| removeWrapper                 | `boolean`                                                                                                                                                     | Whether the table base container should not be rendered.                                                     | `false`     |
-| BaseComponent                 | `React.ComponentType<any>`                                                                                                                                    | A custom wrapper component for the table.                                                                    | `div`       |
-| topContent                    | `ReactNode`                                                                                                                                                   | Provides content to include a component in the top of the table.                                             | -           |
-| bottomContent                 | `ReactNode`                                                                                                                                                   | Provides content to include a component in the bottom of the table.                                          | -           |
-| topContentPlacement           | `inside` \| `outside`                                                                                                                                         | Where to place the `topContent` component.                                                                   | `inside`    |
-| bottomContentPlacement        | `inside` \| `outside`                                                                                                                                         | Where to place the `bottomContent` component.                                                                | `inside`    |
-| showSelectionCheckboxes       | `boolean`                                                                                                                                                     | Whether the row selection checkboxes should be displayed.                                                    | -           |
-| sortDescriptor                | [SortDescriptor](#sort-descriptor)                                                                                                                            | The current sorted column and direction.                                                                     | -           |
-| selectedKeys                  | [Selection](#selection)                                                                                                                                       | The currently selected keys in the collection (controlled).                                                  | -           |
-| defaultSelectedKeys           | [Selection](#selection)                                                                                                                                       | The initial selected keys in the collection (uncontrolled).                                                  | -           |
-| disabledKeys                  | [Selection](#selection)                                                                                                                                       | A set of keys for rows that are disabled.                                                                    | -           |
-| disallowEmptySelection        | `boolean`                                                                                                                                                     | Whether the collection allows empty selection.                                                               | -           |
-| selectionMode                 | `single` \| `multiple` \| `none`                                                                                                                              | The type of selection that is allowed in the collection.                                                     | `none`      |
-| selectionBehavior             | `toggle` \| `replace`                                                                                                                                         | How multiple selection should behave in the collection.                                                      | `toggle`    |
-| disabledBehavior              | `selection` \| `all`                                                                                                                                          | Whether `disabledKeys` applies to all interactions, or only selection.                                       | `selection` |
-| allowDuplicateSelectionEvents | `boolean`                                                                                                                                                     | Whether `onSelectionChange` should fire even if the new set of keys is the same as the last.                 | -           |
-| disableAnimation              | `boolean`                                                                                                                                                     | Whether to disable the table and checkbox animations.                                                        | `false`     |
-| checkboxesProps               | [CheckboxProps](/docs/components/checkbox/#checkbox-props)                                                                                                    | Props to be passed to the checkboxes.                                                                        | -           |
-| classNames                    | `Record<"base" ｜ "table" ｜ "thead" ｜ "tbody" ｜ "tfoot" ｜ "emptyWrapper" ｜ "loadingWrapper" ｜ "wrapper" ｜ "tr" ｜ "th" ｜ "td" ｜ "sortIcon", string>` | Allows to set custom class names for the dropdown item slots.                                                | -           |
-| isKeyboardNavigationDisabled  | `boolean`                                                                                                                                                     | Whether to disable keyboard navigations or not.                                                              | `false`     |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode[]",
+      description: "The elements that make up the table. Includes the TableHeader, TableBody, TableColumn, and TableRow.",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "Color of the selected rows, and checkboxes.",
+      default: "default"
+    },
+    {
+      attribute: "layout",
+      type: "auto | fixed",
+      description: "Defines the layout of the table.",
+      default: "auto"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg",
+      description: "The border-radius of the table.",
+      default: "lg"
+    },
+    {
+      attribute: "shadow",
+      type: "none | sm | md | lg",
+      description: "The shadow size of the table.",
+      default: "sm"
+    },
+    {
+      attribute: "hideHeader",
+      type: "boolean",
+      description: "Whether to hide the table header.",
+      default: "false"
+    },
+    {
+      attribute: "isStriped",
+      type: "boolean",
+      description: "Whether to apply striped rows in the table.",
+      default: "false"
+    },
+    {
+      attribute: "isCompact",
+      type: "boolean", 
+      description: "Whether to apply compact style to the table.",
+      default: "false"
+    },
+    {
+      attribute: "isHeaderSticky",
+      type: "boolean",
+      description: "Whether to make the table header sticky.",
+      default: "false"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether to make the table full width.",
+      default: "true"
+    },
+    {
+      attribute: "removeWrapper",
+      type: "boolean",
+      description: "Whether the table base container should not be rendered.",
+      default: "false"
+    },
+    {
+      attribute: "BaseComponent",
+      type: "React.ComponentType<any>",
+      description: "A custom wrapper component for the table.",
+      default: "div"
+    },
+    {
+      attribute: "topContent",
+      type: "ReactNode",
+      description: "Provides content to include a component in the top of the table.",
+      default: "-"
+    },
+    {
+      attribute: "bottomContent",
+      type: "ReactNode", 
+      description: "Provides content to include a component in the bottom of the table.",
+      default: "-"
+    },
+    {
+      attribute: "topContentPlacement",
+      type: "inside | outside",
+      description: "Where to place the topContent component.",
+      default: "inside"
+    },
+    {
+      attribute: "bottomContentPlacement",
+      type: "inside | outside",
+      description: "Where to place the bottomContent component.",
+      default: "inside"
+    },
+    {
+      attribute: "showSelectionCheckboxes",
+      type: "boolean",
+      description: "Whether the row selection checkboxes should be displayed.",
+      default: "-"
+    },
+    {
+      attribute: "sortDescriptor",
+      type: "SortDescriptor",
+      description: "The current sorted column and direction.",
+      default: "-"
+    },
+    {
+      attribute: "selectedKeys",
+      type: "Selection",
+      description: "The currently selected keys in the collection (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultSelectedKeys",
+      type: "Selection",
+      description: "The initial selected keys in the collection (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "disabledKeys",
+      type: "Selection",
+      description: "A set of keys for rows that are disabled.",
+      default: "-"
+    },
+    {
+      attribute: "disallowEmptySelection",
+      type: "boolean",
+      description: "Whether the collection allows empty selection.",
+      default: "-"
+    },
+    {
+      attribute: "selectionMode",
+      type: "single | multiple | none",
+      description: "The type of selection that is allowed in the collection.",
+      default: "none"
+    },
+    {
+      attribute: "selectionBehavior",
+      type: "toggle | replace",
+      description: "How multiple selection should behave in the collection.",
+      default: "toggle"
+    },
+    {
+      attribute: "disabledBehavior",
+      type: "selection | all",
+      description: "Whether disabledKeys applies to all interactions, or only selection.",
+      default: "selection"
+    },
+    {
+      attribute: "allowDuplicateSelectionEvents",
+      type: "boolean",
+      description: "Whether onSelectionChange should fire even if the new set of keys is the same as the last.",
+      default: "-"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable the table and checkbox animations.",
+      default: "false"
+    },
+    {
+      attribute: "checkboxesProps",
+      type: "CheckboxProps",
+      description: "Props to be passed to the checkboxes.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<'base' | 'table' | 'thead' | 'tbody' | 'tfoot' | 'emptyWrapper' | 'loadingWrapper' | 'wrapper' | 'tr' | 'th' | 'td' | 'sortIcon', string>",
+      description: "Allows to set custom class names for the dropdown item slots.",
+      default: "-"
+    },
+    {
+      attribute: "isKeyboardNavigationDisabled",
+      type: "boolean",
+      description: "Whether to disable keyboard navigations or not.",
+      default: "false"
+    }
+  ]}
+/>
+
 ### Table Events
 
-| Attribute         | Type                                  | Description                                                         |
-| ----------------- | ------------------------------------- | ------------------------------------------------------------------- |
-| onRowAction       | `(key: React.Key) => void`            | Handler that is called when a user performs an action on the row.   |
-| onCellAction      | `(key: react.Key) => void`            | Handler that is called when a user performs an action on the cell.  |
-| onSelectionChange | `(keys: Selection) => any`            | Handler that is called when the selection changes.                  |
-| onSortChange      | `(descriptor: SortDescriptor) => any` | Handler that is called when the sorted column or direction changes. |
+<APITable
+  data={[
+    {
+      attribute: "onRowAction",
+      type: "(key: React.Key) => void",
+      description: "Handler that is called when a user performs an action on the row.",
+      default: "-"
+    },
+    {
+      attribute: "onCellAction",
+      type: "(key: React.Key) => void",
+      description: "Handler that is called when a user performs an action on the cell.",
+      default: "-"
+    },
+    {
+      attribute: "onSelectionChange",
+      type: "(keys: Selection) => any",
+      description: "Handler that is called when the selection changes.",
+      default: "-"
+    },
+    {
+      attribute: "onSortChange",
+      type: "(descriptor: SortDescriptor) => any",
+      description: "Handler that is called when the sorted column or direction changes.",
+      default: "-"
+    }
+  ]}
+/>
 
-<Spacer y={2} />
+### TableHeader Props
 
-#### TableHeader Props
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode[]",
+      description: "A list of Column(s) or a function. If the latter, a list of columns must be provided using the columns prop",
+      default: "-"
+    },
+    {
+      attribute: "columns",
+      type: "T[]",
+      description: "A list of table columns.",
+      default: "-"
+    }
+  ]}
+/>
 
-| Attribute  | Type          | Description                                                                                                 | Default |
-| ---------- | ------------- | ----------------------------------------------------------------------------------------------------------- | ------- |
-| children\* | `ReactNode[]` | A list of Column(s) or a function. If the latter, a list of columns must be provided using the columns prop | -       |
-| columns    | `T[]`         | A list of table columns.                                                                                    | -       |
+### TableColumn Props
 
-<Spacer y={2} />
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "Static child columns or content to render as the column header",
+      default: "-"
+    },
+    {
+      attribute: "align",
+      type: "start | center | end",
+      description: "The alignment of the column's contents relative to its allotted width",
+      default: "start"
+    },
+    {
+      attribute: "hideHeader",
+      type: "boolean",
+      description: "Whether the column should hide its header text",
+      default: "false"
+    },
+    {
+      attribute: "allowsSorting",
+      type: "boolean",
+      description: "Whether the column allows sorting",
+      default: "-"
+    },
+    {
+      attribute: "isRowHeader",
+      type: "boolean",
+      description: "Whether a column is a row header and should be announced by assistive technology during row navigation",
+      default: "-"
+    },
+    {
+      attribute: "textValue",
+      type: "string",
+      description: "A string representation of the column's contents, used for accessibility announcements",
+      default: "-"
+    },
+    {
+      attribute: "width",
+      type: "string | number",
+      description: "The width of the column",
+      default: "-"
+    },
+    {
+      attribute: "minWidth",
+      type: "string | number",
+      description: "The minimum width of the column",
+      default: "-"
+    },
+    {
+      attribute: "maxWidth",
+      type: "string | number",
+      description: "The maximum width of the column",
+      default: "-"
+    }
+  ]}
+/>
 
-#### TableColumn Props
+### TableBody Props
 
-| Attribute     | Type                         | Description                                                                                            | Default |
-| ------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------ | ------- |
-| children\*    | `ReactNode`                  | Static child columns or content to render as the column header                                         | -       |
-| align         | `start` \| `center` \| `end` | The alignment of the column's contents relative to its allotted width                                  | `start` |
-| hideHeader    | `boolean`                    | Whether the column should hide its header text                                                         | `false` |
-| allowsSorting | `boolean`                    | Whether the column allows sorting                                                                      | -       |
-| isRowHeader   | `boolean`                    | Whether a column is a row header and should be announced by assistive technology during row navigation | -       |
-| textValue     | `string`                     | A string representation of the column's contents, used for accessibility announcements                 | -       |
-| width         | `string` \| `number`         | The width of the column                                                                                | -       |
-| minWidth      | `string` \| `number`         | The minimum width of the column                                                                        | -       |
-| maxWidth      | `string` \| `number`         | The maximum width of the column                                                                        | -       |
-
-<Spacer y={2} />
-
-#### TableBody Props
-
-| Attribute      | Type                                                          | Description                                                                                   | Default |
-| -------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | ------- |
-| children\*     | `RowElement` \| `RowElement[]` \| `((item: T) => RowElement)` | The contents of the table body. Supports static items or a function for dynamic rendering     | -       |
-| items          | `Iterable<T>`                                                 | A list of row objects in the table body used when dynamically rendering rows                  | -       |
-| isLoading      | `boolean`                                                     | Whether the table body is loading.                                                            | -       |
-| loadingState   | [LoadingState](#loading-state)                                | Handler that is called when more items should be loaded, e.g. while scrolling near the bottom | -       |
-| loadingContent | `ReactNode`                                                   | Content to display while loading more items                                                   | -       |
-| emptyContent   | `ReactNode`                                                   | Content to display when there are no items in the table body                                  | -       |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "RowElement | RowElement[] | ((item: T) => RowElement)",
+      description: "The contents of the table body. Supports static items or a function for dynamic rendering",
+      default: "-"
+    },
+    {
+      attribute: "items",
+      type: "Iterable<T>",
+      description: "A list of row objects in the table body used when dynamically rendering rows",
+      default: "-"
+    },
+    {
+      attribute: "isLoading",
+      type: "boolean",
+      description: "Whether the table body is loading.",
+      default: "-"
+    },
+    {
+      attribute: "loadingState",
+      type: "LoadingState",
+      description: "Handler that is called when more items should be loaded, e.g. while scrolling near the bottom",
+      default: "-"
+    },
+    {
+      attribute: "loadingContent",
+      type: "ReactNode",
+      description: "Content to display while loading more items",
+      default: "-"
+    },
+    {
+      attribute: "emptyContent",
+      type: "ReactNode",
+      description: "Content to display when there are no items in the table body",
+      default: "-"
+    }
+  ]}
+/>
 
 ### TableBody Events
 
-| Attribute  | Type        | Description                                                                  |
-| ---------- | ----------- | ---------------------------------------------------------------------------- |
-| onLoadMore | `() => any` | A list of row objects in the table body used when dynamically rendering rows |
+<APITable
+  data={[
+    {
+      attribute: "onLoadMore",
+      type: "() => any",
+      description: "A list of row objects in the table body used when dynamically rendering rows",
+      default: "-"
+    }
+  ]}
+/>
 
-<Spacer y={2} />
+### TableRow Props
 
-#### TableRow Props
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "CellElement | CellElement[] | CellRenderer",
+      description: "Rendered contents of the row or row child items",
+      default: "-"
+    },
+    {
+      attribute: "textValue",
+      type: "string",
+      description: "A string representation of the row's contents, used for features like typeahead",
+      default: "-"
+    }
+  ]}
+/>
 
-| Attribute  | Type                                               | Description                                                                     | Default |
-| ---------- | -------------------------------------------------- | ------------------------------------------------------------------------------- | ------- |
-| children\* | `CellElement` \| `CellElement[]` \| `CellRenderer` | Rendered contents of the row or row child items                                 | -       |
-| textValue  | `string`                                           | A string representation of the row's contents, used for features like typeahead | -       |
+### TableCell Props
 
-<Spacer y={2} />
-
-#### TableCell Props
-
-| Attribute  | Type        | Description                                                                     | Default |
-| ---------- | ----------- | ------------------------------------------------------------------------------- | ------- |
-| children\* | `ReactNode` | The contents of the cell                                                        | -       |
-| textValue  | `string`    | A string representation of the row's contents, used for features like typeahead | -       |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "The contents of the cell",
+      default: "-"
+    },
+    {
+      attribute: "textValue",
+      type: "string",
+      description: "A string representation of the row's contents, used for features like typeahead",
+      default: "-"
+    }
+  ]}
+/>
 
 ---
 
