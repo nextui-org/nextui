@@ -417,8 +417,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
           class: clsx(classNames?.inputWrapper, isFilled ? "is-filled" : ""),
         }),
         ...mergeProps(props, hoverProps),
-        onClick: (e) => {
-          if (domRef.current && e.currentTarget === e.target) {
+        onClick: () => {
+          if (domRef.current) {
             domRef.current.focus();
           }
         },
@@ -445,8 +445,8 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         ref: innerWrapperRef,
         "data-slot": "inner-wrapper",
-        onClick: (e) => {
-          if (domRef.current && e.currentTarget === e.target) {
+        onClick: () => {
+          if (domRef.current) {
             domRef.current.focus();
           }
         },
