@@ -2,4 +2,4 @@
 "@nextui-org/react": patch
 ---
 
-Fix double 'use client'
+Fix double 'use client' tag in core/react
