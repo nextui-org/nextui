@@ -3,7 +3,7 @@ import type {MenuItemVariantProps} from "@nextui-org/theme";
 import type {Node} from "@react-types/shared";
 
 import {useMemo, useRef, useCallback, Fragment} from "react";
-import {menuItem, MenuItemVariantProps} from "@nextui-org/theme";
+import {menuItem} from "@nextui-org/theme";
 import {
   HTMLNextUIProps,
   mapPropsVariants,
@@ -31,10 +31,7 @@ export type UseMenuItemProps<T extends object> = Props<T> &
 export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>) {
   const globalContext = useProviderContext();
 
-  const [props, variantProps] = mapPropsVariants(
-    originalProps,
-    menuItem.variantKeys as (keyof MenuItemVariantProps)[],
-  );
+  const [props, variantProps] = mapPropsVariants(originalProps, menuItem.variantKeys);
 
   const {
     as,
