@@ -66,7 +66,7 @@ The Switch component is used as an alternative between checked and not checked s
 
 You can also add icons to start and end of the switch by using `startContent` and `endContent` props.
 
-<CodeDemo title="With Icons" files={switchContent.icons} highlightedLines="11-12" />
+<CodeDemo title="With Icons" files={switchContent.icons} />
 
 ### Controlled
 
@@ -135,30 +135,119 @@ In case you need to customize the switch even further, you can use the `useSwitc
 
 ### Switch Props
 
-| Attribute        | Type                                                                                                       | Description                                                         | Default   |
-| ---------------- | ---------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- | --------- |
-| children         | `ReactNode`                                                                                                | The label of the switch.                                            | -         |
-| value            | `string`                                                                                                   | The value of the input element, used when submitting an HTML form.  | -         |
-| name             | `string`                                                                                                   | The name of the input element, used when submitting an HTML form.   | -         |
-| size             | `sm` \| `md` \| `lg`                                                                                       | The size of the switch.                                             | `md`      |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                | The color of the switch.                                            | `primary` |
-| thumbIcon        | [ThumbIconProps](#switch-icon-props)                                                                       | The icon to be displayed when the switch is checked.                | -         |
-| startContent     | `ReactNode`                                                                                                | The icon to be displayed at the start of the switch.                | -         |
-| endContent       | `ReactNode`                                                                                                | The icon to be displayed at the end of the switch.                  | -         |
-| isSelected       | `boolean`                                                                                                  | Whether the element should be selected (controlled).                | -         |
-| defaultSelected  | `boolean`                                                                                                  | Whether the element should be selected (uncontrolled).              | -         |
-| isRequired       | `boolean`                                                                                                  | Whether user input is required on the input before form submission. | `false`   |
-| isReadOnly       | `boolean`                                                                                                  | Whether the input can be selected but not changed by the user.      | -         |
-| isDisabled       | `boolean`                                                                                                  | Whether the switch is disabled.                                     | `false`   |
-| disableAnimation | `boolean`                                                                                                  | Whether the animation should be disabled.                           | `false`   |
-| classNames       | `Record<"base"｜ "wrapper"｜ "thumb"｜ "label" ｜ "startContent" ｜ "endContent" ｜ "thumbIcon" , string>` | Allows to set custom class names for the switch slots.              | -         |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The label of the switch.",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "string",
+      description: "The value of the input element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
+      attribute: "name",
+      type: "string", 
+      description: "The name of the input element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the switch.",
+      default: "md"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the switch.",
+      default: "primary"
+    },
+    {
+      attribute: "thumbIcon",
+      type: "ThumbIconProps",
+      description: "The icon to be displayed when the switch is checked.",
+      default: "-"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "The icon to be displayed at the start of the switch.",
+      default: "-"
+    },
+    {
+      attribute: "endContent", 
+      type: "ReactNode",
+      description: "The icon to be displayed at the end of the switch.",
+      default: "-"
+    },
+    {
+      attribute: "isSelected",
+      type: "boolean",
+      description: "Whether the element should be selected (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultSelected",
+      type: "boolean",
+      description: "Whether the element should be selected (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Whether user input is required on the input before form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the input can be selected but not changed by the user.",
+      default: "-"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the switch is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the animation should be disabled.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\"｜ \"wrapper\"｜ \"thumb\"｜ \"label\" ｜ \"startContent\" ｜ \"endContent\" ｜ \"thumbIcon\" , string>",
+      description: "Allows to set custom class names for the switch slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Switch Events
 
-| Attribute     | Type                                  | Description                                                                                                                                              |
-| ------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing `event.target.checked` (boolean). |
-| onValueChange | `(isSelected: boolean) => void`       | Handler that is called when the element's selection state changes.                                                                                       |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "React.ChangeEvent<HTMLInputElement>",
+      description: "Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing event.target.checked (boolean).",
+      default: "-"
+    },
+    {
+      attribute: "onValueChange",
+      type: "(isSelected: boolean) => void",
+      description: "Handler that is called when the element's selection state changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Types
 

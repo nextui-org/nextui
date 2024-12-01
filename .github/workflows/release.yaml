@@ -6,7 +6,7 @@ on:
       - ".changeset/**"
       - "packages/**"
     branches:
-      - main
+      - canary
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -14,7 +14,7 @@ concurrency:
 jobs:
   release:
     name: Release
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest-m
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -22,11 +22,11 @@ jobs:
       - name: Install
         uses: ./.github/common-actions/install
 
-      - name: Build
-        run: pnpm build
-
       - name: Tests
         run: pnpm test
+
+      - name: Build
+        run: pnpm build
 
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
@@ -39,4 +39,15 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Create canary release
+        if: steps.changesets.outputs.published != 'true'
+        timeout-minutes: 15
+        run: |
+          git checkout canary
+          pnpm version:canary
+          pnpm release:canary
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

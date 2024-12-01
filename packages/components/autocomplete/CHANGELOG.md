@@ -1,5 +1,82 @@
 # @nextui-org/autocomplete
 
+## 2.2.0-beta.17
+
+### Patch Changes
+
+- Updated dependencies [[`004c4a4b3`](https://github.com/nextui-org/nextui/commit/004c4a4b3e44477f148937b12bb542e4b27fd322), [`0b5ceb93c`](https://github.com/nextui-org/nextui/commit/0b5ceb93ce098e5d76409190f2d57cd89c06b7e9)]:
+  - @nextui-org/input@2.3.0-beta.12
+  - @nextui-org/shared-icons@2.0.10-beta.8
+  - @nextui-org/listbox@2.2.0-beta.14
+  - @nextui-org/popover@2.2.0-beta.12
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/scroll-shadow@2.2.0-beta.8
+  - @nextui-org/spinner@2.1.0-beta.9
+
+## 2.2.0-beta.16
+
+### Patch Changes
+
+- Updated dependencies [[`17bf65799`](https://github.com/nextui-org/nextui/commit/17bf65799c39c2ee44ea9c0b23aa80315b2a5083)]:
+  - @nextui-org/button@2.1.0-beta.10
+  - @nextui-org/input@2.3.0-beta.11
+  - @nextui-org/listbox@2.2.0-beta.13
+  - @nextui-org/popover@2.2.0-beta.12
+  - @nextui-org/scroll-shadow@2.2.0-beta.8
+  - @nextui-org/spinner@2.1.0-beta.9
+  - @nextui-org/form@2.0.1-beta.1
+  - @nextui-org/aria-utils@2.1.0-beta.11
+
+## 2.2.0-beta.15
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/button@2.1.0-beta.9
+  - @nextui-org/form@2.0.1-beta.1
+  - @nextui-org/input@2.3.0-beta.11
+  - @nextui-org/listbox@2.2.0-beta.12
+  - @nextui-org/popover@2.2.0-beta.11
+  - @nextui-org/scroll-shadow@2.2.0-beta.8
+  - @nextui-org/spinner@2.1.0-beta.9
+  - @nextui-org/use-aria-button@2.1.0-beta.8
+  - @nextui-org/use-safe-layout-effect@2.0.7-beta.5
+  - @nextui-org/aria-utils@2.1.0-beta.10
+  - @nextui-org/react-utils@2.0.18-beta.8
+  - @nextui-org/shared-icons@2.0.10-beta.7
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
+## 2.2.0-beta.14
+
+### Patch Changes
+
+- [#3036](https://github.com/nextui-org/nextui/pull/3036) [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00) Thanks [@ryo-manba](https://github.com/ryo-manba)! - support server validation with form
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00), [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00), [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/button@2.1.0-beta.8
+  - @nextui-org/listbox@2.2.0-beta.11
+  - @nextui-org/popover@2.2.0-beta.10
+  - @nextui-org/use-aria-button@2.1.0-beta.7
+  - @nextui-org/aria-utils@2.1.0-beta.9
+  - @nextui-org/form@2.0.1-beta.0
+  - @nextui-org/input@2.3.0-beta.10
+  - @nextui-org/scroll-shadow@2.2.0-beta.7
+  - @nextui-org/spinner@2.1.0-beta.8
+
+## 2.2.0-beta.13
+
+### Patch Changes
+
+- Updated dependencies [[`256d46277`](https://github.com/nextui-org/nextui/commit/256d462771c19d6ca5b969d0ec44419fb560f0ac)]:
+  - @nextui-org/listbox@2.2.0-beta.10
+  - @nextui-org/button@2.1.0-beta.7
+  - @nextui-org/input@2.3.0-beta.9
+  - @nextui-org/popover@2.2.0-beta.9
+  - @nextui-org/scroll-shadow@2.2.0-beta.7
+  - @nextui-org/spinner@2.1.0-beta.7
+
 ## 2.2.0-beta.12
 
 ### Patch Changes

@@ -201,8 +201,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       aria-expanded={dataAttr(hasChildNodes ? isExpanded : undefined)}
       aria-selected={dataAttr(isSelected)}
       className={clsx(
-        "flex flex-col gap-3outline-none w-full tap-highlight-transparent",
-
+        "flex flex-col outline-none w-full tap-highlight-transparent",
         hasChildNodes ? "mb-4" : "first:mt-4",
         // focus ring
         ...dataFocusVisibleClasses,
@@ -261,7 +260,7 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
   return (
     <ScrollArea
       ref={ref}
-      className="h-full lg:max-h-[calc(100vh_-_64px)]"
+      className="h-full max-w-[90%] lg:max-h-[calc(100vh_-_64px)]"
       role="tree"
       {...collectionProps}
     >

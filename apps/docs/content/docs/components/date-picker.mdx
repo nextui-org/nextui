@@ -119,9 +119,9 @@ in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
   commands={{
-    npm: "npm install @internationalized/date",
-    yarn: "yarn add @internationalized/date",
-    pnpm: "pnpm add @internationalized/date",
+    npm: "npm install @internationalized/date@3.5.5",
+    yarn: "yarn add @internationalized/date@3.5.5",
+    pnpm: "pnpm add @internationalized/date@3.5.5",
   }}
 />
 
@@ -144,9 +144,9 @@ in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
   commands={{
-    npm: "npm install @internationalized/date @react-aria/i18n",
-    yarn: "yarn add @internationalized/date @react-aria/i18n",
-    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+    npm: "npm install @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    yarn: "yarn add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    pnpm: "pnpm add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
   }}
 />
 
@@ -168,9 +168,9 @@ in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
   commands={{
-    npm: "npm install @internationalized/date",
-    yarn: "yarn add @internationalized/date",
-    pnpm: "pnpm add @internationalized/date",
+    npm: "npm install @internationalized/date@3.5.5",
+    yarn: "yarn add @internationalized/date@3.5.5",
+    pnpm: "pnpm add @internationalized/date@3.5.5",
   }}
 />
 
@@ -192,9 +192,9 @@ in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
   commands={{
-    npm: "npm install @internationalized/date @react-aria/i18n",
-    yarn: "yarn add @internationalized/date @react-aria/i18n",
-    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+    npm: "npm install @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    yarn: "yarn add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    pnpm: "pnpm add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
   }}
 />
 
@@ -214,9 +214,9 @@ in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
   commands={{
-    npm: "npm install @internationalized/date @react-aria/i18n",
-    yarn: "yarn add @internationalized/date @react-aria/i18n",
-    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+    npm: "npm install @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    yarn: "yarn add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    pnpm: "pnpm add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
   }}
 />
 
@@ -246,9 +246,9 @@ in multiple formats into `ZonedDateTime` objects.
 
 <PackageManagers
   commands={{
-    npm: "npm install @internationalized/date @react-aria/i18n",
-    yarn: "yarn add @internationalized/date @react-aria/i18n",
-    pnpm: "pnpm add @internationalized/date @react-aria/i18n",
+    npm: "npm install @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    yarn: "yarn add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
+    pnpm: "pnpm add @internationalized/date@3.5.5 @react-aria/i18n@3.12.2",
   }}
 />
 
@@ -313,56 +313,224 @@ import {I18nProvider} from "@react-aria/i18n";
 
 ### DatePicker Props
 
-| Attribute               | Type                                                                                                                                                     | Description                                                                                                                                                   | Default                                                              |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------       | -------------------------------------------------------------------- |
-| label                   | `ReactNode`                                                                                                                                              | The content to display as the label.                                                                                                                          | -                                                                    |
-| value                   | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                         | The current value of the date-picker (controlled).                                                                                                            | -                                                                    |
-| variant                 | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                          | The variant of the date input.                                                                                                                                | `flat`                                                               |
-| color                   | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                              | The color of the date input.                                                                                                                                  | `default`                                                            |
-| size                    | `sm` \| `md` \| `lg`                                                                                                                                     | The size of the date input.                                                                                                                                   | `md`                                                                 |
-| radius                  | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                                 | The radius of the date input.                                                                                                                                 | -                                                                    |
-| defaultValue            | `string`                                                                                                                                                 | The default value of the date-picker (uncontrolled).                                                                                                          | -                                                                    |
-| placeholderValue        | `ZonedDateTime` \| `CalendarDate` \| `CalendarDateTime` \| `undefined` \| `null`                                                                         | The placeholder of the date-picker.                                                                                                                           | -                                                                    |
-| description             | `ReactNode`                                                                                                                                              | A description for the date-picker. Provides a hint such as specific requirements for what to choose.                                                          | -                                                                    |
-| errorMessage            | `ReactNode \| (v: ValidationResult) => ReactNode`                                                                                                        | An error message for the date input.                                                                                                                          | -                                                                    |
-| validate                | `(value: MappedDateValue<DateValue>) => ValidationError ｜ true ｜ null ｜ undefined`                                                                     | Validate input values when committing (e.g. on blur), returning error messages for invalid values. Display validation errors upon form submission if `validationBehavior` is set to `native`. For real-time validation, use the `isInvalid` prop.| -                                                                    |
-| validationBehavior      | `native` \| `aria`                                                                                                                                       | Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA.| `aria`                                                               |
-| startContent            | `ReactNode`                                                                                                                                              | Element to be rendered in the left side of the date-picker.                                                                                                   | -                                                                    |
-| endContent              | `ReactNode`                                                                                                                                              | Element to be rendered in the right side of the date-picker.                                                                                                  | -                                                                    |
-| labelPlacement          | `inside` \| `outside` \| `outside-left`                                                                                                                  | The position of the label.                                                                                                                                    | `inside`                                                             |
-| isRequired              | `boolean`                                                                                                                                                | Whether user input is required on the date-picker before form submission.                                                                                     | `false`                                                              |
-| isReadOnly              | `boolean`                                                                                                                                                | Whether the date-picker can be selected but not changed by the user.                                                                                          |                                                                      |
-| isDisabled              | `boolean`                                                                                                                                                | Whether the date-picker is disabled.                                                                                                                          | `false`                                                              |
-| isInvalid               | `boolean`                                                                                                                                                | Whether the date-picker is invalid.                                                                                                                           | `false`                                                              |
-| visibleMonths           | `number`                                                                                                                                                 | The number of months to display at once. Up to 3 months are supported. Passing a number greater than 1 will disable the `showMonthAndYearPickers` prop.       | `1`                                                                  |
-| selectorIcon            | `ReactNode`                                                                                                                                              | The icon to toggle the date picker popover. Usually a calendar icon.                                                                                          |                                                                      |
-| pageBehavior            | `PageBehavior`                                                                                                                                           | Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.           | `visible`                                                            |
-| calendarWidth           | `number`                                                                                                                                                 | The width to be applied to the calendar component.                                                                                                            | `256`                                                                |
-| CalendarTopContent      | `ReactNode`                                                                                                                                              | Top content to be rendered in the calendar component.                                                                                                         |                                                                      |
-| isDateUnavailable       | `((date: DateValue) => boolean)`                                                                                                                         | Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.                                                      |                                                                      |
-| autoFocus               | `boolean`                                                                                                                                                | Whether the element should receive focus on render.                                                                                                           | `false`                                                              |
-| hourCycle               | `12` \| `24`                                                                                                                                             | Whether to display the time in 12 or 24 hour format. This is determined by the user's locale.                                                                 | -                                                                    |
-| granularity             | `day` \| `hour` \| `minute` \| `second`                                                                                                                  | Determines the smallest unit that is displayed in the date picker. Typically "day" for dates.                                                                 | -                                                                    |
-| hideTimeZone            | `boolean`                                                                                                                                                | Whether to hide the time zone abbreviation.                                                                                                                   | `false`                                                              |
-| shouldForceLeadingZeros | `boolean`                                                                                                                                                | Whether to always show leading zeros in the month, day, and hour fields.                                                                                      | `true`                                                               |
-| CalendarBottomContent   | `ReactNode`                                                                                                                                              | Bottom content to be rendered in the calendar component.                                                                                                      |                                                                      |
-| showMonthAndYearPickers | `boolean` \| `undefined`                                                                                                                                 | Whether the calendar should show month and year pickers.                                                                                                      | false                                                                |
-| popoverProps            | `PopoverProps` \| `undefined`                                                                                                                            | Props to be passed to the popover component.                                                                                                                  | `{ placement: "bottom", triggerScaleOnOpen: false, offset: 13 }`     |
-| selectorButtonProps     | `ButtonProps` \| `undefined`                                                                                                                             | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
-| selectorButtonPlacement | `start` \| `end`                                                                                                                                         | The position of the selector button.                                                                                                                          | `end`                                                                |
-| calendarProps           | `CalendarProps` \| `undefined`                                                                                                                           | Props to be passed to the selector button component.                                                                                                          | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
-| timeInputProps          | `TimeInputProps`                                                                                                                                         | Props to be passed to the time input component.                                                                                                               | `{ size: "sm", variant: "light", radius: "full", isIconOnly: true }` |
-| disableAnimation        | `boolean`                                                                                                                                                | Whether to disable all animations in the date picker. Including the DateInput, Button, Calendar, and Popover.                                                 | `false`                                                              |
-| classNames              | `Record<"base" \| "selectorButton" \| "selectorIcon" \| "popoverContent" \| "calendar" \| "calendarContent" \| "timeInputLabel" \| "timeInput", string>` | Allows to set custom class names for the date-picker slots.                                                                                                   | -                                                                    |
-| dateInputClassNames     | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper"｜ "input"｜ "helperWrapper"｜ "description"｜ "errorMessage", string>`                          | Allows to set custom class names for the [date input slots](/docs/components/date-input#slots).                                                               | -                                                                    |
+<APITable
+  data={[
+    {
+      attribute: "label",
+      type: "ReactNode",
+      description: "The content to display as the label.",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "ZonedDateTime | CalendarDate | CalendarDateTime | undefined | null",
+      description: "The current value of the date-picker (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "flat | bordered | faded | underlined",
+      description: "The variant of the date input.",
+      default: "flat"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the date input.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the date input.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The radius of the date input.",
+      default: "-"
+    },
+    {
+      attribute: "defaultValue",
+      type: "string",
+      description: "The default value of the date-picker (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "placeholderValue",
+      type: "ZonedDateTime | CalendarDate | CalendarDateTime | undefined | null",
+      description: "The placeholder of the date-picker.",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "A description for the date-picker. Provides a hint such as specific requirements for what to choose.",
+      default: "-"
+    },
+    {
+      attribute: "errorMessage",
+      type: "ReactNode | (v: ValidationResult) => ReactNode",
+      description: "An error message for the date input.",
+      default: "-"
+    },
+    {
+      attribute: "validate",
+      type: "(value: MappedDateValue<DateValue>) => ValidationError | true | null | undefined",
+      description: "Validate input values when committing (e.g. on blur), returning error messages for invalid values.",
+      default: "-"
+    },
+    {
+      attribute: "validationBehavior",
+      type: "native | aria",
+      description: "Whether to use native HTML form validation or ARIA validation.",
+      default: "aria"
+    },
+    {
+      attribute: "startContent",
+      type: "ReactNode",
+      description: "Element to be rendered in the left side of the date-picker.",
+      default: "-"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "Element to be rendered in the right side of the date-picker.",
+      default: "-"
+    },
+    {
+      attribute: "labelPlacement",
+      type: "inside | outside | outside-left",
+      description: "The position of the label.",
+      default: "inside"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Whether user input is required on the date-picker before form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the date-picker can be selected but not changed by the user.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the date-picker is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the date-picker is invalid.",
+      default: "false"
+    },
+    {
+      attribute: "visibleMonths",
+      type: "number",
+      description: "The number of months to display at once. Up to 3 months are supported.",
+      default: "1"
+    },
+    {
+      attribute: "selectorIcon",
+      type: "ReactNode",
+      description: "The icon to toggle the date picker popover. Usually a calendar icon.",
+      default: "-"
+    },
+    {
+      attribute: "pageBehavior",
+      type: "PageBehavior",
+      description: "Controls the behavior of paging.",
+      default: "visible"
+    },
+    {
+      attribute: "calendarWidth",
+      type: "number",
+      description: "The width to be applied to the calendar component.",
+      default: "256"
+    },
+    {
+      attribute: "isDateUnavailable",
+      type: "(date: DateValue) => boolean",
+      description: "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.",
+      default: "-"
+    },
+    {
+      attribute: "autoFocus",
+      type: "boolean",
+      description: "Whether the element should receive focus on render.",
+      default: "false"
+    },
+    {
+      attribute: "hourCycle",
+      type: "12 | 24",
+      description: "Whether to display the time in 12 or 24 hour format.",
+      default: "-"
+    },
+    {
+      attribute: "granularity",
+      type: "day | hour | minute | second",
+      description: "Determines the smallest unit that is displayed in the date picker.",
+      default: "-"
+    },
+    {
+      attribute: "hideTimeZone",
+      type: "boolean",
+      description: "Whether to hide the time zone abbreviation.",
+      default: "false"
+    },
+    {
+      attribute: "shouldForceLeadingZeros",
+      type: "boolean",
+      description: "Whether to always show leading zeros in the month, day, and hour fields.",
+      default: "true"
+    }
+  ]}
+/>
 
 ### DatePicker Events
 
-| Attribute     | Type                                                                                 | Description                                                     |     |
-| ------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------- | --- |
-| onChange      | `((value: ZonedDateTime  \| CalendarDate \| CalendarDateTime) => void)` \| undefined | Handler that is called when the date-picker's value changes.    | -   |
-| onFocus       | `(e: FocusEvent<HTMLInputElement>) => void`                                          | Handler that is called when the element receives focus.         | -   |
-| onBlur        | `(e: FocusEvent<HTMLInputElement>) => void`                                          | Handler that is called when the element loses focus.            | -   |
-| onFocusChange | `(isFocused: boolean) => void`                                                       | Handler that is called when the element's focus status changes. | -   |
-| onKeyDown     | `(e: KeyboardEvent) => void`                                                         | Handler that is called when a key is pressed.                   | -   |
-| onKeyUp       | `(e: KeyboardEvent) => void`                                                         | Handler that is called when a key is released.                  | -   |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "(value: ZonedDateTime | CalendarDate | CalendarDateTime) => void",
+      description: "Handler that is called when the date-picker's value changes.",
+      default: "-"
+    },
+    {
+      attribute: "onFocus",
+      type: "(e: FocusEvent<HTMLInputElement>) => void",
+      description: "Handler that is called when the element receives focus.",
+      default: "-"
+    },
+    {
+      attribute: "onBlur",
+      type: "(e: FocusEvent<HTMLInputElement>) => void",
+      description: "Handler that is called when the element loses focus.",
+      default: "-"
+    },
+    {
+      attribute: "onFocusChange",
+      type: "(isFocused: boolean) => void",
+      description: "Handler that is called when the element's focus status changes.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is released.",
+      default: "-"
+    }
+  ]}
+/>

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/react-utils",
-  "version": "2.0.18-beta.7",
+  "version": "2.0.18",
   "description": "A set of utilities for react on client side",
   "keywords": [
     "react-utils"

@@ -4,7 +4,7 @@ import {NextUIProvider} from "@nextui-org/system/src/provider";
 import type {Preview} from "@storybook/react";
 
 import "./style.css";
-import { withStrictModeSwitcher } from "./addons/react-strict-mode";
+import {withStrictModeSwitcher} from "./addons/react-strict-mode";
 
 const decorators: Preview["decorators"] = [
   (Story, {globals: {locale, disableAnimation}}) => {
@@ -30,7 +30,6 @@ const commonTheme = {
 };
 
 const parameters: Preview["parameters"] = {
-  actions: {argTypesRegex: "^on[A-Z].*"},
   options: {
     storySort: {
       method: "alphabetical",
@@ -134,6 +133,7 @@ const preview: Preview = {
   decorators,
   parameters,
   globalTypes,
+  tags: ["autodocs"],
 };
 
 export default preview;

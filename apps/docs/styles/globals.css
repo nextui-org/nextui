@@ -68,17 +68,17 @@ z-index: 0;
     --code-highlighted-word3-bg-active: 116 223 162;
     --code-highlighted-word3-text: 209 244 224;
     /* sandpack + prism */
-    --code-string: 152 195 121;
+    --code-string: 83, 224, 192;
     --code-class: 145 180 213;
-    --code-punctuation: 220 220 220;
-    --code-number: 229 192 123;
+    --code-punctuation: 83, 224, 192;
+    --code-number: 83, 224, 192;
     --code-added: 116 223 162;
     --code-line-number: 212 212 216;
     --code-faded-line: 113 113 122;
     --code-comment: 113 113 122;
     --code-keyword: 198 120 221;
     --code-function: 97 175 239;
-    --code-tag: 224 108 117;
+    --code-tag: 83, 224, 192;
     --code-attr-name: 145 180 213;
     --code-language-javascript: 145 180 213;
   }
@@ -95,4 +95,64 @@ z-index: 0;
     @apply ml-[-41px];
     content: counter(step);
   }
+}
+
+pre details[open]>summary>span:first-child::before {
+  transform: rotate(90deg);
+}
+
+pre details[open]>summary span.custom-folder {
+  display: none;
+}
+
+pre details:not([open])>summary span.ellipsis-token::after {
+  content: '...';
+}
+
+pre details:not([open])>summary span.copy-token {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+pre details[open]>summary span.copy-token {
+  display: none;
+}
+
+pre details:not([open]) {
+  display: inline;
+}
+
+pre details:not([open])>summary span.empty-token {
+  display: none;
+}
+
+pre details:not([open])+div.token-line {
+  display: none;
+}
+
+pre summary {
+  display: inline;
+  position: relative;
+  list-style: none;
+}
+
+pre summary>span:first-child::before {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  height: 21px;
+  margin-left: -16px;
+  margin-top: 1px;
+  content: "▶";
+  font-size: 12px;
+  font-style: normal;
+  transition: transform 100ms;
+  color: #999;
 }

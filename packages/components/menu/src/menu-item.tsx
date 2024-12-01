@@ -1,4 +1,5 @@
 import {useMemo, ReactNode} from "react";
+import * as React from "react";
 
 import {UseMenuItemProps, useMenuItem} from "./use-menu-item";
 import {MenuSelectedIcon} from "./menu-selected-icon";
@@ -11,6 +12,7 @@ export interface MenuItemProps<T extends object = object> extends UseMenuItemPro
 const MenuItem = (props: MenuItemProps) => {
   const {
     Component,
+    FragmentWrapper,
     slots,
     classNames,
     rendered,
@@ -24,6 +26,7 @@ const MenuItem = (props: MenuItemProps) => {
     endContent,
     disableAnimation,
     hideSelectedIcon,
+    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getDescriptionProps,
@@ -47,20 +50,22 @@ const MenuItem = (props: MenuItemProps) => {
 
   return (
     <Component {...getItemProps()}>
-      {startContent}
-      {description ? (
-        <div className={slots.wrapper({class: classNames?.wrapper})}>
+      <FragmentWrapper {...fragmentWrapperProps}>
+        {startContent}
+        {description ? (
+          <div className={slots.wrapper({class: classNames?.wrapper})}>
+            <span {...getLabelProps()}>{rendered}</span>
+            <span {...getDescriptionProps()}>{description}</span>
+          </div>
+        ) : (
           <span {...getLabelProps()}>{rendered}</span>
-          <span {...getDescriptionProps()}>{description}</span>
-        </div>
-      ) : (
-        <span {...getLabelProps()}>{rendered}</span>
-      )}
-      {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
-      {isSelectable && !hideSelectedIcon && (
-        <span {...getSelectedIconProps()}>{selectedContent}</span>
-      )}
-      {endContent}
+        )}
+        {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
+        {isSelectable && !hideSelectedIcon && (
+          <span {...getSelectedIconProps()}>{selectedContent}</span>
+        )}
+        {endContent}
+      </FragmentWrapper>
     </Component>
   );
 };

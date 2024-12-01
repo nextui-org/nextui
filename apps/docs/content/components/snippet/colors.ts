@@ -1,17 +1,4 @@
-const App = `import {Snippet} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <div className="flex flex-wrap gap-4">
-      <Snippet color="default">npm install @nextui-org/react</Snippet>
-      <Snippet color="primary">npm install @nextui-org/react</Snippet>
-      <Snippet color="secondary">npm install @nextui-org/react</Snippet>
-      <Snippet color="success">npm install @nextui-org/react</Snippet>
-      <Snippet color="warning">npm install @nextui-org/react</Snippet>
-      <Snippet color="danger">npm install @nextui-org/react</Snippet>
-    </div> 
-  );
-}`;
+import App from "./colors.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

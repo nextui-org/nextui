@@ -146,33 +146,137 @@ In case you need to customize the checkbox even further, you can use the `useChe
 
 ### Checkbox Props
 
-| Attribute        | Type                                                                        | Description                                                                                                           | Default   |
-| ---------------- | --------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | --------- |
-| children         | `ReactNode`                                                                 | The label of the checkbox.                                                                                            | -         |
-| icon             | [CheckboxIconProps](#checkbox-icon-props)                                   | The icon to be displayed when the checkbox is checked.                                                                | -         |
-| value            | `string`                                                                    | The value of the checkbox element, used when submitting an HTML form.                                                    |           |
-| name             | `string`                                                                    | The name of the checkbox element, used when submitting an HTML form.                                                     |           |
-| size             | `sm` \| `md` \| `lg`                                                        | The size of the checkbox.                                                                                             | `md`      |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the checkbox.                                                                                            | `primary` |
-| radius           | `none` \| `sm` \| `md` \| `lg` \| `full`                                    | The radius of the checkbox.                                                                                           | -         |
-| lineThrough      | `boolean`                                                                   | Whether the label should be crossed out.                                                                              | `false`   |
-| isSelected       | `boolean`                                                                   | Whether the element should be selected (controlled).                                                                  |           |
-| defaultSelected  | `boolean`                                                                   | Whether the element should be selected (uncontrolled).                                                                |           |
-| isRequired       | `boolean`                                                                   | Whether user checkbox is required on the checkbox before form submission.                                                   | `false`   |
-| isReadOnly       | `boolean`                                                                   | Whether the checkbox can be selected but not changed by the user.                                                        |           |
-| isDisabled       | `boolean`                                                                   | Whether the checkbox is disabled.                                                                                     | `false`   |
-| isIndeterminate  | `boolean`                                                                   | Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction. |           |
-| isInvalid        | `boolean`                                                                   | Whether the checkbox is invalid.                                                                                         | `false`   |
-| validationState  | `valid` \| `invalid`                                                        | Whether the checkbox should display its "valid" or "invalid" visual styling. (**Deprecated**) use **isInvalid** instead. | -         |
-| disableAnimation | `boolean`                                                                   | Whether the animation should be disabled.                                                                             | `false`   |
-| classNames       | `Record<"base"｜ "wrapper"｜ "icon"｜ "label", string>`                     | Allows to set custom class names for the checkbox slots.                                                              | -         |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The label of the checkbox.",
+      default: "-"
+    },
+    {
+      attribute: "icon",
+      type: "CheckboxIconProps",
+      description: "The icon to be displayed when the checkbox is checked.",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "string",
+      description: "The value of the checkbox element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
+      attribute: "name",
+      type: "string",
+      description: "The name of the checkbox element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the checkbox.",
+      default: "md"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the checkbox.",
+      default: "primary"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The radius of the checkbox.",
+      default: "-"
+    },
+    {
+      attribute: "lineThrough",
+      type: "boolean",
+      description: "Whether the label should be crossed out.",
+      default: "false"
+    },
+    {
+      attribute: "isSelected",
+      type: "boolean",
+      description: "Whether the element should be selected (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultSelected",
+      type: "boolean",
+      description: "Whether the element should be selected (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Whether user checkbox is required on the checkbox before form submission.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the checkbox can be selected but not changed by the user.",
+      default: "-"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the checkbox is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isIndeterminate",
+      type: "boolean",
+      description: "Indeterminism is presentational only. The indeterminate visual representation remains regardless of user interaction.",
+      default: "-"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the checkbox is invalid.",
+      default: "false"
+    },
+    {
+      attribute: "validationState",
+      type: "valid | invalid",
+      description: "Whether the checkbox should display its \"valid\" or \"invalid\" visual styling. (Deprecated) use isInvalid instead.",
+      default: "-"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the animation should be disabled.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Record<\"base\"｜ \"wrapper\"｜ \"icon\"｜ \"label\", string>",
+      description: "Allows to set custom class names for the checkbox slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Checkbox Events
 
-| Attribute     | Type                                  | Description                                                                                                                                              |
-| ------------- | ------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onChange      | `React.ChangeEvent<HTMLInputElement>` | Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing `event.target.checked` (boolean). |
-| onValueChange | `(isSelected: boolean) => void`       | Handler that is called when the element's selection state changes.                                                                                       |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "React.ChangeEvent<HTMLInputElement>",
+      description: "Handler that is called when the element's selection state changes. You can pull out the new checked state by accessing event.target.checked (boolean).",
+      default: "-"
+    },
+    {
+      attribute: "onValueChange",
+      type: "(isSelected: boolean) => void",
+      description: "Handler that is called when the element's selection state changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Types
 

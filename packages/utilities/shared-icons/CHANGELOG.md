@@ -1,5 +1,17 @@
 # @nextui-org/shared-icons
 
+## 2.0.10-beta.8
+
+### Patch Changes
+
+- [#4172](https://github.com/nextui-org/nextui/pull/4172) [`004c4a4b3`](https://github.com/nextui-org/nextui/commit/004c4a4b3e44477f148937b12bb542e4b27fd322) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - introduce `isClearable` to Textarea component (#2348, #2112)
+
+## 2.0.10-beta.7
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
 ## 2.0.10-beta.6
 
 ### Patch Changes

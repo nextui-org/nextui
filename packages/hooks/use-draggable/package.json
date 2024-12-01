@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-draggable",
-  "version": "2.0.1-beta.6",
+  "version": "2.0.1",
   "description": "This hook can provide drag and drop interaction",
   "keywords": [
     "use-draggable"
@@ -50,6 +50,6 @@
     ]
   },
   "dependencies": {
-    "@react-aria/interactions": "^3.21.1"
+    "@react-aria/interactions": "3.22.4"
   }
 }

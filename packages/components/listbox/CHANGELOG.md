@@ -1,5 +1,55 @@
 # @nextui-org/listbox
 
+## 2.2.0-beta.14
+
+### Patch Changes
+
+- [#4168](https://github.com/nextui-org/nextui/pull/4168) [`0b5ceb93c`](https://github.com/nextui-org/nextui/commit/0b5ceb93ce098e5d76409190f2d57cd89c06b7e9) Thanks [@macci001](https://github.com/macci001)! - Fixes missing `<li>` wrapper when `href` prop is passed in `ListboxItem`, `MenuItem`, and `PaginationItem` (#4147)
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.9
+
+## 2.2.0-beta.13
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.9
+  - @nextui-org/aria-utils@2.1.0-beta.11
+
+## 2.2.0-beta.12
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/divider@2.1.0-beta.9
+  - @nextui-org/use-is-mobile@2.1.0-beta.8
+  - @nextui-org/aria-utils@2.1.0-beta.10
+  - @nextui-org/react-utils@2.0.18-beta.8
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
+## 2.2.0-beta.11
+
+### Patch Changes
+
+- [#3036](https://github.com/nextui-org/nextui/pull/3036) [`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00) Thanks [@ryo-manba](https://github.com/ryo-manba)! - update react-aria version
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/divider@2.1.0-beta.8
+  - @nextui-org/use-is-mobile@2.1.0-beta.7
+  - @nextui-org/aria-utils@2.1.0-beta.9
+
+## 2.2.0-beta.10
+
+### Patch Changes
+
+- [#4105](https://github.com/nextui-org/nextui/pull/4105) [`256d46277`](https://github.com/nextui-org/nextui/commit/256d462771c19d6ca5b969d0ec44419fb560f0ac) Thanks [@winchesHe](https://github.com/winchesHe)! - Add truncate class to the list item to avoid overflow the wrapper
+
+- Updated dependencies []:
+  - @nextui-org/divider@2.1.0-beta.7
+
 ## 2.2.0-beta.9
 
 ### Patch Changes

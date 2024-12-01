@@ -1,14 +1,4 @@
-const App = `import {TimeInput} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <TimeInput 
-      label="Event Time"
-      isInvalid
-      errorMessage="Please enter a valid time"
-    />
-  );
-}`;
+import App from "./error-message.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

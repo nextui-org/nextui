@@ -207,43 +207,191 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
 
 ### RangeCalendar Props
 
-| Attribute                 | Type                                                                                                                                                                                                                                                                                                                                                                                          | Description                                                                                                                                                                               | Default                           |   |
-|---------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------|---|
-| value                     | `RangeValue                                                                                                                                                                                                                                                                                                                                                                                   | null`                                                                                                                                                                                     | The current value (controlled).   | - |
-| defaultValue              | `RangeValue                                                                                                                                                                                                                                                                                                                                                                                   | null`                                                                                                                                                                                     | The default value (uncontrolled). | - |
-| minValue                  | `DateValue`                                                                                                                                                                                                                                                                                                                                                                                   | The minimum allowed date that a user may select.                                                                                                                                          | -                                 |   |
-| maxValue                  | `DateValue`                                                                                                                                                                                                                                                                                                                                                                                   | The maximum allowed date that a user may select.                                                                                                                                          | -                                 |   |
-| color                     | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                                                                                                                                                                                                                                                                   | The color of the time input.                                                                                                                                                              | `default`                         |   |
-| visibleMonths             | `number`                                                                                                                                                                                                                                                                                                                                                                                      | The number of months to display at once. Up to 3 months are supported. Passing a number greater than 1 will disable the `showMonthAndYearPickers` prop.                                   | `1`                               |   |
-| focusedValue              | `DateValue`                                                                                                                                                                                                                                                                                                                                                                                   | Controls the currently focused date within the calendar.                                                                                                                                  | -                                 |   |
-| defaultFocusedValue       | `DateValue`                                                                                                                                                                                                                                                                                                                                                                                   | The date that is focused when the calendar first mounts (uncountrolled).                                                                                                                  | -                                 |   |
-| calendarWidth             | `number` \| `string`                                                                                                                                                                                                                                                                                                                                                                          | The width to be applied to the calendar component. This value is multiplied by the `visibleMonths` number to determine the total width of the calendar.                                   | `256`                             |   |
-| pageBehavior              | `PageBehavior`                                                                                                                                                                                                                                                                                                                                                                                | Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.                                       | `visible`                         |   |
-| weekdayStyle              | `"narrow" \|"short" \| "long" \| undefined`                                                                                                                                                                                                                                                                                                                                                   | The style of weekday names to display in the calendar grid header, e.g. single letter, abbreviation, or full day name.                                                                    | `narrow`                          |   |
-| showMonthAndYearPickers   | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether the label should be crossed out.                                                                                                                                                  | `false`             |
-| allowsNonContiguousRanges | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | When combined with `isDateUnavailable`, determines whether non-contiguous ranges, i.e. ranges containing unavailable dates, may be selected.                                              | `false`                           |   |
-| isDisabled                | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether the calendar is disabled.                                                                                                                                                         | `false`                           |   |
-| isReadOnly                | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether the calendar value is immutable.                                                                                                                                                  | `false`                           |   |
-| isInvalid                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether the current selection is invalid according to application logic.                                                                                                                  | -                                 |   |
-| autoFocus                 | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether to automatically focus the calendar when it mounts.                                                                                                                               | `false`                           |   |
-| showHelper                | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether to show the description or error message.                                                                                                                                         | `false`                           |   |
-| showShadow                | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether to show the shadow in the selected dates.                                                                                                                                         | `false`                           |   |
-| topContent                | `ReactNode`                                                                                                                                                                                                                                                                                                                                                                                   | Custom content to be included in the top of the calendar.                                                                                                                                 | -                                 |   |
-| bottomContent             | `ReactNode`                                                                                                                                                                                                                                                                                                                                                                                   | Custom content to be included in the bottom of the calendar.                                                                                                                              | -                                 |   |
-| isDateUnavailable         | `(date: DateValue) => boolean`                                                                                                                                                                                                                                                                                                                                                                | Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.                                                                                  | -                                 |   |
-| createCalendar            | `(calendar: SupportedCalendars) => Calendar \| null`                                                                                                                                                                                                                                                                                                                                          | This function helps to reduce the bundle size by providing a custom calendar system. You can also use the NextUIProvider to provide the createCalendar function to all nested components. | `all<br> calendars`               |   |
-| errorMessage              | `ReactNode \| (v: ValidationResult) => ReactNode`                                                                                                                                                                                                                                                                                                                                             | An error message for the field.                                                                                                                                                           | -                                 |   |
-| validate                  | `(value: { inputValue: string, selectedKey: React.Key }) => ValidationError ｜ true ｜ null ｜ undefined`                                                                                                                                                                                                                                                                                     | Validate input values when committing (e.g. on blur), returning error messages for invalid values. Validation errors are displayed upon form submission if `validationBehavior` is set to `native`. For real-time validation, use the `isInvalid` prop.| -                                 |   |
-| hideDisabledDates         | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether to hide the disabled or invalid dates.                                                                                                                                            | `false`                           |   |
-| disableAnimation          | `boolean`                                                                                                                                                                                                                                                                                                                                                                                     | Whether to disable the animation of the calendar.                                                                                                                                         | `false`                           |   |
-| classNames                | `Record<"base"｜ "prevButton"｜ "nextButton"｜ "headerWrapper" \| "header" \| "title" \| "content" \| "gridWrapper" \| "grid" \| "gridHeader" \| "gridHeaderRow" \| "gridHeaderCell" \| "gridBody" \| "gridBodyRow" \| "cell" \| "cellButton" \| "pickerWrapper" \| "pickerMonthList" \| "pickerYearList" \| "pickerHighlight" \| "pickerItem" \| "helperWrapper" \| "errorMessage", string>` | Allows to set custom class names for the calendar slots.                                                                                                                                  | -                                 |   |
+<APITable
+  data={[
+    {
+      attribute: "value",
+      type: "RangeValue",
+      description: "The current value (controlled).",
+      default: "null"
+    },
+    {
+      attribute: "defaultValue",
+      type: "RangeValue",
+      description: "The default value (uncontrolled).",
+      default: "null"
+    },
+    {
+      attribute: "minValue",
+      type: "DateValue",
+      description: "The minimum allowed date that a user may select.",
+      default: "-"
+    },
+    {
+      attribute: "maxValue", 
+      type: "DateValue",
+      description: "The maximum allowed date that a user may select.",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the time input.",
+      default: "default"
+    },
+    {
+      attribute: "visibleMonths",
+      type: "number",
+      description: "The number of months to display at once. Up to 3 months are supported. Passing a number greater than 1 will disable the showMonthAndYearPickers prop.",
+      default: "1"
+    },
+    {
+      attribute: "focusedValue",
+      type: "DateValue",
+      description: "Controls the currently focused date within the calendar.",
+      default: "-"
+    },
+    {
+      attribute: "defaultFocusedValue",
+      type: "DateValue", 
+      description: "The date that is focused when the calendar first mounts (uncountrolled).",
+      default: "-"
+    },
+    {
+      attribute: "calendarWidth",
+      type: "number | string",
+      description: "The width to be applied to the calendar component. This value is multiplied by the visibleMonths number to determine the total width of the calendar.",
+      default: "256"
+    },
+    {
+      attribute: "pageBehavior",
+      type: "PageBehavior",
+      description: "Controls the behavior of paging. Pagination either works by advancing the visible page by visibleDuration (default) or one unit of visibleDuration.",
+      default: "visible"
+    },
+    {
+      attribute: "weekdayStyle",
+      type: "narrow | short | long",
+      description: "The style of weekday names to display in the calendar grid header.",
+      default: "narrow"
+    },
+    {
+      attribute: "showMonthAndYearPickers",
+      type: "boolean",
+      description: "Whether to show month and year pickers.",
+      default: "false"
+    },
+    {
+      attribute: "allowsNonContiguousRanges",
+      type: "boolean",
+      description: "When combined with isDateUnavailable, determines whether non-contiguous ranges, i.e. ranges containing unavailable dates, may be selected.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the calendar is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the calendar value is immutable.",
+      default: "false"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the current selection is invalid according to application logic.",
+      default: "-"
+    },
+    {
+      attribute: "autoFocus",
+      type: "boolean",
+      description: "Whether to automatically focus the calendar when it mounts.",
+      default: "false"
+    },
+    {
+      attribute: "showHelper",
+      type: "boolean",
+      description: "Whether to show the description or error message.",
+      default: "false"
+    },
+    {
+      attribute: "showShadow",
+      type: "boolean",
+      description: "Whether to show the shadow in the selected dates.",
+      default: "false"
+    },
+    {
+      attribute: "topContent",
+      type: "ReactNode",
+      description: "Custom content to be included in the top of the calendar.",
+      default: "-"
+    },
+    {
+      attribute: "bottomContent",
+      type: "ReactNode",
+      description: "Custom content to be included in the bottom of the calendar.",
+      default: "-"
+    },
+    {
+      attribute: "isDateUnavailable",
+      type: "(date: DateValue) => boolean",
+      description: "Callback that is called for each date of the calendar. If it returns true, then the date is unavailable.",
+      default: "-"
+    },
+    {
+      attribute: "createCalendar",
+      type: "(calendar: SupportedCalendars) => Calendar | null",
+      description: "This function helps to reduce the bundle size by providing a custom calendar system.",
+      default: "all calendars"
+    },
+    {
+      attribute: "errorMessage",
+      type: "ReactNode | (v: ValidationResult) => ReactNode",
+      description: "An error message for the field.",
+      default: "-"
+    },
+    {
+      attribute: "validate",
+      type: "(value: { inputValue: string, selectedKey: React.Key }) => ValidationError | true | null | undefined",
+      description: "Validate input values when committing (e.g. on blur), returning error messages for invalid values.",
+      default: "-"
+    },
+    {
+      attribute: "hideDisabledDates",
+      type: "boolean",
+      description: "Whether to hide the disabled or invalid dates.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable the animation of the calendar.",
+      default: "false"
+    }
+  ]}
+/>
 
 ### RangeCalendar Events
 
-| Attribute              | Type                            | Description                                                                                                                              |
-| ---------------------- | ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| onFocusChange          | `(date: CalendarDate) => void`  | Handler that is called when the focused date changes.                                                                                    |
-| onChange               | `(value: RangeValue>) => void`  | Handler that is called when the value changes.                                                                                           |
+<APITable
+  data={[
+    {
+      attribute: "onFocusChange",
+      type: "(date: CalendarDate) => void",
+      description: "Handler that is called when the focused date changes.",
+      default: "-"
+    },
+    {
+      attribute: "onChange",
+      type: "(value: RangeValue<DateValue> | null) => void",
+      description: "Handler that is called when the value changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 #### Supported Calendars
 

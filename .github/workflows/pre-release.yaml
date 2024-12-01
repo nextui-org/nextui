@@ -7,7 +7,6 @@ on:
       - "packages/**"
     branches:
       - "beta/release-next"
-      - "canary"
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
@@ -27,6 +26,13 @@ jobs:
 
       - name: Install
         uses: ./.github/common-actions/install
+
+      - name: Debug condition values
+        run: |
+          echo "pre.json exists: ${{ steps.check_if_pre_json_exists.outputs.files_exists }}"
+          echo "Commit message: ${{ github.event.head_commit.message }}"
+          echo "Contains version packages: ${{ contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+          echo "Full condition would be: ${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
 
       - name: Check if pre.json exists
         id: check_if_pre_json_exists
@@ -52,13 +58,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Debug condition values
-        run: |
-          echo "pre.json exists: ${{ steps.check_if_pre_json_exists.outputs.files_exists }}"
-          echo "Commit message: ${{ github.event.head_commit.message }}"
-          echo "Contains version packages: ${{ contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
-          echo "Full condition would be: ${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
-
       - name: Tests
         if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
         run: pnpm test
@@ -66,6 +65,8 @@ jobs:
       - name: Build
         if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
         run: pnpm build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
 
       - name: Publish to NPM
         id: publish-to-npm

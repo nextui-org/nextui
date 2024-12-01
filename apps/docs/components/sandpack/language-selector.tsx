@@ -29,7 +29,7 @@ export const LanguageSelector: React.FC<LanguageSelectorProps> = ({template, onC
       aria-label="Language selector"
       classNames={{
         base: "absolute z-10 right-3 bottom-4",
-        cursor: "bg-zinc-400 dark:bg-zinc-700",
+        cursor: "bg-default-600 dark:bg-default-300",
         tabList:
           "bg-transparent relative before:bg-white/5 before:w-full before:rounded-lg before:h-full before:content-[''] before:block before:z-1 before:absolute before:inset-0 before:backdrop-blur-md before:backdrop-saturate-100",
       }}

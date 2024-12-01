@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system",
-  "version": "2.3.0-beta.8",
+  "version": "2.3.0",
   "description": "NextUI system primitives",
   "keywords": [
     "system"
@@ -54,13 +54,13 @@
     ]
   },
   "dependencies": {
-    "@internationalized/date": "3.5.5",
+    "@internationalized/date": "3.5.6",
     "@nextui-org/react-utils": "workspace:*",
+    "@react-aria/i18n": "3.12.3",
     "@nextui-org/system-rsc": "workspace:*",
-    "@react-aria/i18n": "3.12.2",
-    "@react-aria/overlays": "3.23.2",
-    "@react-aria/utils": "3.25.2",
-    "@react-stately/utils": "3.10.3",
-    "@react-types/datepicker": "3.8.2"
+    "@react-aria/overlays": "3.23.4",
+    "@react-aria/utils": "3.25.3",
+    "@react-stately/utils": "3.10.4",
+    "@react-types/datepicker": "3.8.3"
   }
 }
