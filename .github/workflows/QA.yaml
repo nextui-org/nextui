@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     name: Build
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
 
   tests:
     name: Tests
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -34,7 +34,7 @@ jobs:
 
   eslint:
     name: ESLint
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -47,7 +47,7 @@ jobs:
 
   types:
     name: TypeScript
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -60,7 +60,7 @@ jobs:
 
   prettier:
     name: Prettier
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
