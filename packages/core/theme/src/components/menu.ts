@@ -529,10 +529,7 @@ export type MenuVariantProps = VariantProps<typeof menu>;
 export type MenuSlots = keyof ReturnType<typeof menu>;
 export type MenuSectionVariantProps = VariantProps<typeof menuSection>;
 export type MenuSectionSlots = keyof ReturnType<typeof menuSection>;
-export type MenuItemVariantProps = Omit<
-  VariantProps<typeof menuItem>,
-  "hasDescriptionTextChild" | "hasTitleTextChild"
->;
+export type MenuItemVariantProps = VariantProps<typeof menuItem>;
 export type MenuItemSlots = keyof ReturnType<typeof menuItem>;
 
 export {menu, menuItem, menuSection};

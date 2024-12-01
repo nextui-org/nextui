@@ -89,7 +89,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
 }
 
 export type MenuItemBaseProps<T extends object = {}> = Props<T> &
-  MenuItemVariantProps &
+  Omit<MenuItemVariantProps, "hasDescriptionTextChild" | "hasTitleTextChild"> &
   AriaMenuItemProps &
   FocusableProps &
   PressEvents;

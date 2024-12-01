@@ -3,7 +3,8 @@ import {useMemo, ReactNode} from "react";
 import {UseMenuItemProps, useMenuItem} from "./use-menu-item";
 import {MenuSelectedIcon} from "./menu-selected-icon";
 
-export interface MenuItemProps<T extends object = object> extends UseMenuItemProps<T> {}
+export interface MenuItemProps<T extends object = object>
+  extends Omit<UseMenuItemProps<T>, "hasDescriptionTextChild" | "hasTitleTextChild"> {}
 
 /**
  * @internal
