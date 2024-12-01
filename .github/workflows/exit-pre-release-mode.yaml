@@ -5,7 +5,7 @@ jobs:
   exit-pre-release-mode:
     if: ${{ github.ref == 'refs/heads/beta/release-next' || github.ref == 'refs/heads/canary' }}
     name: exit pre-release mode
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write

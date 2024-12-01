@@ -1,15 +1,15 @@
 import {useMemo, ReactNode} from "react";
-import {forwardRef} from "@nextui-org/system";
 
 import {UseListboxItemProps, useListboxItem} from "./use-listbox-item";
 import {ListboxSelectedIcon} from "./listbox-selected-icon";
 
-export interface ListboxItemProps<T extends object = object> extends UseListboxItemProps<T> {}
+export interface ListboxItemProps<T extends object = object>
+  extends Omit<UseListboxItemProps<T>, "hasDescriptionTextChild" | "hasTitleTextChild"> {}
 
 /**
  * @internal
  */
-const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
+const ListboxItem = (props: ListboxItemProps) => {
   const {
     Component,
     FragmentWrapper,
@@ -64,7 +64,7 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
       </FragmentWrapper>
     </Component>
   );
-});
+};
 
 ListboxItem.displayName = "NextUI.ListboxItem";
 

@@ -31,12 +31,13 @@
   },
   "scripts": {
     "build": "tsup --dts",
-    "postbuild": "node src/scripts/postbuild.js",
     "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup",
     "prepack": "clean-package",
+    "postbuild": "node src/scripts/postbuild.js",
+    "prebuild": "node src/scripts/prebuild.js",
     "postpack": "clean-package restore"
   },
   "dependencies": {

@@ -7,6 +7,7 @@ settings:
 overrides:
   react: ^18.2.0
   react-dom: ^18.2.0
+  '@changesets/get-github-info': 0.6.0
 
 importers:
 
@@ -39,6 +40,9 @@ importers:
       '@changesets/cli':
         specifier: 2.27.10
         version: 2.27.10
+      '@changesets/get-github-info':
+        specifier: 0.6.0
+        version: 0.6.0
       '@changesets/get-release-plan':
         specifier: 4.0.5
         version: 4.0.5

@@ -10,7 +10,7 @@ on:
 jobs:
   update-stats:
     name: Update Stats
-    runs-on: ubuntu-latest-m
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4

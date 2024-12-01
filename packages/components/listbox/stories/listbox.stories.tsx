@@ -679,6 +679,59 @@ const CustomWithClassNamesTemplate = ({color, variant, disableAnimation, ...args
   );
 };
 
+interface LargeDatasetSchema {
+  label: string;
+  value: string;
+  description: string;
+}
+
+function generateLargeDataset(n: number): LargeDatasetSchema[] {
+  const dataset: LargeDatasetSchema[] = [];
+  const items = [
+    "Cat",
+    "Dog",
+    "Elephant",
+    "Lion",
+    "Tiger",
+    "Giraffe",
+    "Dolphin",
+    "Penguin",
+    "Zebra",
+    "Shark",
+    "Whale",
+    "Otter",
+    "Crocodile",
+  ];
+
+  for (let i = 0; i < n; i++) {
+    const item = items[i % items.length];
+
+    dataset.push({
+      label: `${item}${i}`,
+      value: `${item.toLowerCase()}${i}`,
+      description: "Sample description",
+    });
+  }
+
+  return dataset;
+}
+
+const LargeDatasetTemplate = (args: ListboxProps & {numItems: number}) => {
+  const largeDataset = generateLargeDataset(args.numItems);
+
+  return (
+    <div className="flex w-full max-w-full py-20 px-20">
+      <Listbox label={`Select from ${args.numItems} items`} {...args}>
+        {largeDataset.map((item, index) => (
+          <ListboxItem key={index} value={item.value}>
+            {item.label}
+          </ListboxItem>
+        ))}
+      </Listbox>
+    </div>
+  );
+};
+
 export const Default = {
   render: Template,
   args: {
@@ -780,5 +833,57 @@ export const CustomWithClassNames = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const OneThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    numItems: 1000,
+    isVirtualized: true,
+    virtualization: {
+      maxListboxHeight: 400,
+      itemHeight: 20,
+    },
+  },
+};
+
+export const TenThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    numItems: 10000,
+    isVirtualized: true,
+    virtualization: {
+      maxListboxHeight: 400,
+      itemHeight: 20,
+    },
+  },
+};
+
+export const CustomMaxListboxHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    numItems: 1000,
+    isVirtualized: true,
+    virtualization: {
+      maxListboxHeight: 600,
+      itemHeight: 20,
+    },
+  },
+};
+
+export const CustomItemHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    numItems: 1000,
+    isVirtualized: true,
+    virtualization: {
+      itemHeight: 40,
+      maxListboxHeight: 600,
+    },
   },
 };

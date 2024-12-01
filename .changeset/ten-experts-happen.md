@@ -4,4 +4,4 @@
 "@nextui-org/theme": patch
 ---
 
-Add truncate class to the list item to avoid overflow the wrapper
+Virtualization support added to Listbox and Menu

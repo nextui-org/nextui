@@ -1,4 +1,5 @@
 import type {ListboxItemBaseProps} from "./base/listbox-item-base";
+import type {MenuItemVariantProps} from "@nextui-org/theme";
 
 import {useMemo, useRef, useCallback, Fragment} from "react";
 import {listboxItem, MenuItemVariantProps} from "@nextui-org/theme";
@@ -24,7 +25,8 @@ interface Props<T extends object> extends ListboxItemBaseProps<T> {
 }
 
 export type UseListboxItemProps<T extends object> = Props<T> &
-  Omit<HTMLNextUIProps<"li">, keyof Props<T>>;
+  Omit<HTMLNextUIProps<"li">, keyof Props<T>> &
+  MenuItemVariantProps;
 
 export function useListboxItem<T extends object>(originalProps: UseListboxItemProps<T>) {
   const globalContext = useProviderContext();
