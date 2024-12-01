@@ -33,7 +33,7 @@ const generateItems = (n) => {
 };
 
 export default function App() {
-  const items = generateItems(1000);
+  const items = generateItems(10000);
 
   return (
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
