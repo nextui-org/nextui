@@ -65,6 +65,7 @@
     "@changesets/cli": "2.27.10",
     "@changesets/changelog-github": "0.5.0",
     "@changesets/get-release-plan": "4.0.5",
+    "@changesets/get-github-info": "0.6.0",
     "@changesets/types": "6.0.0",
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
@@ -142,7 +143,8 @@
   "pnpm": {
     "overrides": {
       "react": "^18.2.0",
-      "react-dom": "^18.2.0"
+      "react-dom": "^18.2.0",
+      "@changesets/get-github-info": "0.6.0"
     }
   },
   "engines": {
