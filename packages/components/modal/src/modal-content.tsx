@@ -2,7 +2,6 @@ import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
 import {cloneElement, isValidElement, ReactNode, useMemo, useCallback} from "react";
-import {forwardRef} from "@nextui-org/system";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {CloseIcon} from "@nextui-org/shared-icons";
@@ -23,7 +22,7 @@ export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div
 
 const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
 
-const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _) => {
+const ModalContent = (props: ModalContentProps) => {
   const {as, children, role = "dialog", ...otherProps} = props;
 
   const {
@@ -139,7 +138,7 @@ const ModalContent = forwardRef<"div", ModalContentProps, KeysToOmit>((props, _)
       {contents}
     </div>
   );
-});
+};
 
 ModalContent.displayName = "NextUI.ModalContent";
 
