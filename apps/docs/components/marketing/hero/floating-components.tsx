@@ -107,7 +107,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           <Tooltip
             className="text-sm animate-[levitate_14s_ease_infinite]"
             color="secondary"
-            content="Developers love Next.js"
+            content="Build beautiful apps faster"
             isOpen={!isTablet}
             placement="top"
             style={{

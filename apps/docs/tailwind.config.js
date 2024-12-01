@@ -332,7 +332,7 @@ module.exports = {
       themes: {
         light: {
           colors: {
-            "code-background": "#1c1e27",
+            "code-background": "#262b36",
             strong: "#ff4ecd",
             "code-mdx": "#ff4ecd",
           },
@@ -340,7 +340,7 @@ module.exports = {
         dark: {
           colors: {
             strong: "#06B7DB",
-            "code-background": "#1c1e27",
+            "code-background": "#13151B",
             "code-mdx": "#06B7DB",
           },
         },
