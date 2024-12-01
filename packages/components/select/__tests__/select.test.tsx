@@ -1007,7 +1007,7 @@ describe("Select virtualization tests", () => {
       const visibleItems = wrapper.getAllByRole("option");
 
       expect(visibleItems.length).toBeGreaterThan(0);
-      /* Virtualized list will have listitems less than 100 */
+      /* Virtualized list will have listitems less than 300 */
       expect(visibleItems.length).toBeLessThan(300);
     });
 
