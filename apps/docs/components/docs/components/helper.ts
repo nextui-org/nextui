@@ -180,7 +180,7 @@ function checkIsElement(lineContent: string) {
 
 function getElementName(lineContent: string) {
   const startElementName = lineContent.match(/^\s*<([a-zA-Z.]+)/);
-  const endElementName = lineContent.match(/^\s*<\/[a-zA-Z.]+>/);
+  const endElementName = lineContent.match(/^\s*<\/([a-zA-Z.]+)>/);
 
   return {
     startElementName: startElementName?.[1] || (lineContent.includes("<>") ? "<>" : ""),
