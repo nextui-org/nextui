@@ -1,4 +1,4 @@
-import {ForwardedRef, ReactElement, Ref, useId} from "react";
+import {ForwardedRef, ReactElement, useId} from "react";
 import {LayoutGroup} from "framer-motion";
 import {forwardRef} from "@nextui-org/system";
 
@@ -8,7 +8,12 @@ import TabPanel from "./tab-panel";
 
 interface Props<T> extends UseTabsProps<T> {}
 
-function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+export type TabsProps<T extends object = object> = Props<T>;
+
+const Tabs = forwardRef(function Tabs<T extends object>(
+  props: TabsProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const {
     Component,
     values,
@@ -69,11 +74,6 @@ function Tabs<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLDivElemen
   }
 
   return renderTabs;
-}
+}) as <T extends object>(props: TabsProps<T>) => ReactElement;
 
-export type TabsProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Tabs) as <T extends object>(props: TabsProps<T>) => ReactElement;
-
-Tabs.displayName = "NextUI.Tabs";
+export default Tabs;
