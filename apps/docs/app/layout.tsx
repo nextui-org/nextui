@@ -2,7 +2,6 @@ import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata} from "next";
 import {clsx} from "@nextui-org/shared-utils";
-import {Spacer} from "@nextui-org/spacer";
 
 import {Providers} from "./providers";
 
@@ -72,7 +71,6 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
           <div className="relative flex flex-col" id="app-container">
             <ProBanner />
             <Navbar mobileRoutes={manifest.mobileRoutes} routes={manifest.routes} />
-            <Spacer y={10} />
             {children}
             <Footer />
           </div>
