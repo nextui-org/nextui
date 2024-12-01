@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18 || >=19.0.0-rc.0",
-    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/system": ">=2.3.0-beta.0",
     "@nextui-org/theme": ">=2.3.0-beta.0",
-    "@nextui-org/system": ">=2.3.0-beta.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/checkbox": "workspace:*",
@@ -53,15 +53,16 @@
     "@react-stately/table": "3.12.3",
     "@react-stately/virtualizer": "4.1.0",
     "@react-types/grid": "3.2.9",
-    "@react-types/table": "3.10.2"
+    "@react-types/table": "3.10.2",
+    "@tanstack/react-virtual": "^3.10.9"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/chip": "workspace:*",
     "@nextui-org/pagination": "workspace:*",
     "@nextui-org/spinner": "workspace:*",
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
     "@nextui-org/use-infinite-scroll": "workspace:*",
     "@nextui-org/user": "workspace:*",

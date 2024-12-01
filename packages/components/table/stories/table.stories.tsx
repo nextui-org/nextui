@@ -1110,3 +1110,46 @@ export const TableWithSwitch = {
     selectionMode: "multiple",
   },
 };
+
+function generateRows(count) {
+  return Array.from({length: count}, (_, index) => ({
+    key: index.toString(),
+    name: `Item ${index + 1}`,
+    value: `Value ${index + 1}`,
+  }));
+}
+
+export const Virtualized = {
+  render: (args: TableProps) => {
+    const rows = generateRows(10000);
+    const columns = [
+      {key: "name", label: "Name"},
+      {key: "value", label: "Value"},
+    ];
+
+    return (
+      <Table
+        aria-label="Example of virtualized table with a large dataset"
+        {...args}
+        isVirtualized
+        maxBodyHeight={600}
+        rowHeight={40}
+      >
+        <TableHeader columns={columns}>
+          {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+        </TableHeader>
+        <TableBody items={rows}>
+          {(item) => (
+            <TableRow key={item.key}>
+              {(columnKey) => <TableCell>{item[columnKey]}</TableCell>}
+            </TableRow>
+          )}
+        </TableBody>
+      </Table>
+    );
+  },
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl",
+  },
+};
