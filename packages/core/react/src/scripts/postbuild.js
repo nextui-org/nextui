@@ -18,6 +18,9 @@ const docsComponentsDir = path.resolve(rootDir, 'apps/docs/content/docs/componen
 const themeDir = path.resolve(packagesDir, 'core/theme'); // Theme directory path
 
 const baseDocs = 'https://nextui.org/docs/components';
+const filePath = './src/index.ts'; // Updated file path
+const backupFilePath = filePath + '.backup.ts'; // Backup file
+
 
 const EXCLUDE_LIST = ['.DS_Store'];
 
@@ -70,6 +73,22 @@ function generateComponents() {
 function main() {
     // Generate the components meta data
     try {
+        // Restore the original file from the backup
+        fs.copyFile(backupFilePath, filePath, (err) => {
+            if (err) {
+                return console.log(err);
+            }
+            console.log('The original file has been restored.');
+
+            // Delete the backup file
+            fs.unlink(backupFilePath, (err) => {
+                if (err) {
+                    return console.log(err);
+                }
+                console.log('The backup file has been deleted.');
+            });
+        });
+
         generateComponents()
     } catch (error) {
         console.error(chalk.red(`Generate the components Error: ${error}`))
