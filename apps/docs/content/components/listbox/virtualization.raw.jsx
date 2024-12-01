@@ -31,26 +31,35 @@ const generateItems = (n) => {
   return dataset;
 };
 
+const ListboxWrapper = ({children}) => (
+  <div className="w-full max-w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">
+    {children}
+  </div>
+);
+
 export default function App() {
   const items = generateItems(1000);
 
   return (
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <Listbox
-        isVirtualized
-        label={"Select from 1000 items"}
-        placeholder="Select..."
-        virtualization={{
-          maxListboxHeight: 400,
-          itemHeight: 40,
-        }}
-      >
-        {items.map((item, index) => (
-          <ListboxItem key={index} value={item.value}>
-            {item.label}
-          </ListboxItem>
-        ))}
-      </Listbox>
+      <ListboxWrapper>
+        <Listbox
+          isVirtualized
+          className="max-w-xs"
+          label={"Select from 1000 items"}
+          placeholder="Select..."
+          virtualization={{
+            maxListboxHeight: 400,
+            itemHeight: 40,
+          }}
+        >
+          {items.map((item, index) => (
+            <ListboxItem key={index} value={item.value}>
+              {item.label}
+            </ListboxItem>
+          ))}
+        </Listbox>
+      </ListboxWrapper>
     </div>
   );
 }

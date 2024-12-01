@@ -39,6 +39,7 @@ export default function App() {
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
       <Select
         isVirtualized
+        className="max-w-xs"
         label={"Select from 1000 items"}
         maxListboxHeight={400}
         placeholder="Select..."

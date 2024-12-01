@@ -37,7 +37,12 @@ export default function App() {
 
   return (
     <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-      <Select isVirtualized label={"Select from 10000 items"} placeholder="Select...">
+      <Select
+        isVirtualized
+        className="max-w-xs"
+        label={"Select from 10000 items"}
+        placeholder="Select..."
+      >
         {items.map((item, index) => (
           <SelectItem key={index} value={item.value}>
             {item.label}
