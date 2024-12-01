@@ -58,7 +58,7 @@
     "@react-aria/utils": "3.25.3",
     "@react-aria/visually-hidden": "3.8.17",
     "@react-types/shared": "3.25.0",
-    "@tanstack/react-virtual": "^3.10.9"
+    "@tanstack/react-virtual": "3.10.9"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
