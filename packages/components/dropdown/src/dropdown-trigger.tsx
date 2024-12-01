@@ -4,6 +4,8 @@ import {useDropdownContext} from "./dropdown-context";
 
 export interface DropdownTriggerProps {
   children?: React.ReactNode;
+  className?: string;
+  [key: string]: any;
 }
 
 /**
