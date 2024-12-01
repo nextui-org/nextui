@@ -412,6 +412,13 @@
           "path": "/docs/components/tabs.mdx"
         },
         {
+          "key": "toast",
+          "title": "Toast",
+          "keywords": "toast, notification, message",
+          "path": "/docs/components/toast.mdx",
+          "comingSoon": true
+        },
+        {
           "key": "textarea",
           "title": "Textarea",
           "keywords": "textarea, multi-line text input, large text field, form control",

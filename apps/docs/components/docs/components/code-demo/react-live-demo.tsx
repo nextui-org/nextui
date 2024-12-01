@@ -47,7 +47,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
       {files?.[DEFAULT_FILE] && (
         <div className="absolute top-[-28px] right-[-8px]">
           <CopyButton
-            className="opacity-0 group-hover/code-demo:opacity-100 transition-opacity text-zinc-400"
+            className="before:hidden opacity-0 group-hover/code-demo:opacity-100 transition-opacity text-zinc-400"
             value={files?.[DEFAULT_FILE] as string}
           />
         </div>

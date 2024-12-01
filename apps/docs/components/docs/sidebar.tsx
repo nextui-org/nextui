@@ -28,10 +28,6 @@ import {getRoutePaths} from "./utils";
 
 import {Route} from "@/libs/docs/page";
 import {TreeKeyboardDelegate} from "@/utils/tree-keyboard-delegate";
-import {FbFeedbackButton} from "@/components/featurebase/fb-feedback-button";
-import {FbChangelogButton} from "@/components/featurebase/fb-changelog-button";
-import {FbRoadmapLink} from "@/components/featurebase/fb-roadmap-link";
-import {openFeedbackWidget} from "@/utils/featurebase";
 import emitter from "@/libs/emitter";
 
 export interface Props<T> extends Omit<ItemProps<T>, "title">, Route {
@@ -121,28 +117,11 @@ function TreeItem<T>(props: TreeItemProps<T>) {
 
   const {focusProps, isFocused, isFocusVisible} = useFocusRing();
 
-  const renderFeaturebaseComponent = (key: string) => {
-    if (key === "roadmap")
-      return <FbRoadmapLink className={cn} innerClassName="opacity-80 dark:opacity-60" />;
-    if (key === "changelog")
-      return (
-        <NextUILink as={Link} className={cn} color="foreground" href="#">
-          <FbChangelogButton />
-        </NextUILink>
-      );
-
-    return (
-      <NextUILink as={Link} className={cn} color="foreground" href="#" onClick={openFeedbackWidget}>
-        <FbFeedbackButton />
-      </NextUILink>
-    );
-  };
-
   const renderComponent = () => {
     if (hasChildNodes) {
       return (
         <span className="flex items-center gap-3">
-          <span>{rendered}</span>
+          <span className="font-medium sm:text-sm">{rendered}</span>
           <ChevronIcon
             className={clsx("transition-transform", {
               "-rotate-90": isExpanded,
@@ -152,14 +131,11 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       );
     }
 
-    if (typeof key === "string" && ["changelog", "feedback", "roadmap"].includes(key)) {
-      return renderFeaturebaseComponent(key);
-    }
-
     return (
       <NextUILink as={Link} className={clsx(cn)} color="foreground" href={paths.pathname}>
         <span
           className={clsx(
+            "sm:text-sm",
             isSelected
               ? "text-primary font-medium dark:text-foreground"
               : "opacity-80 dark:opacity-60",
@@ -172,7 +148,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
         </span>
         {isUpdated && (
           <Chip
-            className="ml-1 py-1 text-tiny text-default-500 dark:text-default-400 bg-default-100 dark:bg-default-100/50"
+            className="ml-1 py-1 font-medium text-tiny text-default-500 dark:text-default-400 bg-default-100 dark:bg-default-100/50"
             color="default"
             size="sm"
             variant="flat"
@@ -181,12 +157,22 @@ function TreeItem<T>(props: TreeItemProps<T>) {
           </Chip>
         )}
         {isNew && (
-          <Chip className="ml-1 py-1 text-tiny" color="primary" size="sm" variant="flat">
+          <Chip
+            className="font-medium ml-1 py-1 text-tiny"
+            color="primary"
+            size="sm"
+            variant="flat"
+          >
             New
           </Chip>
         )}
         {item.props?.comingSoon && (
-          <Chip className="ml-1 py-1 text-tiny" color="default" size="sm" variant="flat">
+          <Chip
+            className="font-medium ml-1 py-1 text-tiny"
+            color="secondary"
+            size="sm"
+            variant="flat"
+          >
             Coming soon
           </Chip>
         )}

@@ -77,7 +77,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
         }, transparent 100%)`,
       }}
     >
-      <p className="text-sm">On this page</p>
+      <p className="text-sm font-medium">On this page</p>
       <ul className="scrollbar-hide flex flex-col gap-2">
         {headings.map(
           (heading, i) =>
