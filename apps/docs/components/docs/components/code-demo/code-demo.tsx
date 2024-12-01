@@ -109,7 +109,7 @@ export const CodeDemo: React.FC<CodeDemoProps> = ({
       <DynamicReactLiveDemo
         className={className}
         code={code}
-        files={files}
+        files={Object.keys(files)}
         gradientColor={gradientColor}
         height={previewHeight}
         isCentered={isPreviewCentered}
