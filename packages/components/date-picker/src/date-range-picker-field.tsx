@@ -7,7 +7,7 @@ import {createCalendar} from "@internationalized/date";
 import {forwardRef, useRef} from "react";
 import {DateValue} from "@react-types/datepicker";
 import {useDateField as useAriaDateField} from "@react-aria/datepicker";
-import {ForwardedRef, ReactElement, Ref} from "react";
+import {ForwardedRef, ReactElement} from "react";
 import {useDateFieldState} from "@react-stately/datepicker";
 import {DateInputSegment} from "@nextui-org/date-input";
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
@@ -29,8 +29,10 @@ export interface Props<T extends DateValue>
   classNames?: SlotsToClasses<DateInputSlots>;
 }
 
-function DateRangePickerField<T extends DateValue>(
-  props: Props<T>,
+export type DateRangePickerFieldProps<T extends DateValue = DateValue> = Props<T>;
+
+const DateRangePickerField = forwardRef(function DateRangePickerField<T extends DateValue>(
+  props: DateRangePickerFieldProps<T>,
   ref: ForwardedRef<HTMLDivElement>,
 ) {
   const {as, slots, createCalendar: createCalendarProp, classNames, ...otherProps} = props;
@@ -76,15 +78,6 @@ function DateRangePickerField<T extends DateValue>(
       <input {...inputProps} ref={inputRef} />
     </Component>
   );
-}
+}) as <T extends DateValue>(props: DateRangePickerFieldProps<T>) => ReactElement;
 
-DateRangePickerField.displayName = "NextUI.DateRangePickerField";
-
-export type DateRangePickerFieldProps<T extends DateValue = DateValue> = Props<T> & {
-  ref?: Ref<HTMLElement>;
-};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DateRangePickerField) as <T extends DateValue>(
-  props: DateRangePickerFieldProps<T>,
-) => ReactElement;
+export default DateRangePickerField;

@@ -1,5 +1,4 @@
-import {ReactElement, useRef} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useVirtualizer} from "@tanstack/react-virtual";
 import {isEmpty} from "@nextui-org/shared-utils";
@@ -14,7 +13,7 @@ interface Props extends UseListboxReturn {
   virtualization?: VirtualizationProps;
 }
 
-function VirtualizedListbox(props: Props) {
+const VirtualizedListbox = (props: Props) => {
   const {
     Component,
     state,
@@ -151,9 +150,6 @@ function VirtualizedListbox(props: Props) {
       {bottomContent}
     </div>
   );
-}
+};
 
-VirtualizedListbox.displayName = "NextUI.VirtualizedListbox";
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(VirtualizedListbox) as (props: Props) => ReactElement;
+export default VirtualizedListbox;
