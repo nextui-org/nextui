@@ -149,7 +149,24 @@ export type UseSelectProps<T> = Omit<
   keyof Omit<MultiSelectProps<T>, "onSelectionChange">
 > &
   Omit<MultiSelectProps<T>, "onSelectionChange"> &
-  SelectVariantProps;
+  SelectVariantProps & {
+    /**
+     * The height of each item in the listbox.
+     * This is required for virtualized listboxes to calculate the height of each item.
+     */
+    itemHeight?: number;
+    /**
+     * The max height of the listbox (which will be rendered in a popover).
+     * This is required for virtualized listboxes to set the maximum height of the listbox.
+     */
+    maxListboxHeight?: number;
+    /**
+     * Whether to enable virtualization of the listbox items.
+     * By default, virtualization is automatically enabled when the number of items is greater than 50.
+     * @default undefined
+     */
+    isVirtualized?: boolean;
+  };
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const globalContext = useProviderContext();
@@ -175,6 +192,9 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     renderValue,
     onSelectionChange,
     placeholder,
+    isVirtualized,
+    itemHeight = 32,
+    maxListboxHeight = 256,
     children,
     disallowEmptySelection = false,
     selectionMode = "single",
@@ -493,15 +513,33 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       className: slots.listboxWrapper({
         class: clsx(classNames?.listboxWrapper, props?.className),
       }),
+      style: {
+        maxHeight: maxListboxHeight ?? 256,
+        ...props.style,
+      },
       ...mergeProps(slotsProps.scrollShadowProps, props),
     }),
-    [slots.listboxWrapper, classNames?.listboxWrapper, slotsProps.scrollShadowProps],
+    [
+      slots.listboxWrapper,
+      classNames?.listboxWrapper,
+      slotsProps.scrollShadowProps,
+      maxListboxHeight,
+    ],
   );
 
   const getListboxProps = (props: any = {}) => {
+    const shouldVirtualize = isVirtualized ?? state.collection.size > 50;
+
     return {
       state,
       ref: listBoxRef,
+      isVirtualized: shouldVirtualize,
+      virtualization: shouldVirtualize
+        ? {
+            maxListboxHeight,
+            itemHeight,
+          }
+        : undefined,
       "data-slot": "listbox",
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),

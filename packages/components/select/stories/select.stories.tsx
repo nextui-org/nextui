@@ -729,6 +729,59 @@ const ScrollableContainerTemplate = (args: SelectProps) => {
   );
 };
 
+interface LargeDatasetSchema {
+  label: string;
+  value: string;
+  description: string;
+}
+
+function generateLargeDataset(n: number): LargeDatasetSchema[] {
+  const dataset: LargeDatasetSchema[] = [];
+  const items = [
+    "Cat",
+    "Dog",
+    "Elephant",
+    "Lion",
+    "Tiger",
+    "Giraffe",
+    "Dolphin",
+    "Penguin",
+    "Zebra",
+    "Shark",
+    "Whale",
+    "Otter",
+    "Crocodile",
+  ];
+
+  for (let i = 0; i < n; i++) {
+    const item = items[i % items.length];
+
+    dataset.push({
+      label: `${item}${i}`,
+      value: `${item.toLowerCase()}${i}`,
+      description: "Sample description",
+    });
+  }
+
+  return dataset;
+}
+
+const LargeDatasetTemplate = (args: SelectProps & {numItems: number}) => {
+  const largeDataset = generateLargeDataset(args.numItems);
+
+  return (
+    <div className="flex w-full max-w-full py-20 xl:px-32 lg:px-20 px-20">
+      <Select label={`Select from ${args.numItems} items`} {...args}>
+        {largeDataset.map((item, index) => (
+          <SelectItem key={index} value={item.value}>
+            {item.label}
+          </SelectItem>
+        ))}
+      </Select>
+    </div>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -1041,5 +1094,48 @@ export const CustomStyles = {
         </div>
       ));
     },
+  },
+};
+
+export const OneThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Select an item...",
+    numItems: 1000,
+    isVirtualized: true,
+  },
+};
+
+export const TenThousandList = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Select an item...",
+    numItems: 10000,
+    isVirtualized: true,
+  },
+};
+
+export const CustomMaxListboxHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Select an item...",
+    numItems: 1000,
+    isVirtualized: true,
+    maxListboxHeight: 400,
+  },
+};
+
+export const CustomItemHeight = {
+  render: LargeDatasetTemplate,
+  args: {
+    ...defaultProps,
+    placeholder: "Select an item...",
+    numItems: 1000,
+    isVirtualized: true,
+    maxListboxHeight: 400,
+    itemHeight: 40,
   },
 };

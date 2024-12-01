@@ -1,7 +1,7 @@
 import type {SelectProps} from "../src";
 
 import * as React from "react";
-import {render, renderHook} from "@testing-library/react";
+import {act, render, renderHook, waitFor} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 
@@ -669,7 +669,13 @@ describe("Select", () => {
     });
 
     const wrapper = render(
-      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+      <Select
+        isOpen
+        aria-label="Favorite Animal"
+        isVirtualized={false}
+        label="Favorite Animal"
+        onChange={onChange}
+      >
         {options.map((o) => (
           <SelectItem key={o} value={o}>
             {o}
@@ -701,7 +707,13 @@ describe("Select", () => {
     });
 
     const wrapper = render(
-      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+      <Select
+        isOpen
+        aria-label="Favorite Animal"
+        isVirtualized={false}
+        label="Favorite Animal"
+        onChange={onChange}
+      >
         {options.map((o) => (
           <SelectItem key={o} value={o}>
             {o}
@@ -812,9 +824,197 @@ describe("Select", () => {
 
     await user.click(getByTestId("button"));
     expect(select).toHaveAttribute("aria-describedby");
-    expect(document.getElementById(select.getAttribute("aria-describedby"))).toHaveTextContent(
+    expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
       "Invalid value",
     );
+  });
+});
+
+describe("Select virtualization tests", () => {
+  const user = userEvent.setup();
+
+  beforeAll(() => {
+    Object.defineProperty(HTMLElement.prototype, "scrollTo", {
+      configurable: true,
+      value: jest.fn(),
+    });
+  });
+
+  it("should work with onChange (< virtualization threshold items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 10}, (_, i) => `option ${i}`);
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(10);
+
+    await user.click(listboxItems[1]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with onChange (at virtualization threshold items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 50}, (_, i) => `option ${i}`);
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(50);
+
+    await user.click(listboxItems[1]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with onChange (> virtualization threshold items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 100}, (_, i) => `option ${i}`);
+
+    /* Mock dimensions */
+    Object.defineProperty(HTMLElement.prototype, "offsetHeight", {configurable: true, value: 200});
+    Object.defineProperty(HTMLElement.prototype, "scrollHeight", {configurable: true, value: 2000});
+    Object.defineProperty(HTMLElement.prototype, "getBoundingClientRect", {
+      configurable: true,
+      value: () => ({
+        top: 0,
+        bottom: 200,
+        height: 200,
+        left: 0,
+        right: 100,
+        width: 100,
+      }),
+    });
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select
+          isOpen
+          isVirtualized
+          aria-label="Favorite Animal"
+          itemHeight={20}
+          label="Favorite Animal"
+          maxListboxHeight={200}
+          onChange={onChange}
+        >
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    /* Scroll to ensure visibility of the target item */
+    const scrollableContainer = wrapper.container.querySelector("div");
+
+    act(() => {
+      scrollableContainer?.scrollTo({top: 60});
+    });
+
+    await waitFor(() => {
+      const visibleItems = wrapper.getAllByRole("option");
+
+      expect(visibleItems.length).toBeGreaterThan(0);
+      /* Virtualized list will have listitems less than 100 */
+      expect(visibleItems.length).toBeLessThan(100);
+    });
+
+    const visibleItems = wrapper.getAllByRole("option");
+
+    await user.click(visibleItems[3]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with onChange (large number of items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 300}, (_, i) => `option ${i}`);
+
+    /* Mock dimensions */
+    Object.defineProperty(HTMLElement.prototype, "offsetHeight", {configurable: true, value: 200});
+    Object.defineProperty(HTMLElement.prototype, "scrollHeight", {configurable: true, value: 6000});
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select
+          isOpen
+          isVirtualized
+          aria-label="Favorite Animal"
+          itemHeight={20}
+          label="Favorite Animal"
+          maxListboxHeight={200}
+          onChange={onChange}
+        >
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    /* Simulate scrolling to make the target item visible */
+    const scrollableContainer = wrapper.container.querySelector("div");
+
+    act(() => {
+      scrollableContainer?.scrollTo({top: 1200});
+    });
+
+    await waitFor(() => {
+      const visibleItems = wrapper.getAllByRole("option");
+
+      expect(visibleItems.length).toBeGreaterThan(0);
+      /* Virtualized list will have listitems less than 300 */
+      expect(visibleItems.length).toBeLessThan(300);
+    });
+
+    const visibleItems = wrapper.getAllByRole("option");
+
+    await user.click(visibleItems[3]);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
 
