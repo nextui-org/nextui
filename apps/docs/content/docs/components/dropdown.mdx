@@ -480,13 +480,13 @@ you to customize each item individually.
     },
     {
       attribute: "classNames",
-      type: "Record<base｜list｜emptyContent, string>",
+      type: "Partial<Record<'base'｜'list'｜'emptyContent', string>>",
       description: "Allows to set custom class names for the dropdown menu slots.",
       default: "-"
     },
     {
       attribute: "itemClasses",
-      type: "Record<base｜wrapper｜title｜description｜shortcut｜selectedIcon, string>",
+      type: "Partial<Record<'base'｜'wrapper'｜'title'｜'description'｜'shortcut'｜'selectedIcon', string>>",
       description: "Allows to set custom class names for the dropdown item slots.",
       default: "-"
     }
@@ -560,13 +560,13 @@ you to customize each item individually.
     },
     {
       attribute: "classNames",
-      type: "Record<base｜heading｜group｜divider, string>",
+      type: "Record<'base'｜'heading'｜'group'｜'divider', string>>",
       description: "Allows to set custom class names for the dropdown section slots.",
       default: "-"
     },
     {
       attribute: "itemClasses",
-      type: "Record<base｜wrapper｜title｜description｜shortcut｜selectedIcon, string>",
+      type: "Record<'base'｜'wrapper'｜'title'｜'description'｜'shortcut'｜'selectedIcon', string>>",
       description: "Allows to set custom class names for the dropdown item slots.",
       default: "-"
     }
@@ -705,7 +705,7 @@ you to customize each item individually.
     },
     {
       attribute: "classNames",
-      type: "Record<base｜wrapper｜title｜description｜shortcut｜selectedIcon, string>",
+      type: "Record<'base'｜'wrapper'｜'title'｜'description'｜'shortcut'｜'selectedIcon', string>>",
       description: "Allows to set custom class names for the dropdown item slots.",
       default: "-"
     }

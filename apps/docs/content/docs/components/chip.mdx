@@ -157,7 +157,7 @@ You can customize the `Chip` component by passing custom Tailwind CSS classes to
     },
     {
       attribute: "classNames",
-      type: 'Record<"base" | "content" | "dot" | "avatar" | "closeButton", string>',
+      type: 'Partial<Record<"base" | "content" | "dot" | "avatar" | "closeButton", string>>',
       description: "Allows to set custom class names for the chip slots.",
       default: "-"
     }

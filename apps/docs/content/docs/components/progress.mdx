@@ -210,7 +210,7 @@ You can customize the `Progress` component by passing custom Tailwind CSS classe
     },
     {
       attribute: "classNames",
-      type: "Record<'base' | 'labelWrapper' | 'label' | 'track' | 'value' | 'indicator', string>",
+      type: "Partial<Record<'base' | 'labelWrapper' | 'label' | 'track' | 'value' | 'indicator', string>>",
       description: "Allows to set custom class names for the progress slots.",
       default: "-"
     }
