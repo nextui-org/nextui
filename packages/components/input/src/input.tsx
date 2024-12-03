@@ -53,7 +53,7 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
         {shouldShowError ? (
           <div {...getErrorMessageProps()}>{errorMessage}</div>
         ) : (
-          <div {...getDescriptionProps()}>{description}</div>
+          <div {...getDescriptionProps()}>{description === " " ? <span /> : description}</div>
         )}
       </div>
     );

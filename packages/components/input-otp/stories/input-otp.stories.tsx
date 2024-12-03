@@ -5,7 +5,7 @@ import {useForm} from "react-hook-form";
 import {ValidationResult} from "@react-types/shared";
 import {Button} from "@nextui-org/button";
 
-import {InputOtp} from "../src";
+import {InputOtp, InputOtpProps} from "../src";
 
 export default {
   title: "Components/InputOtp",
@@ -213,11 +213,17 @@ export const ReadOnly = {
 };
 
 export const WithDescription = {
-  render: Template,
+  render: (args: InputOtpProps) => {
+    return (
+      <div className="w-full max-w-3xl flex justify-center gap-4">
+        <Template {...args} description="Enter the 4 digit code sent to your email" />
+        <Template {...args} description=" " />
+      </div>
+    );
+  },
   args: {
     ...defaultProps,
     length: 4,
-    description: "Enter the 4 digit code sent to your email",
   },
 };
 
