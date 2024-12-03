@@ -377,13 +377,13 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"list\" | \"emptyContent\", string>",
+      type: "Partial<Record<\"base\" | \"list\" | \"emptyContent\", string>>",
       description: "Allows to set custom class names for the listbox slots.",
       default: "-"
     },
     {
       attribute: "itemClasses",
-      type: "Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"selectedIcon\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"selectedIcon\", string>>",
       description: "Allows to set custom class names for the listbox item slots.",
       default: "-"
     }
@@ -451,13 +451,13 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"heading\" | \"group\" | \"divider\", string>",
+      type: "Partial<Record<\"base\" | \"heading\" | \"group\" | \"divider\", string>>",
       description: "Allows to set custom class names for the listbox section slots.",
       default: "-"
     },
     {
       attribute: "itemClasses",
-      type: "Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>>",
       description: "Allows to set custom class names for the listbox item slots.",
       default: "-"
     }
@@ -596,7 +596,7 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>>",
       description: "Allows to set custom class names for the listbox item slots.",
       default: "-"
     }

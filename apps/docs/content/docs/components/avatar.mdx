@@ -252,7 +252,7 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"img\" | \"fallback\" | \"name\" | \"icon\", string>",
+      type: "Partial<Record<\"base\" | \"img\" | \"fallback\" | \"name\" | \"icon\", string>>",
       description: "Allows to set custom class names for the avatar slots.",
       default: "-"
     }
@@ -319,7 +319,7 @@ You can customize any part of the avatar by using the `classNames` prop, each `s
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"count\", string>",
+      type: "Partial<Record<\"base\" | \"count\", string>>",
       description: "Allows to set custom class names for the avatar group slots.",
       default: "-"
     }

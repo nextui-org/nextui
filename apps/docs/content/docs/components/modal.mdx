@@ -299,7 +299,7 @@ You can customize the `Modal` component by passing custom Tailwind CSS classes t
     },
     {
       attribute: "classNames",
-      type: "Record<'wrapper' | 'base' | 'backdrop' | 'header' | 'body' | 'footer' | 'closeButton', string>",
+      type: "Partial<Record<'wrapper' | 'base' | 'backdrop' | 'header' | 'body' | 'footer' | 'closeButton', string>>",
       description: "Allows to set custom class names for the modal slots.",
       default: "-"
     }

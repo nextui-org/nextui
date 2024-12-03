@@ -651,7 +651,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       return {
         ...props,
         ...errorMessageProps,
-        "data-slot": "errorMessage",
+        "data-slot": "error-message",
         className: slots.errorMessage({class: clsx(classNames?.errorMessage, props?.className)}),
       };
     },
