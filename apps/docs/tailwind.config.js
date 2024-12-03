@@ -62,8 +62,8 @@ module.exports = {
       },
       fontFamily: {
         sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        mono: ["var(--font-mono)", ...defaultTheme.fontFamily.mono],
         serif: defaultTheme.fontFamily.serif,
-        mono: defaultTheme.fontFamily.mono,
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -100,7 +100,7 @@ module.exports = {
             },
             "h3 a": {
               fontSize: "1.25rem !important",
-              fontWeight: theme("fontWeight.medium"),
+              fontWeight: theme("fontWeight.bold"),
             },
             "h2 small, h3 small, h4 small": {
               fontFamily: theme("fontFamily.mono").join(", "),
@@ -118,6 +118,9 @@ module.exports = {
             "h4 small": {
               fontSize: theme("fontSize.sm")[0],
               ...theme("fontSize.sm")[1],
+            },
+            "h4 a": {
+              fontWeight: theme("fontWeight.bold"),
             },
             "h2, h3, h4": {
               "scroll-margin-top": "var(--scroll-mt)",
@@ -148,7 +151,7 @@ module.exports = {
             },
             strong: {
               color: "hsl(var(--nextui-foreground))",
-              fontWeight: theme("fontWeight.semibold"),
+              fontWeight: theme("fontWeight.bold"),
             },
             "a strong": {
               color: "inherit",
@@ -168,7 +171,7 @@ module.exports = {
               display: "flex",
               fontSize: theme("fontSize.sm")[0],
               backgroundColor: "transparent",
-              fontWeight: theme("fontWeight.light"),
+              fontWeight: theme("fontWeight.medium"),
               padding: 0,
               margin: 0,
             },
@@ -343,7 +346,7 @@ module.exports = {
         dark: {
           colors: {
             strong: "#06B7DB",
-            "code-background": "#13151B",
+            "code-background": "#18181b",
             "code-mdx": "#06B7DB",
           },
         },

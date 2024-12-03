@@ -176,12 +176,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <Dropdown placement="bottom-start" portalContainer={ref.current}>
               <AnimatePresence>
                 {isMounted && (
-                  <motion.div
-                    animate={{opacity: 1}}
-                    className="pl-3"
-                    exit={{opacity: 0}}
-                    initial={{opacity: 0}}
-                  >
+                  <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
                     <DropdownTrigger>
                       <Button
                         className="min-w-[74px] max-w-[74px] hidden font-medium text-default-500 text-xs h-6 w-[74px] py-1 min-w-fit sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
@@ -211,24 +206,22 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           ) : (
             <div className="w-[74px]" />
           )}
-          <NavbarItem className="hidden sm:flex">
-            <Chip
-              as={NextLink}
-              className="bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"
-              classNames={{
-                content: "font-semibold text-primary-500 dark:text-primary-600 text-xs ",
-              }}
-              color="primary"
-              href="/blog/v2.6.0"
-              variant="flat"
-              onClick={() => handlePressNavbarItem("New version v2.6.0", "/blog/v2.6.0")}
-            >
-              New version v2.6.0&nbsp;
-              <span aria-label="emoji" role="img">
-                🔥
-              </span>
-            </Chip>
-          </NavbarItem>
+          <Chip
+            as={NextLink}
+            className="hidden sm:flex bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"
+            classNames={{
+              content: "font-semibold text-primary-500 dark:text-primary-600 text-xs ",
+            }}
+            color="primary"
+            href="/blog/v2.6.0"
+            variant="flat"
+            onClick={() => handlePressNavbarItem("New version v2.6.0", "/blog/v2.6.0")}
+          >
+            New version v2.6.0&nbsp;
+            <span aria-label="emoji" role="img">
+              🔥
+            </span>
+          </Chip>
         </NavbarBrand>
       </NavbarContent>
 

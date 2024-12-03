@@ -60,7 +60,7 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
         </div>
       )}
       <LivePreview
-        className={clsx("live-preview flex h-full w-full not-prose", {
+        className={clsx("live-preview flex h-full w-full not-prose ", {
           "justify-center items-center": isCentered,
         })}
         style={{height}}

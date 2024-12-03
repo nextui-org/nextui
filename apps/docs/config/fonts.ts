@@ -1,8 +1,12 @@
-import {GeistMono} from "geist/font/mono";
 import localFont from "next/font/local";
 
 const fontSans = localFont({
   src: [
+    {
+      path: "../public/assets/fonts/Inter-Light.woff2",
+      style: "normal",
+      weight: "300",
+    },
     {
       path: "../public/assets/fonts/Inter-Regular.woff2",
       style: "normal",
@@ -37,7 +41,31 @@ const fontSans = localFont({
   variable: "--font-sans",
 });
 
-const fontMono = GeistMono;
+const fontMono = localFont({
+  src: [
+    {
+      path: "../public/assets/fonts/FiraCode-Regular.woff2",
+      style: "normal",
+      weight: "400",
+    },
+    {
+      path: "../public/assets/fonts/FiraCode-Medium.woff2",
+      style: "normal",
+      weight: "500",
+    },
+    {
+      path: "../public/assets/fonts/FiraCode-SemiBold.woff2",
+      style: "normal",
+      weight: "600",
+    },
+    {
+      path: "../public/assets/fonts/FiraCode-Bold.woff2",
+      style: "normal",
+      weight: "700",
+    },
+  ],
+  variable: "--font-mono",
+});
 
 export const fonts = {
   mono: fontMono,

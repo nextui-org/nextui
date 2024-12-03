@@ -40,7 +40,18 @@ function App() {
 `navigate`
 
 - **Description**: Provides a client side router to all nested components such as Link, Menu, Tabs, Table, etc.
-- **Type**: `((path: string) => void) | undefined`
+- **Type**: `((path: Href, routerOptions?: RouterOptions) => void) | undefined`
+
+[See Router Guide](/docs/guide/routing)
+
+<Spacer y={2}/>
+
+`useHref`
+
+- **Description**: Convert an `href` provided to a link component to a native `href`. For example, a router might accept hrefs relative to a base path, or offer additional custom ways of specifying link destinations. The original href specified on the link is passed to the navigate function of the RouterProvider, and useHref is used to generate the full native href to put on the actual DOM element.
+- **Type**: `((href: Href) => string) | undefined`
+
+[See Router Guide](/docs/guide/routing)
 
 <Spacer y={2}/>
 
@@ -176,6 +187,7 @@ The available options are:
   - `"never"`: Keeps all animations active.
 - **Type**: `"user" | "always" | "never"`
 - **Default**: `"never"`
+
 ---
 
 ## Types
