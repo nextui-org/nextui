@@ -132,7 +132,14 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     }
 
     return (
-      <NextUILink as={Link} className={clsx(cn)} color="foreground" href={paths.pathname}>
+      <NextUILink
+        as={item.props?.comingSoon ? "div" : Link}
+        className={clsx(cn, {
+          "pointer-events-none": item.props?.comingSoon,
+        })}
+        color="foreground"
+        href={item.props?.comingSoon ? "#" : paths.pathname}
+      >
         <span
           className={clsx(
             "sm:text-sm",
@@ -196,7 +203,12 @@ function TreeItem<T>(props: TreeItemProps<T>) {
       data-focused={isFocused}
       role="treeitem"
     >
-      <div className="flex items-center gap-3 cursor-pointer" {...pressProps}>
+      <div
+        className={clsx("flex items-center gap-3 cursor-pointer", {
+          "pointer-events-none": item.props?.comingSoon,
+        })}
+        {...(item.props?.comingSoon ? {} : pressProps)}
+      >
         <Spacer x={spaceLeft} />
         {renderComponent()}
         {/* Workaround to avoid scrollbar overlapping */}

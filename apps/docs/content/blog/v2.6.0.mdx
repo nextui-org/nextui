@@ -1,0 +1,450 @@
+---
+title: "NextUI v2.6.0 🔥"
+description: "NextUI v2.6.0 includes 4 new components, React 19 & Next.js 15 support, and lots of bug fixes and improvements."
+date: "2024-12-03"
+image: "/blog/v2.6.0.jpg"
+tags: ["nextui", "v2.6.0", "release", "bug fixes", "improvements", "animations"]
+author:
+  name: "Junior Garcia"
+  username: "@jrgarciadev"
+  link: "https://x.com/jrgarciadev"
+  avatar: "/avatars/junior-garcia.jpeg"
+---
+
+import {formContent} from "@/content/components/form";
+
+<img
+  src="/blog/v2.6.0_2x.jpg"
+  width={700}
+  height={350}
+  alt="NextUI v2.6.0"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+NextUI version **v2.6.0** comes with 4 new components **Form**, **Drawer**, **Input OTP** and **Alert**, React 19 & Next.js 15 support, and lots of bug fixes and improvements.
+
+## What's New in v2.6.0?
+
+- [Form Component](#form-component) - A form component that allows users to submit data to a server or perform client-side validation.
+- [Drawer Component](#drawer-component) - A drawer component that allows users to slide in content from the side of the screen.
+- [Input OTP Component](#input-otp-component) - An input component that allows users to enter a one-time password.
+- [Alert Component](#alert-component) - An alert component that allows users to display messages to the user.
+- [React 19 & Next.js 15 Support](#react-19-and-nextjs-15-support) - NextUI now supports React 19 and Next.js 15.
+- [Collection-based components Virtualization](#collection-based-components-virtualization) - `Select`, `Autocomplete` & `Listbox` components now support virtualization to improve performance on large collections.
+- [Framer Motion](#framer-motion) - Framer motion is now only added to the final bundle when the animations are enabled. We also added support for Framer motion v12.
+- [New use-theme hook](#use-theme-hook) - We created our own `use-theme` hook that replaces `use-dark-theme` hook to allow users to change the theme at runtime.
+- [React Aria Packages Upgrades](#react-aria-packages-upgrades) - Upgrades and fixes the exact versions of React Aria.
+- [Draggable Modal](#draggable-modal) - Added support for draggable modals.
+- [New Props and Features](#new-props-and-features) - Added several new props including `selectorButtonPlacement`, `tabRef`, `shouldCloseOnScroll`, `showMonthAndYearPickers`, and more.
+- [Other Changes](#other-changes) - Includes styling improvements, accessibility, usability enhancements and over 60 bug fixes across different component packages
+
+<Spacer y={4} />
+
+Upgrade today by running one of the following commands:
+
+<Spacer y={4} />
+
+<PackageManagers
+  commands={{
+    cli: "nextui upgrade",
+    npm: "npx nextui-cli@latest upgrade",
+  }}
+/>
+
+
+<Spacer y={4} />
+
+## Form Component
+
+The Form component is built on top of [React Aria's Form component](https://react-spectrum.adobe.com/react-aria/forms.html#forms), providing a solid foundation for building accessible forms. It handles form submission, validation, and error handling while maintaining a clean and intuitive API.
+
+### Built-in Validation
+
+You can use native HTML validation attributes or create custom validation rules.
+
+```tsx
+import {Button, Form, Input} from "@nextui-org/react";
+
+function Example() {
+  return (
+    <Form validationBehavior="native">
+      <Input
+        isRequired
+        errorMessage="Please enter a valid email"
+        label="Email"
+        name="email"
+        type="email"
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+}
+```
+
+<Spacer y={4} />
+
+<CodeDemo title="Usage" showEditor={false} files={formContent.usage} />
+
+### Real-time Validation
+
+You can validate the form data while users are typing.
+
+
+```tsx
+function Example() {
+  const [password, setPassword] = React.useState("");
+  const errors: string[] = [];
+
+  if (password.length < 8) {
+    errors.push("Password must be 8 characters or more.");
+  }
+  if ((password.match(/[A-Z]/g) ?? []).length < 2) {
+    errors.push("Password must include at least 2 upper case letters");
+  }
+
+  return (
+    <Input
+      label="Password"
+      value={password}
+      onValueChange={setPassword}
+      isInvalid={errors.length > 0}
+      errorMessage={errors.join(", ")}
+    />
+  );
+}
+```
+
+### Server Integration
+
+The Form components works seamlessly with React Server Actions.
+
+```tsx
+"use client";
+
+import {useActionState} from "react";
+import {Button, Form, Input} from "@nextui-org/react";
+
+export function AddForm() {
+  const [{ errors }, formAction] = useActionState(createTodo, {
+    errors: {}
+  });
+
+  return (
+    <Form action={formAction} validationErrors={errors}>
+      <Input name="todo" label="Task" />
+      <Button type="submit">Add</Button>
+    </Form>
+  );
+}
+```
+
+### Form Libraries Support
+
+You can also use popular form libraries like `react-hook-form` and `formik`.
+
+```tsx
+import {Controller, useForm} from "react-hook-form";
+import {Button, Form, Input} from "@nextui-org/react";
+
+function Example() {
+  const { handleSubmit, control } = useForm({
+    defaultValues: {
+      name: ""
+    }
+  });
+  
+  return (
+    <Form onSubmit={handleSubmit((data) => console.log(data))}>
+      <Controller
+        control={control}
+        name="name"
+        rules={{required: "Name is required"}}
+        render={({field, fieldState}) => (
+          <Input
+            {...field}
+            label="Name"
+            isInvalid={fieldState.invalid}
+            errorMessage={fieldState.error?.message}
+          />
+        )}
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+}
+```
+
+### Accessibility Built-in
+
+The Form component automatically handles ARIA attributes and keyboard navigation, making your forms usable by everyone:
+
+```tsx
+function Example() {
+  return (
+    <Form>
+      <Input
+        label="Username"
+        description="Choose a unique username"
+        isRequired
+        errorMessage="Username is required"
+        // Automatically adds aria-required, aria-invalid, and aria-describedby
+      />
+      <Input
+        label="Password"
+        type="password"
+        description="Must be at least 8 characters"
+        // Help text is automatically linked via aria-describedby
+      />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+}
+```
+
+Check out our [Forms documentation](/docs/components/forms) for a deep dive into all the features and capabilities.
+
+<Spacer y={4} />
+
+## API Improvements
+
+### disableRipple
+
+By default, there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `NextUIProvider`.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} disableRipple>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+### skipFramerMotionAnimations
+
+We can control whether `framer-motion` animations are skipped within the application. This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`, effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while using the `disableAnimation` prop for other purposes, set this to `false`. However, note that animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} skipFramerMotionAnimations>
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+### validationBehavior
+
+We can set `validationBehavior` to either `native` or `aria` to control whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA. If it is not specified, `aria` will be used by default.
+
+```tsx
+"use client";
+
+import {type ReactNode} from "react";
+import {NextUIProvider} from "@nextui-org/react";
+
+export function AppProvider(props: AppProviderProps) {
+  const {children, className} = props;
+
+  return (
+    <NextUIProvider className={className} validationBehavior="native">
+      {children}
+    </NextUIProvider>
+  );
+}
+
+interface AppProviderProps {
+  children: ReactNode;
+  className?: string;
+}
+```
+
+<Spacer y={4} />
+
+## CLI Improvements
+
+### Refactor Init Flow View
+
+We've refactored the init flow view to provide a better user experience.
+
+The latest flow view output:
+
+```bash
+┌  Create a new project
+│
+◇  Select a template (Enter to select)
+│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
+│
+◇  New project name (Enter to skip with default name)
+│  my-nextui-app
+│
+◇  Select a package manager (Enter to select)
+│  ● npm
+│  ○ yarn
+│  ○ pnpm
+│  ○ bun
+│
+◇  Template created successfully!
+│
+◇  Next steps ───────╮
+│                    │
+│  cd my-nextui-app  │
+│  npm install       │
+│                    │
+├────────────────────╯
+│
+└  🚀 Get started with npm run dev
+```
+
+### Add Vite Template
+
+We've introduced a new Vite template pre-configured with NextUI v2 and TailwindCSS. The following command is to initialize a new Vite project named `my-vite-app`.
+
+```bash
+nextui init my-vite-app -t vite
+```
+
+### Package Manager Flag
+
+We've introduced a new flag `-p` (or `--package`) to init command to allow users to choose the package manager to use for the new project. By default, `npm` is used. For example, the following command will initialize a new NextUI project with the app template named my-nextui-app using pnpm package manager.
+
+```bash
+nextui init my-nextui-app -t app -p pnpm
+```
+
+### no-cache Flag
+
+We've introduced a new flag `--no-cache` to allow users to disable the cache. By default, the data will be cached for 30 mins after the first request. It is useful when the data is cached, and you wish to upgrade to the new version just released after the first request. In this way, you can run the following command
+
+```bash
+nextui --no-cache upgrade
+```
+
+### Upgrade Version Output
+
+You can now run the upgrade command and see the summary version of the package you are upgrading to.
+
+![image](https://github.com/nextui-org/nextui-cli/assets/96854855/2a5945dd-5187-4e20-81b8-4136e9791dde)
+
+### Upgrade And Remove Select View Optimization
+
+The disabled option(s) will be displayed in the bottom of the list.
+
+![image](https://github.com/nextui-org/nextui-cli/assets/96854855/c7ddf9e4-3054-4bf1-b8e3-dc2f6226091a)
+
+### Doctor Command add peerDependencies check
+
+The `doctor` command now checks for peerDependencies and displays the incorrect peerDependencies. (See [nextui-org/nextui#2954](https://github.com/nextui-org/nextui/issues/2954) for more).
+
+<Spacer y={4} />
+
+## React Aria Packages Upgrades
+
+We've upgraded and fixed React Aria packages dependencies across our components. This update focuses on enhancing accessibility, ensuring better compatibility with the latest versions of React Aria, and resolving previously reported bugs.
+
+<Spacer y={4} />
+
+## Breaking Changes
+
+### Export improved `cn` utility
+
+> If you are using it from `@nextui-org/react`, no changes are required.
+
+The new `cn` utility exported from the `@nextui-org/theme` package includes `tailwind-merge` to avoid conflicts between tailwindcss classes overrides and includes the config for NextUI custom classes.
+
+If you are using the `cn` utility from the `@nextui-org/system`, 
+
+```diff-tsx
+-import {cn} from "@nextui-org/system"
+```
+
+or `@nextui-org/system-rsc` package,
+
+```diff-tsx
+-import {cn} from "@nextui-org/system-rsc"
+```
+
+you need to update the import as follows:
+
+```diff-tsx
++ import {cn} from "@nextui-org/theme"
+```
+
+<Spacer y={4} />
+
+### Validation Behavior
+
+Since v2.4.0, we've changed the default validation behavior to `aria` which means no native validation is applied. If you wish to use the native validation, you can set `validationBehavior` to `native` to the input components or set it to the Provider as stated above.
+
+For those who use `validationBehavior="aria"`, `validate` will be no longer applied since it is only for native validation. Therefore, you need to switch to use `isInvalid` prop instead.
+
+```tsx
+<form onSubmit={onSubmit}>
+  <Input errorMessage={formErrors?.field1} isInvalid={!!formErrors?.field1} name="field1" />
+  <Button type="submit">Submit</Button>
+</form>
+```
+
+<Spacer y={4} />
+
+## Other Changes
+
+**Bug Fixes**:
+
+- Fixed avatar flashing issues and SSR image loading
+- Fixed controlled IsInvalid prop behavior
+- Fixed RTL support in various components
+- Fixed virtualization for Autocomplete component
+- Fixed label placement issues in Select and Input components
+- Fixed exit animations and clear button behaviors
+- Fixed various accessibility and UI issues
+
+**Improvements**:
+
+- Enhanced performance through optimizations
+- Upgraded to React Aria latest version
+- Added support for NextJS 15
+- Improved RTL support with logical properties
+- Upgraded Storybook to v8
+- Enhanced testing libraries and coverage
+
+<Spacer y={4} />
+
+## Community
+
+We're excited to see the community adopt NextUI, raise issues, and provide feedback.
+Whether it's a feature request, bug report, or a project to showcase, please get involved!
+
+<Community />
+
+## Contributing
+
+PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.

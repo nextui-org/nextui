@@ -3,6 +3,8 @@ title: Forms
 description:  Learn how to handle forms in NextUI.
 ---
 
+import {formContent} from "@/content/components/form";
+
 # Forms
 
 NextUI form components are designed to be flexible and function as HTML form elements. They support form data submission, custom validation, real-time validation, and offer an accessible UI.
@@ -34,7 +36,7 @@ You can call `preventDefault` in the `onSubmit` event to handle form data submis
 
 ### Uncontrolled forms
 
-A simple way to get form data is to use `FormData` API. You can send this data to a backend API or convert it into a JavaScript object using [`Object.fromEntries`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries).
+A simple way to get form data is to use `FormData` API. You can send this data to a backend API or convert it into a JavaScript object using [Object.fromEntries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries).
 Each field should have a `name` prop to identify it, and the values will be serialized as strings by the browser.
 
 ```tsx
@@ -62,6 +64,11 @@ function Example() {
   );
 }
 ```
+
+<Spacer y={4} />
+
+<CodeDemo title="Usage" showEditor={false} files={formContent.usage} />
+
 
 ### Controlled forms
 
@@ -276,7 +283,7 @@ function handleRequest(formData: FormData) {
 #### React Server Actions
 
 [Server Actions](https://react.dev/reference/rsc/server-actions) that allows seamless form submission to the server and retrieval of results.
-The [`useActionState`](https://react.dev/reference/react/useActionState) hook can be used to get the result of server actions (such as errors) after submitting a form.
+The [useActionState](https://react.dev/reference/react/useActionState) hook can be used to get the result of server actions (such as errors) after submitting a form.
 
 ```tsx {14}
 // app/add-form.tsx
@@ -323,7 +330,7 @@ export async function createTodo(
 #### Remix
 
 Remix actions handle form submissions on the server.
-You can use the [`useSubmit`](https://remix.run/docs/en/main/hooks/use-submit) hook to submit form data to the server and the [`useActionData`](https://remix.run/docs/en/main/hooks/use-action-data) hook to retrieve validation errors from the server.
+You can use the [useSubmit](https://remix.run/docs/en/main/hooks/use-submit) hook to submit form data to the server and the [useActionData](https://remix.run/docs/en/main/hooks/use-action-data) hook to retrieve validation errors from the server.
 
 ```tsx {18}
 // app/routes/signup.tsx
@@ -372,8 +379,8 @@ In most cases, the built-in validation features of NextUI are sufficient. Howeve
 
 ### React Hook Form
 
-You can integrate NextUI components using [`Controller`](https://react-hook-form.com/docs/usecontroller/controller).
-`Controller` allows you to manage field values and validation errors, and reflect the validation result in NextUI components.
+You can integrate NextUI components using [Controller](https://react-hook-form.com/docs/usecontroller/controller).
+Controller allows you to manage field values and validation errors, and reflect the validation result in NextUI components.
 
 ```tsx
 import {Controller, useForm} from "react-hook-form";

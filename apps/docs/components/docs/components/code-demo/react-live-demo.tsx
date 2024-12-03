@@ -4,7 +4,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import * as Components from "@nextui-org/react";
 import * as intlDateUtils from "@internationalized/date";
 import * as reactAriaI18n from "@react-aria/i18n";
-import * as reactHookForm from "react-hook-form";
+import * as reactHookFormBase from "react-hook-form";
 import {SandpackFiles} from "@codesandbox/sandpack-react/types";
 
 import {BgGridContainer} from "@/components/bg-grid-container";
@@ -22,6 +22,13 @@ export interface ReactLiveDemoProps {
   gradientColor?: GradientBoxProps["color"];
   overflow?: "auto" | "visible" | "hidden";
 }
+
+// 🚨 Do not pass react-hook-form to scope, it will break the live preview since
+// it also has a "Form" component that will override the one from @nextui-org/react
+const reactHookForm = {
+  useForm: reactHookFormBase.useForm,
+  Controller: reactHookFormBase.Controller,
+};
 
 export const scope = {
   ...Components,

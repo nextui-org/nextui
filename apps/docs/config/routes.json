@@ -38,10 +38,10 @@
           "updated": true
         },
         {
-          "key": "form",
+          "key": "forms",
           "title": "Forms",
           "keywords": "forms, form validation, nextui",
-          "path": "/docs/guide/form.mdx",
+          "path": "/docs/guide/forms.mdx",
           "newPost": true
         },
         {
@@ -264,6 +264,13 @@
           "title": "Drawer",
           "keywords": "drawer, panel, slide, overlay",
           "path": "/docs/components/drawer.mdx",
+          "newPost": true
+        },
+        {
+          "key": "form",
+          "title": "Form",
+          "keywords": "forms, form validation, nextui",
+          "path": "/docs/components/form.mdx",
           "newPost": true
         },
         {

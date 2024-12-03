@@ -147,7 +147,7 @@ module.exports = {
               fontWeight: "inherit",
             },
             strong: {
-              color: "hsl(var(--nextui-strong))",
+              color: "hsl(var(--nextui-foreground))",
               fontWeight: theme("fontWeight.semibold"),
             },
             "a strong": {
@@ -323,6 +323,9 @@ module.exports = {
         expand: "expand 6s ease-out infinite both",
         "expand-opacity": "expand-opacity 6s linear infinite both",
         "text-gradient": "text-gradient 4s linear 0s infinite normal forwards running",
+      },
+      maxWidth: {
+        "8xl": "90rem", // 1440px
       },
     },
   },

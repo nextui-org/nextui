@@ -8,7 +8,7 @@ import {Providers} from "./providers";
 import {Cmdk} from "@/components/cmdk";
 import manifest from "@/config/routes.json";
 import {siteConfig} from "@/config/site";
-import {fontSans} from "@/config/fonts";
+import {fonts} from "@/config/fonts";
 import {Navbar} from "@/components/navbar";
 import {Footer} from "@/components/footer";
 import {ProBanner} from "@/components/pro-banner";
@@ -66,7 +66,13 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html suppressHydrationWarning dir="ltr" lang="en">
       <head />
-      <body className={clsx("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
+      <body
+        className={clsx(
+          "min-h-screen bg-background font-sans antialiased",
+          fonts.sans.variable,
+          fonts.mono.variable,
+        )}
+      >
         <Providers themeProps={{attribute: "class", defaultTheme: "dark"}}>
           <div className="relative flex flex-col" id="app-container">
             <ProBanner />
