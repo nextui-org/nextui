@@ -192,7 +192,7 @@ You can customize the copy and copied icons by using the `copyIcon` and `checkIc
     },
     {
       attribute: "classNames",
-      type: "Record<'base' | 'content' | 'pre' | 'symbol' | 'copyButton' | 'checkIcon', string>",
+      type: "Partial<Record<'base' | 'content' | 'pre' | 'symbol' | 'copyButton' | 'checkIcon', string>>",
       description: "Allows to set custom class names for the snippet slots.",
       default: "-"
     }
