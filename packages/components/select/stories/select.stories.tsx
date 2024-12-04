@@ -506,6 +506,31 @@ const StartContentTemplate = ({color, variant, ...args}: SelectProps) => (
   </Select>
 );
 
+const EmptyTemplate = ({color, variant, ...args}: SelectProps) => (
+  <div className="w-full justify-center flex gap-2">
+    <Select
+      hideEmptyContent
+      className="max-w-xs"
+      color={color}
+      label="Hide empty content"
+      variant={variant}
+      {...args}
+    >
+      {[]}
+    </Select>
+    <Select
+      className="max-w-xs"
+      color={color}
+      hideEmptyContent={false}
+      label="Show empty content"
+      variant={variant}
+      {...args}
+    >
+      {[]}
+    </Select>
+  </div>
+);
+
 const CustomItemsTemplate = ({color, variant, ...args}: SelectProps<User>) => (
   <div className="w-full justify-center flex gap-2">
     <Select
@@ -1060,6 +1085,14 @@ export const AsyncLoading = {
 
 export const StartContent = {
   render: StartContentTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const EmptyContent = {
+  render: EmptyTemplate,
 
   args: {
     ...defaultProps,

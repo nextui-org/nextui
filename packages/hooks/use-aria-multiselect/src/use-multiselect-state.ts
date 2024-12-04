@@ -44,6 +44,10 @@ export interface MultiSelectProps<T>
    * prop instead.
    */
   validate?: (value: string | string[]) => ValidationError | true | null | undefined;
+  /**
+   * Whether the menu should be hidden when there are no items.
+   */
+  hideEmptyContent?: boolean;
 }
 
 export interface MultiSelectState<T>
@@ -99,6 +103,8 @@ export function useMultiSelectState<T extends object>({
     value: listState.selectedKeys,
   });
 
+  const shouldHideContent = listState.collection.size === 0 && props.hideEmptyContent;
+
   return {
     ...validationState,
     ...listState,
@@ -108,18 +114,17 @@ export function useMultiSelectState<T extends object>({
       triggerState.close();
     },
     open(focusStrategy: FocusStrategy | null = null) {
-      // Don't open if the collection is empty.
-      if (listState.collection.size !== 0) {
-        setFocusStrategy(focusStrategy);
-        triggerState.open();
-      }
+      if (shouldHideContent) return;
+
+      setFocusStrategy(focusStrategy);
+      triggerState.open();
     },
     toggle(focusStrategy: FocusStrategy | null = null) {
-      if (listState.collection.size !== 0) {
-        setFocusStrategy(focusStrategy);
-        triggerState.toggle();
-        validationState.commitValidation();
-      }
+      if (shouldHideContent) return;
+
+      setFocusStrategy(focusStrategy);
+      triggerState.toggle();
+      validationState.commitValidation();
     },
     isFocused,
     setFocused,
