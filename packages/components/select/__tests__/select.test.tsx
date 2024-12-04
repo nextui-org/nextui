@@ -4,6 +4,7 @@ import * as React from "react";
 import {act, render, renderHook, waitFor} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
 
 import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
@@ -1168,5 +1169,128 @@ describe("Select with React Hook Form", () => {
     await user.click(submitButton);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("validation", () => {
+  let user;
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+
+  describe("validationBehavior=aria", () => {
+    it("supports isRequired", async () => {
+      function FormRender() {
+        const [serverErrors, setServerErrors] = React.useState({});
+
+        const onSubmit = (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target as HTMLFormElement);
+          const value = formData.get("animal");
+
+          if (!value || (value !== "cat" && value !== "dog")) {
+            setServerErrors({
+              animal: "Please select a cat or dog",
+            });
+          } else {
+            setServerErrors({});
+          }
+        };
+
+        return (
+          <Form data-testid="form" validationErrors={serverErrors} onSubmit={onSubmit}>
+            <Select
+              isRequired
+              aria-label="Favorite Animal"
+              data-testid="select"
+              label="Favorite Animal"
+              name="animal"
+            >
+              <SelectItem key="cat">Cat</SelectItem>
+              <SelectItem key="dog">Dog</SelectItem>
+              <SelectItem key="penguin">Penguin</SelectItem>
+              <SelectItem key="zebra">Zebra</SelectItem>
+              <SelectItem key="shark">Shark</SelectItem>
+            </Select>
+            <button data-testid="button" type="submit">
+              Submit
+            </button>
+          </Form>
+        );
+      }
+
+      const {getByTestId} = render(<FormRender />);
+
+      const select = getByTestId("select");
+      const input = document.querySelector("input");
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+      const button = getByTestId("button");
+
+      await user.click(button);
+
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(input).toHaveAttribute("aria-required");
+
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Please select a cat or dog",
+      );
+
+      await user.click(select);
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[0]);
+
+      await user.click(button);
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+    });
+
+    it("supports validate function", async () => {
+      const {getByTestId} = render(
+        <Form data-testid="form">
+          <Select
+            aria-label="Favorite Animal"
+            data-testid="select"
+            defaultSelectedKeys={["penguin"]}
+            label="Favorite Animal"
+            validate={(v) => (v.includes("penguin") ? "Invalid value" : null)}
+            validationBehavior="aria"
+          >
+            <SelectItem key="penguin">Penguin</SelectItem>
+            <SelectItem key="zebra">Zebra</SelectItem>
+            <SelectItem key="shark">Shark</SelectItem>
+          </Select>
+          <button data-testid="button" type="submit">
+            Submit
+          </button>
+        </Form>,
+      );
+
+      const select = getByTestId("select");
+      const input = document.querySelector("input");
+      const button = getByTestId("button");
+
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(input).toHaveAttribute("aria-invalid", "true");
+
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Invalid value",
+      );
+
+      expect(input?.validity.valid).toBe(true);
+
+      await user.click(select);
+
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[1]); // Select "Zebra"
+
+      await user.click(button);
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+      expect(select).not.toHaveAttribute("aria-invalid");
+    });
   });
 });

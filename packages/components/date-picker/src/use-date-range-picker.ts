@@ -77,7 +77,7 @@ export function useDateRangePicker<T extends DateValue>({
     originalProps.validationBehavior ??
     formValidationBehavior ??
     globalContext?.validationBehavior ??
-    "aria";
+    "native";
 
   const {
     domRef,

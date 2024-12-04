@@ -29,7 +29,7 @@ export const FormContext = createContext<ContextValue<FormProps, HTMLFormElement
  */
 export const Form = forwardRef(function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
   [props, ref] = useContextProps(props, ref, FormContext);
-  let {validationErrors, validationBehavior = "aria", children, className, ...domProps} = props;
+  let {validationErrors, validationBehavior = "native", children, className, ...domProps} = props;
 
   const styles = useMemo(() => form({className}), [className]);
 

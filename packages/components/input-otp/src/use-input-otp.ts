@@ -15,13 +15,14 @@ import {inputOtp} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {useCallback, useMemo} from "react";
-import {chain, mergeProps} from "@react-aria/utils";
+import {chain, mergeProps, useFormReset} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useControlledState} from "@react-stately/utils";
 import {useFormValidationState} from "@react-stately/form";
 import {useFormValidation} from "@react-aria/form";
 import {useFocusRing} from "@react-aria/focus";
 import {OTPInputProps} from "input-otp";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -92,6 +93,8 @@ export type UseInputOtpProps = Props &
 
 export function useInputOtp(originalProps: UseInputOtpProps) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
+
   const [props, variantProps] = mapPropsVariants(originalProps, inputOtp.variantKeys);
 
   const {
@@ -105,7 +108,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     "aria-label": ariaLabel = "One-time password input",
     onValueChange = () => {},
     allowedKeys = "^[0-9]*$",
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     type,
     name,
     maxLength,
@@ -147,12 +150,13 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   const isDisabled = originalProps.isDisabled;
   const baseStyles = clsx(classNames?.base, className);
 
-  const validationState = useFormValidationState({
+  const validationState = useFormValidationState<string>({
     ...props,
     validationBehavior,
     value,
   });
 
+  useFormReset(inputRef, value, setValue);
   useFormValidation(props, validationState, inputRef);
 
   const {

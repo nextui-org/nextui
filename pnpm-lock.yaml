@@ -1753,6 +1753,9 @@ importers:
 
   packages/components/input-otp:
     dependencies:
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -2480,6 +2483,9 @@ importers:
       '@nextui-org/aria-utils':
         specifier: workspace:*
         version: link:../../utilities/aria-utils
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
       '@nextui-org/listbox':
         specifier: workspace:*
         version: link:../listbox

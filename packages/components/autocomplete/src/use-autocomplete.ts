@@ -180,7 +180,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     isVirtualized,
     maxListboxHeight = 256,
     itemHeight = 32,
-    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     className,
     classNames,
     errorMessage,

@@ -4,6 +4,7 @@ import {button, inputOtp} from "@nextui-org/theme";
 import {useForm} from "react-hook-form";
 import {ValidationResult} from "@react-types/shared";
 import {Button} from "@nextui-org/button";
+import {Form} from "@nextui-org/form";
 
 import {InputOtp} from "../src";
 
@@ -176,6 +177,56 @@ const WithReactHookFormTemplate = (args) => {
   );
 };
 
+const ServerValidationTemplate = (args) => {
+  const [serverErrors, setServerErrors] = React.useState({});
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    setServerErrors({
+      otp: "Please provide a valid OTP code.",
+    });
+  };
+
+  return (
+    <Form
+      className="flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <InputOtp {...args} name="otp" />
+      <Button size="sm" type="submit">
+        Submit
+      </Button>
+    </Form>
+  );
+};
+
+const WithValidationTemplate = (args) => (
+  <form
+    className="flex flex-col items-start gap-2"
+    onSubmit={(e) => {
+      e.preventDefault();
+      const formData = new FormData(e.currentTarget);
+      const otp = formData.get("otp");
+
+      alert(`OTP submitted: ${otp}`);
+    }}
+  >
+    <InputOtp
+      {...args}
+      name="otp"
+      validate={(value) => {
+        if (value.length < 4) {
+          return "OTP must be 4 digits";
+        }
+      }}
+    />
+    <Button size="sm" type="submit">
+      Submit
+    </Button>
+  </form>
+);
+
 export const Default = {
   render: Template,
   args: {
@@ -313,5 +364,22 @@ export const CustomWithClassNames = {
     },
     radius: "none",
     description: "Enter the 4 digit code sent to your email",
+  },
+};
+
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+  args: {
+    ...defaultProps,
+    length: 4,
+  },
+};
+
+export const WithValidation = {
+  render: WithValidationTemplate,
+  args: {
+    ...defaultProps,
+    length: 4,
+    isRequired: true,
   },
 };

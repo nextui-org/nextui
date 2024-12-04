@@ -19,6 +19,7 @@ import {
   Animal,
   User,
 } from "@nextui-org/stories-utils";
+import {Form} from "@nextui-org/form";
 
 import {Select, SelectedItems, SelectItem, SelectProps, SelectSection} from "../src";
 
@@ -274,6 +275,100 @@ const FormTemplate = ({color, variant, ...args}: SelectProps) => {
         Submit
       </button>
     </form>
+  );
+};
+
+const ServerValidationTemplate = (args: SelectProps) => {
+  const [submittedData, setSubmittedData] = React.useState<{animal: string} | null>(null);
+  const [serverErrors, setServerErrors] = React.useState({});
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const value = formData.get("animal");
+
+    if (!value) {
+      setServerErrors({
+        animal: "Please select a valid value",
+      });
+
+      return;
+    }
+
+    if (!value || (value !== "cat" && value !== "dog")) {
+      setServerErrors({
+        animal: "Please select a cat or dog",
+      });
+    } else {
+      setServerErrors({});
+      setSubmittedData({animal: value});
+    }
+  };
+
+  return (
+    <Form
+      className="w-full flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Select isRequired {...args} className="max-w-xs" label="Favorite Animal" name="animal">
+        {items}
+      </Select>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+      {submittedData && (
+        <div className="text-small text-default-500">
+          You submitted: <code>{JSON.stringify(submittedData)}</code>
+        </div>
+      )}
+    </Form>
+  );
+};
+
+const ServerValidationTemplateWithMultiple = (args: SelectProps) => {
+  const [submittedData, setSubmittedData] = React.useState<{animals: string[]} | null>(null);
+  const [serverErrors, setServerErrors] = React.useState({});
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const values = formData.getAll("animals");
+
+    if (!values.length || !values.every((v) => v === "cat" || v === "dog")) {
+      setServerErrors({
+        animals: "Please select only cats and/or dogs",
+      });
+    } else {
+      setServerErrors({});
+      setSubmittedData({animals: values as string[]});
+    }
+  };
+
+  return (
+    <Form
+      className="w-full flex flex-col items-start gap-2"
+      validationErrors={serverErrors}
+      onSubmit={onSubmit}
+    >
+      <Select
+        {...args}
+        className="max-w-xs"
+        label="Favorite Animals"
+        name="animals"
+        selectionMode="multiple"
+      >
+        {items}
+      </Select>
+      <button className={button({color: "primary"})} type="submit">
+        Submit
+      </button>
+      {submittedData && (
+        <div className="text-small text-default-500">
+          You submitted: <code>{JSON.stringify(submittedData)}</code>
+        </div>
+      )}
+    </Form>
   );
 };
 
@@ -807,6 +902,113 @@ const LargeDatasetTemplate = (args: SelectProps & {numItems: number}) => {
   );
 };
 
+const ValidationBehaviorAriaTemplate = (args: SelectProps) => {
+  // Custom validation example
+  const CustomValidationExample = () => {
+    return (
+      <Select
+        {...args}
+        className="max-w-xs"
+        label="Favorite Animal"
+        placeholder="Select an animal"
+        validate={(value) => {
+          if (typeof value === "string" && value === "penguin") {
+            return "Penguins are not allowed";
+          }
+
+          return null;
+        }}
+        validationBehavior="aria"
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>
+    );
+  };
+
+  //Custom validation example multiple
+  const CustomValidationExampleMultiple = () => {
+    return (
+      <Select
+        {...args}
+        className="max-w-xs"
+        label="Favorite Animal"
+        placeholder="Select an animal"
+        selectionMode="multiple"
+        validate={(value) => {
+          if (Array.isArray(value) && value.includes("penguin")) {
+            return "Penguins are not allowed";
+          }
+
+          return null;
+        }}
+        validationBehavior="aria"
+      >
+        <SelectItem key="penguin">Penguin</SelectItem>
+        <SelectItem key="zebra">Zebra</SelectItem>
+        <SelectItem key="shark">Shark</SelectItem>
+      </Select>
+    );
+  };
+
+  // Server validation example
+  const ServerValidationExample = () => {
+    const [serverErrors, setServerErrors] = React.useState({});
+
+    const onSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      const formData = new FormData(e.target as HTMLFormElement);
+      const value = formData.get("animal");
+
+      if (value === "penguin") {
+        setServerErrors({
+          animal: "Server says: No penguins allowed!",
+        });
+      } else {
+        setServerErrors({});
+      }
+    };
+
+    return (
+      <Form
+        className="w-full flex flex-col items-start gap-2"
+        validationErrors={serverErrors}
+        onSubmit={onSubmit}
+      >
+        <Select className="max-w-xs" label="Select Animal" name="animal" validationBehavior="aria">
+          <SelectItem key="penguin">Penguin</SelectItem>
+          <SelectItem key="zebra">Zebra</SelectItem>
+          <SelectItem key="shark">Shark</SelectItem>
+        </Select>
+        <button className={button({color: "primary"})} type="submit">
+          Validate
+        </button>
+      </Form>
+    );
+  };
+
+  return (
+    <div className="flex flex-col gap-8">
+      <div className="flex flex-col gap-2">
+        <h3 className="text-default-500">Custom Validation</h3>
+        <p className="text-small text-default-400">Try selecting a penguin</p>
+        <CustomValidationExample />
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-default-500">Custom Validation Multiple</h3>
+        <p className="text-small text-default-400">Try selecting a penguin</p>
+        <CustomValidationExampleMultiple />
+      </div>
+      <div className="flex flex-col gap-2">
+        <h3 className="text-default-500">Server Validation</h3>
+        <p className="text-small text-default-400">Select a penguin and click validate</p>
+        <ServerValidationExample />
+      </div>
+    </div>
+  );
+};
+
 export const Default = {
   render: MirrorTemplate,
 
@@ -1027,6 +1229,22 @@ export const WithReactHookForm = {
   },
 };
 
+export const WithServerValidation = {
+  render: ServerValidationTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithServerValidationMultiple = {
+  render: ServerValidationTemplateWithMultiple,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const WithScrollableContainer = {
   render: ScrollableContainerTemplate,
 
@@ -1170,5 +1388,12 @@ export const CustomItemHeight = {
     isVirtualized: true,
     maxListboxHeight: 400,
     itemHeight: 40,
+  },
+};
+
+export const ValidationBehaviorAria = {
+  render: ValidationBehaviorAriaTemplate,
+  args: {
+    ...defaultProps,
   },
 };
