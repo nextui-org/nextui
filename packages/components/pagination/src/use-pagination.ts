@@ -17,6 +17,7 @@ import {pagination} from "@nextui-org/theme";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {PressEvent} from "@react-types/shared";
+import {useIntersectionObserver} from "@nextui-org/use-intersection-observer";
 
 export type PaginationItemRenderProps = {
   /**
@@ -278,10 +279,19 @@ export function usePagination(originalProps: UsePaginationProps) {
     onChange,
   });
 
+  // check if the pagination component is visible
+  const [setRef, isVisible] = useIntersectionObserver();
+
+  useEffect(() => {
+    setRef(domRef.current);
+  }, [domRef.current]);
+
   const activePageRef = useRef(activePage);
 
   useEffect(() => {
-    if (activePage && !disableAnimation) {
+    // when the pagination component is invisible, scroll offset will be wrong
+    // thus, only scroll to the active page if the pagination component is visible
+    if (activePage && !disableAnimation && isVisible) {
       scrollTo(activePage, activePage === activePageRef.current);
     }
     activePageRef.current = activePage;
@@ -289,6 +299,7 @@ export function usePagination(originalProps: UsePaginationProps) {
     activePage,
     disableAnimation,
     disableCursorAnimation,
+    isVisible,
     originalProps.dotsJump,
     originalProps.isCompact,
     originalProps.showControls,
