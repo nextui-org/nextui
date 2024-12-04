@@ -81,6 +81,8 @@ describe("Pagination", () => {
   });
 
   it("the pagination cursor should not have data-moving attribute before intersection", () => {
+    const originalIntersectionObserver = window.IntersectionObserver;
+
     // save callback and options to later emulate intersection event
     let intersectCallback: IntersectionObserverCallback | undefined;
     let intersectOptions: IntersectionObserverInit | undefined;
@@ -148,5 +150,7 @@ describe("Pagination", () => {
 
     // on rerender, the cursor should have the data-moving attribute
     expect(cursor).toHaveAttribute("data-moving");
+
+    window.IntersectionObserver = originalIntersectionObserver;
   });
 });

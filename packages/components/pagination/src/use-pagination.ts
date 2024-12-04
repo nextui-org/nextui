@@ -283,7 +283,9 @@ export function usePagination(originalProps: UsePaginationProps) {
   const [setRef, isVisible] = useIntersectionObserver();
 
   useEffect(() => {
-    setRef(domRef.current);
+    if (domRef.current) {
+      setRef(domRef.current);
+    }
   }, [domRef.current]);
 
   const activePageRef = useRef(activePage);
