@@ -166,6 +166,11 @@ export type UseSelectProps<T> = Omit<
      * @default undefined
      */
     isVirtualized?: boolean;
+    /**
+     * Whether the listbox should be openable when there are no items.
+     * @default true
+     */
+    hideEmptyContent?: boolean;
   };
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
@@ -209,6 +214,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     onClose,
     className,
     classNames,
+    hideEmptyContent = true,
     ...otherProps
   } = props;
 
@@ -263,6 +269,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isDisabled: originalProps.isDisabled,
     isInvalid: originalProps.isInvalid,
     defaultOpen,
+    hideEmptyContent,
     onOpenChange: (open) => {
       onOpenChange?.(open);
       if (!open) {

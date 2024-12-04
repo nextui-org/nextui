@@ -36,6 +36,10 @@ export interface MultiSelectProps<T>
    * @default true
    */
   shouldFlip?: boolean;
+  /**
+   * Whether the menu should be hidden when there are no items.
+   */
+  hideEmptyContent?: boolean;
 }
 
 export interface MultiSelectState<T>
@@ -91,18 +95,23 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
       triggerState.close();
     },
     open(focusStrategy: FocusStrategy | null = null) {
-      // Don't open if the collection is empty.
-      if (listState.collection.size !== 0) {
-        setFocusStrategy(focusStrategy);
-        triggerState.open();
+      // Don't open if the collection is empty and hideEmptyContent is true.
+      if (listState.collection.size === 0 && props.hideEmptyContent) {
+        return;
       }
+
+      setFocusStrategy(focusStrategy);
+      triggerState.open();
     },
     toggle(focusStrategy: FocusStrategy | null = null) {
-      if (listState.collection.size !== 0) {
-        setFocusStrategy(focusStrategy);
-        triggerState.toggle();
-        validationState.commitValidation();
+      // Don't toggle if the collection is empty and hideEmptyContent is true.
+      if (listState.collection.size === 0 && props.hideEmptyContent) {
+        return;
       }
+
+      setFocusStrategy(focusStrategy);
+      triggerState.toggle();
+      validationState.commitValidation();
     },
     isFocused,
     setFocused,
