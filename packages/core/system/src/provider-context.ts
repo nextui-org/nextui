@@ -24,7 +24,7 @@ export type ProviderContextProps = {
    * or invalid via ARIA.
    * @see https://react-spectrum.adobe.com/react-aria/forms.html
    *
-   * @default "aria"
+   * @default undefined
    */
   validationBehavior?: "aria" | "native";
   /**

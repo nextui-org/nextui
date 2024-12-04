@@ -11,6 +11,7 @@ import type {
   MultipleSelection,
   TextInputBase,
   Validation,
+  ValidationError,
 } from "@react-types/shared";
 
 import {MenuTriggerState, useMenuTriggerState} from "@react-stately/menu";
@@ -25,7 +26,7 @@ export interface MultiSelectProps<T>
     Omit<InputBase, "isReadOnly">,
     DOMProps,
     HelpTextProps,
-    Omit<Validation<T>, "validationBehavior" | "validate">,
+    Omit<Validation<T>, "validate">,
     LabelableProps,
     TextInputBase,
     Omit<MultipleSelection, "none">,
@@ -36,6 +37,13 @@ export interface MultiSelectProps<T>
    * @default true
    */
   shouldFlip?: boolean;
+  /**
+   * A function that returns an error message if a given value is invalid.
+   * Validation errors are displayed to the user when the form is submitted
+   * if `validationBehavior="native"`. For realtime validation, use the `isInvalid`
+   * prop instead.
+   */
+  validate?: (value: string | string[]) => ValidationError | true | null | undefined;
 }
 
 export interface MultiSelectState<T>
@@ -44,16 +52,20 @@ export interface MultiSelectState<T>
     FormValidationState {
   /** Whether the select is currently focused. */
   isFocused: boolean;
-
   /** Sets whether the select is focused. */
   setFocused(isFocused: boolean): void;
 }
 
-export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): MultiSelectState<T> {
+export function useMultiSelectState<T extends object>({
+  validate,
+  validationBehavior,
+  ...props
+}: MultiSelectProps<T>): MultiSelectState<T> {
   const [isFocused, setFocused] = useState(false);
   const [focusStrategy, setFocusStrategy] = useState<FocusStrategy | null>(null);
 
   const triggerState = useMenuTriggerState(props);
+
   const listState = useMultiSelectListState({
     ...props,
     onSelectionChange: (keys) => {
@@ -74,10 +86,15 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
     },
   });
 
-  const validationState = useFormValidationState({
+  const validationState = useFormValidationState<Set<string>>({
     ...props,
-    // TODO: Future enhancement to support "aria" validation behavior.
-    validationBehavior: "native",
+    validationBehavior,
+    validate: (value) => {
+      if (!validate) return;
+      const keys = Array.from(value as Set<string>);
+
+      return validate(props.selectionMode === "single" ? keys[0] : keys);
+    },
     // @ts-ignore
     value: listState.selectedKeys,
   });

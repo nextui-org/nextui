@@ -29,7 +29,8 @@ import {
 import {SpinnerProps} from "@nextui-org/spinner";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
-import {CollectionChildren} from "@react-types/shared";
+import {CollectionChildren, ValidationError} from "@react-types/shared";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -133,11 +134,19 @@ interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantPr
    * Handler that is called when the selection changes.
    */
   onSelectionChange?: (keys: SharedSelection) => void;
+  /**
+   * A function that returns an error message if a given value is invalid.
+   * Validation errors are displayed to the user when the form is submitted
+   * if `validationBehavior="native"`. For realtime validation, use the `isInvalid`
+   * prop instead.
+   */
+  validate?: (value: string | string[]) => ValidationError | true | null | undefined;
 }
 
 interface SelectData {
   isDisabled?: boolean;
   isRequired?: boolean;
+  isInvalid?: boolean;
   name?: string;
   validationBehavior?: "aria" | "native";
 }
@@ -170,6 +179,7 @@ export type UseSelectProps<T> = Omit<
 
 export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, select.variantKeys);
 
@@ -209,6 +219,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     onClose,
     className,
     classNames,
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     ...otherProps
   } = props;
 
@@ -258,6 +269,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isOpen,
     selectionMode,
     disallowEmptySelection,
+    validationBehavior,
     children: children as CollectionChildren<T>,
     isRequired: originalProps.isRequired,
     isDisabled: originalProps.isDisabled,
@@ -679,8 +691,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     isDisabled: originalProps?.isDisabled,
     isRequired: originalProps?.isRequired,
     name: originalProps?.name,
-    // TODO: Future enhancement to support "aria" validation behavior.
-    validationBehavior: "native",
+    isInvalid,
+    validationBehavior,
   });
 
   return {

@@ -52,6 +52,7 @@
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/use-aria-multiselect": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@nextui-org/form": "workspace:*",
     "@react-aria/focus": "3.18.4",
     "@react-aria/form": "3.0.10",
     "@react-aria/interactions": "3.22.4",

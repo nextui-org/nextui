@@ -56,7 +56,7 @@ export const NextUIProvider: React.FC<NextUIProviderProps> = ({
   disableRipple = false,
   skipFramerMotionAnimations = disableAnimation,
   reducedMotion = "never",
-  validationBehavior = "aria",
+  validationBehavior,
   locale = "en-US",
   // if minDate / maxDate are not specified in `defaultDates`
   // then they will be set in `use-date-input.ts` or `use-calendar-base.ts`

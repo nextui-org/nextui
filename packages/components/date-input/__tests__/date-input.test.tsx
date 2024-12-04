@@ -64,6 +64,7 @@ describe("DateInput", () => {
             );
           }}
           name="date"
+          validationBehavior="aria"
         />,
       );
 

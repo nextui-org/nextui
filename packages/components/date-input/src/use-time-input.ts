@@ -94,7 +94,7 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
     fieldProps: fieldPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     shouldForceLeadingZeros = true,
     minValue,
     maxValue,
