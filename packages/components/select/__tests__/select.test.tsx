@@ -828,6 +828,48 @@ describe("Select", () => {
       "Invalid value",
     );
   });
+
+  it("should not open dropdown when hideEmptyContent is true", async () => {
+    const wrapper = render(
+      <Select
+        hideEmptyContent
+        aria-label="Favorite Animal"
+        data-testid="hide-empty-content-true-test"
+        label="Favorite Animal"
+      >
+        {[]}
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("hide-empty-content-true-test");
+
+    // open the select dropdown
+    await user.click(select);
+
+    // assert that the select is not open
+    expect(select).not.toHaveAttribute("aria-expanded", "true");
+  });
+
+  it("should open dropdown when hideEmptyContent is false", async () => {
+    const wrapper = render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="hide-empty-content-false-test"
+        hideEmptyContent={false}
+        label="Favorite Animal"
+      >
+        {[]}
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("hide-empty-content-false-test");
+
+    // open the select dropdown
+    await user.click(select);
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+  });
 });
 
 describe("Select virtualization tests", () => {
