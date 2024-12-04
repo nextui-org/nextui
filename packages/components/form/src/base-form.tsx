@@ -6,7 +6,8 @@
 import type {FormProps as SharedFormProps} from "@react-types/form";
 
 import {FormValidationContext} from "@react-stately/form";
-import React, {createContext, ForwardedRef, forwardRef} from "react";
+import React, {createContext, ForwardedRef, forwardRef, useMemo} from "react";
+import {form} from "@nextui-org/theme";
 
 import {ContextValue, DOMProps, useContextProps} from "./utils";
 
@@ -28,15 +29,12 @@ export const FormContext = createContext<ContextValue<FormProps, HTMLFormElement
  */
 export const Form = forwardRef(function Form(props: FormProps, ref: ForwardedRef<HTMLFormElement>) {
   [props, ref] = useContextProps(props, ref, FormContext);
-  let {validationErrors, validationBehavior = "native", children, className, ...domProps} = props;
+  let {validationErrors, validationBehavior = "aria", children, className, ...domProps} = props;
+
+  const styles = useMemo(() => form({className}), [className]);
 
   return (
-    <form
-      noValidate={validationBehavior !== "native"}
-      {...domProps}
-      ref={ref}
-      className={className || "react-aria-Form"}
-    >
+    <form noValidate={validationBehavior !== "native"} {...domProps} ref={ref} className={styles}>
       <FormContext.Provider value={{...props, validationBehavior}}>
         <FormValidationContext.Provider value={validationErrors ?? {}}>
           {children}
