@@ -848,6 +848,8 @@ describe("Select", () => {
 
     // assert that the select is not open
     expect(select).not.toHaveAttribute("aria-expanded", "true");
+    // assert that the listbox is not rendered
+    expect(wrapper.queryByRole("listbox")).not.toBeInTheDocument();
   });
 
   it("should open dropdown when hideEmptyContent is false", async () => {
@@ -869,6 +871,13 @@ describe("Select", () => {
 
     // assert that the select is open
     expect(select).toHaveAttribute("aria-expanded", "true");
+
+    const listbox = wrapper.getByRole("listbox");
+
+    // assert that the listbox is rendered
+    expect(listbox).toBeInTheDocument();
+    // assert that the listbox items are not rendered
+    expect(wrapper.queryByRole("option")).not.toBeInTheDocument();
   });
 });
 
