@@ -1,45 +1,47 @@
 ---
 title: Forms
-description:  Learn how to handle forms in NextUI.
+description: Learn how to handle forms in NextUI.
 ---
 
 import {formContent} from "@/content/components/form";
 
 # Forms
 
-NextUI form components are designed to be flexible and function as HTML form elements. They support form data submission, custom validation, real-time validation, and offer an accessible UI.
+NextUI provides form components with built-in validation and styling to help users input and submit data effectively.
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Labels and help text
 
-Accessible forms require clear and descriptive labels. NextUI components allow you to add labels to each field through the label prop.
-You can also display help text such as descriptions or error messages.
+Accessible forms start with clear, descriptive labels for each field. All NextUI form components support labeling using
+the Label component, which is automatically associated with the field via the id and for attributes on your behalf.
 
-```tsx
+In addition, NextUI components support help text, which associates additional context with a field such as a **description**
+or **error message**. The label and help text are announced by assistive technology such as screen readers when the user focuses
+the field.
+
+```tsx {5,6}
 import {Input} from "@nextui-org/react";
 
-<Input
-  type="password"
-  label="Password"
-  description="Password must be at least 8 characters."
-/>
+<Input type="password" label="Password" description="Password must be at least 8 characters." />;
 ```
 
-Labels should usually be visually displayed, but in rare cases, you need to provide an aria-label or aria-labelledby attribute to identify the element for screen readers.
+Most fields should have a visible label. In rare exceptions, the `aria-label` or `aria-labelledby` attribute must be provided instead to identify the element to screen readers.
 
 ## Submitting data
 
-How you submit form data depends on your framework, application, and server.
-By default, HTML forms are submitted via a full-page refresh in the browser.
+How you submit form data depends on your framework, application, and server. By default,**HTML** forms are submitted via a full-page refresh in the browser.
 You can call `preventDefault` in the `onSubmit` event to handle form data submission via an API.
 
-### Uncontrolled forms
+Frameworks like [Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#forms), [Remix](https://remix.run/docs/en/main/guides/forms), and [React Router](https://reactrouter.com/en/main/route/form-submission) provide their own ways to handle form submission.
 
-A simple way to get form data is to use `FormData` API. You can send this data to a backend API or convert it into a JavaScript object using [Object.fromEntries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries).
+#### Uncontrolled forms
+
+A simple way to get form data is to use the browser's [FormData](https://developer.mozilla.org/en-US/docs/Web/API/FormData) API during the `onSubmit` event. You can send this data to a backend API or convert it into a JavaScript object using [Object.fromEntries](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries).
 Each field should have a `name` prop to identify it, and the values will be serialized as strings by the browser.
 
-```tsx
+```tsx {7-18}
+import * as React from "react";
 import {Button, Form, Input} from "@nextui-org/react";
 
 function Example() {
@@ -50,16 +52,32 @@ function Example() {
     e.preventDefault();
 
     // Get form data as an object.
-    const data = Object.fromEntries(new FormData(e.currentTarget));
+    const data = Object.fromEntries(
+      new FormData(e.currentTarget)
+    );
 
-    // Submit data to your backend API. (currently logged to the console)
-    console.log("Form submitted:", data);
+    // Submit data to your backend API.
+    setSubmitted(data);
   };
 
   return (
     <Form onSubmit={onSubmit}>
-      <Input label="Name" name="name" />
+      <Input
+        isRequired
+        errorMessage="Please enter a valid email"
+        label="Email"
+        labelPlacement="outside"
+        name="email"
+        placeholder="Enter your email"
+        type="email"
+      />
       <Button type="submit">Submit</Button>
+      {submitted && (
+       <div className="text-small text-default-500">
+          You submitted:{' '}
+          <code>{JSON.stringify(submitted)}</code>
+        </div>
+      )}
     </Form>
   );
 }
@@ -68,7 +86,6 @@ function Example() {
 <Spacer y={4} />
 
 <CodeDemo title="Usage" showEditor={false} files={formContent.usage} />
-
 
 ### Controlled forms
 
@@ -112,7 +129,7 @@ import {Button, Form, Input} from "@nextui-org/react";
 <Form validationBehavior="native">
   <Input name="email" type="email" isRequired />
   <Button type="submit">Submit</Button>
-</Form>
+</Form>;
 ```
 
 To enable native validation, set `validationBehavior="native"`.
@@ -146,7 +163,7 @@ import {Button, Form, Input} from "@nextui-org/react";
     }}
   />
   <Button type="submit">Submit</Button>
-</Form>
+</Form>;
 ```
 
 > **Note**: The default error messages are localized by the browser based on the browser/operating system language settings. The [locale setting in NextUI Provider](/docs/api-references/nextui-provider#props) does not affect validation errors.
@@ -169,7 +186,7 @@ import {Button, Form, Input} from "@nextui-org/react";
     }}
   />
   <Button type="submit">Submit</Button>
-</Form>
+</Form>;
 ```
 
 ### Realtime validation
@@ -261,21 +278,19 @@ import {z} from "zod";
 
 const schema = z.object({
   name: z.string().min(1),
-  age: z.coerce.number().positive()
+  age: z.coerce.number().positive(),
 });
 
 function handleRequest(formData: FormData) {
-  const result = schema.safeParse(
-    Object.fromEntries(formData)
-  );
+  const result = schema.safeParse(Object.fromEntries(formData));
   if (!result.success) {
     return {
-      errors: result.error.flatten().fieldErrors
+      errors: result.error.flatten().fieldErrors,
     };
   }
 
   return {
-    errors: {}
+    errors: {},
   };
 }
 ```
@@ -294,8 +309,8 @@ import {Button, Input, Label} from "@nextui-org/react";
 import {createTodo} from "@/app/actions";
 
 export function AddForm() {
-  const [{ errors }, formAction] = useActionState(createTodo, {
-    errors: {}
+  const [{errors}, formAction] = useActionState(createTodo, {
+    errors: {},
   });
 
   return (
@@ -311,17 +326,14 @@ export function AddForm() {
 // app/actions.ts
 "use server";
 
-export async function createTodo(
-  prevState: any,
-  formData: FormData
-) {
+export async function createTodo(prevState: any, formData: FormData) {
   try {
     // Create the todo.
   } catch (err) {
     return {
       errors: {
-        todo: "Invalid todo."
-      }
+        todo: "Invalid todo.",
+      },
     };
   }
 }
@@ -358,16 +370,14 @@ export default function SignupForm() {
   );
 }
 
-export async function action(
-  { request }: ActionFunctionArgs
-) {
+export async function action({request}: ActionFunctionArgs) {
   try {
     // Validate data and perform action...
   } catch (err) {
     return {
       errors: {
-        username: "Sorry, this username is taken."
-      }
+        username: "Sorry, this username is taken.",
+      },
     };
   }
 }
@@ -387,10 +397,10 @@ import {Controller, useForm} from "react-hook-form";
 import {Button, Input, Label} from "@nextui-org/react";
 
 function App() {
-  const { handleSubmit, control } = useForm({
+  const {handleSubmit, control} = useForm({
     defaultValues: {
-      name: ""
-    }
+      name: "",
+    },
   });
   const onSubmit = (data) => {
     // Call your API here.
@@ -421,3 +431,5 @@ function App() {
   );
 }
 ```
+
+> For more information about forms in React Aria, visit the [React Aria Forms Guide](https://react-spectrum.adobe.com/react-aria/forms.html).

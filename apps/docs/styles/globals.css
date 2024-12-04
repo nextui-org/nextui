@@ -70,7 +70,7 @@ z-index: 0;
     /* sandpack + prism */
     --code-string: 83, 224, 192;
     --code-class: 145 180 213;
-    --code-punctuation: 83, 224, 192;
+    --code-punctuation: 167 172 202;
     --code-number: 83, 224, 192;
     --code-added: 116 223 162;
     --code-line-number: 212 212 216;
