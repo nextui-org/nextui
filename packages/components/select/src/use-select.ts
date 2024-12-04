@@ -167,8 +167,8 @@ export type UseSelectProps<T> = Omit<
      */
     isVirtualized?: boolean;
     /**
-     * Whether the listbox should be openable when there are no items.
-     * @default true
+     * Whether the listbox will be prevented from opening when there are no items.
+     * @default false
      */
     hideEmptyContent?: boolean;
   };
@@ -214,7 +214,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     onClose,
     className,
     classNames,
-    hideEmptyContent = true,
+    hideEmptyContent = false,
     ...otherProps
   } = props;
 
