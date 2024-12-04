@@ -86,6 +86,8 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
     value: listState.selectedKeys,
   });
 
+  const shouldHideContent = listState.collection.size === 0 && props.hideEmptyContent;
+
   return {
     ...validationState,
     ...listState,
@@ -95,19 +97,13 @@ export function useMultiSelectState<T extends {}>(props: MultiSelectProps<T>): M
       triggerState.close();
     },
     open(focusStrategy: FocusStrategy | null = null) {
-      // Don't open if the collection is empty and hideEmptyContent is true.
-      if (listState.collection.size === 0 && props.hideEmptyContent) {
-        return;
-      }
+      if (shouldHideContent) return;
 
       setFocusStrategy(focusStrategy);
       triggerState.open();
     },
     toggle(focusStrategy: FocusStrategy | null = null) {
-      // Don't toggle if the collection is empty and hideEmptyContent is true.
-      if (listState.collection.size === 0 && props.hideEmptyContent) {
-        return;
-      }
+      if (shouldHideContent) return;
 
       setFocusStrategy(focusStrategy);
       triggerState.toggle();
