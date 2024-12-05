@@ -6,6 +6,7 @@ import customErrorMessages from "./custom-error-messages";
 import customValidation from "./custom-validation";
 import realTimeValidation from "./real-time-validation";
 import serverValidation from "./server-validation";
+import events from "./events";
 
 export const formContent = {
   demo,
@@ -16,4 +17,5 @@ export const formContent = {
   customValidation,
   realTimeValidation,
   serverValidation,
+  events,
 };
