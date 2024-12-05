@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-accordion-item",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Internal impl for react aria accordion item",
   "keywords": [
     "use-aria-accordion-item"

@@ -1,5 +1,41 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.4.0
+
+### Minor Changes
+
+- [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - This release includes several improvements and bug fixes:
+
+  - Updated react-aria version across all components
+  - Improved Drawer styles and transitions
+  - Fixed missing peer dependencies for framer-motion
+  - Fixed menu item classNames functionality
+  - Added isClearable prop to Textarea component
+  - Fixed label placement issues in Input and Select components
+  - Improved table keyboard navigation with new isKeyboardNavigationDisabled prop
+  - Fixed UI sliding issues with helper wrapper in Input and Select
+  - Updated use-image hook to avoid Next.js hydration issues
+  - Replaced RTL-specific styles with logical properties
+  - Fixed textarea label squish issue
+  - Bumped tailwind-merge version
+  - Applied tw nested group fixes
+  - Fixed fullWidth variant in input and select components
+  - Moved circular-progress tv to progress
+  - Changed ListboxItem key to optional
+  - Fixed autocomplete clear button behavior
+  - Updated Select label placement logic
+  - Added missing framer-motion peer dependencies
+  - Removed layoutNode prop from Table due to react-aria update
+  - Virtualization added to Autocomplete
+
+### Patch Changes
+
+- [#4224](https://github.com/nextui-org/nextui/pull/4224) [`26e478d`](https://github.com/nextui-org/nextui/commit/26e478dd937dedcaf41110171d971a8a3cf2ff52) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Added form support to input-otp, change default validationBehavior to "native" to avoid breaking changes, and fix select with form
+
+- [#4226](https://github.com/nextui-org/nextui/pull/4226) [`6c0213d`](https://github.com/nextui-org/nextui/commit/6c0213dfc805aa3c793763c0b25f53b2b80c24dc) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@react-aria/utils` version (#4212)
+
+- [#4219](https://github.com/nextui-org/nextui/pull/4219) [`1855ba4`](https://github.com/nextui-org/nextui/commit/1855ba4390186f701c793f76593f31a5dce6da70) Thanks [@Peterl561](https://github.com/Peterl561)! - add hideEmptyContent API to select
+
 ## 2.3.0-beta.8
 
 ### Patch Changes

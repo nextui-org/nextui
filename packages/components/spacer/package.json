@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/spacer",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "A flexible spacer component designed to create consistent spacing and maintain alignment in your layout.",
   "keywords": [
     "spacer"
