@@ -4,6 +4,8 @@ import controlled from "./controlled";
 import nativeValidation from "./native-validation";
 import customErrorMessages from "./custom-error-messages";
 import customValidation from "./custom-validation";
+import realTimeValidation from "./real-time-validation";
+import serverValidation from "./server-validation";
 
 export const formContent = {
   demo,
@@ -12,4 +14,6 @@ export const formContent = {
   nativeValidation,
   customErrorMessages,
   customValidation,
+  realTimeValidation,
+  serverValidation,
 };

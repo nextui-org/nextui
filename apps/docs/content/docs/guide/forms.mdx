@@ -54,9 +54,7 @@ function Example() {
     e.preventDefault();
 
     // Get form data as an object.
-    const data = Object.fromEntries(
-      new FormData(e.currentTarget)
-    );
+    const data = Object.fromEntries(new FormData(e.currentTarget));
 
     // Submit data to your backend API.
     setSubmitted(data);
@@ -75,9 +73,8 @@ function Example() {
       />
       <Button type="submit">Submit</Button>
       {submitted && (
-       <div className="text-small text-default-500">
-          You submitted:{' '}
-          <code>{JSON.stringify(submitted)}</code>
+        <div className="text-small text-default-500">
+          You submitted: <code>{JSON.stringify(submitted)}</code>
         </div>
       )}
     </Form>
@@ -98,7 +95,7 @@ import * as React from "react";
 import {Button, Form, Input} from "@nextui-org/react";
 
 function Example() {
- const [email, setEmail] = React.useState("");
+  const [email, setEmail] = React.useState("");
   const [submitted, setSubmitted] = React.useState(null);
 
   const onSubmit = (e) => {
@@ -159,10 +156,7 @@ export default function App() {
   };
 
   return (
-    <Form
-      validationBehavior="native"
-      onSubmit={onSubmit}
-    >
+    <Form validationBehavior="native" onSubmit={onSubmit}>
       <Input
         isRequired
         label="Email"
@@ -182,7 +176,6 @@ export default function App() {
 To enable native validation, set `validationBehavior="native"`.
 By default, `validationBehavior="aria"` is set, which only marks the field as required or invalid for assistive technologies, without preventing form submission.
 You can change the form defaults for your entire app using [NextUI Provider](/docs/api-references/nextui-provider).
-
 
 Supported constraints include:
 
@@ -232,12 +225,15 @@ export default function App() {
     </Form>
   );
 }
-
 ```
 
 <Spacer y={4} />
 
-<CodeDemo title="Custom error messages" showEditor={false} files={formContent.customErrorMessages} />
+<CodeDemo
+  title="Custom error messages"
+  showEditor={false}
+  files={formContent.customErrorMessages}
+/>
 
 > **Note**: The default error messages are localized by the browser based on the browser/operating system language settings. The [locale setting in NextUI Provider](/docs/api-references/nextui-provider#props) does not affect validation errors.
 
@@ -245,7 +241,7 @@ export default function App() {
 
 In addition to built-in constraints, you can provide a function to the `validate` prop to support custom validation.
 
-```tsx {7-11}
+```tsx {17-23}
 import {Form, Input, Button} from "@nextui-org/react";
 
 export default function App() {
@@ -254,7 +250,7 @@ export default function App() {
   };
 
   return (
-    <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={onSubmit}>
+    <Form validationBehavior="native" onSubmit={onSubmit}>
       <Input
         isRequired
         label="Username"
@@ -286,29 +282,25 @@ export default function App() {
 
 If you want to display validation errors while the user is typing, you can control the field value and use the `isInvalid` prop along with the `errorMessage` prop.
 
-```tsx {22-31}
+```tsx {19-26,30,32}
 import {Input} from "@nextui-org/react";
 
 export function Example() {
   const [password, setPassword] = React.useState("");
-  const errors: string[] = [];
+  const errors = [];
 
-  if (password.length < 8) {
-    errors.push("Password must be 8 characters or more.");
+  if (password.length < 4) {
+    errors.push("Password must be 4 characters or more.");
   }
-  if ((password.match(/[A-Z]/g) ?? []).length < 2) {
-    errors.push("Password must include at least 2 upper case letters");
+  if ((password.match(/[A-Z]/g) || []).length < 1) {
+    errors.push("Password must include at least 1 upper case letter");
   }
-  if ((password.match(/[^a-z]/gi) ?? []).length < 2) {
-    errors.push("Password must include at least 2 symbols.");
+  if ((password.match(/[^a-z]/gi) || []).length < 1) {
+    errors.push("Password must include at least 1 symbol.");
   }
 
   return (
     <Input
-      label="Name"
-      value={password}
-      onValueChange={setPassword}
-      isInvalid={errors.length > 0}
       errorMessage={() => (
         <ul>
           {errors.map((error, i) => (
@@ -316,10 +308,23 @@ export function Example() {
           ))}
         </ul>
       )}
+      isInvalid={errors.length > 0}
+      label="Password"
+      labelPlacement="outside"
+      placeholder="Enter your password"
+      value={password}
+      variant="bordered"
+      onValueChange={setPassword}
     />
   );
 }
 ```
+
+<Spacer y={4} />
+
+<CodeDemo title="Realtime validation" showEditor={false} files={formContent.realTimeValidation} />
+
+Use `validationBehavior="aria"` to allow form submission even when fields are invalid, while maintaining accessibility.
 
 ### Server validation
 
@@ -327,25 +332,43 @@ Client-side validation provides immediate feedback, but you should also validate
 NextUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
 This prop should be an object where each key is the field `name` and the value is the error message.
 
-```tsx {15}
+```tsx {4,17,25-26}
 import {Button, Form, Input} from "@nextui-org/react";
 
 function Example() {
   const [errors, setErrors] = React.useState({});
+
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    if (!data.username) {
+      setErrors({username: "Username is required"});
+
+      return;
+    }
+
     const result = await callServer(data);
 
     setErrors(result.errors);
   };
 
   return (
-    <Form validationErrors={errors} onSubmit={onSubmit}>
-      <Input label="Username" name="username" />
-      <Input label="Password" name="password" type="password" />
-      <Button type="submit">Submit</Button>
+    <Form
+      className="w-full max-w-xs flex flex-col gap-3"
+      validationErrors={errors}
+      onSubmit={onSubmit}
+    >
+      <Input
+        label="Username"
+        labelPlacement="outside"
+        name="username"
+        placeholder="Enter your username"
+      />
+      <Button type="submit" variant="flat">
+        Submit
+      </Button>
     </Form>
   );
 }
@@ -360,12 +383,16 @@ function callServer(data) {
 }
 ```
 
+<Spacer y={4} />
+
+<CodeDemo title="Server validation" showEditor={false} files={formContent.serverValidation} />
+
 #### Schema validation
 
-NextUI supports errors from schema validation libraries like Zod.
+NextUI supports errors from schema validation libraries like [Zod](https://zod.dev/).
 You can use Zod's `flatten` method to get error messages for each field and return them as part of the server response.
 
-```tsx
+```tsx {14}
 // In your server.
 import {z} from "zod";
 
@@ -376,11 +403,14 @@ const schema = z.object({
 
 function handleRequest(formData: FormData) {
   const result = schema.safeParse(Object.fromEntries(formData));
+
   if (!result.success) {
     return {
       errors: result.error.flatten().fieldErrors,
     };
   }
+
+  // Do something with the validated data.
 
   return {
     errors: {},
@@ -393,7 +423,7 @@ function handleRequest(formData: FormData) {
 [Server Actions](https://react.dev/reference/rsc/server-actions) that allows seamless form submission to the server and retrieval of results.
 The [useActionState](https://react.dev/reference/react/useActionState) hook can be used to get the result of server actions (such as errors) after submitting a form.
 
-```tsx {14}
+```tsx {9-11,14}
 // app/add-form.tsx
 "use client";
 
@@ -415,7 +445,9 @@ export function AddForm() {
 }
 ```
 
-```ts
+<Spacer y={4} />
+
+```ts {10}
 // app/actions.ts
 "use server";
 
@@ -434,28 +466,30 @@ export async function createTodo(prevState: any, formData: FormData) {
 
 #### Remix
 
-Remix actions handle form submissions on the server.
+[Remix actions](https://remix.run/docs/en/main/route/action) handle form submissions on the server.
 You can use the [useSubmit](https://remix.run/docs/en/main/hooks/use-submit) hook to submit form data to the server and the [useActionData](https://remix.run/docs/en/main/hooks/use-action-data) hook to retrieve validation errors from the server.
 
-```tsx {18}
+```tsx {13,18,34}
 // app/routes/signup.tsx
 import type {ActionFunctionArgs} from "@remix-run/node";
 import {useActionData, useSubmit} from "@remix-run/react";
 import {Button, Form, Input} from "@nextui-org/react";
 
 export default function SignupForm() {
-  const [errors, setErrors] = React.useState({});
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  let submit = useSubmit();
+  let onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    const data = Object.fromEntries(new FormData(e.currentTarget));
-    const result = await callServer(data);
-
-    setErrors(result.errors);
+    submit(e.currentTarget);
   };
 
+  const actionData = useActionData<typeof action>();
+
   return (
-    <Form validationErrors={errors} onSubmit={onSubmit}>
+    <Form
+      method="post"
+      validationErrors={actionData?.errors}
+      onSubmit={onSubmit}
+    >
       <Input label="Username" name="username" />
       <Input label="Password" name="password" type="password" />
       <Button type="submit">Submit</Button>
@@ -476,9 +510,11 @@ export async function action({request}: ActionFunctionArgs) {
 }
 ```
 
+<Spacer y={4} />
+
 ## Form libraries
 
-In most cases, the built-in validation features of NextUI are sufficient. However, if you're building more complex forms or integrating NextUI components into an existing form, you can use a form library like React Hook Form or Formik.
+In most cases, the built-in validation features of NextUI are sufficient. However, if you're building more complex forms or integrating NextUI components into an existing form, you can use a form library like [React Hook Form](https://react-hook-form.com/) or [Formik](https://formik.org/).
 
 ### React Hook Form
 
@@ -495,6 +531,7 @@ function App() {
       name: "",
     },
   });
+
   const onSubmit = (data) => {
     // Call your API here.
   };
@@ -509,6 +546,8 @@ function App() {
             ref={ref}
             isRequired
             errorMessage={error?.message}
+            // Let React Hook Form handle validation instead of the browser.
+            validationBehavior="aria"
             isInvalid={invalid}
             label="Name"
             name={name}
@@ -525,4 +564,4 @@ function App() {
 }
 ```
 
-> For more information about forms in React Aria, visit the [React Aria Forms Guide](https://react-spectrum.adobe.com/react-aria/forms.html).
+> For more information about forms in NextUI, visit the [React Aria Forms Guide](https://react-spectrum.adobe.com/react-aria/forms.html).
