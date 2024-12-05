@@ -43,11 +43,11 @@ export const metadata: Metadata = {
   openGraph: siteConfig.openGraph,
   authors: [
     {
-      name: "jrgarciadev",
-      url: "https://jrgarciadev.com",
+      name: "getnextui",
+      url: "https://x.com/getnextui",
     },
   ],
-  creator: "jrgarciadev",
+  creator: "getnextui",
   alternates: {
     canonical: "https://nextui.org",
     types: {
@@ -57,14 +57,14 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  initialScale: 1,
   themeColor: [
     {color: "#f4f4f5", media: "(prefers-color-scheme: light)"},
     {color: "#111111", media: "(prefers-color-scheme: dark)"},
   ],
-  userScalable: true,
-  viewportFit: "cover",
   width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {
