@@ -1,7 +1,6 @@
 "use client";
 
 import type {Language, PrismTheme} from "prism-react-renderer";
-import type {TransformTokensTypes} from "./helper";
 
 import {useIntersectionObserver} from "usehooks-ts";
 import React, {forwardRef, useEffect} from "react";
@@ -9,8 +8,6 @@ import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
 import BaseHighlight, {defaultProps} from "prism-react-renderer";
 import {debounce, omit} from "@nextui-org/shared-utils";
 import {cn} from "@nextui-org/react";
-
-import {transformTokens} from "./helper";
 
 import defaultTheme from "@/libs/prism-theme";
 
@@ -136,110 +133,65 @@ const CodeBlockHighlight = ({
               data-language={language}
               style={style}
             >
-              {transformTokens(tokens).map((line) => {
-                const folderLine = line[0] as TransformTokensTypes;
+              {tokens.map((line, i) => {
+                const lineProps = getLineProps({line, key: i});
 
-                const isFolder = folderLine.types?.includes("folderStart");
+                return (
+                  <div
+                    {...omit(lineProps, ["key"])}
+                    key={`${i}-${getUniqueID("line-wrapper")}`}
+                    className={clsx(
+                      lineProps.className,
+                      removeIndent ? "pr-4" : "px-4",
+                      "relative [&>span]:relative [&>span]:z-10",
+                      {
+                        "px-2": showLines,
+                      },
+                      {
+                        "before:to-code-background before:absolute before:left-0 before:z-0 before:h-full before:w-full before:bg-gradient-to-r before:from-white/10 before:content-[''] before:pointer-events-none":
+                          shouldHighlightLine(i),
+                      },
+                    )}
+                    data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
+                    data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
+                  >
+                    {showLines && (
+                      <span
+                        className={cn(
+                          "mr-6 select-none text-xs opacity-30",
+                          i + 1 >= 10 ? "mr-4" : "",
+                          i + 1 >= 100 ? "mr-2" : "",
+                          i + 1 >= 1000 ? "mr-0" : "",
+                        )}
+                      >
+                        {i + 1}
+                      </span>
+                    )}
 
-                const renderLine = (
-                  line: TransformTokensTypes[],
-                  i: number,
-                  as: "div" | "span" = "div",
-                ) => {
-                  const Tag = as;
-                  const lineProps = getLineProps({line, key: i});
+                    {line.map((token, key) => {
+                      const props = getTokenProps({token, key}) || {};
 
-                  return (
-                    <Tag
-                      {...omit(lineProps, ["key"])}
-                      key={`${i}-${getUniqueID("line-wrapper")}`}
-                      className={clsx(
-                        lineProps.className,
-                        removeIndent ? "pr-4" : "px-4",
-                        "relative [&>span]:relative [&>span]:z-10",
-                        {
-                          "px-2": showLines,
-                        },
-                        {
-                          "before:to-code-background before:absolute before:left-0 before:z-0 before:h-full before:w-full before:bg-gradient-to-r before:from-white/10 before:content-[''] before:pointer-events-none":
-                            isFolder ? false : shouldHighlightLine(i),
-                        },
-                      )}
-                      data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
-                      data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
-                    >
-                      {showLines && (
+                      return (
                         <span
-                          className={cn(
-                            "mr-6 select-none text-xs opacity-30",
-                            i + 1 >= 10 ? "mr-4" : "",
-                            i + 1 >= 100 ? "mr-2" : "",
-                            i + 1 >= 1000 ? "mr-0" : "",
-                          )}
-                        >
-                          {i + 1}
-                        </span>
-                      )}
+                          {...omit(props, ["key"])}
+                          key={`${key}-${getUniqueID("line")}`}
+                          className={className}
+                          style={{
+                            ...props.style,
+                            ...(highlightStyleToken.some((t) => {
+                              const content = token.content.trim();
 
-                      {line.map((token, key) => {
-                        const props = getTokenProps({token, key}) || {};
-                        const isCopy = token.types.includes("copy");
+                              const regex = t instanceof RegExp ? t : new RegExp(t);
 
-                        return isCopy ? (
-                          <span key={key} className="copy-token" style={{whiteSpace: "inherit"}}>
-                            {token.folderContent?.map((folderTokens) => {
-                              return folderTokens.map((token, index) => {
-                                // Hack for wrap line
-                                return token.content === "" ? (
-                                  <div key={`${index}-${getUniqueID("line")}`} />
-                                ) : (
-                                  <span key={`${index}-${getUniqueID("line")}`}>
-                                    {token.content}
-                                  </span>
-                                );
-                              });
-                            })}
-                          </span>
-                        ) : (
-                          <span
-                            {...omit(props, ["key"])}
-                            key={`${key}-${getUniqueID("line")}`}
-                            className={cn(className, token.class)}
-                            style={{
-                              ...props.style,
-                              ...(highlightStyleToken.some((t) => {
-                                const content = token.content.trim();
-
-                                const regex = t instanceof RegExp ? t : new RegExp(t);
-
-                                return regex.test(content);
-                              })
-                                ? {color: "rgb(var(--code-function))"}
-                                : {}),
-                            }}
-                          />
-                        );
-                      })}
-                    </Tag>
-                  );
-                };
-                const renderFolderTokens = (tokens: TransformTokensTypes[][]) => {
-                  return tokens.map((token, key) => {
-                    const index = key + folderLine.index! + 1;
-
-                    return renderLine(token, index);
-                  });
-                };
-
-                return isFolder ? (
-                  <details key={`${folderLine.index}`} open={folderLine.open ? true : undefined}>
-                    <summary className="cursor-pointer">
-                      {renderLine(folderLine.summaryContent as any, folderLine.index!, "span")}
-                    </summary>
-                    {renderFolderTokens(folderLine.folderContent as any)}
-                  </details>
-                ) : (
-                  renderLine(line, folderLine.index!)
+                              return regex.test(content);
+                            })
+                              ? {color: "rgb(var(--code-function))"}
+                              : {}),
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
                 );
               })}
             </pre>
@@ -331,27 +283,21 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
     }, []);
 
     return (
-      <>
-        <CodeBlockHighlight
-          className={classNameProp}
-          codeLang={codeLang}
-          codeString={codeString}
-          hideScrollBar={hideScrollBar}
-          highlightStyle={highlightStyle}
-          isMultiLine={isMultiLine}
-          language={language}
-          preRef={ref}
-          removeIndent={removeIndent}
-          shouldHighlightLine={shouldHighlightLine}
-          showLines={showLines}
-          theme={theme}
-          {...props}
-        />
-        {/* <div
-          ref={intersectionRef}
-          className={clsx(classNameProp, "w-full bg-code-background rounded-lg")}
-        /> */}
-      </>
+      <CodeBlockHighlight
+        className={classNameProp}
+        codeLang={codeLang}
+        codeString={codeString}
+        hideScrollBar={hideScrollBar}
+        highlightStyle={highlightStyle}
+        isMultiLine={isMultiLine}
+        language={language}
+        preRef={ref}
+        removeIndent={removeIndent}
+        shouldHighlightLine={shouldHighlightLine}
+        showLines={showLines}
+        theme={theme}
+        {...props}
+      />
     );
   },
 );
