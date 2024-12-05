@@ -10,6 +10,7 @@ import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {cloneElement} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {AnimatePresence} from "framer-motion";
+import * as React from "react";
 
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";
@@ -130,18 +131,22 @@ const Select = forwardRef(function Select<T extends object>(
       <HiddenSelect {...getHiddenSelectProps()} />
       {shouldLabelBeOutside ? labelContent : null}
       <div {...getMainWrapperProps()}>
-        <Component {...getTriggerProps()}>
-          {!shouldLabelBeOutside ? labelContent : null}
-          <div {...getInnerWrapperProps()}>
-            {startContent}
-            <span {...getValueProps()}>{renderSelectedItem}</span>
-            {endContent && state.selectedItems && (
-              <VisuallyHidden elementType="span">,</VisuallyHidden>
-            )}
-            {endContent}
-          </div>
-          {renderIndicator}
-        </Component>
+        {React.createElement(
+          Component,
+          getTriggerProps(),
+          <>
+            {!shouldLabelBeOutside ? labelContent : null}
+            <div {...getInnerWrapperProps()}>
+              {startContent}
+              <span {...getValueProps()}>{renderSelectedItem}</span>
+              {endContent && state.selectedItems && (
+                <VisuallyHidden elementType="span">,</VisuallyHidden>
+              )}
+              {endContent}
+            </div>
+            {renderIndicator}
+          </>,
+        )}
         {helperWrapper}
       </div>
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}

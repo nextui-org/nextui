@@ -13,6 +13,7 @@ import {DateInputSegment} from "@nextui-org/date-input";
 import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
+import * as React from "react";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -54,29 +55,34 @@ const DateRangePickerField = forwardRef(function DateRangePickerField<T extends 
 
   const inputRef = useRef(null);
 
-  const {
-    fieldProps,
-    inputProps,
-    isInvalid: ariaIsInvalid,
-  } = useAriaDateField({...otherProps, inputRef}, state, domRef);
+  const {fieldProps, isInvalid: ariaIsInvalid} = useAriaDateField(
+    {...otherProps, inputRef},
+    state,
+    domRef,
+  );
 
   const isInvalid = props.isInvalid || ariaIsInvalid;
 
   state.isInvalid = isInvalid;
 
   return (
-    <Component {...mergeProps(fieldProps, filterDOMProps(otherProps))} ref={domRef}>
-      {state.segments.map((segment, i) => (
-        <DateInputSegment
-          key={i}
-          classNames={classNames}
-          segment={segment}
-          slots={slots}
-          state={state}
-        />
-      ))}
-      <input {...inputProps} ref={inputRef} />
-    </Component>
+    <>
+      {React.createElement(
+        Component,
+        {...mergeProps(fieldProps, filterDOMProps(otherProps)), ref: {domRef}},
+        <>
+          {state.segments.map((segment, i) => (
+            <DateInputSegment
+              key={i}
+              classNames={classNames}
+              segment={segment}
+              slots={slots}
+              state={state}
+            />
+          ))}
+        </>,
+      )}
+    </>
   );
 }) as <T extends DateValue>(props: DateRangePickerFieldProps<T>) => ReactElement;
 

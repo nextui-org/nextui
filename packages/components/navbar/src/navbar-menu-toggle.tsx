@@ -7,6 +7,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
 import {useMemo, ReactNode} from "react";
+import * as React from "react";
 
 import {useNavbarContext} from "./navbar-context";
 
@@ -74,18 +75,24 @@ const NavbarMenuToggle = forwardRef<"button", NavbarMenuToggleProps>((props, ref
   }, [srOnlyTextProp, isMenuOpen]);
 
   return (
-    <Component
-      ref={domRef}
-      className={slots.toggle?.({class: toggleStyles})}
-      data-focus-visible={dataAttr(isFocusVisible)}
-      data-hover={dataAttr(isHovered)}
-      data-open={dataAttr(isMenuOpen)}
-      data-pressed={dataAttr(isPressed)}
-      {...mergeProps(buttonProps, focusProps, hoverProps, otherProps)}
-    >
-      <span className={slots.srOnly()}>{srOnlyText}</span>
-      {child}
-    </Component>
+    <>
+      {React.createElement(
+        Component,
+        {
+          ref: domRef,
+          className: slots.toggle?.({class: toggleStyles}),
+          "data-focus-visible": dataAttr(isFocusVisible),
+          "data-hover": dataAttr(isHovered),
+          "data-open": dataAttr(isMenuOpen),
+          "data-pressed": dataAttr(isPressed),
+          ...mergeProps(buttonProps, focusProps, hoverProps, otherProps),
+        },
+        <>
+          <span className={slots.srOnly()}>{srOnlyText}</span>
+          {child}
+        </>,
+      )}
+    </>
   );
 });
 

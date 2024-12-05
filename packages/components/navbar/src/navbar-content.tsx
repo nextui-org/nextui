@@ -1,6 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx} from "@nextui-org/shared-utils";
+import * as React from "react";
 
 import {useNavbarContext} from "./navbar-context";
 
@@ -27,14 +28,18 @@ const NavbarContent = forwardRef<"ul", NavbarContentProps>((props, ref) => {
   const styles = clsx(classNames?.content, className);
 
   return (
-    <Component
-      ref={domRef}
-      className={slots.content?.({class: styles})}
-      data-justify={justify}
-      {...otherProps}
-    >
-      {children}
-    </Component>
+    <>
+      {React.createElement(
+        Component,
+        {
+          ref: domRef,
+          className: slots.content?.({class: styles}),
+          "data-justify": justify,
+          ...otherProps,
+        },
+        <>{children}</>,
+      )}
+    </>
   );
 });
 

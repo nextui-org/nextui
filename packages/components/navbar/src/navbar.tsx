@@ -2,6 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
 import {LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
+import * as React from "react";
 
 import {hideOnScrollVariants} from "./navbar-transitions";
 import {UseNavbarProps, useNavbar} from "./use-navbar";
@@ -44,7 +45,7 @@ const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
           </m.nav>
         </LazyMotion>
       ) : (
-        <Component {...context.getBaseProps()}>{content}</Component>
+        <>{React.createElement(Component, context.getBaseProps(), <>{content}</>)}</>
       )}
     </NavbarProvider>
   );

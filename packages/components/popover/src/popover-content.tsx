@@ -9,6 +9,7 @@ import {m, LazyMotion} from "framer-motion";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
+import * as React from "react";
 
 import {usePopoverContext} from "./popover-context";
 
@@ -41,22 +42,19 @@ const PopoverContent = (props: PopoverContentProps) => {
 
   const dialogRef = useRef(null);
   const {dialogProps: ariaDialogProps, titleProps} = useDialog({}, dialogRef);
-  const dialogProps = getDialogProps({
-    ref: dialogRef,
-    ...ariaDialogProps,
-    ...otherProps,
-  });
 
   const Component = as || OverlayComponent || "div";
 
   const content = (
     <>
       {!isNonModal && <DismissButton onDismiss={onClose} />}
-      <Component {...dialogProps}>
-        <div {...getContentProps({className})}>
+      {React.createElement(
+        Component,
+        getDialogProps({ref: dialogRef, ...ariaDialogProps, ...otherProps}),
+        <div {...getContentProps()} className={className}>
           {typeof children === "function" ? children(titleProps) : children}
-        </div>
-      </Component>
+        </div>,
+      )}
       <DismissButton onDismiss={onClose} />
     </>
   );
@@ -83,27 +81,34 @@ const PopoverContent = (props: PopoverContentProps) => {
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
-  const contents = (
-    <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
-      {disableAnimation ? (
-        content
-      ) : (
-        <LazyMotion features={domAnimation}>
-          <m.div
-            animate="enter"
-            exit="exit"
-            initial="initial"
-            style={{
-              ...getTransformOrigins(placement === "center" ? "top" : placement),
-            }}
-            variants={TRANSITION_VARIANTS.scaleSpringOpacity}
-            {...motionProps}
-          >
-            {content}
-          </m.div>
-        </LazyMotion>
-      )}
-    </RemoveScroll>
+  const contents = React.createElement(
+    RemoveScroll as React.ComponentType<any>,
+    {
+      enabled: shouldBlockScroll && isOpen,
+      removeScrollBar: false,
+      key: null,
+    },
+    disableAnimation
+      ? content
+      : React.createElement(
+          LazyMotion,
+          {features: domAnimation},
+          React.createElement(
+            m.div,
+            {
+              key: null,
+              animate: "enter",
+              exit: "exit",
+              initial: "initial",
+              style: {
+                ...getTransformOrigins(placement === "center" ? "top" : placement),
+              },
+              variants: TRANSITION_VARIANTS.scaleSpringOpacity,
+              ...motionProps,
+            },
+            content,
+          ),
+        ),
   );
 
   return (

@@ -7,7 +7,7 @@ import {autocomplete} from "@nextui-org/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {ReactNode, useEffect, useMemo, useRef} from "react";
+import {ElementType, ReactNode, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
 import {PopoverProps} from "@nextui-org/popover";
 import {ListboxProps} from "@nextui-org/listbox";
@@ -377,7 +377,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     };
   }
 
-  const Component = as || "div";
+  const Component: ElementType = as || "div";
 
   const slots = useMemo(
     () =>
@@ -537,6 +537,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
   });
 
   return {
+    as,
     Component,
     inputRef,
     label,

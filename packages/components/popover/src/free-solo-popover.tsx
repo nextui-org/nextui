@@ -92,7 +92,7 @@ FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
   ({children, transformOrigin, disableDialogFocus = false, ...props}, ref) => {
     const {
-      Component,
+      as,
       state,
       placement,
       backdrop,
@@ -144,7 +144,9 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
     return (
       <Overlay portalContainer={portalContainer}>
         {!isNonModal && backdropContent}
-        <Component {...getPopoverProps()}>
+        {React.createElement(
+          as || "div",
+          getPopoverProps(),
           <FreeSoloPopoverWrapper
             disableAnimation={disableAnimation}
             motionProps={motionProps}
@@ -158,8 +160,8 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
               {typeof children === "function" ? children(titleProps) : children}
             </div>
             <DismissButton onDismiss={state.close} />
-          </FreeSoloPopoverWrapper>
-        </Component>
+          </FreeSoloPopoverWrapper>,
+        )}
       </Overlay>
     );
   },

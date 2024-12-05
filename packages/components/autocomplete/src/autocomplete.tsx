@@ -7,6 +7,7 @@ import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {ForwardedRef, ReactElement} from "react";
 import {AnimatePresence} from "framer-motion";
+import * as React from "react";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 
@@ -49,18 +50,24 @@ const Autocomplete = forwardRef(function Autocomplete<T extends object>(
   ) : null;
 
   return (
-    <Component {...getBaseProps()}>
-      <Input
-        {...getInputProps()}
-        endContent={
-          <div {...getEndContentWrapperProps()}>
-            {endContent || <Button {...getClearButtonProps()}>{clearIcon}</Button>}
-            <Button {...getSelectorButtonProps()}>{selectorIcon}</Button>
-          </div>
-        }
-      />
-      {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
-    </Component>
+    <>
+      {React.createElement(
+        Component,
+        getBaseProps(),
+        <>
+          <Input
+            {...getInputProps()}
+            endContent={
+              <div {...getEndContentWrapperProps()}>
+                {endContent || <Button {...getClearButtonProps()}>{clearIcon}</Button>}
+                <Button {...getSelectorButtonProps()}>{selectorIcon}</Button>
+              </div>
+            }
+          />
+          {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
+        </>,
+      )}
+    </>
   );
 }) as <T extends object>(props: AutocompleteProps<T>) => ReactElement;
 

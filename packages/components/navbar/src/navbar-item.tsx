@@ -1,6 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import * as React from "react";
 
 import {useNavbarContext} from "./navbar-context";
 
@@ -24,14 +25,18 @@ const NavbarItem = forwardRef<"li", NavbarItemProps>((props, ref) => {
   const styles = clsx(classNames?.item, className);
 
   return (
-    <Component
-      ref={domRef}
-      className={slots.item?.({class: styles})}
-      data-active={dataAttr(isActive)}
-      {...otherProps}
-    >
-      {children}
-    </Component>
+    <>
+      {React.createElement(
+        Component,
+        {
+          ref: domRef,
+          className: slots.item?.({class: styles}),
+          "data-active": dataAttr(isActive),
+          ...otherProps,
+        },
+        <>{children}</>,
+      )}
+    </>
   );
 });
 

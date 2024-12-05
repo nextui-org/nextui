@@ -2,7 +2,7 @@ import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-or
 import type {HTMLMotionProps} from "framer-motion";
 import type {PressEvent} from "@react-types/shared";
 
-import {RefObject, Ref, useEffect} from "react";
+import {RefObject, Ref, useEffect, ElementType} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
@@ -126,7 +126,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     ...otherProps
   } = props;
 
-  const Component = as || "div";
+  const Component = (as || "div") as ElementType;
 
   const domRef = useDOMRef(ref);
 
@@ -307,6 +307,7 @@ export function usePopover(originalProps: UsePopoverProps) {
   }, [state.isOpen, domRef]);
 
   return {
+    as,
     state,
     Component,
     children,
