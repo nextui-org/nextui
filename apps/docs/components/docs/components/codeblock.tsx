@@ -1,3 +1,5 @@
+"use client";
+
 import type {Language, PrismTheme} from "prism-react-renderer";
 import type {TransformTokensTypes} from "./helper";
 

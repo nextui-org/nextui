@@ -15,6 +15,7 @@ import {mergeProps, useResizeObserver} from "@react-aria/utils";
 import {useScrollPosition} from "@nextui-org/use-scroll-position";
 import {useControlledState} from "@react-stately/utils";
 import {HTMLMotionProps} from "framer-motion";
+import {usePreventScroll} from "@react-aria/overlays";
 
 interface Props extends HTMLNextUIProps<"nav"> {
   /**
@@ -47,6 +48,11 @@ interface Props extends HTMLNextUIProps<"nav"> {
    * @default false
    */
   shouldHideOnScroll?: boolean;
+  /**
+   * Whether the navbar should block scroll when the menu is open or not.
+   * @default false
+   */
+  shouldBlockScroll?: boolean;
   /**
    * Whether the navbar parent scroll event should be listened to or not.
    * @default false
@@ -102,6 +108,7 @@ export function useNavbar(originalProps: UseNavbarProps) {
     height = "4rem",
     shouldHideOnScroll = false,
     disableScrollHandler = false,
+    shouldBlockScroll = true,
     onScrollPositionChange,
     isMenuOpen: isMenuOpenProp,
     isMenuDefaultOpen,
@@ -145,6 +152,10 @@ export function useNavbar(originalProps: UseNavbarProps) {
       }
     }
   };
+
+  usePreventScroll({
+    isDisabled: !(shouldBlockScroll && isMenuOpen),
+  });
 
   useResizeObserver({
     ref: domRef,
