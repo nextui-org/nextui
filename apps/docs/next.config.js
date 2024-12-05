@@ -3,7 +3,6 @@ const withContentlayer = require("next-contentlayer2").withContentlayer;
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["@nextui-org/react", "@nextui-org/theme"],
-  swcMinify: true,
   reactStrictMode: true, // Recommended for the `pages` directory, default in `app`.
   redirects: require("./next-redirect.js"),
   eslint: {
@@ -14,12 +13,27 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: [
-      "opencollective-production.s3.us-west-1.amazonaws.com",
-      "avatars.githubusercontent.com",
-      "logo.clearbit.com",
-      "i.pravatar.cc",
-      "nextui.org",
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "opencollective-production.s3.us-west-1.amazonaws.com",
+      },
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "logo.clearbit.com",
+      },
+      {
+        protocol: "https",
+        hostname: "i.pravatar.cc",
+      },
+      {
+        protocol: "https",
+        hostname: "nextui.org",
+      },
     ],
   },
   rewrites: async () => {

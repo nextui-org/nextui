@@ -1,7 +1,7 @@
 import React from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
 import {clsx} from "@nextui-org/shared-utils";
-import * as Components from "@nextui-org/react";
+import * as NextUI from "@nextui-org/react";
 import * as intlDateUtils from "@internationalized/date";
 import * as reactAriaI18n from "@react-aria/i18n";
 import * as reactHookFormBase from "react-hook-form";
@@ -31,7 +31,8 @@ const reactHookForm = {
 };
 
 export const scope = {
-  ...Components,
+  React,
+  ...NextUI,
   ...intlDateUtils,
   ...reactAriaI18n,
   ...reactHookForm,

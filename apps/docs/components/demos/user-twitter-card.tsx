@@ -1,15 +1,14 @@
 "use client";
 
-import {useState, FC} from "react";
+import {useState} from "react";
 import {Card, CardHeader, Button, Avatar, CardBody, CardFooter} from "@nextui-org/react";
 import {clsx} from "@nextui-org/shared-utils";
-import NextImage from "next/image";
 
 interface UserTwitterCardProps {
   className?: string;
 }
 
-export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
+export const UserTwitterCard = ({className}: UserTwitterCardProps) => {
   const [isFollowed, setIsFollowed] = useState(false);
 
   return (
@@ -18,7 +17,6 @@ export const UserTwitterCard: FC<UserTwitterCardProps> = ({className}) => {
         <div className="flex gap-5">
           <Avatar
             isBordered
-            ImgComponent={NextImage}
             alt="Zoey Lang"
             imgProps={{
               width: 40,
