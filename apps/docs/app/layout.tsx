@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import "@/styles/sandpack.css";
-import {Metadata} from "next";
+import {Metadata, Viewport} from "next";
 import {clsx} from "@nextui-org/shared-utils";
 
 import {Providers} from "./providers";
@@ -33,10 +33,6 @@ export const metadata: Metadata = {
     "UI Framework",
     "UI Design System",
   ],
-  themeColor: [
-    {media: "(prefers-color-scheme: light)", color: "white"},
-    {media: "(prefers-color-scheme: dark)", color: "black"},
-  ],
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon-32x32.png",
@@ -58,8 +54,17 @@ export const metadata: Metadata = {
       "application/rss+xml": [{url: "https://nextui.org/feed.xml", title: "NextUI RSS Feed"}],
     },
   },
-  viewport:
-    "viewport-fit=cover, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0",
+};
+
+export const viewport: Viewport = {
+  initialScale: 1,
+  themeColor: [
+    {color: "#f4f4f5", media: "(prefers-color-scheme: light)"},
+    {color: "#111111", media: "(prefers-color-scheme: dark)"},
+  ],
+  userScalable: true,
+  viewportFit: "cover",
+  width: "device-width",
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

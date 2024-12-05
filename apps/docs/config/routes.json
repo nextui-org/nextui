@@ -13,6 +13,12 @@
           "path": "/docs/guide/introduction.mdx"
         },
         {
+          "key": "design-principles",
+          "title": "Design Principles",
+          "keywords": "design principles, nextui",
+          "path": "/docs/guide/design-principles.mdx"
+        },
+        {
           "key": "installation",
           "title": "Installation",
           "keywords": "getting started, installation, start, nextui",
@@ -23,12 +29,6 @@
           "title": "CLI",
           "keywords": "cli, command line interface",
           "path": "/docs/guide/cli.mdx"
-        },
-        {
-          "key": "design-principles",
-          "title": "Design Principles",
-          "keywords": "design principles, nextui",
-          "path": "/docs/guide/design-principles.mdx"
         },
         {
           "key": "routing",

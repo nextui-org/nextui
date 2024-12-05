@@ -14,9 +14,9 @@ import {Route} from "@/libs/docs/page";
 import {ChevronRightLinearIcon} from "@/components/icons";
 
 interface BlogPostProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
 const isDraftVisible = __DEV__ || __PREVIEW__;
@@ -38,7 +38,8 @@ async function getBlogPostFromParams({params}: BlogPostProps) {
   return {post, currentRoute};
 }
 
-export async function generateMetadata({params}: BlogPostProps): Promise<Metadata> {
+export async function generateMetadata(props: BlogPostProps): Promise<Metadata> {
+  const params = await props.params;
   const {post} = await getBlogPostFromParams({params});
 
   if (!post) {
@@ -78,7 +79,8 @@ export async function generateStaticParams(): Promise<BlogPostProps["params"][]>
   }));
 }
 
-export default async function DocPage({params}: BlogPostProps) {
+export default async function DocPage(props: BlogPostProps) {
+  const params = await props.params;
   const {post} = await getBlogPostFromParams({params});
 
   if (!post || (post.draft && !isDraftVisible)) {
