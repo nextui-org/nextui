@@ -13,6 +13,7 @@ import {Community} from "@/components/marketing/community";
 import Support from "@/components/marketing/support";
 import landingContent from "@/content/landing";
 import {Sponsors} from "@/components/marketing/sponsors";
+import {NextUIProSection} from "@/components/marketing/nextui-pro-section";
 
 export default async function Home() {
   return (
@@ -25,6 +26,7 @@ export default async function Home() {
         <A11yOtb />
         <DarkMode />
         <Customization />
+        <NextUIProSection />
         <LastButNotLeast />
         <Suspense fallback={<div>Loading...</div>}>
           <Support />
