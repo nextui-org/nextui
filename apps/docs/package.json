@@ -45,7 +45,7 @@
     "@react-aria/interactions": "3.22.4",
     "@react-aria/selection": "3.20.1",
     "@react-aria/ssr": "3.9.6",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-aria/virtualizer": "3.10.1",
     "@react-aria/visually-hidden": "3.8.17",
     "@react-stately/data": "3.11.4",

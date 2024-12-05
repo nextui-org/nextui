@@ -48,7 +48,7 @@
     "@nextui-org/use-clipboard": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
     "@react-aria/focus": "3.18.4",
-    "@react-aria/utils": "3.25.3"
+    "@react-aria/utils": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

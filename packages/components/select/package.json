@@ -56,7 +56,7 @@
     "@react-aria/focus": "3.18.4",
     "@react-aria/form": "3.0.10",
     "@react-aria/interactions": "3.22.4",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-aria/visually-hidden": "3.8.17",
     "@react-types/shared": "3.25.0",
     "@tanstack/react-virtual": "3.10.9"

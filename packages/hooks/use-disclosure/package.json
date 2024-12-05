@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@nextui-org/use-callback-ref": "workspace:*",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-stately/utils": "3.10.4"
   },
   "devDependencies": {

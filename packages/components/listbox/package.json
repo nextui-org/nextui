@@ -46,7 +46,7 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
     "@tanstack/react-virtual": "3.10.9",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-aria/listbox": "3.13.5",
     "@react-stately/list": "3.11.0",
     "@react-aria/focus": "3.18.4",
