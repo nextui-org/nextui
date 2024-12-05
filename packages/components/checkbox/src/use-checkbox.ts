@@ -97,7 +97,9 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
     validationState,
-    isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
+    isInvalid: isInvalidProp = validationState
+      ? validationState === "invalid"
+      : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
     validationBehavior = isInGroup
       ? groupContext.validationBehavior
@@ -145,8 +147,8 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const labelId = useId();
 
-  const ariaCheckboxProps = useMemo(() => {
-    return {
+  const ariaCheckboxProps = useMemo(
+    () => ({
       name,
       value,
       children,
@@ -154,48 +156,62 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       defaultSelected,
       isIndeterminate,
       isRequired,
-      isInvalid,
+      isInvalid: isInvalidProp,
       isSelected: isSelectedProp,
       isDisabled: isDisabledProp,
       isReadOnly: isReadOnlyProp,
       "aria-label": safeAriaLabel(otherProps["aria-label"], children),
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       onChange: onValueChange,
-    };
-  }, [
-    value,
-    name,
-    labelId,
-    children,
-    autoFocus,
-    isInvalid,
-    isIndeterminate,
-    isDisabledProp,
-    isReadOnlyProp,
-    isSelectedProp,
-    defaultSelected,
-    otherProps["aria-label"],
-    otherProps["aria-labelledby"],
-    onValueChange,
-  ]);
+    }),
+    [
+      name,
+      value,
+      children,
+      autoFocus,
+      defaultSelected,
+      isIndeterminate,
+      isRequired,
+      isInvalidProp,
+      isSelectedProp,
+      isDisabledProp,
+      isReadOnlyProp,
+      otherProps["aria-label"],
+      otherProps["aria-labelledby"],
+      labelId,
+      onValueChange,
+    ],
+  );
+
+  const toggleState = useToggleState(ariaCheckboxProps);
 
   const validationProps = {
-    isInvalid,
+    isInvalid: isInvalidProp,
     isRequired,
     validate,
     validationState,
     validationBehavior,
   };
 
-  const toggleState = useToggleState(ariaCheckboxProps);
-
-  const {inputProps, isSelected, isDisabled, isReadOnly, isPressed} = isInGroup
+  const {
+    inputProps,
+    isSelected,
+    isDisabled,
+    isReadOnly,
+    isPressed,
+    isInvalid: isAriaInvalid,
+  } = isInGroup
     ? // eslint-disable-next-line
-      useReactAriaCheckboxGroupItem({...ariaCheckboxProps, ...validationProps}, groupContext.groupState, inputRef)
+      useReactAriaCheckboxGroupItem(
+        {...ariaCheckboxProps, ...validationProps},
+        groupContext.groupState,
+        inputRef,
+      )
     : // eslint-disable-next-line
       useReactAriaCheckbox({...ariaCheckboxProps, ...validationProps}, toggleState, inputRef);
 
   const isInteractionDisabled = isDisabled || isReadOnly;
+  const isInvalid = validationState === "invalid" || isInvalidProp || isAriaInvalid;
 
   const pressed = isInteractionDisabled ? false : isPressed;
 
