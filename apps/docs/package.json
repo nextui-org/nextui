@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "dev": "rimraf .contentlayer && concurrently \"contentlayer2 dev\" \"next dev --turbopack\"",
+    "dev": "rimraf .contentlayer && concurrently \"contentlayer2 dev\" \"next dev\"",
     "build": "contentlayer2 build && next build ",
     "build:analyze": "ANALYZE=true next build",
     "start": "next start",
