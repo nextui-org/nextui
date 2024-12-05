@@ -53,7 +53,7 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@react-aria/datepicker": "3.11.4",
     "@react-aria/i18n": "3.12.3",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-stately/datepicker": "3.10.3",
     "@react-stately/overlays": "3.6.11",
     "@react-stately/utils": "3.10.4",

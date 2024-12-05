@@ -45,7 +45,7 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-aria-link": "workspace:*",
     "@react-aria/link": "3.7.6",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-aria/focus": "3.18.4",
     "@react-types/link": "3.5.8"
   },

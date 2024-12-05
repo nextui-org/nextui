@@ -50,7 +50,7 @@
     "@react-aria/focus": "3.18.4",
     "@react-aria/interactions": "3.22.4",
     "@react-aria/tabs": "3.9.7",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-stately/tabs": "3.6.10",
     "@react-types/shared": "3.25.0",
     "@react-types/tabs": "3.3.10",

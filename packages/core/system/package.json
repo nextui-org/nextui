@@ -59,7 +59,7 @@
     "@react-aria/i18n": "3.12.3",
     "@nextui-org/system-rsc": "workspace:*",
     "@react-aria/overlays": "3.23.4",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-stately/utils": "3.10.4",
     "@react-types/datepicker": "3.8.3"
   }

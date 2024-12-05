@@ -58,7 +58,7 @@
     "@react-aria/focus": "3.18.4",
     "@react-aria/i18n": "3.12.3",
     "@react-aria/interactions": "3.22.4",
-    "@react-aria/utils": "3.25.3",
+    "@react-aria/utils": "3.26.0",
     "@react-aria/visually-hidden": "3.8.17",
     "@react-stately/combobox": "3.10.0",
     "@react-types/combobox": "3.13.0",
