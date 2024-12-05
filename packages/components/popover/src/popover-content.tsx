@@ -2,7 +2,6 @@ import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
-import {RemoveScroll} from "react-remove-scroll";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {m, LazyMotion} from "framer-motion";
@@ -25,12 +24,10 @@ const PopoverContent = (props: PopoverContentProps) => {
 
   const {
     Component: OverlayComponent,
-    isOpen,
     placement,
     backdrop,
     motionProps,
     disableAnimation,
-    shouldBlockScroll,
     getPopoverProps,
     getDialogProps,
     getBackdropProps,
@@ -84,7 +81,7 @@ const PopoverContent = (props: PopoverContentProps) => {
   }, [backdrop, disableAnimation, getBackdropProps]);
 
   const contents = (
-    <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+    <>
       {disableAnimation ? (
         content
       ) : (
@@ -103,7 +100,7 @@ const PopoverContent = (props: PopoverContentProps) => {
           </m.div>
         </LazyMotion>
       )}
-    </RemoveScroll>
+    </>
   );
 
   return (

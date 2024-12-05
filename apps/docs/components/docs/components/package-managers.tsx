@@ -1,3 +1,5 @@
+"use client";
+
 import {Tabs, Tab, Snippet, Code} from "@nextui-org/react";
 import {Key, useState} from "react";
 
