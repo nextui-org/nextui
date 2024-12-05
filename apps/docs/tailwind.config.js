@@ -346,7 +346,7 @@ module.exports = {
         dark: {
           colors: {
             strong: "#06B7DB",
-            "code-background": "#18181b",
+            "code-background": "#111113",
             "code-mdx": "#06B7DB",
           },
         },
