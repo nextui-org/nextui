@@ -61,7 +61,7 @@ function Example() {
   };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} validationBehavior="native">
       <Input
         isRequired
         errorMessage="Please enter a valid email"
@@ -91,26 +91,51 @@ function Example() {
 
 NextUI form components are uncontrolled by default, but if you need to manage state in real-time, you can use the `useState` hook to make the component controlled.
 
-```tsx
+```tsx {5,26-27}
+import * as React from "react";
 import {Button, Form, Input} from "@nextui-org/react";
 
 function Example() {
-  const [name, setName] = React.useState("");
+ const [email, setEmail] = React.useState("");
+  const [submitted, setSubmitted] = React.useState(null);
+
   const onSubmit = (e) => {
     e.preventDefault();
 
-    // Submit data to your backend API.
-    alert(name);
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    setSubmitted(data);
   };
 
   return (
-    <Form onSubmit={onSubmit}>
-      <Input value={name} onValueChange={setName} />
-      <Button type="submit">Submit</Button>
+    <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={onSubmit}>
+      <Input
+        isRequired
+        errorMessage="Please enter a valid email"
+        label="Email"
+        labelPlacement="outside"
+        name="email"
+        placeholder="Enter your email"
+        type="email"
+        value={email}
+        onValueChange={setEmail}
+      />
+      <Button type="submit" variant="bordered">
+        Submit
+      </Button>
+      {submitted && (
+        <div className="text-small text-default-500">
+          You submitted: <code>{JSON.stringify(submitted)}</code>
+        </div>
+      )}
     </Form>
   );
 }
 ```
+
+<Spacer y={4} />
+
+<CodeDemo title="Controlled" showEditor={false} files={formContent.controlled} />
 
 ## Validation
 
@@ -123,48 +148,94 @@ NextUI form components support [native HTML validation](https://developer.mozill
 These constraints are checked by the browser when the user commits changes (e.g., onBlur) or submits the form.
 You can display validation errors with custom styles instead of the browser's default UI.
 
-```tsx
-import {Button, Form, Input} from "@nextui-org/react";
+```tsx {10}
+import {Form, Input, Button} from "@nextui-org/react";
 
-<Form validationBehavior="native">
-  <Input name="email" type="email" isRequired />
-  <Button type="submit">Submit</Button>
-</Form>;
+export default function App() {
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <Form
+      validationBehavior="native"
+      onSubmit={onSubmit}
+    >
+      <Input
+        isRequired
+        label="Email"
+        labelPlacement="outside"
+        name="email"
+        placeholder="Enter your email"
+        type="email"
+      />
+      <Button type="submit" variant="bordered">
+        Submit
+      </Button>
+    </Form>
+  );
+}
 ```
 
 To enable native validation, set `validationBehavior="native"`.
 By default, `validationBehavior="aria"` is set, which only marks the field as required or invalid for assistive technologies, without preventing form submission.
 You can change the form defaults for your entire app using [NextUI Provider](/docs/api-references/nextui-provider).
 
+
+Supported constraints include:
+
+- `isRequired` indicates that a field must have a value before the form can be submitted.
+- `minValue` and `maxValue` specify the minimum and maximum value in a date picker or number field.
+- `minLength` and `maxLength` specify the minimum and length of text input.
+- `pattern` provides a custom regular expression that a text input must conform to.
+- `type="email"` and `type="url"` provide builtin validation for email addresses and URLs.
+
+See each component's documentation for more details on the supported validation props.
+
+<Spacer y={4} />
+
+<CodeDemo title="Native validation" showEditor={false} files={formContent.nativeValidation} />
+
 ### Customizing error messages
 
 By default, error messages are provided by the browser.
 You can customize these messages by providing a function to the `errorMessage` prop.
 
-```tsx {9-19}
-import {Button, Form, Input} from "@nextui-org/react";
+```tsx {12-16}
+import {Form, Input, Button} from "@nextui-org/react";
 
-<Form validationBehavior="native">
-  <Input
-    label="Number"
-    isRequired
-    min={0}
-    max={100}
-    errorMessage={(validationResult) => {
-      if (validationResult.validationDetails.rangeOverflow) {
-        return "Value is too high";
-      }
-      if (validationResult.validationDetails.rangeUnderflow) {
-        return "Value is too low";
-      }
-      if (validationResult.validationDetails.valueMissing) {
-        return "Value is required";
-      }
-    }}
-  />
-  <Button type="submit">Submit</Button>
-</Form>;
+export default function App() {
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <Form validationBehavior="native" onSubmit={onSubmit}>
+      <Input
+        isRequired
+        errorMessage={({validationDetails}) => {
+          if (validationDetails.valueMissing) {
+            return "Please enter a valid name";
+          }
+        }}
+        label="Name"
+        labelPlacement="outside"
+        name="name"
+        placeholder="Enter your name"
+        type="text"
+      />
+      <Button type="submit" variant="bordered">
+        Submit
+      </Button>
+    </Form>
+  );
+}
+
 ```
+
+<Spacer y={4} />
+
+<CodeDemo title="Custom error messages" showEditor={false} files={formContent.customErrorMessages} />
 
 > **Note**: The default error messages are localized by the browser based on the browser/operating system language settings. The [locale setting in NextUI Provider](/docs/api-references/nextui-provider#props) does not affect validation errors.
 
@@ -173,21 +244,41 @@ import {Button, Form, Input} from "@nextui-org/react";
 In addition to built-in constraints, you can provide a function to the `validate` prop to support custom validation.
 
 ```tsx {7-11}
-import {Button, Form, Input} from "@nextui-org/react";
+import {Form, Input, Button} from "@nextui-org/react";
 
-<Form>
-  <Input
-    label="Number"
-    type="number"
-    validate={(value) => {
-      if (value < 0 || value > 100) {
-        return "Value must be between 0 and 100";
-      }
-    }}
-  />
-  <Button type="submit">Submit</Button>
-</Form>;
+export default function App() {
+  const onSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={onSubmit}>
+      <Input
+        isRequired
+        label="Username"
+        labelPlacement="outside"
+        name="username"
+        placeholder="Enter your username"
+        type="text"
+        validate={(value) => {
+          if (value.length < 3) {
+            return "Username must be at least 3 characters long";
+          }
+
+          return value === "admin" ? "Nice try!" : null;
+        }}
+      />
+      <Button type="submit" variant="bordered">
+        Submit
+      </Button>
+    </Form>
+  );
+}
 ```
+
+<Spacer y={4} />
+
+<CodeDemo title="Custom validation" showEditor={false} files={formContent.customValidation} />
 
 ### Realtime validation
 
