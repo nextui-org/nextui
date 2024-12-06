@@ -1,5 +1,84 @@
 # @nextui-org/react
 
+## 2.6.0
+
+### Minor Changes
+
+- [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - This release includes several improvements and bug fixes:
+
+  - Updated react-aria version across all components
+  - Improved Drawer styles and transitions
+  - Fixed missing peer dependencies for framer-motion
+  - Fixed menu item classNames functionality
+  - Added isClearable prop to Textarea component
+  - Fixed label placement issues in Input and Select components
+  - Improved table keyboard navigation with new isKeyboardNavigationDisabled prop
+  - Fixed UI sliding issues with helper wrapper in Input and Select
+  - Updated use-image hook to avoid Next.js hydration issues
+  - Replaced RTL-specific styles with logical properties
+  - Fixed textarea label squish issue
+  - Bumped tailwind-merge version
+  - Applied tw nested group fixes
+  - Fixed fullWidth variant in input and select components
+  - Moved circular-progress tv to progress
+  - Changed ListboxItem key to optional
+  - Fixed autocomplete clear button behavior
+  - Updated Select label placement logic
+  - Added missing framer-motion peer dependencies
+  - Removed layoutNode prop from Table due to react-aria update
+  - Virtualization added to Autocomplete
+
+### Patch Changes
+
+- Updated dependencies [[`6bc616c`](https://github.com/nextui-org/nextui/commit/6bc616caea948431d05eec33c1784e0560524e97), [`af0d20d`](https://github.com/nextui-org/nextui/commit/af0d20d807311b98a49218cb10faff0972a7d2fa), [`44958bf`](https://github.com/nextui-org/nextui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8), [`729ede8`](https://github.com/nextui-org/nextui/commit/729ede8de7f18c7b49fbdb736aac300b5b98f239), [`26e478d`](https://github.com/nextui-org/nextui/commit/26e478dd937dedcaf41110171d971a8a3cf2ff52), [`44958bf`](https://github.com/nextui-org/nextui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8), [`6c0213d`](https://github.com/nextui-org/nextui/commit/6c0213dfc805aa3c793763c0b25f53b2b80c24dc), [`1855ba4`](https://github.com/nextui-org/nextui/commit/1855ba4390186f701c793f76593f31a5dce6da70), [`ffb1e55`](https://github.com/nextui-org/nextui/commit/ffb1e554f7d6b5b1ede66d0838b3b1edeeccdf6b), [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201), [`44958bf`](https://github.com/nextui-org/nextui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8), [`adbd85e`](https://github.com/nextui-org/nextui/commit/adbd85ee95b67ee779401307c49596dd45e062fc)]:
+  - @nextui-org/autocomplete@2.3.0
+  - @nextui-org/date-picker@2.3.0
+  - @nextui-org/date-input@2.3.0
+  - @nextui-org/calendar@2.2.0
+  - @nextui-org/dropdown@2.3.0
+  - @nextui-org/listbox@2.3.0
+  - @nextui-org/select@2.4.0
+  - @nextui-org/menu@2.2.0
+  - @nextui-org/tabs@2.2.0
+  - @nextui-org/popover@2.3.0
+  - @nextui-org/modal@2.2.0
+  - @nextui-org/checkbox@2.3.0
+  - @nextui-org/switch@2.2.0
+  - @nextui-org/radio@2.3.0
+  - @nextui-org/input-otp@2.1.0
+  - @nextui-org/input@2.4.0
+  - @nextui-org/form@2.1.0
+  - @nextui-org/system@2.4.0
+  - @nextui-org/theme@2.4.0
+  - @nextui-org/breadcrumbs@2.2.0
+  - @nextui-org/pagination@2.2.0
+  - @nextui-org/accordion@2.2.0
+  - @nextui-org/progress@2.2.0
+  - @nextui-org/snippet@2.2.0
+  - @nextui-org/tooltip@2.2.0
+  - @nextui-org/avatar@2.2.0
+  - @nextui-org/button@2.2.0
+  - @nextui-org/navbar@2.2.0
+  - @nextui-org/slider@2.4.0
+  - @nextui-org/alert@2.2.0
+  - @nextui-org/table@2.2.0
+  - @nextui-org/card@2.2.0
+  - @nextui-org/chip@2.2.0
+  - @nextui-org/link@2.2.0
+  - @nextui-org/user@2.2.0
+  - @nextui-org/kbd@2.2.0
+  - @nextui-org/badge@2.2.0
+  - @nextui-org/code@2.2.0
+  - @nextui-org/divider@2.2.0
+  - @nextui-org/drawer@2.2.0
+  - @nextui-org/image@2.2.0
+  - @nextui-org/ripple@2.2.0
+  - @nextui-org/scroll-shadow@2.3.0
+  - @nextui-org/skeleton@2.2.0
+  - @nextui-org/spacer@2.2.0
+  - @nextui-org/spinner@2.2.0
+  - @nextui-org/framer-utils@2.1.0
+
 ## 2.5.0-beta.26
 
 ### Patch Changes
