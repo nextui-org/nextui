@@ -61,22 +61,37 @@ export const NextUIProSection = () => {
         <div className="z-30 flex w-screen h-full flex-col items-start justify-center leading-8 pt-4">
           <Chip
             classNames={{
-              base: "my-2 bg-gradient-to-r from-blue-300 to-blue-500 font-semibold",
-              content: "font-medium text-default-900",
+              base: "ml-0.5 transition-colors bg-gradient-to-br from-cyan-600 to-blue-600",
+              content: "text-tiny font-semibold",
             }}
             color="primary"
             size="sm"
-            variant="flat"
           >
             PRO
           </Chip>
-          <div className={titleWrapper({class: "inline md:block"})}>
-            <h1 className={title({size: "lg"})}>Ship&nbsp;</h1>
-            <h1 className={title({size: "lg", color: "blue"})}>faster&nbsp;</h1>
-            <h1 className={title({size: "lg"})}>with&nbsp;</h1>
+          <div className={titleWrapper({class: "mt-2 inline md:block"})}>
+            <h1 className={title({size: "lg", class: "[text-shadow:_0_3px_0_rgb(0_0_0_/_10%)]"})}>
+              Ship&nbsp;
+            </h1>
+            <h1
+              className={title({
+                size: "lg",
+                color: "blue",
+                class: "[text-shadow:_0_3px_0_rgb(0_0_0_/_10%)]",
+              })}
+            >
+              faster&nbsp;
+            </h1>
+            <h1 className={title({size: "lg", class: "[text-shadow:_0_3px_0_rgb(0_0_0_/_10%)]"})}>
+              with&nbsp;
+            </h1>
             <div className="flex flex-col sm:flex-row">
-              <h1 className={title({size: "lg"})}>beautiful&nbsp;</h1>
-              <h1 className={title({size: "lg"})}>components</h1>
+              <h1 className={title({size: "lg", class: "[text-shadow:_0_3px_0_rgb(0_0_0_/_10%)]"})}>
+                beautiful&nbsp;
+              </h1>
+              <h1 className={title({size: "lg", class: "[text-shadow:_0_3px_0_rgb(0_0_0_/_10%)]"})}>
+                components
+              </h1>
             </div>
           </div>
           <p className={subtitle({class: "pr-12 text-foreground-500"})}>
@@ -108,6 +123,7 @@ export const NextUIProSection = () => {
               color="primary"
               href="https://nextui.pro?utm_source=nextui.org&utm_medium=nextui-homepage-section"
               rel="noopener noreferrer"
+              target="_blank"
             >
               Explore NextUI Pro
               <svg
@@ -140,7 +156,7 @@ export const NextUIProSection = () => {
         <div className="overflow-hidden">
           <Marquee
             vertical
-            className="h-78 w-screen mt-4 md:absolute md:top-0 md:inset-0 isolate md:max-h-dvh"
+            className="h-78 hidden md:flex w-screen mt-4 md:absolute md:top-0 md:inset-0 isolate md:max-h-dvh"
             duration={isMobile ? 240 : 60}
           >
             <img
