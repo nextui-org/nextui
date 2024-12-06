@@ -319,6 +319,14 @@ module.exports = {
             backgroundPosition: "-200% center",
           },
         },
+        "scrolling-banner": {
+          from: {transform: "translateX(0)"},
+          to: {transform: "translateX(calc(-50% - var(--gap)/2))"},
+        },
+        "scrolling-banner-vertical": {
+          from: {transform: "translateY(0)"},
+          to: {transform: "translateY(calc(-50% - var(--gap)/2))"},
+        },
       },
       animation: {
         heartbeat: "heartbeat 1s ease-in-out infinite",
@@ -326,6 +334,8 @@ module.exports = {
         expand: "expand 6s ease-out infinite both",
         "expand-opacity": "expand-opacity 6s linear infinite both",
         "text-gradient": "text-gradient 4s linear 0s infinite normal forwards running",
+        "scrolling-banner": "scrolling-banner var(--duration) linear infinite",
+        "scrolling-banner-vertical": "scrolling-banner-vertical var(--duration) linear infinite",
       },
       maxWidth: {
         "8xl": "90rem", // 1440px
