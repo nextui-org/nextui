@@ -16,6 +16,7 @@ export default function App() {
 
   return (
     <Input
+      className="max-w-xs"
       errorMessage={() => (
         <ul>
           {errors.map((error, i) => (

@@ -610,32 +610,25 @@ We try to keep the breaking changes to a minimum, but sometimes it's necessary t
 
 The nested group selectors for table themes have been updated to require explicit element selectors. You'll need to add `/tr` or `/th` to custom styles for group-data.
 
-Before:
 
-```css
-group-data-[disabled=true]: text-foreground-300;
-```
+```diff-tsx
+// Before
+- group-data-[disabled=true]:text-foreground-300;
 
-After:
-
-```css
-group-data-[disabled=true]/tr: text-foreground-300;
+// After
++ group-data-[disabled=true]/tr:text-foreground-300;
 ```
 
 #### Circular Progress Theme Location
 
-The circular progress Tailwind variants have been moved from `circular-progress` to `progress`. You'll need to update your Tailwind CSS configuration:
+The circular progress Tailwind variants have been moved from `circular-progress` to `progress`. You'll need to update your Tailwind CSS configuration `tailwind.config.js`:
 
-Before:
+```diff-tsx
+// Before
+- "./node_modules/@nextui-org/theme/dist/components/circular-progress.js";
 
-```js
-"./node_modules/@nextui-org/theme/dist/components/circular-progress.js";
-```
-
-After:
-
-```js
-"./node_modules/@nextui-org/theme/dist/components/progress.js";
+// After
++ "./node_modules/@nextui-org/theme/dist/components/progress.js";
 ```
 
 <Spacer y={4} />

@@ -1,4 +1,4 @@
-import App from "./usage.raw.jsx?raw";
+import App from "./form-usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
