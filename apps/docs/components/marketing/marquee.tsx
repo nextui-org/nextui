@@ -68,7 +68,9 @@ export const Marquee = ({
           "hover:[animation-play-state:paused]": pauseOnHover,
         })}
       >
-        {Children.map(children, (child) => cloneElement(child as any))}
+        {Children.map(children, (child) =>
+          child && typeof child === "object" && "type" in child ? cloneElement(child) : child,
+        )}
       </div>
     </Wrapper>
   );

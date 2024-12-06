@@ -43,6 +43,18 @@ export const NextUIProSection = () => {
 
   if (!mounted) return null;
 
+  const CheckmarkIcon = () => (
+    <svg fill="none" height="11" viewBox="0 0 13 11" width="13" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M1 6.4L4.14286 10L12 1"
+        stroke="#006FEE"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      />
+    </svg>
+  );
+
   return (
     <section className={sectionWrapper({class: "mt-16 lg:mt-44 overflow-hidden"})}>
       <div className="flex flex-col gap-8 min-h-[480px]">
@@ -73,75 +85,19 @@ export const NextUIProSection = () => {
           </p>
           <div className="mt-4 text-foreground-600 font-medium">
             <div className="flex gap-x-4 items-center">
-              <svg
-                fill="none"
-                height="11"
-                viewBox="0 0 13 11"
-                width="13"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 6.4L4.14286 10L12 1"
-                  stroke="#006FEE"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
+              <CheckmarkIcon />
               210+ Components
             </div>
             <div className="flex gap-x-4 items-center">
-              <svg
-                fill="none"
-                height="11"
-                viewBox="0 0 13 11"
-                width="13"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 6.4L4.14286 10L12 1"
-                  stroke="#006FEE"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
+              <CheckmarkIcon />
               Lifetime Access
             </div>
             <div className="flex gap-x-4 items-center">
-              <svg
-                fill="none"
-                height="11"
-                viewBox="0 0 13 11"
-                width="13"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 6.4L4.14286 10L12 1"
-                  stroke="#006FEE"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
+              <CheckmarkIcon />
               Free Updates
             </div>
             <div className="flex gap-x-4 items-center">
-              <svg
-                fill="none"
-                height="11"
-                viewBox="0 0 13 11"
-                width="13"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M1 6.4L4.14286 10L12 1"
-                  stroke="#006FEE"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                />
-              </svg>
+              <CheckmarkIcon />
               Figma Files Included
             </div>
           </div>
