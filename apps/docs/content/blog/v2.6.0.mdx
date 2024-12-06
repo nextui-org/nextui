@@ -46,14 +46,40 @@ NextUI version **v2.6.0** comes with 4 new components **Form**, **Drawer**, **In
 
 <Spacer y={4} />
 
-Upgrade today by running one of the following commands:
+**Upgrade today by using one of the following methods**:
 
-<Spacer y={4} />
+1. Upgrading NextUI using the `cli`
+
+- First, upgrade Framer Motion to at least v11.9.0:
+
+<PackageManagers
+  commands={{
+    npm: "npm install framer-motion@latest",
+    yarn: "yarn add framer-motion@latest",
+    pnpm: "pnpm add framer-motion@latest",
+    bun: "bun add framer-motion@latest",
+  }}
+/>
+
+- Then, upgrade NextUI:
 
 <PackageManagers
   commands={{
     cli: "nextui upgrade --all",
     npm: "npx nextui-cli@latest upgrade --all",
+  }}
+/>
+
+2. Upgrading NextUI using the `pnpm`
+
+<Spacer y={4} />
+
+<PackageManagers
+  commands={{
+    npm: "npm install @nextui-org/react@latest framer-motion@latest",
+    pnpm: "pnpm add @nextui-org/react@latest framer-motion@latest",
+    yarn: "yarn add @nextui-org/react@latest framer-motion@latest",
+    bun: "bun add @nextui-org/react@latest framer-motion@latest",
   }}
 />
 
@@ -551,6 +577,9 @@ See the [Routing documentation](/docs/guides/routing) for more details.
 - `useHref` (added) - Converts a router-specific href to a native href for use on DOM elements. For example, if your router accepts relative paths or custom link formats, useHref will generate the full native href based on the RouterProvider's configuration.
 - `navigate` (modified) - `((path: Href, routerOptions?: RouterOptions) => void) | undefined` - we added the router options
 - `reduceMotion` (added) - Controls the motion preferences for the entire application, allowing developers to respect user settings for reduced motion. The available options are:
+  - `"always"` - Always disable motion
+  - `"never"` - Always enable motion
+  - `"user"` - Respect user system preferences for motion
 
 ### DatePicker
 
@@ -609,7 +638,6 @@ We try to keep the breaking changes to a minimum, but sometimes it's necessary t
 #### Table Theme Group Data Selectors
 
 The nested group selectors for table themes have been updated to require explicit element selectors. You'll need to add `/tr` or `/th` to custom styles for group-data.
-
 
 ```diff-tsx
 // Before
