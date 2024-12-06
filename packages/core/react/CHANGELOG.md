@@ -1,5 +1,59 @@
 # @nextui-org/react
 
+## 2.6.3
+
+### Patch Changes
+
+- [#4247](https://github.com/nextui-org/nextui/pull/4247) [`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix peerDeps & core package client on export \*
+
+- Updated dependencies [[`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0)]:
+  - @nextui-org/scroll-shadow@2.3.2
+  - @nextui-org/autocomplete@2.3.2
+  - @nextui-org/breadcrumbs@2.2.2
+  - @nextui-org/date-picker@2.3.2
+  - @nextui-org/date-input@2.3.2
+  - @nextui-org/pagination@2.2.2
+  - @nextui-org/accordion@2.2.2
+  - @nextui-org/input-otp@2.1.2
+  - @nextui-org/calendar@2.2.2
+  - @nextui-org/checkbox@2.3.2
+  - @nextui-org/dropdown@2.3.2
+  - @nextui-org/progress@2.2.2
+  - @nextui-org/skeleton@2.2.2
+  - @nextui-org/divider@2.2.2
+  - @nextui-org/listbox@2.3.2
+  - @nextui-org/popover@2.3.2
+  - @nextui-org/snippet@2.2.3
+  - @nextui-org/spinner@2.2.2
+  - @nextui-org/tooltip@2.2.2
+  - @nextui-org/avatar@2.2.2
+  - @nextui-org/button@2.2.2
+  - @nextui-org/drawer@2.2.2
+  - @nextui-org/navbar@2.2.2
+  - @nextui-org/ripple@2.2.2
+  - @nextui-org/select@2.4.2
+  - @nextui-org/slider@2.4.2
+  - @nextui-org/spacer@2.2.2
+  - @nextui-org/switch@2.2.2
+  - @nextui-org/alert@2.2.2
+  - @nextui-org/badge@2.2.2
+  - @nextui-org/image@2.2.2
+  - @nextui-org/input@2.4.2
+  - @nextui-org/modal@2.2.2
+  - @nextui-org/radio@2.3.2
+  - @nextui-org/table@2.2.2
+  - @nextui-org/card@2.2.2
+  - @nextui-org/chip@2.2.2
+  - @nextui-org/code@2.2.2
+  - @nextui-org/form@2.1.2
+  - @nextui-org/link@2.2.2
+  - @nextui-org/menu@2.2.2
+  - @nextui-org/tabs@2.2.2
+  - @nextui-org/user@2.2.2
+  - @nextui-org/kbd@2.2.2
+  - @nextui-org/system@2.4.2
+  - @nextui-org/framer-utils@2.1.2
+
 ## 2.6.2
 
 ### Patch Changes
