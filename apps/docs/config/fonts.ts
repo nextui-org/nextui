@@ -1,27 +1,73 @@
-import {Inter} from "next/font/google";
+import localFont from "next/font/local";
 
-export const fontSans = Inter({
-  variable: "--font-sans",
-  adjustFontFallback: true,
-  display: "optional",
-  fallback: [
-    "ui-sans-serif",
-    "system-ui",
-    "-apple-system",
-    "BlinkMacSystemFont",
-    '"Segoe UI"',
-    "Roboto",
-    '"Helvetica Neue"',
-    "Arial",
-    '"Noto Sans"',
-    "sans-serif",
-    '"Apple Color Emoji"',
-    '"Segoe UI Emoji"',
-    '"Segoe UI Symbol"',
-    '"Noto Color Emoji"',
+const fontSans = localFont({
+  src: [
+    {
+      path: "../public/assets/fonts/Inter-Light.woff2",
+      style: "normal",
+      weight: "300",
+    },
+    {
+      path: "../public/assets/fonts/Inter-Regular.woff2",
+      style: "normal",
+      weight: "400",
+    },
+    {
+      path: "../public/assets/fonts/Inter-Medium.woff2",
+      style: "normal",
+      weight: "500",
+    },
+    {
+      path: "../public/assets/fonts/Inter-SemiBold.woff2",
+      style: "normal",
+      weight: "600",
+    },
+    {
+      path: "../public/assets/fonts/Inter-Bold.woff2",
+      style: "normal",
+      weight: "700",
+    },
+    {
+      path: "../public/assets/fonts/Inter-ExtraBold.woff2",
+      style: "normal",
+      weight: "800",
+    },
+    {
+      path: "../public/assets/fonts/Inter-Black.woff2",
+      style: "normal",
+      weight: "900",
+    },
   ],
-  preload: true,
-  style: "normal",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
+  variable: "--font-sans",
 });
+
+const fontMono = localFont({
+  src: [
+    {
+      path: "../public/assets/fonts/FiraCode-Regular.woff2",
+      style: "normal",
+      weight: "400",
+    },
+    {
+      path: "../public/assets/fonts/FiraCode-Medium.woff2",
+      style: "normal",
+      weight: "500",
+    },
+    {
+      path: "../public/assets/fonts/FiraCode-SemiBold.woff2",
+      style: "normal",
+      weight: "600",
+    },
+    {
+      path: "../public/assets/fonts/FiraCode-Bold.woff2",
+      style: "normal",
+      weight: "700",
+    },
+  ],
+  variable: "--font-mono",
+});
+
+export const fonts = {
+  mono: fontMono,
+  sans: fontSans,
+};

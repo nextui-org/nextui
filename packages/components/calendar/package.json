@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/calendar",
-  "version": "2.0.12",
+  "version": "2.2.1",
   "description": "A calendar displays one or more date grids and allows users to select a single date.",
   "keywords": [
     "calendar"
@@ -34,10 +34,11 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.1.0",
-    "@nextui-org/theme": ">=2.2.0",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "@nextui-org/system": ">=2.3.0-beta.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/react-utils": "workspace:*",
@@ -46,19 +47,19 @@
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/use-aria-button": "workspace:*",
     "@nextui-org/button": "workspace:*",
-    "lodash.debounce": "^4.0.8",
-    "@internationalized/date": "^3.5.4",
-    "@react-aria/calendar": "3.5.8",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/i18n": "3.11.1",
-    "@react-stately/calendar": "3.5.1",
-    "@react-types/button": "3.9.4",
-    "@react-aria/visually-hidden": "3.8.12",
-    "@react-aria/utils": "3.24.1",
-    "@react-stately/utils": "3.10.1",
-    "@react-types/calendar": "3.4.6",
-    "@react-aria/interactions": "3.21.3",
-    "@react-types/shared": "3.23.1",
+    "@nextui-org/dom-animation": "workspace:*",
+    "@internationalized/date": "3.5.6",
+    "@react-aria/calendar": "3.5.13",
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/i18n": "3.12.3",
+    "@react-stately/calendar": "3.5.5",
+    "@react-types/button": "3.10.0",
+    "@react-aria/visually-hidden": "3.8.17",
+    "@react-aria/utils": "3.26.0",
+    "@react-stately/utils": "3.10.4",
+    "@react-types/calendar": "3.4.10",
+    "@react-aria/interactions": "3.22.4",
+    "@react-types/shared": "3.25.0",
     "scroll-into-view-if-needed": "3.0.10",
     "@types/lodash.debounce": "^4.0.7"
   },
@@ -67,7 +68,7 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/radio": "workspace:*",
     "@nextui-org/test-utils": "workspace:*",
-    "framer-motion": "^10.16.4",
+    "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

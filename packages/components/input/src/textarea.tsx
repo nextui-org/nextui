@@ -3,6 +3,7 @@ import {forwardRef} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useState} from "react";
 import TextareaAutosize from "react-textarea-autosize";
+import {CloseFilledIcon} from "@nextui-org/shared-icons";
 
 import {UseInputProps, useInput} from "./use-input";
 
@@ -14,11 +15,7 @@ type TextareaAutoSizeStyle = Omit<
   height?: number;
 };
 
-type OmittedInputProps =
-  | "isClearButtonFocusVisible"
-  | "isLabelPlaceholder"
-  | "isClearable"
-  | "isTextarea";
+type OmittedInputProps = "isClearButtonFocusVisible" | "isLabelPlaceholder" | "isTextarea";
 
 export type TextareaHeightChangeMeta = {
   rowHeight: number;
@@ -88,6 +85,8 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       getHelperWrapperProps,
       getDescriptionProps,
       getErrorMessageProps,
+      isClearable,
+      getClearButtonProps,
     } = useInput<HTMLTextAreaElement>({...otherProps, ref, isMultiline: true});
 
     const [hasMultipleRows, setIsHasMultipleRows] = useState(minRows > 1);
@@ -122,6 +121,14 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       />
     );
 
+    const clearButtonContent = useMemo(() => {
+      return isClearable ? (
+        <button {...getClearButtonProps()}>
+          <CloseFilledIcon />
+        </button>
+      ) : null;
+    }, [isClearable, getClearButtonProps]);
+
     const innerWrapper = useMemo(() => {
       if (startContent || endContent) {
         return (
@@ -136,20 +143,24 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
       return <div {...getInnerWrapperProps()}>{content}</div>;
     }, [startContent, inputProps, endContent, getInnerWrapperProps]);
 
+    const shouldShowError = isInvalid && errorMessage;
+    const hasHelperContent = shouldShowError || description;
+
     return (
       <Component {...getBaseProps()}>
         {shouldLabelBeOutside ? labelContent : null}
         <div {...getInputWrapperProps()} data-has-multiple-rows={dataAttr(hasMultipleRows)}>
           {shouldLabelBeInside ? labelContent : null}
           {innerWrapper}
+          {clearButtonContent}
         </div>
-        {hasHelper ? (
+        {hasHelper && hasHelperContent ? (
           <div {...getHelperWrapperProps()}>
-            {isInvalid && errorMessage ? (
+            {shouldShowError ? (
               <div {...getErrorMessageProps()}>{errorMessage}</div>
-            ) : description ? (
+            ) : (
               <div {...getDescriptionProps()}>{description}</div>
-            ) : null}
+            )}
           </div>
         ) : null}
       </Component>

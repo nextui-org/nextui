@@ -1,46 +1,15 @@
-const App = `import {RangeCalendar} from "@nextui-org/react";
-import {today, getLocalTimeZone} from "@internationalized/date";
-
-export default function App() {
-  let [value, setValue] = React.useState({
-    start: today(getLocalTimeZone()),
-    end: today(getLocalTimeZone()).add({weeks: 1}),
-  });
-
-  return (
-    <RangeCalendar 
-      aria-label="Date (Controlled)" 
-      value={value} 
-      onChange={setValue} 
-    />
-  );
-}`;
-
-const AppTs = `import {RangeCalendar} from "@nextui-org/react";
-import type {DateValue} from "@react-types/calendar";
-import type {RangeValue} from "@react-types/shared";
-import {today, getLocalTimeZone} from "@internationalized/date";
-
-export default function App() {
-  let [value, setValue] = React.useState<RangeValue<DateValue>>({
-    start: today(getLocalTimeZone()),
-    end: today(getLocalTimeZone()).add({weeks: 1}),
-  });
-
-  return (
-    <RangeCalendar 
-      aria-label="Date (Controlled)" 
-      value={value} 
-      onChange={setValue} 
-    />
-  );
-}`;
+import App from "./controlled.raw.jsx?raw";
+import AppTs from "./controlled.raw.tsx?raw";
 
 const react = {
   "/App.jsx": App,
+};
+
+const reactTs = {
   "/App.tsx": AppTs,
 };
 
 export default {
   ...react,
+  ...reactTs,
 };

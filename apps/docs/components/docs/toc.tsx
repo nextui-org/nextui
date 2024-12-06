@@ -19,7 +19,7 @@ const paddingLeftByLevel: Record<number, string> = {
   1: "pl-0",
   2: "pl-0",
   3: "pl-3",
-  4: "pl-3",
+  4: "pl-6",
 };
 
 export const DocsToc: FC<DocsTocProps> = ({headings}) => {
@@ -77,7 +77,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
         }, transparent 100%)`,
       }}
     >
-      <p className="text-sm">On this page</p>
+      <p className="text-sm font-medium">On this page</p>
       <ul className="scrollbar-hide flex flex-col gap-2">
         {headings.map(
           (heading, i) =>
@@ -115,7 +115,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
           <Divider />
           <Spacer y={2} />
           <a
-            className="flex gap-2 items-center text-sm text-default-500 dark:text-foreground/30 hover:text-foreground/80 pl-4 transition-opacity"
+            className="flex gap-2 items-center text-small text-default-500 dark:text-foreground/30 hover:text-foreground/80 pl-4 transition-opacity"
             href={`#${firstId}`}
           >
             Back to top

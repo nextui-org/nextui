@@ -15,6 +15,7 @@ jobs:
   release:
     name: Release
     runs-on: ubuntu-latest
+    timeout-minutes: 30
     steps:
       - name: Checkout branch
         uses: actions/checkout@v4
@@ -22,11 +23,11 @@ jobs:
       - name: Install
         uses: ./.github/common-actions/install
 
-      - name: Build
-        run: pnpm build
-
       - name: Tests
         run: pnpm test
+
+      - name: Build
+        run: pnpm build
 
       - name: Create Release Pull Request or Publish to NPM
         id: changesets
@@ -41,17 +42,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Sync files from canary to main branch if a publish happens
-        if: steps.changesets.outputs.published == 'true'
-        run: |
-          curl -X POST \
-            -H "Accept: application/vnd.github.v3+json" \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            https://api.github.com/repos/owner/repo/dispatches \
-            -d '{"event_type":"sync-canary-to-main"}'
-
       - name: Create canary release
         if: steps.changesets.outputs.published != 'true'
+        timeout-minutes: 15
         run: |
           git checkout canary
           pnpm version:canary

@@ -1,10 +1,17 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
+import {Form} from "@nextui-org/form";
 
 import {RadioGroup, Radio, RadioGroupProps} from "../src";
 
 describe("Radio", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <RadioGroup label="Options">
@@ -62,7 +69,7 @@ describe("Radio", () => {
     expect(wrapper.container.querySelector("[data-testid=radio-test-2] input")).toBeChecked();
   });
 
-  it("should change value after click", () => {
+  it("should change value after click", async () => {
     const {container} = render(
       <RadioGroup defaultValue="1" label="Options">
         <Radio value="1">Option 1</Radio>
@@ -74,14 +81,11 @@ describe("Radio", () => {
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    act(() => {
-      radio2.click();
-    });
-
+    await user.click(radio2);
     expect(radio2).toBeChecked();
   });
 
-  it("should ignore events when disabled", () => {
+  it("should ignore events when disabled", async () => {
     const {container} = render(
       <RadioGroup label="Options">
         <Radio isDisabled className="radio-test-1" value="1">
@@ -93,14 +97,11 @@ describe("Radio", () => {
 
     let radio1 = container.querySelector(".radio-test-1 input") as HTMLInputElement;
 
-    act(() => {
-      radio1.click();
-    });
-
+    await user.click(radio1);
     expect(radio1).not.toBeChecked();
   });
 
-  it('should work correctly with "onValueChange" prop', () => {
+  it('should work correctly with "onValueChange" prop', async () => {
     const onValueChange = jest.fn();
 
     const {container} = render(
@@ -114,11 +115,8 @@ describe("Radio", () => {
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    act(() => {
-      radio2.click();
-    });
-
-    expect(onValueChange).toBeCalledWith("2");
+    await user.click(radio2);
+    expect(onValueChange).toHaveBeenCalledWith("2");
 
     expect(radio2).toBeChecked();
   });
@@ -141,7 +139,7 @@ describe("Radio", () => {
       radio2.focus();
     });
 
-    expect(onFocus).toBeCalled();
+    expect(onFocus).toHaveBeenCalled();
   });
 
   it("should have required attribute when isRequired with native validationBehavior", () => {
@@ -178,7 +176,7 @@ describe("Radio", () => {
     expect(radios[0]).not.toHaveAttribute("required");
   });
 
-  it("should work correctly with controlled value", () => {
+  it("should work correctly with controlled value", async () => {
     const onValueChange = jest.fn();
 
     const Component = ({onValueChange}: Omit<RadioGroupProps, "value">) => {
@@ -205,11 +203,8 @@ describe("Radio", () => {
 
     let radio2 = container.querySelector(".radio-test-2 input") as HTMLInputElement;
 
-    act(() => {
-      radio2.click();
-    });
-
-    expect(onValueChange).toBeCalled();
+    await user.click(radio2);
+    expect(onValueChange).toHaveBeenCalled();
 
     expect(radio2).toBeChecked();
   });
@@ -312,6 +307,54 @@ describe("validation", () => {
 
       expect(group).not.toHaveAttribute("aria-describedby");
     });
+
+    it("supports server validation", async () => {
+      function Test() {
+        const [serverErrors, setServerErrors] = React.useState({});
+        const onSubmit = (e) => {
+          e.preventDefault();
+          setServerErrors({
+            pet: "You must choose a pet.",
+          });
+        };
+
+        return (
+          <Form validationBehavior="native" validationErrors={serverErrors} onSubmit={onSubmit}>
+            <RadioGroup aria-label="favorite pet" name="pet" validationBehavior="native">
+              <Radio value="dogs">Dogs</Radio>
+              <Radio value="cats">Cats</Radio>
+              <Radio value="dragons">Dragons</Radio>
+            </RadioGroup>
+            <button type="submit">Submit</button>
+          </Form>
+        );
+      }
+
+      const {getAllByRole, getByRole} = render(<Test />);
+
+      const group = getByRole("radiogroup");
+
+      expect(group).not.toHaveAttribute("aria-describedby");
+
+      await user.click(getByRole("button"));
+
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "You must choose a pet.",
+      );
+
+      const radios = getAllByRole("radio") as HTMLInputElement[];
+
+      for (const input of radios) {
+        expect(input.validity.valid).toBe(false);
+      }
+
+      await user.click(radios[0]);
+      expect(group).not.toHaveAttribute("aria-describedby");
+      for (const input of radios) {
+        expect(input.validity.valid).toBe(true);
+      }
+    });
   });
 
   describe("validationBehavior=aria", () => {
@@ -342,6 +385,32 @@ describe("validation", () => {
       for (let input of radios) {
         expect(input.validity.valid).toBe(true);
       }
+
+      await user.click(radios[0]);
+      expect(group).not.toHaveAttribute("aria-describedby");
+      expect(group).not.toHaveAttribute("aria-invalid");
+    });
+
+    it("supports server validation", async () => {
+      const {getAllByRole, getByRole} = render(
+        <Form validationBehavior="aria" validationErrors={{pet: "You must choose a pet"}}>
+          <RadioGroup aria-label="favorite pet" name="pet">
+            <Radio value="dogs">Dogs</Radio>
+            <Radio value="cats">Cats</Radio>
+            <Radio value="dragons">Dragons</Radio>
+          </RadioGroup>
+        </Form>,
+      );
+
+      const group = getByRole("radiogroup");
+
+      expect(group).toHaveAttribute("aria-describedby");
+      expect(group).toHaveAttribute("aria-invalid", "true");
+      expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "You must choose a pet",
+      );
+
+      const radios = getAllByRole("radio");
 
       await user.click(radios[0]);
       expect(group).not.toHaveAttribute("aria-describedby");

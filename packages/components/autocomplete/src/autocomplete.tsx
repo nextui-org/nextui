@@ -5,14 +5,19 @@ import {ChevronDownIcon, CloseIcon} from "@nextui-org/shared-icons";
 import {Listbox} from "@nextui-org/listbox";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
-import {ForwardedRef, ReactElement, Ref} from "react";
+import {ForwardedRef, ReactElement} from "react";
 import {AnimatePresence} from "framer-motion";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 
 interface Props<T> extends UseAutocompleteProps<T> {}
 
-function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLInputElement>) {
+export type AutocompleteProps<T extends object = object> = Props<T>;
+
+const Autocomplete = forwardRef(function Autocomplete<T extends object>(
+  props: AutocompleteProps<T>,
+  ref: ForwardedRef<HTMLInputElement>,
+) {
   const {
     Component,
     isOpen,
@@ -31,15 +36,17 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
     getEndContentWrapperProps,
   } = useAutocomplete<T>({...props, ref});
 
+  const listboxProps = getListBoxProps();
+
   const popoverContent = isOpen ? (
     <FreeSoloPopover {...getPopoverProps()}>
       <ScrollShadow {...getListBoxWrapperProps()}>
-        <Listbox {...getListBoxProps()} />
+        <Listbox {...listboxProps} />
       </ScrollShadow>
     </FreeSoloPopover>
-  ) : (
+  ) : listboxProps.state?.collection.size === 0 ? (
     <div {...getEmptyPopoverProps()} />
-  );
+  ) : null;
 
   return (
     <Component {...getBaseProps()}>
@@ -55,13 +62,6 @@ function Autocomplete<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLI
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </Component>
   );
-}
+}) as <T extends object>(props: AutocompleteProps<T>) => ReactElement;
 
-export type AutocompleteProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Autocomplete) as <T extends object>(
-  props: AutocompleteProps<T>,
-) => ReactElement;
-
-Autocomplete.displayName = "NextUI.Autocomplete";
+export default Autocomplete;

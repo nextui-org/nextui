@@ -45,8 +45,6 @@ export default {
   },
 } as Meta<typeof RangeCalendar>;
 
-delete calendar.defaultVariants?.showMonthAndYearPickers;
-
 const defaultProps = {
   ...calendar.defaultVariants,
   visibleMonths: 1,
@@ -60,7 +58,7 @@ const ControlledTemplate = (args: RangeCalendarProps) => {
     end: today(getLocalTimeZone()).add({weeks: 1}),
   };
 
-  let [value, setValue] = React.useState<RangeValue<DateValue>>(defaultValue);
+  let [value, setValue] = React.useState<RangeValue<DateValue> | null>(defaultValue);
 
   return (
     <div className="flex flex-wrap gap-4">
@@ -375,6 +373,14 @@ export const InvalidDates = {
   render: InvalidDatesTemplate,
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithMonthAndYearPickers = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    showMonthAndYearPickers: true,
   },
 };
 

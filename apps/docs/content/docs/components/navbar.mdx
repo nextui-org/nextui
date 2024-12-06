@@ -44,22 +44,22 @@ NextUI exports 7 navbar-related components:
 <ImportTabs
   commands={{
     main: `import {
-  Navbar, 
-  NavbarBrand, 
-  NavbarContent, 
-  NavbarItem, 
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem
+    Navbar, 
+    NavbarBrand, 
+    NavbarContent, 
+    NavbarItem, 
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem
 } from "@nextui-org/react";`,
     individual: `import {
-  Navbar, 
-  NavbarBrand, 
-  NavbarContent, 
-  NavbarItem, 
-  NavbarMenuToggle,
-  NavbarMenu,
-  NavbarMenuItem
+    Navbar, 
+    NavbarBrand, 
+    NavbarContent, 
+    NavbarItem, 
+    NavbarMenuToggle,
+    NavbarMenu,
+    NavbarMenuItem
 } from "@nextui-org/navbar";`,
   }}
 />
@@ -117,7 +117,6 @@ If you want to remove the `open` / `close` animation, you can pass the `disableA
   asIframe
   title="With Menu"
   iframeInitialWidth={420}
-  highlightedLines="24"
   previewHeight="600px"
   iframeSrc="/examples/navbar/disable-menu-animation"
   files={navbarContent.disableMenuAnimation}
@@ -132,7 +131,6 @@ You can use the `isMenuOpen` and `onMenuOpenChange` props to control the navbar 
   title="Controlled Menu"
   iframeInitialWidth={420}
   previewHeight="600px"
-  highlightedLines="5,23-24"
   iframeSrc="/examples/navbar/controlled-menu"
   files={navbarContent.controlledMenu}
 />
@@ -206,7 +204,6 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
   title="Customizing the active item"
   previewHeight="420px"
   iframeSrc="/examples/navbar/custom-active-item"
-  highlightedLines="9-20"
   files={navbarContent.customActiveItem}
 />
 
@@ -263,79 +260,241 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
 
 ### Navbar Props
 
-| Attribute            | Type                                                                                                                | Description                                                                                                                                         | Default       |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- | ------------- |
-| children\*           | `ReactNode[]`                                                                                                       | The children to render. Usually navbar elements such as `NavbarBrand`, `NavbarContent` and `NavbarItem`                                             | -             |
-| height               | `string` \| `number`                                                                                                | The height of the navbar.                                                                                                                           | `4rem` (64px) |
-| position             | `static` \| `sticky`                                                                                                | The position of the navbar.                                                                                                                         | `sticky`      |
-| maxWidth             | `sm` \| `md` \| `lg` \| `xl` \| `2xl` \| `full`                                                                     | The max width of the navbar wrapper.                                                                                                                | `lg`          |
-| parentRef            | `React.RefObject<HTMLElement>`                                                                                      | The parent element where the navbar is placed within. This is used to determine the scroll position and whether the navbar should be hidden or not. | `window`      |
-| isBordered           | `boolean`                                                                                                           | Whether the navbar should have a bottom border or not.                                                                                              | `false`       |
-| isBlurred            | `boolean`                                                                                                           | Whether the navbar should have a blur effect or not.                                                                                                | `true`        |
-| isMenuOpen           | `boolean`                                                                                                           | Indicates if the navbar menu is open. (controlled)                                                                                                  | `false`       |
-| isMenuDefaultOpen    | `boolean`                                                                                                           | Indicates if the navbar menu is open by default. (uncontrolled)                                                                                     | `false`       |
-| shouldHideOnScroll   | `boolean`                                                                                                           | Indicates if the navbar should hide on scroll.                                                                                                      | `false`       |
-| motionProps          | [MotionProps](#motion-props)                                                                                        | The motion props to control the `visible` / `hidden` animation. This motion is only available if the `shouldHideOnScroll` prop is set to `true`.   | -             |
-| disableScrollHandler | `boolean`                                                                                                           | Whether the navbar parent scroll event should be listened to or not.                                                                                | `false`       |
-| disableAnimation     | `boolean`                                                                                                           | Whether the navbar menu animation should be disabled or not.                                                                                        | `false`       |
-| classNames           | `Record<"base"｜ "wrapper"｜ "brand"｜ "content"｜ "item"｜ "toggle"｜ "toggleIcon"｜ "menu"｜ "menuItem", string>` | Allows to set custom class names for the navbar slots.                                                                                              | -             |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode[]",
+      description: "The children to render. Usually navbar elements such as NavbarBrand, NavbarContent and NavbarItem",
+      default: "-"
+    },
+    {
+      attribute: "height",
+      type: "string | number",
+      description: "The height of the navbar.",
+      default: "4rem (64px)"
+    },
+    {
+      attribute: "position",
+      type: "static | sticky",
+      description: "The position of the navbar.",
+      default: "sticky"
+    },
+    {
+      attribute: "maxWidth",
+      type: "sm | md | lg | xl | 2xl | full",
+      description: "The max width of the navbar wrapper.",
+      default: "lg"
+    },
+    {
+      attribute: "parentRef",
+      type: "React.RefObject<HTMLElement>",
+      description: "The parent element where the navbar is placed within. This is used to determine the scroll position and whether the navbar should be hidden or not.",
+      default: "window"
+    },
+    {
+      attribute: "isBordered",
+      type: "boolean",
+      description: "Whether the navbar should have a bottom border or not.",
+      default: "false"
+    },
+    {
+      attribute: "isBlurred",
+      type: "boolean",
+      description: "Whether the navbar should have a blur effect or not.",
+      default: "true"
+    },
+    {
+      attribute: "isMenuOpen",
+      type: "boolean",
+      description: "Indicates if the navbar menu is open. (controlled)",
+      default: "false"
+    },
+    {
+      attribute: "isMenuDefaultOpen",
+      type: "boolean",
+      description: "Indicates if the navbar menu is open by default. (uncontrolled)",
+      default: "false"
+    },
+    {
+      attribute: "shouldHideOnScroll",
+      type: "boolean",
+      description: "Indicates if the navbar should hide on scroll.",
+      default: "false"
+    },
+    {
+      attribute: "motionProps",
+      type: "MotionProps",
+      description: "The motion props to control the visible / hidden animation. This motion is only available if the shouldHideOnScroll prop is set to true.",
+      default: "-"
+    },
+    {
+      attribute: "disableScrollHandler",
+      type: "boolean",
+      description: "Whether the navbar parent scroll event should be listened to or not.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the navbar menu animation should be disabled or not.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<'base' | 'wrapper' | 'brand' | 'content' | 'item' | 'toggle' | 'toggleIcon' | 'menu' | 'menuItem', string>>",
+      description: "Allows to set custom class names for the navbar slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Navbar Events
 
-| Attribute              | Type                         | Description                                                                                                                                                                            |
-| ---------------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| onMenuOpenChange       | `(isOpen: boolean) => void`  | Handler that is called when the navbar menu open state changes.                                                                                                                        |
-| onScrollPositionChange | `(position: number) => void` | Handler that is called when the navbar parent element is scrolled. This event is only dispatched if `disableScrollHandler` is set to `false` or `shouldHideOnScroll` is set to `true`. |
+<APITable
+  data={[
+    {
+      attribute: "onMenuOpenChange",
+      type: "(isOpen: boolean) => void",
+      description: "Handler that is called when the navbar menu open state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onScrollPositionChange",
+      type: "(position: number) => void",
+      description: "Handler that is called when the navbar parent element is scrolled. This event is only dispatched if disableScrollHandler is set to false or shouldHideOnScroll is set to true.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### NavbarContent Props
 
-| Attribute  | Type                         | Description                                                                                             | Default |
-| ---------- | ---------------------------- | ------------------------------------------------------------------------------------------------------- | ------- |
-| children\* | `ReactNode[]`                | The children to render. Usually navbar elements such as `NavbarBrand`, `NavbarContent` and `NavbarItem` | -       |
-| justify    | `start` \| `center` \| `end` | The justify content of the navbar content. It takes into account the correct space distribution.        | `start` |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode[]",
+      description: "The children to render. Usually navbar elements such as NavbarBrand, NavbarContent and NavbarItem",
+      default: "-"
+    },
+    {
+      attribute: "justify",
+      type: "start | center | end",
+      description: "The justify content of the navbar content. It takes into account the correct space distribution.",
+      default: "start"
+    }
+  ]}
+/>
 
 ### NavbarItem Props
 
-| Attribute | Type        | Description                                | Default |
-| --------- | ----------- | ------------------------------------------ | ------- |
-| children  | `ReactNode` | The children to render as the navbar item. | -       |
-| isActive  | `boolean`   | Whether the navbar item is active or not.  | `false` |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The children to render as the navbar item.",
+      default: "-"
+    },
+    {
+      attribute: "isActive",
+      type: "boolean",
+      description: "Whether the navbar item is active or not.",
+      default: "false"
+    }
+  ]}
+/>
 
 ### NavbarMenuToggle Props
 
-| Attribute       | Type                                                                  | Description                                                           | Default                        |
-| --------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | ------------------------------ |
-| icon            | `ReactNode` \| `(isOpen: boolean \| undefined) => ReactNode \| null;` | The icon to render as the navbar menu toggle.                         | -                              |
-| isSelected      | `boolean`                                                             | Whether the navbar menu toggle is selected. (controlled)              | `false`                        |
-| defaultSelected | `boolean`                                                             | Whether the navbar menu toggle is selected by default. (uncontrolled) | `false`                        |
-| srOnlyText      | `string`                                                              | The text to be used by screen readers.                                | `open`/`close` navigation menu |
+<APITable
+  data={[
+    {
+      attribute: "icon",
+      type: "ReactNode | ((isOpen: boolean | undefined) => ReactNode | null)",
+      description: "The icon to render as the navbar menu toggle.",
+      default: "-"
+    },
+    {
+      attribute: "isSelected",
+      type: "boolean",
+      description: "Whether the navbar menu toggle is selected. (controlled)",
+      default: "false"
+    },
+    {
+      attribute: "defaultSelected",
+      type: "boolean",
+      description: "Whether the navbar menu toggle is selected by default. (uncontrolled)",
+      default: "false"
+    },
+    {
+      attribute: "srOnlyText",
+      type: "string",
+      description: "The text to be used by screen readers.",
+      default: "open/close navigation menu"
+    }
+  ]}
+/>
 
 ### NavbarMenuToggle Events
 
-| Attribute | Type                        | Description                                                    |
-| --------- | --------------------------- | -------------------------------------------------------------- |
-| onChange  | `(isOpen: boolean) => void` | Handler that is called when the navbar menu toggle is pressed. |
+<APITable
+  data={[
+    {
+      attribute: "onChange",
+      type: "(isOpen: boolean) => void",
+      description: "Handler that is called when the navbar menu toggle is pressed.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### NavbarMenu Props
 
-| Attribute       | Type                         | Description                                                                                                                                  | Default         |
-| --------------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| children\*      | `ReactNode[]`                | The children to render as the navbar menu. Usually a list of `NavbarMenuItem` components.                                                    | -               |
-| portalContainer | `HTMLElement`                | The container element in which the navbar menu overlay portal will be placed.                                                                | `document.body` |
-| motionProps     | [MotionProps](#motion-props) | The motion props to control the `open` / `close` animation. This motion is only available if the `disableAnimation` prop is set to `false`. | -               |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode[]",
+      description: "The children to render as the navbar menu. Usually a list of NavbarMenuItem components.",
+      default: "-"
+    },
+    {
+      attribute: "portalContainer",
+      type: "HTMLElement",
+      description: "The container element in which the navbar menu overlay portal will be placed.",
+      default: "document.body"
+    },
+    {
+      attribute: "motionProps",
+      type: "MotionProps",
+      description: "The motion props to control the open / close animation. This motion is only available if the disableAnimation prop is set to false.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### NavbarMenuItem Props
 
-| Attribute | Type        | Description                              | Default |
-| --------- | ----------- | ---------------------------------------- | ------- |
-| children  | `ReactNode` | The children to render as the menu item. | -       |
-| isActive  | `boolean`   | Whether the menu item is active or not.  | `false` |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The children to render as the menu item.",
+      default: "-"
+    },
+    {
+      attribute: "isActive",
+      type: "boolean",
+      description: "Whether the menu item is active or not.",
+      default: "false"
+    }
+  ]}
+/>
 
-> **Note**: The rest of the navbar components such as `NavbarMenuItem` and `NavbarBrand` have the same props as the `li` element.
-
-### Navbar types
-
-#### Motion Props
+### Types
 
 ```ts
 export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/

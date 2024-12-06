@@ -1,5 +1,6 @@
 import type {SupportedCalendars} from "./types";
-import type {CalendarDate, Calendar} from "@internationalized/date";
+import type {Calendar} from "@internationalized/date";
+import type {DateValue} from "@react-types/datepicker";
 
 import {createContext} from "@nextui-org/react-utils";
 
@@ -23,7 +24,7 @@ export type ProviderContextProps = {
    * or invalid via ARIA.
    * @see https://react-spectrum.adobe.com/react-aria/forms.html
    *
-   * @default "aria"
+   * @default undefined
    */
   validationBehavior?: "aria" | "native";
   /**
@@ -37,14 +38,14 @@ export type ProviderContextProps = {
      * @default CalendarDate(1900, 1, 1)
      *
      */
-    minDate?: CalendarDate;
+    minDate?: DateValue;
     /**
      * The maximum date that can be selected in the calendar.
      * @see https://react-spectrum.adobe.com/internationalized/date/CalendarDate.html
      *
      * @default CalendarDate(2099, 12, 31)
      */
-    maxDate?: CalendarDate;
+    maxDate?: DateValue;
   };
   /**
    * This function helps to reduce the bundle size by providing a custom calendar system.

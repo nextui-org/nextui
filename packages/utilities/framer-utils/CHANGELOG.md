@@ -1,5 +1,166 @@
 # @nextui-org/framer-utils
 
+## 2.1.1
+
+### Patch Changes
+
+- [`d6eee4a`](https://github.com/nextui-org/nextui/commit/d6eee4a8767556152f47f06dcf04940951abc5af) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.6.2
+
+- Updated dependencies [[`d6eee4a`](https://github.com/nextui-org/nextui/commit/d6eee4a8767556152f47f06dcf04940951abc5af)]:
+  - @nextui-org/system@2.4.1
+  - @nextui-org/use-measure@2.1.1
+  - @nextui-org/shared-utils@2.1.1
+
+## 2.1.0
+
+### Minor Changes
+
+- [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - This release includes several improvements and bug fixes:
+
+  - Updated react-aria version across all components
+  - Improved Drawer styles and transitions
+  - Fixed missing peer dependencies for framer-motion
+  - Fixed menu item classNames functionality
+  - Added isClearable prop to Textarea component
+  - Fixed label placement issues in Input and Select components
+  - Improved table keyboard navigation with new isKeyboardNavigationDisabled prop
+  - Fixed UI sliding issues with helper wrapper in Input and Select
+  - Updated use-image hook to avoid Next.js hydration issues
+  - Replaced RTL-specific styles with logical properties
+  - Fixed textarea label squish issue
+  - Bumped tailwind-merge version
+  - Applied tw nested group fixes
+  - Fixed fullWidth variant in input and select components
+  - Moved circular-progress tv to progress
+  - Changed ListboxItem key to optional
+  - Fixed autocomplete clear button behavior
+  - Updated Select label placement logic
+  - Added missing framer-motion peer dependencies
+  - Removed layoutNode prop from Table due to react-aria update
+  - Virtualization added to Autocomplete
+
+### Patch Changes
+
+- Updated dependencies [[`26e478d`](https://github.com/nextui-org/nextui/commit/26e478dd937dedcaf41110171d971a8a3cf2ff52), [`6c0213d`](https://github.com/nextui-org/nextui/commit/6c0213dfc805aa3c793763c0b25f53b2b80c24dc), [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201)]:
+  - @nextui-org/system@2.4.0
+  - @nextui-org/use-measure@2.1.0
+  - @nextui-org/shared-utils@2.1.0
+
+## 2.0.26-beta.11
+
+### Patch Changes
+
+- Updated dependencies [[`c8f2ec887`](https://github.com/nextui-org/nextui/commit/c8f2ec88752289913968331032b9e7f772c12ec4)]:
+  - @nextui-org/system@2.3.0-beta.11
+
+## 2.0.26-beta.10
+
+### Patch Changes
+
+- [`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
+
+- Updated dependencies [[`9869f2b91`](https://github.com/nextui-org/nextui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
+  - @nextui-org/system@2.3.0-beta.10
+  - @nextui-org/use-measure@2.0.3-beta.5
+  - @nextui-org/shared-utils@2.0.9-beta.8
+
+## 2.0.26-beta.9
+
+### Patch Changes
+
+- Updated dependencies [[`eafdb7d47`](https://github.com/nextui-org/nextui/commit/eafdb7d475a7fcaa7671af77e86fcdf62f14ae00)]:
+  - @nextui-org/system@2.3.0-beta.9
+
+## 2.0.26-beta.8
+
+### Patch Changes
+
+- Updated dependencies [[`4607fe2ff`](https://github.com/nextui-org/nextui/commit/4607fe2ff448a536496c2b59ccdfcb217379b6ed)]:
+  - @nextui-org/system@2.3.0-beta.8
+
+## 2.0.26-beta.7
+
+### Patch Changes
+
+- [#4092](https://github.com/nextui-org/nextui/pull/4092) [`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
+
+- Updated dependencies [[`528668db8`](https://github.com/nextui-org/nextui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
+  - @nextui-org/system@2.3.0-beta.7
+  - @nextui-org/use-measure@2.0.3-beta.4
+  - @nextui-org/shared-utils@2.0.9-beta.7
+
+## 2.0.26-beta.6
+
+### Patch Changes
+
+- [#4086](https://github.com/nextui-org/nextui/pull/4086) [`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
+
+- Updated dependencies [[`f69fe47b5`](https://github.com/nextui-org/nextui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb)]:
+  - @nextui-org/system@2.3.0-beta.6
+  - @nextui-org/use-measure@2.0.3-beta.3
+  - @nextui-org/shared-utils@2.0.9-beta.6
+
+## 2.0.26-beta.5
+
+### Patch Changes
+
+- [#4083](https://github.com/nextui-org/nextui/pull/4083) [`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
+- Updated dependencies [[`35058262c`](https://github.com/nextui-org/nextui/commit/35058262c61628fb42907f529c4417886aa12bb2)]:
+  - @nextui-org/system@2.3.0-beta.5
+  - @nextui-org/use-measure@2.0.3-beta.2
+  - @nextui-org/shared-utils@2.0.9-beta.5
+
+## 2.0.26-beta.4
+
+### Patch Changes
+
+- Updated dependencies [[`5339b2571`](https://github.com/nextui-org/nextui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7)]:
+  - @nextui-org/shared-utils@2.0.9-beta.4
+  - @nextui-org/system@2.3.0-beta.4
+
+## 2.0.26-beta.3
+
+### Patch Changes
+
+- [#4010](https://github.com/nextui-org/nextui/pull/4010) [`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
+
+- Updated dependencies [[`ef432eb53`](https://github.com/nextui-org/nextui/commit/ef432eb539714fded6cab86a2185956fb103e0df)]:
+  - @nextui-org/system@2.3.0-beta.3
+  - @nextui-org/use-measure@2.0.3-beta.1
+  - @nextui-org/shared-utils@2.0.9-beta.3
+
+## 2.0.26-beta.2
+
+### Patch Changes
+
+- [#4008](https://github.com/nextui-org/nextui/pull/4008) [`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React 19 added to peerDeps
+
+- Updated dependencies [[`7c1c0dd8f`](https://github.com/nextui-org/nextui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89)]:
+  - @nextui-org/system@2.3.0-beta.2
+  - @nextui-org/use-measure@2.0.3-beta.0
+  - @nextui-org/shared-utils@2.0.9-beta.2
+
+## 2.0.26-beta.1
+
+### Patch Changes
+
+- [#3990](https://github.com/nextui-org/nextui/pull/3990) [`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
+
+- Updated dependencies [[`cb5bc4c74`](https://github.com/nextui-org/nextui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
+  - @nextui-org/system@2.3.0-beta.1
+  - @nextui-org/shared-utils@2.0.9-beta.1
+
+## 2.0.26-beta.0
+
+### Patch Changes
+
+- [#3523](https://github.com/nextui-org/nextui/pull/3523) [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb) Thanks [@wingkwong](https://github.com/wingkwong)! - update `framer-motion` versions
+
+- Updated dependencies [[`67ea2f65e`](https://github.com/nextui-org/nextui/commit/67ea2f65e17f913bdffae4690586a6ae202c8f7d), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/nextui-org/nextui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb)]:
+  - @nextui-org/system@2.3.0-beta.0
+  - @nextui-org/shared-utils@2.0.9-beta.0
+
 ## 2.0.25
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-real-shape",
-  "version": "2.0.17",
+  "version": "2.1.1",
   "description": "Hook that returns the real dimensions of an element",
   "keywords": [
     "use-real-shape"
@@ -37,7 +37,7 @@
     "@nextui-org/react-utils": "workspace:*"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

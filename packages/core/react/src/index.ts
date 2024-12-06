@@ -1,5 +1,5 @@
-"use client";
 // only for development purpose, this directive is added by tsup at build time
+"use client";
 
 export * from "@nextui-org/system";
 export * from "@nextui-org/theme";
@@ -43,6 +43,10 @@ export * from "@nextui-org/autocomplete";
 export * from "@nextui-org/calendar";
 export * from "@nextui-org/date-input";
 export * from "@nextui-org/date-picker";
+export * from "@nextui-org/form";
+export * from "@nextui-org/alert";
+export * from "@nextui-org/drawer";
+export * from "@nextui-org/input-otp";
 
 /**
  * React Aria - Exports

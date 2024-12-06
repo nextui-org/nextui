@@ -18,6 +18,7 @@ import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
   extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
@@ -92,6 +93,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   originalProps: UseInputProps<T>,
 ) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, input.variantKeys);
 
@@ -111,7 +113,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onClear,
     onChange,
     validationState,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
     ...otherProps
@@ -223,7 +225,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     onPress: handleClear,
   });
 
-  const isInvalid = validationState === "invalid" || originalProps.isInvalid || isAriaInvalid;
+  const isInvalid = validationState === "invalid" || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
     if (isFileTypeInput) {
@@ -363,14 +365,13 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const getInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ref: domRef,
         "data-slot": "input",
         "data-filled": dataAttr(isFilled),
         "data-filled-within": dataAttr(isFilledWithin),
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
         className: slots.input({
-          class: clsx(classNames?.input, isFilled ? "is-filled" : ""),
+          class: clsx(classNames?.input, isFilled ? "is-filled" : "", isMultiline ? "pe-0" : ""),
         }),
         ...mergeProps(
           focusProps,
@@ -384,6 +385,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ),
         "aria-readonly": dataAttr(originalProps.isReadOnly),
         onChange: chain(inputProps.onChange, onChange),
+        ref: domRef,
       };
     },
     [
@@ -510,12 +512,15 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     (props = {}) => {
       return {
         ...props,
-        role: "button",
-        tabIndex: 0,
+        type: "button",
+        tabIndex: -1,
+        disabled: originalProps.isDisabled,
         "aria-label": "clear input",
         "data-slot": "clear-button",
         "data-focus-visible": dataAttr(isClearButtonFocusVisible),
-        className: slots.clearButton({class: clsx(classNames?.clearButton, props?.className)}),
+        className: slots.clearButton({
+          class: clsx(classNames?.clearButton, props?.className),
+        }),
         ...mergeProps(clearPressProps, clearFocusProps),
       };
     },

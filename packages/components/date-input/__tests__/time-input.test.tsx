@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
-import {act, fireEvent, render} from "@testing-library/react";
+import {fireEvent, render} from "@testing-library/react";
 import {Time, ZonedDateTime} from "@internationalized/date";
 import {TimeValue} from "@react-types/datepicker";
 import {pointerMap, triggerPress} from "@nextui-org/test-utils";
@@ -237,17 +237,13 @@ describe("TimeInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[0]).toHaveFocus();
 
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[1]).toHaveFocus();
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(1);
@@ -268,22 +264,14 @@ describe("TimeInput", () => {
       expect(onBlurSpy).not.toHaveBeenCalled();
       expect(onFocusChangeSpy).not.toHaveBeenCalled();
       expect(onFocusSpy).not.toHaveBeenCalled();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[0]).toHaveFocus();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[1]).toHaveFocus();
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(segments[2]).toHaveFocus();
       expect(onBlurSpy).toHaveBeenCalledTimes(0);
-      await act(async () => {
-        await user.tab();
-      });
+      await user.tab();
       expect(onBlurSpy).toHaveBeenCalledTimes(1);
       expect(onFocusChangeSpy).toHaveBeenCalledTimes(2);
       expect(onFocusSpy).toHaveBeenCalledTimes(1);
@@ -298,10 +286,7 @@ describe("TimeInput", () => {
       expect(onKeyDownSpy).not.toHaveBeenCalled();
       expect(onKeyUpSpy).not.toHaveBeenCalled();
 
-      await act(() => {
-        user.tab();
-      });
-
+      await user.tab();
       expect(segments[0]).toHaveFocus();
       expect(onKeyDownSpy).not.toHaveBeenCalled();
       expect(onKeyUpSpy).toHaveBeenCalledTimes(1);
@@ -383,14 +368,27 @@ describe("TimeInput", () => {
 
   describe(`Validation (validationBehavior="aria")`, () => {
     it("should display errorMessage when timeValue is less than the minimum (controlled)", () => {
-      render(<TimeInput label="Time" minValue={new Time(9)} value={new Time(8)} />);
+      render(
+        <TimeInput
+          label="Time"
+          minValue={new Time(9)}
+          validationBehavior="aria"
+          value={new Time(8)}
+        />,
+      );
 
       expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
     });
 
     it("should display errorMessage when timeValue is less than the minimum (uncontrolled)", async () => {
       const {getAllByRole} = render(
-        <TimeInput defaultValue={new Time(9)} label="Time" minValue={new Time(9)} name="time" />,
+        <TimeInput
+          defaultValue={new Time(9)}
+          label="Time"
+          minValue={new Time(9)}
+          name="time"
+          validationBehavior="aria"
+        />,
       );
 
       const input = document.querySelector("input[name=time]");
@@ -407,14 +405,27 @@ describe("TimeInput", () => {
     });
 
     it("should display errorMessage when timeValue is greater than the maximum (controlled)", () => {
-      render(<TimeInput label="Time" maxValue={new Time(17)} value={new Time(18)} />);
+      render(
+        <TimeInput
+          label="Time"
+          maxValue={new Time(17)}
+          validationBehavior="aria"
+          value={new Time(18)}
+        />,
+      );
 
       expect(document.querySelector("[data-slot=error-message]")).toBeVisible();
     });
 
     it("should display errorMessage when timeValue is greater than the maximum (uncontrolled)", async () => {
       const {getAllByRole} = render(
-        <TimeInput defaultValue={new Time(17)} label="Time" maxValue={new Time(17)} name="time" />,
+        <TimeInput
+          defaultValue={new Time(17)}
+          label="Time"
+          maxValue={new Time(17)}
+          name="time"
+          validationBehavior="aria"
+        />,
       );
 
       const input = document.querySelector("input[name=time]");

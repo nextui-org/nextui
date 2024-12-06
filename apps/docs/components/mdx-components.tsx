@@ -6,6 +6,7 @@ import NextImage from "next/image";
 import {usePostHog} from "posthog-js/react";
 
 import {ThemeSwitch} from "./theme-switch";
+import {InfoCircle} from "./icons/info-circle";
 
 import {Sandpack} from "@/components/sandpack";
 import {CarbonAd} from "@/components/ads/carbon-ad";
@@ -13,6 +14,15 @@ import * as DocsComponents from "@/components/docs/components";
 import * as BlogComponents from "@/components/blog/components";
 import {Codeblock} from "@/components/docs/components";
 import {VirtualAnchor, virtualAnchorEncode} from "@/components/virtual-anchor";
+import {
+  Table as StaticTable,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableCell,
+  TableColumnHeader,
+  TableRoot,
+} from "@/components/static-table";
 
 const Table: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
@@ -97,15 +107,20 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({
 
 const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
-    <ul className="list-disc flex flex-col gap-2 ml-4 mt-2 [&>li>strong]:text-pink-500 dark:[&>li>strong]:text-cyan-600">
+    <ul className="list-disc flex flex-col gap-2 ml-4 mt-2 [&>li>strong]:text-foreground [&>li>strong]:font-medium">
       {children}
     </ul>
   );
 };
 
-const InlineCode = ({children}: {children?: React.ReactNode}) => {
+const InlineCode = ({children, className}: {children?: React.ReactNode; className?: string}) => {
   return (
-    <Components.Code className="font-normal text-default-700 bg-default-200/50 dark:bg-default-100/60 px-2 py-0.5">
+    <Components.Code
+      className={clsx(
+        'p-0 relative before:content-["`"] after:content-["`"] font-semibold font-mono text-small rounded-md text-default-900 dark:text-default-500 bg-transparent',
+        className,
+      )}
+    >
       {children}
     </Components.Code>
   );
@@ -153,16 +168,21 @@ const Code = ({
         });
       }}
     >
-      <Codeblock codeString={codeString} language={language} metastring={meta} />
+      <Codeblock
+        className="sp-editor"
+        codeString={codeString}
+        language={language}
+        metastring={meta}
+      />
     </Components.Snippet>
   );
 };
 
 const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => {
-  const isExternal = href?.startsWith("http");
+  const isExternal = href?.startsWith("http") || href?.startsWith("https");
   const posthog = usePostHog();
 
-  const handlePress = () => {
+  const handleClick = () => {
     posthog.capture("MDXComponents - Click", {
       category: "docs",
       action: "click",
@@ -170,15 +190,120 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
     });
   };
 
+  const externalProps = isExternal ? {target: "_blank", rel: "noopener noreferrer"} : {};
+
   return (
     <Components.Link
+      className="relative hover:opacity-100 text-foreground font-bold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:rounded-full after:h-[1px] after:bg-primary-400 dark:after:bg-default-300 hover:after:h-[2px]"
+      disableAnimation={true}
       href={href}
-      isExternal={isExternal}
-      showAnchorIcon={isExternal}
-      onPress={handlePress}
+      {...externalProps}
+      onClick={handleClick}
     >
       {children}
     </Components.Link>
+  );
+};
+
+const InlineCodeChip = ({children}: {children?: React.ReactNode}) => {
+  return (
+    <InlineCode className="before:hidden after:hidden text-tiny rounded-md text-default-600 bg-default-100 dark:bg-default-100/80 px-1.5 py-0.5">
+      {children}
+    </InlineCode>
+  );
+};
+
+interface APITableProps {
+  data: {
+    attribute: string;
+    type: string;
+    description: string;
+    default?: string;
+  }[];
+}
+
+export const APITable: React.FC<APITableProps> = ({data}) => {
+  return (
+    <TableRoot className="overflow-x-auto overflow-y-hidden">
+      <StaticTable aria-label="API table" className="w-full" layout="auto">
+        <TableHeader>
+          <TableRow>
+            <TableColumnHeader>Prop</TableColumnHeader>
+            <TableColumnHeader>Type</TableColumnHeader>
+            <TableColumnHeader>Default</TableColumnHeader>
+          </TableRow>
+        </TableHeader>
+        <TableBody>
+          {data.map((item, index) => (
+            <TableRow key={index} className="[&>td]:px-2 [&>td]:py-1.5 [&>td]:first:pt-4">
+              <TableCell className="flex items-center gap-1 font-mono text-small whitespace-nowrap">
+                <InlineCodeChip>{item.attribute}</InlineCodeChip>
+                {item.description && (
+                  <>
+                    {/* Desktop tooltip */}
+                    <Components.Tooltip
+                      classNames={{
+                        content: "max-w-[240px]",
+                      }}
+                      content={item.description}
+                      delay={0}
+                      placement="top"
+                    >
+                      <div className="flex items-center gap-1 cursor-default hidden sm:block">
+                        <InfoCircle className="text-default-400" size={16} />
+                      </div>
+                    </Components.Tooltip>
+                    {/* Mobile popover */}
+                    <Components.Popover placement="top">
+                      <Components.PopoverTrigger>
+                        <button className="flex items-center gap-1 sm:hidden outline-none">
+                          <InfoCircle className="text-default-400" size={16} />
+                        </button>
+                      </Components.PopoverTrigger>
+                      <Components.PopoverContent className="max-w-[240px]">
+                        {item.description}
+                      </Components.PopoverContent>
+                    </Components.Popover>
+                  </>
+                )}
+              </TableCell>
+              <TableCell className="font-mono text-small whitespace-nowrap text-primary">
+                <InlineCodeChip>
+                  <div className="flex max-w-[300px] flex-wrap text-wrap">{item.type}</div>
+                </InlineCodeChip>
+              </TableCell>
+              <TableCell className="font-mono text-small whitespace-nowrap">
+                {item.default && item.default !== "-" ? (
+                  <InlineCodeChip>
+                    {item.default !== "true" && item.default !== "false"
+                      ? `"${item.default}"`
+                      : item.default}
+                  </InlineCodeChip>
+                ) : (
+                  <svg
+                    aria-hidden="true"
+                    className="text-default-400"
+                    fill="none"
+                    focusable="false"
+                    height="15"
+                    viewBox="0 0 15 15"
+                    width="15"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      clipRule="evenodd"
+                      d="M2 7.5C2 7.22386 2.22386 7 2.5 7H12.5C12.7761 7 13 7.22386 13 7.5C13 7.77614 12.7761 8 12.5 8H2.5C2.22386 8 2 7.77614 2 7.5Z"
+                      fill="currentColor"
+                      fillRule="evenodd"
+                    />
+                  </svg>
+                )}
+              </TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </StaticTable>
+    </TableRoot>
   );
 };
 
@@ -211,9 +336,7 @@ export const MDXComponents = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h2" {...props} />,
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h3" {...props} />,
   h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h4" {...props} />,
-  strong: (props: React.HTMLAttributes<HTMLElement>) => (
-    <strong className="font-medium" {...props} />
-  ),
+  strong: (props: React.HTMLAttributes<HTMLElement>) => <strong {...props} />,
   table: Table,
   thead: Thead,
   tr: Trow,
@@ -234,5 +357,6 @@ export const MDXComponents = {
       {...props}
     />
   ),
+  APITable,
   // Block,
 } as unknown as Record<string, React.ReactNode>;

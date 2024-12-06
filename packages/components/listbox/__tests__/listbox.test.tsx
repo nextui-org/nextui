@@ -1,10 +1,16 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {render} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Listbox, ListboxItem, ListboxSection} from "../src";
 
 describe("Listbox", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Listbox aria-label="Actions" onAction={alert}>
@@ -118,6 +124,40 @@ describe("Listbox", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
+  it("should not have anchor tag when href prop is not passed", () => {
+    render(
+      <Listbox disallowEmptySelection aria-label="Actions" selectionMode="multiple">
+        <ListboxItem key="new">New file</ListboxItem>
+        <ListboxItem key="copy">Copy link</ListboxItem>
+        <ListboxItem key="edit">Edit file</ListboxItem>
+      </Listbox>,
+    );
+
+    let anchorTag = document.getElementsByTagName("a")[0];
+
+    expect(anchorTag).toBeFalsy();
+  });
+
+  it("should have anchor tag when href prop is passed", () => {
+    const href = "http://www.nextui.org/";
+
+    render(
+      <Listbox disallowEmptySelection aria-label="Actions" selectionMode="multiple">
+        <ListboxItem key="new" href={href}>
+          New file
+        </ListboxItem>
+        <ListboxItem key="copy">Copy link</ListboxItem>
+        <ListboxItem key="edit">Edit file</ListboxItem>
+      </Listbox>,
+    );
+
+    let anchorTag = document.getElementsByTagName("a")[0];
+
+    expect(anchorTag).toBeTruthy();
+
+    expect(anchorTag).toHaveProperty("href", href);
+  });
+
   it("should work with single selection (controlled)", async () => {
     let onSelectionChange = jest.fn();
 
@@ -145,11 +185,8 @@ describe("Listbox", () => {
 
     expect(listboxItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(listboxItems[1]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(listboxItems[1]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should work with multiple selection (controlled)", async () => {
@@ -179,11 +216,8 @@ describe("Listbox", () => {
 
     expect(listboxItems.length).toBe(4);
 
-    await act(async () => {
-      await userEvent.click(listboxItems[0]);
-
-      expect(onSelectionChange).toBeCalledTimes(1);
-    });
+    await user.click(listboxItems[0]);
+    expect(onSelectionChange).toHaveBeenCalledTimes(1);
   });
 
   it("should show checkmarks if selectionMode is single and has a selected item", () => {
@@ -272,5 +306,31 @@ describe("Listbox", () => {
     let checkmark1 = listboxItems[0].querySelector("svg");
 
     expect(checkmark1).toBeFalsy();
+  });
+
+  it("should truncate the text if the child is not a string", () => {
+    const wrapper = render(
+      <Listbox>
+        <ListboxItem key="new">New file</ListboxItem>
+      </Listbox>,
+    );
+
+    const menuItem = wrapper.getByText("New file");
+
+    expect(menuItem).toHaveProperty("className", expect.stringContaining("truncate"));
+  });
+
+  it("should not truncate the text if the child is a string", () => {
+    const wrapper = render(
+      <Listbox>
+        <ListboxItem key="new">
+          <div>New file</div>
+        </ListboxItem>
+      </Listbox>,
+    );
+
+    const menuItem = wrapper.getByText("New file").parentElement;
+
+    expect(menuItem).not.toHaveProperty("className", expect.stringContaining("truncate"));
   });
 });

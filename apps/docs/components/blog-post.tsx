@@ -1,6 +1,6 @@
 "use client";
 
-import {BlogPost} from "contentlayer/generated";
+import {BlogPost} from "contentlayer2/generated";
 import {Card, CardFooter, CardBody, CardHeader, Link, Avatar, Image} from "@nextui-org/react";
 import Balancer from "react-wrap-balancer";
 import {format, parseISO} from "date-fns";
@@ -34,6 +34,7 @@ const BlogPostCard = (post: BlogPost) => {
           transition={{duration: 0.3}}
         >
           <Card
+            disableRipple
             isBlurred
             as={NextLink}
             className="p-2 h-full border-transparent text-start bg-white/5 dark:bg-default-400/10 backdrop-blur-lg backdrop-saturate-[1.8]"

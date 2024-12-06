@@ -141,6 +141,7 @@ const dateInput = tv({
         clearButton: "text-large",
       },
       lg: {
+        label: "text-medium",
         input: "text-medium",
         inputWrapper: "h-12 min-h-12 rounded-large",
       },
@@ -166,13 +167,13 @@ const dateInput = tv({
       outside: {
         base: "flex flex-col data-[has-helper=true]:pb-[calc(theme(fontSize.tiny)_+8px)] gap-y-1.5",
         label: "w-full text-foreground",
-        helperWrapper: "absolute top-[calc(100%_+_2px)] left-0 rtl:right-0",
+        helperWrapper: "absolute top-[calc(100%_+_2px)] start-0",
       },
       "outside-left": {
         base: "flex-row items-center data-[has-helper=true]:pb-[calc(theme(fontSize.tiny)_+_8px)] gap-x-2 flex-nowrap",
         label: "relative text-foreground",
         inputWrapper: "relative flex-1",
-        helperWrapper: "absolute top-[calc(100%_+_2px)] left-0 rtl:right-0",
+        helperWrapper: "absolute top-[calc(100%_+_2px)] start-0",
       },
       inside: {
         label: "w-full text-tiny cursor-text",
@@ -387,7 +388,7 @@ const dateInput = tv({
       labelPlacement: "inside",
       size: "lg",
       class: {
-        label: "text-small",
+        label: "text-medium",
         inputWrapper: "h-16 py-2.5 gap-0",
       },
     },

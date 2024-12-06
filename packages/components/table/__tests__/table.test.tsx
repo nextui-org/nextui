@@ -1,8 +1,9 @@
 import * as React from "react";
-import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {act, render, fireEvent} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Table, TableHeader, TableCell, TableColumn, TableBody, TableRow} from "../src";
+import {keyCodes} from "../../../utilities/test-utils/src";
 
 const columns = [
   {name: "Foo", key: "foo"},
@@ -16,6 +17,12 @@ let items = [
 ];
 
 describe("Table", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <Table aria-label="Test example table">
@@ -95,6 +102,42 @@ describe("Table", () => {
     expect(wrapper.getAllByRole("gridcell")).toHaveLength(2);
   });
 
+  it("should disable key navigations when isKeyboardNavigationDisabled is enabled", async () => {
+    const wrapper = render(
+      <Table isKeyboardNavigationDisabled={true} selectionMode="single">
+        <TableHeader>
+          <TableColumn>Foo</TableColumn>
+          <TableColumn>Bar</TableColumn>
+          <TableColumn>Baz</TableColumn>
+        </TableHeader>
+        <TableBody>
+          <TableRow>
+            <TableCell>Foo 1</TableCell>
+            <TableCell>Bar 1</TableCell>
+            <TableCell>Baz 1</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Foo 2</TableCell>
+            <TableCell>Bar 2</TableCell>
+            <TableCell>Baz 2</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>,
+    );
+
+    const row1 = wrapper.getAllByRole("row")[1];
+
+    // selecting the row1
+    await act(async () => {
+      await userEvent.click(row1);
+    });
+    expect(row1).toHaveFocus();
+
+    // triggering the arrow down on row1 should not shift the focus to row2
+    fireEvent.keyDown(row1, {key: "ArrowDown", keyCode: keyCodes.ArrowDown});
+    expect(row1).toHaveFocus();
+  });
+
   it("should render dynamic table", () => {
     const wrapper = render(
       <Table aria-label="Dynamic Table">
@@ -131,7 +174,7 @@ describe("Table", () => {
     expect(wrapper.getAllByRole("gridcell")).toHaveLength(4);
   });
 
-  it("should work with single selectionMode='single'", () => {
+  it("should work with single selectionMode='single'", async () => {
     const onRowAction = jest.fn();
 
     const wrapper = render(
@@ -163,14 +206,11 @@ describe("Table", () => {
     // get the first row
     const row1 = wrapper.getAllByRole("row")[1];
 
-    act(() => {
-      row1.click();
-    });
-
+    await user.click(row1);
     expect(onRowAction).toHaveBeenCalledTimes(1);
   });
 
-  it("should work with single selectionMode='multiple'", () => {
+  it("should work with single selectionMode='multiple'", async () => {
     const onRowAction = jest.fn();
 
     const wrapper = render(
@@ -207,15 +247,13 @@ describe("Table", () => {
     const row1 = wrapper.getAllByRole("row")[1];
     const row2 = wrapper.getAllByRole("row")[2];
 
-    act(() => {
-      row1.click();
-      row2.click();
-    });
+    await user.click(row1);
+    await user.click(row2);
 
     expect(onRowAction).toHaveBeenCalledTimes(2);
   });
 
-  it("should set the proper aria-sort on an ascending sorted column header", () => {
+  it("should set the proper aria-sort on an ascending sorted column header", async () => {
     const wrapper = render(
       <Table aria-label="Static Table">
         <TableHeader>

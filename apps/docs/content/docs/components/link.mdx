@@ -132,33 +132,152 @@ In case you need to customize the link even further, you can use the `useLink` h
 
 ### Link Props
 
-| Attribute        | Type                                                                           | Description                                                                                                                                                                      | Default   |
-| ---------------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- |
-| size             | `sm` \| `md` \| `lg`                                                           | The size of the link.                                                                                                                                                            | `md`      |
-| color            | `foreground` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger` | The color of the link.                                                                                                                                                           | `primary` |
-| underline        | `none` \| `hover` \| `always` \| `active` \| `focus`                           | The underline of the link.                                                                                                                                                       | `none`    |
-| href             | `string`                                                                       | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -         |
-| target           | `HTMLAttributeAnchorTarget`                                                    | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -         |
-| rel              | `string`                                                                       | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -         |
-| download         | `boolean` \| `string`                                                          | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -         |
-| ping             | `string`                                                                       | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -         |
-| referrerPolicy   | `HTMLAttributeReferrerPolicy`                                                  | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -         |
-| isExternal       | `boolean`                                                                      | Whether the link should open in a new tab.                                                                                                                                       | `false`   |
-| showAnchorIcon   | `boolean`                                                                      | Whether to show the anchor icon.                                                                                                                                                 | `false`   |
-| anchorIcon       | `ReactNode`                                                                    | The anchor icon.                                                                                                                                                                 | -         |
-| isBlock          | `boolean`                                                                      | Whether the link should be rendered as block with a hover effect.                                                                                                                | `false`   |
-| isDisabled       | `boolean`                                                                      | Whether the link is disabled.                                                                                                                                                    | `false`   |
-| disableAnimation | `boolean`                                                                      | Whether to disable link and block animations.                                                                                                                                    | `false`   |
+<APITable
+  data={[
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the link.",
+      default: "md"
+    },
+    {
+      attribute: "color",
+      type: "foreground | primary | secondary | success | warning | danger",
+      description: "The color of the link.",
+      default: "primary"
+    },
+    {
+      attribute: "underline",
+      type: "none | hover | always | active | focus",
+      description: "The underline style of the link.",
+      default: "none"
+    },
+    {
+      attribute: "href",
+      type: "string",
+      description: "A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).",
+      default: "-"
+    },
+    {
+      attribute: "target",
+      type: "HTMLAttributeAnchorTarget",
+      description: "The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).",
+      default: "-"
+    },
+    {
+      attribute: "rel",
+      type: "string",
+      description: "The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).",
+      default: "-"
+    },
+    {
+      attribute: "download",
+      type: "boolean | string",
+      description: "Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download).",
+      default: "-"
+    },
+    {
+      attribute: "ping",
+      type: "string",
+      description: "A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).",
+      default: "-"
+    },
+    {
+      attribute: "referrerPolicy",
+      type: "HTMLAttributeReferrerPolicy",
+      description: "How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).",
+      default: "-"
+    },
+    {
+      attribute: "isExternal",
+      type: "boolean",
+      description: "Whether the link should open in a new tab.",
+      default: "false"
+    },
+    {
+      attribute: "showAnchorIcon",
+      type: "boolean",
+      description: "Whether to show the anchor icon.",
+      default: "false"
+    },
+    {
+      attribute: "anchorIcon",
+      type: "ReactNode",
+      description: "The anchor icon.",
+      default: "-"
+    },
+    {
+      attribute: "isBlock",
+      type: "boolean",
+      description: "Whether the link should be rendered as block with a hover effect.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the link is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable link and block animations.",
+      default: "false"
+    }
+  ]}
+/>
 
 ### Link Events
 
-| Attribute     | Type                           | Description                                                                                                     | Default |
-| ------------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------- | ------- |
-| onPress       | `(e: PressEvent) => void`      | Handler called when the press is released over the target.                                                      | -       |
-| onPressStart  | `(e: PressEvent) => void`      | Handler called when a press interaction starts.                                                                 | -       |
-| onPressEnd    | `(e: PressEvent) => void`      | Handler called when a press interaction ends, either over the target or when the pointer leaves the target.     | -       |
-| onPressChange | `(isPressed: boolean) => void` | Handler called when the press state changes.                                                                    | -       |
-| onPressUp     | `(e: PressEvent) => void`      | Handler called when a press is released over the target, regardless of whether it started on the target or not. | -       |
-| onKeyDown     | `(e: KeyboardEvent) => void`   | Handler called when a key is pressed.                                                                           | -       |
-| onKeyUp       | `(e: KeyboardEvent) => void`   | Handler called when a key is released.                                                                          | -       |
-| onClick       | `MouseEventHandler`            | The native link click event handler (**Deprecated**) use **onPress** instead.                                   | -       |
+<APITable
+  data={[
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressChange",
+      type: "(isPressed: boolean) => void",
+      description: "Handler called when the press state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onPressUp",
+      type: "(e: PressEvent) => void",
+      description: "Handler called when a press is released over the target, regardless of whether it started on the target or not.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is pressed.",
+      default: "-"
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler called when a key is released.",
+      default: "-"
+    },
+    {
+      attribute: "onClick",
+      type: "MouseEventHandler",
+      description: "The native link click event handler (Deprecated) use onPress instead.",
+      default: "-"
+    }
+  ]}
+/>

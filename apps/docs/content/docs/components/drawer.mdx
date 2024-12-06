@@ -1,0 +1,284 @@
+---
+title: "Drawer"
+description: "Display a panel that slides in from the edge of the screen, containing supplementary content."
+---
+
+import {drawerContent} from "@/content/components/drawer";
+
+# Drawer
+
+Displays a panel that slides in from the edge of the screen, containing supplementary content.
+
+<ComponentLinks component="drawer" reactAriaHook="useModal" />
+
+---
+
+<CarbonAd/>
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add drawer",
+    npm: "npm install @nextui-org/drawer",
+    yarn: "yarn add @nextui-org/drawer",
+    pnpm: "pnpm add @nextui-org/drawer",
+    bun: "bun add @nextui-org/drawer"
+  }}
+/>
+
+## Import
+
+NextUI exports 5 drawer-related components:
+
+- **Drawer**: The main component to display a drawer.
+- **DrawerContent**: The wrapper of the other drawer components.
+- **DrawerHeader**: The header of the drawer.
+- **DrawerBody**: The body of the drawer.
+- **DrawerFooter**: The footer of the drawer.
+
+<ImportTabs
+  commands={{
+    main: `import {
+    Drawer,
+    DrawerContent,
+    DrawerHeader,
+    DrawerBody,
+    DrawerFooter
+} from "@nextui-org/react";`,
+    individual:
+      `import {
+    Drawer,
+    DrawerContent,
+    DrawerHeader,
+    DrawerBody,
+    DrawerFooter
+} from "@nextui-org/drawer";`,
+  }}
+/>
+
+## Usage
+
+When the drawer opens:
+
+- Focus is bounded within the drawer and set to the first tabbable element.
+- Content behind a drawer is inert, meaning that users cannot interact with it.
+
+<CodeDemo title="Usage" files={drawerContent.usage} />
+
+### Sizes
+
+<CodeDemo title="Sizes" files={drawerContent.sizes} />
+
+### Non-dismissible
+
+By default, the drawer can be closed by clicking on the overlay or pressing the <Kbd>Esc</Kbd> key.
+You can disable this behavior by setting the following properties:
+
+- Set the `isDismissable` property to `false` to prevent the drawer from closing when clicking on the overlay.
+- Set the `isKeyboardDismissDisabled` property to `true` to prevent the drawer from closing when pressing the Esc key.
+
+<CodeDemo title="Non-dissmissible" files={drawerContent.nonDismissable} />
+
+### Drawer placement
+
+The drawer can be placed on any edge of the screen using the `placement` prop:
+- `left` (default)
+- `right`
+- `top`
+- `bottom`
+
+<CodeDemo title="Placement" files={drawerContent.placement} />
+
+### With Form
+
+The `Drawer` handles the focus within the drawer content. It means that you can use the drawer with
+form elements without any problem. The focus returns to the trigger when the drawer closes.
+
+<CodeDemo title="With Form" files={drawerContent.form} />
+
+> **Note**: You can add the `autoFocus` prop to the first `Input` component to focus it when the drawer opens.
+
+### Backdrop
+
+The `Drawer` component has a `backdrop` prop to show a backdrop behind the drawer. The backdrop can be
+either `transparent`, `opaque` or `blur`. The default value is `opaque`.
+
+<CodeDemo title="Backdrop" files={drawerContent.backdrop} />
+
+### Custom Motion
+
+Drawer offers a `motionProps` property to customize the `enter` / `exit` animation.
+
+<CodeDemo title="Custom Motion" files={drawerContent.customMotion} />
+
+> Learn more about Framer motion variants [here](https://www.framer.com/motion/animation/#variants).
+
+### Custom Styles
+
+<CodeDemo title="Custom Styles" files={drawerContent.customStyles} />
+
+<b>Credits</b>
+
+The Drawer component design is inspired by [Luma](https://x.com/LumaHQ).
+
+
+## Slots
+
+- **wrapper**: The wrapper slot of the drawer. It wraps the `base` and the `backdrop` slots.
+- **base**: The main slot of the drawer content.
+- **backdrop**: The backdrop slot, it is displayed behind the drawer.
+- **header**: The header of the drawer, it is displayed at the top of the drawer.
+- **body**: The body of the drawer, it is displayed in the middle of the drawer.
+- **footer**: The footer of the drawer, it is displayed at the bottom of the drawer.
+- **closeButton**: The close button of the drawer.
+
+## Data Attributes
+
+`Drawer` has the following attributes on the `base` element:
+
+- **data-open**:
+  When the drawer is open. Based on drawer state.
+- **data-dismissable**:
+  When the drawer is dismissable. Based on `isDismissable` prop.
+
+<Spacer y={4} />
+
+## Accessibility
+
+- Content outside the drawer is hidden from assistive technologies while it is open.
+- The drawer optionally closes when interacting outside, or pressing the <Kbd>Esc</Kbd> key.
+- Focus is moved into the drawer on mount, and restored to the trigger element on unmount.
+- While open, focus is contained within the drawer, preventing the user from tabbing outside.
+- Scrolling the page behind the drawer is prevented while it is open, including in mobile browsers.
+
+<Spacer y={4} />
+
+## API
+
+### Drawer Props
+
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The content of the drawer. It's usually the DrawerContent.",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "xs | sm | md | lg | xl | 2xl | 3xl | 4xl | 5xl | full",
+      description: "The drawer size.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg",
+      description: "The drawer border radius.",
+      default: "lg"
+    },
+    {
+      attribute: "placement",
+      type: "left | right | top | bottom",
+      description: "The drawer position.",
+      default: "right"
+    },
+    {
+      attribute: "isOpen",
+      type: "boolean",
+      description: "Whether the drawer is open by default (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultOpen",
+      type: "boolean",
+      description: "Whether the drawer is open by default (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "isDismissable",
+      type: "boolean",
+      description: "Whether the drawer can be closed by clicking on the overlay or pressing the Esc key.",
+      default: "true"
+    },
+    {
+      attribute: "isKeyboardDismissDisabled",
+      type: "boolean",
+      description: "Whether pressing the Esc key to close the drawer should be disabled.",
+      default: "false"
+    },
+    {
+      attribute: "shouldBlockScroll",
+      type: "boolean",
+      description: "Whether the drawer should block the scroll of the page on open.",
+      default: "true"
+    },
+    {
+      attribute: "hideCloseButton",
+      type: "boolean",
+      description: "Whether to hide the drawer close button.",
+      default: "false"
+    },
+    {
+      attribute: "closeButton",
+      type: "ReactNode",
+      description: "Custom close button to display on top right corner.",
+      default: "-"
+    },
+    {
+      attribute: "motionProps",
+      type: "MotionProps",
+      description: "The props to modify the framer motion animation. Use the variants API to create your own animation.",
+      default: "-"
+    },
+    {
+      attribute: "portalContainer",
+      type: "HTMLElement",
+      description: "The container element in which the overlay portal will be placed.",
+      default: "document.body"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the drawer should not have animations.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<'wrapper' | 'base' | 'backdrop' | 'header' | 'body' | 'footer' | 'closeButton', string>>",
+      description: "Allows to set custom class names for the drawer slots.",
+      default: "-"
+    }
+  ]}
+/>
+
+### Drawer Events
+
+<APITable
+  data={[
+    {
+      attribute: "onOpenChange",
+      type: "(isOpen: boolean) => void",
+      description: "Handler that is called when the drawer's open state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler that is called when the drawer is closed.",
+      default: "-"
+    }
+  ]}
+/>
+
+<Spacer y={4} />
+
+### Drawer types
+
+#### Motion Props
+
+```ts
+export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
+```

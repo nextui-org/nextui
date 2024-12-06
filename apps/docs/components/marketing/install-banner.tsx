@@ -25,7 +25,7 @@ const bannerSuggestions = [
     title: "NextUI + Next.js",
     description: (
       <>
-        NextUI is fully compatible with the new Next.js 13 <Code>app/</Code> directory structure.
+        NextUI is fully compatible with the new Next.js <Code>app/</Code> directory structure.
       </>
     ),
     icon: <NextJsIcon className="text-pink-500" />,

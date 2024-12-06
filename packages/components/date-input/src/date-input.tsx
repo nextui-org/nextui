@@ -1,5 +1,5 @@
 import type {DateValue} from "@internationalized/date";
-import type {ForwardedRef, ReactElement, Ref} from "react";
+import type {ForwardedRef, ReactElement} from "react";
 
 import {forwardRef} from "@nextui-org/system";
 
@@ -9,12 +9,14 @@ import {DateInputField} from "./date-input-field";
 
 export interface Props<T extends DateValue> extends UseDateInputProps<T> {}
 
-function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+export type DateInputProps<T extends DateValue = DateValue> = Props<T>;
+
+const DateInput = forwardRef(function DateInput<T extends DateValue>(
+  props: DateInputProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const {state, slots, classNames, getBaseGroupProps, getInputProps, getFieldProps} =
-    useDateInput<T>({
-      ...props,
-      ref,
-    });
+    useDateInput<T>({...props, ref});
 
   return (
     <DateInputGroup {...getBaseGroupProps()}>
@@ -27,13 +29,6 @@ function DateInput<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLD
       />
     </DateInputGroup>
   );
-}
+}) as <T extends DateValue>(props: DateInputProps<T>) => ReactElement;
 
-DateInput.displayName = "NextUI.DateInput";
-
-export type DateInputProps<T extends DateValue = DateValue> = Props<T> & {ref?: Ref<HTMLElement>};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DateInput) as <T extends DateValue>(
-  props: DateInputProps<T>,
-) => ReactElement;
+export default DateInput;

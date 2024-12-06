@@ -6,7 +6,7 @@ import {RefObject, Ref, useEffect} from "react";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {OverlayTriggerState, useOverlayTriggerState} from "@react-stately/overlays";
 import {useFocusRing} from "@react-aria/focus";
-import {ariaHideOutside, useOverlayTrigger} from "@react-aria/overlays";
+import {ariaHideOutside, useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {
   HTMLNextUIProps,
@@ -118,6 +118,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     boundaryElement,
     isKeyboardDismissDisabled,
     shouldCloseOnInteractOutside,
+    shouldCloseOnScroll,
     motionProps,
     className,
     classNames,
@@ -169,6 +170,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       containerPadding,
       updatePositionDeps,
       isKeyboardDismissDisabled,
+      shouldCloseOnScroll,
       shouldCloseOnInteractOutside,
     },
     state,
@@ -187,6 +189,10 @@ export function usePopover(originalProps: UsePopoverProps) {
   );
 
   const baseStyles = clsx(classNames?.base, className);
+
+  usePreventScroll({
+    isDisabled: !(shouldBlockScroll && state.isOpen),
+  });
 
   const getPopoverProps: PropGetter = (props = {}) => ({
     ref: domRef,

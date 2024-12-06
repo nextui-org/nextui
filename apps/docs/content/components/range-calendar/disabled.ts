@@ -1,10 +1,4 @@
-const App = `import {RangeCalendar} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <RangeCalendar aria-label="Date (Disabled)" isDisabled />
-  );
-}`;
+import App from "./disabled.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

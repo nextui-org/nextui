@@ -1,10 +1,4 @@
-const App = `import {Snippet} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Snippet>npm install @nextui-org/react</Snippet>
-  );
-}`;
+import App from "./usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

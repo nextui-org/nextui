@@ -1,10 +1,4 @@
-const App = `import {Pagination} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Pagination color="warning" initialPage={3} total={10} />
-  );
-}`;
+import App from "./initial-page.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

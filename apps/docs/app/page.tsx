@@ -1,4 +1,5 @@
 import {Spacer} from "@nextui-org/spacer";
+import {Suspense} from "react";
 
 import {Hero} from "@/components/marketing/hero";
 import {FeaturesGrid} from "@/components/marketing/features-grid";
@@ -9,26 +10,12 @@ import {Customization} from "@/components/marketing/customization";
 import {LastButNotLeast} from "@/components/marketing/last-but-not-least";
 import {InstallBanner} from "@/components/marketing/install-banner";
 import {Community} from "@/components/marketing/community";
-import {Support} from "@/components/marketing/support";
+import Support from "@/components/marketing/support";
 import landingContent from "@/content/landing";
-import {getAllSponsors} from "@/utils/get-all-sponsors";
 import {Sponsors} from "@/components/marketing/sponsors";
-
-async function getData() {
-  try {
-    const sponsors = await getAllSponsors();
-
-    return {
-      sponsors,
-    };
-  } catch (error) {
-    throw new Error("Failed to fetch data");
-  }
-}
+import {NextUIProSection} from "@/components/marketing/nextui-pro-section";
 
 export default async function Home() {
-  const data = await getData();
-
   return (
     <main className="container mx-auto max-w-7xl px-6 flex-grow">
       <section className="flex flex-col items-center justify-center">
@@ -39,8 +26,11 @@ export default async function Home() {
         <A11yOtb />
         <DarkMode />
         <Customization />
+        <NextUIProSection />
         <LastButNotLeast />
-        <Support sponsors={data.sponsors} />
+        <Suspense fallback={<div>Loading...</div>}>
+          <Support />
+        </Suspense>
         <Spacer y={24} />
         <InstallBanner />
         <Community />

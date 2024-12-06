@@ -1,7 +1,9 @@
+import "@testing-library/jest-dom";
 import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../../modal/src";
@@ -77,6 +79,12 @@ const AutocompleteExample = (props: Partial<AutocompleteProps> = {}) => (
 );
 
 describe("Autocomplete", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<AutocompleteExample />);
 
@@ -172,9 +180,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -201,9 +207,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -211,9 +215,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -223,16 +225,57 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    // click the clear button
+    await user.click(clearButton);
 
     // assert that the input has empty value
     expect(autocomplete).toHaveValue("");
 
     // assert that input is focused
     expect(autocomplete).toHaveFocus();
+  });
+
+  it("should keep the ListBox open after clicking clear button", async () => {
+    const wrapper = render(
+      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await user.click(options[0]);
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // click the clear button
+    await user.click(clearButton);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
   });
 
   it("should clear value after clicking clear button (controlled)", async () => {
@@ -245,9 +288,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -255,9 +296,7 @@ describe("Autocomplete", () => {
     let options = wrapper.getAllByRole("option");
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     const {container} = wrapper;
 
@@ -267,16 +306,49 @@ describe("Autocomplete", () => {
 
     expect(clearButton).not.toBeNull();
 
-    // select the target item
-    await act(async () => {
-      await userEvent.click(clearButton);
-    });
+    /// click the clear button
+    await user.click(clearButton);
 
     // assert that the input has empty value
     expect(autocomplete).toHaveValue("");
 
     // assert that input is focused
     expect(autocomplete).toHaveFocus();
+  });
+
+  it("should keep the ListBox open after clicking clear button (controlled)", async () => {
+    const wrapper = render(
+      <ControlledAutocomplete data-testid="autocomplete" items={itemsData}>
+        {(item) => <AutocompleteItem key={item.value}>{item.value}</AutocompleteItem>}
+      </ControlledAutocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    let options = wrapper.getAllByRole("option");
+
+    // select the target item
+    await user.click(options[0]);
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // click the clear button
+    await user.click(clearButton);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
   });
 
   it("should open and close listbox by clicking selector button", async () => {
@@ -305,9 +377,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the select listbox by clicking selector button
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -316,9 +386,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
 
     // close the select listbox by clicking selector button again
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -349,17 +417,13 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
     // open the select listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the autocomplete is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -398,17 +462,14 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("close-when-clicking-outside-test");
 
     // open the autocomplete listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
 
     // click outside the autocomplete component
-    await act(async () => {
-      await userEvent.click(document.body);
-    });
+    await user.click(document.body);
 
     // assert that the autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -432,9 +493,7 @@ describe("Autocomplete", () => {
     const autocomplete = wrapper.getByTestId("autocomplete");
 
     // open the listbox
-    await act(async () => {
-      await userEvent.click(autocomplete);
-    });
+    await user.click(autocomplete);
 
     // assert that the autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -447,9 +506,7 @@ describe("Autocomplete", () => {
     expect(options.length).toBe(3);
 
     // select the target item
-    await act(async () => {
-      await userEvent.click(options[0]);
-    });
+    await user.click(options[0]);
 
     // assert that the input has target selection
     expect(autocomplete).toHaveValue("Penguin");
@@ -508,9 +565,7 @@ describe("Autocomplete", () => {
     expect(selectorButton2).not.toBeNull();
 
     // open the select listbox by clicking selector button in the first autocomplete
-    await act(async () => {
-      await userEvent.click(selectorButton);
-    });
+    await user.click(selectorButton);
 
     // assert that the first autocomplete listbox is open
     expect(autocomplete).toHaveAttribute("aria-expanded", "true");
@@ -519,9 +574,7 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
 
     // close the select listbox by clicking the second autocomplete
-    await act(async () => {
-      await userEvent.click(selectorButton2);
-    });
+    await user.click(selectorButton2);
 
     // assert that the first autocomplete listbox is closed
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
@@ -534,85 +587,6 @@ describe("Autocomplete", () => {
 
     // assert that the second autocomplete is focused
     expect(autocomplete2).toHaveFocus();
-  });
-
-  describe("validation", () => {
-    let user;
-
-    beforeAll(() => {
-      user = userEvent.setup();
-    });
-
-    describe("validationBehavior=native", () => {
-      it("supports isRequired", async () => {
-        const {getByTestId, getByRole, findByRole} = render(
-          <form data-testid="form">
-            <AutocompleteExample isRequired validationBehavior="native" />
-          </form>,
-        );
-
-        const input = getByRole("combobox") as HTMLInputElement;
-
-        expect(input).toHaveAttribute("required");
-        expect(input).not.toHaveAttribute("aria-required");
-        expect(input).not.toHaveAttribute("aria-describedby");
-        expect(input.validity.valid).toBe(false);
-
-        act(() => {
-          (getByTestId("form") as HTMLFormElement).checkValidity();
-        });
-
-        expect(input).toHaveAttribute("aria-describedby");
-        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Constraints not satisfied",
-        );
-
-        await user.click(input);
-        await user.keyboard("pe");
-
-        const listbox = await findByRole("listbox");
-        const items = within(listbox).getAllByRole("option");
-
-        await user.click(items[0]);
-        expect(input).toHaveAttribute("aria-describedby");
-      });
-    });
-
-    describe("validationBehavior=aria", () => {
-      it("supports validate function", async () => {
-        let {getByRole, findByRole} = render(
-          <form data-testid="form">
-            <AutocompleteExample
-              defaultInputValue="Penguin"
-              validate={(v) => (v.inputValue === "Penguin" ? "Invalid value" : null)}
-              validationBehavior="aria"
-            />
-          </form>,
-        );
-
-        const input = getByRole("combobox") as HTMLInputElement;
-
-        expect(input).toHaveAttribute("aria-describedby");
-        expect(input).toHaveAttribute("aria-invalid", "true");
-        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid value",
-        );
-        expect(input.validity.valid).toBe(true);
-
-        await user.tab();
-        await user.click();
-        // open the select dropdown
-        await user.keyboard("{ArrowDown}");
-
-        const listbox = await findByRole("listbox");
-        const item = within(listbox).getByRole("option", {name: "Zebra"});
-
-        await user.click(item);
-
-        expect(input).not.toHaveAttribute("aria-describedby");
-        expect(input).not.toHaveAttribute("aria-invalid");
-      });
-    });
   });
 
   it("should work when key equals textValue", async () => {
@@ -667,6 +641,176 @@ describe("Autocomplete", () => {
 
     expect(autocomplete).toHaveValue("dog");
     expect(autocomplete).toHaveAttribute("aria-expanded", "false");
+  });
+
+  describe("validation", () => {
+    let user;
+
+    beforeAll(() => {
+      user = userEvent.setup();
+    });
+
+    describe("validationBehavior=native", () => {
+      it("supports isRequired", async () => {
+        const {getByTestId, getByRole, findByRole} = render(
+          <Form data-testid="form">
+            <AutocompleteExample isRequired validationBehavior="native" />
+          </Form>,
+        );
+
+        const input = getByRole("combobox") as HTMLInputElement;
+
+        expect(input).toHaveAttribute("required");
+        expect(input).not.toHaveAttribute("aria-required");
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(false);
+
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Constraints not satisfied",
+        );
+
+        await user.click(input);
+        await user.keyboard("pe");
+
+        const listbox = await findByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        expect(input).toHaveAttribute("aria-describedby");
+      });
+
+      it("supports server validation", async () => {
+        function Test() {
+          const [serverErrors, setServerErrors] = React.useState({});
+          const onSubmit = (e) => {
+            e.preventDefault();
+            setServerErrors({
+              value: "Invalid value.",
+            });
+          };
+
+          return (
+            <Form validationErrors={serverErrors} onSubmit={onSubmit}>
+              <AutocompleteExample data-testid="input" name="value" validationBehavior="native" />
+              <button data-testid="submit" type="submit">
+                Submit
+              </button>
+            </Form>
+          );
+        }
+
+        const {getByTestId, getByRole} = render(<Test />);
+
+        const input = getByTestId("input") as HTMLInputElement;
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+
+        await user.click(getByTestId("submit"));
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid value.",
+        );
+        expect(input.validity.valid).toBe(false);
+
+        await user.tab({shift: true});
+        await user.keyboard("[ArrowRight]Ze");
+
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        const listbox = getByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        expect(input).toHaveAttribute("aria-describedby");
+        await user.tab();
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input.validity.valid).toBe(true);
+      });
+    });
+
+    describe("validationBehavior=aria", () => {
+      it("supports validate function", async () => {
+        let {getByRole, findByRole} = render(
+          <form data-testid="form">
+            <AutocompleteExample
+              defaultSelectedKey="penguin"
+              validate={(v) => (v.selectedKey === "penguin" ? "Invalid value" : null)}
+              validationBehavior="aria"
+            />
+          </form>,
+        );
+
+        const input = getByRole("combobox") as HTMLInputElement;
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid value",
+        );
+        expect(input.validity.valid).toBe(true);
+
+        await user.tab();
+        await user.click();
+        // open the select dropdown
+        await user.keyboard("{ArrowDown}");
+
+        const listbox = await findByRole("listbox");
+        const item = within(listbox).getByRole("option", {name: "Zebra"});
+
+        await user.click(item);
+
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input).not.toHaveAttribute("aria-invalid");
+      });
+
+      it("supports server validation", async () => {
+        const {getByTestId, getByRole} = render(
+          <Form validationErrors={{value: "Invalid value"}}>
+            <AutocompleteExample data-testid="input" name="value" />
+          </Form>,
+        );
+
+        const input = getByTestId("input");
+
+        expect(input).toHaveAttribute("aria-describedby");
+        expect(input).toHaveAttribute("aria-invalid", "true");
+        expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "Invalid value",
+        );
+
+        await user.tab();
+        await user.keyboard("[ArrowRight]Ze");
+
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        const listbox = getByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        act(() => {
+          jest.runAllTimers();
+        });
+
+        await user.tab();
+        expect(input).not.toHaveAttribute("aria-describedby");
+        expect(input).not.toHaveAttribute("aria-invalid");
+      });
+    });
   });
 });
 

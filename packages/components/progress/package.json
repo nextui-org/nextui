@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/progress",
-  "version": "2.0.34",
+  "version": "2.2.1",
   "description": "Progress bars show either determinate or indeterminate progress of an operation over time.",
   "keywords": [
     "progress"
@@ -34,19 +34,19 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
-    "@react-aria/i18n": "3.11.1",
-    "@react-aria/progress": "3.4.13",
-    "@react-aria/utils": "3.24.1",
-    "@react-types/progress": "3.5.4"
+    "@react-aria/i18n": "3.12.3",
+    "@react-aria/progress": "3.4.17",
+    "@react-aria/utils": "3.26.0",
+    "@react-types/progress": "3.5.7"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

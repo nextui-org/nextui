@@ -6,7 +6,7 @@ import jsx from "refractor/lang/jsx";
 import bash from "refractor/lang/bash";
 import css from "refractor/lang/css";
 import diff from "refractor/lang/diff";
-import hastToHtml from "hast-util-to-html";
+import {toHtml} from "hast-util-to-html";
 import rangeParser from "parse-numeric-range";
 import {clsx} from "@nextui-org/shared-utils";
 
@@ -137,7 +137,7 @@ const CodeBlock = React.forwardRef<HTMLPreElement, CodeBlockProps>((_props, forw
   result = highlightWord(result);
 
   // convert to html
-  result = hastToHtml(result);
+  result = toHtml(result);
 
   // TODO reset theme
   const classes = `language-${language}`;

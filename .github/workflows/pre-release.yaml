@@ -1,0 +1,81 @@
+name: Pre-release
+
+on:
+  push:
+    paths:
+      - ".changeset/**"
+      - "packages/**"
+    branches:
+      - "beta/release-next"
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  prerelease:
+    name: changesets pre-release
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install
+        uses: ./.github/common-actions/install
+
+      - name: Debug condition values
+        run: |
+          echo "pre.json exists: ${{ steps.check_if_pre_json_exists.outputs.files_exists }}"
+          echo "Commit message: ${{ github.event.head_commit.message }}"
+          echo "Contains version packages: ${{ contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+          echo "Full condition would be: ${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+
+      - name: Check if pre.json exists
+        id: check_if_pre_json_exists
+        uses: andstor/file-existence-action@v3.0.0
+        with:
+          files: ".changeset/pre.json"
+
+      - name: Get pre-release changesets
+        id: get-pre-release-changesets
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: ".changeset/pre.json"
+          prop_path: "changesets"
+
+      - name: Create pre-release PR
+        id: create-pre-release-pr
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && !startsWith(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+        uses: changesets/action@v1
+        with:
+          version: pnpm run version
+          title: "ci(changesets): :package: version packages"
+          commit: "ci(changesets): version packages"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Tests
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+        run: pnpm test
+
+      - name: Build
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+        run: pnpm build
+        env:
+          NODE_OPTIONS: "--max-old-space-size=4096"
+
+      - name: Publish to NPM
+        id: publish-to-npm
+        if: "${{ steps.check_if_pre_json_exists.outputs.files_exists == 'true' && contains(github.event.head_commit.message, 'ci(changesets): version packages') }}"
+        uses: changesets/action@v1
+        with:
+          publish: pnpm run release
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

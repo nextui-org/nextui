@@ -2,11 +2,9 @@ import type {AriaDialogProps} from "@react-aria/dialog";
 import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
-import {forwardRef} from "@nextui-org/system";
-import {RemoveScroll} from "react-remove-scroll";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
-import {m, domAnimation, LazyMotion} from "framer-motion";
+import {m, LazyMotion} from "framer-motion";
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {useDialog} from "@react-aria/dialog";
@@ -19,17 +17,17 @@ export interface PopoverContentProps
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
-const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+
+const PopoverContent = (props: PopoverContentProps) => {
   const {as, children, className, ...otherProps} = props;
 
   const {
     Component: OverlayComponent,
-    isOpen,
     placement,
     backdrop,
     motionProps,
     disableAnimation,
-    shouldBlockScroll,
     getPopoverProps,
     getDialogProps,
     getBackdropProps,
@@ -83,7 +81,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
   }, [backdrop, disableAnimation, getBackdropProps]);
 
   const contents = (
-    <RemoveScroll enabled={shouldBlockScroll && isOpen} removeScrollBar={false}>
+    <>
       {disableAnimation ? (
         content
       ) : (
@@ -102,7 +100,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
           </m.div>
         </LazyMotion>
       )}
-    </RemoveScroll>
+    </>
   );
 
   return (
@@ -111,7 +109,7 @@ const PopoverContent = forwardRef<"div", PopoverContentProps>((props, _) => {
       {contents}
     </div>
   );
-});
+};
 
 PopoverContent.displayName = "NextUI.PopoverContent";
 

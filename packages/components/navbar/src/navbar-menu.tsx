@@ -1,10 +1,8 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {AnimatePresence, domAnimation, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
-import {ReactElement, useCallback} from "react";
-import {RemoveScroll} from "react-remove-scroll";
 import {Overlay} from "@react-aria/overlays";
 
 import {menuVariants} from "./navbar-menu-transitions";
@@ -23,6 +21,8 @@ export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
   motionProps?: HTMLMotionProps<"ul">;
 }
 
+const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+
 const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
   const domRef = useDOMRef(ref);
@@ -31,56 +31,41 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
 
   const styles = clsx(classNames?.menu, className);
 
-  const MenuWrapper = useCallback(
-    ({children}: {children: ReactElement}) => {
-      return (
-        <RemoveScroll forwardProps enabled={isMenuOpen} removeScrollBar={false}>
-          {children}
-        </RemoveScroll>
-      );
-    },
-    [isMenuOpen],
-  );
-
   const contents = disableAnimation ? (
-    <MenuWrapper>
-      <ul
-        ref={domRef}
-        className={slots.menu?.({class: styles})}
-        data-open={dataAttr(isMenuOpen)}
-        style={{
-          // @ts-expect-error
-          "--navbar-height": typeof height === "number" ? `${height}px` : height,
-        }}
-        {...otherProps}
-      >
-        {children}
-      </ul>
-    </MenuWrapper>
+    <ul
+      ref={domRef}
+      className={slots.menu?.({class: styles})}
+      data-open={dataAttr(isMenuOpen)}
+      style={{
+        // @ts-expect-error
+        "--navbar-height": typeof height === "number" ? `${height}px` : height,
+      }}
+      {...otherProps}
+    >
+      {children}
+    </ul>
   ) : (
     <AnimatePresence mode="wait">
       {isMenuOpen ? (
         <LazyMotion features={domAnimation}>
-          <MenuWrapper>
-            <m.ul
-              ref={domRef}
-              layoutScroll
-              animate="enter"
-              className={slots.menu?.({class: styles})}
-              data-open={dataAttr(isMenuOpen)}
-              exit="exit"
-              initial="exit"
-              style={{
-                // @ts-expect-error
-                "--navbar-height": typeof height === "number" ? `${height}px` : height,
-                ...style,
-              }}
-              variants={menuVariants}
-              {...mergeProps(motionProps, otherProps)}
-            >
-              {children}
-            </m.ul>
-          </MenuWrapper>
+          <m.ul
+            ref={domRef}
+            layoutScroll
+            animate="enter"
+            className={slots.menu?.({class: styles})}
+            data-open={dataAttr(isMenuOpen)}
+            exit="exit"
+            initial="exit"
+            style={{
+              // @ts-expect-error
+              "--navbar-height": typeof height === "number" ? `${height}px` : height,
+              ...style,
+            }}
+            variants={menuVariants}
+            {...mergeProps(motionProps, otherProps)}
+          >
+            {children}
+          </m.ul>
         </LazyMotion>
       ) : null}
     </AnimatePresence>

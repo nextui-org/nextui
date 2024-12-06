@@ -243,52 +243,213 @@ You can customize the `Tabs` component by passing custom Tailwind CSS classes to
 
 ### Tabs Props
 
-| Attribute              | Type                                                                                                   | Description                                                                                                  | Default     |
-| ---------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ----------- |
-| children\*             | `ReactNode` \| `((item: T) => ReactElement)`                                                           | The list of tabs.                                                                                            | -           |
-| variant                | `solid` \| `bordered` \| `light` \| `underlined`                                                       | The tabs appearance style.                                                                                   | `solid`     |
-| color                  | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                            | The tabs color theme.                                                                                        | `default`   |
-| size                   | `sm` \| `md` \| `lg`                                                                                   | The tabs size.                                                                                               | `md`        |
-| radius                 | `none` \| `sm` \| `md` \| `lg` \| `full`                                                               | The tabs border radius.                                                                                      | -           |
-| fullWidth              | `boolean`                                                                                              | Whether the tabs should take the full width of its parent.                                                   | `false`     |
-| items                  | [`Iterable<T>`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols) | The list of tabs (dynamic).                                                                                  | -           |
-| disabledKeys           | `React.Key[]`                                                                                          | The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.      | -           |
-| selectedKey            | `React.Key`                                                                                            | The key for the currently selected item.                                                                     | -           |
-| defaultSelectedKey     | `React.Key`                                                                                            | The key for the initially selected item.                                                                     | -           |
-| shouldSelectOnPressUp  | `boolean`                                                                                              | Whether the tabs selection should occur on press up instead of press down.                                   | `true`      |
-| keyboardActivation     | `automatic` \| `manual`                                                                                | Whether tabs are activated automatically on focus or manually.                                               | `automatic` |
-| motionProps            | [MotionProps](#motion-props)                                                                           | The props to modify the cursor framer motion animation. Use the `variants` API to create your own animation. | -           |
-| disableCursorAnimation | `boolean`                                                                                              | Whether the cursor should be hidden.                                                                         | `false`     |
-| isDisabled             | `boolean`                                                                                              | Whether the tab list should be disabled.                                                                     | `false`     |
-| disableAnimation       | `boolean`                                                                                              | Whether the tab list should be animated.                                                                     | `false`     |
-| classNames             | `Record<"base"｜ "tabList"｜ "tab"｜ "tabContent"｜ "cursor" ｜ "panel", string>`                      | Allows to set custom class names for the card slots.                                                         | -           |
-| placement            | `top` \| `bottom` \| `start` \| `end`                                                                  | The position of the tabs.                                                                                    | `top`       |
-| isVertical             | `boolean`                                                                                              | Whether the tabs are vertical.                                                                               | `false`     |
-| destroyInactiveTabPanel | `boolean`                     | Whether to destroy inactive tab panel when switching tabs. Inactive tab panels are inert and cannot be interacted with.                                                          | `true`  |
+<APITable
+  data={[
+    {
+      attribute: "children*",
+      type: "ReactNode | ((item: T) => ReactElement)",
+      description: "The list of tabs.",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | light | underlined",
+      description: "The tabs appearance style.",
+      default: "solid"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The tabs color theme.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The tabs size.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The tabs border radius.",
+      default: "-"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether the tabs should take the full width of its parent.",
+      default: "false"
+    },
+    {
+      attribute: "items",
+      type: "Iterable<T>",
+      description: "The list of tabs (dynamic).",
+      default: "-"
+    },
+    {
+      attribute: "disabledKeys",
+      type: "React.Key[]",
+      description: "The item keys that are disabled. These items cannot be selected, focused, or otherwise interacted with.",
+      default: "-"
+    },
+    {
+      attribute: "selectedKey",
+      type: "React.Key",
+      description: "The key for the currently selected item.",
+      default: "-"
+    },
+    {
+      attribute: "defaultSelectedKey",
+      type: "React.Key",
+      description: "The key for the initially selected item.",
+      default: "-"
+    },
+    {
+      attribute: "shouldSelectOnPressUp",
+      type: "boolean",
+      description: "Whether the tabs selection should occur on press up instead of press down.",
+      default: "true"
+    },
+    {
+      attribute: "keyboardActivation",
+      type: "automatic | manual",
+      description: "Whether tabs are activated automatically on focus or manually.",
+      default: "automatic"
+    },
+    {
+      attribute: "motionProps",
+      type: "MotionProps",
+      description: "The props to modify the cursor framer motion animation. Use the variants API to create your own animation.",
+      default: "-"
+    },
+    {
+      attribute: "disableCursorAnimation",
+      type: "boolean",
+      description: "Whether the cursor should be hidden.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the tab list should be disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether the tab list should be animated.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<\"base\"｜ \"tabList\"｜ \"tab\"｜ \"tabContent\"｜ \"cursor\" ｜ \"panel\", string>>",
+      description: "Allows to set custom class names for the card slots.",
+      default: "-"
+    },
+    {
+      attribute: "placement",
+      type: "top | bottom | start | end",
+      description: "The position of the tabs.",
+      default: "top"
+    },
+    {
+      attribute: "isVertical",
+      type: "boolean", 
+      description: "Whether the tabs are vertical.",
+      default: "false"
+    },
+    {
+      attribute: "destroyInactiveTabPanel",
+      type: "boolean",
+      description: "Whether to destroy inactive tab panel when switching tabs. Inactive tab panels are inert and cannot be interacted with.",
+      default: "true"
+    }
+  ]}
+/>
 
 ### Tabs Events
 
-| Attribute         | Type                      | Description                                        |
-| ----------------- | ------------------------- | -------------------------------------------------- |
-| onSelectionChange | `(key: React.Key) => any` | Handler that is called when the selection changes. |
+<APITable
+  data={[
+    {
+      attribute: "onSelectionChange",
+      type: "(key: React.Key) => any",
+      description: "Handler that is called when the selection changes.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Tab Props
 
-| Attribute               | Type                          | Description                                                                                                                                                                      | Default |
-|-------------------------|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|
-| children\*              | `ReactNode`                   | The content of the tab.                                                                                                                                                          | -       |
-| title                   | `ReactNode`                   | The title of the tab.                                                                                                                                                            | -       |
-| titleValue              | `string`                      | A string representation of the item's contents. Use this when the `title` is not readable.                                                                                       | -       |
-| href                    | `string`                      | A URL to link to. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#href).                                                                                   | -       |
-| target                  | `HTMLAttributeAnchorTarget`   | The target window for the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#target).                                                                   | -       |
-| rel                     | `string`                      | The relationship between the linked resource and the current page. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/rel).                                  | -       |
-| download                | `boolean` \| `string`         | Causes the browser to download the linked URL. A string may be provided to suggest a file name. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#download). | -       |
-| ping                    | `string`                      | A space-separated list of URLs to ping when the link is followed. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#ping).                                   | -       |
-| referrerPolicy          | `HTMLAttributeReferrerPolicy` | How much of the referrer to send when following the link. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a#referrerpolicy).                                 | -       |
-| shouldSelectOnPressUp   | `boolean`                     | Whether the tab selection should occur on press up instead of press down.                                                                                                        | -       |
-
-#### Motion Props
-
-```ts
-export type MotionProps = HTMLMotionProps<"div">; // @see https://www.framer.com/motion/
-```
+<APITable
+  data={[
+    {
+      attribute: "tabRef",
+      type: "RefObject<HTMLButtonElement>",
+      description: "A ref to the tab item.",
+      default: "-"
+    },
+    {
+      attribute: "children*",
+      type: "ReactNode",
+      description: "The content of the tab.",
+      default: "-"
+    },
+    {
+      attribute: "title",
+      type: "ReactNode",
+      description: "The title of the tab.",
+      default: "-"
+    },
+    {
+      attribute: "titleValue",
+      type: "string",
+      description: "A string representation of the item's contents. Use this when the title is not readable.",
+      default: "-"
+    },
+    {
+      attribute: "href",
+      type: "string",
+      description: "A URL to link to. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "target",
+      type: "HTMLAttributeAnchorTarget",
+      description: "The target window for the link. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "rel",
+      type: "string",
+      description: "The relationship between the linked resource and the current page. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "download",
+      type: "boolean | string",
+      description: "Causes the browser to download the linked URL. A string may be provided to suggest a file name. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "ping",
+      type: "string",
+      description: "A space-separated list of URLs to ping when the link is followed. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "referrerPolicy",
+      type: "HTMLAttributeReferrerPolicy",
+      description: "How much of the referrer to send when following the link. See MDN.",
+      default: "-"
+    },
+    {
+      attribute: "shouldSelectOnPressUp",
+      type: "boolean",
+      description: "Whether the tab selection should occur on press up instead of press down.",
+      default: "-"
+    }
+  ]}
+/>

@@ -5,12 +5,13 @@ import {tv} from "../utils/tv";
 
 const select = tv({
   slots: {
-    base: ["group inline-flex flex-col relative w-full"],
+    base: ["group inline-flex flex-col relative"],
     label: [
       "block",
       "absolute",
       "z-10",
       "origin-top-left",
+      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
       "rtl:origin-top-right",
       "subpixel-antialiased",
       "text-small",
@@ -24,8 +25,8 @@ const select = tv({
       "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
     selectorIcon: "absolute end-3 w-4 h-4",
     spinner: "absolute end-3",
-    value: ["text-foreground-500", "font-normal", "w-full", "text-left", "rtl:text-right"],
-    listboxWrapper: "scroll-py-6 max-h-64 w-full",
+    value: ["text-foreground-500", "font-normal", "w-full", "text-start"],
+    listboxWrapper: "scroll-py-6 w-full",
     listbox: "",
     popoverContent: "w-full p-1 overflow-hidden",
     helperWrapper: "p-1 flex relative flex-col gap-1.5",
@@ -37,17 +38,16 @@ const select = tv({
       flat: {
         trigger: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-200",
-          "group-data-[focus=true]:bg-default-100",
+          "data-[hover=true]:bg-default-50",
+          "group-data-[focus=true]:bg-default-50",
         ],
       },
       faded: {
         trigger: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-200",
           "border-medium",
           "border-default-200",
-          "data-[hover=true]:border-default-400",
+          "data-[hover=true]:border-default-400 data-[focus=true]:border-default-400 data-[open=true]:border-default-400",
         ],
         value: "group-data-[has-value=true]:text-default-foreground",
       },
@@ -57,7 +57,6 @@ const select = tv({
           "border-default-200",
           "data-[hover=true]:border-default-400",
           "data-[open=true]:border-default-foreground",
-          "data-[focus=true]:border-default-foreground",
           "data-[focus=true]:border-default-foreground",
         ],
         value: "group-data-[has-value=true]:text-default-foreground",
@@ -146,6 +145,9 @@ const select = tv({
       true: {
         base: "w-full",
       },
+      false: {
+        base: "min-w-40",
+      },
     },
     isDisabled: {
       true: {
@@ -186,6 +188,7 @@ const select = tv({
         label: [
           "will-change-auto",
           "origin-top-left",
+          // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
           "rtl:origin-top-right",
           "!duration-200",
           "!ease-out",
@@ -300,7 +303,8 @@ const select = tv({
       variant: "faded",
       color: "primary",
       class: {
-        trigger: "data-[hover=true]:border-primary",
+        trigger:
+          "data-[hover=true]:border-primary data-[focus=true]:border-primary data-[open=true]:border-primary",
         label: "text-primary",
       },
     },
@@ -308,7 +312,8 @@ const select = tv({
       variant: "faded",
       color: "secondary",
       class: {
-        trigger: "data-[hover=true]:border-secondary",
+        trigger:
+          "data-[hover=true]:border-secondary data-[focus=true]:border-secondary data-[open=true]:border-secondary",
         label: "text-secondary",
       },
     },
@@ -316,7 +321,8 @@ const select = tv({
       variant: "faded",
       color: "success",
       class: {
-        trigger: "data-[hover=true]:border-success",
+        trigger:
+          "data-[hover=true]:border-success data-[focus=true]:border-success data-[open=true]:border-success",
         label: "text-success",
       },
     },
@@ -324,7 +330,8 @@ const select = tv({
       variant: "faded",
       color: "warning",
       class: {
-        trigger: "data-[hover=true]:border-warning",
+        trigger:
+          "data-[hover=true]:border-warning data-[focus=true]:border-warning data-[open=true]:border-warning",
         label: "text-warning",
       },
     },
@@ -332,7 +339,8 @@ const select = tv({
       variant: "faded",
       color: "danger",
       class: {
-        trigger: "data-[hover=true]:border-danger",
+        trigger:
+          "data-[hover=true]:border-danger data-[focus=true]:border-danger data-[open=true]:border-danger",
         label: "text-danger",
       },
     },
@@ -534,7 +542,7 @@ const select = tv({
       labelPlacement: "inside",
       size: "lg",
       class: {
-        label: "text-small",
+        label: "text-medium",
         trigger: "h-16 min-h-16 py-2.5 gap-0",
       },
     },

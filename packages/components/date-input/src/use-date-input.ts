@@ -1,7 +1,8 @@
 import type {DateInputVariantProps, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaDateFieldProps} from "@react-types/datepicker";
 import type {SupportedCalendars} from "@nextui-org/system";
-import type {DateValue, Calendar} from "@internationalized/date";
+import type {DateValue} from "@react-types/datepicker";
+import type {Calendar} from "@internationalized/date";
 import type {ReactRef} from "@nextui-org/react-utils";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {DateInputGroupProps} from "./date-input-group";
@@ -17,6 +18,7 @@ import {useDateFieldState} from "@react-stately/datepicker";
 import {objectToDeps, clsx, dataAttr, getGregorianYearOffset} from "@nextui-org/shared-utils";
 import {dateInput, cn} from "@nextui-org/theme";
 import {useMemo} from "react";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
@@ -114,6 +116,7 @@ export type UseDateInputProps<T extends DateValue> = Props<T> &
 
 export function useDateInput<T extends DateValue>(originalProps: UseDateInputProps<T>) {
   const globalContext = useProviderContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
   const [props, variantProps] = mapPropsVariants(originalProps, dateInput.variantKeys);
 
@@ -143,7 +146,7 @@ export function useDateInput<T extends DateValue>(originalProps: UseDateInputPro
     innerWrapperProps: innerWrapperPropsProp,
     errorMessageProps: errorMessagePropsProp,
     descriptionProps: descriptionPropsProp,
-    validationBehavior = globalContext?.validationBehavior ?? "aria",
+    validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     shouldForceLeadingZeros = true,
     minValue = globalContext?.defaultDates?.minDate ??
       new CalendarDate(calendarProp, 1900 + gregorianYearOffset, 1, 1),

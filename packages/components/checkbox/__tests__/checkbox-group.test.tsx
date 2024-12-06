@@ -1,10 +1,17 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import {Form} from "@nextui-org/form";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {CheckboxGroup, Checkbox} from "../src";
 
 describe("Checkbox.Group", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(
       <CheckboxGroup defaultValue={[]} label="Select cities">
@@ -48,7 +55,7 @@ describe("Checkbox.Group", () => {
     expect(container.querySelector("[data-testid=second-checkbox] input")).not.toBeChecked();
   });
 
-  it("should change value after click", () => {
+  it("should change value after click", async () => {
     let value = ["sydney"];
     const wrapper = render(
       <CheckboxGroup
@@ -67,9 +74,7 @@ describe("Checkbox.Group", () => {
 
     const secondCheckbox = wrapper.getByTestId("second-checkbox");
 
-    act(() => {
-      secondCheckbox.click();
-    });
+    await user.click(secondCheckbox);
 
     expect(value).toEqual(["sydney", "buenos-aires"]);
   });
@@ -98,7 +103,7 @@ describe("Checkbox.Group", () => {
     expect(secondCheckbox).not.toBeChecked();
   });
 
-  it("should work correctly with controlled value", () => {
+  it("should work correctly with controlled value", async () => {
     let checked = ["sydney"];
     const onChange = jest.fn((value) => {
       checked = value;
@@ -125,20 +130,13 @@ describe("Checkbox.Group", () => {
 
     const secondCheckbox = wrapper.getByTestId("second-checkbox");
 
-    act(() => {
-      secondCheckbox.click();
-    });
+    await user.click(secondCheckbox);
 
     expect(onChange).toHaveBeenCalledTimes(1);
     expect(checked).toEqual(["sydney", "buenos-aires"]);
   });
 
   describe("validation", () => {
-    let user = userEvent.setup();
-
-    beforeAll(() => {
-      user = userEvent.setup();
-    });
     describe("validationBehavior=native", () => {
       it("supports group level isRequired", async () => {
         let {getAllByRole, getByRole, getByTestId} = render(
@@ -284,6 +282,60 @@ describe("Checkbox.Group", () => {
           expect(input.validity.valid).toBe(true);
         }
       });
+
+      it("supports server validation", async () => {
+        function Test() {
+          const [serverErrors, setServerErrors] = React.useState({});
+          const onSubmit = (e) => {
+            e.preventDefault();
+            setServerErrors({
+              terms: "You must accept the terms.",
+            });
+          };
+
+          return (
+            <Form validationErrors={serverErrors} onSubmit={onSubmit}>
+              <CheckboxGroup
+                label="Agree to the following"
+                name="terms"
+                validationBehavior="native"
+              >
+                <Checkbox value="terms">Terms and conditions</Checkbox>
+                <Checkbox value="cookies">Cookies</Checkbox>
+                <Checkbox value="privacy">Privacy policy</Checkbox>
+              </CheckboxGroup>
+              <button type="submit">Submit</button>
+            </Form>
+          );
+        }
+
+        const {getAllByRole, getByRole} = render(<Test />);
+
+        const group = getByRole("group");
+
+        expect(group).not.toHaveAttribute("aria-describedby");
+        const button = getByRole("button");
+
+        expect(button).toBeVisible();
+        await user.click(button);
+
+        expect(group).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "You must accept the terms.",
+        );
+
+        const checkboxes = getAllByRole("checkbox") as HTMLInputElement[];
+
+        for (let input of checkboxes) {
+          expect(input.validity.valid).toBe(false);
+        }
+
+        await user.click(checkboxes[0]);
+        expect(group).not.toHaveAttribute("aria-describedby");
+        for (let input of checkboxes) {
+          expect(input.validity.valid).toBe(true);
+        }
+      });
     });
 
     describe("validationBehavior=aria", () => {
@@ -322,6 +374,35 @@ describe("Checkbox.Group", () => {
 
         await user.click(checkboxes[2]);
         expect(group).toHaveAttribute("aria-describedby");
+      });
+
+      it("supports server validation", async () => {
+        const {getAllByRole, getByRole} = render(
+          <Form validationBehavior="aria" validationErrors={{terms: "You must accept the terms"}}>
+            <CheckboxGroup label="Agree to the following" name="terms">
+              <Checkbox value="terms">Terms and conditions</Checkbox>
+              <Checkbox value="cookies">Cookies</Checkbox>
+              <Checkbox value="privacy">Privacy policy</Checkbox>
+            </CheckboxGroup>
+          </Form>,
+        );
+
+        const group = getByRole("group");
+
+        expect(group).toHaveAttribute("aria-describedby");
+        expect(document.getElementById(group.getAttribute("aria-describedby")!)).toHaveTextContent(
+          "You must accept the terms",
+        );
+
+        const checkboxes = getAllByRole("checkbox");
+
+        for (let input of checkboxes) {
+          expect(input).toHaveAttribute("aria-invalid", "true");
+        }
+
+        // TODO: Fix the following functions to work
+        // await user.click(checkboxes[0]);
+        // expect(group).not.toHaveAttribute("aria-describedby");
       });
     });
   });

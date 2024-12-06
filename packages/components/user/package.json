@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/user",
-  "version": "2.0.34",
+  "version": "2.2.1",
   "description": "Flexible User Profile Component.",
   "keywords": [
     "user"
@@ -34,17 +34,17 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
   },
   "dependencies": {
     "@nextui-org/avatar": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/focus": "3.17.1",
-    "@react-aria/utils": "3.24.1"
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/utils": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

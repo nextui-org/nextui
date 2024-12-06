@@ -1,17 +1,18 @@
 import {useMemo, ReactNode} from "react";
-import {forwardRef} from "@nextui-org/system";
 
 import {UseListboxItemProps, useListboxItem} from "./use-listbox-item";
 import {ListboxSelectedIcon} from "./listbox-selected-icon";
 
-export interface ListboxItemProps<T extends object = object> extends UseListboxItemProps<T> {}
+export interface ListboxItemProps<T extends object = object>
+  extends Omit<UseListboxItemProps<T>, "hasDescriptionTextChild" | "hasTitleTextChild"> {}
 
 /**
  * @internal
  */
-const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
+const ListboxItem = (props: ListboxItemProps) => {
   const {
     Component,
+    FragmentWrapper,
     rendered,
     description,
     isSelectable,
@@ -22,6 +23,7 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
     endContent,
     hideSelectedIcon,
     disableAnimation,
+    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getWrapperProps,
@@ -45,22 +47,24 @@ const ListboxItem = forwardRef<"li", ListboxItemProps>((props, _) => {
 
   return (
     <Component {...getItemProps()}>
-      {startContent}
-      {description ? (
-        <div {...getWrapperProps()}>
+      <FragmentWrapper {...fragmentWrapperProps}>
+        {startContent}
+        {description ? (
+          <div {...getWrapperProps()}>
+            <span {...getLabelProps()}>{rendered}</span>
+            <span {...getDescriptionProps()}>{description}</span>
+          </div>
+        ) : (
           <span {...getLabelProps()}>{rendered}</span>
-          <span {...getDescriptionProps()}>{description}</span>
-        </div>
-      ) : (
-        <span {...getLabelProps()}>{rendered}</span>
-      )}
-      {isSelectable && !hideSelectedIcon && (
-        <span {...getSelectedIconProps()}>{selectedContent}</span>
-      )}
-      {endContent}
+        )}
+        {isSelectable && !hideSelectedIcon && (
+          <span {...getSelectedIconProps()}>{selectedContent}</span>
+        )}
+        {endContent}
+      </FragmentWrapper>
     </Component>
   );
-});
+};
 
 ListboxItem.displayName = "NextUI.ListboxItem";
 
