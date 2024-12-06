@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.4.1
+
+### Patch Changes
+
+- [`d6eee4a`](https://github.com/nextui-org/nextui/commit/d6eee4a8767556152f47f06dcf04940951abc5af) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.6.2
+
 ## 2.4.0
 
 ### Minor Changes
