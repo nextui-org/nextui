@@ -1,8 +1,8 @@
 ---
 title: "NextUI v2.6.0 🔥"
-description: "NextUI v2.6.0 includes 4 new components, React 19 & Next.js 15 support, and lots of bug fixes and improvements."
-date: "2024-12-03"
-image: "/blog/v2.4.0.jpg"
+description: "4 new components Form, Drawer, Input OTP and Alert, React 19 & Next.js 15 support, and lots of bug fixes and improvements."
+date: "2024-12-06"
+image: "/blog/v2.6.0.jpg"
 tags: ["nextui", "v2.6.0", "release", "bug fixes", "improvements", "animations"]
 author:
   name: "Junior Garcia"
@@ -12,9 +12,14 @@ author:
 ---
 
 import {formContent} from "@/content/components/form";
+import {drawerContent} from "@/content/components/drawer";
+import {inputOtpContent} from "@/content/components/input-otp";
+import {alertContent} from "@/content/components/alert";
+import {autocompleteContent} from "@/content/components/autocomplete";
+import {modalContent} from "@/content/components/modal";
 
 <img
-  src="/blog/v2.4.0_2x.jpg"
+  src="/blog/v2.6.0_2x.jpg"
   width={700}
   height={350}
   alt="NextUI v2.6.0"
@@ -25,18 +30,19 @@ NextUI version **v2.6.0** comes with 4 new components **Form**, **Drawer**, **In
 
 ## What's New in v2.6.0?
 
-- [Form Component](#form-component) - A form component that allows users to submit data to a server or perform client-side validation.
-- [Drawer Component](#drawer-component) - A drawer component that allows users to slide in content from the side of the screen.
-- [Input OTP Component](#input-otp-component) - An input component that allows users to enter a one-time password.
-- [Alert Component](#alert-component) - An alert component that allows users to display messages to the user.
-- [React 19 & Next.js 15 Support](#react-19-and-nextjs-15-support) - NextUI now supports React 19 and Next.js 15.
-- [Collection-based components Virtualization](#collection-based-components-virtualization) - `Select`, `Autocomplete` & `Listbox` components now support virtualization to improve performance on large collections.
-- [Framer Motion](#framer-motion) - Framer motion is now only added to the final bundle when the animations are enabled. We also added support for Framer motion v12.
-- [New use-theme hook](#use-theme-hook) - We created our own `use-theme` hook that replaces `use-dark-theme` hook to allow users to change the theme at runtime.
-- [React Aria Packages Upgrades](#react-aria-packages-upgrades) - Upgrades and fixes the exact versions of React Aria.
-- [Draggable Modal](#draggable-modal) - Added support for draggable modals.
-- [New Props and Features](#new-props-and-features) - Added several new props including `selectorButtonPlacement`, `tabRef`, `shouldCloseOnScroll`, `showMonthAndYearPickers`, and more.
-- [Other Changes](#other-changes) - Includes styling improvements, accessibility, usability enhancements and over 60 bug fixes across different component packages
+- [Form Component](#form-component) - A form component with built-in validation, submission handling, and accessibility features.
+- [Drawer Component](#drawer-component) - A sliding panel component with multiple placement options and focus management.
+- [Input OTP Component](#input-otp-component) - An accessible one-time password input with focus management.
+- [Alert Component](#alert-component) - A component for displaying messages with accessibility and keyboard navigation support.
+- [Collection-based components Virtualization](#collection-based-components-virtualization) - Performance improvements for large datasets in Select, Autocomplete & Listbox components.
+- [React 19 Support & Library Upgrades](#react-19-support--library-upgrades) - Support for React 19 and upgrades to various dependencies.
+- [New use-theme hook](#new-use-theme-hook) - A new hook for runtime theme management.
+- [Draggable Modal](#draggable-modal) - Support for draggable modal functionality.
+- [Router Improvements](#router-improvements) - Enhanced routing capabilities and TypeScript support.
+- [API Improvements](#api-improvements) - New features and props across multiple components.
+- [What's Next?](#whats-next) - Upcoming features and improvements.
+- [Breaking Changes](#-breaking-changes) - Important changes that may affect existing implementations.
+- [Release Changes](#release-changes) - Detailed list of features, documentation updates, bug fixes and enhancements.
 
 <Spacer y={4} />
 
@@ -51,12 +57,15 @@ Upgrade today by running one of the following commands:
   }}
 />
 
-
 <Spacer y={4} />
 
 ## Form Component
 
-The Form component is built on top of [React Aria's Form component](https://react-spectrum.adobe.com/react-aria/forms.html#forms), providing a solid foundation for building accessible forms. It handles form submission, validation, and error handling while maintaining a clean and intuitive API.
+Built on [React Aria's Form](https://react-spectrum.adobe.com/react-aria/forms.html#forms) component, the [Form](/docs/components/forms) component provides accessible form handling with built-in submission, validation and error management.
+
+<Spacer y={4} />
+
+<CodeDemo title="Usage" showEditor={false} files={formContent.demo} />
 
 ### Built-in Validation
 
@@ -89,30 +98,45 @@ function Example() {
 
 You can validate the form data while users are typing.
 
-
 ```tsx
 function Example() {
   const [password, setPassword] = React.useState("");
-  const errors: string[] = [];
+  const errors = [];
 
-  if (password.length < 8) {
-    errors.push("Password must be 8 characters or more.");
+  if (password.length < 4) {
+    errors.push("Password must be 4 characters or more.");
   }
-  if ((password.match(/[A-Z]/g) ?? []).length < 2) {
-    errors.push("Password must include at least 2 upper case letters");
+  if ((password.match(/[A-Z]/g) || []).length < 1) {
+    errors.push("Password must include at least 1 upper case letter");
+  }
+  if ((password.match(/[^a-z]/gi) || []).length < 1) {
+    errors.push("Password must include at least 1 symbol.");
   }
 
   return (
     <Input
-      label="Password"
-      value={password}
-      onValueChange={setPassword}
+      errorMessage={() => (
+        <ul>
+          {errors.map((error, i) => (
+            <li key={i}>{error}</li>
+          ))}
+        </ul>
+      )}
       isInvalid={errors.length > 0}
-      errorMessage={errors.join(", ")}
+      label="Password"
+      labelPlacement="outside"
+      placeholder="Enter your password"
+      value={password}
+      variant="bordered"
+      onValueChange={setPassword}
     />
   );
 }
 ```
+
+<Spacer y={4} />
+
+<CodeDemo title="Real-time Validation" showEditor={false} files={formContent.realTimeValidation} />
 
 ### Server Integration
 
@@ -125,8 +149,8 @@ import {useActionState} from "react";
 import {Button, Form, Input} from "@nextui-org/react";
 
 export function AddForm() {
-  const [{ errors }, formAction] = useActionState(createTodo, {
-    errors: {}
+  const [{errors}, formAction] = useActionState(createTodo, {
+    errors: {},
   });
 
   return (
@@ -147,12 +171,12 @@ import {Controller, useForm} from "react-hook-form";
 import {Button, Form, Input} from "@nextui-org/react";
 
 function Example() {
-  const { handleSubmit, control } = useForm({
+  const {handleSubmit, control} = useForm({
     defaultValues: {
-      name: ""
-    }
+      name: "",
+    },
   });
-  
+
   return (
     <Form onSubmit={handleSubmit((data) => console.log(data))}>
       <Controller
@@ -176,7 +200,7 @@ function Example() {
 
 ### Accessibility Built-in
 
-The Form component automatically handles ARIA attributes and keyboard navigation, making your forms usable by everyone:
+The `Form` component automatically handles ARIA attributes and keyboard navigation, making your forms usable by everyone:
 
 ```tsx
 function Example() {
@@ -201,242 +225,510 @@ function Example() {
 }
 ```
 
+### Schema validation
+
+The `Form` component supports errors from schema validation libraries like [Zod](https://zod.dev/).
+You can use Zod's `flatten` method to get error messages for each field and return them as part of the server response.
+
+```tsx {14}
+// In your server.
+import {z} from "zod";
+
+const schema = z.object({
+  name: z.string().min(1),
+  age: z.coerce.number().positive(),
+});
+
+function handleRequest(formData: FormData) {
+  const result = schema.safeParse(Object.fromEntries(formData));
+
+  if (!result.success) {
+    return {
+      errors: result.error.flatten().fieldErrors,
+    };
+  }
+
+  // Do something with the validated data.
+
+  return {
+    errors: {},
+  };
+}
+```
+
+<Spacer y={4} />
+
+```tsx {13}
+// In your client.
+import {useFormState} from "react";
+import {Button, Form, Input} from "@nextui-org/react";
+
+import {handleRequest} from "./server";
+
+function Example() {
+  const [formState, formAction] = useFormState(handleRequest, {
+    errors: {},
+  });
+
+  return (
+    <Form action={formAction} validationErrors={formState.errors}>
+      <Input isRequired label="Name" name="name" />
+      <Input isRequired label="Age" name="age" type="number" />
+      <Button type="submit">Submit</Button>
+    </Form>
+  );
+}
+```
+
+### Key Features
+
+- **Server Integration**: Works seamlessly with React Server Actions
+- **Schema Validation**: Supports Zod schema validation
+- **Form Libraries Support**: Supports popular form libraries like `react-hook-form` and `formik`
+- **Accessibility**: Built-in accessibility features including ARIA attributes and keyboard navigation
+
 Check out our [Forms documentation](/docs/components/forms) for a deep dive into all the features and capabilities.
+
+<Spacer y={4} />
+
+## Drawer Component
+
+The new [Drawer](/docs/components/drawer) component displays a sliding panel from the screen edge with supplementary content, featuring built-in accessibility, focus management, and keyboard navigation.
+
+```tsx
+import {
+  Drawer,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+  DrawerFooter,
+  Button,
+  useDisclosure,
+} from "@nextui-org/react";
+
+export default function App() {
+  const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
+  return (
+    <>
+      <Button
+        color="primary"
+        endContent={
+          <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M5.75 1.25a.75.75 0 1 0-1.5 0v.823l-.392.044c-.9.121-1.658.38-2.26.982s-.861 1.36-.982 2.26C.5 6.225.5 7.328.5 8.695v.11l.117 3.337c.121.9.38 1.658.982 2.26s1.36.861 2.26.982c.867.117 1.969.117 3.337.117h1.658l3.337-.117c.9-.121 1.658-.38 2.26-.982s.861-1.36.982-2.26c.117-.867.117-1.969.117-3.337v-.11l-.117-3.337c-.121-.9-.38-1.658-.982-2.26s-1.36-.861-2.26-.982l-.44-.048V1.25a.75.75 0 0 0-1.5 0v.756L8.853 2H7.195q-.78-.002-1.445.006zm4.5 3v-.744L8.798 3.5H7.25l-1.5.007v.743a.75.75 0 1 1-1.5 0v-.67l-.192.023c-.734.099-1.122.279-1.399.556s-.457.665-.556 1.399C2.002 6.313 2 7.315 2 8.75l.103 3.192c.099.734.279 1.122.556 1.399s.665.457 1.399.556c.755.101 1.756.103 3.192.103h1.548l3.192-.103c.734-.099 1.122-.279 1.399-.556s.457-.665.556-1.399c.102-.755.103-1.757.103-3.192l-.103-3.192c-.099-.734-.279-1.122-.556-1.399s-.665-.457-1.399-.556l-.241-.028v.675a.75.75 0 0 1-1.5 0zm-5 3.5a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0m0 3.5a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0M8 8.5A.75.75 0 1 0 8 7a.75.75 0 1 0 0 1.5m.75 2.75a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0M11.5 8.5a.75.75 0 1 0 0-1.5.75.75 0 1 0 0 1.5m.75 2.75a.75.75 0 1 1-1.5 0 .75.75 0 1 1 1.5 0"
+              fill="currentColor"
+              fillRule="evenodd"
+            />
+          </svg>
+        }
+        variant="flat"
+        onPress={onOpen}
+      >
+        See Event
+      </Button>
+      <Drawer isOpen={isOpen} onOpenChange={onOpenChange}>
+        <DrawerContent>
+          {(onClose) => (
+            <>
+              <DrawerHeader>Drawer Title</DrawerHeader>
+              <DrawerBody>{/* Drawer content goes here */}</DrawerBody>
+              <DrawerFooter>{/* Drawer footer content goes here */}</DrawerFooter>
+            </>
+          )}
+        </DrawerContent>
+      </Drawer>
+    </>
+  );
+}
+```
+
+<Spacer y={4} />
+
+<CodeDemo title="Drawer Usage" showEditor={false} files={drawerContent.customStyles} />
+
+### Key Features
+
+- **Multiple Placements**: Can be positioned on any edge of the screen (left, right, top, bottom)
+- **Customizable Sizes**: Comes with preset sizes from xs to 5xl, plus full-width option
+- **Backdrop Options**: Supports transparent, opaque, or blur backdrop styles
+- **Focus Management**: Automatically handles focus trapping and restoration
+- **Keyboard Navigation**: Built-in support for Esc key dismissal and keyboard navigation
+- **Form Validation**: Supports built-in validation states and custom validation rules for form inputs
+
+See the [Drawer documentation](/docs/components/drawer) for more details and examples.
+
+<Spacer y={4} />
+
+## Input OTP Component
+
+The [Input OTP](/docs/components/input-otp) component provides an accessible way to enter one-time passwords with built-in focus management and keyboard navigation. It is built on top of the [input-otp](https://github.com/guilhermerodz/input-otp) library by [@guilherme_rodz](https://twitter.com/guilherme_rodz).
+
+```tsx
+import {Button, InputOtp, Form} from "@nextui-org/react";
+
+export default function App() {
+  const [otp, setOtp] = React.useState("");
+
+  return (
+    <Form
+      className="flex w-full flex-col items-start gap-4"
+      onSubmit={(e) => {
+        e.preventDefault();
+        const formData = new FormData(e.currentTarget);
+        const otp = formData.get("otp");
+
+        setOtp(otp);
+      }}
+    >
+      <InputOtp
+        isRequired
+        aria-label="OTP input field"
+        length={4}
+        name="otp"
+        placeholder="Enter code"
+        validationBehavior="native"
+      />
+      <Button size="sm" type="submit" variant="bordered">
+        Submit
+      </Button>
+      {otp && <div className="text-small text-default-500">OTP submitted: {otp}</div>}
+    </Form>
+  );
+}
+```
+
+<Spacer y={4} />
+
+<CodeDemo title="Input OTP Usage" showEditor={false} files={inputOtpContent.required} />
+
+### Key Features
+
+- **Focus Management**: Automatically handles focus trapping and restoration
+- **Keyboard Navigation**: Built-in support for Esc key dismissal and keyboard navigation
+- **Customizable Animations**: Supports custom motion animations through Framer Motion
+- **Form Integration**: Seamlessly works with form elements while maintaining proper focus management
+
+See the [Input OTP documentation](/docs/components/input-otp) for more details and examples.
+
+<Spacer y={4} />
+
+## Alert Component
+
+The [Alert](/docs/components/alert) component allows users to display messages to the user. It's built with accessibility in mind and includes features like focus management, keyboard navigation, and screen reader support.
+
+```tsx
+import {Alert} from "@nextui-org/react";
+
+export default function App() {
+  return (
+    <Alert
+      color="success"
+      variant="faded"
+      title="This is an alert"
+      description="Thanks for subscribing to our newsletter!"
+    />
+  );
+}
+```
+
+<Spacer y={4} />
+
+<CodeDemo title="Alert Usage" showEditor={false} files={alertContent.controlled} />
+
+### Key Features
+
+- **Focus Management**: Automatically handles focus trapping and restoration
+- **Keyboard Navigation**: Built-in support for Esc key dismissal and keyboard navigation
+- **Customizable Animations**: Supports custom motion animations through Framer Motion
+- **Form Integration**: Seamlessly works with form elements while maintaining proper focus management
+
+See the [Alert documentation](/docs/components/alert) for more details and examples.
+
+<Spacer y={4} />
+
+## Collection-based components Virtualization
+
+[Select](/docs/components/select), [Autocomplete](/docs/components/autocomplete) & [Listbox](/docs/components/listbox) components now support virtualization to improve performance on large collections.
+
+<CodeDemo title="Virtualization" highlightedLines="41" files={autocompleteContent.virtualization} />
+
+> **Note**: The virtualization strategy is based on the [@tanstack/react-virtual](https://tanstack.com/virtual/latest) package, which provides efficient rendering of large lists by only rendering items that are visible in the viewport.
+
+See the [Autocomplete documentation](/docs/components/autocomplete) for more details and examples.
+
+<Spacer y={4} />
+
+## React 19 Support & Library Upgrades
+
+- In preparation for [React 19](https://react.dev/blog/2024/12/05/react-19), NextUI is now compatible with React 19 RC and Next.js 15.
+- React Aria packages upgrades and fixes the exact versions of React Aria, React Flow, React Hook Form, React Router, React Server, React Use, Tanstack Query, Tanstack Virtual, and Tanstack Table
+- Framer Motion is now **only** added to the final bundle when the animations are enabled and we also added support for [Framer motion v12](https://motion.dev/blog/framer-motion-is-now-independent-introducing-motion)
+
+<Spacer y={4} />
+
+## New use-theme hook
+
+We created our own `use-theme` hook that replaces `use-dark-theme` hook to allow users to change the theme at runtime.
+
+```jsx
+// App.tsx or App.jsx
+import React from "react";
+import {useTheme} from "@nextui-org/use-theme";
+
+export default function App() {
+  const {theme} = useTheme();
+
+  return (
+    <main className={`${theme} text-foreground bg-background`}>
+      <App />
+    </main>
+  );
+}
+```
+
+<Spacer y={4} />
+
+```jsx
+// components/ThemeSwitcher.tsx
+import {useTheme} from "@nextui-org/use-theme";
+
+export const ThemeSwitcher = () => {
+  const {theme, setTheme} = useTheme();
+
+  return (
+    <div>
+      The current theme is: {theme}
+      <button onClick={() => setTheme("light")}>Light Mode</button>
+      <button onClick={() => setTheme("dark")}>Dark Mode</button>
+    </div>
+  );
+};
+```
+
+See the [Dark Mode documentation](/docs/customization/dark-mode) for more details and examples.
+
+<Spacer y={4} />
+
+## Draggable Modal
+
+Added support for draggable modals.
+
+<CodeDemo title="Draggable Modal" showEditor={false} files={modalContent.draggable} />
+
+<Spacer y={4} />
+
+> **Note**: The modal is draggable only from the header part.
+
+## Router Improvements
+
+NextUI now provides enhanced routing capabilities with better TypeScript support and integration with popular routing solutions:
+
+- **Path Type Safety**: All router-based components now support path intellisense when using TypeScript
+- **Router Options Support**: Added `routerOptions` prop to all link components for controlling navigation behavior
+- **Enhanced Router Configuration**: Global type configuration for router options through TypeScript:
+
+```tsx
+// Example with Next.js App Router
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>;
+  }
+}
+```
+
+- **Improved Base Path Support**: Better handling of base paths through the new `useHref` prop in `NextUIProvider`
+- **Framework-specific Optimizations**: Built-in support for Next.js (both App and Pages Router), React Router, Remix, and TanStack Router
+
+See the [Routing documentation](/docs/guides/routing) for more details.
 
 <Spacer y={4} />
 
 ## API Improvements
 
-### disableRipple
+### NextUIProvider
 
-By default, there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `NextUIProvider`.
+- `useHref` (added) - Converts a router-specific href to a native href for use on DOM elements. For example, if your router accepts relative paths or custom link formats, useHref will generate the full native href based on the RouterProvider's configuration.
+- `navigate` (modified) - `((path: Href, routerOptions?: RouterOptions) => void) | undefined` - we added the router options
+- `reduceMotion` (added) - Controls the motion preferences for the entire application, allowing developers to respect user settings for reduced motion. The available options are:
 
-```tsx
-"use client";
+### DatePicker
 
-import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+- `selectorButtonPlacement` (added) - Controls the placement of selector buttons
+- `showMonthAndYearPickers` (added) - Controls visibility of month and year picker dropdowns
 
-export function AppProvider(props: AppProviderProps) {
-  const {children, className} = props;
+### Tabs
 
-  return (
-    <NextUIProvider className={className} disableRipple>
-      {children}
-    </NextUIProvider>
-  );
-}
+- `tabRef` (added) - Allows accessing the underlying tab element via ref
 
-interface AppProviderProps {
-  children: ReactNode;
-  className?: string;
-}
+### Popover
+
+- `shouldCloseOnScroll` (added) - Controls whether popover should close when scrolling
+
+### Table
+
+- `isKeyboardNavigationDisabled` (added) - Disables keyboard navigation in tables
+
+### Textarea
+
+- `isClearable` (added) - Adds clear button functionality to textarea
+
+### Select
+
+- `hideEmptyContent` (added) - Controls visibility of empty content message
+- Added virtualization support for improved performance with large datasets
+
+### Autocomplete & Listbox
+
+- Added virtualization support for improved performance with large datasets
+
+### Modal
+
+- Added support for draggable modals (draggable from header)
+
+See the [NextUIProvider documentation](/docs/api-references/nextui-provider) for more details.
+
+<Spacer y={4} />
+
+## What's Next?
+
+- **Rebranding** - We're preparing a rebranding of NextUI to ensure long-term sustainability and avoid potential naming conflicts
+- **Update NextUI Pro** - We're working on a new version of NextUI Pro that will be compatible with Next.js 15 and React 19. Follow progress [here](https://feedback.nextui.pro/roadmap)
+- **Tailwind CSS v4** support - Read more [here](https://tailwindcss.com/docs/v4-beta)
+- **React 19** internal APIs migration - Read more [here](https://react.dev/blog/2024/12/05/react-19)
+- **Toast** component - Follow progress [here](https://nextuioss.featurebase.app/roadmap)
+- **Complete Figma components** - Follow progress [here](https://nextuioss.featurebase.app/roadmap)
+
+## 🚨 Breaking Changes
+
+We try to keep the breaking changes to a minimum, but sometimes it's necessary to make changes to the API to improve the developer experience.
+
+#### Table Theme Group Data Selectors
+
+The nested group selectors for table themes have been updated to require explicit element selectors. You'll need to add `/tr` or `/th` to custom styles for group-data.
+
+Before:
+
+```css
+group-data-[disabled=true]: text-foreground-300;
 ```
 
-### skipFramerMotionAnimations
+After:
 
-We can control whether `framer-motion` animations are skipped within the application. This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`, effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while using the `disableAnimation` prop for other purposes, set this to `false`. However, note that animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
-
-```tsx
-"use client";
-
-import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
-
-export function AppProvider(props: AppProviderProps) {
-  const {children, className} = props;
-
-  return (
-    <NextUIProvider className={className} skipFramerMotionAnimations>
-      {children}
-    </NextUIProvider>
-  );
-}
-
-interface AppProviderProps {
-  children: ReactNode;
-  className?: string;
-}
+```css
+group-data-[disabled=true]/tr: text-foreground-300;
 ```
 
-### validationBehavior
+#### Circular Progress Theme Location
 
-We can set `validationBehavior` to either `native` or `aria` to control whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA. If it is not specified, `aria` will be used by default.
+The circular progress Tailwind variants have been moved from `circular-progress` to `progress`. You'll need to update your Tailwind CSS configuration:
 
-```tsx
-"use client";
+Before:
 
-import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+```js
+"./node_modules/@nextui-org/theme/dist/components/circular-progress.js";
+```
 
-export function AppProvider(props: AppProviderProps) {
-  const {children, className} = props;
+After:
 
-  return (
-    <NextUIProvider className={className} validationBehavior="native">
-      {children}
-    </NextUIProvider>
-  );
-}
-
-interface AppProviderProps {
-  children: ReactNode;
-  className?: string;
-}
+```js
+"./node_modules/@nextui-org/theme/dist/components/progress.js";
 ```
 
 <Spacer y={4} />
 
-## CLI Improvements
+## Release Changes
 
-### Refactor Init Flow View
+**Features**:
 
-We've refactored the init flow view to provide a better user experience.
+- Added Alert component by [@jrgarciadev](https://github.com/jrgarciadev) and [@abhinav700](https://github.com/abhinav700) in [PR #3982](https://github.com/nextui-org/nextui/pull/3982), [PR #3680](https://github.com/nextui-org/nextui/pull/3680), [PR #4071](https://github.com/nextui-org/nextui/pull/4071), and [PR #4073](https://github.com/nextui-org/nextui/pull/4073)
+- Added Draggable modal by [@jrgarciadev](https://github.com/jrgarciadev) and [@wzc520pyfm](https://github.com/wzc520pyfm) in [PR #3983](https://github.com/nextui-org/nextui/pull/3983) and [PR #2818](https://github.com/nextui-org/nextui/pull/2818)
+- Added Drawer component by [@jrgarciadev](https://github.com/jrgarciadev) and [@1111mp](https://github.com/1111mp) in [PR #3986](https://github.com/nextui-org/nextui/pull/3986), [PR #2223](https://github.com/nextui-org/nextui/pull/2223) and [PR #4057](https://github.com/nextui-org/nextui/pull/4057)
+- Added InputOTP component by [@macci001](https://github.com/macci001) in [PR #4052](https://github.com/nextui-org/nextui/pull/4052)
+- Added Form component by [@ryo-manba](https://github.com/ryo-manba) in [PR #3036](https://github.com/nextui-org/nextui/pull/3036)
+- Added `selectorButtonPlacement` prop to date-picker by [@ryo-manba](https://github.com/ryo-manba) in [PR #3248](https://github.com/nextui-org/nextui/pull/3248)
+- Added `tabRef` prop to tabs by [@winchesHe](https://github.com/winchesHe) in [PR #3974](https://github.com/nextui-org/nextui/pull/3974)
+- Added `shouldCloseOnScroll` prop to popover by [@awesome-pro](https://github.com/awesome-pro) in [PR #3595](https://github.com/nextui-org/nextui/pull/3595)
+- Added `showMonthAndYearPickers` prop to date-range-picker and range-calendar by [@ryo-manba](https://github.com/ryo-manba) in [PR #3302](https://github.com/nextui-org/nextui/pull/3302)
+- Added `use-theme` hook by [@wingkwong](https://github.com/wingkwong) in [PR #3169](https://github.com/nextui-org/nextui/pull/3169)
+- Added `isKeyboardNavigationDisabled` prop in Table by [@macci001](https://github.com/macci001) in [PR #3735](https://github.com/nextui-org/nextui/pull/3735)
+- Added `reducedMotion` to Provider by [@ryo-manba](https://github.com/ryo-manba) in [PR #3470](https://github.com/nextui-org/nextui/pull/3470)
+- Added `isClearable` to Textarea by [@jrgarciadev](https://github.com/jrgarciadev) and [@IsDyh01](https://github.com/IsDyh01) in [PR #4172](https://github.com/nextui-org/nextui/pull/4172) and [PR #3477](https://github.com/nextui-org/nextui/pull/3477)
+- Added `hideEmptyContent` to Select by [@Peterl561](https://github.com/Peterl561) in [PR #4219](https://github.com/nextui-org/nextui/pull/4219)
 
-The latest flow view output:
+**Documentation**:
 
-```bash
-┌  Create a new project
-│
-◇  Select a template (Enter to select)
-│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
-│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
-│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
-│
-◇  New project name (Enter to skip with default name)
-│  my-nextui-app
-│
-◇  Select a package manager (Enter to select)
-│  ● npm
-│  ○ yarn
-│  ○ pnpm
-│  ○ bun
-│
-◇  Template created successfully!
-│
-◇  Next steps ───────╮
-│                    │
-│  cd my-nextui-app  │
-│  npm install       │
-│                    │
-├────────────────────╯
-│
-└  🚀 Get started with npm run dev
-```
-
-### Add Vite Template
-
-We've introduced a new Vite template pre-configured with NextUI v2 and TailwindCSS. The following command is to initialize a new Vite project named `my-vite-app`.
-
-```bash
-nextui init my-vite-app -t vite
-```
-
-### Package Manager Flag
-
-We've introduced a new flag `-p` (or `--package`) to init command to allow users to choose the package manager to use for the new project. By default, `npm` is used. For example, the following command will initialize a new NextUI project with the app template named my-nextui-app using pnpm package manager.
-
-```bash
-nextui init my-nextui-app -t app -p pnpm
-```
-
-### no-cache Flag
-
-We've introduced a new flag `--no-cache` to allow users to disable the cache. By default, the data will be cached for 30 mins after the first request. It is useful when the data is cached, and you wish to upgrade to the new version just released after the first request. In this way, you can run the following command
-
-```bash
-nextui --no-cache upgrade
-```
-
-### Upgrade Version Output
-
-You can now run the upgrade command and see the summary version of the package you are upgrading to.
-
-![image](https://github.com/nextui-org/nextui-cli/assets/96854855/2a5945dd-5187-4e20-81b8-4136e9791dde)
-
-### Upgrade And Remove Select View Optimization
-
-The disabled option(s) will be displayed in the bottom of the list.
-
-![image](https://github.com/nextui-org/nextui-cli/assets/96854855/c7ddf9e4-3054-4bf1-b8e3-dc2f6226091a)
-
-### Doctor Command add peerDependencies check
-
-The `doctor` command now checks for peerDependencies and displays the incorrect peerDependencies. (See [nextui-org/nextui#2954](https://github.com/nextui-org/nextui/issues/2954) for more).
-
-<Spacer y={4} />
-
-## React Aria Packages Upgrades
-
-We've upgraded and fixed React Aria packages dependencies across our components. This update focuses on enhancing accessibility, ensuring better compatibility with the latest versions of React Aria, and resolving previously reported bugs.
-
-<Spacer y={4} />
-
-## Breaking Changes
-
-### Export improved `cn` utility
-
-> If you are using it from `@nextui-org/react`, no changes are required.
-
-The new `cn` utility exported from the `@nextui-org/theme` package includes `tailwind-merge` to avoid conflicts between tailwindcss classes overrides and includes the config for NextUI custom classes.
-
-If you are using the `cn` utility from the `@nextui-org/system`, 
-
-```diff-tsx
--import {cn} from "@nextui-org/system"
-```
-
-or `@nextui-org/system-rsc` package,
-
-```diff-tsx
--import {cn} from "@nextui-org/system-rsc"
-```
-
-you need to update the import as follows:
-
-```diff-tsx
-+ import {cn} from "@nextui-org/theme"
-```
-
-<Spacer y={4} />
-
-### Validation Behavior
-
-Since v2.4.0, we've changed the default validation behavior to `aria` which means no native validation is applied. If you wish to use the native validation, you can set `validationBehavior` to `native` to the input components or set it to the Provider as stated above.
-
-For those who use `validationBehavior="aria"`, `validate` will be no longer applied since it is only for native validation. Therefore, you need to switch to use `isInvalid` prop instead.
-
-```tsx
-<form onSubmit={onSubmit}>
-  <Input errorMessage={formErrors?.field1} isInvalid={!!formErrors?.field1} name="field1" />
-  <Button type="submit">Submit</Button>
-</form>
-```
-
-<Spacer y={4} />
-
-## Other Changes
+- Fixed broken links by [@wingkwong](https://github.com/wingkwong) in [PR #3796](https://github.com/nextui-org/nextui/pull/3796)
+- Fixed canary storybook links by [@wingkwong](https://github.com/wingkwong) in [PR #4030](https://github.com/nextui-org/nextui/pull/4030)
+- Fixed typos in dark mode page by [@wingkwong](https://github.com/wingkwong) in [PR #3823](https://github.com/nextui-org/nextui/pull/3823)
+- Fixed types for classNames and itemClasses by [@wingkwong](https://github.com/wingkwong) in [PR #4209](https://github.com/nextui-org/nextui/pull/4209)
+- Fixed typos in landing page by [@PentSec](https://github.com/PentSec) in [PR #3928](https://github.com/nextui-org/nextui/pull/3928)
+- Fixed typos in date picker page by [@dperconti](https://github.com/dperconti) in [PR #3516](https://github.com/nextui-org/nextui/pull/3516)
+- Fixed incorrect highlighted line in Select page by [@Choneas](https://github.com/Choneas) in [PR #3838](https://github.com/nextui-org/nextui/pull/3838)
+- Fixed unexpected translation in code block by [@nnmax](https://github.com/nnmax) in [PR #3878](https://github.com/nextui-org/nextui/pull/3878)
+- Fixed yarn command in installation page by [@AzpektDev](https://github.com/AzpektDev) in [PR #4132](https://github.com/nextui-org/nextui/pull/4132)
+- Added ethical ads by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #3803](https://github.com/nextui-org/nextui/pull/3803)
+- Added Form guide by [@ryo-manba](https://github.com/ryo-manba) in [PR #3882](https://github.com/nextui-org/nextui/pull/3882)
+- Enhanced overall DX for all pages by [@wingkwong](https://github.com/wingkwong) in [PR #4055](https://github.com/nextui-org/nextui/pull/4055)
+- Supported virtualization for Autocomplete by [@jrgarciadev](https://github.com/jrgarciadev) and [@vinroger](https://github.com/vinroger) in [PR #4094](https://github.com/nextui-org/nextui/pull/4094) and [PR #3444](https://github.com/nextui-org/nextui/pull/3444)
+- Supported virtualization for Select by [@vinroger](https://github.com/vinroger) in [PR #4203](https://github.com/nextui-org/nextui/pull/4203)
+- Supported virtualization for Listbox by [@vinroger](https://github.com/vinroger) in [PR #4206](https://github.com/nextui-org/nextui/pull/4206)
+- Optimized code fold by [@winchesHe](https://github.com/winchesHe) in [PR #4202](https://github.com/nextui-org/nextui/pull/4202)
+- Synced API from nextui-cli v0.3.5 by [@winchesHe](https://github.com/winchesHe) in [PR #4173](https://github.com/nextui-org/nextui/pull/4173)
 
 **Bug Fixes**:
 
-- Fixed avatar flashing issues and SSR image loading
-- Fixed controlled IsInvalid prop behavior
-- Fixed RTL support in various components
-- Fixed virtualization for Autocomplete component
-- Fixed label placement issues in Select and Input components
-- Fixed exit animations and clear button behaviors
-- Fixed various accessibility and UI issues
+- Fixed avatar flashing issues by [@jrgarciadev](https://github.com/jrgarciadev) and [@rkkautsar](https://github.com/rkkautsar) in [PR #3987](https://github.com/nextui-org/nextui/pull/3987) and [PR #3444](https://github.com/nextui-org/nextui/pull/3444)
+- Fixed image ReferenceError in SSR by [@wingkwong](https://github.com/wingkwong) in [PR #4122](https://github.com/nextui-org/nextui/pull/4122)
+- Fixed navigate parameters by [@wingkwong](https://github.com/wingkwong) in [PR #4163](https://github.com/nextui-org/nextui/pull/4163)
+- Fixed missing peer / dev dependency for framer-motion by [@wingkwong](https://github.com/wingkwong) in [PR #4161](https://github.com/nextui-org/nextui/pull/4161)
+- Fixed menu item classNames by [@winchesHe](https://github.com/winchesHe) in [PR #4156](https://github.com/nextui-org/nextui/pull/4156)
+- Fixed controlled IsInvalid prop by [@chirokas](https://github.com/chirokas) in [PR #4082](https://github.com/nextui-org/nextui/pull/4082)
+- Fixed inert value with boolean type for React 19 by [@wingkwong](https://github.com/wingkwong) in [PR #4039](https://github.com/nextui-org/nextui/pull/4039)
+- Fixed typecheck errors by [@wingkwong](https://github.com/wingkwong) in [PR #4171](https://github.com/nextui-org/nextui/pull/4171)
+- Fixed tw nested group by [@wingkwong](https://github.com/wingkwong) in [PR #3909](https://github.com/nextui-org/nextui/pull/3909)
+- Fixed select styles consistent with input by [@macci001](https://github.com/macci001) in [PR #3881](https://github.com/nextui-org/nextui/pull/3881)
+- Fixed missing li tag when href is specified by [@macci001](https://github.com/macci001) in [PR #4168](https://github.com/nextui-org/nextui/pull/4168)
+- Fixed sliding issue caused by the helper wrapper by [@mstfblci](https://github.com/mstfblci) in [PR #3966](https://github.com/nextui-org/nextui/pull/3966)
+- Fixed element.ref warning in React 19 by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4003](https://github.com/nextui-org/nextui/pull/4003)
+- Fixed image load on NextJS by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #3998](https://github.com/nextui-org/nextui/pull/3998)
+- Fixed squish textarea label by [@Peterl561](https://github.com/Peterl561) in [PR #4197](https://github.com/nextui-org/nextui/pull/4197)
+- Fixed forwardRef render functions by [@winchesHe](https://github.com/winchesHe) in [PR #4198](https://github.com/nextui-org/nextui/pull/4198)
+- Fixed collection based components ref by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4207](https://github.com/nextui-org/nextui/pull/4207)
+- Fixed data-slot for select error message by [@jubar](https://github.com/jubar) in [PR #4214](https://github.com/nextui-org/nextui/pull/4214)
+- Fixed selection functionality on touch by [@macci001](https://github.com/macci001) in [PR #4220](https://github.com/nextui-org/nextui/pull/4220)
+- Fixed cursor position when hidden on init by [@Peterl561](https://github.com/Peterl561) in [PR #4222](https://github.com/nextui-org/nextui/pull/4222)
 
-**Improvements**:
+**Enhancements**:
 
-- Enhanced performance through optimizations
-- Upgraded to React Aria latest version
-- Added support for NextJS 15
-- Improved RTL support with logical properties
-- Upgraded Storybook to v8
-- Enhanced testing libraries and coverage
+- Automatically focus first non-disabled item by [@juliesaia](https://github.com/juliesaia) in [PR #2186](https://github.com/nextui-org/nextui/pull/2186)
+- Refactored RTL-specific styles by [@macci001](https://github.com/macci001) in [PR #3868](https://github.com/nextui-org/nextui/pull/3868)
+- Upgraded React Aria and Support NextJS 15 by [@ryo-manba](https://github.com/ryo-manba) in [PR #3732](https://github.com/nextui-org/nextui/pull/3732)
+- Upgraded tailwind-merge version by [@wingkwong](https://github.com/wingkwong) in [PR #3657](https://github.com/nextui-org/nextui/pull/3657)
+- Upgraded Storybook to v8 by [@winchesHe](https://github.com/winchesHe) in [PR #3946](https://github.com/nextui-org/nextui/pull/3946)
+- Optimized performance by [@wingkwong](https://github.com/wingkwong) in [PR #3523](https://github.com/nextui-org/nextui/pull/3523)
+- Applied `useMenu` and `useMenuItem` from `@react-aria` by [@wingkwong](https://github.com/wingkwong) in [PR #3261](https://github.com/nextui-org/nextui/pull/3261)
+- Revised label font size for lg by [@wingkwong](https://github.com/wingkwong) in [PR #4141](https://github.com/nextui-org/nextui/pull/4141)
+- Improved Form component by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4224](https://github.com/nextui-org/nextui/pull/4224)
 
-<Spacer y={4} />
+**Chore**:
+
+- Added git hook to auto update dependencies by [@winchesHe](https://github.com/winchesHe) in [PR #3365](https://github.com/nextui-org/nextui/pull/3365)
+- Added pre-release workflow by [@wingkwong](https://github.com/wingkwong) in [PR #2910](https://github.com/nextui-org/nextui/pull/2910)
+- Updated testing libraries by [@ryo-manba](https://github.com/ryo-manba) in [PR #3886](https://github.com/nextui-org/nextui/pull/3886)
+- Replaced VA by Posthog by [@wingkwong](https://github.com/wingkwong) in [PR #4123](https://github.com/nextui-org/nextui/pull/4123)
+- Moved circular-progress tv to progress by [@winchesHe](https://github.com/winchesHe) in [PR #3321](https://github.com/nextui-org/nextui/pull/3321)
+
+Special thanks to NextUI Team members [@wingkwong](https://github.com/wingkwong), [@macci001](https://github.com/macci001),
+[@ryo-manba](https://github.com/ryo-manba), [@winchesHe](https://github.com/winchesHe), [@tianenpang](https://github.com/tianenpang) and contributors for their contributions to this release.
+
+For a full list of changes, please refer to the [release notes](https://github.com/nextui-org/nextui/releases/tag/%40nextui-org%2Freact%402.4.0).
+
+<Spacer y={6} />
+
+Thanks for reading and happy coding! 🚀
+
+---
 
 ## Community
 

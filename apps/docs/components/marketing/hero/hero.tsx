@@ -33,15 +33,18 @@ export const Hero = () => {
         <div className="flex justify-center w-full md:hidden">
           <Chip
             as={NextLink}
-            className="transition-colors cursor-pointer bg-default-100/50 hover:bg-default-100 border-default-200/80 dark:border-default-100/80"
-            color="default"
-            href="/blog/v2.3.0"
-            variant="dot"
-            onClick={() => handlePressAnnouncement("New version v2.4.0", "/blog/v2.4.0")}
+            className="bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"
+            classNames={{
+              content: "font-semibold text-primary-500 dark:text-primary-600 text-xs ",
+            }}
+            color="primary"
+            href="/blog/v2.6.0"
+            variant="flat"
+            onClick={() => handlePressAnnouncement("New version v2.6.0", "/blog/v2.6.0")}
           >
-            New version v2.4.0&nbsp;
+            New version v2.6.0&nbsp;
             <span aria-label="emoji" role="img">
-              🚀
+              🔥
             </span>
           </Chip>
         </div>

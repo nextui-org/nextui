@@ -1,4 +1,4 @@
-import App from "./controlled.raw.jsx?raw";
+import App from "./controlled-alert.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
