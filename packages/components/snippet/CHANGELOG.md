@@ -1,5 +1,11 @@
 # @nextui-org/snippet
 
+## 2.2.1
+
+### Patch Changes
+
+- [#4235](https://github.com/nextui-org/nextui/pull/4235) [`71e2d8c`](https://github.com/nextui-org/nextui/commit/71e2d8c6014c821c0441c6a68924043a7a491e5b) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix release
+
 ## 2.2.0
 
 ### Minor Changes
