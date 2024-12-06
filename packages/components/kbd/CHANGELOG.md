@@ -1,5 +1,14 @@
 # @nextui-org/kbd
 
+## 2.2.2
+
+### Patch Changes
+
+- [#4247](https://github.com/nextui-org/nextui/pull/4247) [`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix peerDeps & core package client on export \*
+
+- Updated dependencies [[`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0)]:
+  - @nextui-org/system-rsc@2.3.2
+
 ## 2.2.1
 
 ### Patch Changes
