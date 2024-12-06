@@ -621,14 +621,14 @@ The nested group selectors for table themes have been updated to require explici
 
 #### Circular Progress Theme Location
 
-The circular progress Tailwind variants have been moved from `circular-progress` to `progress`. You'll need to update your Tailwind CSS configuration:
+The circular progress Tailwind variants have been moved from `circular-progress` to `progress`. You'll need to update your Tailwind CSS configuration `tailwind.config.js`:
 
 ```diff-tsx
 // Before
-- circular-progress-[disabled=true]:text-foreground-300;
+- "./node_modules/@nextui-org/theme/dist/components/circular-progress.js";
 
 // After
-+ circular-progress-[disabled=true]/tr:text-foreground-300;
++ "./node_modules/@nextui-org/theme/dist/components/progress.js";
 ```
 
 <Spacer y={4} />
