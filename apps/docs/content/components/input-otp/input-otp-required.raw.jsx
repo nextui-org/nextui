@@ -6,6 +6,7 @@ export default function App() {
   return (
     <Form
       className="flex w-full flex-col items-start gap-4"
+      validationBehavior="native"
       onSubmit={(e) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget);
