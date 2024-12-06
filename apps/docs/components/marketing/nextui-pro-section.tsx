@@ -34,12 +34,12 @@ export const NextUIProSection = () => {
   }
 
   const mobileClassName: string = isDarkMode
-    ? "h-full w-full bg-[radial-gradient(at_40%_80%,_rgba(255,255,255,_0)_5%,_rgba(0,0,0,_0.8)_50%,_rgba(0,0,0,1)_100%)]"
-    : "h-full w-full bg-[radial-gradient(at_40%_80%,_rgba(0,0,0,_0)_5%,_rgba(255,255,255,_0.8)_50%,_rgba(255,255,255,1)_100%)]";
+    ? "h-full w-full bg-[linear-gradient(to_left,_rgba(255,255,255,_0)_5%,_rgba(0,0,0,1)_100%)]"
+    : "h-full w-full bg-[linear-gradient(to_left,_rgba(0,0,0,_0)_5%,_rgba(255,255,255,1)_100%)]";
 
   const webClassName: string = isDarkMode
-    ? "h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(255,255,255,_0)_20%,_rgba(0,0,0,_0.8)_40%,_rgba(0,0,0,1)_100%)]"
-    : "h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(0,0,0,_0)_20%,_rgba(255,255,255,_0.9)_40%,_rgba(255,255,255,1)_100%)]";
+    ? "ease-in-out h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(255,255,255,_0)_20%,_rgba(0,0,0,_0.8)_40%,_rgba(0,0,0,1)_100%)]"
+    : "ease-in-out h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(0,0,0,_0)_20%,_rgba(255,255,255,_0.9)_40%,_rgba(255,255,255,1)_100%)]";
 
   if (!mounted) return null;
 
@@ -156,8 +156,8 @@ export const NextUIProSection = () => {
         <div className="overflow-hidden">
           <Marquee
             vertical
-            className="h-78 hidden md:flex w-screen mt-4 md:absolute md:top-0 md:inset-0 isolate md:max-h-dvh"
-            duration={isMobile ? 240 : 60}
+            className="flex opacity-15 md:opacity-100 w-screen mt-4 absolute top-0 inset-0 isolate max-h-dvh"
+            duration={60}
           >
             <img
               alt="Hero Background"
