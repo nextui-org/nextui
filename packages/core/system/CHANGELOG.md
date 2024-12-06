@@ -1,5 +1,12 @@
 # @nextui-org/system
 
+## 2.4.2
+
+### Patch Changes
+
+- Updated dependencies [[`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0)]:
+  - @nextui-org/system-rsc@2.3.2
+
 ## 2.4.1
 
 ### Patch Changes

@@ -1,5 +1,19 @@
 # @nextui-org/date-picker
 
+## 2.3.2
+
+### Patch Changes
+
+- [#4247](https://github.com/nextui-org/nextui/pull/4247) [`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix peerDeps & core package client on export \*
+
+- Updated dependencies [[`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0)]:
+  - @nextui-org/date-input@2.3.2
+  - @nextui-org/calendar@2.2.2
+  - @nextui-org/popover@2.3.2
+  - @nextui-org/button@2.2.2
+  - @nextui-org/form@2.1.2
+  - @nextui-org/aria-utils@2.2.2
+
 ## 2.3.1
 
 ### Patch Changes
