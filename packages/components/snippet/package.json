@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/snippet",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Display a snippet of copyable code for the command line.",
   "keywords": [
     "snippet"
