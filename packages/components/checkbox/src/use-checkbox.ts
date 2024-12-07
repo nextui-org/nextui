@@ -195,6 +195,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const {
     inputProps,
+    labelProps,
     isSelected,
     isDisabled,
     isReadOnly,
@@ -277,7 +278,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       "data-readonly": dataAttr(inputProps.readOnly),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-indeterminate": dataAttr(isIndeterminate),
-      ...mergeProps(hoverProps, otherProps),
+      ...mergeProps(hoverProps, labelProps, otherProps),
     };
   }, [
     slots,
