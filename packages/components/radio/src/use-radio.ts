@@ -115,7 +115,7 @@ export function useRadio(props: UseRadioProps) {
     descriptionId,
   ]);
 
-  const {inputProps, isDisabled, isSelected, isPressed} = useReactAriaRadio(
+  const {inputProps, labelProps, isDisabled, isSelected, isPressed} = useReactAriaRadio(
     {
       value,
       children: typeof children === "function" ? true : children,
@@ -166,7 +166,7 @@ export function useRadio(props: UseRadioProps) {
         "data-hover-unselected": dataAttr(isHovered && !isSelected),
         "data-readonly": dataAttr(inputProps.readOnly),
         "aria-required": dataAttr(isRequired),
-        ...mergeProps(hoverProps, otherProps),
+        ...mergeProps(hoverProps, labelProps, otherProps),
       };
     },
     [
