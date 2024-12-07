@@ -51,14 +51,14 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@react-aria/datepicker": "3.11.4",
-    "@react-aria/i18n": "3.12.3",
+    "@react-aria/datepicker": "3.12.0",
+    "@react-aria/i18n": "3.12.4",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/datepicker": "3.10.3",
-    "@react-stately/overlays": "3.6.11",
-    "@react-stately/utils": "3.10.4",
-    "@react-types/datepicker": "3.8.3",
-    "@react-types/shared": "3.25.0"
+    "@react-stately/datepicker": "3.11.0",
+    "@react-stately/overlays": "3.6.12",
+    "@react-stately/utils": "3.10.5",
+    "@react-types/datepicker": "3.9.0",
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/radio": "workspace:*",

@@ -39,9 +39,9 @@
   "dependencies": {
     "@nextui-org/use-aria-button": "workspace:*",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/toggle": "3.7.8",
-    "@react-types/button": "3.10.0",
-    "@react-types/shared": "3.25.0"
+    "@react-stately/toggle": "3.8.0",
+    "@react-types/button": "3.10.1",
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

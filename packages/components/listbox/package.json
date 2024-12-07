@@ -47,12 +47,12 @@
     "@nextui-org/use-is-mobile": "workspace:*",
     "@tanstack/react-virtual": "3.10.9",
     "@react-aria/utils": "3.26.0",
-    "@react-aria/listbox": "3.13.5",
-    "@react-stately/list": "3.11.0",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/interactions": "3.22.4",
-    "@react-types/menu": "3.9.12",
-    "@react-types/shared": "3.25.0"
+    "@react-aria/listbox": "3.13.6",
+    "@react-stately/list": "3.11.1",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/interactions": "3.22.5",
+    "@react-types/menu": "3.9.13",
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",
