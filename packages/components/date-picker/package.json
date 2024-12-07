@@ -41,7 +41,7 @@
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@internationalized/date": "3.5.6",
+    "@internationalized/date": "3.6.0",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/button": "workspace:*",
     "@nextui-org/calendar": "workspace:*",

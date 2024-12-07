@@ -20,7 +20,7 @@
     "@emotion/is-prop-valid": "^1.3.1",
     "@iconify/icons-solar": "1.2.3",
     "@iconify/react": "5.0.2",
-    "@internationalized/date": "3.5.6",
+    "@internationalized/date": "3.6.0",
     "@mapbox/rehype-prism": "^0.6.0",
     "@nextui-org/aria-utils": "workspace:*",
     "@nextui-org/badge": "workspace:*",
