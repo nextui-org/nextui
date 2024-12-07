@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/input-otp",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "",
   "keywords": [
     "input-otp"
@@ -36,8 +36,8 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@nextui-org/theme": ">=2.4.0",
+    "@nextui-org/system": ">=2.4.0"
   },
   "dependencies": {
     "@nextui-org/form": "workspace:*",

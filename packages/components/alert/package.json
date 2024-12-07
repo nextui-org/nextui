@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/alert",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "Alerts are temporary notifications that provide concise feedback about an action or event.",
   "keywords": [
     "alert"
@@ -40,8 +40,8 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@nextui-org/theme": ">=2.4.0",
+    "@nextui-org/system": ">=2.4.0"
   },
   "dependencies": {
     "@nextui-org/react-utils": "workspace:*",
