@@ -99,7 +99,7 @@ export default async function DocPage({params}: DocPageProps) {
         </footer>
       </div>
       {headings && headings.length > 0 && (
-        <div className="hidden z-10 xl:flex xl:col-span-2 mt-8 pl-4">
+        <div className="hidden z-10 xl:flex xl:col-span-2 mt-8 pl-0">
           <DocsToc headings={headings} />
         </div>
       )}
