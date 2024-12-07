@@ -3278,6 +3278,9 @@ importers:
       '@react-types/datepicker':
         specifier: 3.8.3
         version: 3.8.3(react@18.2.0)
+      '@react-types/shared':
+        specifier: 3.25.0
+        version: 3.25.0(react@18.2.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
