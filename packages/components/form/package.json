@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/form",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "A form is a group of inputs that allows users submit data to a server and supports field validation errors.",
   "keywords": [
     "form"
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.3.0",
-    "@nextui-org/theme": ">=2.3.0",
+    "@nextui-org/system": ">=2.4.0",
+    "@nextui-org/theme": ">=2.4.0",
     "react": ">=18",
     "react-dom": ">=18"
   },

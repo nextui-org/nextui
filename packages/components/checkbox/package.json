@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/checkbox",
-  "version": "2.3.2",
+  "version": "2.3.3",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
     "checkbox"
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.3.0",
-    "@nextui-org/theme": ">=2.3.0",
+    "@nextui-org/system": ">=2.4.0",
+    "@nextui-org/theme": ">=2.4.0",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
