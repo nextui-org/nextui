@@ -12,7 +12,7 @@ Requirements:
 - [Tailwind CSS 3.4](https://tailwindcss.com/) or later
 - [Framer Motion 11.9](https://www.framer.com/motion/) or later
 
------ 
+-----
 
 <CarbonAd/>
 
@@ -23,7 +23,7 @@ Make sure to follow the previous steps since they are required to upgrade to v2.
 
 ## App directory Setup
 
-Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
+Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components.
 As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
 directly in your React Server Components (RSC).
 
@@ -36,9 +36,9 @@ In your Next.js project, run one of the following command to install NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
+    npm: 'npm i @nextui-org/react motion',
+    yarn: 'yarn add @nextui-org/react motion',
+    pnpm: 'pnpm add @nextui-org/react motion',
   }}
 />
 
@@ -59,7 +59,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 ### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
-[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
+[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
 
 
@@ -122,7 +122,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 }
 ```
 
-> **Note**: NextUI automatically add two themes `light` and `dark` to your application. You can use any 
+> **Note**: NextUI automatically add two themes `light` and `dark` to your application. You can use any
 of them by adding the `dark`/`light` class to the `html` tag. See the [theme docs](/docs/customization/customize-theme) for more details.
 
 
@@ -144,13 +144,13 @@ export default function Page() {
 }
 ```
 
-> **Important 🚨**: Note that you need to import the component from the individual package, not the from `@nextui-org/react`. 
+> **Important 🚨**: Note that you need to import the component from the individual package, not the from `@nextui-org/react`.
 
 </Steps>
 
 <Spacer y={8} />
 
-## Pages Directory Setup 
+## Pages Directory Setup
 
 <Steps>
 
@@ -161,9 +161,9 @@ In your Next.js project, run one of the following command to install NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
+    npm: 'npm i @nextui-org/react motion',
+    yarn: 'yarn add @nextui-org/react motion',
+    pnpm: 'pnpm add @nextui-org/react motion',
   }}
 />
 
@@ -184,7 +184,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 ### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
-[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
+[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
 
 
@@ -260,15 +260,15 @@ NextUI v2 requires React 18 or later. To upgrade React, run the following comman
   }}
 />
 
-### Install Framer motion
+### Install Motion
 
-In v2, NextUI now requires `framer-motion` as a dependency. To install both, use the following command:
+In v2, NextUI now requires `motion` as a dependency. To install both, use the following command:
 
 <PackageManagers
   commands={{
-    npm: 'npm i framer-motion',
-    yarn: 'yarn add framer-motion',
-    pnpm: 'pnpm add framer-motion',
+    npm: 'npm i motion',
+    yarn: 'yarn add motion',
+    pnpm: 'pnpm add motion',
   }}
 />
 

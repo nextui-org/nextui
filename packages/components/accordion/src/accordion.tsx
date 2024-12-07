@@ -1,5 +1,5 @@
 import {forwardRef} from "@nextui-org/system";
-import {LayoutGroup} from "framer-motion";
+import {LayoutGroup} from "motion/react";
 import {Divider} from "@nextui-org/divider";
 import {Fragment, Key, useCallback, useMemo} from "react";
 

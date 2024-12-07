@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {OverlayContainer} from "@react-aria/overlays";
-import {AnimatePresence, m, LazyMotion} from "framer-motion";
+import {AnimatePresence, m, LazyMotion} from "motion/react";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
 import {warn} from "@nextui-org/shared-utils";
 import {Children, cloneElement, isValidElement} from "react";

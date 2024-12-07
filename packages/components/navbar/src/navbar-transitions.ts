@@ -1,4 +1,4 @@
-import {Variants} from "framer-motion";
+import {Variants} from "motion/react";
 import {TRANSITION_EASINGS} from "@nextui-org/framer-utils";
 
 export const hideOnScrollVariants: Variants = {

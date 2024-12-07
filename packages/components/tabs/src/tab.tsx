@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
-import {m, domMax, LazyMotion} from "framer-motion";
+import {m, domMax, LazyMotion} from "motion/react";
 import {useIsMounted} from "@nextui-org/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";

@@ -1,7 +1,7 @@
 import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "motion/react";
 import {mergeProps} from "@react-aria/utils";
 import {Overlay} from "@react-aria/overlays";
 

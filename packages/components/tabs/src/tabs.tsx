@@ -1,5 +1,5 @@
 import {ForwardedRef, ReactElement, useId} from "react";
-import {LayoutGroup} from "framer-motion";
+import {LayoutGroup} from "motion/react";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseTabsProps, useTabs} from "./use-tabs";

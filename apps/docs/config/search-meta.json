@@ -10774,14 +10774,14 @@
     }
   },
   {
-    "content": "Why does NextUI use Framer Motion?",
+    "content": "Why does NextUI use Motion?",
     "objectID": "d76533f7-0ca8-40cd-b77a-80f708d8d744",
     "type": "lvl3",
-    "url": "/docs/guide/introduction#why-does-nextui-use-framer-motion",
+    "url": "/docs/guide/introduction#why-does-nextui-use-motion",
     "hierarchy": {
       "lvl1": "Introduction",
       "lvl2": "Can I use NextUI with other front-end frameworks or libraries, such as Vue or Angular?",
-      "lvl3": "Why does NextUI use Framer Motion?"
+      "lvl3": "Why does NextUI use Motion?"
     }
   },
   {
@@ -11096,7 +11096,7 @@
     "content": "Install Framer motion",
     "objectID": "ef778f69-5c80-44b6-a995-1385c7136cdf",
     "type": "lvl3",
-    "url": "/docs/guide/upgrade-to-v2#install-framer-motion",
+    "url": "/docs/guide/upgrade-to-v2#install-motion",
     "hierarchy": {
       "lvl1": "Upgrade to v2",
       "lvl2": "Upgrade React version",

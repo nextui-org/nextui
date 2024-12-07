@@ -6,7 +6,7 @@ import {I18nProvider, I18nProviderProps} from "@react-aria/i18n";
 import {RouterProvider} from "@react-aria/utils";
 import {OverlayProvider} from "@react-aria/overlays";
 import {useMemo} from "react";
-import {MotionConfig, MotionGlobalConfig} from "framer-motion";
+import {MotionConfig, MotionGlobalConfig} from "motion/react";
 
 import {ProviderContext} from "./provider-context";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import {motion, useMotionValue, useTransform} from "framer-motion";
+import {motion, useMotionValue, useTransform} from "motion/react";
 import {tv} from "tailwind-variants";
 
 import {useIsMobile} from "@/hooks/use-media-query";

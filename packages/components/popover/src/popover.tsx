@@ -1,7 +1,7 @@
 import {Children, ReactNode} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Overlay} from "@react-aria/overlays";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence} from "motion/react";
 
 import {UsePopoverProps, usePopover} from "./use-popover";
 import {PopoverProvider} from "./popover-context";

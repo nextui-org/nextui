@@ -6,7 +6,7 @@ import {Listbox} from "@nextui-org/listbox";
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {ForwardedRef, ReactElement} from "react";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence} from "motion/react";
 
 import {UseAutocompleteProps, useAutocomplete} from "./use-autocomplete";
 

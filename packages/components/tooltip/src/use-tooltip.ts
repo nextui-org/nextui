@@ -1,7 +1,7 @@
 import type {PopoverVariantProps, SlotsToClasses} from "@nextui-org/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
-import type {HTMLMotionProps} from "framer-motion";
+import type {HTMLMotionProps} from "motion/react";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
 import {ReactNode, Ref, useId, useImperativeHandle} from "react";

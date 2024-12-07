@@ -1,5 +1,5 @@
 import type {ModalVariantProps, SlotsToClasses, ModalSlots} from "@nextui-org/theme";
-import type {HTMLMotionProps} from "framer-motion";
+import type {HTMLMotionProps} from "motion/react";
 
 import {AriaModalOverlayProps} from "@react-aria/overlays";
 import {useAriaModalOverlay} from "@nextui-org/use-aria-modal-overlay";

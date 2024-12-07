@@ -11,7 +11,7 @@ import {
   DropdownItem,
   Tooltip,
 } from "@nextui-org/react";
-import {useInView} from "framer-motion";
+import {useInView} from "motion/react";
 import {clsx} from "@nextui-org/shared-utils";
 import {
   AddNoteBulkIcon,

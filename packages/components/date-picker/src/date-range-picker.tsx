@@ -7,7 +7,7 @@ import {Button} from "@nextui-org/button";
 import {TimeInput, DateInputGroup} from "@nextui-org/date-input";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {RangeCalendar} from "@nextui-org/calendar";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence} from "motion/react";
 import {CalendarBoldIcon} from "@nextui-org/shared-icons";
 
 import DateRangePickerField from "./date-range-picker-field";
