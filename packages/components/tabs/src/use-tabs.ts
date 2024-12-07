@@ -16,7 +16,7 @@ import {AriaTabListProps, useTabList} from "@react-aria/tabs";
 import {mergeProps} from "@react-aria/utils";
 import {CollectionProps} from "@nextui-org/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
-import {HTMLMotionProps} from "framer-motion";
+import {HTMLMotionProps} from "motion/react";
 
 export interface Props extends Omit<HTMLNextUIProps, "children"> {
   /**

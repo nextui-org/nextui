@@ -9,7 +9,7 @@ import {forwardRef} from "@nextui-org/system";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
 import {cloneElement} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
-import {AnimatePresence} from "framer-motion";
+import {AnimatePresence} from "motion/react";
 
 import {HiddenSelect} from "./hidden-select";
 import {UseSelectProps, useSelect} from "./use-select";

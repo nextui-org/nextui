@@ -14,7 +14,7 @@ import {useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {mergeProps, useResizeObserver} from "@react-aria/utils";
 import {useScrollPosition} from "@nextui-org/use-scroll-position";
 import {useControlledState} from "@react-stately/utils";
-import {HTMLMotionProps} from "framer-motion";
+import {HTMLMotionProps} from "motion/react";
 import {usePreventScroll} from "@react-aria/overlays";
 
 interface Props extends HTMLNextUIProps<"nav"> {

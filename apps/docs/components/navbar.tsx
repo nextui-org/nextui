@@ -25,7 +25,7 @@ import {isAppleDevice} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
-import {motion, AnimatePresence} from "framer-motion";
+import {motion, AnimatePresence} from "motion/react";
 import {useEffect} from "react";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";

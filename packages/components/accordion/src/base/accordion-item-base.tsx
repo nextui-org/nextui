@@ -8,7 +8,7 @@ import {As} from "@nextui-org/system";
 import {ItemProps, BaseItem} from "@nextui-org/aria-utils";
 import {FocusableProps, PressEvents} from "@react-types/shared";
 import {ReactNode, MouseEventHandler} from "react";
-import {HTMLMotionProps} from "framer-motion";
+import {HTMLMotionProps} from "motion/react";
 
 export type AccordionItemIndicatorProps = {
   /**

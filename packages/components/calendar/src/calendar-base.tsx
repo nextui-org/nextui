@@ -7,7 +7,7 @@ import {Fragment, useState} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {Button} from "@nextui-org/button";
 import {chain, mergeProps} from "@react-aria/utils";
-import {AnimatePresence, LazyMotion, MotionConfig} from "framer-motion";
+import {AnimatePresence, LazyMotion, MotionConfig} from "motion/react";
 import {ResizablePanel} from "@nextui-org/framer-utils";
 
 import {ChevronLeftIcon} from "./chevron-left";

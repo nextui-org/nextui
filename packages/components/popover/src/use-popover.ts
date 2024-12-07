@@ -1,5 +1,5 @@
 import type {PopoverVariantProps, SlotsToClasses, PopoverSlots} from "@nextui-org/theme";
-import type {HTMLMotionProps} from "framer-motion";
+import type {HTMLMotionProps} from "motion/react";
 import type {PressEvent} from "@react-types/shared";
 
 import {RefObject, Ref, useEffect} from "react";

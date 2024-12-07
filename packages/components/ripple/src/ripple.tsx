@@ -1,9 +1,9 @@
 import type {RippleType} from "./use-ripple";
 import type {FC} from "react";
-import type {HTMLMotionProps} from "framer-motion";
+import type {HTMLMotionProps} from "motion/react";
 import type {HTMLNextUIProps} from "@nextui-org/system";
 
-import {AnimatePresence, m, LazyMotion} from "framer-motion";
+import {AnimatePresence, m, LazyMotion} from "motion/react";
 import {clamp} from "@nextui-org/shared-utils";
 
 export interface RippleProps extends HTMLNextUIProps<"span"> {

@@ -21,7 +21,7 @@ To use NextUI in your Next.js project, you need to follow the steps below, depen
 
 ## App Directory Setup
 
-Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components. 
+Next.js 13 introduces a new `app/` directory structure. By default it uses Server Components.
 As NextUI components use React hooks, we added the `use client;` at build time, so you can import them
 directly in your React Server Components (RSC).
 
@@ -39,7 +39,7 @@ npm install -g nextui-cli
 nextui init -t app
 ```
 
-### create-next-app 
+### create-next-app
 
 If you are starting a new project, you can run one of the following commands to create a Next.js project pre-configured with NextUI:
 
@@ -146,10 +146,10 @@ In your Next.js project, run one of the following commands to install NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
-    bun: "bun add @nextui-org/react framer-motion"
+    npm: 'npm i @nextui-org/react motion',
+    yarn: 'yarn add @nextui-org/react motion',
+    pnpm: 'pnpm add @nextui-org/react motion',
+    bun: "bun add @nextui-org/react motion"
   }}
 />
 
@@ -170,7 +170,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 ### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
-[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
+[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
 
 <Blockquote color="primary">
@@ -242,7 +242,7 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 }
 ```
 
-> **Note**: NextUI automatically adds two themes, `light` and `dark`, to your application. You can use any 
+> **Note**: NextUI automatically adds two themes, `light` and `dark`, to your application. You can use any
 of them by adding the `dark`/`light` class to the `html` tag. See the [theme docs](/docs/customization/customize-theme) for more details.
 
 
@@ -253,7 +253,7 @@ the `use client;` directive:
 
 ```jsx {2,7}
 // app/page.tsx
-import {Button} from '@nextui-org/button'; 
+import {Button} from '@nextui-org/button';
 
 export default function Page() {
   return (
@@ -263,11 +263,11 @@ export default function Page() {
   )
 }
 ```
-> **Important 🚨**: Note that you need to import the component from the individual package, not from `@nextui-org/react`. 
+> **Important 🚨**: Note that you need to import the component from the individual package, not from `@nextui-org/react`.
 
 </Steps>
 
-## Pages Directory Setup 
+## Pages Directory Setup
 
 ### NextUI CLI (recommended)
 
@@ -285,7 +285,7 @@ nextui init -t pages
 
 If you are using the `/pages` Next.js project structure, you need to follow the steps below.
 
-### create-next-app 
+### create-next-app
 
 If you are starting a new project, you can run one of the following commands to create a Next.js project pre-configured with NextUI:
 
@@ -392,10 +392,10 @@ In your Next.js project, run one of the following commands to install NextUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
-    bun: "bun add @nextui-org/react framer-motion"
+    npm: 'npm i @nextui-org/react motion',
+    yarn: 'yarn add @nextui-org/react motion',
+    pnpm: 'pnpm add @nextui-org/react motion',
+    bun: "bun add @nextui-org/react motion"
   }}
 />
 
@@ -416,7 +416,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 ### Tailwind CSS Setup
 
 NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
-[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add 
+[installation guide](https://tailwindcss.com/docs/guides/nextjs) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
 
 <Blockquote color="primary">

@@ -1,6 +1,6 @@
 import {forwardRef} from "@nextui-org/system";
 import {pickChildren} from "@nextui-org/react-utils";
-import {LazyMotion, m} from "framer-motion";
+import {LazyMotion, m} from "motion/react";
 import {mergeProps} from "@react-aria/utils";
 
 import {hideOnScrollVariants} from "./navbar-transitions";

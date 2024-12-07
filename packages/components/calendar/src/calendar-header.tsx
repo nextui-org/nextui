@@ -3,7 +3,7 @@ import type {CalendarDate} from "@internationalized/date";
 
 import {HTMLNextUIProps} from "@nextui-org/system";
 import {useDateFormatter} from "@react-aria/i18n";
-import {m} from "framer-motion";
+import {m} from "motion/react";
 import {Button} from "@nextui-org/button";
 import {useCallback} from "react";
 

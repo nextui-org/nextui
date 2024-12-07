@@ -10,7 +10,7 @@
 import * as React from "react";
 import {DismissButton, Overlay} from "@react-aria/overlays";
 import {forwardRef} from "@nextui-org/system";
-import {HTMLMotionProps, LazyMotion, m} from "framer-motion";
+import {HTMLMotionProps, LazyMotion, m} from "motion/react";
 import {mergeProps} from "@react-aria/utils";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
