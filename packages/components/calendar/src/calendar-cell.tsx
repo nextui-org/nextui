@@ -9,7 +9,10 @@ import {useLocale} from "@react-aria/i18n";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useRef} from "react";
-import {dataAttr} from "@nextui-org/shared-utils";
+
+import {CalendarCellContextType, CalendarCellProvider} from "./calendar-cell-context";
+import {CalendarCellContentDefault} from "./calendar-cell-content-default";
+import {useCalendarContext} from "./calendar-context";
 
 export interface CalendarCellProps extends HTMLNextUIProps<"td">, AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
@@ -23,6 +26,7 @@ export function CalendarCell(originalProps: CalendarCellProps) {
   const {state, slots, isPickerVisible, currentMonth, classNames, ...props} = originalProps;
 
   const ref = useRef<HTMLButtonElement>(null);
+  const {cellContent} = useCalendarContext();
 
   const {
     cellProps,
@@ -67,29 +71,51 @@ export function CalendarCell(originalProps: CalendarCellProps) {
     isDisabled: isDisabled || isUnavailable || state.isReadOnly,
   });
 
+  const cellContextValue: CalendarCellContextType = {
+    // Core date and state
+    date: props.date,
+    state,
+    buttonProps,
+    formattedDate,
+
+    // Selection states
+    isSelected,
+    isRangeSelection: isSelected && "highlightedRange" in state,
+    isRangeStart,
+    isRangeEnd,
+    isSelectionStart,
+    isSelectionEnd,
+
+    // Interaction states
+    isDisabled,
+    isPressable: !isDisabled && !isUnavailable && !state.isReadOnly,
+    isPressed,
+    isFocused,
+    isFocusVisible,
+    isHovered,
+
+    // Validation states
+    isInvalid,
+    isUnavailable,
+
+    // Display states
+    isOutsideMonth: !isSameMonth(props.date, currentMonth),
+    isToday: isToday(props.date, state.timeZone),
+    isReadOnly: state.isReadOnly,
+  };
+
   return (
     <td className={slots?.cell({class: classNames?.cell})} data-slot="cell" {...cellProps}>
       <span
         {...mergeProps(buttonProps, hoverProps, focusProps)}
         ref={ref}
         className={slots?.cellButton({class: classNames?.cellButton})}
-        data-disabled={dataAttr(isDisabled && !isInvalid)}
-        data-focus-visible={dataAttr(isFocused && isFocusVisible)}
-        data-hover={dataAttr(isHovered)}
-        data-invalid={dataAttr(isInvalid)}
-        data-outside-month={dataAttr(!isSameMonth(props.date, currentMonth))}
-        data-pressed={dataAttr(isPressed && !state.isReadOnly)}
-        data-range-end={dataAttr(isRangeEnd)}
-        data-range-selection={dataAttr(isSelected && "highlightedRange" in state)}
-        data-range-start={dataAttr(isRangeStart)}
-        data-readonly={dataAttr(state.isReadOnly)}
-        data-selected={dataAttr(isSelected)}
-        data-selection-end={dataAttr(isSelectionEnd)}
-        data-selection-start={dataAttr(isSelectionStart)}
-        data-today={dataAttr(isToday(props.date, state.timeZone))}
-        data-unavailable={dataAttr(isUnavailable)}
       >
-        <span>{formattedDate}</span>
+        <CalendarCellProvider value={cellContextValue}>
+          {typeof cellContent === "function"
+            ? cellContent(props.date)
+            : cellContent ?? <CalendarCellContentDefault date={props.date} />}
+        </CalendarCellProvider>
       </span>
     </td>
   );
