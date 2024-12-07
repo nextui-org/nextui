@@ -65,11 +65,28 @@ Keyboard key is a component to display which key or combination of keys performs
 
 ### Keyboard Key Props
 
-| Attribute  | Type                                                   | Description                                              | Default |
-| ---------- | ------------------------------------------------------ | -------------------------------------------------------- | ------- |
-| children   | `ReactNode`                                            | The content of the keyboard key.                         | -       |
-| keys       | [KbdKey](#keyboard-keys) \| [KbdKey[]](#keyboard-keys) | The keys of the keyboard key.                            | -       |
-| classNames | `Record<"base"｜"abbr"｜"content",string>`          | Allows to set custom class names for the checkbox slots. | -       |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode",
+      description: "The content to display in the keyboard key.",
+      default: "-"
+    },
+    {
+      attribute: "keys",
+      type: "KbdKey | KbdKey[]",
+      description: "The keys of the keyboard key.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: 'Partial<Record<"base" | "abbr" | "content", string>>',
+      description: "Allows to set custom class names for the keyboard key slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Keyboard Keys
 

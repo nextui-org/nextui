@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/switch",
-  "version": "2.0.34",
+  "version": "2.2.2",
   "description": "A switch is similar to a checkbox, but represents on/off values as opposed to selection.",
   "keywords": [
     "switch"
@@ -34,22 +34,22 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18",
-    "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.1.0",
-    "@nextui-org/system": ">=2.0.0"
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/theme": ">=2.3.0",
+    "@nextui-org/system": ">=2.3.0"
   },
   "dependencies": {
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/focus": "3.18.2",
-    "@react-aria/interactions": "3.22.2",
-    "@react-aria/switch": "3.6.7",
-    "@react-aria/utils": "3.25.2",
-    "@react-aria/visually-hidden": "3.8.15",
-    "@react-stately/toggle": "3.7.7",
-    "@react-types/shared": "3.24.1"
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/interactions": "3.22.4",
+    "@react-aria/switch": "3.6.9",
+    "@react-aria/utils": "3.26.0",
+    "@react-aria/visually-hidden": "3.8.17",
+    "@react-stately/toggle": "3.7.8",
+    "@react-types/shared": "3.25.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

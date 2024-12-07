@@ -209,43 +209,206 @@ By default, `TimeInput` displays times in either 12 or 24 hour hour format depen
 
 ### TimeInput Props
 
-| Attribute               | Type                                                                                                                                               | Description                                                                                                                                                        | Default   |
-| ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
-| label                   | `ReactNode`                                                                                                                                        | The content to display as the label.                                                                                                                               | -         |
-| name                    | `string`                                                                                                                                           | The name of the time input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefname). | -         |
-| value                   | `TimeValue \|  null`                                                                                                                               | The current value (controlled).                                                                                                                                    | -         |
-| defaultValue            | `TimeValue \|  null`                                                                                                                               | The default value (uncontrolled).                                                                                                                                  | -         |
-| variant                 | `flat` \| `bordered` \| `faded` \| `underlined`                                                                                                    | The variant of the time input.                                                                                                                                     | `flat`    |
-| color                   | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                                                        | The color of the time input.                                                                                                                                       | `default` |
-| size                    | `sm` \| `md` \| `lg`                                                                                                                               | The size of the time input.                                                                                                                                        | `md`      |
-| radius                  | `none` \| `sm` \| `md` \| `lg` \| `full`                                                                                                           | The radius of the time input.                                                                                                                                      | -         |
-| hourCycle               | `12 \| 24`                                                                                                                                         | Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale.                                                          | -         |
-| granularity             | `'hour' \| 'minute' \| 'second'`                                                                                                                   | Determines the smallest unit that is displayed in the time picker.                                                                                                 | `minute`  |
-| hideTimeZone            | `boolean`                                                                                                                                          | Whether to hide the time zone abbreviation.                                                                                                                        | -         |
-| labelPlacement          | `inside` \| `outside` \| `outside-left`                                                                                                            | The position of the label.                                                                                                                                         | `inside`  |
-| shouldForceLeadingZeros | `boolean`                                                                                                                                          | Whether to always show leading zeros in the hour field. By default, this is determined by the user's locale.                                                       | `true`    |
-| placeholderValue        | `TimeValue`                                                                                                                                        | A placeholder time that influences the format of the placeholder shown when no value is selected. Defaults to 12:00 AM or 00:00 depending on the hour cycle.       | -         |
-| minValue                | `TimeValue`                                                                                                                                        | The minimum allowed time that a user may select.                                                                                                                   | -         |
-| maxValue                | `TimeValue`                                                                                                                                        | The maximum allowed time that a user may select.                                                                                                                   | -         |
-| isDisabled              | `boolean`                                                                                                                                          | Whether the time input is disabled.                                                                                                                                | -         |
-| isReadOnly              | `boolean`                                                                                                                                          | Whether the time input can be selected but not changed by the user.                                                                                                | -         |
-| isRequired              | `boolean`                                                                                                                                          | Whether user time input is required on the time input before form submission.                                                                                      | -         |
-| isInvalid               | `boolean`                                                                                                                                          | Whether the time input is invalid.                                                                                                                                 | -         |
-| autoFocus               | `boolean`                                                                                                                                          | Whether the element should receive focus on render.                                                                                                                | -         |
-| description             | `ReactNode`                                                                                                                                        | A description for the field. Provides a hint such as specific requirements for what to choose.                                                                     | -         |
-| errorMessage            | `ReactNode \| (v: ValidationResult) => ReactNode`                                                                                                  | An error message for the field.                                                                                                                                    | -         |
-| validate                | `(value: MappedTimeValue<TimeValue>) => ValidationError ｜ true ｜ null ｜ undefined`                                                               | Validate input values when committing (e.g. on blur), returning error messages for invalid values. Validation errors are displayed upon form submission if `validationBehavior` is set to `native`. For real-time validation, use the `isInvalid` prop.| -         |
-| validationBehavior      | `native` \| `aria`                                                                                                                                 | Whether to use native HTML form validation to prevent form submission when the value is missing or invalid, or mark the field as required or invalid via ARIA.     | `aria`    |
-| disableAnimation        | `boolean`                                                                                                                                          | Whether to disable the animation of the time input.                                                                                                                | -         |
-| classNames              | `Record<"base"｜ "label"｜ "inputWrapper"｜ "innerWrapper" ｜ "segment" ｜ "helperWrapper" ｜ "input" ｜ "description" ｜ "errorMessage", string>` | Allows to set custom class names for the time input slots.                                                                                                           | -         |
+<APITable
+  data={[
+    {
+      attribute: "label",
+      type: "ReactNode",
+      description: "The content to display as the label.",
+      default: "-"
+    },
+    {
+      attribute: "name",
+      type: "string",
+      description: "The name of the time input element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
+      attribute: "value",
+      type: "TimeValue | null",
+      description: "The current value (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "defaultValue",
+      type: "TimeValue | null",
+      description: "The default value (uncontrolled).",
+      default: "-"
+    },
+    {
+      attribute: "variant",
+      type: "flat | bordered | faded | underlined",
+      description: "The variant of the time input.",
+      default: "flat"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the time input.",
+      default: "default"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the time input.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The radius of the time input.",
+      default: "-"
+    },
+    {
+      attribute: "hourCycle",
+      type: "12 | 24",
+      description: "Whether to display the time in 12 or 24 hour format. By default, this is determined by the user's locale.",
+      default: "-"
+    },
+    {
+      attribute: "granularity",
+      type: "hour | minute | second",
+      description: "Determines the smallest unit that is displayed in the time picker.",
+      default: "minute"
+    },
+    {
+      attribute: "hideTimeZone",
+      type: "boolean",
+      description: "Whether to hide the time zone abbreviation.",
+      default: "-"
+    },
+    {
+      attribute: "labelPlacement",
+      type: "inside | outside | outside-left",
+      description: "The position of the label.",
+      default: "inside"
+    },
+    {
+      attribute: "shouldForceLeadingZeros",
+      type: "boolean",
+      description: "Whether to always show leading zeros in the hour field. By default, this is determined by the user's locale.",
+      default: "true"
+    },
+    {
+      attribute: "placeholderValue",
+      type: "TimeValue",
+      description: "A placeholder time that influences the format of the placeholder shown when no value is selected.",
+      default: "-"
+    },
+    {
+      attribute: "minValue",
+      type: "TimeValue",
+      description: "The minimum allowed time that a user may select.",
+      default: "-"
+    },
+    {
+      attribute: "maxValue",
+      type: "TimeValue",
+      description: "The maximum allowed time that a user may select.",
+      default: "-"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the time input is disabled.",
+      default: "-"
+    },
+    {
+      attribute: "isReadOnly",
+      type: "boolean",
+      description: "Whether the time input can be selected but not changed by the user.",
+      default: "-"
+    },
+    {
+      attribute: "isRequired",
+      type: "boolean",
+      description: "Whether user time input is required on the time input before form submission.",
+      default: "-"
+    },
+    {
+      attribute: "isInvalid",
+      type: "boolean",
+      description: "Whether the time input is invalid.",
+      default: "-"
+    },
+    {
+      attribute: "autoFocus",
+      type: "boolean",
+      description: "Whether the element should receive focus on render.",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "A description for the field. Provides a hint such as specific requirements for what to choose.",
+      default: "-"
+    },
+    {
+      attribute: "errorMessage",
+      type: "ReactNode | (v: ValidationResult) => ReactNode",
+      description: "An error message for the field.",
+      default: "-"
+    },
+    {
+      attribute: "validate",
+      type: "(value: MappedTimeValue<TimeValue>) => ValidationError | true | null | undefined",
+      description: "Validate input values when committing (e.g. on blur), returning error messages for invalid values.",
+      default: "-"
+    },
+    {
+      attribute: "validationBehavior",
+      type: "native | aria",
+      description: "Whether to use native HTML form validation or ARIA validation. When wrapped in a Form component, the default is `aria`. Otherwise, the default is `native`.",
+      default: "native"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable the animation of the time input.",
+      default: "-"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<\"base\" | \"label\" | \"inputWrapper\" | \"innerWrapper\" | \"segment\" | \"helperWrapper\" | \"input\" | \"description\" | \"errorMessage\", string>>",
+      description: "Allows to set custom class names for the time input slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### TimeInput Events
 
-| Attribute     | Type                                          | Description                                                     |
-| ------------- | --------------------------------------------- | --------------------------------------------------------------- |
-| onFocus       | `(e: FocusEvent<Target>) => void`             | Handler that is called when the element receives focus.         |
-| onBlur        | `(e: FocusEvent<Target>) => void`             | Handler that is called when the element loses focus.            |
-| onFocusChange | `(isFocused: boolean) => void`                | Handler that is called when the element's focus status changes. |
-| onKeyDown     | `(e: KeyboardEvent) => void`                  | Handler that is called when a key is pressed.                   |
-| onKeyUp       | `(e: KeyboardEvent) => void`                  | Handler that is called when a key is released.                  |
-| onChange      | `(value: MappedTimeValue<TimeValue>) => void` | Handler that is called when the value changes.                  |
+<APITable
+  data={[
+    {
+      attribute: "onFocus",
+      type: "(e: FocusEvent<Target>) => void",
+      description: "Handler that is called when the element receives focus."
+    },
+    {
+      attribute: "onBlur",
+      type: "(e: FocusEvent<Target>) => void",
+      description: "Handler that is called when the element loses focus."
+    },
+    {
+      attribute: "onFocusChange",
+      type: "(isFocused: boolean) => void",
+      description: "Handler that is called when the element's focus status changes."
+    },
+    {
+      attribute: "onKeyDown",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is pressed."
+    },
+    {
+      attribute: "onKeyUp",
+      type: "(e: KeyboardEvent) => void",
+      description: "Handler that is called when a key is released."
+    },
+    {
+      attribute: "onChange",
+      type: "(value: MappedTimeValue<TimeValue>) => void",
+      description: "Handler that is called when the value changes."
+    }
+  ]}
+/>

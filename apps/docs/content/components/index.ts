@@ -18,6 +18,7 @@ export * from "./user";
 export * from "./skeleton";
 export * from "./snippet";
 export * from "./input";
+export * from "./input-otp";
 export * from "./textarea";
 export * from "./image";
 export * from "./radio-group";

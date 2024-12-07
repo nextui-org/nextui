@@ -1,11 +1,4 @@
-const App = `import {TimeInput} from "@nextui-org/react";
-import {Time} from "@internationalized/date";
-
-export default function App() {
-  return (
-    <TimeInput label={null} defaultValue={new Time(11, 45)} />
-  );
-}`;
+import App from "./without-label.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

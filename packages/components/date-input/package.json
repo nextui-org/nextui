@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/date-input",
-  "version": "2.1.4",
+  "version": "2.3.2",
   "description": "A date input allows users to enter and edit date and time values using a keyboard.",
   "keywords": [
     "date-field"
@@ -34,21 +34,22 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.1.0",
-    "@nextui-org/theme": ">=2.2.0",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "@nextui-org/system": ">=2.3.0",
+    "@nextui-org/theme": ">=2.3.0",
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
+    "@nextui-org/form": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
-    "@internationalized/date": "3.5.5",
-    "@react-aria/datepicker": "3.11.2",
-    "@react-aria/i18n": "3.12.2",
-    "@react-stately/datepicker": "3.10.2",
-    "@react-types/datepicker": "3.8.2",
-    "@react-types/shared": "3.24.1",
-    "@react-aria/utils": "3.25.2"
+    "@internationalized/date": "3.5.6",
+    "@react-aria/datepicker": "3.11.4",
+    "@react-aria/i18n": "3.12.3",
+    "@react-stately/datepicker": "3.10.3",
+    "@react-types/datepicker": "3.8.3",
+    "@react-types/shared": "3.25.0",
+    "@react-aria/utils": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",

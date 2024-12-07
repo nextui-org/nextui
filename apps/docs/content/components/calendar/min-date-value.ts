@@ -1,15 +1,4 @@
-const App = `import {Calendar} from "@nextui-org/react";
-import {today, getLocalTimeZone} from "@internationalized/date";
-
-export default function App() {
-  return (
-    <Calendar
-      aria-label="Date (Min Date Value)"
-      defaultValue={today(getLocalTimeZone())}
-      minValue={today(getLocalTimeZone())}
-    />
-  );
-}`;
+import App from "./min-date-value.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,

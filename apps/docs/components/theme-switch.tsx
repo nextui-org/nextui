@@ -1,6 +1,6 @@
 "use client";
 
-import {FC} from "react";
+import {FC, ChangeEvent} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SwitchProps, useSwitch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
@@ -8,7 +8,7 @@ import {clsx} from "@nextui-org/shared-utils";
 import {useIsSSR} from "@react-aria/ssr";
 import {usePostHog} from "posthog-js/react";
 
-import {SunFilledIcon, MoonFilledIcon} from "@/components/icons";
+import {SunLinearIcon, MoonIcon} from "@/components/icons";
 
 export interface ThemeSwitchProps {
   className?: string;
@@ -20,20 +20,29 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
   const isSSR = useIsSSR();
   const posthog = usePostHog();
 
-  const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const initialTheme = isSSR ? "light" : theme;
+
+  const handleThemeChange = (
+    e?: ChangeEvent<HTMLInputElement> | React.MouseEvent | React.KeyboardEvent,
+  ) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+
+    const newTheme = theme === "light" ? "dark" : "light";
+
+    setTheme(newTheme);
 
     posthog.capture("ThemeChange", {
       action: "click",
       category: "theme",
-      data: theme === "light" ? "dark" : "light",
+      data: newTheme,
     });
   };
 
   const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} = useSwitch({
-    isSelected: theme === "light",
-    "aria-label": `Switch to ${theme === "light" ? "dark" : "light"} mode`,
-    onChange,
+    isSelected: initialTheme === "light",
+    "aria-label": `Switch to ${initialTheme === "light" ? "dark" : "light"} mode`,
+    onChange: handleThemeChange as (event: ChangeEvent<HTMLInputElement>) => void,
   });
 
   return (
@@ -44,6 +53,12 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
           className,
           classNames?.base,
         ),
+        onClick: handleThemeChange,
+        onKeyDown: (e: React.KeyboardEvent) => {
+          if (e.key === "Enter" || e.key === " ") {
+            handleThemeChange(e);
+          }
+        },
       })}
     >
       <VisuallyHidden>
@@ -59,8 +74,8 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
               "rounded-lg",
               "flex items-center justify-center",
               "group-data-[selected=true]:bg-transparent",
-              "!text-default-600 dark:!text-default-500",
-              "pt-px",
+              "!text-default-600 dark:!text-default-300",
+              "pt-0",
               "px-0",
               "mx-0",
             ],
@@ -68,7 +83,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
           ),
         })}
       >
-        {!isSelected || isSSR ? <SunFilledIcon size={22} /> : <MoonFilledIcon size={22} />}
+        {!isSelected || isSSR ? <SunLinearIcon size={22} /> : <MoonIcon size={22} />}
       </div>
     </Component>
   );

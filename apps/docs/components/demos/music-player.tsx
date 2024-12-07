@@ -27,24 +27,23 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
       {...otherProps}
     >
       <CardBody>
-        <div className="grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
+        <div className="md:max-h-[200px] grid grid-cols-6 md:grid-cols-12 gap-6 md:gap-4 items-center justify-center">
           <div className="relative col-span-6 md:col-span-4">
             <Image
               alt="Album cover"
               as={NextImage}
               className="object-cover"
-              height={300}
+              height={160}
               shadow="md"
               src="/images/album-cover.png"
               width={240}
             />
           </div>
-
           <div className="flex flex-col col-span-6 md:col-span-8">
             <div className="flex justify-between items-start">
               <div className="flex flex-col gap-0">
-                <p className="font-semibold text-foreground/90">Daily Mix</p>
-                <p className="text-sm text-foreground/80">12 Tracks</p>
+                <p className="text-sm font-semibold text-foreground">Daily Mix</p>
+                <p className="text-xs text-foreground/80">12 Tracks</p>
                 <p className="text-lg font-medium mt-2">Frontend Radio</p>
               </div>
               <Button

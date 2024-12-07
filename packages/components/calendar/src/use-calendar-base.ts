@@ -84,7 +84,6 @@ interface Props extends NextUIBaseProps {
   /**
    * Function to custom render the content of the calendar cell
    * @param date The date to render
-   * @param cellState The state of the calendar cell
    * @returns ReactNode
    */
   cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
@@ -208,7 +207,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
   const {
     ref,
     as,
-    children,
     className,
     topContent,
     bottomContent,
@@ -220,7 +218,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isHeaderExpanded: isHeaderExpandedProp,
     isHeaderDefaultExpanded,
     onHeaderExpandedChange = () => {},
-    cellContent,
     createCalendar: createCalendarProp = globalContext?.createCalendar ?? null,
     minValue = globalContext?.defaultDates?.minDate ??
       new CalendarDate(calendarProp, 1900 + gregorianYearOffset, 1, 1),
@@ -324,7 +321,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
 
   return {
     Component,
-    children,
     domRef,
     slots,
     locale,
@@ -339,7 +335,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
     isHeaderExpanded,
     showMonthAndYearPickers,
     disableAnimation,
-    cellContent,
     createCalendar: createCalendarProp,
     getPrevButtonProps,
     getNextButtonProps,

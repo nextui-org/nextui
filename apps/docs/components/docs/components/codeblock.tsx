@@ -1,7 +1,13 @@
+"use client";
+
+import type {Language, PrismTheme} from "prism-react-renderer";
+
+import {useIntersectionObserver} from "usehooks-ts";
 import React, {forwardRef, useEffect} from "react";
 import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
-import BaseHighlight, {Language, PrismTheme, defaultProps} from "prism-react-renderer";
+import BaseHighlight, {defaultProps} from "prism-react-renderer";
 import {debounce, omit} from "@nextui-org/shared-utils";
+import {cn} from "@nextui-org/react";
 
 import defaultTheme from "@/libs/prism-theme";
 
@@ -53,6 +59,149 @@ const calculateLinesToHighlight = (meta?: string) => {
 
     return inRange;
   };
+};
+
+const calculateHeight = (codeString: string) => {
+  const lines = codeString.split("\n").length;
+
+  return lines * 24;
+};
+
+const CodeBlockHighlight = ({
+  codeString,
+  language,
+  codeLang,
+  theme,
+  showLines,
+  removeIndent,
+  hideScrollBar,
+  preRef,
+  isMultiLine,
+  shouldHighlightLine,
+  highlightStyle,
+  className: classNameProp,
+  ...props
+}: CodeblockProps & {
+  codeLang: Language;
+  isMultiLine: boolean;
+  shouldHighlightLine: (index: number) => boolean;
+  highlightStyle: HighlightStyle[];
+  preRef: React.Ref<HTMLElement>;
+}) => {
+  const height = calculateHeight(codeString);
+
+  const [intersectionRef, isVisible] = useIntersectionObserver({
+    threshold: 0,
+  });
+
+  return (
+    <div
+      ref={intersectionRef}
+      style={{
+        height: isVisible ? "auto" : `${height}px`,
+      }}
+    >
+      {isVisible ? (
+        <BaseHighlight
+          {...defaultProps}
+          code={codeString}
+          language={codeLang}
+          theme={theme}
+          {...props}
+        >
+          {({className, style, tokens, getLineProps, getTokenProps}) => (
+            <pre
+              ref={(element) => {
+                // Merge the refs
+                if (typeof preRef === "function") {
+                  preRef(element);
+                } else if (preRef) {
+                  // @ts-ignore
+                  preRef.current = element;
+                }
+              }}
+              className={clsx(
+                className,
+                classNameProp,
+                `language-${codeLang}`,
+                "max-w-full contents",
+                {
+                  "flex-col": isMultiLine,
+                  "overflow-x-scroll scrollbar-hide": hideScrollBar,
+                },
+              )}
+              data-language={language}
+              style={style}
+            >
+              {tokens.map((line, i) => {
+                const lineProps = getLineProps({line, key: i});
+
+                return (
+                  <div
+                    {...omit(lineProps, ["key"])}
+                    key={`${i}-${getUniqueID("line-wrapper")}`}
+                    className={clsx(
+                      lineProps.className,
+                      removeIndent ? "pr-4" : "px-4",
+                      "relative [&>span]:relative [&>span]:z-10",
+                      {
+                        "px-2": showLines,
+                      },
+                      {
+                        "before:to-code-background before:absolute before:left-0 before:z-0 before:h-full before:w-full before:bg-gradient-to-r before:from-white/10 before:content-[''] before:pointer-events-none":
+                          shouldHighlightLine(i),
+                      },
+                    )}
+                    data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
+                    data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
+                  >
+                    {showLines && (
+                      <span
+                        className={cn(
+                          "mr-6 select-none text-xs opacity-30",
+                          i + 1 >= 10 ? "mr-4" : "",
+                          i + 1 >= 100 ? "mr-2" : "",
+                          i + 1 >= 1000 ? "mr-0" : "",
+                        )}
+                      >
+                        {i + 1}
+                      </span>
+                    )}
+
+                    {line.map((token, key) => {
+                      const props = getTokenProps({token, key}) || {};
+
+                      return (
+                        <span
+                          {...omit(props, ["key"])}
+                          key={`${key}-${getUniqueID("line")}`}
+                          className={className}
+                          style={{
+                            ...props.style,
+                            ...(highlightStyleToken.some((t) => {
+                              const content = token.content.trim();
+
+                              const regex = t instanceof RegExp ? t : new RegExp(t);
+
+                              return regex.test(content);
+                            })
+                              ? {color: "rgb(var(--code-function))"}
+                              : {}),
+                          }}
+                        />
+                      );
+                    })}
+                  </div>
+                );
+              })}
+            </pre>
+          )}
+        </BaseHighlight>
+      ) : (
+        <div className={clsx(classNameProp, "w-full bg-code-background rounded-lg")} />
+      )}
+    </div>
+  );
 };
 
 const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
@@ -134,80 +283,21 @@ const Codeblock = forwardRef<HTMLPreElement, CodeblockProps>(
     }, []);
 
     return (
-      <BaseHighlight
-        {...defaultProps}
-        code={codeString}
-        language={codeLang}
+      <CodeBlockHighlight
+        className={classNameProp}
+        codeLang={codeLang}
+        codeString={codeString}
+        hideScrollBar={hideScrollBar}
+        highlightStyle={highlightStyle}
+        isMultiLine={isMultiLine}
+        language={language}
+        preRef={ref}
+        removeIndent={removeIndent}
+        shouldHighlightLine={shouldHighlightLine}
+        showLines={showLines}
         theme={theme}
         {...props}
-      >
-        {({className, style, tokens, getLineProps, getTokenProps}) => (
-          <div className="w-full" data-language={language}>
-            <pre
-              ref={ref}
-              className={clsx(className, classNameProp, "flex max-w-full", {
-                "flex-col": isMultiLine,
-                "scrollbar-hide overflow-x-scroll": hideScrollBar,
-              })}
-              style={style}
-              translate="no"
-            >
-              {tokens.map((line, i) => {
-                const lineProps = getLineProps({line, key: i});
-
-                return (
-                  <div
-                    {...omit(lineProps, ["key"])}
-                    key={`${i}-${getUniqueID("line-wrapper")}`}
-                    className={clsx(
-                      lineProps.className,
-                      removeIndent ? "pr-4" : "px-4",
-                      "relative [&>span]:relative [&>span]:z-10",
-                      {
-                        "px-2": showLines,
-                      },
-                      {
-                        "before:content-[''] before:w-full before:h-full before:absolute before:z-0 before:left-0 before:bg-gradient-to-r before:from-white/10 before:to-code-background":
-                          shouldHighlightLine(i),
-                      },
-                    )}
-                    data-deleted={dataAttr(highlightStyle?.[i] === "deleted")}
-                    data-inserted={dataAttr(highlightStyle?.[i] === "inserted")}
-                  >
-                    {showLines && (
-                      <span className="select-none text-xs mr-6 opacity-30">{i + 1}</span>
-                    )}
-                    {line.map((token, key) => {
-                      // Bun has no color style by default in the code block, so hack add in here
-                      const props = getTokenProps({token, key}) || {};
-
-                      return (
-                        <span
-                          {...omit(props, ["key"])}
-                          key={`${key}-${getUniqueID("line")}`}
-                          className={className}
-                          style={{
-                            ...props.style,
-                            ...(highlightStyleToken.some((t) => {
-                              const content = token.content.trim();
-
-                              const regex = t instanceof RegExp ? t : new RegExp(t);
-
-                              return regex.test(content);
-                            })
-                              ? {color: "rgb(var(--code-function))"}
-                              : {}),
-                          }}
-                        />
-                      );
-                    })}
-                  </div>
-                );
-              })}
-            </pre>
-          </div>
-        )}
-      </BaseHighlight>
+      />
     );
   },
 );

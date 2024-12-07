@@ -3,12 +3,12 @@ import type {AriaCheckboxProps} from "@react-types/checkbox";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {useProviderContext} from "@nextui-org/system";
-import {ReactNode, Ref, useCallback, useId, useState} from "react";
+import {ReactNode, Ref, useCallback, useId} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
 import {useCallbackRef} from "@nextui-org/use-callback-ref";
-import {useHover, usePress} from "@react-aria/interactions";
+import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps, chain} from "@react-aria/utils";
 import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
@@ -18,6 +18,7 @@ import {
 } from "@react-aria/checkbox";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 import {mergeRefs} from "@nextui-org/react-utils";
+import {FormContext, useSlottedContext} from "@nextui-org/form";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
@@ -75,6 +76,7 @@ export type UseCheckboxProps = Omit<Props, "defaultChecked"> &
 export function useCheckbox(props: UseCheckboxProps = {}) {
   const globalContext = useProviderContext();
   const groupContext = useCheckboxGroupContext();
+  const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
   const isInGroup = !!groupContext;
 
   const {
@@ -95,13 +97,18 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isDisabled: isDisabledProp = groupContext?.isDisabled ?? false,
     disableAnimation = groupContext?.disableAnimation ?? globalContext?.disableAnimation ?? false,
     validationState,
-    isInvalid = validationState ? validationState === "invalid" : groupContext?.isInvalid ?? false,
+    isInvalid: isInvalidProp = validationState
+      ? validationState === "invalid"
+      : groupContext?.isInvalid ?? false,
     isIndeterminate = false,
-    validationBehavior = groupContext?.validationBehavior ?? "aria",
+    validationBehavior = isInGroup
+      ? groupContext.validationBehavior
+      : formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     defaultSelected,
     classNames,
     className,
     onValueChange,
+    validate,
     ...otherProps
   } = props;
 
@@ -140,76 +147,73 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const labelId = useId();
 
-  const ariaCheckboxProps = useMemo(() => {
-    return {
+  const ariaCheckboxProps = useMemo(
+    () => ({
       name,
       value,
       children,
       autoFocus,
       defaultSelected,
-      validationBehavior,
       isIndeterminate,
       isRequired,
-      isInvalid,
+      isInvalid: isInvalidProp,
       isSelected: isSelectedProp,
       isDisabled: isDisabledProp,
       isReadOnly: isReadOnlyProp,
       "aria-label": safeAriaLabel(otherProps["aria-label"], children),
       "aria-labelledby": otherProps["aria-labelledby"] || labelId,
       onChange: onValueChange,
-    };
-  }, [
-    value,
-    name,
-    labelId,
-    children,
-    autoFocus,
-    isInvalid,
-    isIndeterminate,
-    isDisabledProp,
-    isReadOnlyProp,
-    isSelectedProp,
-    defaultSelected,
-    validationBehavior,
-    otherProps["aria-label"],
-    otherProps["aria-labelledby"],
-    onValueChange,
-  ]);
+    }),
+    [
+      name,
+      value,
+      children,
+      autoFocus,
+      defaultSelected,
+      isIndeterminate,
+      isRequired,
+      isInvalidProp,
+      isSelectedProp,
+      isDisabledProp,
+      isReadOnlyProp,
+      otherProps["aria-label"],
+      otherProps["aria-labelledby"],
+      labelId,
+      onValueChange,
+    ],
+  );
 
   const toggleState = useToggleState(ariaCheckboxProps);
+
+  const validationProps = {
+    isInvalid: isInvalidProp,
+    isRequired,
+    validate,
+    validationState,
+    validationBehavior,
+  };
 
   const {
     inputProps,
     isSelected,
     isDisabled,
     isReadOnly,
-    isPressed: isPressedKeyboard,
+    isPressed,
+    isInvalid: isAriaInvalid,
   } = isInGroup
     ? // eslint-disable-next-line
-      useReactAriaCheckboxGroupItem({...ariaCheckboxProps}, groupContext.groupState, inputRef)
+      useReactAriaCheckboxGroupItem(
+        {...ariaCheckboxProps, ...validationProps},
+        groupContext.groupState,
+        inputRef,
+      )
     : // eslint-disable-next-line
-      useReactAriaCheckbox({...ariaCheckboxProps}, toggleState, inputRef);
+      useReactAriaCheckbox({...ariaCheckboxProps, ...validationProps}, toggleState, inputRef);
 
   const isInteractionDisabled = isDisabled || isReadOnly;
+  const isInvalid = validationState === "invalid" || isInvalidProp || isAriaInvalid;
 
-  // Handle press state for full label. Keyboard press state is returned by useCheckbox
-  // since it is handled on the <input> element itself.
-  const [isPressed, setPressed] = useState(false);
-  const {pressProps} = usePress({
-    isDisabled: isInteractionDisabled,
-    onPressStart(e) {
-      if (e.pointerType !== "keyboard") {
-        setPressed(true);
-      }
-    },
-    onPressEnd(e) {
-      if (e.pointerType !== "keyboard") {
-        setPressed(false);
-      }
-    },
-  });
-
-  const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
+  const pressed = isInteractionDisabled ? false : isPressed;
 
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
@@ -273,7 +277,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       "data-readonly": dataAttr(inputProps.readOnly),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-indeterminate": dataAttr(isIndeterminate),
-      ...mergeProps(hoverProps, pressProps, otherProps),
+      ...mergeProps(hoverProps, otherProps),
     };
   }, [
     slots,
@@ -288,7 +292,6 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     inputProps.readOnly,
     isFocusVisible,
     hoverProps,
-    pressProps,
     otherProps,
   ]);
 

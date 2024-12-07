@@ -6,37 +6,37 @@ description: Learn how to integrate client side routing into your NextUI applica
 # Routing
 
 NextUI Components such as [Tabs](/docs/components/tabs), [Listbox](/docs/components/listbox), [Dropdown](/docs/components/dropdown) and many others offer
-the flexibility to be rendered as HTML links. Explore this page to learn how to integrate them with client side routing.
+the flexibility to be rendered as **HTML links**.
 
-<CarbonAd/>
+<CarbonAd />
 
 ## Introduction
 
 By default, links perform native browser navigation when they are interacted with. However, many apps and
-frameworks use client side routers to avoid a full page reload when navigating between pages. The `NextUIProvider`
-component configures all NextUI components within it to navigate using the client side router you provide.
+frameworks use client side routers to avoid a full page reload when navigating between pages.
 
-Set this up once in the root of your app, and any NextUI component with the href prop will automatically navigate
+The `NextUIProvider` component configures all NextUI components within it to navigate using the client side
+router you provide.
+
+Set this up once in the `root` of your app, and any NextUI component with the `href` prop will automatically navigate
 using your router.
 
 ## NextUIProvider Setup
 
-The `NextUIProvider` accepts a prop called `navigate`. This should be set to a function received from your
-router for performing a client side navigation programmatically. The following example shows the general
-pattern. Framework-specific examples are shown below.
+The `NextUIProvider` component accepts `navigate` and `useHref` props. `navigate` is a router function for client-side
+navigation, while `useHref` optionally converts router hrefs to native HTML hrefs. Here's the pattern:
 
 ```jsx
 import * as React from "react";
 
-// 1. import `NextUIProvider` component
 import {NextUIProvider} from "@nextui-org/react";
+import {useNavigate, useHref} from "your-router";
 
 function App() {
-  const navigate = useNavigateFromYourRouter();
+  const navigate = useNavigate();
 
-  // 2. Add the `navigate` function to the `NextUIProvider`
   return (
-    <NextUIProvider navigate={navigate}>
+    <NextUIProvider navigate={navigate} useHref={useHref}>
       <YourApplication />
     </NextUIProvider>
   );
@@ -45,32 +45,65 @@ function App() {
 
 <Spacer y={2} />
 
-## Next.js 
+> **Note**: Framework-specific examples are shown below.
 
-### App Router
+### Router Options
+
+All `NextUI` link components accept a `routerOptions` prop that passes options to the router's navigate function for
+controlling behavior like scrolling and history navigation.
+
+```jsx
+<DropdownItem href="/login" routerOptions={{replace: true}}>
+  {/* ...*/}
+</DropdownItem>
+```
+
+When using TypeScript, you can configure the RouterConfig type globally so that all link components have auto
+complete and type safety using a type provided by your router.
+
+```tsx
+import type {RouterOptions} from "your-router";
+
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: RouterOptions;
+  }
+}
+```
+
+<Spacer y={2} />
+
+## Next.js
+
+#### App Router
 
 Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and add the
 `useRouter` hook from `next/navigation`, it returns a router object that can be used to perform navigation.
+
+> Check the [Next.js docs](https://nextjs.org/docs/app/api-reference/functions/use-router) for more details.
 
 <Steps>
 
 #### Add the `useRouter`
 
-```tsx {8}
+```tsx {16}
 // app/providers.tsx
-'use client'
+"use client";
 
-import {NextUIProvider} from '@nextui-org/react';
-import {useRouter} from 'next/navigation'
+import {useRouter} from "next/navigation";
+import {NextUIProvider} from "@nextui-org/react";
 
-export function Providers({children}: { children: React.ReactNode }) {
+// Only if using TypeScript
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: NonNullable<Parameters<ReturnType<typeof useRouter>["push"]>[1]>;
+  }
+}
+
+export function Providers({children}: {children: React.ReactNode}) {
   const router = useRouter();
 
-  return (
-    <NextUIProvider navigate={router.push}>
-      {children}
-    </NextUIProvider>
-  )
+  return <NextUIProvider navigate={router.push}>{children}</NextUIProvider>;
 }
 ```
 
@@ -78,17 +111,15 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
 
-```tsx {6,8,10}
+```tsx {8}
 // app/layout.tsx
 import {Providers} from "./providers";
 
-export default function RootLayout({children}: { children: React.ReactNode }) {
+export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
-    <html lang="en" className='dark'>
+    <html lang="en" className="dark">
       <body>
-        <Providers>
-          {children}
-        </Providers>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
@@ -97,30 +128,32 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 
 > **Note**: Skip this step if you already set up the `NextUIProvider` in your app.
 
-#### Add useHref (Optional)
+#### Next.js Base Path (Optional)
 
-If you are using the Next.js [basePath](https://nextjs.org/docs/app/api-reference/next-config-js/basePath) setting, you'll need to configure an environment variable to access it. 
+If you are using the Next.js [basePath](https://nextjs.org/docs/app/api-reference/next-config-js/basePath) setting,
+you'll need to configure an environment variable to access it.
 
 ```js
 // next.config.js
-const basePath = '...';
+const basePath = "...";
 const nextConfig = {
   basePath,
   env: {
-    BASE_PATH: basePath
-  }
+    BASE_PATH: basePath,
+  },
 };
 ```
+
 Then, provide a custom `useHref` function to prepend it to the href for all links.
 
 ```tsx {9,12}
 // app/providers.tsx
-'use client'
+"use client";
 
-import {NextUIProvider} from '@nextui-org/react';
-import {useRouter} from 'next/navigation'
+import {useRouter} from "next/navigation";
+import {NextUIProvider} from "@nextui-org/react";
 
-export function Providers({children}: { children: React.ReactNode }) {
+export function Providers({children}: {children: React.ReactNode}) {
   const router = useRouter();
   const useHref = (href: string) => process.env.BASE_PATH + href;
 
@@ -128,7 +161,7 @@ export function Providers({children}: { children: React.ReactNode }) {
     <NextUIProvider navigate={router.push} useHref={useHref}>
       {children}
     </NextUIProvider>
-  )
+  );
 }
 ```
 
@@ -136,37 +169,46 @@ export function Providers({children}: { children: React.ReactNode }) {
 
 ### Pages Router
 
-Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the`useRouter` hook 
+Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and add the`useRouter` hook
 from `next/router`, it returns a router object that can be used to perform navigation.
 
-```tsx {7,10}
+```tsx
 // pages/_app.tsx
-import type { AppProps } from 'next/app';
-import {NextUIProvider} from '@nextui-org/react';
-import {useRouter} from 'next/router';
+import type {AppProps} from "next/app";
+import {type NextRouter, useRouter} from "next/router";
+import {NextUIProvider} from "@nextui-org/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: NonNullable<
+      Parameters<NextRouter['push']>[2]
+    >;
+  }
+}
+
+function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter();
 
   return (
     <NextUIProvider navigate={router.push}>
       <Component {...pageProps} />
     </NextUIProvider>
-  )
+  );
 }
 
 export default MyApp;
 ```
 
-When using the [basePath](https://nextjs.org/docs/app/api-reference/next-config-js/basePath) configuration option, provide a `useHref` option to the router passed to Provider to prepend it to links automatically.
+When using the [basePath](https://nextjs.org/docs/app/api-reference/next-config-js/basePath) configuration option, 
+provide a `useHref` option to the router passed to Provider to prepend it to links automatically.
 
-```tsx {8,11}
+```tsx {8}
 // pages/_app.tsx
-import type { AppProps } from 'next/app';
-import {NextUIProvider} from '@nextui-org/react';
-import {useRouter} from 'next/router';
+import type {AppProps} from "next/app";
+import {NextUIProvider} from "@nextui-org/react";
+import {useRouter} from "next/router";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter();
   const useHref = (href: string) => router.basePath + href;
 
@@ -174,7 +216,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <NextUIProvider navigate={router.push} useHref={useHref}>
       <Component {...pageProps} />
     </NextUIProvider>
-  )
+  );
 }
 
 export default MyApp;
@@ -182,17 +224,22 @@ export default MyApp;
 
 ## React Router
 
-The `useNavigate` hook from `react-router-dom` returns a `navigate` function that can be used to perform navigation. 
+Use the `useNavigate` hook from `react-router-dom` to get the `navigate` function for routing. The `useHref` hook can be used with React Router's `basename` option.
 
-The `useHref` hook can also be provided if you're using React Router's `basename` option. Ensure that the component that calls useNavigate and renders Provider is inside the router component (e.g. `BrowserRouter`) so that it has access to React Router's internal context. The React Router `<Routes>` element should also be defined inside `<NextUIProvider>` so that links inside the rendered routes have access to the router.
+Make sure to place the component using these hooks inside `BrowserRouter` and keep `<Routes>` within `NextUIProvider`. Here's how to set it up in your App component:
 
-Go to the `App` file commonly called `App.jsx` or `App.tsx`, add the `useNavigate` hook and pass the 
-`navigate` function to the `NextUIProvider`:
-
-```jsx {6,9}
+```tsx
 // App.tsx or App.jsx
-import {BrowserRouter, useNavigate, useHref} from 'react-router-dom';
-import {NextUIProvider} from '@nextui-org/react';
+import type {NavigateOptions} from "react-router-dom";
+
+import {BrowserRouter, useNavigate, useHref} from "react-router-dom";
+import {NextUIProvider} from "@nextui-org/react";
+
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: NavigateOptions;
+  }
+}
 
 function App() {
   const navigate = useNavigate();
@@ -208,42 +255,47 @@ function App() {
   );
 }
 
-
 // main.tsx or main.jsx
-ReactDOM.createRoot(document.getElementById('root')).render(
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
     </BrowserRouter>
   </React.StrictMode>,
-)
+);
 ```
 
-Ensure that the component that calls `useNavigate` and renders `NextUIProvider` is inside the router 
-component (e.g. `BrowserRouter`) so that it has access to React Router's internal context. The React Router `<Routes>` 
+Ensure that the component that calls `useNavigate` and renders `NextUIProvider` is inside the router
+component (e.g. `BrowserRouter`) so that it has access to React Router's internal context. The React Router `<Routes>`
 element should also be defined inside `NextUIProvider` so that links inside the rendered routes have access
 to the router.
 
 ## Remix
 
-Remix uses React Router under the hood, so the same `useNavigate` and `useHref` hook described above also works in Remix 
-apps. `NextUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in 
-`app/root.tsx` to add it to all pages. See the [Remix docs](https://remix.run/docs/en/main/file-conventions/root) 
+Remix uses React Router under the hood, so the same `useNavigate` and `useHref` hook described above also works in Remix
+apps. `NextUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in
+`app/root.tsx` to add it to all pages. See the [Remix docs](https://remix.run/docs/en/main/file-conventions/root)
 for more details.
 
-```jsx {14}
+```tsx
 // app/root.tsx
-import {useNavigate, useHref, Outlet} from '@remix-run/react';
-import {NextUIProvider} from '@nextui-org/react';
+import type {NavigateOptions} from 'react-router-dom';
+
+import {useNavigate, useHref, Outlet} from "@remix-run/react";
+import {NextUIProvider} from "@nextui-org/react";
+
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    routerOptions: NavigateOptions;
+  }
+}
 
 export default function App() {
   const navigate = useNavigate();
 
   return (
     <html lang="en">
-      <head>
-        {/* ... */}
-      </head>
+      <head>{/* ... */}</head>
       <body>
         <NextUIProvider navigate={navigate} useHref={useHref}>
           <Outlet />
@@ -257,19 +309,31 @@ export default function App() {
 
 ## TanStack
 
-To use [TanStack Router](https://tanstack.com/router/latest) with NextUI, render NextUI's RouterProvider inside your root route. Use `router.navigate` in the `navigate` prop, and `router.buildLocation` in the `useHref` prop. 
+To use [TanStack Router](https://tanstack.com/router/latest) with NextUI, render NextUI's RouterProvider inside your root route. 
+Use `router.navigate` in the `navigate` prop, and `router.buildLocation` in the `useHref` prop.
 
-```tsx {9,10}
+```tsx
 // app/root.tsx
-import {NextUIProvider} from '@nextui-org/react';
+import type {NavigateOptions, ToOptions} from '@tanstack/react-router';
+
+import {useRouter} from '@tanstack/react-router';
+import {NextUIProvider} from "@nextui-org/react";
+
+
+declare module "@react-types/shared" {
+  interface RouterConfig {
+    href: ToOptions['to'];
+    routerOptions: Omit<NavigateOptions, keyof ToOptions>;
+  }
+}
 
 function RootRoute() {
   let router = useRouter();
 
   return (
-    <NextUIProvider 
-      navigate={(to, options) => router.navigate({ to, ...options })}
-      useHref={(to) => router.buildLocation({ to }).href}
+    <NextUIProvider
+      navigate={(to, options) => router.navigate({to, ...options})}
+      useHref={(to) => router.buildLocation({to}).href}
     >
       {/* You app here... */}
     </NextUIProvider>
@@ -279,12 +343,11 @@ function RootRoute() {
 
 ## Usage examples
 
-Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`, 
+Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`,
 `Listbox` and `Dropdown` items to navigate between pages.
 
 The [Link](/docs/components/link) component will also use the `navigate` function from the
 `NextUIProvider` to navigate between pages.
-
 
 ```jsx
 import {
@@ -304,20 +367,32 @@ function App() {
   return (
     <>
       <Tabs aria-label="Navigation">
-        <Tab key="home" href="/home">Home</Tab>
-        <Tab key="about" href="/about">About</Tab>
+        <Tab key="home" href="/home">
+          Home
+        </Tab>
+        <Tab key="about" href="/about">
+          About
+        </Tab>
       </Tabs>
       <Listbox aria-label="Navigation">
-        <ListboxItem key="home" href="/home">Home</ListboxItem>
-        <ListboxItem key="about" href="/about">About</ListboxItem>
+        <ListboxItem key="home" href="/home">
+          Home
+        </ListboxItem>
+        <ListboxItem key="about" href="/about">
+          About
+        </ListboxItem>
       </Listbox>
       <Dropdown>
         <DropdownTrigger>
           <Button>Open</Button>
         </DropdownTrigger>
         <DropdownMenu aria-label="Navigation">
-          <DropdownItem key="home" href="/home">Home</DropdownItem>
-          <DropdownItem key="about" href="/about">About</DropdownItem>
+          <DropdownItem key="home" href="/home">
+            Home
+          </DropdownItem>
+          <DropdownItem key="about" href="/about">
+            About
+          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
       <Link href="/home">Home</Link>
@@ -326,3 +401,7 @@ function App() {
   );
 }
 ```
+
+<Spacer y={2} />
+
+> For more information about routing in React Aria, visit the [React Aria Routing Guide](https://react-spectrum.adobe.com/react-aria/routing.html).

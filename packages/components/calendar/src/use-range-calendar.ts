@@ -16,7 +16,7 @@ import {CalendarBaseProps} from "./calendar-base";
 
 type NextUIBaseProps<T extends DateValue> = Omit<
   HTMLNextUIProps<"div">,
-  keyof AriaRangeCalendarProps<T>
+  keyof AriaRangeCalendarProps<T> | "children"
 >;
 
 interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBaseProps<T> {}
@@ -32,7 +32,6 @@ export function useRangeCalendar<T extends DateValue>({
   const {
     Component,
     slots,
-    children,
     domRef,
     locale,
     showHelper,
@@ -134,7 +133,6 @@ export function useRangeCalendar<T extends DateValue>({
 
   return {
     Component,
-    children,
     domRef,
     context,
     state,

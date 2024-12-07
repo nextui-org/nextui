@@ -1,5 +1,5 @@
 import type {TimeValue} from "@react-types/datepicker";
-import type {ForwardedRef, ReactElement, Ref} from "react";
+import type {ForwardedRef, ReactElement} from "react";
 
 import {forwardRef} from "@nextui-org/system";
 
@@ -9,7 +9,12 @@ import {DateInputGroup} from "./date-input-group";
 
 export interface Props<T extends TimeValue> extends UseTimeInputProps<T> {}
 
-function TimeInput<T extends TimeValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+export type TimeInputProps<T extends TimeValue = TimeValue> = Props<T>;
+
+const TimeInput = forwardRef(function TimeInput<T extends TimeValue>(
+  props: TimeInputProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
   const {state, slots, classNames, getBaseGroupProps, getInputProps, getFieldProps} =
     useTimeInput<T>({
       ...props,
@@ -27,13 +32,6 @@ function TimeInput<T extends TimeValue>(props: Props<T>, ref: ForwardedRef<HTMLD
       />
     </DateInputGroup>
   );
-}
+}) as <T extends TimeValue>(props: TimeInputProps<T>) => ReactElement;
 
-TimeInput.displayName = "NextUI.TimeInput";
-
-export type TimeInputProps<T extends TimeValue = TimeValue> = Props<T> & {ref?: Ref<HTMLElement>};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(TimeInput) as <T extends TimeValue>(
-  props: TimeInputProps<T>,
-) => ReactElement;
+export default TimeInput;

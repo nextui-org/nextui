@@ -119,19 +119,91 @@ You can customize the `CircularProgress` component by passing custom Tailwind CS
 
 ### Circular Progress Props
 
-| Attribute        | Type                                                                                                                    | Description                                                       | Default              |
-| ---------------- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- | -------------------- |
-| label            | `ReactNode`                                                                                                             | The content to display as the label.                              | -                    |
-| size             | `sm` \| `md` \| `lg`                                                                                                    | The size of the indicator.                                        | `md`                 |
-| color            | `default` \| `primary` \| `secondary` \| `success` \| `warning` \| `danger`                                             | The color of the indicator.                                       | `primary`            |
-| value            | `number`                                                                                                                | The current value (controlled).                                   | -                    |
-| valueLabel       | `ReactNode`                                                                                                             | The content to display as the value's label (e.g. 1 of 4).        | -                    |
-| minValue         | `number`                                                                                                                | The smallest value allowed for the input.                         | `0`                  |
-| maxValue         | `number`                                                                                                                | The largest value allowed for the input.                          | `100`                |
-| formatOptions    | [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) | The options to format the value.                                  | `{style: 'percent'}` |
-| isIndeterminate  | `boolean`                                                                                                               | Whether the progress is indeterminate.                            | `true`               |
-| showValueLabel   | `boolean`                                                                                                               | Whether to show the value label.                                  | `true`               |
-| strokeWidth      | `number`                                                                                                                | The width of the progress stroke.                                 | `2`                  |
-| isDisabled       | `boolean`                                                                                                               | Whether the progress is disabled.                                 | `false`              |
-| disableAnimation | `boolean`                                                                                                               | Whether to disable the animation.                                 | `false`              |
-| classNames       | `Record<"base"｜"svgWrapper"｜"svg"｜"track"｜"indicator"｜"value"｜"label", string>`                                   | Allows to set custom class names for the circular progress slots. | -                    |
+<APITable
+  data={[
+    {
+      attribute: "label",
+      type: "ReactNode",
+      description: "The content to display as the label.",
+      default: "-"
+    },
+    {
+      attribute: "size",
+      type: "sm | md | lg",
+      description: "The size of the indicator.",
+      default: "md"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The color of the indicator.",
+      default: "primary"
+    },
+    {
+      attribute: "value",
+      type: "number",
+      description: "The current value (controlled).",
+      default: "-"
+    },
+    {
+      attribute: "valueLabel",
+      type: "ReactNode",
+      description: "The content to display as the value's label (e.g. 1 of 4).",
+      default: "-"
+    },
+    {
+      attribute: "minValue",
+      type: "number",
+      description: "The smallest value allowed for the input.",
+      default: "0"
+    },
+    {
+      attribute: "maxValue",
+      type: "number",
+      description: "The largest value allowed for the input.",
+      default: "100"
+    },
+    {
+      attribute: "formatOptions",
+      type: "Intl.NumberFormat",
+      description: "The options to format the value.",
+      default: "{style: 'percent'}"
+    },
+    {
+      attribute: "isIndeterminate",
+      type: "boolean",
+      description: "Whether the progress is indeterminate.",
+      default: "true"
+    },
+    {
+      attribute: "showValueLabel",
+      type: "boolean",
+      description: "Whether to show the value label.",
+      default: "true"
+    },
+    {
+      attribute: "strokeWidth",
+      type: "number",
+      description: "The width of the progress stroke.",
+      default: "2"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the progress is disabled.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable the animation.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<'base'｜'svgWrapper'｜'svg'｜'track'｜'indicator'｜'value'｜'label', string>>",
+      description: "Allows to set custom class names for the circular progress slots.",
+      default: "-"
+    }
+  ]}
+/>

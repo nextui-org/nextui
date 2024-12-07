@@ -1,9 +1,10 @@
 import type {SelectProps} from "../src";
 
 import * as React from "react";
-import {render, renderHook} from "@testing-library/react";
+import {act, render, renderHook, waitFor} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
 
 import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
@@ -669,7 +670,13 @@ describe("Select", () => {
     });
 
     const wrapper = render(
-      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+      <Select
+        isOpen
+        aria-label="Favorite Animal"
+        isVirtualized={false}
+        label="Favorite Animal"
+        onChange={onChange}
+      >
         {options.map((o) => (
           <SelectItem key={o} value={o}>
             {o}
@@ -701,7 +708,13 @@ describe("Select", () => {
     });
 
     const wrapper = render(
-      <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+      <Select
+        isOpen
+        aria-label="Favorite Animal"
+        isVirtualized={false}
+        label="Favorite Animal"
+        onChange={onChange}
+      >
         {options.map((o) => (
           <SelectItem key={o} value={o}>
             {o}
@@ -723,11 +736,12 @@ describe("Select", () => {
     expect(onChange).toHaveBeenCalledTimes(1);
   });
 
-  it("should place the label outside when labelPlacement is outside", () => {
+  it("should place the label outside when labelPlacement is outside and isMultiline enabled", () => {
     const labelContent = "Favorite Animal Label";
 
     render(
       <Select
+        isMultiline
         aria-label="Favorite Animal"
         data-testid="select"
         label={labelContent}
@@ -778,6 +792,281 @@ describe("Select", () => {
     const trigger = document.querySelector("[data-slot=trigger]");
 
     expect(trigger).toHaveTextContent(labelContent);
+  });
+
+  it("should support controlled isInvalid prop", async () => {
+    function Test() {
+      const [isInvalid, setInvalid] = React.useState(false);
+
+      return (
+        <>
+          <Select
+            data-testid="select"
+            errorMessage="Invalid value"
+            isInvalid={isInvalid}
+            label="Test"
+            name="select"
+          >
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+          <button data-testid="button" onClick={() => setInvalid((isInvalid) => !isInvalid)}>
+            Click Me
+          </button>
+        </>
+      );
+    }
+
+    const {getByTestId} = render(<Test />);
+    const select = getByTestId("select");
+
+    expect(select).not.toHaveAttribute("aria-describedby");
+
+    await user.click(getByTestId("button"));
+    expect(select).toHaveAttribute("aria-describedby");
+    expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+      "Invalid value",
+    );
+  });
+
+  it("should not open dropdown when hideEmptyContent is true", async () => {
+    const wrapper = render(
+      <Select
+        hideEmptyContent
+        aria-label="Favorite Animal"
+        data-testid="hide-empty-content-true-test"
+        label="Favorite Animal"
+      >
+        {[]}
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("hide-empty-content-true-test");
+
+    // open the select dropdown
+    await user.click(select);
+
+    // assert that the select is not open
+    expect(select).not.toHaveAttribute("aria-expanded", "true");
+    // assert that the listbox is not rendered
+    expect(wrapper.queryByRole("listbox")).not.toBeInTheDocument();
+  });
+
+  it("should open dropdown when hideEmptyContent is false", async () => {
+    const wrapper = render(
+      <Select
+        aria-label="Favorite Animal"
+        data-testid="hide-empty-content-false-test"
+        hideEmptyContent={false}
+        label="Favorite Animal"
+      >
+        {[]}
+      </Select>,
+    );
+
+    const select = wrapper.getByTestId("hide-empty-content-false-test");
+
+    // open the select dropdown
+    await user.click(select);
+
+    // assert that the select is open
+    expect(select).toHaveAttribute("aria-expanded", "true");
+
+    const listbox = wrapper.getByRole("listbox");
+
+    // assert that the listbox is rendered
+    expect(listbox).toBeInTheDocument();
+    // assert that the listbox items are not rendered
+    expect(wrapper.queryByRole("option")).not.toBeInTheDocument();
+  });
+});
+
+describe("Select virtualization tests", () => {
+  const user = userEvent.setup();
+
+  beforeAll(() => {
+    Object.defineProperty(HTMLElement.prototype, "scrollTo", {
+      configurable: true,
+      value: jest.fn(),
+    });
+  });
+
+  it("should work with onChange (< virtualization threshold items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 10}, (_, i) => `option ${i}`);
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(10);
+
+    await user.click(listboxItems[1]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with onChange (at virtualization threshold items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 50}, (_, i) => `option ${i}`);
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select isOpen aria-label="Favorite Animal" label="Favorite Animal" onChange={onChange}>
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    const listboxItems = wrapper.getAllByRole("option");
+
+    expect(listboxItems.length).toBe(50);
+
+    await user.click(listboxItems[1]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with onChange (> virtualization threshold items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 100}, (_, i) => `option ${i}`);
+
+    /* Mock dimensions */
+    Object.defineProperty(HTMLElement.prototype, "offsetHeight", {configurable: true, value: 200});
+    Object.defineProperty(HTMLElement.prototype, "scrollHeight", {configurable: true, value: 2000});
+    Object.defineProperty(HTMLElement.prototype, "getBoundingClientRect", {
+      configurable: true,
+      value: () => ({
+        top: 0,
+        bottom: 200,
+        height: 200,
+        left: 0,
+        right: 100,
+        width: 100,
+      }),
+    });
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select
+          isOpen
+          isVirtualized
+          aria-label="Favorite Animal"
+          itemHeight={20}
+          label="Favorite Animal"
+          maxListboxHeight={200}
+          onChange={onChange}
+        >
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    /* Scroll to ensure visibility of the target item */
+    const scrollableContainer = wrapper.container.querySelector("div");
+
+    act(() => {
+      scrollableContainer?.scrollTo({top: 60});
+    });
+
+    await waitFor(() => {
+      const visibleItems = wrapper.getAllByRole("option");
+
+      expect(visibleItems.length).toBeGreaterThan(0);
+      /* Virtualized list will have listitems less than 100 */
+      expect(visibleItems.length).toBeLessThan(100);
+    });
+
+    const visibleItems = wrapper.getAllByRole("option");
+
+    await user.click(visibleItems[3]);
+    expect(onChange).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work with onChange (large number of items)", async () => {
+    const onChange = jest.fn();
+
+    let options = Array.from({length: 300}, (_, i) => `option ${i}`);
+
+    /* Mock dimensions */
+    Object.defineProperty(HTMLElement.prototype, "offsetHeight", {configurable: true, value: 200});
+    Object.defineProperty(HTMLElement.prototype, "scrollHeight", {configurable: true, value: 6000});
+
+    const wrapper = render(
+      <div style={{height: "200px", overflow: "auto"}}>
+        <Select
+          isOpen
+          isVirtualized
+          aria-label="Favorite Animal"
+          itemHeight={20}
+          label="Favorite Animal"
+          maxListboxHeight={200}
+          onChange={onChange}
+        >
+          {options.map((o) => (
+            <SelectItem key={o} value={o}>
+              {o}
+            </SelectItem>
+          ))}
+        </Select>
+      </div>,
+    );
+
+    const listbox = wrapper.getByRole("listbox");
+
+    expect(listbox).toBeTruthy();
+
+    /* Simulate scrolling to make the target item visible */
+    const scrollableContainer = wrapper.container.querySelector("div");
+
+    act(() => {
+      scrollableContainer?.scrollTo({top: 1200});
+    });
+
+    await waitFor(() => {
+      const visibleItems = wrapper.getAllByRole("option");
+
+      expect(visibleItems.length).toBeGreaterThan(0);
+      /* Virtualized list will have listitems less than 300 */
+      expect(visibleItems.length).toBeLessThan(300);
+    });
+
+    const visibleItems = wrapper.getAllByRole("option");
+
+    await user.click(visibleItems[3]);
+    expect(onChange).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -880,5 +1169,128 @@ describe("Select with React Hook Form", () => {
     await user.click(submitButton);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("validation", () => {
+  let user;
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+
+  describe("validationBehavior=aria", () => {
+    it("supports isRequired", async () => {
+      function FormRender() {
+        const [serverErrors, setServerErrors] = React.useState({});
+
+        const onSubmit = (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target as HTMLFormElement);
+          const value = formData.get("animal");
+
+          if (!value || (value !== "cat" && value !== "dog")) {
+            setServerErrors({
+              animal: "Please select a cat or dog",
+            });
+          } else {
+            setServerErrors({});
+          }
+        };
+
+        return (
+          <Form data-testid="form" validationErrors={serverErrors} onSubmit={onSubmit}>
+            <Select
+              isRequired
+              aria-label="Favorite Animal"
+              data-testid="select"
+              label="Favorite Animal"
+              name="animal"
+            >
+              <SelectItem key="cat">Cat</SelectItem>
+              <SelectItem key="dog">Dog</SelectItem>
+              <SelectItem key="penguin">Penguin</SelectItem>
+              <SelectItem key="zebra">Zebra</SelectItem>
+              <SelectItem key="shark">Shark</SelectItem>
+            </Select>
+            <button data-testid="button" type="submit">
+              Submit
+            </button>
+          </Form>
+        );
+      }
+
+      const {getByTestId} = render(<FormRender />);
+
+      const select = getByTestId("select");
+      const input = document.querySelector("input");
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+      const button = getByTestId("button");
+
+      await user.click(button);
+
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(input).toHaveAttribute("aria-required");
+
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Please select a cat or dog",
+      );
+
+      await user.click(select);
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[0]);
+
+      await user.click(button);
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+    });
+
+    it("supports validate function", async () => {
+      const {getByTestId} = render(
+        <Form data-testid="form">
+          <Select
+            aria-label="Favorite Animal"
+            data-testid="select"
+            defaultSelectedKeys={["penguin"]}
+            label="Favorite Animal"
+            validate={(v) => (v.includes("penguin") ? "Invalid value" : null)}
+            validationBehavior="aria"
+          >
+            <SelectItem key="penguin">Penguin</SelectItem>
+            <SelectItem key="zebra">Zebra</SelectItem>
+            <SelectItem key="shark">Shark</SelectItem>
+          </Select>
+          <button data-testid="button" type="submit">
+            Submit
+          </button>
+        </Form>,
+      );
+
+      const select = getByTestId("select");
+      const input = document.querySelector("input");
+      const button = getByTestId("button");
+
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(input).toHaveAttribute("aria-invalid", "true");
+
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Invalid value",
+      );
+
+      expect(input?.validity.valid).toBe(true);
+
+      await user.click(select);
+
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[1]); // Select "Zebra"
+
+      await user.click(button);
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+      expect(select).not.toHaveAttribute("aria-invalid");
+    });
   });
 });

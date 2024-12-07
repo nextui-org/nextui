@@ -1,3 +1,5 @@
+"use client";
+
 import React, {useCallback, useEffect} from "react";
 import Script from "next/script";
 
@@ -5,7 +7,7 @@ import carbonOptimize from "./carbon-optimize";
 
 import {loadScript} from "@/utils/scripts";
 import {useIsMounted} from "@/hooks/use-is-mounted";
-import {__PROD__} from "@/utils";
+import {__PROD__, __ENABLE_ADS__} from "@/utils";
 
 const EA_PROVIDER_RATIO = 0.85;
 
@@ -94,7 +96,7 @@ export const CarbonAd: React.FC<unknown> = () => {
     };
   }, [isMounted]);
 
-  if (!__PROD__) return null;
+  if (!__PROD__ || !__ENABLE_ADS__) return null;
 
   return (
     <>

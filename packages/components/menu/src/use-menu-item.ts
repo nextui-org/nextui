@@ -1,7 +1,8 @@
 import type {MenuItemBaseProps} from "./base/menu-item-base";
+import type {MenuItemVariantProps} from "@nextui-org/theme";
 import type {Node} from "@react-types/shared";
 
-import {useMemo, useRef, useCallback} from "react";
+import {useMemo, useRef, useCallback, Fragment} from "react";
 import {menuItem} from "@nextui-org/theme";
 import {
   HTMLNextUIProps,
@@ -24,7 +25,8 @@ interface Props<T extends object> extends MenuItemBaseProps<T> {
 }
 
 export type UseMenuItemProps<T extends object> = Props<T> &
-  Omit<HTMLNextUIProps<"li">, keyof Props<T>>;
+  Omit<HTMLNextUIProps<"li">, keyof Props<T>> &
+  MenuItemVariantProps;
 
 export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>) {
   const globalContext = useProviderContext();
@@ -57,6 +59,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     isReadOnly = false,
     closeOnSelect,
     onClose,
+    href,
     ...otherProps
   } = props;
 
@@ -65,8 +68,11 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || (otherProps?.href ? "a" : "li");
+  const Component = as || "li";
   const shouldFilterDOMProps = typeof Component === "string";
+
+  const FragmentWrapper = href ? "a" : Fragment;
+  const fragmentWrapperProps = href ? {href} : {};
 
   const {rendered, key} = item;
 
@@ -130,8 +136,10 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
         ...variantProps,
         isDisabled,
         disableAnimation,
+        hasTitleTextChild: typeof rendered === "string",
+        hasDescriptionTextChild: typeof description === "string",
       }),
-    [objectToDeps(variantProps), isDisabled, disableAnimation],
+    [objectToDeps(variantProps), isDisabled, disableAnimation, rendered, description],
   );
 
   const baseStyles = clsx(classNames?.base, className);
@@ -190,6 +198,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   return {
     Component,
+    FragmentWrapper,
     domRef,
     slots,
     classNames,
@@ -203,6 +212,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     endContent,
     selectedIcon,
     disableAnimation,
+    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     hideSelectedIcon,

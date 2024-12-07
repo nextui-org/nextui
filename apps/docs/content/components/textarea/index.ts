@@ -8,6 +8,7 @@ import errorMessage from "./error-message";
 import description from "./description";
 import controlled from "./controlled";
 import disableAutosize from "./disable-autosize";
+import clearButton from "./clear-button";
 
 export const textareaContent = {
   usage,
@@ -20,4 +21,5 @@ export const textareaContent = {
   description,
   controlled,
   disableAutosize,
+  clearButton,
 };

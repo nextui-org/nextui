@@ -5,7 +5,7 @@ import type {ReactNode} from "react";
 import * as React from "react";
 import {NextUIProvider} from "@nextui-org/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
-import {ThemeProviderProps} from "next-themes/dist/types";
+import {ThemeProviderProps} from "next-themes";
 import {useRouter} from "next/navigation";
 import {useEffect} from "react";
 import posthog from "posthog-js";
@@ -23,7 +23,7 @@ export function Providers({children, themeProps}: ProvidersProps) {
 
   const ProviderWrapper = ({children}: {children: ReactNode}) => {
     useEffect(() => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== "undefined" && __PROD__) {
         posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
           api_host: "/ingest",
           person_profiles: "identified_only",

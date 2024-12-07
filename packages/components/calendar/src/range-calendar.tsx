@@ -1,6 +1,5 @@
-import type {DateValue} from "@internationalized/date";
-import type {ForwardedRef, ReactElement, Ref} from "react";
-import type {CalendarDate} from "@internationalized/date";
+import type {CalendarDate, DateValue} from "@internationalized/date";
+import type {ForwardedRef, ReactElement} from "react";
 
 import {forwardRef} from "@nextui-org/system";
 
@@ -11,21 +10,18 @@ import {CalendarBase} from "./calendar-base";
 interface Props<T extends DateValue>
   extends Omit<
     UseRangeCalendarProps<T>,
-    | "isHeaderExpanded"
-    | "onHeaderExpandedChange"
-    | "isHeaderWrapperExpanded"
-    | "showMonthAndYearPickers"
-    | "children"
+    "isHeaderExpanded" | "onHeaderExpandedChange" | "isHeaderWrapperExpanded" | "children"
   > {
-  /**
-   * The calendar cell render function
-   */
   children?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
 }
 
-function RangeCalendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
-  const {children, ...otherProps} = props;
+export type RangeCalendarProps<T extends DateValue = DateValue> = Props<T>;
 
+const RangeCalendar = forwardRef(function RangeCalendar<T extends DateValue>(
+  props: RangeCalendarProps<T>,
+  ref: ForwardedRef<HTMLDivElement>,
+) {
+  const {children, ...otherProps} = props;
   const {context, getBaseCalendarProps} = useRangeCalendar<T>({
     ...otherProps,
     ref,
@@ -37,15 +33,6 @@ function RangeCalendar<T extends DateValue>(props: Props<T>, ref: ForwardedRef<H
       <CalendarBase {...getBaseCalendarProps()} />
     </CalendarProvider>
   );
-}
+}) as <T extends DateValue>(props: RangeCalendarProps<T>) => ReactElement;
 
-RangeCalendar.displayName = "NextUI.RangeCalendar";
-
-export type RangeCalendarProps<T extends DateValue = DateValue> = Props<T> & {
-  ref?: Ref<HTMLElement>;
-};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(RangeCalendar) as <T extends DateValue>(
-  props: RangeCalendarProps<T>,
-) => ReactElement;
+export default RangeCalendar;

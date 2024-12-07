@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/use-aria-toggle-button",
-  "version": "2.0.10",
+  "version": "2.2.1",
   "description": "Internal hook to handle button a11y and events, this is based on react-aria button hook but without the onClick warning",
   "keywords": [
     "use-aria-toggle-button"
@@ -34,14 +34,14 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "react": ">=18"
+    "react": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
     "@nextui-org/use-aria-button": "workspace:*",
-    "@react-aria/utils": "3.25.2",
-    "@react-stately/toggle": "3.7.7",
-    "@react-types/button": "3.9.6",
-    "@react-types/shared": "3.24.1"
+    "@react-aria/utils": "3.26.0",
+    "@react-stately/toggle": "3.7.8",
+    "@react-types/button": "3.10.0",
+    "@react-types/shared": "3.25.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

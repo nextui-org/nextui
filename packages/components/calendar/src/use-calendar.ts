@@ -24,7 +24,6 @@ export function useCalendar<T extends DateValue>({
   const {
     Component,
     slots,
-    children,
     domRef,
     locale,
     minValue,
@@ -126,7 +125,6 @@ export function useCalendar<T extends DateValue>({
 
   return {
     Component,
-    children,
     domRef,
     context,
     state,

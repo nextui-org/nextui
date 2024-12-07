@@ -14,6 +14,7 @@ import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@nextui-org/button";
 import {Radio, RadioGroup} from "@nextui-org/radio";
 import {cn} from "@nextui-org/theme";
+import {NextUIProvider} from "@nextui-org/system";
 
 import {
   Calendar,
@@ -45,6 +46,11 @@ export default {
         type: "select",
       },
       options: ["narrow", "short", "long"],
+    },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
     },
   },
 } as Meta<typeof Calendar>;
@@ -249,7 +255,6 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
   return (
     <div className="flex gap-4">
       <div className="flex flex-col items-center gap-4">
-        <p>calendarWidth: 300</p>
         <p className="text-small text-default-600">calendarWidth: 300</p>
         <Calendar {...args} calendarWidth={300} />
       </div>
@@ -326,6 +331,31 @@ const CustomCellTemplate = (args: CalendarProps) => {
             );
           }}
         </Calendar>
+      </div>
+    </div>
+  );
+};
+
+const ReducedMotionTemplate = (args: CalendarProps) => {
+  return (
+    <div className="flex gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">reducedMotion: never</p>
+        <NextUIProvider reducedMotion="never">
+          <Calendar {...args} />
+        </NextUIProvider>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">reducedMotion: always</p>
+        <NextUIProvider reducedMotion="always">
+          <Calendar {...args} />
+        </NextUIProvider>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <p className="text-small text-default-600">reducedMotion: user</p>
+        <NextUIProvider reducedMotion="user">
+          <Calendar {...args} />
+        </NextUIProvider>
       </div>
     </div>
   );
@@ -452,6 +482,13 @@ export const CalendarWidth = {
 
 export const CustomCellContent = {
   render: CustomCellTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const ReducedMotion = {
+  render: ReducedMotionTemplate,
   args: {
     ...defaultProps,
   },

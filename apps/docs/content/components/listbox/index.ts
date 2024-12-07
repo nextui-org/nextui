@@ -9,6 +9,8 @@ import description from "./description";
 import sections from "./sections";
 import customStyles from "./custom-styles";
 import topContent from "./top-content";
+import virtualization from "./virtualization";
+import virtualizationTenThousand from "./virtualization-ten-thousand";
 
 export const listboxContent = {
   usage,
@@ -22,4 +24,6 @@ export const listboxContent = {
   sections,
   customStyles,
   topContent,
+  virtualization,
+  virtualizationTenThousand,
 };

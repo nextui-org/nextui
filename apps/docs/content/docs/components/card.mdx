@@ -129,28 +129,122 @@ You can use `Image` component as the cover of the card by taking it out of the `
 
 ### Card Props
 
-| Attribute                 | Type                                                    | Description                                                                   | Default |
-| ------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------- | ------- |
-| children                  | `ReactNode` \| `ReactNode[]`                            | Usually the Card parts, `CardHeader`, `CardBody` and `CardFooter`.            | -       |
-| shadow                    | `none` \| `sm` \| `md` \| `lg`                          | The card shadow.                                                              | `md`    |
-| radius                    | `none` \| `sm` \| `md` \| `lg`                          | The card border radius.                                                       | `lg`    |
-| fullWidth                 | `boolean`                                               | Whether the card should take the full width of its parent.                    | `false` |
-| isHoverable               | `boolean`                                               | Whether the card should change the background on hover.                       | `false` |
-| isPressable               | `boolean`                                               | Whether the card should allow to be pressed.                                  | `false` |
-| isBlurred                 | `boolean`                                               | Whether the card background should be blurred.                                | `false` |
-| isFooterBlurred           | `boolean`                                               | Whether the card footer background should be blurred.                         | `false` |
-| isDisabled                | `boolean`                                               | Whether the card should be disabled. The press events will be ignored.        | `false` |
-| disableAnimation          | `boolean`                                               | Whether to disable the animation.                                             | `false` |
-| disableRipple             | `boolean`                                               | Whether to disable ripple effect. Only when `isPressable` is true.            | `false` |
-| allowTextSelectionOnPress | `boolean`                                               | Whether to allow text selection on pressing. Only when `isPressable` is true. | `false` |
-| classNames                | `Record<"base"｜ "header"｜ "body"｜ "footer", string>` | Allows to set custom class names for the card slots.                          | -       |
+<APITable
+  data={[
+    {
+      attribute: "children",
+      type: "ReactNode | ReactNode[]",
+      description: "Usually the Card parts, `CardHeader`, `CardBody` and `CardFooter`.",
+      default: "-"
+    },
+    {
+      attribute: "shadow",
+      type: "none | sm | md | lg",
+      description: "The card shadow.",
+      default: "md"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg",
+      description: "The card border radius.",
+      default: "lg"
+    },
+    {
+      attribute: "fullWidth",
+      type: "boolean",
+      description: "Whether the card should take the full width of its parent.",
+      default: "false"
+    },
+    {
+      attribute: "isHoverable",
+      type: "boolean",
+      description: "Whether the card should change the background on hover.",
+      default: "false"
+    },
+    {
+      attribute: "isPressable",
+      type: "boolean",
+      description: "Whether the card should allow to be pressed.",
+      default: "false"
+    },
+    {
+      attribute: "isBlurred",
+      type: "boolean",
+      description: "Whether the card background should be blurred.",
+      default: "false"
+    },
+    {
+      attribute: "isFooterBlurred",
+      type: "boolean",
+      description: "Whether the card footer background should be blurred.",
+      default: "false"
+    },
+    {
+      attribute: "isDisabled",
+      type: "boolean",
+      description: "Whether the card should be disabled. The press events will be ignored.",
+      default: "false"
+    },
+    {
+      attribute: "disableAnimation",
+      type: "boolean",
+      description: "Whether to disable the animation.",
+      default: "false"
+    },
+    {
+      attribute: "disableRipple",
+      type: "boolean",
+      description: "Whether to disable ripple effect. Only when `isPressable` is true.",
+      default: "false"
+    },
+    {
+      attribute: "allowTextSelectionOnPress",
+      type: "boolean",
+      description: "Whether to allow text selection on pressing. Only when `isPressable` is true.",
+      default: "false"
+    },
+    {
+      attribute: "classNames",
+      type: "Partial<Record<'base' | 'header' | 'body' | 'footer', string>>",
+      description: "Allows to set custom class names for the card slots.",
+      default: "-"
+    }
+  ]}
+/>
 
 ### Card Events
 
-| Attribute     | Type                           | Description                                                                                                             |
-| ------------- | ------------------------------ | ----------------------------------------------------------------------------------------------------------------------- |
-| onPress       | `(e: PressEvent) => void`      | Handler that is called when the press is released over the target.                                                      |
-| onPressStart  | `(e: PressEvent) => void`      | Handler that is called when a press interaction starts.                                                                 |
-| onPressEnd    | `(e: PressEvent) => void`      | Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target.     |
-| onPressChange | `(isPressed: boolean) => void` | Handler that is called when the press state changes.                                                                    |
-| onPressUp     | `(e: PressEvent) => void`      | Handler that is called when a press is released over the target, regardless of whether it started on the target or not. |
+<APITable
+  data={[
+    {
+      attribute: "onPress",
+      type: "(e: PressEvent) => void",
+      description: "Handler that is called when the press is released over the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressStart",
+      type: "(e: PressEvent) => void",
+      description: "Handler that is called when a press interaction starts.",
+      default: "-"
+    },
+    {
+      attribute: "onPressEnd",
+      type: "(e: PressEvent) => void",
+      description: "Handler that is called when a press interaction ends, either over the target or when the pointer leaves the target.",
+      default: "-"
+    },
+    {
+      attribute: "onPressChange",
+      type: "(isPressed: boolean) => void",
+      description: "Handler that is called when the press state changes.",
+      default: "-"
+    },
+    {
+      attribute: "onPressUp",
+      type: "(e: PressEvent) => void",
+      description: "Handler that is called when a press is released over the target, regardless of whether it started on the target or not.",
+      default: "-"
+    }
+  ]}
+/>

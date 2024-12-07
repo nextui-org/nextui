@@ -1,12 +1,4 @@
-const App = `import {Button} from "@nextui-org/react";
-
-export default function App() {
-  return (
-    <Button color="primary">
-      Button
-    </Button>
-  );
-}`;
+import App from "./usage.raw.jsx?raw";
 
 const react = {
   "/App.jsx": App,
