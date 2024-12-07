@@ -59,11 +59,11 @@ importers:
         specifier: ^2.1.0
         version: 2.2.0
       '@react-types/link':
-        specifier: 3.5.7
-        version: 3.5.7(react@18.2.0)
+        specifier: 3.5.9
+        version: 3.5.9(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.25.0
-        version: 3.25.0(react@18.2.0)
+        specifier: 3.26.0
+        version: 3.26.0(react@18.2.0)
       '@storybook/react':
         specifier: ^8.4.5
         version: 8.4.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.4.5(prettier@2.8.8))(typescript@4.9.5)
@@ -528,14 +528,14 @@ importers:
         specifier: 14.3.0-canary.43
         version: 14.3.0-canary.43
       '@react-types/calendar':
-        specifier: 3.4.10
-        version: 3.4.10(react@18.2.0)
+        specifier: 3.5.0
+        version: 3.5.0(react@18.2.0)
       '@react-types/datepicker':
-        specifier: 3.8.3
-        version: 3.8.3(react@18.2.0)
+        specifier: 3.9.0
+        version: 3.9.0(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.25.0
-        version: 3.25.0(react@18.2.0)
+        specifier: 3.26.0
+        version: 3.26.0(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.15(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3)))
@@ -6997,11 +6997,6 @@ packages:
     peerDependencies:
       react: 18.2.0
 
-  '@react-types/calendar@3.4.10':
-    resolution: {integrity: sha512-PyjqxwJxSW2IpQx6y0D9O34fRCWn1gv9q0qFhgaIigIQrPg8zTE/CC7owHLxAtgCnnCt8exJ5rqi414csaHKlA==}
-    peerDependencies:
-      react: 18.2.0
-
   '@react-types/calendar@3.5.0':
     resolution: {integrity: sha512-O3IRE7AGwAWYnvJIJ80cOy7WwoJ0m8GtX/qSmvXQAjC4qx00n+b5aFNBYAQtcyc3RM5QpW6obs9BfwGetFiI8w==}
     peerDependencies:
@@ -7014,11 +7009,6 @@ packages:
 
   '@react-types/combobox@3.13.1':
     resolution: {integrity: sha512-7xr+HknfhReN4QPqKff5tbKTe2kGZvH+DGzPYskAtb51FAAiZsKo+WvnNAvLwg3kRoC9Rkn4TAiVBp/HgymRDw==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-types/datepicker@3.8.3':
-    resolution: {integrity: sha512-Y4qfPRBB6uzocosCOWSYMuwiZ3YXwLWQYiFB4KCglkvHyltbNz76LgoBEnclYA5HjwosIk4XywiXvHSYry8JnQ==}
     peerDependencies:
       react: 18.2.0
 
@@ -7047,11 +7037,6 @@ packages:
     peerDependencies:
       react: 18.2.0
 
-  '@react-types/link@3.5.7':
-    resolution: {integrity: sha512-2WyaVmm1qr9UrSG3Dq6iz+2ziuVp+DH8CsYZ9CA6aNNb6U18Hxju3LTPb4a5gM0eC7W0mQGNBmrgGlAdDZEJOw==}
-    peerDependencies:
-      react: 18.2.0
-
   '@react-types/link@3.5.9':
     resolution: {integrity: sha512-JcKDiDMqrq/5Vpn+BdWQEuXit4KN4HR/EgIi3yKnNbYkLzxBoeQZpQgvTaC7NEQeZnSqkyXQo3/vMUeX/ZNIKw==}
     peerDependencies:
@@ -7064,11 +7049,6 @@ packages:
 
   '@react-types/menu@3.9.13':
     resolution: {integrity: sha512-7SuX6E2tDsqQ+HQdSvIda1ji/+ujmR86dtS9CUu5yWX91P25ufRjZ72EvLRqClWNQsj1Xl4+2zBDLWlceznAjw==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-types/overlays@3.8.10':
-    resolution: {integrity: sha512-IcnB+VYfAJazRjWhBKZTmVMh3KTp/B1rRbcKkPx6t8djP9UQhKcohP7lAALxjJ56Jjz/GFC6rWyUcnYH0NFVRA==}
     peerDependencies:
       react: 18.2.0
 
@@ -7089,11 +7069,6 @@ packages:
 
   '@react-types/select@3.9.8':
     resolution: {integrity: sha512-RGsYj2oFjXpLnfcvWMBQnkcDuKkwT43xwYWZGI214/gp/B64tJiIUgTM5wFTRAeGDX23EePkhCQF+9ctnqFd6g==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-types/shared@3.25.0':
-    resolution: {integrity: sha512-OZSyhzU6vTdW3eV/mz5i6hQwQUhkRs7xwY2d1aqPvTdMe0+2cY7Fwp45PAiwYLEj73i9ro2FxF9qC4DvHGSCgQ==}
     peerDependencies:
       react: 18.2.0
 
@@ -18529,7 +18504,7 @@ snapshots:
     dependencies:
       '@react-aria/interactions': 3.22.4(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       clsx: 2.1.1
       react: 18.2.0
@@ -18578,7 +18553,7 @@ snapshots:
       '@internationalized/string': 3.2.4
       '@react-aria/ssr': 3.9.6(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
@@ -18598,7 +18573,7 @@ snapshots:
     dependencies:
       '@react-aria/ssr': 3.9.6(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
@@ -18711,7 +18686,7 @@ snapshots:
       '@react-aria/interactions': 3.22.4(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
       '@react-stately/selection': 3.17.0(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -18875,7 +18850,7 @@ snapshots:
       '@react-aria/interactions': 3.22.4(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
       '@react-stately/virtualizer': 3.7.1(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -18884,7 +18859,7 @@ snapshots:
     dependencies:
       '@react-aria/interactions': 3.22.4(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
@@ -18969,7 +18944,7 @@ snapshots:
 
   '@react-stately/data@3.11.4(react@18.2.0)':
     dependencies:
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
@@ -19029,7 +19004,7 @@ snapshots:
       '@react-stately/table': 3.12.2(react@18.2.0)
       '@react-stately/virtualizer': 3.7.1(react@18.2.0)
       '@react-types/grid': 3.2.8(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@react-types/table': 3.10.1(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
@@ -19155,7 +19130,7 @@ snapshots:
       '@react-stately/collections': 3.10.9(react@18.2.0)
       '@react-stately/selection': 3.17.0(react@18.2.0)
       '@react-stately/utils': 3.10.3(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
@@ -19208,12 +19183,6 @@ snapshots:
       '@react-types/shared': 3.26.0(react@18.2.0)
       react: 18.2.0
 
-  '@react-types/calendar@3.4.10(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.6.0
-      '@react-types/shared': 3.25.0(react@18.2.0)
-      react: 18.2.0
-
   '@react-types/calendar@3.5.0(react@18.2.0)':
     dependencies:
       '@internationalized/date': 3.6.0
@@ -19228,14 +19197,6 @@ snapshots:
   '@react-types/combobox@3.13.1(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.26.0(react@18.2.0)
-      react: 18.2.0
-
-  '@react-types/datepicker@3.8.3(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.6.0
-      '@react-types/calendar': 3.4.10(react@18.2.0)
-      '@react-types/overlays': 3.8.10(react@18.2.0)
-      '@react-types/shared': 3.25.0(react@18.2.0)
       react: 18.2.0
 
   '@react-types/datepicker@3.9.0(react@18.2.0)':
@@ -19267,11 +19228,6 @@ snapshots:
       '@react-types/shared': 3.26.0(react@18.2.0)
       react: 18.2.0
 
-  '@react-types/link@3.5.7(react@18.2.0)':
-    dependencies:
-      '@react-types/shared': 3.26.0(react@18.2.0)
-      react: 18.2.0
-
   '@react-types/link@3.5.9(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.26.0(react@18.2.0)
@@ -19285,11 +19241,6 @@ snapshots:
   '@react-types/menu@3.9.13(react@18.2.0)':
     dependencies:
       '@react-types/overlays': 3.8.11(react@18.2.0)
-      '@react-types/shared': 3.26.0(react@18.2.0)
-      react: 18.2.0
-
-  '@react-types/overlays@3.8.10(react@18.2.0)':
-    dependencies:
       '@react-types/shared': 3.26.0(react@18.2.0)
       react: 18.2.0
 
@@ -19311,10 +19262,6 @@ snapshots:
   '@react-types/select@3.9.8(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.26.0(react@18.2.0)
-      react: 18.2.0
-
-  '@react-types/shared@3.25.0(react@18.2.0)':
-    dependencies:
       react: 18.2.0
 
   '@react-types/shared@3.26.0(react@18.2.0)':
