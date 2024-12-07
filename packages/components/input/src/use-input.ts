@@ -82,6 +82,10 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
    * React aria onChange event.
    */
   onValueChange?: (value: string) => void;
+  /**
+   * disable  the number chnage on scrolling
+   */
+  disableScrollChange?: boolean;
 }
 
 type AutoCapitalize = AriaTextFieldOptions<"input">["autoCapitalize"];
@@ -116,6 +120,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     validationBehavior = formValidationBehavior ?? globalContext?.validationBehavior ?? "native",
     innerWrapperRef: innerWrapperRefProp,
     onValueChange = () => {},
+    disableScrollChange,
     ...otherProps
   } = props;
 
@@ -125,6 +130,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     },
     [onValueChange],
   );
+  const handleScrollingChange = (e: React.WheelEvent<HTMLInputElement>) => {
+    if (disableScrollChange) {
+      (e.target as HTMLInputElement).blur();
+    }
+  };
 
   const [isFocusWithin, setFocusWithin] = useState(false);
 
@@ -386,6 +396,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         "aria-readonly": dataAttr(originalProps.isReadOnly),
         onChange: chain(inputProps.onChange, onChange),
         ref: domRef,
+        onWheel: handleScrollingChange,
       };
     },
     [
@@ -402,6 +413,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
       originalProps.isReadOnly,
       originalProps.isRequired,
       onChange,
+      disableScrollChange,
     ],
   );
 
