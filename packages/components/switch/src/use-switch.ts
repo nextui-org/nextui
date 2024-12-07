@@ -155,7 +155,11 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     state.setSelected(isInputRefChecked);
   }, [inputRef.current]);
 
-  const {inputProps, isPressed, isReadOnly} = useReactAriaSwitch(ariaSwitchProps, state, inputRef);
+  const {inputProps, labelProps, isPressed, isReadOnly} = useReactAriaSwitch(
+    ariaSwitchProps,
+    state,
+    inputRef,
+  );
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({autoFocus: inputProps.autoFocus});
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
@@ -180,7 +184,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
 
   const getBaseProps: PropGetter = (props) => {
     return {
-      ...mergeProps(hoverProps, otherProps, props),
+      ...mergeProps(hoverProps, labelProps, otherProps, props),
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, props?.className)}),
       "data-disabled": dataAttr(isDisabled),
