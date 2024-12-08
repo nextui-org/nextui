@@ -1,5 +1,16 @@
 # @nextui-org/form
 
+## 2.1.4
+
+### Patch Changes
+
+- [#4279](https://github.com/nextui-org/nextui/pull/4279) [`b16291b`](https://github.com/nextui-org/nextui/commit/b16291b2200229f0d0a9ea910e38f3f100f7931f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Add ref support to Form component
+
+- [#4258](https://github.com/nextui-org/nextui/pull/4258) [`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3) Thanks [@wingkwong](https://github.com/wingkwong)! - sync with upstream RA versions
+
+- Updated dependencies [[`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3), [`455556e`](https://github.com/nextui-org/nextui/commit/455556e14278dd933b4acd1a136ea29879b49545)]:
+  - @nextui-org/system@2.4.4
+
 ## 2.1.3
 
 ### Patch Changes

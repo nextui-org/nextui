@@ -1,5 +1,59 @@
 # @nextui-org/react
 
+## 2.6.5
+
+### Patch Changes
+
+- [#4258](https://github.com/nextui-org/nextui/pull/4258) [`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3) Thanks [@wingkwong](https://github.com/wingkwong)! - sync with upstream RA versions
+
+- Updated dependencies [[`b16291b`](https://github.com/nextui-org/nextui/commit/b16291b2200229f0d0a9ea910e38f3f100f7931f), [`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3), [`455556e`](https://github.com/nextui-org/nextui/commit/455556e14278dd933b4acd1a136ea29879b49545), [`26b33a5`](https://github.com/nextui-org/nextui/commit/26b33a51f0ae9d0bb1146277a8b61b839aa52393)]:
+  - @nextui-org/form@2.1.4
+  - @nextui-org/autocomplete@2.3.4
+  - @nextui-org/breadcrumbs@2.2.4
+  - @nextui-org/date-picker@2.3.4
+  - @nextui-org/date-input@2.3.4
+  - @nextui-org/pagination@2.2.4
+  - @nextui-org/accordion@2.2.4
+  - @nextui-org/input-otp@2.1.4
+  - @nextui-org/calendar@2.2.4
+  - @nextui-org/checkbox@2.3.4
+  - @nextui-org/dropdown@2.3.4
+  - @nextui-org/progress@2.2.4
+  - @nextui-org/divider@2.2.4
+  - @nextui-org/listbox@2.3.4
+  - @nextui-org/popover@2.3.4
+  - @nextui-org/snippet@2.2.5
+  - @nextui-org/tooltip@2.2.4
+  - @nextui-org/avatar@2.2.4
+  - @nextui-org/button@2.2.4
+  - @nextui-org/navbar@2.2.4
+  - @nextui-org/select@2.4.4
+  - @nextui-org/slider@2.4.4
+  - @nextui-org/switch@2.2.4
+  - @nextui-org/alert@2.2.4
+  - @nextui-org/input@2.4.4
+  - @nextui-org/modal@2.2.4
+  - @nextui-org/radio@2.3.4
+  - @nextui-org/table@2.2.4
+  - @nextui-org/card@2.2.4
+  - @nextui-org/chip@2.2.4
+  - @nextui-org/link@2.2.4
+  - @nextui-org/menu@2.2.4
+  - @nextui-org/tabs@2.2.4
+  - @nextui-org/user@2.2.4
+  - @nextui-org/system@2.4.4
+  - @nextui-org/drawer@2.2.4
+  - @nextui-org/badge@2.2.3
+  - @nextui-org/skeleton@2.2.3
+  - @nextui-org/code@2.2.4
+  - @nextui-org/kbd@2.2.4
+  - @nextui-org/spacer@2.2.4
+  - @nextui-org/spinner@2.2.4
+  - @nextui-org/image@2.2.3
+  - @nextui-org/ripple@2.2.3
+  - @nextui-org/scroll-shadow@2.3.3
+  - @nextui-org/framer-utils@2.1.4
+
 ## 2.6.4
 
 ### Patch Changes

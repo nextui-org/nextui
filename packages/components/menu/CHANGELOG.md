@@ -1,5 +1,17 @@
 # @nextui-org/menu
 
+## 2.2.4
+
+### Patch Changes
+
+- [#4258](https://github.com/nextui-org/nextui/pull/4258) [`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3) Thanks [@wingkwong](https://github.com/wingkwong)! - sync with upstream RA versions
+
+- Updated dependencies [[`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3)]:
+  - @nextui-org/aria-utils@2.2.4
+  - @nextui-org/use-aria-menu@2.2.2
+  - @nextui-org/use-is-mobile@2.2.2
+  - @nextui-org/divider@2.2.4
+
 ## 2.2.3
 
 ### Patch Changes
