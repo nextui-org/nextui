@@ -4,4 +4,4 @@
 "@nextui-org/radio": patch
 ---
 
-fixed checkbox, radio, and switch triggering focus on focusable parent multiple times
+fixed checkbox, radio, and switch triggering focus on focusable parent multiple times (#4260)
