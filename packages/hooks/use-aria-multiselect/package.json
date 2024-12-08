@@ -47,7 +47,7 @@
     "@react-types/button": "3.10.0",
     "@react-types/overlays": "3.8.10",
     "@react-types/select": "3.9.7",
-    "@react-types/shared": "3.25.0"
+    "@react-types/shared": "3.26.0"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",

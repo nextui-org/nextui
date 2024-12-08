@@ -62,7 +62,7 @@
     "@react-aria/visually-hidden": "3.8.17",
     "@react-stately/combobox": "3.10.0",
     "@react-types/combobox": "3.13.0",
-    "@react-types/shared": "3.25.0"
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/avatar": "workspace:*",

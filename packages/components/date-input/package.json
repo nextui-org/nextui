@@ -48,7 +48,7 @@
     "@react-aria/i18n": "3.12.3",
     "@react-stately/datepicker": "3.10.3",
     "@react-types/datepicker": "3.8.3",
-    "@react-types/shared": "3.25.0",
+    "@react-types/shared": "3.26.0",
     "@react-aria/utils": "3.26.0"
   },
   "devDependencies": {

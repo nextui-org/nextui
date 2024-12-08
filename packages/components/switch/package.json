@@ -49,7 +49,7 @@
     "@react-aria/utils": "3.26.0",
     "@react-aria/visually-hidden": "3.8.17",
     "@react-stately/toggle": "3.7.8",
-    "@react-types/shared": "3.25.0"
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
