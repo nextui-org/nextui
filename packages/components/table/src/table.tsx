@@ -3,18 +3,18 @@ import {Spacer} from "@nextui-org/spacer";
 import {forwardRef} from "@nextui-org/system";
 
 import {UseTableProps, useTable} from "./use-table";
+import VirtualizedTable from "./virtualized-table";
 import TableRowGroup from "./table-row-group";
 import TableHeaderRow from "./table-header-row";
 import TableColumnHeader from "./table-column-header";
 import TableSelectAllCheckbox from "./table-select-all-checkbox";
 import TableBody from "./table-body";
-import VirtualizedTableBody from "./virtualized-table-body"; // Import the virtualized table body component
 
 export interface TableProps<T = object>
   extends Omit<UseTableProps<T>, "isSelectable" | "isMultiSelectable"> {
   isVirtualized?: boolean;
   rowHeight?: number;
-  maxBodyHeight?: number;
+  maxTableHeight?: number;
 }
 
 const Table = forwardRef<"table", TableProps>((props, ref) => {
@@ -39,7 +39,7 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
   const {
     isVirtualized,
     rowHeight = 40, // Default row height
-    maxBodyHeight = 600, // Default max body height
+    maxTableHeight = 600, // Default max body height
   } = props;
 
   const Wrapper = useCallback(
@@ -53,7 +53,16 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
     [removeWrapper, getWrapperProps],
   );
 
-  const shouldVirtualize = isVirtualized ?? collection.size > 50;
+  if (isVirtualized) {
+    return (
+      <VirtualizedTable
+        {...(props as TableProps)}
+        ref={ref}
+        maxTableHeight={maxTableHeight}
+        rowHeight={rowHeight}
+      />
+    );
+  }
 
   return (
     <div {...getBaseProps()}>
@@ -98,33 +107,17 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
               ))}
               <Spacer as="tr" tabIndex={-1} y={1} />
             </TableRowGroup>
-            {shouldVirtualize ? (
-              <VirtualizedTableBody
-                checkboxesProps={values.checkboxesProps}
-                classNames={values.classNames}
-                collection={values.collection}
-                color={values.color}
-                disableAnimation={values.disableAnimation}
-                isSelectable={values.isSelectable}
-                maxBodyHeight={maxBodyHeight}
-                rowHeight={rowHeight}
-                selectionMode={values.selectionMode}
-                slots={values.slots}
-                state={values.state}
-              />
-            ) : (
-              <TableBody
-                checkboxesProps={values.checkboxesProps}
-                classNames={values.classNames}
-                collection={values.collection}
-                color={values.color}
-                disableAnimation={values.disableAnimation}
-                isSelectable={values.isSelectable}
-                selectionMode={values.selectionMode}
-                slots={values.slots}
-                state={values.state}
-              />
-            )}
+            <TableBody
+              checkboxesProps={values.checkboxesProps}
+              classNames={values.classNames}
+              collection={values.collection}
+              color={values.color}
+              disableAnimation={values.disableAnimation}
+              isSelectable={values.isSelectable}
+              selectionMode={values.selectionMode}
+              slots={values.slots}
+              state={values.state}
+            />
           </Component>
           {bottomContentPlacement === "inside" && bottomContent}
         </>

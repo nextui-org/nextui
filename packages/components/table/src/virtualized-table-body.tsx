@@ -4,8 +4,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {useTableRowGroup} from "@react-aria/table";
 import {filterDOMProps} from "@nextui-org/react-utils";
 import {mergeProps} from "@react-aria/utils";
-import {useRef} from "react";
-import {useVirtualizer} from "@tanstack/react-virtual";
+import {Virtualizer} from "@tanstack/react-virtual";
 
 import TableRow from "./table-row";
 import TableCell from "./table-cell";
@@ -23,8 +22,7 @@ export interface VirtualizedTableBodyProps extends HTMLNextUIProps<"tbody"> {
   checkboxesProps: ValuesType["checkboxesProps"];
   selectionMode: ValuesType["selectionMode"];
   classNames?: ValuesType["classNames"];
-  rowHeight: number;
-  maxBodyHeight: number;
+  rowVirtualizer: Virtualizer<any, Element>;
 }
 
 const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((props, ref) => {
@@ -40,8 +38,7 @@ const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((pro
     checkboxesProps,
     selectionMode,
     classNames,
-    rowHeight,
-    maxBodyHeight,
+    rowVirtualizer,
     ...otherProps
   } = props;
 
@@ -60,20 +57,7 @@ const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((pro
     bodyProps?.loadingState === "loading" ||
     bodyProps?.loadingState === "loadingMore";
 
-  const parentRef = useRef<HTMLDivElement>(null);
-
-  // Convert childNodes to an array
   const items = [...collection.body.childNodes];
-
-  // Get the count
-  const count = items.length;
-
-  const rowVirtualizer = useVirtualizer({
-    count,
-    getScrollElement: () => parentRef.current,
-    estimateSize: () => rowHeight,
-    overscan: 5, // Adjust as needed
-  });
 
   const virtualItems = rowVirtualizer.getVirtualItems();
 
@@ -125,84 +109,55 @@ const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((pro
       data-empty={dataAttr(collection.size === 0)}
       data-loading={dataAttr(isLoading)}
     >
-      <tr>
-        <td colSpan={collection.columnCount} style={{padding: 0}}>
-          <div
-            ref={parentRef}
+      {virtualItems.map((virtualRow, index) => {
+        const row = items[virtualRow.index];
+
+        if (!row) {
+          return null;
+        }
+
+        return (
+          <TableRow
+            key={String(row.key)} // Ensure key is a string or number
+            classNames={classNames}
+            isSelectable={isSelectable}
+            node={row}
+            slots={slots}
+            state={state}
             style={{
-              maxHeight: maxBodyHeight,
-              overflow: "auto",
-              position: "relative",
+              transform: `translateY(${virtualRow.start - index * virtualRow.size}px)`,
+              height: `${virtualRow.size}px`,
             }}
           >
-            <div
-              style={{
-                height: `${rowVirtualizer.getTotalSize()}px`,
-                width: "100%",
-                position: "relative",
-              }}
-            >
-              {virtualItems.map((virtualRow) => {
-                const row = items[virtualRow.index];
+            {[...row.childNodes].map((cell) =>
+              cell.props.isSelectionCell ? (
+                <TableCheckboxCell
+                  key={String(cell.key)} // Ensure key is a string or number
+                  checkboxesProps={checkboxesProps}
+                  classNames={classNames}
+                  color={color}
+                  disableAnimation={disableAnimation}
+                  node={cell}
+                  rowKey={row.key}
+                  selectionMode={selectionMode}
+                  slots={slots}
+                  state={state}
+                />
+              ) : (
+                <TableCell
+                  key={String(cell.key)} // Ensure key is a string or number
+                  classNames={classNames}
+                  node={cell}
+                  rowKey={row.key}
+                  slots={slots}
+                  state={state}
+                />
+              ),
+            )}
+          </TableRow>
+        );
+      })}
 
-                if (!row) {
-                  return null;
-                }
-
-                return (
-                  <div
-                    key={virtualRow.index} // Use index as key
-                    ref={rowVirtualizer.measureElement}
-                    data-index={virtualRow.index}
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      width: "100%",
-                      transform: `translateY(${virtualRow.start}px)`,
-                    }}
-                  >
-                    <TableRow
-                      key={String(row.key)} // Ensure key is a string or number
-                      classNames={classNames}
-                      isSelectable={isSelectable}
-                      node={row}
-                      slots={slots}
-                      state={state}
-                    >
-                      {[...row.childNodes].map((cell) =>
-                        cell.props.isSelectionCell ? (
-                          <TableCheckboxCell
-                            key={String(cell.key)} // Ensure key is a string or number
-                            checkboxesProps={checkboxesProps}
-                            classNames={classNames}
-                            color={color}
-                            disableAnimation={disableAnimation}
-                            node={cell}
-                            rowKey={row.key}
-                            selectionMode={selectionMode}
-                            slots={slots}
-                            state={state}
-                          />
-                        ) : (
-                          <TableCell
-                            key={String(cell.key)} // Ensure key is a string or number
-                            classNames={classNames}
-                            node={cell}
-                            rowKey={row.key}
-                            slots={slots}
-                            state={state}
-                          />
-                        ),
-                      )}
-                    </TableRow>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </td>
-      </tr>
       {loadingContent}
       {emptyContent}
     </Component>

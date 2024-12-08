@@ -1121,31 +1121,34 @@ function generateRows(count) {
 
 export const Virtualized = {
   render: (args: TableProps) => {
-    const rows = generateRows(10000);
+    const rows = generateRows(500);
     const columns = [
       {key: "name", label: "Name"},
       {key: "value", label: "Value"},
     ];
 
     return (
-      <Table
-        aria-label="Example of virtualized table with a large dataset"
-        {...args}
-        isVirtualized
-        maxBodyHeight={600}
-        rowHeight={40}
-      >
-        <TableHeader columns={columns}>
-          {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
-        </TableHeader>
-        <TableBody items={rows}>
-          {(item) => (
-            <TableRow key={item.key}>
-              {(columnKey) => <TableCell>{item[columnKey]}</TableCell>}
-            </TableRow>
-          )}
-        </TableBody>
-      </Table>
+      <div>
+        <Table
+          aria-label="Example of virtualized table with a large dataset"
+          {...args}
+          isHeaderSticky
+          isVirtualized
+          maxBodyHeight={600}
+          rowHeight={40}
+        >
+          <TableHeader columns={columns}>
+            {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+          </TableHeader>
+          <TableBody items={rows}>
+            {(item) => (
+              <TableRow key={item.key}>
+                {(columnKey) => <TableCell>{item[columnKey]}</TableCell>}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
     );
   },
   args: {
