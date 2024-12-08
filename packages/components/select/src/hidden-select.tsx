@@ -99,7 +99,6 @@ export function useHiddenSelect<T>(
       ["data-a11y-ignore"]: "aria-hidden-focus",
     },
     inputProps: {
-      ...commonProps,
       type: "text",
       tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
       style: {fontSize: 16},
@@ -110,7 +109,6 @@ export function useHiddenSelect<T>(
       ...commonProps,
       name,
       tabIndex: -1,
-      size: state.collection.size,
       value:
         selectionMode === "multiple"
           ? [...state.selectedKeys].map((k) => String(k))

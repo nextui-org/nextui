@@ -126,7 +126,6 @@ export function useMultiSelectState<T extends object>({
 
       setFocusStrategy(focusStrategy);
       triggerState.toggle();
-      validationState.commitValidation();
     },
     isFocused,
     setFocused,
