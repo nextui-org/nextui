@@ -1,5 +1,22 @@
 # @nextui-org/autocomplete
 
+## 2.3.4
+
+### Patch Changes
+
+- [#4258](https://github.com/nextui-org/nextui/pull/4258) [`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3) Thanks [@wingkwong](https://github.com/wingkwong)! - sync with upstream RA versions
+
+- Updated dependencies [[`b16291b`](https://github.com/nextui-org/nextui/commit/b16291b2200229f0d0a9ea910e38f3f100f7931f), [`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3)]:
+  - @nextui-org/form@2.1.4
+  - @nextui-org/use-aria-button@2.2.2
+  - @nextui-org/aria-utils@2.2.4
+  - @nextui-org/listbox@2.3.4
+  - @nextui-org/popover@2.3.4
+  - @nextui-org/button@2.2.4
+  - @nextui-org/input@2.4.4
+  - @nextui-org/spinner@2.2.4
+  - @nextui-org/scroll-shadow@2.3.3
+
 ## 2.3.3
 
 ### Patch Changes
