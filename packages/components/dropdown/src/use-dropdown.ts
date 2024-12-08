@@ -51,7 +51,7 @@ const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined,
 
     if (mergedChildren && mergedChildren.length) {
       const item = ((mergedChildren as CollectionElement<T>[]).find((item) => {
-        if (item.key === key) {
+        if (item && item.key === key) {
           return item;
         }
       }) || {}) as {props: MenuProps};

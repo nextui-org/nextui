@@ -35,7 +35,7 @@ const AppTs = `import {DatePicker} from "@nextui-org/react";
 import {DateValue, now, parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
 
   return (
     <div className="w-full max-w-xl flex flex-col items-start gap-4">

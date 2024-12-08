@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/progress",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Progress bars show either determinate or indeterminate progress of an operation over time.",
   "keywords": [
     "progress"
@@ -43,10 +43,10 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/use-is-mounted": "workspace:*",
-    "@react-aria/i18n": "3.12.3",
-    "@react-aria/progress": "3.4.17",
+    "@react-aria/i18n": "3.12.4",
+    "@react-aria/progress": "3.4.18",
     "@react-aria/utils": "3.26.0",
-    "@react-types/progress": "3.5.7"
+    "@react-types/progress": "3.5.8"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

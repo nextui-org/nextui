@@ -6,9 +6,9 @@ import {today, getLocalTimeZone, isWeekend} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 
 export default function App() {
-  let [date, setDate] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [date, setDate] = React.useState<DateValue | null>(today(getLocalTimeZone()));
   let {locale} = useLocale();
-  let isInvalid = isWeekend(date, locale);
+  let isInvalid = isWeekend(date!, locale);
 
   return (
     <Calendar

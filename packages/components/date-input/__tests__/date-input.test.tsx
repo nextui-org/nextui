@@ -294,7 +294,7 @@ describe("DateInput", () => {
 
     it("supports form reset", async () => {
       function Test() {
-        let [value, setValue] = React.useState<DateValue>(new CalendarDate(2020, 2, 3));
+        let [value, setValue] = React.useState<DateValue | null>(new CalendarDate(2020, 2, 3));
 
         return (
           <form>

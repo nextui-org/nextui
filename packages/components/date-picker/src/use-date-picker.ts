@@ -1,5 +1,5 @@
 import type {DateValue} from "@internationalized/date";
-import type {DateInputProps, TimeInputProps} from "@nextui-org/date-input";
+import type {DateInputProps} from "@nextui-org/date-input";
 import type {DatePickerState} from "@react-stately/datepicker";
 import type {ButtonProps} from "@nextui-org/button";
 import type {CalendarProps} from "@nextui-org/calendar";
@@ -163,7 +163,7 @@ export function useDatePicker<T extends DateValue>({
     } as DateInputProps;
   };
 
-  const getTimeInputProps = (): TimeInputProps => {
+  const getTimeInputProps = () => {
     if (!showTimeField) return {};
 
     return {

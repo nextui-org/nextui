@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/form",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "A form is a group of inputs that allows users submit data to a server and supports field validation errors.",
   "keywords": [
     "form"
@@ -45,9 +45,9 @@
     "@nextui-org/system": "workspace:*",
     "@nextui-org/theme": "workspace:*",
     "@react-aria/utils": "3.26.0",
-    "@react-types/shared": "3.25.0",
-    "@react-stately/form": "3.0.6",
-    "@react-types/form": "^3.7.8"
+    "@react-types/shared": "3.26.0",
+    "@react-stately/form": "3.1.0",
+    "@react-types/form": "3.7.8"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",

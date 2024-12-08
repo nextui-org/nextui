@@ -12,7 +12,7 @@ import {useLocale, useDateFormatter} from "@react-aria/i18n";
 export default function App() {
   let defaultDate = today(getLocalTimeZone());
 
-  const [value, setValue] = React.useState<DateValue>(defaultDate);
+  const [value, setValue] = React.useState<DateValue | null>(defaultDate);
 
   let {locale} = useLocale();
   let formatter = useDateFormatter({dateStyle: "full"});

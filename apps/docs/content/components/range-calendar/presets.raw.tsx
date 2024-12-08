@@ -19,7 +19,7 @@ export default function App() {
     end: today(getLocalTimeZone()).add({weeks: 1, days: 3}),
   });
 
-  let [focusedValue, setFocusedValue] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [focusedValue, setFocusedValue] = React.useState<DateValue | null>(today(getLocalTimeZone()));
 
   let {locale} = useLocale();
 

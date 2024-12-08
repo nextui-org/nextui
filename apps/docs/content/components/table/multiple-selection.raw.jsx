@@ -9,10 +9,10 @@ import {
   Radio,
 } from "@nextui-org/react";
 
-const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
-
 export default function App() {
   const [selectedColor, setSelectedColor] = React.useState("default");
+
+  const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
 
   return (
     <div className="flex flex-col gap-3">
