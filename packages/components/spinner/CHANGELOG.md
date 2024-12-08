@@ -1,5 +1,12 @@
 # @nextui-org/spinner
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies [[`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3)]:
+  - @nextui-org/system-rsc@2.3.4
+
 ## 2.2.3
 
 ### Patch Changes

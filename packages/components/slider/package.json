@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/slider",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "A slider allows a user to select one or more values within a range.",
   "keywords": [
     "slider"
@@ -43,13 +43,13 @@
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/i18n": "3.12.3",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/slider": "3.7.13",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/i18n": "3.12.4",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/slider": "3.7.14",
     "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.17",
-    "@react-stately/slider": "3.5.8"
+    "@react-aria/visually-hidden": "3.8.18",
+    "@react-stately/slider": "3.6.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

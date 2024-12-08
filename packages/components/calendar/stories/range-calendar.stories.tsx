@@ -141,7 +141,7 @@ const ControlledFocusedValueTemplate = (args: RangeCalendarProps) => {
 };
 
 const InvalidDatesTemplate = (args: RangeCalendarProps) => {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: today(getLocalTimeZone()),
     end: today(getLocalTimeZone()).add({weeks: 1}),
   });
@@ -172,12 +172,12 @@ const InternationalCalendarsTemplate = (args: RangeCalendarProps) => {
 };
 
 const PresetsTemplate = (args: RangeCalendarProps) => {
-  let [value, setValue] = React.useState<RangeValue<DateValue>>({
+  let [value, setValue] = React.useState<RangeValue<DateValue> | null>({
     start: today(getLocalTimeZone()),
     end: today(getLocalTimeZone()).add({weeks: 1, days: 3}),
   });
 
-  let [focusedValue, setFocusedValue] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [focusedValue, setFocusedValue] = React.useState<DateValue | null>(today(getLocalTimeZone()));
 
   let {locale} = useLocale();
 
