@@ -1,6 +1,6 @@
 import type {DateValue} from "@internationalized/date";
 
-import {ForwardedRef, ReactElement, Ref, useMemo} from "react";
+import {ForwardedRef, ReactElement, useMemo} from "react";
 import {cloneElement, isValidElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {Button} from "@nextui-org/button";
@@ -20,7 +20,12 @@ export interface Props<T extends DateValue> extends UseDatePickerProps<T> {
   selectorButtonPlacement?: "start" | "end";
 }
 
-function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTMLDivElement>) {
+export type DatePickerProps<T extends DateValue = DateValue> = Props<T>;
+
+const DatePicker = forwardRef(function DatePicker<T extends DateValue>(
+  props: DatePickerProps<T>,
+  ref: ForwardedRef<HTMLInputElement>,
+) {
   const {selectorButtonPlacement = "end", ...otherProps} = props;
 
   const {
@@ -98,13 +103,6 @@ function DatePicker<T extends DateValue>(props: Props<T>, ref: ForwardedRef<HTML
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </>
   );
-}
+}) as <T extends DateValue>(props: DatePickerProps<T>) => ReactElement;
 
-DatePicker.displayName = "NextUI.DatePicker";
-
-export type DatePickerProps<T extends DateValue = DateValue> = Props<T> & {ref?: Ref<HTMLElement>};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(DatePicker) as <T extends DateValue>(
-  props: DatePickerProps<T>,
-) => ReactElement;
+export default DatePicker;

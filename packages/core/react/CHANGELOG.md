@@ -1,5 +1,252 @@
 # @nextui-org/react
 
+## 2.6.4
+
+### Patch Changes
+
+- Updated dependencies [[`6a94a12`](https://github.com/nextui-org/nextui/commit/6a94a125d4836b0a18d9cd2cb521c85a6bfa9050)]:
+  - @nextui-org/scroll-shadow@2.3.3
+  - @nextui-org/autocomplete@2.3.3
+  - @nextui-org/breadcrumbs@2.2.3
+  - @nextui-org/date-picker@2.3.3
+  - @nextui-org/date-input@2.3.3
+  - @nextui-org/pagination@2.2.3
+  - @nextui-org/accordion@2.2.3
+  - @nextui-org/input-otp@2.1.3
+  - @nextui-org/calendar@2.2.3
+  - @nextui-org/checkbox@2.3.3
+  - @nextui-org/dropdown@2.3.3
+  - @nextui-org/progress@2.2.3
+  - @nextui-org/skeleton@2.2.3
+  - @nextui-org/divider@2.2.3
+  - @nextui-org/listbox@2.3.3
+  - @nextui-org/popover@2.3.3
+  - @nextui-org/snippet@2.2.4
+  - @nextui-org/spinner@2.2.3
+  - @nextui-org/tooltip@2.2.3
+  - @nextui-org/avatar@2.2.3
+  - @nextui-org/button@2.2.3
+  - @nextui-org/drawer@2.2.3
+  - @nextui-org/navbar@2.2.3
+  - @nextui-org/ripple@2.2.3
+  - @nextui-org/select@2.4.3
+  - @nextui-org/slider@2.4.3
+  - @nextui-org/spacer@2.2.3
+  - @nextui-org/switch@2.2.3
+  - @nextui-org/alert@2.2.3
+  - @nextui-org/badge@2.2.3
+  - @nextui-org/image@2.2.3
+  - @nextui-org/input@2.4.3
+  - @nextui-org/modal@2.2.3
+  - @nextui-org/radio@2.3.3
+  - @nextui-org/table@2.2.3
+  - @nextui-org/card@2.2.3
+  - @nextui-org/chip@2.2.3
+  - @nextui-org/code@2.2.3
+  - @nextui-org/form@2.1.3
+  - @nextui-org/link@2.2.3
+  - @nextui-org/menu@2.2.3
+  - @nextui-org/tabs@2.2.3
+  - @nextui-org/user@2.2.3
+  - @nextui-org/kbd@2.2.3
+  - @nextui-org/system@2.4.3
+  - @nextui-org/framer-utils@2.1.3
+
+## 2.6.3
+
+### Patch Changes
+
+- [#4247](https://github.com/nextui-org/nextui/pull/4247) [`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix peerDeps & core package client on export \*
+
+- Updated dependencies [[`551ab18`](https://github.com/nextui-org/nextui/commit/551ab184060b24b2c3a89598f84d4c18599649d0)]:
+  - @nextui-org/scroll-shadow@2.3.2
+  - @nextui-org/autocomplete@2.3.2
+  - @nextui-org/breadcrumbs@2.2.2
+  - @nextui-org/date-picker@2.3.2
+  - @nextui-org/date-input@2.3.2
+  - @nextui-org/pagination@2.2.2
+  - @nextui-org/accordion@2.2.2
+  - @nextui-org/input-otp@2.1.2
+  - @nextui-org/calendar@2.2.2
+  - @nextui-org/checkbox@2.3.2
+  - @nextui-org/dropdown@2.3.2
+  - @nextui-org/progress@2.2.2
+  - @nextui-org/skeleton@2.2.2
+  - @nextui-org/divider@2.2.2
+  - @nextui-org/listbox@2.3.2
+  - @nextui-org/popover@2.3.2
+  - @nextui-org/snippet@2.2.3
+  - @nextui-org/spinner@2.2.2
+  - @nextui-org/tooltip@2.2.2
+  - @nextui-org/avatar@2.2.2
+  - @nextui-org/button@2.2.2
+  - @nextui-org/drawer@2.2.2
+  - @nextui-org/navbar@2.2.2
+  - @nextui-org/ripple@2.2.2
+  - @nextui-org/select@2.4.2
+  - @nextui-org/slider@2.4.2
+  - @nextui-org/spacer@2.2.2
+  - @nextui-org/switch@2.2.2
+  - @nextui-org/alert@2.2.2
+  - @nextui-org/badge@2.2.2
+  - @nextui-org/image@2.2.2
+  - @nextui-org/input@2.4.2
+  - @nextui-org/modal@2.2.2
+  - @nextui-org/radio@2.3.2
+  - @nextui-org/table@2.2.2
+  - @nextui-org/card@2.2.2
+  - @nextui-org/chip@2.2.2
+  - @nextui-org/code@2.2.2
+  - @nextui-org/form@2.1.2
+  - @nextui-org/link@2.2.2
+  - @nextui-org/menu@2.2.2
+  - @nextui-org/tabs@2.2.2
+  - @nextui-org/user@2.2.2
+  - @nextui-org/kbd@2.2.2
+  - @nextui-org/system@2.4.2
+  - @nextui-org/framer-utils@2.1.2
+
+## 2.6.2
+
+### Patch Changes
+
+- [`d6eee4a`](https://github.com/nextui-org/nextui/commit/d6eee4a8767556152f47f06dcf04940951abc5af) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.6.2
+
+- Updated dependencies [[`d6eee4a`](https://github.com/nextui-org/nextui/commit/d6eee4a8767556152f47f06dcf04940951abc5af)]:
+  - @nextui-org/accordion@2.2.1
+  - @nextui-org/alert@2.2.1
+  - @nextui-org/autocomplete@2.3.1
+  - @nextui-org/avatar@2.2.1
+  - @nextui-org/badge@2.2.1
+  - @nextui-org/breadcrumbs@2.2.1
+  - @nextui-org/button@2.2.1
+  - @nextui-org/calendar@2.2.1
+  - @nextui-org/card@2.2.1
+  - @nextui-org/checkbox@2.3.1
+  - @nextui-org/chip@2.2.1
+  - @nextui-org/code@2.2.1
+  - @nextui-org/date-input@2.3.1
+  - @nextui-org/date-picker@2.3.1
+  - @nextui-org/divider@2.2.1
+  - @nextui-org/drawer@2.2.1
+  - @nextui-org/dropdown@2.3.1
+  - @nextui-org/form@2.1.1
+  - @nextui-org/image@2.2.1
+  - @nextui-org/input@2.4.1
+  - @nextui-org/input-otp@2.1.1
+  - @nextui-org/kbd@2.2.1
+  - @nextui-org/link@2.2.1
+  - @nextui-org/listbox@2.3.1
+  - @nextui-org/menu@2.2.1
+  - @nextui-org/modal@2.2.1
+  - @nextui-org/navbar@2.2.1
+  - @nextui-org/pagination@2.2.1
+  - @nextui-org/popover@2.3.1
+  - @nextui-org/progress@2.2.1
+  - @nextui-org/radio@2.3.1
+  - @nextui-org/ripple@2.2.1
+  - @nextui-org/scroll-shadow@2.3.1
+  - @nextui-org/select@2.4.1
+  - @nextui-org/skeleton@2.2.1
+  - @nextui-org/slider@2.4.1
+  - @nextui-org/snippet@2.2.2
+  - @nextui-org/spacer@2.2.1
+  - @nextui-org/spinner@2.2.1
+  - @nextui-org/switch@2.2.1
+  - @nextui-org/table@2.2.1
+  - @nextui-org/tabs@2.2.1
+  - @nextui-org/tooltip@2.2.1
+  - @nextui-org/user@2.2.1
+  - @nextui-org/system@2.4.1
+  - @nextui-org/theme@2.4.1
+  - @nextui-org/framer-utils@2.1.1
+
+## 2.6.1
+
+### Patch Changes
+
+- Updated dependencies [[`71e2d8c`](https://github.com/nextui-org/nextui/commit/71e2d8c6014c821c0441c6a68924043a7a491e5b)]:
+  - @nextui-org/snippet@2.2.1
+
+## 2.6.0
+
+### Minor Changes
+
+- [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - This release includes several improvements and bug fixes:
+
+  - Updated react-aria version across all components
+  - Improved Drawer styles and transitions
+  - Fixed missing peer dependencies for framer-motion
+  - Fixed menu item classNames functionality
+  - Added isClearable prop to Textarea component
+  - Fixed label placement issues in Input and Select components
+  - Improved table keyboard navigation with new isKeyboardNavigationDisabled prop
+  - Fixed UI sliding issues with helper wrapper in Input and Select
+  - Updated use-image hook to avoid Next.js hydration issues
+  - Replaced RTL-specific styles with logical properties
+  - Fixed textarea label squish issue
+  - Bumped tailwind-merge version
+  - Applied tw nested group fixes
+  - Fixed fullWidth variant in input and select components
+  - Moved circular-progress tv to progress
+  - Changed ListboxItem key to optional
+  - Fixed autocomplete clear button behavior
+  - Updated Select label placement logic
+  - Added missing framer-motion peer dependencies
+  - Removed layoutNode prop from Table due to react-aria update
+  - Virtualization added to Autocomplete
+
+### Patch Changes
+
+- Updated dependencies [[`6bc616c`](https://github.com/nextui-org/nextui/commit/6bc616caea948431d05eec33c1784e0560524e97), [`af0d20d`](https://github.com/nextui-org/nextui/commit/af0d20d807311b98a49218cb10faff0972a7d2fa), [`44958bf`](https://github.com/nextui-org/nextui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8), [`729ede8`](https://github.com/nextui-org/nextui/commit/729ede8de7f18c7b49fbdb736aac300b5b98f239), [`26e478d`](https://github.com/nextui-org/nextui/commit/26e478dd937dedcaf41110171d971a8a3cf2ff52), [`44958bf`](https://github.com/nextui-org/nextui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8), [`6c0213d`](https://github.com/nextui-org/nextui/commit/6c0213dfc805aa3c793763c0b25f53b2b80c24dc), [`1855ba4`](https://github.com/nextui-org/nextui/commit/1855ba4390186f701c793f76593f31a5dce6da70), [`ffb1e55`](https://github.com/nextui-org/nextui/commit/ffb1e554f7d6b5b1ede66d0838b3b1edeeccdf6b), [`5786897`](https://github.com/nextui-org/nextui/commit/5786897b9950d95c12351dacd2fb41bb1e298201), [`44958bf`](https://github.com/nextui-org/nextui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8), [`adbd85e`](https://github.com/nextui-org/nextui/commit/adbd85ee95b67ee779401307c49596dd45e062fc)]:
+  - @nextui-org/autocomplete@2.3.0
+  - @nextui-org/date-picker@2.3.0
+  - @nextui-org/date-input@2.3.0
+  - @nextui-org/calendar@2.2.0
+  - @nextui-org/dropdown@2.3.0
+  - @nextui-org/listbox@2.3.0
+  - @nextui-org/select@2.4.0
+  - @nextui-org/menu@2.2.0
+  - @nextui-org/tabs@2.2.0
+  - @nextui-org/popover@2.3.0
+  - @nextui-org/modal@2.2.0
+  - @nextui-org/checkbox@2.3.0
+  - @nextui-org/switch@2.2.0
+  - @nextui-org/radio@2.3.0
+  - @nextui-org/input-otp@2.1.0
+  - @nextui-org/input@2.4.0
+  - @nextui-org/form@2.1.0
+  - @nextui-org/system@2.4.0
+  - @nextui-org/theme@2.4.0
+  - @nextui-org/breadcrumbs@2.2.0
+  - @nextui-org/pagination@2.2.0
+  - @nextui-org/accordion@2.2.0
+  - @nextui-org/progress@2.2.0
+  - @nextui-org/snippet@2.2.0
+  - @nextui-org/tooltip@2.2.0
+  - @nextui-org/avatar@2.2.0
+  - @nextui-org/button@2.2.0
+  - @nextui-org/navbar@2.2.0
+  - @nextui-org/slider@2.4.0
+  - @nextui-org/alert@2.2.0
+  - @nextui-org/table@2.2.0
+  - @nextui-org/card@2.2.0
+  - @nextui-org/chip@2.2.0
+  - @nextui-org/link@2.2.0
+  - @nextui-org/user@2.2.0
+  - @nextui-org/kbd@2.2.0
+  - @nextui-org/badge@2.2.0
+  - @nextui-org/code@2.2.0
+  - @nextui-org/divider@2.2.0
+  - @nextui-org/drawer@2.2.0
+  - @nextui-org/image@2.2.0
+  - @nextui-org/ripple@2.2.0
+  - @nextui-org/scroll-shadow@2.3.0
+  - @nextui-org/skeleton@2.2.0
+  - @nextui-org/spacer@2.2.0
+  - @nextui-org/spinner@2.2.0
+  - @nextui-org/framer-utils@2.1.0
+
 ## 2.5.0-beta.26
 
 ### Patch Changes

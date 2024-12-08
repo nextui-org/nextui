@@ -1,6 +1,6 @@
 "use client";
 
-import {FC} from "react";
+import {FC, ChangeEvent} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SwitchProps, useSwitch} from "@nextui-org/react";
 import {useTheme} from "next-themes";
@@ -20,20 +20,29 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
   const isSSR = useIsSSR();
   const posthog = usePostHog();
 
-  const onChange = () => {
-    theme === "light" ? setTheme("dark") : setTheme("light");
+  const initialTheme = isSSR ? "light" : theme;
+
+  const handleThemeChange = (
+    e?: ChangeEvent<HTMLInputElement> | React.MouseEvent | React.KeyboardEvent,
+  ) => {
+    e?.preventDefault();
+    e?.stopPropagation();
+
+    const newTheme = theme === "light" ? "dark" : "light";
+
+    setTheme(newTheme);
 
     posthog.capture("ThemeChange", {
       action: "click",
       category: "theme",
-      data: theme === "light" ? "dark" : "light",
+      data: newTheme,
     });
   };
 
   const {Component, slots, isSelected, getBaseProps, getInputProps, getWrapperProps} = useSwitch({
-    isSelected: theme === "light",
-    "aria-label": `Switch to ${theme === "light" ? "dark" : "light"} mode`,
-    onChange,
+    isSelected: initialTheme === "light",
+    "aria-label": `Switch to ${initialTheme === "light" ? "dark" : "light"} mode`,
+    onChange: handleThemeChange as (event: ChangeEvent<HTMLInputElement>) => void,
   });
 
   return (
@@ -44,6 +53,12 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({className, classNames}) => {
           className,
           classNames?.base,
         ),
+        onClick: handleThemeChange,
+        onKeyDown: (e: React.KeyboardEvent) => {
+          if (e.key === "Enter" || e.key === " ") {
+            handleThemeChange(e);
+          }
+        },
       })}
     >
       <VisuallyHidden>

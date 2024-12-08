@@ -254,8 +254,8 @@ You can use the `value` and `onValueChange` properties to control the input valu
     {
       attribute: "validationBehavior",
       type: "native | aria",
-      description: "Whether to use native HTML form validation or ARIA.",
-      default: "aria"
+      description: "Whether to use native HTML form validation or ARIA validation. When wrapped in a Form component, the default is `aria`. Otherwise, the default is `native`.",
+      default: "native"
     },
     {
       attribute: "labelPlacement",
@@ -319,7 +319,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"label\" | \"inputWrapper\" | \"innerWrapper\" | \"input\" | \"description\" | \"errorMessage\", string>",
+      type: "Partial<Record<\"base\" | \"label\" | \"inputWrapper\" | \"innerWrapper\" | \"input\" | \"description\" | \"errorMessage\", string>>",
       description: "Allows to set custom class names for the checkbox slots.",
       default: "-"
     }

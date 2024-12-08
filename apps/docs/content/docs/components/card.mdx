@@ -205,7 +205,7 @@ You can use `Image` component as the cover of the card by taking it out of the `
     },
     {
       attribute: "classNames",
-      type: "Record<'base' | 'header' | 'body' | 'footer', string>",
+      type: "Partial<Record<'base' | 'header' | 'body' | 'footer', string>>",
       description: "Allows to set custom class names for the card slots.",
       default: "-"
     }

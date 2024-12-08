@@ -16,7 +16,7 @@ const styles = tv({
     iconWrapper:
       "flex justify-center p-2 rounded-full items-center bg-secondary-100/80 text-pink-500",
     title: "text-base font-semibold",
-    description: "font-normal text-base text-default-500",
+    description: "font-normal text-medium text-default-500",
   },
 });
 

@@ -358,8 +358,8 @@ By default, `TimeInput` displays times in either 12 or 24 hour hour format depen
     {
       attribute: "validationBehavior",
       type: "native | aria",
-      description: "Whether to use native HTML form validation or ARIA.",
-      default: "aria"
+      description: "Whether to use native HTML form validation or ARIA validation. When wrapped in a Form component, the default is `aria`. Otherwise, the default is `native`.",
+      default: "native"
     },
     {
       attribute: "disableAnimation",
@@ -369,7 +369,7 @@ By default, `TimeInput` displays times in either 12 or 24 hour hour format depen
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"label\" | \"inputWrapper\" | \"innerWrapper\" | \"segment\" | \"helperWrapper\" | \"input\" | \"description\" | \"errorMessage\", string>",
+      type: "Partial<Record<\"base\" | \"label\" | \"inputWrapper\" | \"innerWrapper\" | \"segment\" | \"helperWrapper\" | \"input\" | \"description\" | \"errorMessage\", string>>",
       description: "Allows to set custom class names for the time input slots.",
       default: "-"
     }

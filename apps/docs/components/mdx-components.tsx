@@ -107,7 +107,7 @@ const LinkedHeading: React.FC<LinkedHeadingProps> = ({
 
 const List: React.FC<{children?: React.ReactNode}> = ({children}) => {
   return (
-    <ul className="list-disc flex flex-col gap-2 ml-4 mt-2 [&>li>strong]:text-pink-500 dark:[&>li>strong]:text-cyan-600">
+    <ul className="list-disc flex flex-col gap-2 ml-4 mt-2 [&>li>strong]:text-foreground [&>li>strong]:font-medium">
       {children}
     </ul>
   );
@@ -117,7 +117,7 @@ const InlineCode = ({children, className}: {children?: React.ReactNode; classNam
   return (
     <Components.Code
       className={clsx(
-        "font-mono text-tiny rounded-md text-default-500 bg-default-100 dark:bg-default-100/80 px-1.5 py-0.5",
+        'p-0 relative before:content-["`"] after:content-["`"] font-semibold font-mono text-small rounded-md text-default-900 dark:text-default-500 bg-transparent',
         className,
       )}
     >
@@ -179,10 +179,10 @@ const Code = ({
 };
 
 const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => {
-  const isExternal = href?.startsWith("http");
+  const isExternal = href?.startsWith("http") || href?.startsWith("https");
   const posthog = usePostHog();
 
-  const handlePress = () => {
+  const handleClick = () => {
     posthog.capture("MDXComponents - Click", {
       category: "docs",
       action: "click",
@@ -190,15 +190,26 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
     });
   };
 
+  const externalProps = isExternal ? {target: "_blank", rel: "noopener noreferrer"} : {};
+
   return (
     <Components.Link
+      className="relative hover:opacity-100 text-foreground font-bold after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:rounded-full after:h-[1px] after:bg-primary-400 dark:after:bg-default-300 hover:after:h-[2px]"
+      disableAnimation={true}
       href={href}
-      isExternal={isExternal}
-      showAnchorIcon={isExternal}
-      onPress={handlePress}
+      {...externalProps}
+      onClick={handleClick}
     >
       {children}
     </Components.Link>
+  );
+};
+
+const InlineCodeChip = ({children}: {children?: React.ReactNode}) => {
+  return (
+    <InlineCode className="before:hidden after:hidden text-tiny rounded-md text-default-600 bg-default-100 dark:bg-default-100/80 px-1.5 py-0.5">
+      {children}
+    </InlineCode>
   );
 };
 
@@ -226,36 +237,48 @@ export const APITable: React.FC<APITableProps> = ({data}) => {
           {data.map((item, index) => (
             <TableRow key={index} className="[&>td]:px-2 [&>td]:py-1.5 [&>td]:first:pt-4">
               <TableCell className="flex items-center gap-1 font-mono text-small whitespace-nowrap">
-                <InlineCode className="text-default-700 bg-default-100 dark:bg-default-100/80">
-                  {item.attribute}
-                </InlineCode>
+                <InlineCodeChip>{item.attribute}</InlineCodeChip>
                 {item.description && (
-                  <Components.Tooltip
-                    classNames={{
-                      content: "max-w-[240px]",
-                    }}
-                    content={item.description}
-                    delay={0}
-                    placement="top"
-                  >
-                    <div className="flex items-center gap-1 cursor-help">
-                      <InfoCircle className="text-default-400" size={16} />
-                    </div>
-                  </Components.Tooltip>
+                  <>
+                    {/* Desktop tooltip */}
+                    <Components.Tooltip
+                      classNames={{
+                        content: "max-w-[240px]",
+                      }}
+                      content={item.description}
+                      delay={0}
+                      placement="top"
+                    >
+                      <div className="flex items-center gap-1 cursor-default hidden sm:block">
+                        <InfoCircle className="text-default-400" size={16} />
+                      </div>
+                    </Components.Tooltip>
+                    {/* Mobile popover */}
+                    <Components.Popover placement="top">
+                      <Components.PopoverTrigger>
+                        <button className="flex items-center gap-1 sm:hidden outline-none">
+                          <InfoCircle className="text-default-400" size={16} />
+                        </button>
+                      </Components.PopoverTrigger>
+                      <Components.PopoverContent className="max-w-[240px]">
+                        {item.description}
+                      </Components.PopoverContent>
+                    </Components.Popover>
+                  </>
                 )}
               </TableCell>
               <TableCell className="font-mono text-small whitespace-nowrap text-primary">
-                <InlineCode>
+                <InlineCodeChip>
                   <div className="flex max-w-[300px] flex-wrap text-wrap">{item.type}</div>
-                </InlineCode>
+                </InlineCodeChip>
               </TableCell>
               <TableCell className="font-mono text-small whitespace-nowrap">
                 {item.default && item.default !== "-" ? (
-                  <InlineCode>
+                  <InlineCodeChip>
                     {item.default !== "true" && item.default !== "false"
                       ? `"${item.default}"`
                       : item.default}
-                  </InlineCode>
+                  </InlineCodeChip>
                 ) : (
                   <svg
                     aria-hidden="true"
@@ -313,9 +336,7 @@ export const MDXComponents = {
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h2" {...props} />,
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h3" {...props} />,
   h4: (props: React.HTMLAttributes<HTMLHeadingElement>) => <LinkedHeading as="h4" {...props} />,
-  strong: (props: React.HTMLAttributes<HTMLElement>) => (
-    <strong className="font-medium" {...props} />
-  ),
+  strong: (props: React.HTMLAttributes<HTMLElement>) => <strong {...props} />,
   table: Table,
   thead: Thead,
   tr: Trow,

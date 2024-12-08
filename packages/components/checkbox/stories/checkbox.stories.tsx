@@ -4,6 +4,8 @@ import {checkbox} from "@nextui-org/theme";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {button} from "@nextui-org/theme";
 import {useForm} from "react-hook-form";
+import {Form} from "@nextui-org/form";
+import {ValidationErrors} from "@react-types/shared";
 
 import {Checkbox, CheckboxIconProps, CheckboxProps} from "../src";
 
@@ -154,6 +156,58 @@ const WithReactHookFormTemplate = (args: CheckboxProps) => {
   );
 };
 
+const WithFormTemplate = (args: CheckboxProps) => {
+  const [submitted, setSubmitted] = React.useState<{[key: string]: FormDataEntryValue} | null>(
+    null,
+  );
+  const [errors, setErrors] = React.useState<ValidationErrors | undefined>(undefined);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.currentTarget));
+
+    const terms = data.terms;
+
+    if (terms !== "true") {
+      setErrors({terms: "You must agree to the terms and conditions"});
+
+      return;
+    }
+
+    // Clear errors and submit
+    setErrors(undefined);
+    setSubmitted(data);
+  };
+
+  return (
+    <Form validationBehavior="native" validationErrors={errors} onSubmit={onSubmit}>
+      <Checkbox
+        isRequired
+        classNames={{
+          label: "text-small",
+        }}
+        isInvalid={!!errors?.terms}
+        name="terms"
+        validationBehavior="aria"
+        value="true"
+        onValueChange={() => setErrors(undefined)}
+        {...args}
+      >
+        I agree to the terms and conditions
+      </Checkbox>
+      {errors?.terms && <span className="text-danger text-small">{errors.terms}</span>}
+      <button className={button({class: "w-fit"})} type="submit">
+        Submit
+      </button>
+      {submitted && (
+        <div className="text-small text-default-500 mt-4">
+          Submitted data: <pre>{JSON.stringify(submitted, null, 2)}</pre>
+        </div>
+      )}
+    </Form>
+  );
+};
+
 export const Default = {
   args: {
     ...defaultProps,
@@ -247,5 +301,13 @@ export const Required = {
   args: {
     ...defaultProps,
     isRequired: true,
+  },
+};
+
+export const WithForm = {
+  render: WithFormTemplate,
+
+  args: {
+    ...defaultProps,
   },
 };

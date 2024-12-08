@@ -151,6 +151,22 @@ function App() {
 }
 ```
 
+### Virtualization
+
+Select supports virtualization, which allows efficient rendering of large lists by only rendering items that are visible in the viewport. You can enable virtualization by setting the `isVirtualized` prop to `true`.
+
+<CodeDemo
+  title="Virtualization"
+  files={listboxContent.virtualization}
+/>
+
+> **Note**: The virtualization strategy is based on the [@tanstack/react-virtual](https://tanstack.com/virtual/latest) package, which provides efficient rendering of large lists by only rendering items that are visible in the viewport.
+#### Ten Thousand Items
+
+Here's an example of using virtualization with 10,000 items.
+
+<CodeDemo title="Ten Thousand Items" files={listboxContent.virtualizationTenThousand} />
+
 ## Slots
 
 Listbox has 3 components with slots the base one `Listbox`, `ListboxItem` and `ListboxSection` components.
@@ -328,6 +344,18 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
       type: "boolean",
       description: "Whether keyboard navigation is circular.",
       default: "false"
+    },   
+    {
+      attribute: "isVirtualized",
+      type: "boolean",
+      description: "Whether to enable virtualization.",
+      default: "false"
+    },
+    {
+      attribute: "virtualization",
+      type: "Record<\"maxListboxHeight\" & \"itemHeight\", number>",
+      description: "Configuration for virtualization, optimizing rendering for large datasets. Required if isVirtualized is set to true.",
+      default: "-",
     },
     {
       attribute: "hideEmptyContent",
@@ -349,13 +377,13 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"list\" | \"emptyContent\", string>",
+      type: "Partial<Record<\"base\" | \"list\" | \"emptyContent\", string>>",
       description: "Allows to set custom class names for the listbox slots.",
       default: "-"
     },
     {
       attribute: "itemClasses",
-      type: "Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"selectedIcon\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"selectedIcon\", string>>",
       description: "Allows to set custom class names for the listbox item slots.",
       default: "-"
     }
@@ -423,13 +451,13 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"heading\" | \"group\" | \"divider\", string>",
+      type: "Partial<Record<\"base\" | \"heading\" | \"group\" | \"divider\", string>>",
       description: "Allows to set custom class names for the listbox section slots.",
       default: "-"
     },
     {
       attribute: "itemClasses",
-      type: "Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>>",
       description: "Allows to set custom class names for the listbox item slots.",
       default: "-"
     }
@@ -568,7 +596,7 @@ You can customize the `Listbox` items style by using the `itemClasses` prop and 
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"title\" | \"description\" | \"shortcut\" | \"selectedIcon\", string>>",
       description: "Allows to set custom class names for the listbox item slots.",
       default: "-"
     }

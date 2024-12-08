@@ -62,6 +62,7 @@ export function useHiddenSelect<T>(
   triggerRef: RefObject<FocusableElement>,
 ) {
   let data = selectData.get(state) || {};
+
   let {
     autoComplete,
     name = data.name,
@@ -69,7 +70,7 @@ export function useHiddenSelect<T>(
     selectionMode,
     onChange,
   } = props;
-  let {validationBehavior, isRequired} = data;
+  let {validationBehavior, isRequired, isInvalid} = data;
   let modality = useInteractionModality();
   let {visuallyHiddenProps} = useVisuallyHidden();
 
@@ -83,6 +84,14 @@ export function useHiddenSelect<T>(
     props.selectRef,
   );
 
+  const commonProps = {
+    autoComplete,
+    disabled: isDisabled,
+    "aria-invalid": isInvalid || undefined,
+    "aria-required": (isRequired && validationBehavior === "aria") || undefined,
+    required: isRequired && validationBehavior === "native",
+  };
+
   return {
     containerProps: {
       ...visuallyHiddenProps,
@@ -90,25 +99,18 @@ export function useHiddenSelect<T>(
       ["data-a11y-ignore"]: "aria-hidden-focus",
     },
     inputProps: {
+      ...commonProps,
       type: "text",
       tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
-      autoComplete,
       value: [...state.selectedKeys].join(",") ?? "",
-      required: isRequired,
       style: {fontSize: 16},
       onFocus: () => triggerRef.current?.focus(),
-      disabled: isDisabled,
-      // The onChange is handled by the `select` element. This avoids the `form` with input `value`
-      // and no `onChange` warning.
-      onChange: () => {},
+      onChange: () => {}, // The onChange is handled by the `select` element
     },
     selectProps: {
+      ...commonProps,
       name,
       tabIndex: -1,
-      autoComplete,
-      // TODO: Address validation for cases where an option is selected and then deselected.
-      // required: validationBehavior === "native" && isRequired,
-      disabled: isDisabled,
       size: state.collection.size,
       value:
         selectionMode === "multiple"

@@ -100,7 +100,7 @@ Display user information with avatar and name.
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"wrapper\" | \"name\" | \"description\", string>",
+      type: "Partial<Record<\"base\" | \"wrapper\" | \"name\" | \"description\", string>>",
       description: "Allows to set custom class names for the user slots.",
       default: "-"
     }

@@ -8,6 +8,7 @@ import withIcon from "./with-icon";
 import withAction from "./with-action";
 import controlled from "./controlled";
 import withoutIcon from "./without-icon";
+import withoutIconWrapper from "./without-icon-wrapper";
 
 export const alertContent = {
   colors,
@@ -20,4 +21,5 @@ export const alertContent = {
   withAction,
   controlled,
   withoutIcon,
+  withoutIconWrapper,
 };

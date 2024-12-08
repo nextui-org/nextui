@@ -13,6 +13,12 @@
           "path": "/docs/guide/introduction.mdx"
         },
         {
+          "key": "design-principles",
+          "title": "Design Principles",
+          "keywords": "design principles, nextui",
+          "path": "/docs/guide/design-principles.mdx"
+        },
+        {
           "key": "installation",
           "title": "Installation",
           "keywords": "getting started, installation, start, nextui",
@@ -25,12 +31,6 @@
           "path": "/docs/guide/cli.mdx"
         },
         {
-          "key": "design-principles",
-          "title": "Design Principles",
-          "keywords": "design principles, nextui",
-          "path": "/docs/guide/design-principles.mdx"
-        },
-        {
           "key": "routing",
           "title": "Routing",
           "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
@@ -38,10 +38,10 @@
           "updated": true
         },
         {
-          "key": "form",
+          "key": "forms",
           "title": "Forms",
           "keywords": "forms, form validation, nextui",
-          "path": "/docs/guide/form.mdx",
+          "path": "/docs/guide/forms.mdx",
           "newPost": true
         },
         {
@@ -267,6 +267,13 @@
           "newPost": true
         },
         {
+          "key": "form",
+          "title": "Form",
+          "keywords": "forms, form validation, nextui",
+          "path": "/docs/components/form.mdx",
+          "newPost": true
+        },
+        {
           "key": "image",
           "title": "Image",
           "keywords": "image, media, picture, photo, graphic display",
@@ -302,7 +309,8 @@
           "key": "listbox",
           "title": "Listbox",
           "keywords": "listbox, selection, option list, multiple choice",
-          "path": "/docs/components/listbox.mdx"
+          "path": "/docs/components/listbox.mdx",
+          "updated": true
         },
         {
           "key": "modal",
@@ -409,6 +417,13 @@
           "title": "Tabs",
           "keywords": "tabs, section navigation, categorized content, tabbed interface",
           "path": "/docs/components/tabs.mdx"
+        },
+        {
+          "key": "toast",
+          "title": "Toast",
+          "keywords": "toast, notification, message",
+          "path": "/docs/components/toast.mdx",
+          "comingSoon": true
         },
         {
           "key": "textarea",

@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/date-input",
-  "version": "2.2.0",
+  "version": "2.3.3",
   "description": "A date input allows users to enter and edit date and time values using a keyboard.",
   "keywords": [
     "date-field"
@@ -34,8 +34,8 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.3.0-beta.0",
-    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.4.0",
+    "@nextui-org/theme": ">=2.4.0",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
@@ -49,7 +49,7 @@
     "@react-stately/datepicker": "3.10.3",
     "@react-types/datepicker": "3.8.3",
     "@react-types/shared": "3.25.0",
-    "@react-aria/utils": "3.25.3"
+    "@react-aria/utils": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",

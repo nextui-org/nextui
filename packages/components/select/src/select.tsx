@@ -1,10 +1,13 @@
+import type {ForwardedRef, ReactElement} from "react";
+
 import {Listbox} from "@nextui-org/listbox";
 import {FreeSoloPopover} from "@nextui-org/popover";
 import {ChevronDownIcon} from "@nextui-org/shared-icons";
 import {Spinner} from "@nextui-org/spinner";
+import {useMemo} from "react";
 import {forwardRef} from "@nextui-org/system";
 import {ScrollShadow} from "@nextui-org/scroll-shadow";
-import {cloneElement, ForwardedRef, ReactElement, Ref, useMemo} from "react";
+import {cloneElement} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {AnimatePresence} from "framer-motion";
 
@@ -13,7 +16,12 @@ import {UseSelectProps, useSelect} from "./use-select";
 
 interface Props<T> extends UseSelectProps<T> {}
 
-function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectElement>) {
+export type SelectProps<T extends object = object> = Props<T>;
+
+const Select = forwardRef(function Select<T extends object>(
+  props: SelectProps<T>,
+  ref: ForwardedRef<HTMLSelectElement>,
+) {
   const {
     Component,
     state,
@@ -139,11 +147,6 @@ function Select<T extends object>(props: Props<T>, ref: ForwardedRef<HTMLSelectE
       {disableAnimation ? popoverContent : <AnimatePresence>{popoverContent}</AnimatePresence>}
     </div>
   );
-}
+}) as <T extends object>(props: SelectProps<T>) => ReactElement;
 
-export type SelectProps<T extends object = object> = Props<T> & {ref?: Ref<HTMLElement>};
-
-// forwardRef doesn't support generic parameters, so cast the result to the correct type
-export default forwardRef(Select) as <T extends object>(props: SelectProps<T>) => ReactElement;
-
-Select.displayName = "NextUI.Select";
+export default Select;

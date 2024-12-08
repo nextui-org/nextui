@@ -45,13 +45,13 @@ The InputOtp component enables users to enter one-time passwords (OTP). It is bu
 
 The `isDisabled` prop disables user interaction with the `InputOtp` component.
 
-<CodeDemo title="Usage" files={inputOtpContent.disabled} />
+<CodeDemo title="Disabled" files={inputOtpContent.disabled} />
 
 ## Read Only
 
 The `isReadOnly` prop makes the `InputOtp` component read-only while maintaining its visual appearance.
 
-<CodeDemo title="Usage" files={inputOtpContent.readonly} />
+<CodeDemo title="Read Only" files={inputOtpContent.readonly} />
 
 ## Required
 
@@ -63,19 +63,19 @@ The `isRequired` prop marks the `InputOtp` as a required field.
 
 The size of the `InputOtp` can be customized using the `size` prop. The default value is `md`.
 
-<CodeDemo title="Size" files={inputOtpContent.sizes} />
+<CodeDemo title="Sizes" files={inputOtpContent.sizes} />
 
 ## Colors
 
 Color of the `InputOtp` can be changed by `color` property.
 
-<CodeDemo title="Color" files={inputOtpContent.colors} />
+<CodeDemo title="Colors" files={inputOtpContent.colors} />
 
 ## Variants
 
 Styling/Variant of the `InputOtp` can be changed by `variant` property. By default, `variant` property is set to `flat`.
 
-<CodeDemo title="Variant" files={inputOtpContent.variants} />
+<CodeDemo title="Variants" files={inputOtpContent.variants} />
 
 ## Radius
 
@@ -299,7 +299,7 @@ You can customize the styles of the `InputOtp` component using the `classNames` 
     },
     {
       attribute: "classNames",
-      type: "Record<'base' | 'inputWrapper' | 'input' | 'segmentWrapper' | 'segment' | 'caret' | 'passwordChar' | 'helperWrapper' | 'description' | 'errorMessage', string>",
+      type: "Partial<Record<'base' | 'inputWrapper' | 'input' | 'segmentWrapper' | 'segment' | 'caret' | 'passwordChar' | 'helperWrapper' | 'description' | 'errorMessage', string>>",
       description: "Allows to set custom class names for the Input slots.",
       default: "-"
     },

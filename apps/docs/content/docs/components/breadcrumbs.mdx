@@ -293,13 +293,13 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
     },
     {
       attribute: "itemClasses",
-      type: "Record<\"base\" | \"item\" | \"separator\", string>",
+      type: "Partial<Record<\"base\" | \"item\" | \"separator\", string>>",
       description: "Allows to set custom class names for the breadcrumbs item slots.",
       default: "-"
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"list\" | \"ellipsis\" | \"separator\", string>",
+      type: "Partial<Record<\"base\" | \"list\" | \"ellipsis\" | \"separator\", string>>",
       description: "Allows to set custom class names for the breadcrumbs slots.",
       default: "-"
     }
@@ -397,7 +397,7 @@ You can customize the `Breadcrumbs` style by using the `classNames` prop and its
     },
     {
       attribute: "classNames",
-      type: "Record<\"base\" | \"item\" | \"separator\", string>",
+      type: "Partial<Record<\"base\" | \"item\" | \"separator\", string>>",
       description: "Allows to set custom class names for the item slots.",
       default: "-"
     }
