@@ -90,6 +90,22 @@ describe("Checkbox", () => {
     expect(onFocus).toHaveBeenCalled();
   });
 
+  it("should trigger focus on focusable parent once after click", async () => {
+    const onFocus = jest.fn();
+
+    const wrapper = render(
+      <div tabIndex={-1} onFocus={onFocus}>
+        <Checkbox data-testid="checkbox-test">Checkbox</Checkbox>
+      </div>,
+    );
+
+    const label = wrapper.getByTestId("checkbox-test");
+
+    await user.click(label);
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
+
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {container} = render(
       <Checkbox isRequired validationBehavior="native">

@@ -142,6 +142,26 @@ describe("Radio", () => {
     expect(onFocus).toHaveBeenCalled();
   });
 
+  it("should trigger focus on focusable parent once after click", async () => {
+    const onFocus = jest.fn();
+
+    const wrapper = render(
+      <div tabIndex={-1} onFocus={onFocus}>
+        <RadioGroup defaultValue="1" label="Options">
+          <Radio data-testid="radio-test-1" value="1">
+            Option 1
+          </Radio>
+        </RadioGroup>
+      </div>,
+    );
+
+    const label = wrapper.getByTestId("radio-test-1");
+
+    await user.click(label);
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
+
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {getByRole, getAllByRole} = render(
       <RadioGroup isRequired label="Options" validationBehavior="native">

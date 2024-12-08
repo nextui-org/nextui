@@ -184,6 +184,22 @@ describe("Switch", () => {
     expect(wrapper.getByTestId("start-icon")).toBeInTheDocument();
     expect(wrapper.getByTestId("end-icon")).toBeInTheDocument();
   });
+
+  it("should trigger focus on focusable parent once after click", async () => {
+    const onFocus = jest.fn();
+
+    const wrapper = render(
+      <div tabIndex={-1} onFocus={onFocus}>
+        <Switch data-testid="switch-test">Switch</Switch>
+      </div>,
+    );
+
+    const label = wrapper.getByTestId("switch-test");
+
+    await user.click(label);
+
+    expect(onFocus).toHaveBeenCalledTimes(1);
+  });
 });
 
 describe("Switch with React Hook Form", () => {
