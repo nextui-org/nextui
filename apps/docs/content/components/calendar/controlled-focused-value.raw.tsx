@@ -6,7 +6,7 @@ import {today, getLocalTimeZone} from "@internationalized/date";
 
 export default function App() {
   let defaultDate = today(getLocalTimeZone());
-  let [focusedDate, setFocusedDate] = React.useState<DateValue>(defaultDate);
+  let [focusedDate, setFocusedDate] = React.useState<DateValue | null>(defaultDate);
 
   return (
     <Calendar

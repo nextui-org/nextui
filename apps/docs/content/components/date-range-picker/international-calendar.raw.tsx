@@ -7,7 +7,7 @@ import {parseAbsoluteToLocal} from "@internationalized/date";
 import {I18nProvider} from "@react-aria/i18n";
 
 export default function App() {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: parseAbsoluteToLocal("2021-04-01T18:45:22Z"),
     end: parseAbsoluteToLocal("2021-04-14T19:15:22Z"),
   });

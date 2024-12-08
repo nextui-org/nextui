@@ -6,7 +6,7 @@ import {parseAbsoluteToLocal, Time, ZonedDateTime} from "@internationalized/date
 import {useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
-  let [value, setValue] = React.useState<TimeInputValue>(
+  let [value, setValue] = React.useState<TimeInputValue | null>(
     parseAbsoluteToLocal("2024-04-08T18:45:22Z"),
   );
 

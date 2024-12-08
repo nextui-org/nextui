@@ -55,7 +55,7 @@ const defaultProps = {
 const Template = (args: CalendarProps) => <Calendar {...args} />;
 
 const ControlledTemplate = (args: CalendarProps) => {
-  let [value, setValue] = React.useState<DateValue>(parseDate("2024-03-07"));
+  let [value, setValue] = React.useState<DateValue | null>(parseDate("2024-03-07"));
 
   return (
     <div className="flex flex-wrap gap-4">
@@ -110,7 +110,7 @@ const UnavailableDatesTemplate = (args: CalendarProps) => {
 
 const ControlledFocusedValueTemplate = (args: CalendarProps) => {
   let defaultDate = today(getLocalTimeZone());
-  let [focusedDate, setFocusedDate] = React.useState<DateValue>(defaultDate);
+  let [focusedDate, setFocusedDate] = React.useState<DateValue | null>(defaultDate);
 
   return (
     <div className="flex flex-col gap-4">
@@ -133,7 +133,7 @@ const ControlledFocusedValueTemplate = (args: CalendarProps) => {
 };
 
 const InvalidDateTemplate = (args: CalendarProps) => {
-  let [date, setDate] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [date, setDate] = React.useState<DateValue | null>(today(getLocalTimeZone()));
   let {locale} = useLocale();
   let isInvalid = isWeekend(date, locale);
 
@@ -161,7 +161,7 @@ const InternationalCalendarsTemplate = (args: CalendarProps) => {
 
 const PresetsTemplate = (args: CalendarProps) => {
   let defaultDate = today(getLocalTimeZone());
-  let [value, setValue] = React.useState<DateValue>(defaultDate);
+  let [value, setValue] = React.useState<DateValue | null>(defaultDate);
   let {locale} = useLocale();
 
   let now = today(getLocalTimeZone());
