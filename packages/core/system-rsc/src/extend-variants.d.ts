@@ -91,7 +91,7 @@ export type ExtendVariants = {
     },
     opts?: Options,
   ): ForwardRefRenderFunction<
-    ReactElement,
+    ReactElement<any>,
     {
       [key in keyof CP | keyof V]?:
         | (key extends keyof CP ? CP[key] : never)
