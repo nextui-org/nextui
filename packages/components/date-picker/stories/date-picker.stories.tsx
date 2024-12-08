@@ -149,7 +149,9 @@ const TimeZonesTemplate = (args: DatePickerProps) => (
 );
 
 const GranularityTemplate = (args: DatePickerProps) => {
-  let [date, setDate] = React.useState<DateValue | null>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(
+    parseAbsoluteToLocal("2021-04-07T18:45:22Z"),
+  );
 
   return (
     <div className="w-full max-w-xl flex flex-col items-start gap-4">
@@ -182,7 +184,9 @@ const GranularityTemplate = (args: DatePickerProps) => {
 };
 
 const InternationalCalendarsTemplate = (args: DatePickerProps) => {
-  let [date, setDate] = React.useState<DateValue | null>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(
+    parseAbsoluteToLocal("2021-04-07T18:45:22Z"),
+  );
 
   return (
     <div className="flex flex-col gap-4">
