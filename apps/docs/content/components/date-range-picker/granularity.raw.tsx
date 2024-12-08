@@ -6,7 +6,7 @@ import {DateRangePicker} from "@nextui-org/react";
 import {parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: parseAbsoluteToLocal("2024-04-01T18:45:22Z"),
     end: parseAbsoluteToLocal("2024-04-08T19:15:22Z"),
   });

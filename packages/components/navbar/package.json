@@ -47,12 +47,12 @@
     "@nextui-org/use-aria-toggle-button": "workspace:*",
     "@nextui-org/use-scroll-position": "workspace:*",
     "@nextui-org/dom-animation": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/overlays": "3.23.4",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/overlays": "3.24.0",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/toggle": "3.7.8",
-    "@react-stately/utils": "3.10.4"
+    "@react-stately/toggle": "3.8.0",
+    "@react-stately/utils": "3.10.5"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

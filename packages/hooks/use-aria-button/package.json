@@ -37,10 +37,10 @@
     "react": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/interactions": "3.22.4",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/interactions": "3.22.5",
     "@react-aria/utils": "3.26.0",
-    "@react-types/button": "3.10.0",
+    "@react-types/button": "3.10.1",
     "@react-types/shared": "3.26.0"
   },
   "devDependencies": {

@@ -88,7 +88,7 @@
     "@nextui-org/drawer": "workspace:*",
     "@nextui-org/form": "workspace:*",
     "@nextui-org/alert": "workspace:*",
-    "@react-aria/visually-hidden": "3.8.17"
+    "@react-aria/visually-hidden": "3.8.18"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
