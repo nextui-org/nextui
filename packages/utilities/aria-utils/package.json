@@ -45,7 +45,7 @@
     "@react-stately/collections": "3.11.0",
     "@react-stately/overlays": "3.6.11",
     "@react-types/overlays": "3.8.10",
-    "@react-types/shared": "3.25.0"
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

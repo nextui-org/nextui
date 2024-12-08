@@ -62,6 +62,6 @@
     "@react-aria/utils": "3.26.0",
     "@react-stately/utils": "3.10.4",
     "@react-types/datepicker": "3.8.3",
-    "@react-types/shared": "3.25.0"
+    "@react-types/shared": "3.26.0"
   }
 }

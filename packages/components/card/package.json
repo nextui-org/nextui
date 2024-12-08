@@ -49,7 +49,7 @@
     "@react-aria/utils": "3.26.0",
     "@react-aria/interactions": "3.22.4",
     "@react-aria/button": "3.10.1",
-    "@react-types/shared": "3.25.0"
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
