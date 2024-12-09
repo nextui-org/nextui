@@ -168,6 +168,21 @@ describe("InputOtp Component", () => {
     expect(onComplete).toHaveBeenCalledTimes(2);
     expect(onComplete).toHaveBeenCalledWith("1234");
   });
+
+  it("should autofocus when autofocus prop is passed.", () => {
+    // eslint-disable-next-line jsx-a11y/no-autofocus
+    render(<InputOtp autoFocus length={4} />);
+    const segments = screen.getAllByRole("presentation");
+
+    expect(segments[0]).toHaveAttribute("data-focus", "true");
+  });
+
+  it("should not autofocus when autofocus prop is not passed.", () => {
+    render(<InputOtp length={4} />);
+    const segments = screen.getAllByRole("presentation");
+
+    expect(segments[0]).not.toHaveAttribute("data-focus", "true");
+  });
 });
 
 describe("InputOtp with react-hook-form", () => {
