@@ -1,5 +1,21 @@
 # @nextui-org/react
 
+## 2.6.6
+
+### Patch Changes
+
+- Updated dependencies [[`11eae5c`](https://github.com/nextui-org/nextui/commit/11eae5cc808e10db07b509f4e06d30441bb1937a), [`1485eca`](https://github.com/nextui-org/nextui/commit/1485eca48fce8a0acc42fe40590b828c1a90ff48)]:
+  - @nextui-org/pagination@2.2.5
+  - @nextui-org/listbox@2.3.5
+  - @nextui-org/menu@2.2.5
+  - @nextui-org/input-otp@2.1.5
+  - @nextui-org/table@2.2.4
+  - @nextui-org/autocomplete@2.3.5
+  - @nextui-org/select@2.4.5
+  - @nextui-org/dropdown@2.3.5
+  - @nextui-org/breadcrumbs@2.2.4
+  - @nextui-org/navbar@2.2.4
+
 ## 2.6.5
 
 ### Patch Changes
