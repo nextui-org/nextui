@@ -2,7 +2,7 @@ import type {MenuItemBaseProps} from "./base/menu-item-base";
 import type {MenuItemVariantProps} from "@nextui-org/theme";
 import type {Node} from "@react-types/shared";
 
-import {useMemo, useRef, useCallback, Fragment} from "react";
+import {useMemo, useRef, useCallback} from "react";
 import {menuItem} from "@nextui-org/theme";
 import {
   HTMLNextUIProps,
@@ -59,7 +59,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     isReadOnly = false,
     closeOnSelect,
     onClose,
-    href,
     ...otherProps
   } = props;
 
@@ -68,11 +67,8 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || "li";
+  const Component = as || (otherProps?.href ? "a" : "li");
   const shouldFilterDOMProps = typeof Component === "string";
-
-  const FragmentWrapper = href ? "a" : Fragment;
-  const fragmentWrapperProps = href ? {href} : {};
 
   const {rendered, key} = item;
 
@@ -198,7 +194,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   return {
     Component,
-    FragmentWrapper,
     domRef,
     slots,
     classNames,
@@ -212,7 +207,6 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
     endContent,
     selectedIcon,
     disableAnimation,
-    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     hideSelectedIcon,

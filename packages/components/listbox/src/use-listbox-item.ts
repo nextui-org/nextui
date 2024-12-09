@@ -1,7 +1,7 @@
 import type {ListboxItemBaseProps} from "./base/listbox-item-base";
 import type {MenuItemVariantProps} from "@nextui-org/theme";
 
-import {useMemo, useRef, useCallback, Fragment} from "react";
+import {useMemo, useRef, useCallback} from "react";
 import {listboxItem} from "@nextui-org/theme";
 import {
   HTMLNextUIProps,
@@ -50,7 +50,6 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     shouldHighlightOnFocus,
     hideSelectedIcon = false,
     isReadOnly = false,
-    href,
     ...otherProps
   } = props;
 
@@ -59,11 +58,8 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || "li";
+  const Component = as || (originalProps.href ? "a" : "li");
   const shouldFilterDOMProps = typeof Component === "string";
-
-  const FragmentWrapper = href ? "a" : Fragment;
-  const fragmentWrapperProps = href ? {href} : {};
 
   const {rendered, key} = item;
 
@@ -173,7 +169,6 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   return {
     Component,
-    FragmentWrapper,
     domRef,
     slots,
     classNames,
@@ -187,7 +182,6 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     selectedIcon,
     hideSelectedIcon,
     disableAnimation,
-    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getWrapperProps,

@@ -12,7 +12,6 @@ export interface ListboxItemProps<T extends object = object>
 const ListboxItem = (props: ListboxItemProps) => {
   const {
     Component,
-    FragmentWrapper,
     rendered,
     description,
     isSelectable,
@@ -23,7 +22,6 @@ const ListboxItem = (props: ListboxItemProps) => {
     endContent,
     hideSelectedIcon,
     disableAnimation,
-    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getWrapperProps,
@@ -47,21 +45,19 @@ const ListboxItem = (props: ListboxItemProps) => {
 
   return (
     <Component {...getItemProps()}>
-      <FragmentWrapper {...fragmentWrapperProps}>
-        {startContent}
-        {description ? (
-          <div {...getWrapperProps()}>
-            <span {...getLabelProps()}>{rendered}</span>
-            <span {...getDescriptionProps()}>{description}</span>
-          </div>
-        ) : (
+      {startContent}
+      {description ? (
+        <div {...getWrapperProps()}>
           <span {...getLabelProps()}>{rendered}</span>
-        )}
-        {isSelectable && !hideSelectedIcon && (
-          <span {...getSelectedIconProps()}>{selectedContent}</span>
-        )}
-        {endContent}
-      </FragmentWrapper>
+          <span {...getDescriptionProps()}>{description}</span>
+        </div>
+      ) : (
+        <span {...getLabelProps()}>{rendered}</span>
+      )}
+      {isSelectable && !hideSelectedIcon && (
+        <span {...getSelectedIconProps()}>{selectedContent}</span>
+      )}
+      {endContent}
     </Component>
   );
 };
