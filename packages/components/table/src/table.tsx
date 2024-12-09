@@ -36,11 +36,7 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
     ref,
   });
 
-  const {
-    isVirtualized,
-    rowHeight = 40, // Default row height
-    maxTableHeight = 600, // Default max body height
-  } = props;
+  const {isVirtualized, rowHeight = 40, maxTableHeight = 600} = props;
 
   const Wrapper = useCallback(
     ({children}: {children: JSX.Element}) => {

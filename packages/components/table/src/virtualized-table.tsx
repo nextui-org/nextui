@@ -8,7 +8,7 @@ import TableRowGroup from "./table-row-group";
 import TableHeaderRow from "./table-header-row";
 import TableColumnHeader from "./table-column-header";
 import TableSelectAllCheckbox from "./table-select-all-checkbox";
-import VirtualizedTableBody from "./virtualized-table-body"; // Import the virtualized table body component
+import VirtualizedTableBody from "./virtualized-table-body";
 
 export interface TableProps<T = object>
   extends Omit<UseTableProps<T>, "isSelectable" | "isMultiSelectable"> {
@@ -36,10 +36,7 @@ const VirtualizedTable = forwardRef<"table", TableProps>((props, ref) => {
     ref,
   });
 
-  const {
-    rowHeight = 40, // Default row height
-    maxTableHeight = 600, // Default max body height
-  } = props;
+  const {rowHeight = 40, maxTableHeight = 600} = props;
 
   const Wrapper = useCallback(
     ({children}: {children: JSX.Element}) => {

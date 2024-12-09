@@ -118,7 +118,7 @@ const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((pro
 
         return (
           <TableRow
-            key={String(row.key)} // Ensure key is a string or number
+            key={String(row.key)}
             classNames={classNames}
             isSelectable={isSelectable}
             node={row}
@@ -132,7 +132,7 @@ const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((pro
             {[...row.childNodes].map((cell) =>
               cell.props.isSelectionCell ? (
                 <TableCheckboxCell
-                  key={String(cell.key)} // Ensure key is a string or number
+                  key={String(cell.key)}
                   checkboxesProps={checkboxesProps}
                   classNames={classNames}
                   color={color}
@@ -145,7 +145,7 @@ const VirtualizedTableBody = forwardRef<"tbody", VirtualizedTableBodyProps>((pro
                 />
               ) : (
                 <TableCell
-                  key={String(cell.key)} // Ensure key is a string or number
+                  key={String(cell.key)}
                   classNames={classNames}
                   node={cell}
                   rowKey={row.key}
