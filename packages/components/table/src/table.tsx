@@ -38,6 +38,8 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
 
   const {isVirtualized, rowHeight = 40, maxTableHeight = 600} = props;
 
+  const shouldVirtualize = values.collection.size > 50 || isVirtualized;
+
   const Wrapper = useCallback(
     ({children}: {children: JSX.Element}) => {
       if (removeWrapper) {
@@ -49,7 +51,7 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
     [removeWrapper, getWrapperProps],
   );
 
-  if (isVirtualized) {
+  if (shouldVirtualize) {
     return (
       <VirtualizedTable
         {...(props as TableProps)}
