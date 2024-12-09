@@ -178,9 +178,19 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
 
   const baseStyles = clsx(classNames?.base, className);
 
+  const mouseProps = useMemo(
+    () => ({
+      onMouseDown: (e: React.MouseEvent<HTMLLabelElement>) => {
+        // prevent parent from being focused
+        e.preventDefault();
+      },
+    }),
+    [],
+  );
+
   const getBaseProps: PropGetter = (props) => {
     return {
-      ...mergeProps(hoverProps, otherProps, props),
+      ...mergeProps(hoverProps, mouseProps, otherProps, props),
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, props?.className)}),
       "data-disabled": dataAttr(isDisabled),

@@ -264,6 +264,16 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const baseStyles = clsx(classNames?.base, className);
 
+  const mouseProps = useMemo(
+    () => ({
+      onMouseDown: (e: React.MouseEvent<HTMLLabelElement>) => {
+        // prevent parent from being focused
+        e.preventDefault();
+      },
+    }),
+    [],
+  );
+
   const getBaseProps: PropGetter = useCallback(() => {
     return {
       ref: domRef,
@@ -277,7 +287,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       "data-readonly": dataAttr(inputProps.readOnly),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-indeterminate": dataAttr(isIndeterminate),
-      ...mergeProps(hoverProps, otherProps),
+      ...mergeProps(hoverProps, mouseProps, otherProps),
     };
   }, [
     slots,
