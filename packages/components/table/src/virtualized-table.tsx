@@ -1,4 +1,4 @@
-import {useCallback, useRef} from "react";
+import {useCallback, useLayoutEffect, useRef, useState} from "react";
 import {Spacer} from "@nextui-org/spacer";
 import {forwardRef} from "@nextui-org/system";
 import {useVirtualizer} from "@tanstack/react-virtual";
@@ -58,6 +58,16 @@ const VirtualizedTable = forwardRef<"table", TableProps>((props, ref) => {
 
   const parentRef = useRef(null);
 
+  const [headerHeight, setHeaderHeight] = useState(0);
+
+  const headerRef = useRef<HTMLTableSectionElement>(null);
+
+  useLayoutEffect(() => {
+    if (headerRef.current) {
+      setHeaderHeight(headerRef.current.getBoundingClientRect().height);
+    }
+  }, [headerRef]);
+
   const rowVirtualizer = useVirtualizer({
     count,
     getScrollElement: () => parentRef.current,
@@ -67,19 +77,21 @@ const VirtualizedTable = forwardRef<"table", TableProps>((props, ref) => {
 
   return (
     <div {...getBaseProps()}>
+      {/* We need to add p-1 to make the shadow-sm visible */}
       <div
         ref={parentRef}
-        style={{overflow: "auto", height: maxTableHeight, display: "block", width: "100%"}}
+        className="overflow-auto block w-full p-1 bg-content1 rounded-large shadow-small"
+        style={{height: maxTableHeight}}
       >
         {topContentPlacement === "outside" && topContent}
         <div
-          className="p-4 z-0 relative justify-between gap-4 bg-content1 rounded-large shadow-small w-full"
-          style={{height: `${rowVirtualizer.getTotalSize()}px`}}
+          className="p-4 z-0 relative justify-between gap-4 w-full"
+          style={{height: `calc(${rowVirtualizer.getTotalSize() + headerHeight}px + 2rem)`}} // 2rem is offset for padding-top and padding-bottom (p-4)
         >
           <>
             {topContentPlacement === "inside" && topContent}
             <Component {...getTableProps()}>
-              <TableRowGroup classNames={values.classNames} slots={values.slots}>
+              <TableRowGroup ref={headerRef} classNames={values.classNames} slots={values.slots}>
                 {collection.headerRows.map((headerRow) => (
                   <TableHeaderRow
                     key={headerRow?.key}
