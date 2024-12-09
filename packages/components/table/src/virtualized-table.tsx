@@ -44,9 +44,18 @@ const VirtualizedTable = forwardRef<"table", TableProps>((props, ref) => {
         return children;
       }
 
-      return <BaseComponent {...getWrapperProps()}>{children}</BaseComponent>;
+      return (
+        <BaseComponent
+          {...getWrapperProps()}
+          ref={parentRef}
+          /* Display must be block to maintain the scroll "progress" */
+          style={{height: maxTableHeight, display: "block"}}
+        >
+          {children}
+        </BaseComponent>
+      );
     },
-    [removeWrapper, getWrapperProps],
+    [removeWrapper, getWrapperProps, maxTableHeight],
   );
 
   const items = [...collection.body.childNodes];
@@ -75,73 +84,68 @@ const VirtualizedTable = forwardRef<"table", TableProps>((props, ref) => {
   return (
     <div {...getBaseProps()}>
       {/* We need to add p-1 to make the shadow-sm visible */}
-      <div
-        ref={parentRef}
-        className="overflow-auto block w-full p-1 bg-content1 rounded-large shadow-small"
-        style={{height: maxTableHeight}}
-      >
-        {topContentPlacement === "outside" && topContent}
-        <div
-          className="p-4 z-0 relative justify-between gap-4 w-full"
-          style={{height: `calc(${rowVirtualizer.getTotalSize() + headerHeight}px + 2rem)`}} // 2rem is offset for padding-top and padding-bottom (p-4)
-        >
-          <>
-            {topContentPlacement === "inside" && topContent}
-            <Component {...getTableProps()}>
-              <TableRowGroup ref={headerRef} classNames={values.classNames} slots={values.slots}>
-                {collection.headerRows.map((headerRow) => (
-                  <TableHeaderRow
-                    key={headerRow?.key}
-                    classNames={values.classNames}
-                    node={headerRow}
-                    slots={values.slots}
-                    state={values.state}
-                  >
-                    {[...headerRow.childNodes].map((column) =>
-                      column?.props?.isSelectionCell ? (
-                        <TableSelectAllCheckbox
-                          key={column?.key}
-                          checkboxesProps={values.checkboxesProps}
-                          classNames={values.classNames}
-                          color={values.color}
-                          disableAnimation={values.disableAnimation}
-                          node={column}
-                          selectionMode={values.selectionMode}
-                          slots={values.slots}
-                          state={values.state}
-                        />
-                      ) : (
-                        <TableColumnHeader
-                          key={column?.key}
-                          classNames={values.classNames}
-                          node={column}
-                          slots={values.slots}
-                          state={values.state}
-                        />
-                      ),
-                    )}
-                  </TableHeaderRow>
-                ))}
-                <Spacer as="tr" tabIndex={-1} y={1} />
-              </TableRowGroup>
-              <VirtualizedTableBody
-                checkboxesProps={values.checkboxesProps}
-                classNames={values.classNames}
-                collection={values.collection}
-                color={values.color}
-                disableAnimation={values.disableAnimation}
-                isSelectable={values.isSelectable}
-                rowVirtualizer={rowVirtualizer}
-                selectionMode={values.selectionMode}
-                slots={values.slots}
-                state={values.state}
-              />
-            </Component>
-            {bottomContentPlacement === "inside" && bottomContent}
-          </>
-        </div>
-        {bottomContentPlacement === "outside" && bottomContent}
-      </div>
+      <Wrapper>
+        <>
+          {topContentPlacement === "outside" && topContent}
+          <div style={{height: `calc(${rowVirtualizer.getTotalSize() + headerHeight}px)`}}>
+            <>
+              {topContentPlacement === "inside" && topContent}
+              <Component {...getTableProps()}>
+                <TableRowGroup ref={headerRef} classNames={values.classNames} slots={values.slots}>
+                  {collection.headerRows.map((headerRow) => (
+                    <TableHeaderRow
+                      key={headerRow?.key}
+                      classNames={values.classNames}
+                      node={headerRow}
+                      slots={values.slots}
+                      state={values.state}
+                    >
+                      {[...headerRow.childNodes].map((column) =>
+                        column?.props?.isSelectionCell ? (
+                          <TableSelectAllCheckbox
+                            key={column?.key}
+                            checkboxesProps={values.checkboxesProps}
+                            classNames={values.classNames}
+                            color={values.color}
+                            disableAnimation={values.disableAnimation}
+                            node={column}
+                            selectionMode={values.selectionMode}
+                            slots={values.slots}
+                            state={values.state}
+                          />
+                        ) : (
+                          <TableColumnHeader
+                            key={column?.key}
+                            classNames={values.classNames}
+                            node={column}
+                            slots={values.slots}
+                            state={values.state}
+                          />
+                        ),
+                      )}
+                    </TableHeaderRow>
+                  ))}
+                  <Spacer as="tr" tabIndex={-1} y={1} />
+                </TableRowGroup>
+                <VirtualizedTableBody
+                  checkboxesProps={values.checkboxesProps}
+                  classNames={values.classNames}
+                  collection={values.collection}
+                  color={values.color}
+                  disableAnimation={values.disableAnimation}
+                  isSelectable={values.isSelectable}
+                  rowVirtualizer={rowVirtualizer}
+                  selectionMode={values.selectionMode}
+                  slots={values.slots}
+                  state={values.state}
+                />
+              </Component>
+              {bottomContentPlacement === "inside" && bottomContent}
+            </>
+          </div>
+          {bottomContentPlacement === "outside" && bottomContent}
+        </>
+      </Wrapper>
     </div>
   );
 });

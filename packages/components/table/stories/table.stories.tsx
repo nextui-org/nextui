@@ -1155,3 +1155,40 @@ export const Virtualized = {
     className: "max-w-3xl",
   },
 };
+
+export const TenThousandRows = {
+  render: (args: TableProps) => {
+    const rows = generateRows(10000);
+    const columns = [
+      {key: "name", label: "Name"},
+      {key: "value", label: "Value"},
+    ];
+
+    return (
+      <div>
+        <Table
+          aria-label="Example of virtualized table with a large dataset"
+          {...args}
+          isVirtualized
+          maxTableHeight={300}
+          rowHeight={40}
+        >
+          <TableHeader columns={columns}>
+            {(column) => <TableColumn key={column.key}>{column.label}</TableColumn>}
+          </TableHeader>
+          <TableBody items={rows}>
+            {(item) => (
+              <TableRow key={item.key}>
+                {(columnKey) => <TableCell>{item[columnKey]}</TableCell>}
+              </TableRow>
+            )}
+          </TableBody>
+        </Table>
+      </div>
+    );
+  },
+  args: {
+    ...defaultProps,
+    className: "max-w-3xl",
+  },
+};
