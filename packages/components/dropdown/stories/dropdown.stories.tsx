@@ -796,7 +796,7 @@ export const WithFallbackPlacements = {
     <div className="relative h-screen w-screen">
       <div className="absolute top-0 left-0 p-8 flex gap-4">
         <Template {...args} label="placement: top" placement="top" />
-        <Template {...args} label="placement: bottom" placement="placement: bottom" />
+        <Template {...args} label="placement: bottom" placement="bottom" />
       </div>
       <div className="absolute bottom-0 left-0 p-8 flex gap-4">
         <Template {...args} label="placement: bottom" placement="bottom" />
