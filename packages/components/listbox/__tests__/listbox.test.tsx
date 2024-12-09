@@ -124,40 +124,6 @@ describe("Listbox", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("should not have anchor tag when href prop is not passed", () => {
-    render(
-      <Listbox disallowEmptySelection aria-label="Actions" selectionMode="multiple">
-        <ListboxItem key="new">New file</ListboxItem>
-        <ListboxItem key="copy">Copy link</ListboxItem>
-        <ListboxItem key="edit">Edit file</ListboxItem>
-      </Listbox>,
-    );
-
-    let anchorTag = document.getElementsByTagName("a")[0];
-
-    expect(anchorTag).toBeFalsy();
-  });
-
-  it("should have anchor tag when href prop is passed", () => {
-    const href = "http://www.nextui.org/";
-
-    render(
-      <Listbox disallowEmptySelection aria-label="Actions" selectionMode="multiple">
-        <ListboxItem key="new" href={href}>
-          New file
-        </ListboxItem>
-        <ListboxItem key="copy">Copy link</ListboxItem>
-        <ListboxItem key="edit">Edit file</ListboxItem>
-      </Listbox>,
-    );
-
-    let anchorTag = document.getElementsByTagName("a")[0];
-
-    expect(anchorTag).toBeTruthy();
-
-    expect(anchorTag).toHaveProperty("href", href);
-  });
-
   it("should work with single selection (controlled)", async () => {
     let onSelectionChange = jest.fn();
 

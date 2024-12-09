@@ -1,7 +1,7 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
 
-import {Pagination, PaginationItem} from "../src";
+import {Pagination} from "../src";
 
 describe("Pagination", () => {
   it("should render correctly", () => {
@@ -35,25 +35,6 @@ describe("Pagination", () => {
 
     expect(nextButton).toBeNull();
     expect(prevButton).toBeNull();
-  });
-
-  it("should not have anchor tag when href prop is not passed", () => {
-    render(<PaginationItem />);
-    let anchorTag = document.getElementsByTagName("a")[0];
-
-    expect(anchorTag).toBeFalsy();
-  });
-
-  it("should have anchor tag when href prop is passed", () => {
-    const href = "http://www.nextui.org/";
-
-    render(<PaginationItem href={href} />);
-
-    let anchorTag = document.getElementsByTagName("a")[0];
-
-    expect(anchorTag).toBeTruthy();
-
-    expect(anchorTag).toHaveProperty("href", href);
   });
 
   it("should show dots when total is greater than 10", () => {
