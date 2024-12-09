@@ -178,7 +178,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     validationDetails,
     descriptionProps,
     errorMessageProps,
-  } = useTextField(
+  } = useTextField<any>(
     {
       ...originalProps,
       validationBehavior,

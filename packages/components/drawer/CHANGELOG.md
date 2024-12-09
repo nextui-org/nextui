@@ -1,5 +1,13 @@
 # @nextui-org/drawer
 
+## 2.2.4
+
+### Patch Changes
+
+- Updated dependencies [[`1031e98`](https://github.com/nextui-org/nextui/commit/1031e985b71e69b8a7189ea049b9616257f820b3)]:
+  - @nextui-org/modal@2.2.4
+  - @nextui-org/framer-utils@2.1.4
+
 ## 2.2.3
 
 ### Patch Changes

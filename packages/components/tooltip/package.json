@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/tooltip",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
     "tooltip"
@@ -47,13 +47,13 @@
     "@nextui-org/framer-utils": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
     "@nextui-org/dom-animation": "workspace:*",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/overlays": "3.23.4",
-    "@react-aria/tooltip": "3.7.9",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/overlays": "3.24.0",
+    "@react-aria/tooltip": "3.7.10",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/tooltip": "3.4.13",
-    "@react-types/overlays": "3.8.10",
-    "@react-types/tooltip": "3.4.12"
+    "@react-stately/tooltip": "3.5.0",
+    "@react-types/overlays": "3.8.11",
+    "@react-types/tooltip": "3.4.13"
   },
   "devDependencies": {
     "@nextui-org/button": "workspace:*",

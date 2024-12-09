@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/accordion",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
   "keywords": [
     "react",
@@ -55,13 +55,13 @@
     "@nextui-org/divider": "workspace:*",
     "@nextui-org/use-aria-accordion": "workspace:*",
     "@nextui-org/dom-animation": "workspace:*",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/focus": "3.18.4",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/focus": "3.19.0",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/tree": "3.8.5",
-    "@react-aria/button": "3.10.1",
-    "@react-types/accordion": "3.0.0-alpha.24",
-    "@react-types/shared": "3.25.0"
+    "@react-stately/tree": "3.8.6",
+    "@react-aria/button": "3.11.0",
+    "@react-types/accordion": "3.0.0-alpha.25",
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",

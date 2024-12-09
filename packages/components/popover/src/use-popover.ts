@@ -208,7 +208,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     "data-focus": dataAttr(isFocused),
     "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
-    "data-placement": getArrowPlacement(ariaPlacement, placementProp),
+    "data-placement": getArrowPlacement(ariaPlacement || "top", placementProp),
     ...mergeProps(focusProps, dialogPropsProp, props),
     className: slots.base({class: clsx(baseStyles)}),
     style: {
@@ -222,7 +222,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       "data-slot": "content",
       "data-open": dataAttr(state.isOpen),
       "data-arrow": dataAttr(showArrow),
-      "data-placement": getArrowPlacement(ariaPlacement, placementProp),
+      "data-placement": getArrowPlacement(ariaPlacement || "top", placementProp),
       className: slots.content({class: clsx(classNames?.content, props.className)}),
     }),
     [slots, state.isOpen, showArrow, ariaPlacement, placementProp, classNames],
@@ -230,7 +230,7 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const placement = useMemo(
     () =>
-      getShouldUseAxisPlacement(ariaPlacement, placementProp)
+      getShouldUseAxisPlacement(ariaPlacement || "top", placementProp)
         ? ariaPlacement || placementProp
         : placementProp,
     [ariaPlacement, placementProp],

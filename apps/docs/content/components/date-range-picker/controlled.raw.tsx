@@ -7,7 +7,7 @@ import {parseDate, getLocalTimeZone} from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
-  const [value, setValue] = React.useState<RangeValue<DateValue>>({
+  const [value, setValue] = React.useState<RangeValue<DateValue> | null>({
     start: parseDate("2024-04-01"),
     end: parseDate("2024-04-08"),
   });

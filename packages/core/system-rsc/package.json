@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/system-rsc",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "NextUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
@@ -46,7 +46,7 @@
     "clean-package": "2.2.0"
   },
   "dependencies": {
-    "@react-types/shared": "3.25.0",
+    "@react-types/shared": "3.26.0",
     "clsx": "^1.2.1"
   },
   "clean-package": "../../../clean-package.config.json",

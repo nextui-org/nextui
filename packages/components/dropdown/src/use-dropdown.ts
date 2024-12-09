@@ -51,7 +51,7 @@ const getMenuItem = <T extends object>(props: Partial<MenuProps<T>> | undefined,
 
     if (mergedChildren && mergedChildren.length) {
       const item = ((mergedChildren as CollectionElement<T>[]).find((item) => {
-        if (item.key === key) {
+        if (item && item.key === key) {
           return item;
         }
       }) || {}) as {props: MenuProps};
@@ -164,18 +164,12 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     };
   };
 
-  const getMenuTriggerProps: PropGetter = (
-    originalProps = {},
-    _ref: Ref<any> | null | undefined = null,
-  ) => {
+  const getMenuTriggerProps: PropGetter = (originalProps = {}) => {
     // These props are not needed for the menu trigger since it is handled by the popover trigger.
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const {onPress, onPressStart, ...otherMenuTriggerProps} = menuTriggerProps;
 
-    return {
-      ...mergeProps(otherMenuTriggerProps, {isDisabled}, originalProps),
-      ref: mergeRefs(_ref, triggerRef),
-    };
+    return mergeProps(otherMenuTriggerProps, {isDisabled}, originalProps);
   };
 
   const getMenuProps = <T extends object>(
@@ -225,5 +219,5 @@ export type UseDropdownReturn = {
   disableAnimation: boolean;
   getPopoverProps: PropGetter;
   getMenuProps: <T extends object>(props?: Partial<MenuProps<T>>, ref?: Ref<any>) => MenuProps;
-  getMenuTriggerProps: (props?: any, ref?: Ref<any>) => any;
+  getMenuTriggerProps: (props?: any) => any;
 };

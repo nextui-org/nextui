@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/input-otp",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "",
   "keywords": [
     "input-otp"
@@ -43,13 +43,13 @@
     "@nextui-org/form": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/utils": "3.24.1",
-    "@react-aria/form": "3.0.8",
-    "@react-stately/utils": "3.10.1",
-    "@react-stately/form": "3.0.5",
-    "@react-types/textfield": "3.9.3",
+    "@react-aria/utils": "3.26.0",
+    "@react-aria/form": "3.0.11",
+    "@react-stately/utils": "3.10.5",
+    "@react-stately/form": "3.1.0",
+    "@react-types/textfield": "3.10.0",
     "input-otp": "1.4.1",
-    "@react-aria/focus": "3.18.4"
+    "@react-aria/focus": "3.19.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
