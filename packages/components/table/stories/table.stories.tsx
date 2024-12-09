@@ -1133,7 +1133,7 @@ export const Virtualized = {
           aria-label="Example of virtualized table with a large dataset"
           {...args}
           isVirtualized
-          maxBodyHeight={600}
+          maxTableHeight={300}
           rowHeight={40}
         >
           <TableHeader columns={columns}>
