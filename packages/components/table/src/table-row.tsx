@@ -79,6 +79,9 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
         otherProps,
       )}
       className={slots.tr?.({class: trStyles})}
+      onClick={(e) => {
+        e.preventDefault();
+      }}
     >
       {children}
     </Component>
