@@ -230,7 +230,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         ref: inputRef,
         name: name,
         value: value,
-        autoFocus: originalProps.autoFocus,
+        autoFocus,
         onChange: setValue,
         onBlur: chain(focusProps.onBlur, props?.onBlur),
         onComplete: onComplete,
@@ -255,6 +255,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       setValue,
       props.onBlur,
       onComplete,
+      autoFocus,
     ],
   );
 
