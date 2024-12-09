@@ -1,5 +1,12 @@
 # @nextui-org/select
 
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies [[`11eae5c`](https://github.com/nextui-org/nextui/commit/11eae5cc808e10db07b509f4e06d30441bb1937a)]:
+  - @nextui-org/listbox@2.3.5
+
 ## 2.4.4
 
 ### Patch Changes
