@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {groupDataFocusVisibleClasses} from "../utils";
+import {groupDataFocusVisibleClasses, hiddenInputClasses} from "../utils";
 
 /**
  * Radio wrapper **Tailwind Variants** component
@@ -44,6 +44,7 @@ const radio = tv({
       // focus ring
       ...groupDataFocusVisibleClasses,
     ],
+    hiddenInput: hiddenInputClasses,
     labelWrapper: "flex flex-col ml-1",
     control: [
       "z-10",

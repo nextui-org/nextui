@@ -162,6 +162,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
   });
 
   const isInteractionDisabled = ariaSwitchProps.isDisabled || isReadOnly;
+
   const pressed = isInteractionDisabled ? false : isPressed;
 
   const isSelected = inputProps.checked;
@@ -209,6 +210,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       ...mergeProps(inputProps, focusProps, props),
       ref: mergeRefs(inputRef, ref),
       id: inputProps.id,
+      className: slots.hiddenInput({class: classNames?.hiddenInput}),
       onChange: chain(onChange, inputProps.onChange),
     };
   };

@@ -67,3 +67,38 @@ export const collapseAdjacentVariantBorders = {
   warning: ["[&+.border-medium.border-warning]:ms-[calc(theme(borderWidth.medium)*-1)]"],
   danger: ["[&+.border-medium.border-danger]:ms-[calc(theme(borderWidth.medium)*-1)]"],
 };
+
+export const hiddenInputClasses = [
+  // Variables
+  "[--cursor-hit-x:8px]",
+
+  // Font styles
+  "font-inherit",
+  "text-[100%]",
+  "leading-[1.15]",
+
+  // Reset margins and padding
+  "m-0",
+  "p-0",
+
+  // Overflow and box-sizing
+  "overflow-visible",
+  "box-border",
+
+  // Positioning & Hit area
+  "absolute",
+  "top-0",
+  "start-[calc(var(--cursor-hit-x)*-1)]",
+  "w-[calc(100%+var(--cursor-hit-x)*2)]",
+  "h-full",
+
+  // Opacity and z-index
+  "opacity-[0.0001]",
+  "z-[1]",
+
+  // Cursor
+  "cursor-pointer",
+
+  // Disabled state
+  "disabled:cursor-default",
+];

@@ -1,4 +1,3 @@
-import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";
 import {forwardRef} from "@nextui-org/system";
 
@@ -35,9 +34,7 @@ const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden elementType="span">
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} />
       <span {...getWrapperProps()}>
         {startContent && clonedStartContent}
         <span {...getThumbProps()}>{thumbIcon && clonedThumbIcon}</span>
