@@ -1,5 +1,18 @@
 # @nextui-org/autocomplete
 
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies [[`5598806`](https://github.com/nextui-org/nextui/commit/5598806216166dc9fff36cafd9112412486b747f)]:
+  - @nextui-org/button@2.2.6
+  - @nextui-org/listbox@2.3.6
+  - @nextui-org/form@2.1.6
+  - @nextui-org/popover@2.3.6
+  - @nextui-org/input@2.4.6
+  - @nextui-org/scroll-shadow@2.3.3
+  - @nextui-org/spinner@2.2.4
+
 ## 2.3.5
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @nextui-org/date-input
 
+## 2.3.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/form@2.1.6
+
 ## 2.3.5
 
 ### Patch Changes
