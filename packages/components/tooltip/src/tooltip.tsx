@@ -7,7 +7,7 @@ import {Children, cloneElement, isValidElement} from "react";
 import {getTransformOrigins} from "@nextui-org/aria-utils";
 import {mergeProps} from "@react-aria/utils";
 
-import {UseTooltipProps, useTooltip} from "./use-tooltip";
+import {UseTooltipProps, isLazyElement, useTooltip} from "./use-tooltip";
 
 export interface TooltipProps extends Omit<UseTooltipProps, "disableTriggerFocus" | "backdrop"> {}
 
@@ -41,8 +41,10 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
 
     if (childrenNum !== 1) throw new Error();
 
-    if (!isValidElement(children)) {
+    if (!isValidElement(children) && !isLazyElement(children)) {
       trigger = <p {...getTriggerProps()}>{children}</p>;
+    } else if (isLazyElement(children)) {
+      trigger = <div {...getTriggerProps()}>{children}</div>;
     } else {
       const child = children as React.ReactElement & {
         ref?: React.Ref<any>;
