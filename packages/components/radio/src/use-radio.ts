@@ -150,6 +150,16 @@ export function useRadio(props: UseRadioProps) {
 
   const baseStyles = clsx(classNames?.base, className);
 
+  const mouseProps = useMemo(
+    () => ({
+      onMouseDown: (e: React.MouseEvent<HTMLLabelElement>) => {
+        // prevent parent from being focused
+        e.preventDefault();
+      },
+    }),
+    [],
+  );
+
   const getBaseProps: PropGetter = useCallback(
     (props = {}) => {
       return {
@@ -166,7 +176,7 @@ export function useRadio(props: UseRadioProps) {
         "data-hover-unselected": dataAttr(isHovered && !isSelected),
         "data-readonly": dataAttr(inputProps.readOnly),
         "aria-required": dataAttr(isRequired),
-        ...mergeProps(hoverProps, otherProps),
+        ...mergeProps(hoverProps, mouseProps, otherProps),
       };
     },
     [
