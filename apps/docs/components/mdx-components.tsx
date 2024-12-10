@@ -205,9 +205,20 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
   );
 };
 
-const InlineCodeChip = ({children}: {children?: React.ReactNode}) => {
+const InlineCodeChip = ({
+  children,
+  className,
+}: {
+  children?: React.ReactNode;
+  className?: string;
+}) => {
   return (
-    <InlineCode className="before:hidden after:hidden text-tiny rounded-md text-default-600 bg-default-100 dark:bg-default-100/80 px-1.5 py-0.5">
+    <InlineCode
+      className={clsx(
+        "before:hidden after:hidden text-tiny rounded-md text-default-600 bg-default-100 dark:bg-default-100/80 px-1.5 py-0.5",
+        className,
+      )}
+    >
       {children}
     </InlineCode>
   );
@@ -218,6 +229,7 @@ interface APITableProps {
     attribute: string;
     type: string;
     description: string;
+    deprecated?: boolean;
     default?: string;
   }[];
 }
@@ -237,7 +249,9 @@ export const APITable: React.FC<APITableProps> = ({data}) => {
           {data.map((item, index) => (
             <TableRow key={index} className="[&>td]:px-2 [&>td]:py-1.5 [&>td]:first:pt-4">
               <TableCell className="flex items-center gap-1 font-mono text-small whitespace-nowrap">
-                <InlineCodeChip>{item.attribute}</InlineCodeChip>
+                <InlineCodeChip className={item.deprecated ? "line-through" : ""}>
+                  {item.attribute}
+                </InlineCodeChip>
                 {item.description && (
                   <>
                     {/* Desktop tooltip */}
