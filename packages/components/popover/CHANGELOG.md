@@ -1,5 +1,14 @@
 # @nextui-org/popover
 
+## 2.3.7
+
+### Patch Changes
+
+- Updated dependencies [[`78c0928`](https://github.com/nextui-org/nextui/commit/78c09280e30113bd648057ad64ad6198d1e5d58f)]:
+  - @nextui-org/use-aria-button@2.2.3
+  - @nextui-org/aria-utils@2.2.5
+  - @nextui-org/button@2.2.7
+
 ## 2.3.6
 
 ### Patch Changes

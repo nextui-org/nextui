@@ -1,5 +1,16 @@
 # @nextui-org/select
 
+## 2.4.7
+
+### Patch Changes
+
+- Updated dependencies [[`78c0928`](https://github.com/nextui-org/nextui/commit/78c09280e30113bd648057ad64ad6198d1e5d58f)]:
+  - @nextui-org/use-aria-button@2.2.3
+  - @nextui-org/aria-utils@2.2.5
+  - @nextui-org/listbox@2.3.7
+  - @nextui-org/popover@2.3.7
+  - @nextui-org/form@2.1.6
+
 ## 2.4.6
 
 ### Patch Changes
