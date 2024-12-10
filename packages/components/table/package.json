@@ -53,7 +53,8 @@
     "@react-stately/table": "3.13.0",
     "@react-stately/virtualizer": "4.2.0",
     "@react-types/grid": "3.2.10",
-    "@react-types/table": "3.10.3"
+    "@react-types/table": "3.10.3",
+    "@tanstack/react-virtual": "^3.10.9"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
