@@ -45,7 +45,9 @@ const defaultProps = {
 
 const Template = ({color, variant, ...args}: MenuProps) => (
   <Menu aria-label="Actions" color={color} variant={variant} onAction={alert} {...args}>
-    <MenuItem key="new">New file</MenuItem>
+    <MenuItem key="new" onClick={() => alert("[onClick] New file")}>
+      New file
+    </MenuItem>
     <MenuItem key="copy">Copy link</MenuItem>
     <MenuItem key="edit">Edit file</MenuItem>
     <MenuItem key="delete" className="text-danger" color="danger">

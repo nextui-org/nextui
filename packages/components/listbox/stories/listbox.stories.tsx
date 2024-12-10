@@ -174,7 +174,9 @@ const Template = ({color, variant, ...args}: ListboxProps) => (
     onAction={(key: Key) => alert(key)}
     {...args}
   >
-    <ListboxItem key="new">New file</ListboxItem>
+    <ListboxItem key="new" onClick={() => alert("[onClick] New file")}>
+      New file
+    </ListboxItem>
     <ListboxItem key="copy">Copy link</ListboxItem>
     <ListboxItem key="edit">Edit file</ListboxItem>
     <ListboxItem key="delete" className="text-danger" color="danger">

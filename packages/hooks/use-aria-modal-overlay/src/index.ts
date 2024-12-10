@@ -12,6 +12,14 @@ import {RefObject, useEffect} from "react";
 
 export interface UseAriaModalOverlayProps extends AriaModalOverlayProps {}
 
+/**
+ * Provides the behavior and accessibility implementation for a modal component.
+ * A modal is an overlay element which blocks interaction with elements outside it.
+ *
+ * This is a modified version from https://vscode.dev/github/adobe/react-spectrum/blob/main/packages/%40react-aria/overlays/src/useModalOverlay.ts#L46
+ *
+ * This implementation disables the prevent scroll when `shouldBlockScroll` prop is false.
+ */
 export function useAriaModalOverlay(
   props: UseAriaModalOverlayProps & {
     shouldBlockScroll?: boolean;

@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-modal-overlay
 
+## 2.2.3
+
+### Patch Changes
+
+- [#4322](https://github.com/nextui-org/nextui/pull/4322) [`78c0928`](https://github.com/nextui-org/nextui/commit/78c09280e30113bd648057ad64ad6198d1e5d58f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #4292 interactive elements were not responding to "onClick" event
+
 ## 2.2.2
 
 ### Patch Changes

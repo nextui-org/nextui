@@ -3,7 +3,7 @@ import type {AriaMenuItemProps} from "@react-aria/menu";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
 import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
-import {ReactNode} from "react";
+import {MouseEventHandler, ReactNode} from "react";
 
 export type MenuItemSelectedIconProps = {
   /**
@@ -88,11 +88,18 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   classNames?: SlotsToClasses<MenuItemSlots>;
 }
 
-export type MenuItemBaseProps<T extends object = {}> = Props<T> &
+export type MenuItemBaseProps<T extends object = {}> = Omit<Props<T>, "onClick"> &
   Omit<MenuItemVariantProps, "hasDescriptionTextChild" | "hasTitleTextChild"> &
   AriaMenuItemProps &
   FocusableProps &
-  PressEvents;
+  PressEvents & {
+    /**
+     * The native click event handler.
+     * use `onPress` instead.
+     * @deprecated
+     */
+    onClick?: MouseEventHandler<HTMLLIElement | HTMLAnchorElement>;
+  };
 
 const MenuItemBase = BaseItem as <T extends object>(props: MenuItemBaseProps<T>) => JSX.Element;
 

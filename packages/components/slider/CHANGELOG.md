@@ -1,5 +1,12 @@
 # @nextui-org/slider
 
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/tooltip@2.2.5
+
 ## 2.4.4
 
 ### Patch Changes

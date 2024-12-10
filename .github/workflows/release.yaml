@@ -27,9 +27,18 @@ jobs:
         run: pnpm test
 
       - name: Build
-        run: pnpm build
+        id: build
+        continue-on-error: false
+        # Custom turbo build failure information
+        run: |
+          pnpm build || {
+            echo "Turbo build failed with exit code $?"
+            exit 1
+          }
 
       - name: Create Release Pull Request or Publish to NPM
+        # Run only if the build is successful
+        if: steps.build.outcome == 'success'
         id: changesets
         uses: changesets/action@v1
         with:
@@ -43,7 +52,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create canary release
-        if: steps.changesets.outputs.published != 'true'
+        if: steps.build.outcome == 'success' && steps.changesets.outputs.published != 'true'
         timeout-minutes: 15
         run: |
           git checkout canary

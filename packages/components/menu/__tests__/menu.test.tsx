@@ -347,7 +347,9 @@ describe("Menu", () => {
   it("should menuItem classNames work", () => {
     const wrapper = render(
       <Menu>
-        <MenuItem classNames={{title: "test"}}>New file</MenuItem>
+        <MenuItem key="new" classNames={{title: "test"}}>
+          New file
+        </MenuItem>
       </Menu>,
     );
     const menuItem = wrapper.getByText("New file");
@@ -358,7 +360,9 @@ describe("Menu", () => {
   it("should menuItem classNames override menu itemClasses", () => {
     const wrapper = render(
       <Menu itemClasses={{title: "test"}}>
-        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
+        <MenuItem key="new" classNames={{title: "test2"}}>
+          New file
+        </MenuItem>
       </Menu>,
     );
     const menuItem = wrapper.getByText("New file");
@@ -368,8 +372,10 @@ describe("Menu", () => {
   it("should merge menu item classNames with itemClasses", () => {
     const wrapper = render(
       <Menu itemClasses={{title: "test"}}>
-        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
-        <MenuItem>Delete file</MenuItem>
+        <MenuItem key="new" classNames={{title: "test2"}}>
+          New file
+        </MenuItem>
+        <MenuItem key="delete">Delete file</MenuItem>
       </Menu>,
     );
 

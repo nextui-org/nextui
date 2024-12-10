@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import * as React from "react";
 import {render} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
@@ -33,6 +34,17 @@ describe("Button", () => {
     await user.click(button);
 
     expect(onPress).toHaveBeenCalled();
+  });
+
+  it("should trigger onClick function", async () => {
+    const onClick = jest.fn();
+    const {getByRole} = render(<Button disableRipple onClick={onClick} />);
+
+    const button = getByRole("button");
+
+    await user.click(button);
+
+    expect(onClick).toHaveBeenCalled();
   });
 
   it("should ignore events when disabled", async () => {

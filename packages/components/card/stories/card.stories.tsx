@@ -348,6 +348,28 @@ const PrimaryActionTemplate = (args: CardProps) => {
   );
 };
 
+const PressableTemplate = (args: CardProps) => {
+  // Both events should be fired when clicking on the card
+
+  const handlePress = () => {
+    // eslint-disable-next-line no-console
+    alert("card pressed");
+  };
+
+  const onClick = () => {
+    // eslint-disable-next-line no-console
+    alert("card clicked");
+  };
+
+  return (
+    <Card {...args} isPressable onClick={onClick} onPress={handlePress}>
+      <CardBody>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </CardBody>
+    </Card>
+  );
+};
+
 const CenterImgWithHeaderTemplate = (args: CardProps) => {
   const list = [
     {
@@ -408,6 +430,14 @@ const CenterImgWithHeaderTemplate = (args: CardProps) => {
 
 export const Default = {
   render: Template,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Pressable = {
+  render: PressableTemplate,
 
   args: {
     ...defaultProps,
