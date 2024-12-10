@@ -7,6 +7,7 @@ export type {DrawerProps} from "./drawer";
 
 // export hooks
 export {useDrawer} from "./use-drawer";
+export {useDisclosure} from "@nextui-org/use-disclosure";
 
 // export component
 export {Drawer};
