@@ -1,5 +1,11 @@
 # @nextui-org/pagination
 
+## 2.2.5
+
+### Patch Changes
+
+- [#4286](https://github.com/nextui-org/nextui/pull/4286) [`11eae5c`](https://github.com/nextui-org/nextui/commit/11eae5cc808e10db07b509f4e06d30441bb1937a) Thanks [@macci001](https://github.com/macci001)! - Reverts the PR-4168 (#4256, #4246, #4244)
+
 ## 2.2.4
 
 ### Patch Changes

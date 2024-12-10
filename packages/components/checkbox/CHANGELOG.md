@@ -1,5 +1,14 @@
 # @nextui-org/checkbox
 
+## 2.3.5
+
+### Patch Changes
+
+- [#4311](https://github.com/nextui-org/nextui/pull/4311) [`03abf1d`](https://github.com/nextui-org/nextui/commit/03abf1daf4fe5ee74f4766cd4fd78068ac25ed78) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #4252 #4260 interactive elements were not working properly
+
+- Updated dependencies []:
+  - @nextui-org/form@2.1.5
+
 ## 2.3.4
 
 ### Patch Changes

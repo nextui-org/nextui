@@ -1,5 +1,14 @@
 # @nextui-org/input-otp
 
+## 2.1.5
+
+### Patch Changes
+
+- [#4296](https://github.com/nextui-org/nextui/pull/4296) [`1485eca`](https://github.com/nextui-org/nextui/commit/1485eca48fce8a0acc42fe40590b828c1a90ff48) Thanks [@macci001](https://github.com/macci001)! - Fixing the autofocus functionality in input-otp component(#4250)
+
+- Updated dependencies []:
+  - @nextui-org/form@2.1.5
+
 ## 2.1.4
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # @nextui-org/table
 
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies [[`03abf1d`](https://github.com/nextui-org/nextui/commit/03abf1daf4fe5ee74f4766cd4fd78068ac25ed78)]:
+  - @nextui-org/checkbox@2.3.5
+  - @nextui-org/spacer@2.2.4
+
 ## 2.2.4
 
 ### Patch Changes

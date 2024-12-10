@@ -1,5 +1,15 @@
 # @nextui-org/dropdown
 
+## 2.3.5
+
+### Patch Changes
+
+- [#4288](https://github.com/nextui-org/nextui/pull/4288) [`aa5ea19`](https://github.com/nextui-org/nextui/commit/aa5ea19a3c990f8f6d47abacf321f0cbce67b927) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix initial animation direction to match fallback placement (#4251)
+
+- Updated dependencies [[`11eae5c`](https://github.com/nextui-org/nextui/commit/11eae5cc808e10db07b509f4e06d30441bb1937a)]:
+  - @nextui-org/menu@2.2.5
+  - @nextui-org/popover@2.3.5
+
 ## 2.3.4
 
 ### Patch Changes

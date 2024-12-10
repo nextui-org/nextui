@@ -1,5 +1,11 @@
 # @nextui-org/switch
 
+## 2.2.5
+
+### Patch Changes
+
+- [#4311](https://github.com/nextui-org/nextui/pull/4311) [`03abf1d`](https://github.com/nextui-org/nextui/commit/03abf1daf4fe5ee74f4766cd4fd78068ac25ed78) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #4252 #4260 interactive elements were not working properly
+
 ## 2.2.4
 
 ### Patch Changes

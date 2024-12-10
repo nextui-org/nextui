@@ -1,5 +1,4 @@
 import {forwardRef} from "@nextui-org/system";
-import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";
 
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";
@@ -26,9 +25,7 @@ const Checkbox = forwardRef<"input", CheckboxProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden elementType="span">
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} />
       <span {...getWrapperProps()}>{clonedIcon}</span>
       {children && <span {...getLabelProps()}>{children}</span>}
     </Component>
