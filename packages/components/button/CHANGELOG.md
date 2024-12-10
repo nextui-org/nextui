@@ -1,5 +1,15 @@
 # @nextui-org/button
 
+## 2.2.5
+
+### Patch Changes
+
+- [#4284](https://github.com/nextui-org/nextui/pull/4284) [`dfefdd6`](https://github.com/nextui-org/nextui/commit/dfefdd6250eb81ae653e611a8dff12b2ae29a09c) Thanks [@sudongyuer](https://github.com/sudongyuer)! - Refactor Button & Card Ripple
+
+- Updated dependencies [[`dfefdd6`](https://github.com/nextui-org/nextui/commit/dfefdd6250eb81ae653e611a8dff12b2ae29a09c)]:
+  - @nextui-org/ripple@2.2.4
+  - @nextui-org/spinner@2.2.4
+
 ## 2.2.4
 
 ### Patch Changes

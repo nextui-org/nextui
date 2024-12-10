@@ -1,5 +1,12 @@
 # @nextui-org/popover
 
+## 2.3.5
+
+### Patch Changes
+
+- Updated dependencies [[`dfefdd6`](https://github.com/nextui-org/nextui/commit/dfefdd6250eb81ae653e611a8dff12b2ae29a09c)]:
+  - @nextui-org/button@2.2.5
+
 ## 2.3.4
 
 ### Patch Changes
