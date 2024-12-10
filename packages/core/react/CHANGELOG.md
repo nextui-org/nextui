@@ -1,5 +1,40 @@
 # @nextui-org/react
 
+## 2.6.8
+
+### Patch Changes
+
+- Updated dependencies [[`78c0928`](https://github.com/nextui-org/nextui/commit/78c09280e30113bd648057ad64ad6198d1e5d58f)]:
+  - @nextui-org/dropdown@2.3.7
+  - @nextui-org/listbox@2.3.7
+  - @nextui-org/button@2.2.7
+  - @nextui-org/navbar@2.2.5
+  - @nextui-org/card@2.2.7
+  - @nextui-org/link@2.2.5
+  - @nextui-org/menu@2.2.7
+  - @nextui-org/modal@2.2.5
+  - @nextui-org/autocomplete@2.3.7
+  - @nextui-org/calendar@2.2.7
+  - @nextui-org/popover@2.3.7
+  - @nextui-org/select@2.4.7
+  - @nextui-org/accordion@2.2.5
+  - @nextui-org/date-picker@2.3.7
+  - @nextui-org/tabs@2.2.5
+  - @nextui-org/tooltip@2.2.5
+  - @nextui-org/breadcrumbs@2.2.4
+  - @nextui-org/alert@2.2.7
+  - @nextui-org/drawer@2.2.5
+  - @nextui-org/form@2.1.6
+  - @nextui-org/input-otp@2.1.6
+  - @nextui-org/radio@2.3.6
+  - @nextui-org/skeleton@2.2.3
+  - @nextui-org/snippet@2.2.8
+  - @nextui-org/table@2.2.6
+  - @nextui-org/progress@2.2.4
+  - @nextui-org/checkbox@2.3.6
+  - @nextui-org/user@2.2.4
+  - @nextui-org/slider@2.4.5
+
 ## 2.6.7
 
 ### Patch Changes
