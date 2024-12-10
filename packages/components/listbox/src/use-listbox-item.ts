@@ -12,7 +12,7 @@ import {
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps, removeEvents, warn} from "@nextui-org/shared-utils";
 import {useOption} from "@react-aria/listbox";
 import {mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
@@ -46,7 +46,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     classNames,
     autoFocus,
     onPress,
-    onClick,
+    onClick: deprecatedOnClick,
     shouldHighlightOnFocus,
     hideSelectedIcon = false,
     isReadOnly = false,
@@ -67,6 +67,13 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   const isSelectable = state.selectionManager.selectionMode !== "none";
 
   const isMobile = useIsMobile();
+
+  if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
+    warn(
+      "onClick is deprecated, please use onPress instead. See: https://github.com/nextui-org/nextui/issues/4292",
+      "ListboxItem",
+    );
+  }
 
   const {pressProps, isPressed} = usePress({
     ref: domRef,
@@ -120,7 +127,9 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
     ...mergeProps(
-      {onClick},
+      {
+        onClick: deprecatedOnClick,
+      },
       itemProps,
       isReadOnly ? {} : mergeProps(focusProps, pressProps),
       hoverProps,

@@ -5,7 +5,13 @@
 // Keeps a ref count of all hidden elements. Added to when hiding an element, and
 // subtracted from when showing it again. When it reaches zero, aria-hidden is removed.
 let refCountMap = new WeakMap<Element, number>();
-let observerStack: any = [];
+
+interface ObserverWrapper {
+  observe: () => void;
+  disconnect: () => void;
+}
+
+let observerStack: Array<ObserverWrapper> = [];
 
 /**
  * Hides all elements in the DOM outside the given targets from screen readers using aria-hidden,
@@ -29,15 +35,15 @@ export function ariaHideOutside(targets: Element[], root = document.body) {
     }
 
     let acceptNode = (node: Element) => {
-      const parentElement = node.parentElement as HTMLElement;
-
       // Skip this node and its children if it is one of the target nodes, or a live announcer.
       // Also skip children of already hidden nodes, as aria-hidden is recursive. An exception is
       // made for elements with role="row" since VoiceOver on iOS has issues hiding elements with role="row".
       // For that case we want to hide the cells inside as well (https://bugs.webkit.org/show_bug.cgi?id=222623).
       if (
         visibleNodes.has(node) ||
-        (hiddenNodes.has(parentElement) && parentElement.getAttribute("role") !== "row")
+        (node.parentElement &&
+          hiddenNodes.has(node.parentElement) &&
+          node.parentElement.getAttribute("role") !== "row")
       ) {
         return NodeFilter.FILTER_REJECT;
       }
@@ -51,7 +57,6 @@ export function ariaHideOutside(targets: Element[], root = document.body) {
 
       return NodeFilter.FILTER_ACCEPT;
     };
-
     let walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, {acceptNode});
 
     // TreeWalker does not include the root.

@@ -4,7 +4,7 @@ import type {AriaButtonProps} from "@nextui-org/use-aria-button";
 import type {RippleProps} from "@nextui-org/ripple";
 
 import {card} from "@nextui-org/theme";
-import {ReactNode, useCallback, useMemo} from "react";
+import {MouseEventHandler, ReactNode, useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {PressEvent, useHover} from "@react-aria/interactions";
@@ -20,7 +20,7 @@ import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useRipple} from "@nextui-org/ripple";
 
-export interface Props extends HTMLNextUIProps<"div"> {
+export interface Props extends Omit<HTMLNextUIProps<"div">, "onClick"> {
   /**
    * Ref to the DOM node.
    */
@@ -34,12 +34,17 @@ export interface Props extends HTMLNextUIProps<"div"> {
    * @default false
    */
   disableRipple?: boolean;
-
   /**
    * Whether the card should allow text selection on press. (only for pressable cards)
    * @default true
    */
   allowTextSelectionOnPress?: boolean;
+  /**
+   * The native button click event handler.
+   * use `onPress` instead.
+   * @deprecated
+   */
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.

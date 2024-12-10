@@ -129,7 +129,7 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
 
   const state = propState || innerState;
 
-  const {menuProps} = useAriaMenu({...otherProps, ...userMenuProps}, state, domRef);
+  const {menuProps} = useAriaMenu({...otherProps, ...userMenuProps, onAction}, state, domRef);
 
   const slots = useMemo(() => menu({className}), [className]);
   const baseStyles = clsx(classNames?.base, className);
@@ -169,7 +169,6 @@ export function useMenu<T extends object>(props: UseMenuProps<T>) {
     variant,
     color,
     disableAnimation,
-    onAction,
     onClose,
     topContent,
     bottomContent,

@@ -71,14 +71,19 @@ const defaultProps = {
 const StateTemplate = (args: ButtonProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const handlePress = () => {
+  const handlePress = (e: any) => {
     // eslint-disable-next-line no-console
-    console.log("Pressed");
+    console.log("Pressed", e);
     setIsOpen((prev) => !prev);
   };
 
   return (
-    <Button {...args} aria-label="Open" aria-pressed={isOpen} onPress={handlePress}>
+    <Button
+      {...args}
+      aria-label={isOpen ? "Close" : "Open"}
+      aria-pressed={isOpen}
+      onClick={handlePress}
+    >
       {isOpen ? "Close" : "Open"}
     </Button>
   );

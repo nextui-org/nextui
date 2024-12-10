@@ -1,10 +1,16 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Card} from "../src";
 
 describe("Card", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Card />);
 
@@ -30,11 +36,20 @@ describe("Card", () => {
 
     const button = getByRole("button");
 
-    const user = userEvent.setup();
-
     await user.click(button);
 
     expect(onPress).toHaveBeenCalled();
+  });
+
+  it("should trigger onClick function", async () => {
+    const onClick = jest.fn();
+    const {getByRole} = render(<Card disableRipple isPressable onClick={onClick} />);
+
+    const button = getByRole("button");
+
+    await user.click(button);
+
+    expect(onClick).toHaveBeenCalled();
   });
 
   it("should render correctly when nested", () => {

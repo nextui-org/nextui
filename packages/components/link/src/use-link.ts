@@ -1,5 +1,6 @@
 import type {AriaLinkProps} from "@react-types/link";
 import type {LinkVariantProps} from "@nextui-org/theme";
+import type {MouseEventHandler} from "react";
 
 import {link} from "@nextui-org/theme";
 import {useAriaLink} from "@nextui-org/use-aria-link";
@@ -36,6 +37,12 @@ interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
    * @default <LinkIcon />
    */
   anchorIcon?: React.ReactNode;
+  /**
+   * The native link click event handler.
+   * use `onPress` instead.
+   * @deprecated
+   */
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }
 
 export type UseLinkProps = Props & AriaLinkProps;
