@@ -85,7 +85,6 @@ export function useAriaButton(
 
   if (elementType === "button") {
     additionalProps = {
-      type,
       disabled: isDisabled,
     };
   } else {
