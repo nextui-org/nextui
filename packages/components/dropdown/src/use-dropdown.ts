@@ -9,11 +9,12 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+import {ariaShouldCloseOnInteractOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
 import {CollectionElement} from "@react-types/shared";
+import {useOverlayPosition} from "@react-aria/overlays";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -77,6 +78,8 @@ const getCloseOnSelect = <T extends object>(
   return props?.closeOnSelect;
 };
 
+const DEFAULT_PLACEMENT = "bottom";
+
 export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
   const globalContext = useProviderContext();
 
@@ -89,13 +92,17 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     isDisabled,
     type = "menu",
     trigger = "press",
-    placement = "bottom",
+    placement: placementProp = DEFAULT_PLACEMENT,
     closeOnSelect = true,
     shouldBlockScroll = true,
     classNames: classNamesProp,
     disableAnimation = globalContext?.disableAnimation ?? false,
     onClose,
     className,
+    containerPadding = 12,
+    offset = 7,
+    crossOffset = 0,
+    shouldFlip = true,
     ...otherProps
   } = props;
 
@@ -132,6 +139,17 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     [className],
   );
 
+  const {placement} = useOverlayPosition({
+    isOpen: state.isOpen,
+    targetRef: triggerRef,
+    overlayRef: popoverRef,
+    placement: toReactAriaPlacement(placementProp),
+    offset,
+    crossOffset,
+    shouldFlip,
+    containerPadding,
+  });
+
   const onMenuAction = (menuCloseOnSelect?: boolean) => {
     if (menuCloseOnSelect !== undefined && !menuCloseOnSelect) {
       return;
@@ -146,7 +164,7 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
 
     return {
       state,
-      placement,
+      placement: placement || DEFAULT_PLACEMENT,
       ref: popoverRef,
       disableAnimation,
       shouldBlockScroll,
