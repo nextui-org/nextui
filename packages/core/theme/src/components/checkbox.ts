@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {groupDataFocusVisibleClasses} from "../utils";
+import {groupDataFocusVisibleClasses, hiddenInputClasses} from "../utils";
 
 /**
  * Checkbox wrapper **Tailwind Variants** component
@@ -51,7 +51,8 @@ const checkbox = tv({
       // focus ring
       ...groupDataFocusVisibleClasses,
     ],
-    icon: "z-10 w-4 h-3 opacity-0 group-data-[selected=true]:opacity-100",
+    hiddenInput: hiddenInputClasses,
+    icon: "z-10 w-4 h-3 opacity-0 group-data-[selected=true]:opacity-100 pointer-events-none",
     label: "relative text-foreground select-none",
   },
   variants: {

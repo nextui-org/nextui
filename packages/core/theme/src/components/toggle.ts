@@ -1,7 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {groupDataFocusVisibleClasses} from "../utils";
+import {groupDataFocusVisibleClasses, hiddenInputClasses} from "../utils";
 
 /**
  * Toggle (Switch) wrapper **Tailwind Variants** component
@@ -54,6 +54,7 @@ const toggle = tv({
       "rounded-full",
       "origin-right",
     ],
+    hiddenInput: hiddenInputClasses,
     startContent: "z-0 absolute start-1.5 text-current",
     endContent: "z-0 absolute end-1.5 text-default-600",
     thumbIcon: "text-black",

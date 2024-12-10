@@ -202,6 +202,7 @@ export function useRadio(props: UseRadioProps) {
       return {
         ref: inputRef,
         ...mergeProps(props, inputProps, focusProps),
+        className: slots.hiddenInput({class: classNames?.hiddenInput}),
         onChange: chain(inputProps.onChange, onChange),
       };
     },

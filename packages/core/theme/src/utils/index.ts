@@ -7,6 +7,7 @@ export {
   translateCenterClasses,
   absoluteFullClasses,
   collapseAdjacentVariantBorders,
+  hiddenInputClasses,
 } from "./classes";
 export type {SlotsToClasses} from "./types";
 export {colorVariants} from "./variants";
