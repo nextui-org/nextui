@@ -5,4 +5,4 @@
 "@nextui-org/theme": patch
 ---
 
-Fix #4252 #4260 intreactive elements were not working properly
+Fix #4252 #4260 interactive elements were not working properly
