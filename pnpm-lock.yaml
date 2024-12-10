@@ -2865,6 +2865,9 @@ importers:
       '@react-types/table':
         specifier: 3.10.3
         version: 3.10.3(react@18.2.0)
+      '@tanstack/react-virtual':
+        specifier: ^3.10.9
+        version: 3.10.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
