@@ -1,5 +1,12 @@
 # @nextui-org/input
 
+## 2.4.6
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/form@2.1.6
+
 ## 2.4.5
 
 ### Patch Changes
