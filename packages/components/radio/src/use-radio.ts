@@ -1,10 +1,10 @@
 import type {AriaRadioProps} from "@react-types/radio";
 import type {RadioVariantProps, RadioSlots, SlotsToClasses} from "@nextui-org/theme";
 
-import {Ref, ReactNode, useCallback, useId} from "react";
+import {Ref, ReactNode, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {radio} from "@nextui-org/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
 import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
@@ -115,7 +115,12 @@ export function useRadio(props: UseRadioProps) {
     descriptionId,
   ]);
 
-  const {inputProps, isDisabled, isSelected, isPressed} = useReactAriaRadio(
+  const {
+    inputProps,
+    isDisabled,
+    isSelected,
+    isPressed: isPressedKeyboard,
+  } = useReactAriaRadio(
     {
       value,
       children: typeof children === "function" ? true : children,
@@ -134,7 +139,24 @@ export function useRadio(props: UseRadioProps) {
     isDisabled: interactionDisabled,
   });
 
-  const pressed = interactionDisabled ? false : isPressed;
+  // Handle press state for full label. Keyboard press state is returned by useCheckbox
+  // since it is handled on the <input> element itself.
+  const [isPressed, setPressed] = useState(false);
+  const {pressProps} = usePress({
+    isDisabled: interactionDisabled,
+    onPressStart(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(true);
+      }
+    },
+    onPressEnd(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(false);
+      }
+    },
+  });
+
+  const pressed = interactionDisabled ? false : isPressed || isPressedKeyboard;
 
   const slots = useMemo(
     () =>
@@ -166,7 +188,7 @@ export function useRadio(props: UseRadioProps) {
         "data-hover-unselected": dataAttr(isHovered && !isSelected),
         "data-readonly": dataAttr(inputProps.readOnly),
         "aria-required": dataAttr(isRequired),
-        ...mergeProps(hoverProps, otherProps),
+        ...mergeProps(hoverProps, pressProps, otherProps),
       };
     },
     [
@@ -203,6 +225,7 @@ export function useRadio(props: UseRadioProps) {
         ref: inputRef,
         ...mergeProps(props, inputProps, focusProps),
         onChange: chain(inputProps.onChange, onChange),
+        className: "absolute inset-0 opacity-0 z-50 cursor-pointer",
       };
     },
     [inputProps, focusProps, onChange],

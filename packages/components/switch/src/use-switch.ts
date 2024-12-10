@@ -2,11 +2,11 @@ import type {ToggleVariantProps, ToggleSlots, SlotsToClasses} from "@nextui-org/
 import type {AriaSwitchProps} from "@react-aria/switch";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
-import {ReactNode, Ref, useCallback, useId, useRef} from "react";
+import {ReactNode, Ref, useCallback, useId, useRef, useState} from "react";
 import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {mergeRefs} from "@nextui-org/react-utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {toggle} from "@nextui-org/theme";
 import {chain, mergeProps} from "@react-aria/utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -155,14 +155,37 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
     state.setSelected(isInputRefChecked);
   }, [inputRef.current]);
 
-  const {inputProps, isPressed, isReadOnly} = useReactAriaSwitch(ariaSwitchProps, state, inputRef);
+  const {
+    inputProps,
+    isPressed: isPressedKeyboard,
+    isReadOnly,
+  } = useReactAriaSwitch(ariaSwitchProps, state, inputRef);
+
   const {focusProps, isFocused, isFocusVisible} = useFocusRing({autoFocus: inputProps.autoFocus});
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
   });
 
   const isInteractionDisabled = ariaSwitchProps.isDisabled || isReadOnly;
-  const pressed = isInteractionDisabled ? false : isPressed;
+
+  // Handle press state for full label. Keyboard press state is returned by useSwitch
+  // since it is handled on the <input> element itself.
+  const [isPressed, setPressed] = useState(false);
+  const {pressProps} = usePress({
+    isDisabled: isInteractionDisabled,
+    onPressStart(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(true);
+      }
+    },
+    onPressEnd(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(false);
+      }
+    },
+  });
+
+  const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
 
   const isSelected = inputProps.checked;
   const isDisabled = inputProps.disabled;
@@ -180,7 +203,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
 
   const getBaseProps: PropGetter = (props) => {
     return {
-      ...mergeProps(hoverProps, otherProps, props),
+      ...mergeProps(hoverProps, pressProps, otherProps, props),
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, props?.className)}),
       "data-disabled": dataAttr(isDisabled),
@@ -210,6 +233,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       ref: mergeRefs(inputRef, ref),
       id: inputProps.id,
       onChange: chain(onChange, inputProps.onChange),
+      className: "absolute inset-0 opacity-0 z-50 cursor-pointer",
     };
   };
 

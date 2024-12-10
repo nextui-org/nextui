@@ -3,12 +3,12 @@ import type {AriaCheckboxProps} from "@react-types/checkbox";
 import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
 
 import {useProviderContext} from "@nextui-org/system";
-import {ReactNode, Ref, useCallback, useId} from "react";
+import {ReactNode, Ref, useCallback, useId, useState} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
 import {checkbox} from "@nextui-org/theme";
 import {useCallbackRef} from "@nextui-org/use-callback-ref";
-import {useHover} from "@react-aria/interactions";
+import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps, chain} from "@react-aria/utils";
 import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
@@ -198,8 +198,8 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isSelected,
     isDisabled,
     isReadOnly,
-    isPressed,
     isInvalid: isAriaInvalid,
+    isPressed: isPressedKeyboard,
   } = isInGroup
     ? // eslint-disable-next-line
       useReactAriaCheckboxGroupItem(
@@ -212,8 +212,24 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
 
   const isInteractionDisabled = isDisabled || isReadOnly;
   const isInvalid = validationState === "invalid" || isInvalidProp || isAriaInvalid;
+  // Handle press state for full label. Keyboard press state is returned by useCheckbox
+  // since it is handled on the <input> element itself.
+  const [isPressed, setPressed] = useState(false);
+  const {pressProps} = usePress({
+    isDisabled: isInteractionDisabled,
+    onPressStart(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(true);
+      }
+    },
+    onPressEnd(e) {
+      if (e.pointerType !== "keyboard") {
+        setPressed(false);
+      }
+    },
+  });
 
-  const pressed = isInteractionDisabled ? false : isPressed;
+  const pressed = isInteractionDisabled ? false : isPressed || isPressedKeyboard;
 
   const {hoverProps, isHovered} = useHover({
     isDisabled: inputProps.disabled,
@@ -277,7 +293,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       "data-readonly": dataAttr(inputProps.readOnly),
       "data-focus-visible": dataAttr(isFocusVisible),
       "data-indeterminate": dataAttr(isIndeterminate),
-      ...mergeProps(hoverProps, otherProps),
+      ...mergeProps(hoverProps, pressProps, otherProps),
     };
   }, [
     slots,
@@ -293,6 +309,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     isFocusVisible,
     hoverProps,
     otherProps,
+    pressProps,
   ]);
 
   const getWrapperProps: PropGetter = useCallback(
@@ -311,6 +328,7 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
       ref: mergeRefs(inputRef, ref),
       ...mergeProps(inputProps, focusProps),
       onChange: chain(inputProps.onChange, handleCheckboxChange),
+      className: "absolute inset-0 opacity-0 z-50 cursor-pointer",
     };
   }, [inputProps, focusProps, handleCheckboxChange]);
 
