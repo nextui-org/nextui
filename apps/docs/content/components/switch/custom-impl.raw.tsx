@@ -1,5 +1,5 @@
 import React from "react";
-import {useSwitch, VisuallyHidden, SwitchProps} from "@nextui-org/react";
+import {useSwitch, SwitchProps} from "@nextui-org/react";
 
 export const MoonIcon = (props) => {
   return (
@@ -46,9 +46,7 @@ const ThemeSwitch = (props: SwitchProps) => {
   return (
     <div className="flex flex-col gap-2">
       <Component {...getBaseProps()}>
-        <VisuallyHidden>
-          <input {...getInputProps()} />
-        </VisuallyHidden>
+        <input {...getInputProps()} className="absolute inset-0 z-50 cursor-pointer opacity-0" />
         <div
           {...getWrapperProps()}
           className={slots.wrapper({

@@ -2,7 +2,6 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {radio, button} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {Form} from "@nextui-org/form";
@@ -421,15 +420,13 @@ const RadioCard = (props: RadioProps) => {
     <Component
       {...getBaseProps()}
       className={clsx(
-        "group inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
+        "relative group inline-flex items-center justify-between hover:bg-content2 flex-row-reverse max-w-[300px] cursor-pointer border-2 border-default rounded-lg gap-4 p-4",
         {
           "border-primary": isSelected,
         },
       )}
     >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} className="absolute inset-0 z-50 cursor-pointer opacity-0" />
       <span {...getWrapperProps()}>
         <span {...getControlProps()} />
       </span>

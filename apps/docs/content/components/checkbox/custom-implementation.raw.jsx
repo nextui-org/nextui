@@ -1,4 +1,4 @@
-import {useCheckbox, Chip, VisuallyHidden, tv} from "@nextui-org/react";
+import {useCheckbox, Chip, tv} from "@nextui-org/react";
 
 export const CheckIcon = (props) => {
   return (
@@ -50,9 +50,7 @@ export default function App() {
 
   return (
     <label {...getBaseProps()}>
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} className="absolute inset-0 z-50 cursor-pointer opacity-0" />
       <Chip
         classNames={{
           base: styles.base(),

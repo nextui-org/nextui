@@ -2,7 +2,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
 import {toggle} from "@nextui-org/theme";
-import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {SunFilledIcon, MoonFilledIcon} from "@nextui-org/shared-icons";
 import {clsx} from "@nextui-org/shared-utils";
 import {button} from "@nextui-org/theme";
@@ -112,9 +111,7 @@ const CustomWithHooksTemplate = (args: SwitchProps) => {
   return (
     <div className="flex flex-col gap-2">
       <Component {...getBaseProps()}>
-        <VisuallyHidden>
-          <input {...getInputProps()} />
-        </VisuallyHidden>
+        <input {...getInputProps()} className="absolute inset-0 z-50 cursor-pointer opacity-0" />
         <div
           {...getWrapperProps()}
           className={slots.wrapper({

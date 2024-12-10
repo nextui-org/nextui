@@ -1,4 +1,4 @@
-import {RadioGroup, useRadio, VisuallyHidden, cn} from "@nextui-org/react";
+import {RadioGroup, useRadio, cn} from "@nextui-org/react";
 
 export const CustomRadio = (props) => {
   const {
@@ -22,9 +22,7 @@ export const CustomRadio = (props) => {
         "data-[selected=true]:border-primary",
       )}
     >
-      <VisuallyHidden>
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} className="absolute inset-0 z-50 cursor-pointer opacity-0" />
       <span {...getWrapperProps()}>
         <span {...getControlProps()} />
       </span>
