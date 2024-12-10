@@ -1,5 +1,15 @@
 # @nextui-org/dropdown
 
+## 2.3.6
+
+### Patch Changes
+
+- [#4314](https://github.com/nextui-org/nextui/pull/4314) [`5598806`](https://github.com/nextui-org/nextui/commit/5598806216166dc9fff36cafd9112412486b747f) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
+
+- Updated dependencies [[`5598806`](https://github.com/nextui-org/nextui/commit/5598806216166dc9fff36cafd9112412486b747f)]:
+  - @nextui-org/menu@2.2.6
+  - @nextui-org/popover@2.3.6
+
 ## 2.3.5
 
 ### Patch Changes
