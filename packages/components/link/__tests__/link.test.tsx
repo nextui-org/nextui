@@ -1,9 +1,16 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
+import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {Link} from "../src";
 
 describe("Link", () => {
+  let user: UserEvent;
+
+  beforeEach(() => {
+    user = userEvent.setup();
+  });
+
   it("should render correctly", () => {
     const wrapper = render(<Link />);
 
@@ -31,6 +38,28 @@ describe("Link", () => {
     );
 
     expect(container.querySelector("svg")).not.toBeNull();
+  });
+
+  it("should trigger onPress function", async () => {
+    const onPress = jest.fn();
+    const {getByRole} = render(<Link onPress={onPress} />);
+
+    const link = getByRole("link");
+
+    await user.click(link);
+
+    expect(onPress).toHaveBeenCalled();
+  });
+
+  it("should trigger onClick function", async () => {
+    const onClick = jest.fn();
+    const {getByRole} = render(<Link onClick={onClick} />);
+
+    const link = getByRole("link");
+
+    await user.click(link);
+
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('should have target="_blank" and rel="noopener noreferrer" when "isExternal" is true', () => {

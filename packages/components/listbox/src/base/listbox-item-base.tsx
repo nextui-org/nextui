@@ -89,11 +89,18 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   classNames?: SlotsToClasses<ListboxItemSlots>;
 }
 
-export type ListboxItemBaseProps<T extends object = {}> = Props<T> &
+export type ListboxItemBaseProps<T extends object = {}> = Omit<Props<T>, "onClick"> &
   Omit<ListboxItemVariantProps, "hasDescriptionTextChild" | "hasTitleTextChild"> &
   Omit<AriaOptionProps, "key"> &
   FocusableProps &
-  PressEvents;
+  PressEvents & {
+    /**
+     * The native click event handler.
+     * use `onPress` instead.
+     * @deprecated
+     */
+    onClick?: (e: React.MouseEvent<HTMLLIElement | HTMLAnchorElement>) => void;
+  };
 
 const ListboxItemBase = BaseItem as <T extends object>(
   props: ListboxItemBaseProps<T>,

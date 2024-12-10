@@ -56,6 +56,7 @@ interface Props extends HTMLNextUIProps<"button"> {
   /**
    * The native button click event handler.
    * use `onPress` instead.
+   * @deprecated
    */
   onClick?: MouseEventHandler<HTMLButtonElement>;
 }
@@ -150,7 +151,7 @@ export function useButton(props: UseButtonProps) {
       elementType: as,
       isDisabled,
       onPress: chain(onPress, handlePress),
-      onClick: onClick,
+      onClick,
       ...otherProps,
     } as AriaButtonProps,
     domRef,
