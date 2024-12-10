@@ -53,6 +53,7 @@ const toggle = tv({
       "shadow-small",
       "rounded-full",
       "origin-right",
+      "pointer-events-none",
     ],
     hiddenInput: hiddenInputClasses,
     startContent: "z-0 absolute start-1.5 text-current",
