@@ -1179,6 +1179,181 @@ describe("validation", () => {
     user = userEvent.setup();
   });
 
+  describe("validationBehavior=native", () => {
+    it("supports isRequired", async () => {
+      const {getByTestId} = render(
+        <Form data-testid="form">
+          <Select
+            isRequired
+            data-testid="select"
+            label="Test"
+            name="select"
+            validationBehavior="native"
+          >
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+        </Form>,
+      );
+
+      const select = getByTestId("select");
+      const input = document.querySelector<HTMLSelectElement>("[name=select]");
+
+      expect(input).toHaveAttribute("required");
+      expect(input?.validity.valid).toBe(false);
+      expect(select).not.toHaveAttribute("aria-describedby");
+
+      act(() => {
+        (getByTestId("form") as HTMLFormElement).checkValidity();
+      });
+
+      expect(input?.validity.valid).toBe(false);
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Constraints not satisfied",
+      );
+
+      await user.click(select);
+      await user.click(document.querySelectorAll("[role='option']")[0]);
+      expect(input?.validity.valid).toBe(true);
+      expect(select).not.toHaveAttribute("aria-describedby");
+    });
+
+    it("supports validate function", async () => {
+      const {getByTestId} = render(
+        <form>
+          <Select
+            data-testid="select"
+            defaultSelectedKeys={["two"]}
+            label="Test"
+            name="select"
+            validate={(value) => (value.includes("two") ? "Invalid value" : null)}
+            validationBehavior="native"
+          >
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+          <button data-testid="submit" type="submit">
+            Submit
+          </button>
+        </form>,
+      );
+
+      const select = getByTestId("select");
+      const input = document.querySelector<HTMLSelectElement>("[name=select]");
+
+      expect(input?.validity.valid).toBe(false);
+      expect(select).not.toHaveAttribute("aria-describedby");
+
+      await user.click(getByTestId("submit"));
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Invalid value",
+      );
+
+      await user.click(select);
+      await user.click(document.querySelectorAll("[role='option']")[0]);
+      expect(select).not.toHaveAttribute("aria-describedby");
+    });
+
+    it("supports server validation", async () => {
+      function Test() {
+        const [serverErrors, setServerErrors] = React.useState({});
+        const onSubmit = (e) => {
+          e.preventDefault();
+          setServerErrors({
+            select: "Invalid value.",
+          });
+        };
+
+        return (
+          <Form validationErrors={serverErrors} onSubmit={onSubmit}>
+            <Select
+              isRequired
+              data-testid="select"
+              label="Test"
+              name="select"
+              validationBehavior="native"
+            >
+              <SelectItem key="one">One</SelectItem>
+              <SelectItem key="two">Two</SelectItem>
+              <SelectItem key="three">Three</SelectItem>
+            </Select>
+            <button data-testid="submit" type="submit">
+              Submit
+            </button>
+          </Form>
+        );
+      }
+
+      const {getByTestId} = render(<Test />);
+
+      const button = getByTestId("submit");
+      const select = getByTestId("select");
+      const input = document.querySelector<HTMLSelectElement>("[name=select]");
+
+      expect(select).not.toHaveAttribute("aria-describedby");
+
+      await user.click(button);
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Invalid value.",
+      );
+      expect(input?.validity.valid).toBe(false);
+
+      await user.click(select);
+      await user.click(document.querySelectorAll("[role='option']")[0]);
+      expect(select).not.toHaveAttribute("aria-describedby");
+      expect(input?.validity.valid).toBe(true);
+    });
+
+    it("clears validation on reset", async () => {
+      const {getByTestId} = render(
+        <Form data-testid="form">
+          <Select
+            isRequired
+            data-testid="select"
+            label="Test"
+            name="select"
+            validationBehavior="native"
+          >
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+          <button data-testid="reset" type="reset">
+            Reset
+          </button>
+        </Form>,
+      );
+
+      const select = getByTestId("select");
+      const input = document.querySelector<HTMLSelectElement>("[name=select]");
+
+      expect(input).toHaveAttribute("required");
+      expect(input?.validity.valid).toBe(false);
+      expect(select).not.toHaveAttribute("aria-describedby");
+
+      act(() => {
+        (getByTestId("form") as HTMLFormElement).checkValidity();
+      });
+
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Constraints not satisfied",
+      );
+
+      await user.click(select);
+      await user.click(document.querySelectorAll("[role='option']")[0]);
+      expect(select).not.toHaveAttribute("aria-describedby");
+
+      await user.click(getByTestId("reset"));
+      expect(select).not.toHaveAttribute("aria-describedby");
+    });
+  });
+
   describe("validationBehavior=aria", () => {
     it("supports isRequired", async () => {
       function FormRender() {
@@ -1223,7 +1398,7 @@ describe("validation", () => {
       const {getByTestId} = render(<FormRender />);
 
       const select = getByTestId("select");
-      const input = document.querySelector("input");
+      const input = document.querySelector<HTMLSelectElement>("[name=animal]");
 
       expect(select).not.toHaveAttribute("aria-describedby");
       const button = getByTestId("button");
@@ -1255,6 +1430,7 @@ describe("validation", () => {
             data-testid="select"
             defaultSelectedKeys={["penguin"]}
             label="Favorite Animal"
+            name="animal"
             validate={(v) => (v.includes("penguin") ? "Invalid value" : null)}
             validationBehavior="aria"
           >
@@ -1269,7 +1445,7 @@ describe("validation", () => {
       );
 
       const select = getByTestId("select");
-      const input = document.querySelector("input");
+      const input = document.querySelector<HTMLSelectElement>("[name=animal]");
       const button = getByTestId("button");
 
       expect(select).toHaveAttribute("aria-describedby");
@@ -1291,6 +1467,29 @@ describe("validation", () => {
 
       expect(select).not.toHaveAttribute("aria-describedby");
       expect(select).not.toHaveAttribute("aria-invalid");
+    });
+
+    it("supports server validation", async () => {
+      let {getByTestId} = render(
+        <Form validationErrors={{select: "Invalid value"}}>
+          <Select data-testid="select" label="Test" name="select" validationBehavior="aria">
+            <SelectItem key="one">One</SelectItem>
+            <SelectItem key="two">Two</SelectItem>
+            <SelectItem key="three">Three</SelectItem>
+          </Select>
+        </Form>,
+      );
+
+      const select = getByTestId("select");
+
+      expect(select).toHaveAttribute("aria-describedby");
+      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Invalid value",
+      );
+
+      await user.click(select);
+      await user.click(document.querySelectorAll("[role='option']")[0]);
+      expect(select).not.toHaveAttribute("aria-describedby");
     });
   });
 });
