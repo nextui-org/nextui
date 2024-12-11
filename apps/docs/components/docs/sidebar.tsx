@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, debounce, isEmpty} from "@nextui-org/shared-utils";
 import {
   SpacerProps,
   Spacer,
@@ -275,6 +275,8 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
     }
   };
 
+  const debouncedHandleScroll = debounce(handleScroll, 200);
+
   return (
     <ScrollArea
       ref={ref}
@@ -282,7 +284,7 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
       role="tree"
       {...collectionProps}
       scrollViewPortRef={scrollViewPortRef}
-      onScroll={handleScroll}
+      onScroll={debouncedHandleScroll}
     >
       {[...state.collection].map((item) => {
         if (item.type === "section") {

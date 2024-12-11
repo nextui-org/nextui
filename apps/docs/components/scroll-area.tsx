@@ -7,7 +7,7 @@ import {cn} from "@nextui-org/react";
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {
-    scrollViewPortRef: React.RefObject<HTMLDivElement>;
+    scrollViewPortRef?: React.RefObject<HTMLDivElement>;
   }
 >(({className, children, ...props}, ref) => {
   const {onScroll, scrollViewPortRef, ...restProps} = props;
