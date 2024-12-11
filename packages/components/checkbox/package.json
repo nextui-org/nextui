@@ -35,7 +35,7 @@
   },
   "peerDependencies": {
     "@nextui-org/system": ">=2.4.0",
-    "@nextui-org/theme": ">=2.4.0",
+    "@nextui-org/theme": ">=2.4.3",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
