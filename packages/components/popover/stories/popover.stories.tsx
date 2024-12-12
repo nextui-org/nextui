@@ -96,6 +96,11 @@ export default {
         disable: true,
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
