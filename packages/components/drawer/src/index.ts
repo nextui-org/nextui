@@ -7,7 +7,6 @@ import {
   ModalHeaderProps,
   ModalBodyProps,
   ModalFooterProps,
-  UseDisclosureProps,
 } from "@nextui-org/modal";
 
 import Drawer from "./drawer";
@@ -19,7 +18,6 @@ export type {
   ModalHeaderProps as DrawerHeaderProps,
   ModalBodyProps as DrawerBodyProps,
   ModalFooterProps as DrawerFooterProps,
-  UseDisclosureProps,
 };
 
 // export hooks
