@@ -344,12 +344,15 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
   const {isHovered, hoverProps} = useHover({isDisabled: originalProps.isDisabled});
 
   const labelPlacement = useMemo<SelectVariantProps["labelPlacement"]>(() => {
-    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+    const labelPlacement =
+      originalProps.labelPlacement ?? globalContext?.labelPlacement ?? "inside";
+
+    if (labelPlacement === "inside" && !label) {
       return "outside";
     }
 
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, label]);
+    return labelPlacement;
+  }, [originalProps.labelPlacement, globalContext?.labelPlacement, label]);
 
   const hasPlaceholder = !!placeholder;
   const shouldLabelBeOutside =

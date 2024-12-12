@@ -134,15 +134,15 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
   const baseStyles = clsx(classNames?.base, className);
 
   const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    if (
-      (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
-      !props.label
-    ) {
+    const labelPlacement =
+      originalProps.labelPlacement ?? globalContext?.labelPlacement ?? "inside";
+
+    if (labelPlacement === "inside" && !label) {
       return "outside";
     }
 
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, props.label]);
+    return labelPlacement;
+  }, [originalProps.labelPlacement, globalContext?.labelPlacement, label]);
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 
