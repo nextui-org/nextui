@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import * as React from "react";
 import {render, renderHook, screen} from "@testing-library/react";
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {InputOtp} from "../src";
@@ -249,5 +249,39 @@ describe("InputOtp with react-hook-form", () => {
     await user.click(button);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work correctly wiht react-hook-form controller", async () => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withController: "",
+        },
+      }),
+    );
+
+    const {control} = result.current;
+
+    render(
+      <form>
+        <Controller
+          control={control}
+          name="withController"
+          render={({field}) => <InputOtp length={4} {...field} data-testid="input-otp" />}
+        />
+      </form>,
+    );
+
+    const inputOtp = screen.getByTestId("input-otp");
+    const input = inputOtp.querySelector("input");
+
+    if (!input) {
+      throw new Error("Input not found");
+    }
+
+    await user.click(input);
+    await user.type(input, "1nj23aa4");
+
+    expect(input).toHaveAttribute("value", "1234");
   });
 });
