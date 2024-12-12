@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/no-autofocus */
+import React from "react";
 import {Meta} from "@storybook/react";
 import {modal} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
@@ -346,5 +347,21 @@ export const DraggableOverflow = {
 
   args: {
     ...defaultProps,
+  },
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8">
+        <Template {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <Template {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
+
+  args: {
+    ...defaultProps,
+    shouldBlockScroll: true,
   },
 };
