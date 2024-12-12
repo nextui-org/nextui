@@ -6,15 +6,23 @@ import {cn} from "@nextui-org/react";
 
 const ScrollArea = React.forwardRef<
   React.ElementRef<typeof ScrollAreaPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root>
+  React.ComponentPropsWithoutRef<typeof ScrollAreaPrimitive.Root> & {
+    scrollViewPortRef?: React.RefObject<HTMLDivElement>;
+  }
 >(({className, children, ...props}, ref) => {
+  const {onScroll, scrollViewPortRef, ...restProps} = props;
+
   return (
     <ScrollAreaPrimitive.Root
       ref={ref}
       className={cn("relative overflow-hidden", className)}
-      {...props}
+      {...restProps}
     >
-      <ScrollAreaPrimitive.Viewport className="h-full w-full rounded-[inherit] pb-28">
+      <ScrollAreaPrimitive.Viewport
+        ref={scrollViewPortRef}
+        className="h-full w-full rounded-[inherit] pb-28"
+        onScroll={onScroll}
+      >
         {children}
       </ScrollAreaPrimitive.Viewport>
       <ScrollBar />
