@@ -33,3 +33,5 @@ export type {ProviderContextProps} from "./provider-context";
 
 export {NextUIProvider} from "./provider";
 export {ProviderContext, useProviderContext} from "./provider-context";
+
+export {useLabelPlacement} from "./hooks";

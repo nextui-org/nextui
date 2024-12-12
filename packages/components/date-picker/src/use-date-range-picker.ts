@@ -1,5 +1,4 @@
 import type {DateValue} from "@internationalized/date";
-import type {DateInputVariantProps} from "@nextui-org/theme";
 import type {TimeInputProps} from "@nextui-org/date-input";
 import type {ButtonProps} from "@nextui-org/button";
 import type {RangeCalendarProps} from "@nextui-org/calendar";
@@ -14,7 +13,7 @@ import type {DateInputGroupProps} from "@nextui-org/date-input";
 import type {DateRangePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {DateInputProps} from "@nextui-org/date-input";
 
-import {useProviderContext} from "@nextui-org/system";
+import {useLabelPlacement, useProviderContext} from "@nextui-org/system";
 import {useMemo, useRef} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
@@ -144,16 +143,10 @@ export function useDateRangePicker<T extends DateValue>({
 
   const showTimeField = !!timeGranularity;
 
-  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    const labelPlacement =
-      originalProps.labelPlacement ?? globalContext?.labelPlacement ?? "inside";
-
-    if (labelPlacement === "inside" && !label) {
-      return "outside";
-    }
-
-    return labelPlacement;
-  }, [originalProps.labelPlacement, globalContext?.labelPlacement, label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 

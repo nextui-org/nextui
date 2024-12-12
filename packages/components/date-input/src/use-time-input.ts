@@ -6,7 +6,7 @@ import type {DateInputGroupProps} from "./date-input-group";
 
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
-import {PropGetter, useProviderContext} from "@nextui-org/system";
+import {PropGetter, useLabelPlacement, useProviderContext} from "@nextui-org/system";
 import {HTMLNextUIProps, mapPropsVariants} from "@nextui-org/system";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useTimeField as useAriaTimeField} from "@react-aria/datepicker";
@@ -133,16 +133,10 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
 
   const baseStyles = clsx(classNames?.base, className);
 
-  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    const labelPlacement =
-      originalProps.labelPlacement ?? globalContext?.labelPlacement ?? "inside";
-
-    if (labelPlacement === "inside" && !label) {
-      return "outside";
-    }
-
-    return labelPlacement;
-  }, [originalProps.labelPlacement, globalContext?.labelPlacement, label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 

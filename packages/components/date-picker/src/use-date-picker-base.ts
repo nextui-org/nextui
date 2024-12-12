@@ -9,8 +9,13 @@ import type {ValueBase} from "@react-types/shared";
 
 import {dataAttr} from "@nextui-org/shared-utils";
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
-import {useCallback, useMemo} from "react";
-import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
+import {useCallback} from "react";
+import {
+  HTMLNextUIProps,
+  mapPropsVariants,
+  useLabelPlacement,
+  useProviderContext,
+} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
@@ -234,16 +239,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     "data-invalid": dataAttr(originalProps?.isInvalid),
   } as DateInputProps;
 
-  const labelPlacement = useMemo<TimeInputProps["labelPlacement"]>(() => {
-    const labelPlacement =
-      originalProps.labelPlacement ?? globalContext?.labelPlacement ?? "inside";
-
-    if (labelPlacement === "inside" && !label) {
-      return "outside";
-    }
-
-    return labelPlacement;
-  }, [originalProps.labelPlacement, globalContext?.labelPlacement, label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const timeInputProps = {
     ...userTimeInputProps,
