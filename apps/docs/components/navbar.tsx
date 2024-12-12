@@ -1,6 +1,6 @@
 "use client";
 
-import {useRef, useState, FC, ReactNode, Key} from "react";
+import {useRef, useState, FC, ReactNode, Key, useMemo, useCallback} from "react";
 import {
   link,
   Navbar as NextUINavbar,
@@ -94,6 +94,31 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
     "/docs/guide/upgrade-to-v2",
   ];
 
+  const navLinkClasses = clsx(
+    link({color: "foreground"}),
+    "data-[active=true]:text-primary data-[active=true]:font-semibold",
+  );
+
+  const handleVersionChange = useCallback((key: Key) => {
+    if (key === "v1") {
+      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
+
+      if (newWindow) newWindow.opener = null;
+    }
+  }, []);
+
+  const handlePressNavbarItem = useCallback(
+    (name: string, url: string) => {
+      posthog.capture("NavbarItem", {
+        name,
+        action: "press",
+        category: "navbar",
+        data: url,
+      });
+    },
+    [posthog],
+  );
+
   const searchButton = (
     <Button
       aria-label="Quick search"
@@ -120,31 +145,46 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
     </Button>
   );
 
+  const versionDropdown = useMemo(() => {
+    return ref.current ? (
+      <Dropdown placement="bottom-start" portalContainer={ref.current}>
+        <AnimatePresence>
+          {isMounted && (
+            <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
+              <DropdownTrigger>
+                <Button
+                  className="min-w-[74px] max-w-[74px] hidden font-medium text-default-500 text-xs h-6 w-[74px] py-1 min-w-fit sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
+                  endContent={<ChevronDownIcon className="text-tiny" />}
+                  radius="full"
+                  size="sm"
+                  variant="flat"
+                >
+                  v{currentVersion}
+                </Button>
+              </DropdownTrigger>
+            </motion.div>
+          )}
+        </AnimatePresence>
+        <DropdownMenu
+          aria-label="NextUI versions"
+          defaultSelectedKeys={["v2"]}
+          selectionMode="single"
+          onAction={handleVersionChange}
+        >
+          <DropdownItem key="v2">v{currentVersion}</DropdownItem>
+          <DropdownItem key="v1" endContent={<LinkIcon />}>
+            v1.0.0
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+    ) : (
+      <div className="w-[74px]" />
+    );
+  }, [ref.current, isMounted]);
+
   if (pathname.includes("/examples")) {
     return null;
   }
-
-  const navLinkClasses = clsx(
-    link({color: "foreground"}),
-    "data-[active=true]:text-primary data-[active=true]:font-semibold",
-  );
-
-  const handleVersionChange = (key: Key) => {
-    if (key === "v1") {
-      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
-
-      if (newWindow) newWindow.opener = null;
-    }
-  };
-
-  const handlePressNavbarItem = (name: string, url: string) => {
-    posthog.capture("NavbarItem", {
-      name,
-      action: "press",
-      category: "navbar",
-      data: url,
-    });
-  };
 
   return (
     <NextUINavbar
@@ -172,40 +212,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
             <SmallLogo className="w-6 h-6 md:hidden" />
             <LargeLogo className="h-5 md:h-6" />
           </NextLink>
-          {ref.current ? (
-            <Dropdown placement="bottom-start" portalContainer={ref.current}>
-              <AnimatePresence>
-                {isMounted && (
-                  <motion.div animate={{opacity: 1}} exit={{opacity: 0}} initial={{opacity: 0}}>
-                    <DropdownTrigger>
-                      <Button
-                        className="min-w-[74px] max-w-[74px] hidden font-medium text-default-500 text-xs h-6 w-[74px] py-1 min-w-fit sm:flex gap-0.5 bg-default-400/20 dark:bg-default-500/20"
-                        endContent={<ChevronDownIcon className="text-tiny" />}
-                        radius="full"
-                        size="sm"
-                        variant="flat"
-                      >
-                        v{currentVersion}
-                      </Button>
-                    </DropdownTrigger>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-              <DropdownMenu
-                aria-label="NextUI versions"
-                defaultSelectedKeys={["v2"]}
-                selectionMode="single"
-                onAction={handleVersionChange}
-              >
-                <DropdownItem key="v2">v{currentVersion}</DropdownItem>
-                <DropdownItem key="v1" endContent={<LinkIcon />}>
-                  v1.0.0
-                </DropdownItem>
-              </DropdownMenu>
-            </Dropdown>
-          ) : (
-            <div className="w-[74px]" />
-          )}
+          {versionDropdown}
           <Chip
             as={NextLink}
             className="hidden sm:flex bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"

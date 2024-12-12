@@ -72,7 +72,7 @@
     "next-themes": "0.4.3",
     "nprogress": "^0.2.0",
     "parse-numeric-range": "1.2.0",
-    "posthog-js": "1.184.1",
+    "posthog-js": "1.197.0",
     "prism-react-renderer": "^1.2.1",
     "querystring": "^0.2.1",
     "react": "18.2.0",
