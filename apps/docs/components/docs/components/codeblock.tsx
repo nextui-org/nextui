@@ -99,6 +99,10 @@ const CodeBlockHighlight = ({
       ref={intersectionRef}
       style={{
         height: isVisible ? "auto" : `${height}px`,
+        // due to display: contents on the scrollable child element, this div will also scroll
+        // this causes the intersection observer to trigger if scrolled far enough horizontally
+        // set the width to fit-content to prevent this div from going off screen
+        width: "fit-content",
       }}
     >
       {isVisible ? (
