@@ -40,17 +40,6 @@ describe("Link", () => {
     expect(container.querySelector("svg")).not.toBeNull();
   });
 
-  it("should trigger onClick function", async () => {
-    const onClick = jest.fn();
-    const {getByRole} = render(<Link onClick={onClick} />);
-
-    const link = getByRole("link");
-
-    await user.click(link);
-
-    expect(onClick).toHaveBeenCalled();
-  });
-
   it("should trigger onPress function", async () => {
     const onPress = jest.fn();
     const {getByRole} = render(<Link onPress={onPress} />);
@@ -60,6 +49,17 @@ describe("Link", () => {
     await user.click(link);
 
     expect(onPress).toHaveBeenCalled();
+  });
+
+  it("should trigger onClick function", async () => {
+    const onClick = jest.fn();
+    const {getByRole} = render(<Link onClick={onClick} />);
+
+    const link = getByRole("link");
+
+    await user.click(link);
+
+    expect(onClick).toHaveBeenCalled();
   });
 
   it('should have target="_blank" and rel="noopener noreferrer" when "isExternal" is true', () => {
