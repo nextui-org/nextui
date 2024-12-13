@@ -10,12 +10,7 @@ import type {ValueBase} from "@react-types/shared";
 import {dataAttr} from "@nextui-org/shared-utils";
 import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
 import {useCallback} from "react";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  useLabelPlacement,
-  useProviderContext,
-} from "@nextui-org/system";
+import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@nextui-org/react-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
@@ -239,15 +234,10 @@ export function useDatePickerBase<T extends DateValue>(originalProps: UseDatePic
     "data-invalid": dataAttr(originalProps?.isInvalid),
   } as DateInputProps;
 
-  const labelPlacement = useLabelPlacement({
-    labelPlacement: originalProps.labelPlacement,
-    label,
-  });
-
   const timeInputProps = {
     ...userTimeInputProps,
     size: "sm",
-    labelPlacement,
+    labelPlacement: "outside-left",
     label: userTimeInputProps?.label || stringFormatter.format("time"),
     placeholderValue: timePlaceholder,
     hourCycle: props.hourCycle,
