@@ -73,7 +73,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
           aria-label="Close"
           radius="full"
           variant="light"
-          onClick={handleClose}
+          onPress={handleClose}
           {...(getCloseButtonProps() as ButtonProps)}
         >
           <CloseIcon height={20} width={20} />

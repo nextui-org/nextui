@@ -82,7 +82,7 @@ const StateTemplate = (args: ButtonProps) => {
       {...args}
       aria-label={isOpen ? "Close" : "Open"}
       aria-pressed={isOpen}
-      onClick={handlePress}
+      onPress={handlePress}
     >
       {isOpen ? "Close" : "Open"}
     </Button>

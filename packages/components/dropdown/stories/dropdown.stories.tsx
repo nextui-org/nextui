@@ -148,7 +148,7 @@ const Template = ({
       <Button>{label}</Button>
     </DropdownTrigger>
     <DropdownMenu aria-label="Actions" color={color} variant={variant}>
-      <DropdownItem key="new" onClick={() => alert("New file")}>
+      <DropdownItem key="new" onPress={() => alert("New file")}>
         New file
       </DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>

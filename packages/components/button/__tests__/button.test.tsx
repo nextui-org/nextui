@@ -36,15 +36,15 @@ describe("Button", () => {
     expect(onPress).toHaveBeenCalled();
   });
 
-  it("should trigger onClick function", async () => {
-    const onClick = jest.fn();
-    const {getByRole} = render(<Button disableRipple onClick={onClick} />);
+  it("should trigger onPress function", async () => {
+    const onPress = jest.fn();
+    const {getByRole} = render(<Button disableRipple onPress={onPress} />);
 
     const button = getByRole("button");
 
     await user.click(button);
 
-    expect(onClick).toHaveBeenCalled();
+    expect(onPress).toHaveBeenCalled();
   });
 
   it("should ignore events when disabled", async () => {

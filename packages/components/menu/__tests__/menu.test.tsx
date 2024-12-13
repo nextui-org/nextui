@@ -317,14 +317,13 @@ describe("Menu", () => {
     expect(onAction).toHaveBeenCalledTimes(0);
   });
 
-  it("should dispatch onPress, onAction and onClick events", async () => {
+  it("should dispatch onPress, onAction", async () => {
     let onPress = jest.fn();
-    let onClick = jest.fn();
     let onAction = jest.fn();
 
     const wrapper = render(
       <Menu aria-label="Actions" onAction={onAction}>
-        <MenuItem key="new" onClick={onClick} onPress={onPress}>
+        <MenuItem key="new" onPress={onPress}>
           New file
         </MenuItem>
         <MenuItem key="copy">Copy link</MenuItem>
@@ -341,7 +340,6 @@ describe("Menu", () => {
 
     expect(onAction).toHaveBeenCalledTimes(1);
     expect(onPress).toHaveBeenCalledTimes(1);
-    expect(onClick).toHaveBeenCalledTimes(1);
   });
 
   it("should menuItem classNames work", () => {
