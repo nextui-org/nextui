@@ -51,17 +51,6 @@ describe("Link", () => {
     expect(onPress).toHaveBeenCalled();
   });
 
-  it("should trigger onPress function", async () => {
-    const onPress = jest.fn();
-    const {getByRole} = render(<Link onPress={onPress} />);
-
-    const link = getByRole("link");
-
-    await user.click(link);
-
-    expect(onPress).toHaveBeenCalled();
-  });
-
   it('should have target="_blank" and rel="noopener noreferrer" when "isExternal" is true', () => {
     const {container} = render(
       <Link isExternal href="#">
