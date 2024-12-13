@@ -99,10 +99,10 @@ export const PackageManagers = ({
         })}
       </Tabs>
       {showGlobalInstallWarning && (
-        <Blockquote className="my-2 text-small" color="warning">
+        <Blockquote className="my-2 text-base md:text-small" color="warning">
           The above command is for individual installation only. You may skip this step if{" "}
-          <Code className="px-1 py-0.5 text-tiny font-mono">@nextui-org/react</Code> is already
-          installed globally.
+          <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@nextui-org/react</Code>{" "}
+          is already installed globally.
         </Blockquote>
       )}
     </>

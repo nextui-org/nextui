@@ -11,8 +11,9 @@ import {
 
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
+
   const targetRef = React.useRef(null);
-  const {moveProps} = useDraggable({targetRef, canOverflow: true});
+  const {moveProps} = useDraggable({targetRef, canOverflow: true, isDisabled: !isOpen});
 
   return (
     <>
