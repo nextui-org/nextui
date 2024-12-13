@@ -72,7 +72,7 @@ export const InstallBanner = () => {
               href="/docs/guide/installation"
               radius="full"
               size="md"
-              onClick={() => {
+              onPress={() => {
                 posthog.capture("InstallBanner - Get Started", {
                   action: "press",
                   category: "landing-page",
@@ -91,7 +91,7 @@ export const InstallBanner = () => {
               size="md"
               startContent={<GithubIcon />}
               variant="bordered"
-              onClick={() => {
+              onPress={() => {
                 posthog.capture("InstallBanner - Github", {
                   action: "press",
                   category: "landing-page",
