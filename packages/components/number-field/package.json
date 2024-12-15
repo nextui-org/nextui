@@ -1,0 +1,69 @@
+{
+  "name": "@nextui-org/number-field",
+  "version": "2.0.0",
+  "description": "The input component is designed for capturing user input within a text field.",
+  "keywords": [
+    "input",
+    "number",
+    "numeric input"
+  ],
+  "author": "WK Wong <wingkwong.code@gmail.com>",
+  "homepage": "https://nextui.org",
+  "license": "MIT",
+  "main": "src/index.ts",
+  "sideEffects": false,
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nextui-org/nextui.git",
+    "directory": "packages/components/input"
+  },
+  "bugs": {
+    "url": "https://github.com/nextui-org/nextui/issues"
+  },
+  "scripts": {
+    "build": "tsup src --dts",
+    "build:fast": "tsup src",
+    "dev": "pnpm build:fast --watch",
+    "clean": "rimraf dist .turbo",
+    "typecheck": "tsc --noEmit",
+    "prepack": "clean-package",
+    "postpack": "clean-package restore"
+  },
+  "peerDependencies": {
+    "react": ">=18 || >=19.0.0-rc.0",
+    "react-dom": ">=18 || >=19.0.0-rc.0",
+    "@nextui-org/theme": ">=2.3.0-beta.0",
+    "@nextui-org/system": ">=2.3.0-beta.0"
+  },
+  "dependencies": {
+    "@nextui-org/form": "workspace:*",
+    "@nextui-org/react-utils": "workspace:*",
+    "@nextui-org/shared-icons": "workspace:*",
+    "@nextui-org/shared-utils": "workspace:*",
+    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@react-aria/focus": "3.18.4",
+    "@react-aria/interactions": "3.22.4",
+    "@react-aria/numberfield": "3.11.9",
+    "@react-aria/utils": "3.25.3",
+    "@react-stately/utils": "3.10.4",
+    "@react-stately/numberfield": "3.9.8",
+    "@react-types/shared": "3.25.0",
+    "@react-types/numberfield": "3.8.6",
+    "react-textarea-autosize": "^8.5.3"
+  },
+  "devDependencies": {
+    "@nextui-org/system": "workspace:*",
+    "@nextui-org/theme": "workspace:*",
+    "clean-package": "2.2.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-hook-form": "^7.51.3"
+  },
+  "clean-package": "../../../clean-package.config.json"
+}

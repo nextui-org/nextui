@@ -2190,6 +2190,70 @@ importers:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
 
+  packages/components/number-field:
+    dependencies:
+      '@nextui-org/form':
+        specifier: workspace:*
+        version: link:../form
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@nextui-org/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@nextui-org/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@nextui-org/use-safe-layout-effect':
+        specifier: workspace:*
+        version: link:../../hooks/use-safe-layout-effect
+      '@react-aria/focus':
+        specifier: 3.18.4
+        version: 3.18.4(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: 3.22.4
+        version: 3.22.4(react@18.2.0)
+      '@react-aria/numberfield':
+        specifier: 3.11.9
+        version: 3.11.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@react-aria/utils':
+        specifier: 3.25.3
+        version: 3.25.3(react@18.2.0)
+      '@react-stately/numberfield':
+        specifier: 3.9.8
+        version: 3.9.8(react@18.2.0)
+      '@react-stately/utils':
+        specifier: 3.10.4
+        version: 3.10.4(react@18.2.0)
+      '@react-types/numberfield':
+        specifier: 3.8.6
+        version: 3.8.6(react@18.2.0)
+      '@react-types/shared':
+        specifier: 3.25.0
+        version: 3.25.0(react@18.2.0)
+      react-textarea-autosize:
+        specifier: ^8.5.3
+        version: 8.5.5(@types/react@18.2.8)(react@18.2.0)
+    devDependencies:
+      '@nextui-org/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@nextui-org/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+      react-hook-form:
+        specifier: ^7.51.3
+        version: 7.53.2(react@18.2.0)
+
   packages/components/pagination:
     dependencies:
       '@nextui-org/react-utils':
@@ -6565,6 +6629,11 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0
 
+  '@react-aria/focus@3.18.4':
+    resolution: {integrity: sha512-91J35077w9UNaMK1cpMUEFRkNNz0uZjnSwiyBCFuRdaVuivO53wNC9XtWSDNDdcO5cGy87vfJRVAiyoCn/mjqA==}
+    peerDependencies:
+      react: 18.2.0
+
   '@react-aria/focus@3.19.0':
     resolution: {integrity: sha512-hPF9EXoUQeQl1Y21/rbV2H4FdUR2v+4/I0/vB+8U3bT1CJ+1AFj1hc/rqx2DqEwDlEwOHN+E4+mRahQmlybq0A==}
     peerDependencies:
@@ -6583,6 +6652,11 @@ packages:
 
   '@react-aria/i18n@3.12.4':
     resolution: {integrity: sha512-j9+UL3q0Ls8MhXV9gtnKlyozq4aM95YywXqnmJtzT1rYeBx7w28hooqrWkCYLfqr4OIryv1KUnPiCSLwC2OC7w==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-aria/interactions@3.22.4':
+    resolution: {integrity: sha512-E0vsgtpItmknq/MJELqYJwib+YN18Qag8nroqwjk1qOnBa9ROIkUhWJerLi1qs5diXq9LHKehZDXRlwPvdEFww==}
     peerDependencies:
       react: 18.2.0
 
@@ -6612,6 +6686,12 @@ packages:
 
   '@react-aria/menu@3.16.0':
     resolution: {integrity: sha512-TNk+Vd3TbpBPUxEloAdHRTaRxf9JBK7YmkHYiq0Yj5Lc22KS0E2eTyhpPM9xJvEWN2TlC5TEvNfdyui2kYWFFQ==}
+    peerDependencies:
+      react: 18.2.0
+      react-dom: 18.2.0
+
+  '@react-aria/numberfield@3.11.9':
+    resolution: {integrity: sha512-3tiGPx2y4zyOV7PmdBASes99ZZsFTZAJTnU45Z+p1CW4131lw7y2ZhbojBl7U6DaXAJvi1z6zY6cq2UE9w5a0Q==}
     peerDependencies:
       react: 18.2.0
       react-dom: 18.2.0
@@ -6689,6 +6769,11 @@ packages:
 
   '@react-aria/tooltip@3.7.10':
     resolution: {integrity: sha512-Udi3XOnrF/SYIz72jw9bgB74MG/yCOzF5pozHj2FH2HiJlchYv/b6rHByV/77IZemdlkmL/uugrv/7raPLSlnw==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-aria/utils@3.25.3':
+    resolution: {integrity: sha512-PR5H/2vaD8fSq0H/UB9inNbc8KDcVmW6fYAfSWkkn+OAdhTTMVKqXXrZuZBWyFfSD5Ze7VN6acr4hrOQm2bmrA==}
     peerDependencies:
       react: 18.2.0
 
@@ -6779,6 +6864,11 @@ packages:
     peerDependencies:
       react: 18.2.0
 
+  '@react-stately/numberfield@3.9.8':
+    resolution: {integrity: sha512-J6qGILxDNEtu7yvd3/y+FpbrxEaAeIODwlrFo6z1kvuDlLAm/KszXAc75yoDi0OtakFTCMP6/HR5VnHaQdMJ3w==}
+    peerDependencies:
+      react: 18.2.0
+
   '@react-stately/overlays@3.6.12':
     resolution: {integrity: sha512-QinvZhwZgj8obUyPIcyURSCjTZlqZYRRCS60TF8jH8ZpT0tEAuDb3wvhhSXuYA3Xo9EHLwvLjEf3tQKKdAQArw==}
     peerDependencies:
@@ -6826,6 +6916,11 @@ packages:
 
   '@react-stately/tree@3.8.6':
     resolution: {integrity: sha512-lblUaxf1uAuIz5jm6PYtcJ+rXNNVkqyFWTIMx6g6gW/mYvm8GNx1G/0MLZE7E6CuDGaO9dkLSY2bB1uqyKHidA==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-stately/utils@3.10.4':
+    resolution: {integrity: sha512-gBEQEIMRh5f60KCm7QKQ2WfvhB2gLUr9b72sqUdIZ2EG+xuPgaIlCBeSicvjmjBvYZwOjoOEnmIkcx2GHp/HWw==}
     peerDependencies:
       react: 18.2.0
 
@@ -6904,6 +6999,16 @@ packages:
     peerDependencies:
       react: 18.2.0
 
+  '@react-types/numberfield@3.8.6':
+    resolution: {integrity: sha512-VtWEMAXUO1S9EEZI8whc7xv6DVccxhbWsRthMCg/LxiwU3U5KAveadNc2c5rtXkRpd3cnD5xFzz3dExXdmHkAg==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-types/numberfield@3.8.7':
+    resolution: {integrity: sha512-KccMPi39cLoVkB2T0V7HW6nsxQVAwt89WWCltPZJVGzsebv/k0xTQlPVAgrUake4kDLoE687e3Fr/Oe3+1bDhw==}
+    peerDependencies:
+      react: 18.2.0
+
   '@react-types/overlays@3.8.11':
     resolution: {integrity: sha512-aw7T0rwVI3EuyG5AOaEIk8j7dZJQ9m34XAztXJVZ/W2+4pDDkLDbJ/EAPnuo2xGYRGhowuNDn4tDju01eHYi+w==}
     peerDependencies:
@@ -6921,6 +7026,11 @@ packages:
 
   '@react-types/select@3.9.8':
     resolution: {integrity: sha512-RGsYj2oFjXpLnfcvWMBQnkcDuKkwT43xwYWZGI214/gp/B64tJiIUgTM5wFTRAeGDX23EePkhCQF+9ctnqFd6g==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-types/shared@3.25.0':
+    resolution: {integrity: sha512-OZSyhzU6vTdW3eV/mz5i6hQwQUhkRs7xwY2d1aqPvTdMe0+2cY7Fwp45PAiwYLEj73i9ro2FxF9qC4DvHGSCgQ==}
     peerDependencies:
       react: 18.2.0
 
@@ -18343,6 +18453,15 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
+  '@react-aria/focus@3.18.4(react@18.2.0)':
+    dependencies:
+      '@react-aria/interactions': 3.22.5(react@18.2.0)
+      '@react-aria/utils': 3.26.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      clsx: 2.1.1
+      react: 18.2.0
+
   '@react-aria/focus@3.19.0(react@18.2.0)':
     dependencies:
       '@react-aria/interactions': 3.22.5(react@18.2.0)
@@ -18385,6 +18504,14 @@ snapshots:
       '@internationalized/message': 3.1.6
       '@internationalized/number': 3.6.0
       '@internationalized/string': 3.2.5
+      '@react-aria/ssr': 3.9.7(react@18.2.0)
+      '@react-aria/utils': 3.26.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+
+  '@react-aria/interactions@3.22.4(react@18.2.0)':
+    dependencies:
       '@react-aria/ssr': 3.9.7(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
       '@react-types/shared': 3.26.0(react@18.2.0)
@@ -18448,6 +18575,22 @@ snapshots:
       '@react-stately/tree': 3.8.6(react@18.2.0)
       '@react-types/button': 3.10.1(react@18.2.0)
       '@react-types/menu': 3.9.13(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
+  '@react-aria/numberfield@3.11.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@react-aria/i18n': 3.12.4(react@18.2.0)
+      '@react-aria/interactions': 3.22.5(react@18.2.0)
+      '@react-aria/spinbutton': 3.6.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      '@react-aria/textfield': 3.15.0(react@18.2.0)
+      '@react-aria/utils': 3.26.0(react@18.2.0)
+      '@react-stately/form': 3.1.0(react@18.2.0)
+      '@react-stately/numberfield': 3.9.8(react@18.2.0)
+      '@react-types/button': 3.10.1(react@18.2.0)
+      '@react-types/numberfield': 3.8.7(react@18.2.0)
       '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
@@ -18632,6 +18775,15 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
+  '@react-aria/utils@3.25.3(react@18.2.0)':
+    dependencies:
+      '@react-aria/ssr': 3.9.7(react@18.2.0)
+      '@react-stately/utils': 3.10.5(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      clsx: 2.1.1
+      react: 18.2.0
+
   '@react-aria/utils@3.26.0(react@18.2.0)':
     dependencies:
       '@react-aria/ssr': 3.9.7(react@18.2.0)
@@ -18790,6 +18942,15 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
+  '@react-stately/numberfield@3.9.8(react@18.2.0)':
+    dependencies:
+      '@internationalized/number': 3.6.0
+      '@react-stately/form': 3.1.0(react@18.2.0)
+      '@react-stately/utils': 3.10.5(react@18.2.0)
+      '@react-types/numberfield': 3.8.7(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+
   '@react-stately/overlays@3.6.12(react@18.2.0)':
     dependencies:
       '@react-stately/utils': 3.10.5(react@18.2.0)
@@ -18877,6 +19038,11 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
+  '@react-stately/utils@3.10.4(react@18.2.0)':
+    dependencies:
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+
   '@react-stately/utils@3.10.5(react@18.2.0)':
     dependencies:
       '@swc/helpers': 0.5.15
@@ -18961,6 +19127,16 @@ snapshots:
       '@react-types/shared': 3.26.0(react@18.2.0)
       react: 18.2.0
 
+  '@react-types/numberfield@3.8.6(react@18.2.0)':
+    dependencies:
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      react: 18.2.0
+
+  '@react-types/numberfield@3.8.7(react@18.2.0)':
+    dependencies:
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      react: 18.2.0
+
   '@react-types/overlays@3.8.11(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.26.0(react@18.2.0)
@@ -18979,6 +19155,10 @@ snapshots:
   '@react-types/select@3.9.8(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.26.0(react@18.2.0)
+      react: 18.2.0
+
+  '@react-types/shared@3.25.0(react@18.2.0)':
+    dependencies:
       react: 18.2.0
 
   '@react-types/shared@3.26.0(react@18.2.0)':
