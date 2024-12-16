@@ -231,7 +231,15 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     if (isFileTypeInput) {
       // if `labelPlacement` is not defined, choose `outside` instead
       // since the default value `inside` is not supported in file input
-      if (!originalProps.labelPlacement) return "outside";
+      if (!originalProps.labelPlacement) {
+        if (globalContext?.labelPlacement === "inside") {
+          warn(
+            "Input with file type doesn't support inside label. Hence, labelPlacement from NextUI Provider is not applicable. Converting to outside ...",
+          );
+        }
+
+        return "outside";
+      }
 
       // throw a warning if `labelPlacement` is `inside`
       // and change it to `outside`
@@ -241,12 +249,16 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         return "outside";
       }
     }
-    if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
+
+    const labelPlacement =
+      originalProps.labelPlacement ?? globalContext?.labelPlacement ?? "inside";
+
+    if (labelPlacement === "inside" && !label) {
       return "outside";
     }
 
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, label]);
+    return labelPlacement;
+  }, [originalProps.labelPlacement, globalContext?.labelPlacement, label]);
 
   const errorMessage =
     typeof props.errorMessage === "function"

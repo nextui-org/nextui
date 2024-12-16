@@ -209,7 +209,6 @@ const select = tv({
     variant: "flat",
     color: "default",
     size: "md",
-    labelPlacement: "inside",
     fullWidth: true,
     isDisabled: false,
     isMultiline: false,

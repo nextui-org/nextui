@@ -1,5 +1,4 @@
 import type {DateValue} from "@internationalized/date";
-import type {DateInputVariantProps} from "@nextui-org/theme";
 import type {TimeInputProps} from "@nextui-org/date-input";
 import type {ButtonProps} from "@nextui-org/button";
 import type {RangeCalendarProps} from "@nextui-org/calendar";
@@ -14,7 +13,7 @@ import type {DateInputGroupProps} from "@nextui-org/date-input";
 import type {DateRangePickerSlots, SlotsToClasses} from "@nextui-org/theme";
 import type {DateInputProps} from "@nextui-org/date-input";
 
-import {useProviderContext} from "@nextui-org/system";
+import {useLabelPlacement, useProviderContext} from "@nextui-org/system";
 import {useMemo, useRef} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
@@ -60,6 +59,7 @@ export type UseDateRangePickerProps<T extends DateValue> = Props<T> & AriaDateRa
 
 export function useDateRangePicker<T extends DateValue>({
   as,
+  label,
   isInvalid: isInvalidProp,
   description,
   startContent,
@@ -143,16 +143,10 @@ export function useDateRangePicker<T extends DateValue>({
 
   const showTimeField = !!timeGranularity;
 
-  const labelPlacement = useMemo<DateInputVariantProps["labelPlacement"]>(() => {
-    if (
-      (!originalProps.labelPlacement || originalProps.labelPlacement === "inside") &&
-      !originalProps.label
-    ) {
-      return "outside";
-    }
-
-    return originalProps.labelPlacement ?? "inside";
-  }, [originalProps.labelPlacement, originalProps.label]);
+  const labelPlacement = useLabelPlacement({
+    labelPlacement: originalProps.labelPlacement,
+    label,
+  });
 
   const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
 
@@ -395,7 +389,7 @@ export function useDateRangePicker<T extends DateValue>({
   const getDateInputGroupProps = () => {
     return {
       as,
-      label: originalProps.label,
+      label,
       description,
       endContent,
       errorMessage,
@@ -423,7 +417,7 @@ export function useDateRangePicker<T extends DateValue>({
 
   return {
     state,
-    label: originalProps.label,
+    label,
     slots,
     classNames,
     startContent,

@@ -12,6 +12,13 @@ export type ProviderContextProps = {
    */
   disableAnimation?: boolean;
   /**
+   * Position where the label should appear.
+   *
+   * @default undefined
+   */
+  labelPlacement?: "inside" | "outside" | "outside-left" | undefined;
+  /**
+  /**
    * Whether to disable the ripple effect in the whole application.
    * If `disableAnimation` is set to `true`, this prop will be ignored.
    *
