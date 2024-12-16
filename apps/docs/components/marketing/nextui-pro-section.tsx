@@ -1,8 +1,9 @@
 "use client";
 
-import {Button, Chip} from "@nextui-org/react";
+import {Button, Chip, cn} from "@nextui-org/react";
 import {useEffect, useState} from "react";
 import {useTheme} from "next-themes";
+import NextImage from "next/image";
 
 import {sectionWrapper, title, titleWrapper, subtitle} from "../primitives";
 
@@ -33,13 +34,23 @@ export const NextUIProSection = () => {
       : "/images/nextuipro-section-background-light.webp";
   }
 
-  const mobileClassName: string = isDarkMode
-    ? "h-full w-full bg-[linear-gradient(to_left,_rgba(255,255,255,_0)_5%,_rgba(0,0,0,1)_100%)]"
-    : "h-full w-full bg-[linear-gradient(to_left,_rgba(0,0,0,_0)_5%,_rgba(255,255,255,1)_100%)]";
+  useEffect(() => {
+    const imagesToPreload = [
+      "/images/nextuipro-section-background.webp",
+      "/images/nextuipro-section-background-light.webp",
+      "/images/nextuipro-section-background@mobile.webp",
+      "/images/nextuipro-section-background-light@mobile.webp",
+    ];
+    const preloadImages = (images) => {
+      images.forEach((src) => {
+        const img = new Image();
 
-  const webClassName: string = isDarkMode
-    ? "ease-in-out h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(255,255,255,_0)_20%,_rgba(0,0,0,_0.8)_40%,_rgba(0,0,0,1)_100%)]"
-    : "ease-in-out h-full w-full bg-[radial-gradient(at_80%_50%,_rgba(0,0,0,_0)_20%,_rgba(255,255,255,_0.9)_40%,_rgba(255,255,255,1)_100%)]";
+        img.src = src;
+      });
+    };
+
+    preloadImages(imagesToPreload);
+  }, []);
 
   if (!mounted) return null;
 
@@ -156,25 +167,27 @@ export const NextUIProSection = () => {
         <div className="overflow-hidden">
           <Marquee
             vertical
-            className="flex opacity-15 md:opacity-100 w-screen mt-4 absolute top-0 inset-0 isolate max-h-dvh"
+            className="flex opacity-15 md:opacity-100 w-screen mt-4 absolute top-0 inset-0 isolate max-h-dvh "
             duration={60}
           >
-            <img
+            <NextImage
               alt="Hero Background"
-              className="w-full"
+              className="w-full opacity-0 animate-fadeIn"
               height={3255}
-              loading="lazy"
+              quality={100}
               src={imgSrc}
               width={1920}
             />
           </Marquee>
-          <div className="absolute md:hidden inset-0 pointer-events-none top-0 z-20">
-            <div className={mobileClassName} />
-          </div>
-
-          <div className="absolute hidden md:block md:inset-0 md:pointer-events-none md:top-0 md:z-20">
-            <div className={webClassName} />
-          </div>
+          <div
+            className={cn(
+              "absolute inset-0 pointer-events-none z-20 bg-white dark:bg-black",
+              !isMobile &&
+                "[-webkit-mask-image:radial-gradient(at_70%_50%,_rgba(255,255,255,0)_20%,_rgba(255,255,255,0.8)_40%,_rgba(0,0,0,1)_60%)]",
+              isMobile &&
+                "[-webkit-mask-image:linear-gradient(to_left,_rgba(255,255,255,_0)_10%,_rgba(0,0,0,1)_100%)]",
+            )}
+          />
         </div>
       </div>
     </section>
