@@ -124,7 +124,7 @@ export function useAlert(originalProps: UseAlertProps) {
   }, [setIsVisible, onClose]);
 
   const slots = useMemo(
-    () => alert({hasDescription: !isEmpty(description), ...variantProps}),
+    () => alert({hasContent: !isEmpty(description) || !isEmpty(children), ...variantProps}),
     [description, objectToDeps(variantProps)],
   );
 
