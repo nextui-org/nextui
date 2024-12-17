@@ -41,15 +41,15 @@ describe("Card", () => {
     expect(onPress).toHaveBeenCalled();
   });
 
-  it("should trigger onClick function", async () => {
-    const onClick = jest.fn();
-    const {getByRole} = render(<Card disableRipple isPressable onClick={onClick} />);
+  it("should trigger onPress function", async () => {
+    const onPress = jest.fn();
+    const {getByRole} = render(<Card disableRipple isPressable onPress={onPress} />);
 
     const button = getByRole("button");
 
     await user.click(button);
 
-    expect(onClick).toHaveBeenCalled();
+    expect(onPress).toHaveBeenCalled();
   });
 
   it("should render correctly when nested", () => {
