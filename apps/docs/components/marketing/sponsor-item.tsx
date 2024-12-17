@@ -17,7 +17,7 @@ export const SponsorItem = ({name, href, logo}: Sponsor) => {
       isExternal
       className="flex flex-col items-center justify-center"
       href={href}
-      onClick={() => {
+      onPress={() => {
         posthog.capture("Hero - Sponsors", {
           name,
           action: "click",
