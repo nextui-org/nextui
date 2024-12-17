@@ -53,7 +53,8 @@
     "@nextui-org/theme": "workspace:*",
     "@nextui-org/system": "workspace:*",
     "clean-package": "2.2.0",
-    "react": "18.3.0"
+    "react": "18.3.0",
+    "react-dom": "18.3.0"
   },
   "clean-package": "../../../clean-package.config.json"
 }
