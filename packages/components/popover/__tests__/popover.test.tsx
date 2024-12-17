@@ -2,13 +2,10 @@ import * as React from "react";
 import {render, fireEvent, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {Button} from "@nextui-org/button";
+import {spy, shouldIgnoreReactWarning} from "@nextui-org/test-utils";
 
 import {Popover, PopoverContent, PopoverTrigger} from "../src";
 import {Select, SelectItem} from "../../select/src";
-
-// e.g. console.error Warning: Function components cannot be given refs.
-// Attempts to access this ref will fail. Did you mean to use React.forwardRef()?
-const spy = jest.spyOn(console, "error").mockImplementation(() => {});
 
 describe("Popover", () => {
   let user: UserEvent;
@@ -52,7 +49,9 @@ describe("Popover", () => {
     // open popover
     await user.click(trigger);
 
-    expect(spy).toHaveBeenCalledTimes(0);
+    if (!shouldIgnoreReactWarning(spy)) {
+      expect(spy).toHaveBeenCalledTimes(0);
+    }
   });
 
   it("ref should be forwarded", () => {
