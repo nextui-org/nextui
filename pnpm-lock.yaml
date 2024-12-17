@@ -500,8 +500,8 @@ importers:
         specifier: 2.2.5
         version: 2.2.5(react@18.3.0)
       tailwind-variants:
-        specifier: ^0.1.20
-        version: 0.1.20(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3)))
+        specifier: ^0.3.0
+        version: 0.3.0(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3)))
       unified:
         specifier: ^11.0.5
         version: 11.0.5
@@ -665,9 +665,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -696,6 +693,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/alert:
     dependencies:
@@ -717,9 +717,6 @@ importers:
       '@react-stately/utils':
         specifier: 3.10.5
         version: 3.10.5(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -733,6 +730,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/autocomplete:
     dependencies:
@@ -802,9 +802,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -839,6 +836,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-hook-form:
         specifier: ^7.51.3
         version: 7.53.2(react@18.3.0)
@@ -863,9 +863,6 @@ importers:
       '@react-aria/utils':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -885,6 +882,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/badge:
     dependencies:
@@ -894,9 +894,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -919,6 +916,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/breadcrumbs:
     dependencies:
@@ -946,9 +946,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -971,6 +968,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/button:
     dependencies:
@@ -1007,9 +1007,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1029,6 +1026,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/calendar:
     dependencies:
@@ -1092,9 +1092,6 @@ importers:
       '@types/lodash.debounce':
         specifier: ^4.0.7
         version: 4.0.9
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -1120,6 +1117,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/card:
     dependencies:
@@ -1150,9 +1150,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1184,6 +1181,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/checkbox:
     dependencies:
@@ -1229,9 +1229,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/chip':
         specifier: workspace:*
@@ -1257,6 +1254,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-hook-form:
         specifier: ^7.51.3
         version: 7.53.2(react@18.3.0)
@@ -1284,9 +1284,6 @@ importers:
       '@react-types/checkbox':
         specifier: 3.9.0
         version: 3.9.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1303,6 +1300,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/code:
     dependencies:
@@ -1315,9 +1315,6 @@ importers:
       '@nextui-org/system-rsc':
         specifier: workspace:*
         version: link:../../core/system-rsc
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/test-utils':
         specifier: workspace:*
@@ -1331,6 +1328,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/date-input:
     dependencies:
@@ -1364,9 +1364,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -1386,6 +1383,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/date-picker:
     dependencies:
@@ -1443,9 +1443,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/radio':
         specifier: workspace:*
@@ -1468,6 +1465,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/divider:
     dependencies:
@@ -1483,9 +1483,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/theme':
         specifier: workspace:*
@@ -1496,6 +1493,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/drawer:
     dependencies:
@@ -1511,9 +1511,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1560,6 +1557,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.3.0)
@@ -1599,9 +1599,6 @@ importers:
       '@react-types/menu':
         specifier: 3.9.13
         version: 3.9.13(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1636,6 +1633,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/form:
     dependencies:
@@ -1663,9 +1663,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -1676,6 +1673,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/image:
     dependencies:
@@ -1688,9 +1688,6 @@ importers:
       '@nextui-org/use-image':
         specifier: workspace:*
         version: link:../../hooks/use-image
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -1704,6 +1701,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/input:
     dependencies:
@@ -1743,9 +1743,6 @@ importers:
       '@react-types/textfield':
         specifier: 3.10.0
         version: 3.10.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
       react-textarea-autosize:
         specifier: ^8.5.3
         version: 8.5.5(@types/react@18.2.8)(react@18.3.0)
@@ -1762,6 +1759,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-hook-form:
         specifier: ^7.51.3
         version: 7.53.2(react@18.3.0)
@@ -1798,9 +1798,6 @@ importers:
       input-otp:
         specifier: 1.4.1
         version: 1.4.1(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -1817,6 +1814,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-hook-form:
         specifier: ^7.51.3
         version: 7.53.2(react@18.3.0)
@@ -1835,9 +1835,6 @@ importers:
       '@react-aria/utils':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/test-utils':
         specifier: workspace:*
@@ -1851,6 +1848,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/link:
     dependencies:
@@ -1878,9 +1878,6 @@ importers:
       '@react-types/link':
         specifier: 3.5.9
         version: 3.5.9(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -1894,6 +1891,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/listbox:
     dependencies:
@@ -1936,9 +1936,6 @@ importers:
       '@tanstack/react-virtual':
         specifier: 3.10.9
         version: 3.10.9(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -1967,6 +1964,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/menu:
     dependencies:
@@ -2009,9 +2009,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2031,6 +2028,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/modal:
     dependencies:
@@ -2082,9 +2082,6 @@ importers:
       '@react-types/overlays':
         specifier: 3.8.11
         version: 3.8.11(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2119,6 +2116,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.3.0)
@@ -2161,9 +2161,6 @@ importers:
       '@react-stately/utils':
         specifier: 3.10.5
         version: 3.10.5(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -2201,6 +2198,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.3.0)
@@ -2234,9 +2234,6 @@ importers:
       '@react-aria/utils':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -2256,6 +2253,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/popover:
     dependencies:
@@ -2307,9 +2307,6 @@ importers:
       '@react-types/overlays':
         specifier: 3.8.11
         version: 3.8.11(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/card':
         specifier: workspace:*
@@ -2335,6 +2332,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/progress:
     dependencies:
@@ -2359,9 +2359,6 @@ importers:
       '@react-types/progress':
         specifier: 3.5.8
         version: 3.5.8(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/card':
         specifier: workspace:*
@@ -2381,6 +2378,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/radio:
     dependencies:
@@ -2417,9 +2417,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2439,6 +2436,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/ripple:
     dependencies:
@@ -2451,9 +2451,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2470,6 +2467,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/scroll-shadow:
     dependencies:
@@ -2482,9 +2482,6 @@ importers:
       '@nextui-org/use-data-scroll-overflow':
         specifier: workspace:*
         version: link:../../hooks/use-data-scroll-overflow
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2498,6 +2495,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.3.0)
@@ -2561,9 +2561,6 @@ importers:
       '@tanstack/react-virtual':
         specifier: 3.10.9
         version: 3.10.9(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/avatar':
         specifier: workspace:*
@@ -2607,6 +2604,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-hook-form:
         specifier: ^7.51.3
         version: 7.53.2(react@18.3.0)
@@ -2619,9 +2619,6 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2641,6 +2638,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/slider:
     dependencies:
@@ -2674,9 +2674,6 @@ importers:
       '@react-stately/slider':
         specifier: 3.6.0
         version: 3.6.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2696,6 +2693,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/snippet:
     dependencies:
@@ -2723,9 +2723,6 @@ importers:
       '@react-aria/utils':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/system':
         specifier: workspace:*
@@ -2742,6 +2739,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/spacer:
     dependencies:
@@ -2754,9 +2754,6 @@ importers:
       '@nextui-org/system-rsc':
         specifier: workspace:*
         version: link:../../core/system-rsc
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/test-utils':
         specifier: workspace:*
@@ -2770,6 +2767,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/spinner:
     dependencies:
@@ -2782,9 +2782,6 @@ importers:
       '@nextui-org/system-rsc':
         specifier: workspace:*
         version: link:../../core/system-rsc
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/theme':
         specifier: workspace:*
@@ -2795,6 +2792,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/components/switch:
     dependencies:
@@ -2828,9 +2828,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/shared-icons':
         specifier: workspace:*
@@ -2847,6 +2844,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-hook-form:
         specifier: ^7.51.3
         version: 7.53.2(react@18.3.0)
@@ -2895,9 +2895,6 @@ importers:
       '@react-types/table':
         specifier: 3.10.3
         version: 3.10.3(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*
@@ -2935,6 +2932,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       swr:
         specifier: ^2.2.1
         version: 2.2.5(react@18.3.0)
@@ -2980,9 +2980,6 @@ importers:
       '@react-types/tabs':
         specifier: 3.3.11
         version: 3.3.11(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
       scroll-into-view-if-needed:
         specifier: 3.0.10
         version: 3.0.10
@@ -3017,6 +3014,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
       react-lorem-component:
         specifier: 0.13.0
         version: 0.13.0(react@18.3.0)
@@ -3105,9 +3105,6 @@ importers:
       '@react-aria/utils':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@nextui-org/link':
         specifier: workspace:*
@@ -3124,6 +3121,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/core/react:
     dependencies:
@@ -3274,9 +3274,6 @@ importers:
       framer-motion:
         specifier: '>=11.5.6 || >=12.0.0-alpha.1'
         version: 11.9.0(@emotion/is-prop-valid@1.3.1)(react-dom@18.3.0(react@18.3.0))(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3284,6 +3281,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/core/system:
     dependencies:
@@ -3311,9 +3311,6 @@ importers:
       '@react-types/datepicker':
         specifier: 3.9.0
         version: 3.9.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3324,6 +3321,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/core/system-rsc:
     dependencies:
@@ -3350,8 +3350,8 @@ importers:
         specifier: 18.3.0
         version: 18.3.0
       tailwind-variants:
-        specifier: ^0.1.20
-        version: 0.1.20(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@5.6.3)))
+        specifier: ^0.3.0
+        version: 0.3.0(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@5.6.3)))
 
   packages/core/theme:
     dependencies:
@@ -3516,9 +3516,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3526,6 +3523,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/hooks/use-aria-multiselect:
     dependencies:
@@ -3571,9 +3571,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3581,6 +3578,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/hooks/use-callback-ref:
     dependencies:
@@ -3950,9 +3950,6 @@ importers:
       '@nextui-org/use-measure':
         specifier: workspace:*
         version: link:../../hooks/use-measure
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3963,6 +3960,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/utilities/react-rsc-utils:
     devDependencies:
@@ -14137,17 +14137,8 @@ packages:
     resolution: {integrity: sha512-w2sfv80nrAh2VCbqR5AK27wswXhqcck2AhfnNW76beQXskGZ1V12GwS//yYVa3d3fcvAip2OUnbDAjW2k3v9fA==}
     engines: {node: '>=10.0.0'}
 
-  tailwind-merge@1.14.0:
-    resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
-
   tailwind-merge@2.5.4:
     resolution: {integrity: sha512-0q8cfZHMu9nuYP/b5Shb7Y7Sh1B7Nnl5GqNr1U+n2p6+mybvRtayrQ+0042Z5byvTA8ihjlP8Odo8/VnHbZu4Q==}
-
-  tailwind-variants@0.1.20:
-    resolution: {integrity: sha512-AMh7x313t/V+eTySKB0Dal08RHY7ggYK0MSn/ad8wKWOrDUIzyiWNayRUm2PIJ4VRkvRnfNuyRuKbLV3EN+ewQ==}
-    engines: {node: '>=16.x', pnpm: '>=7.x'}
-    peerDependencies:
-      tailwindcss: '*'
 
   tailwind-variants@0.3.0:
     resolution: {integrity: sha512-ho2k5kn+LB1fT5XdNS3Clb96zieWxbStE9wNLK7D0AV64kdZMaYzAKo0fWl6fXLPY99ffF9oBJnIj5escEl/8A==}
@@ -27947,19 +27938,12 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
 
-  tailwind-merge@1.14.0: {}
-
   tailwind-merge@2.5.4: {}
 
-  tailwind-variants@0.1.20(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3))):
+  tailwind-variants@0.3.0(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3))):
     dependencies:
-      tailwind-merge: 1.14.0
+      tailwind-merge: 2.5.4
       tailwindcss: 3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3))
-
-  tailwind-variants@0.1.20(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@5.6.3))):
-    dependencies:
-      tailwind-merge: 1.14.0
-      tailwindcss: 3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@5.6.3))
 
   tailwind-variants@0.3.0(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@5.6.3))):
     dependencies:
