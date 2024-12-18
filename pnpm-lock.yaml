@@ -3837,6 +3837,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
     devDependencies:
       '@storybook/addon-a11y':
         specifier: ^8.4.5
@@ -3919,9 +3922,6 @@ importers:
       '@react-types/shared':
         specifier: 3.26.0
         version: 3.26.0(react@18.3.0)
-      react-dom:
-        specifier: 18.3.0
-        version: 18.3.0(react@18.3.0)
     devDependencies:
       clean-package:
         specifier: 2.2.0
@@ -3929,6 +3929,9 @@ importers:
       react:
         specifier: 18.3.0
         version: 18.3.0
+      react-dom:
+        specifier: 18.3.0
+        version: 18.3.0(react@18.3.0)
 
   packages/utilities/dom-animation:
     devDependencies:
