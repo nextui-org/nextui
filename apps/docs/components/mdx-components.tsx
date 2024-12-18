@@ -198,7 +198,7 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
       disableAnimation={true}
       href={href}
       {...externalProps}
-      onClick={handleClick}
+      onPress={handleClick}
     >
       {children}
     </Components.Link>
