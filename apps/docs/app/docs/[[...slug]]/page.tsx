@@ -11,7 +11,6 @@ import {Route} from "@/libs/docs/page";
 import {GITHUB_URL, REPO_NAME} from "@/libs/github/constants";
 import {CONTENT_PATH, TAG} from "@/libs/docs/config";
 import {getHeadings} from "@/libs/docs/utils";
-import {NextUIProCallout} from "@/components/docs/nextui-pro-callout";
 
 interface DocPageProps {
   params: {
@@ -103,7 +102,6 @@ export default async function DocPage({params}: DocPageProps) {
       {headings && headings.length > 0 && (
         <div className="hidden z-10 xl:flex xl:col-span-2 mt-8 pl-0">
           <DocsToc headings={headings} />
-          <NextUIProCallout />
         </div>
       )}
     </>

@@ -14,7 +14,7 @@ export const NextUIProCallout = () => {
   };
 
   return (
-    <div className="fixed flex flex-col items-center top-[calc(100vh-340px)] border border-default/60 hover:border-default/90 rounded-md py-6 px-2 m-2 cursor-pointer">
+    <div className="relative w-full max-w-[12rem] flex flex-col items-center border border-default/60 hover:border-default/90 rounded-xl py-6 px-2 cursor-pointer">
       <div>
         <p className="leading-tight tracking-tight text-center text-xl font-semibold">
           Ship&nbsp;
