@@ -593,6 +593,5 @@ export const WithShouldBlockScroll = {
 
   args: {
     ...defaultProps,
-    shouldBlockScroll: true,
   },
 };
