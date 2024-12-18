@@ -5,6 +5,9 @@ import {clsx} from "@nextui-org/shared-utils";
 import {Divider, Spacer} from "@nextui-org/react";
 import {ChevronCircleTopLinearIcon} from "@nextui-org/shared-icons";
 import scrollIntoView from "scroll-into-view-if-needed";
+import {usePostHog} from "posthog-js/react";
+
+import {title} from "../primitives";
 
 import {Heading} from "@/libs/docs/utils";
 import {useScrollSpy} from "@/hooks/use-scroll-spy";
@@ -63,6 +66,15 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
       emitter.off("proBannerVisibilityChange");
     };
   }, []);
+
+  const posthog = usePostHog();
+
+  const handleClick = () => {
+    posthog.capture("NextUI Pro Banner", {
+      action: "click",
+      category: "nextui-callout",
+    });
+  };
 
   return (
     <div
@@ -123,6 +135,35 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
           </a>
         </li>
       </ul>
+      <div className="w-full border border-default/60 hover:shadow-inner hover:border-default/80 rounded-md p-2 cursor-pointer">
+        <a
+          className="flex flex-col items-center"
+          href="https://nextui.pro?utm_source=nextui.org&utm_medium=callout"
+          rel="noopener noreferrer"
+          onClick={handleClick}
+        >
+          <div className="flex flex-col sm:flex-row">
+            <h1 className={title({size: "xs"})}>Ship&nbsp;</h1>
+            <h1 className={title({size: "xs", color: "blue"})}>faster&nbsp;</h1>
+          </div>
+          <div className="flex flex-col sm:flex-row">
+            <h1 className={title({size: "xs"})}>with&nbsp;</h1>
+            <h1 className={title({size: "xs"})}>beautiful&nbsp;</h1>
+          </div>
+          <div className="flex flex-col sm:flex-row">
+            <h1 className={title({size: "xs"})}>components</h1>
+          </div>
+          <p className="text-center text-xs m-2 font-medium text-default-500">
+            Discover 210+ stunning, responsive components crafted by the NextUI team.
+          </p>
+          <div className="flex group min-w-[120px] items-center font-semibold text-foreground shadow-sm gap-1.5 relative overflow-hidden rounded-full p-[1px]">
+            <span className="absolute inset-[-1000%] animate-[spin_3s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#F54180_0%,#338EF7_50%,#F54180_100%)]" />
+            <div className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-background group-hover:bg-background/70 transition-background px-3 py-1 text-sm font-medium text-foreground backdrop-blur-3xl">
+              Explore Components
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   );
 };
