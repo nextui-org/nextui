@@ -33,18 +33,26 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
     [onClearTimeout, timeout],
   );
 
+  const transformWhitespace = useCallback((text: string) => {
+    // Manually replace all whitespace to avoid get different unicode characters;
+    return text.replace(/\s/g, " ");
+  }, []);
+
   const copy = useCallback(
     (valueToCopy: any) => {
       if ("clipboard" in navigator) {
+        const decodedValue =
+          typeof valueToCopy === "string" ? transformWhitespace(valueToCopy) : valueToCopy;
+
         navigator.clipboard
-          .writeText(valueToCopy)
+          .writeText(decodedValue)
           .then(() => handleCopyResult(true))
           .catch((err) => setError(err));
       } else {
         setError(new Error("useClipboard: navigator.clipboard is not supported"));
       }
     },
-    [handleCopyResult],
+    [handleCopyResult, transformWhitespace],
   );
 
   const reset = useCallback(() => {
