@@ -227,7 +227,7 @@ const dateInput = tv({
       color: "primary",
       class: {
         innerWrapper: "text-primary",
-        inputWrapper: ["bg-primary-50", "hover:bg-primary-100", "focus-within:bg-primary-50"],
+        inputWrapper: ["bg-primary-100", "hover:bg-primary-50", "focus-within:bg-primary-50"],
         segment:
           "text-primary-300 data-[editable=true]:data-[placeholder=true]:text-primary-300 data-[editable=true]:text-primary",
         label: "text-primary",
@@ -238,7 +238,7 @@ const dateInput = tv({
       color: "secondary",
       class: {
         innerWrapper: "text-secondary",
-        inputWrapper: ["bg-secondary-50", "hover:bg-secondary-100", "focus-within:bg-secondary-50"],
+        inputWrapper: ["bg-secondary-100", "hover:bg-secondary-50", "focus-within:bg-secondary-50"],
         segment:
           "text-secondary-300 data-[editable=true]:data-[placeholder=true]:text-secondary-300 data-[editable=true]:text-secondary",
         label: "text-secondary",
@@ -249,7 +249,7 @@ const dateInput = tv({
       color: "success",
       class: {
         innerWrapper: "text-success-600 dark:text-success",
-        inputWrapper: ["bg-success-50", "hover:bg-success-100", "focus-within:bg-success-50"],
+        inputWrapper: ["bg-success-100", "hover:bg-success-50", "focus-within:bg-success-50"],
         segment:
           "text-success-400 data-[editable=true]:data-[placeholder=true]:text-success-400 data-[editable=true]:text-success-600 data-[editable=true]:focus:text-success-600",
         label: "text-success-600 dark:text-success",
@@ -260,7 +260,7 @@ const dateInput = tv({
       color: "warning",
       class: {
         innerWrapper: "text-warning-600 dark:text-warning",
-        inputWrapper: ["bg-warning-50", "hover:bg-warning-100", "focus-within:bg-warning-50"],
+        inputWrapper: ["bg-warning-100", "hover:bg-warning-50", "focus-within:bg-warning-50"],
         segment:
           "text-warning-400 data-[editable=true]:data-[placeholder=true]:text-warning-400 data-[editable=true]:text-warning-600 data-[editable=true]:focus:text-warning-600",
         label: "text-warning-600 dark:text-warning",
@@ -271,15 +271,81 @@ const dateInput = tv({
       color: "danger",
       class: {
         innerWrapper: "text-danger",
-        inputWrapper: ["bg-danger-50", "hover:bg-danger-100", "focus-within:bg-danger-50"],
+        inputWrapper: ["bg-danger-100", "hover:bg-danger-50", "focus-within:bg-danger-50"],
         segment:
           "text-danger-300 data-[editable=true]:data-[placeholder=true]:text-danger-300 data-[editable=true]:text-danger",
         label: "text-danger",
       },
     },
+    // faded & color
+    {
+      variant: "faded",
+      color: "primary",
+      class: {
+        innerWrapper: "text-primary",
+        inputWrapper: [
+          "hover:border-primary",
+          "focus-within:border-primary",
+          "focus-within:hover:border-primary",
+        ],
+        label: "text-primary",
+      },
+    },
+    {
+      variant: "faded",
+      color: "secondary",
+      class: {
+        innerWrapper: "text-secondary",
+        inputWrapper: [
+          "hover:border-secondary",
+          "focus-within:border-secondary",
+          "focus-within:hover:border-secondary",
+        ],
+        label: "text-secondary",
+      },
+    },
+    {
+      variant: "faded",
+      color: "success",
+      class: {
+        innerWrapper: "text-success",
+        inputWrapper: [
+          "hover:border-success",
+          "focus-within:border-success",
+          "focus-within:hover:border-success",
+        ],
+        label: "text-success",
+      },
+    },
+    {
+      variant: "faded",
+      color: "warning",
+      class: {
+        innerWrapper: "text-warning",
+        inputWrapper: [
+          "hover:border-warning",
+          "focus-within:border-warning",
+          "focus-within:hover:border-warning",
+        ],
+        label: "text-warning",
+      },
+    },
+    {
+      variant: "faded",
+      color: "danger",
+      class: {
+        innerWrapper: "text-danger",
+        inputWrapper: [
+          "hover:border-danger",
+          "focus-within:border-danger",
+          "focus-within:hover:border-danger",
+        ],
+        label: "text-danger",
+      },
+    },
     // bordered & color
     {
-      variant: ["bordered", "faded"],
+      variant: "bordered",
       color: "primary",
       class: {
         innerWrapper: "text-primary",
@@ -288,7 +354,7 @@ const dateInput = tv({
       },
     },
     {
-      variant: ["bordered", "faded"],
+      variant: "bordered",
       color: "secondary",
       class: {
         innerWrapper: "text-secondary",
@@ -297,7 +363,7 @@ const dateInput = tv({
       },
     },
     {
-      variant: ["bordered", "faded"],
+      variant: "bordered",
       color: "success",
       class: {
         innerWrapper: "text-success",
@@ -306,7 +372,7 @@ const dateInput = tv({
       },
     },
     {
-      variant: ["bordered", "faded"],
+      variant: "bordered",
       color: "warning",
       class: {
         innerWrapper: "text-warning",
@@ -315,7 +381,7 @@ const dateInput = tv({
       },
     },
     {
-      variant: ["bordered", "faded"],
+      variant: "bordered",
       color: "danger",
       class: {
         innerWrapper: "text-danger",
