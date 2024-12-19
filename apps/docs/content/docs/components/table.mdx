@@ -20,11 +20,11 @@ Tables are used to display tabular data using rows and columns. They allow users
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add table",
-    npm: "npm install @nextui-org/table",
-    yarn: "yarn add @nextui-org/table",
-    pnpm: "pnpm add @nextui-org/table",
-    bun: "bun add @nextui-org/table"
+    cli: "npx heroui-cli@latest add table",
+    npm: "npm install @heroui/table",
+    yarn: "yarn add @heroui/table",
+    pnpm: "pnpm add @heroui/table",
+    bun: "bun add @heroui/table"
   }}
 />
 
@@ -49,7 +49,7 @@ NextUI exports 6 table-related components:
     TableColumn,
     TableRow,
     TableCell
-} from "@nextui-org/react";`,
+} from "@heroui/react";`,
     individual: `import {
     Table,
     TableHeader,
@@ -57,7 +57,7 @@ NextUI exports 6 table-related components:
     TableColumn,
     TableRow,
     TableCell
-} from "@nextui-org/table";`,
+} from "@heroui/table";`,
   }}
 />
 
@@ -83,7 +83,7 @@ You could also use `Array.map` to render the items, but it will not be as perfor
 Example:
 
 ```jsx
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@heroui/react";
 
 const rows = [...];
 
