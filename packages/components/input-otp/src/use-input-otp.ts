@@ -223,6 +223,12 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     [baseDomRef, slots, baseStyles, isDisabled, isInvalid, isRequired, isReadOnly, value, length],
   );
 
+  const isNumeric = (pattern: string) => {
+    const numericPattern = /(^|\W)[0-9](\W|$)/;
+
+    return numericPattern.test(pattern) && !/[^\d\^$\[\]\(\)\*\+\-\.\|]/.test(pattern);
+  };
+
   const getInputOtpProps = useCallback(
     (props: Partial<OTPInputProps> = {}) => {
       const otpProps: Omit<OTPInputProps, "render" | "children"> & {
@@ -246,6 +252,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         pushPasswordManagerStrategy,
         pasteTransformer,
         noScriptCSSFallback,
+        inputMode: isNumeric(allowedKeys) ? "numeric" : "text",
         containerClassName: slots.wrapper?.({class: clsx(classNames?.wrapper, containerClassName)}),
         ...props,
       };
