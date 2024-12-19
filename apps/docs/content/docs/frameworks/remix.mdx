@@ -17,9 +17,109 @@ Requirements:
 
 To use NextUI in your Remix project, you need to follow the following steps:
 
+### Using NextUI + Remix template
+
+If you are starting a new project, you can run one of the following commands to create a Remix project pre-configured with NextUI:
+
+<PackageManagers
+  commands={{
+    npm: 'npx create-remix@latest --template https://github.com/nextui-org/remix-template',
+    yarn: 'yarn create remix --template https://github.com/nextui-org/remix-template',
+    pnpm: 'pnpm create remix --template https://github.com/nextui-org/remix-template',
+    bun: 'bunx create-remix@latest --template https://github.com/nextui-org/remix-template',
+  }}
+/>
+
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx {3,7,9}
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {6,10,12,14}
+// app/layout.tsx
+
+// globals.css includes @tailwind directives
+// adjust the path if necessary
+import "@/styles/globals.css";
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+### Manual Installation
+
 <Steps>
 
-### Installation
+### Add dependencies
 
 In your Remix project, run one of the following command to install NextUI:
 
