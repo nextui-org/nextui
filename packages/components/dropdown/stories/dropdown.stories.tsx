@@ -99,6 +99,11 @@ export default {
         disable: true,
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -814,4 +819,19 @@ export const WithFallbackPlacements = {
       </div>
     </div>
   ),
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8">
+        <Template {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <Template {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
+
+  args: {
+    ...defaultProps,
+  },
 };
