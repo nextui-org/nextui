@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/framer-utils",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "description": "A set of framer motion transitions for react",
   "keywords": [
     "framer-utils"

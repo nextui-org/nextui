@@ -1,5 +1,16 @@
 # @nextui-org/input
 
+## 2.4.7
+
+### Patch Changes
+
+- [#4366](https://github.com/nextui-org/nextui/pull/4366) [`9e8a656`](https://github.com/nextui-org/nextui/commit/9e8a656665464152c4d226fa520fc4219eca0a8d) Thanks [@wingkwong](https://github.com/wingkwong)! - label placement with file input type (#4364)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/form@2.1.7
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.4.6
 
 ### Patch Changes

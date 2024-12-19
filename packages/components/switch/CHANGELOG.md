@@ -1,5 +1,15 @@
 # @nextui-org/switch
 
+## 2.2.7
+
+### Patch Changes
+
+- [#4334](https://github.com/nextui-org/nextui/pull/4334) [`0b117e5`](https://github.com/nextui-org/nextui/commit/0b117e59b22a485d95054491b5aea4e67d257bff) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@nextui-org/theme` in peerDependencies
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.2.6
 
 ### Patch Changes

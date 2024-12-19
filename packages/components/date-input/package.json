@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/date-input",
-  "version": "2.3.6",
+  "version": "2.3.7",
   "description": "A date input allows users to enter and edit date and time values using a keyboard.",
   "keywords": [
     "date-field"

@@ -1,5 +1,11 @@
 # @nextui-org/shared-utils
 
+## 2.1.2
+
+### Patch Changes
+
+- [#4327](https://github.com/nextui-org/nextui/pull/4327) [`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10) Thanks [@s524797336](https://github.com/s524797336)! - fix process is not defined
+
 ## 2.1.1
 
 ### Patch Changes

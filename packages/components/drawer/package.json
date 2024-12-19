@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/drawer",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Used to render a content that slides in from the side of the screen.",
   "keywords": [
     "drawer"
