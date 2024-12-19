@@ -50,6 +50,11 @@ export default {
         type: "boolean",
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -610,6 +615,21 @@ export const WithAvatarUser = {
 
 export const WithSearchInput = {
   render: WithSearchInputTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8 w-[1024px]">
+        <WithMenuTemplate {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <WithMenuTemplate {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,
