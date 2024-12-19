@@ -51,6 +51,9 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
       // the title props is already inside the rendered prop
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       title,
+      // removed items from props to avoid show in html element
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      items,
       ...otherProps
     },
     _,
