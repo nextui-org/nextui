@@ -10,6 +10,7 @@ import {FloatingComponents} from "./floating-components";
 
 import {GithubIcon} from "@/components/icons";
 import {title, subtitle} from "@/components/primitives";
+import {siteConfig} from "@/config/site";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
   ssr: false,
@@ -55,8 +56,9 @@ export const Hero = () => {
           </div>
           <h1 className={title()}>websites regardless of your design experience.</h1>
         </div>
-        <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
-          Beautiful, fast and modern React UI library.
+        <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left lg:pr-8"})}>
+          Beautiful, fast and modern React UI library for building accessible and customizable web
+          applications.
         </h2>
         <div className="flex flex-col items-center gap-4 md:flex-row">
           <Button
@@ -104,7 +106,7 @@ export const Hero = () => {
             isExternal
             as={Link}
             className="w-full md:hidden"
-            href="https://github.com/heroui-org/heroui"
+            href={siteConfig.links.github}
             radius="full"
             size="lg"
             startContent={<GithubIcon />}
@@ -114,7 +116,7 @@ export const Hero = () => {
                 name: "Github",
                 action: "click",
                 category: "landing-page",
-                data: "https://github.com/heroui-org/heroui",
+                data: siteConfig.links.github,
               });
             }}
           >

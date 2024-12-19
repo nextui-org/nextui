@@ -25,17 +25,17 @@ interface CodeblockProps {
 
 type HighlightStyle = "inserted" | "deleted" | undefined;
 
-const nextuiCliCommand = [
-  /^init$/,
-  /^add$/,
-  /^upgrade$/,
-  /^remove$/,
-  /^list$/,
-  /^env$/,
-  /^doctor$/,
-];
+const cliCommands = [/^init$/, /^add$/, /^upgrade$/, /^remove$/, /^list$/, /^env$/, /^doctor$/];
 
-const highlightStyleToken = ["bun", /nextui\s\w+(?=\s?)/, /^nextui$/, "Usage", ...nextuiCliCommand];
+const highlightStyleToken = [
+  "bun",
+  /nextui\s\w+(?=\s?)/,
+  /^nextui$/,
+  /heroui\s\w+(?=\s?)/,
+  /^heroui$/,
+  "Usage",
+  ...cliCommands,
+];
 const RE = /{([\d,-]+)}/;
 
 const calculateLinesToHighlight = (meta?: string) => {

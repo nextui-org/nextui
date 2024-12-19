@@ -34,14 +34,19 @@
           "key": "routing",
           "title": "Routing",
           "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
-          "path": "/docs/guide/routing.mdx",
-          "updated": true
+          "path": "/docs/guide/routing.mdx"
         },
         {
           "key": "forms",
           "title": "Forms",
           "keywords": "forms, form validation, nextui",
-          "path": "/docs/guide/forms.mdx",
+          "path": "/docs/guide/forms.mdx"
+        },
+        {
+          "key": "nextui-to-heroui",
+          "title": "NextUI to HeroUI",
+          "keywords": "migrate, nextui, hero, heroui",
+          "path": "/docs/guide/nextui-to-heroui.mdx",
           "newPost": true
         },
         {

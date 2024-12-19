@@ -198,6 +198,10 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
       disableAnimation={true}
       href={href}
       {...externalProps}
+      style={{
+        // font size inherit from parent
+        fontSize: "inherit",
+      }}
       onPress={handleClick}
     >
       {children}
