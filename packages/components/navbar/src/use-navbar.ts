@@ -161,6 +161,11 @@ export function useNavbar(originalProps: UseNavbarProps) {
     ref: domRef,
     onResize: () => {
       const currentWidth = domRef.current?.offsetWidth;
+      const scrollWidth = window.innerWidth - document.documentElement.clientWidth;
+
+      if (currentWidth && currentWidth + scrollWidth == prevWidth.current) {
+        return;
+      }
 
       if (currentWidth !== prevWidth.current) {
         updateWidth();
