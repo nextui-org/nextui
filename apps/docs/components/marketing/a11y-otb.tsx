@@ -102,7 +102,7 @@ export const A11yOtb = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI components are built on top of&nbsp;
+            HeroUI components are built on top of&nbsp;
             <NextUILink
               isExternal
               className="text-xl text-default-500 font-light [&>svg]:ml-1"

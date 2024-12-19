@@ -93,18 +93,18 @@ export const Hero = () => {
                 name: "Copy",
                 action: "click",
                 category: "landing-page",
-                data: "npx nextui-cli@latest init",
+                data: "npx heroui-cli@latest init",
               });
             }}
           >
-            npx nextui-cli@latest init
+            npx heroui-cli@latest init
           </Snippet>
           <Button
             fullWidth
             isExternal
             as={Link}
             className="w-full md:hidden"
-            href="https://github.com/nextui-org/nextui"
+            href="https://github.com/heroui-org/heroui"
             radius="full"
             size="lg"
             startContent={<GithubIcon />}
@@ -114,7 +114,7 @@ export const Hero = () => {
                 name: "Github",
                 action: "click",
                 category: "landing-page",
-                data: "https://github.com/nextui-org/nextui",
+                data: "https://github.com/heroui-org/heroui",
               });
             }}
           >

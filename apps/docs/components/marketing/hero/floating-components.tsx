@@ -52,7 +52,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         <Input
           className="absolute -top-[60px] -right-[80px] animate-[levitate_10s_ease_infinite] w-[200px]"
           color="secondary"
-          defaultValue="NextUI"
+          defaultValue="HeroUI"
           label="Input"
           labelPlacement="outside"
           variant="bordered"
