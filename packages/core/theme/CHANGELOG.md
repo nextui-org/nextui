@@ -1,5 +1,18 @@
 # @nextui-org/theme
 
+## 2.4.4
+
+### Patch Changes
+
+- [#4394](https://github.com/nextui-org/nextui/pull/4394) [`afe0b52`](https://github.com/nextui-org/nextui/commit/afe0b527ce2dcd1f511b601fcba700fd2d12fcd6) Thanks [@macci001](https://github.com/macci001)! - Fixing the input in card to not become invisible on hover and making time-input and date-input consistent to other inputs.
+
+- [#4383](https://github.com/nextui-org/nextui/pull/4383) [`e15ef62`](https://github.com/nextui-org/nextui/commit/e15ef62b6ccabc5aef2790c6f97d7457f204be92) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix #4382 `hideIconWrapper` property wasn't removing the borded on `Alert` component
+
+- [#4373](https://github.com/nextui-org/nextui/pull/4373) [`e546124`](https://github.com/nextui-org/nextui/commit/e546124e1de49e8bd4d8f5e33cba87a0e83435ef) Thanks [@Peterl561](https://github.com/Peterl561)! - menu base use overflow-clip to fix listbox section sticky (#4335)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10)]:
+  - @nextui-org/shared-utils@2.1.2
+
 ## 2.4.3
 
 ### Patch Changes

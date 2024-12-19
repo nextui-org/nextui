@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/form",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "A form is a group of inputs that allows users submit data to a server and supports field validation errors.",
   "keywords": [
     "form"

@@ -1,5 +1,16 @@
 # @nextui-org/input-otp
 
+## 2.1.7
+
+### Patch Changes
+
+- [#4338](https://github.com/nextui-org/nextui/pull/4338) [`2f55ecb`](https://github.com/nextui-org/nextui/commit/2f55ecb4b2e61fb9d9a91df9f4d7c1eff6b7b05e) Thanks [@macci001](https://github.com/macci001)! - Change ensures that the input value does not accept any disallowed characters when the value prop contains them (#4329)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/form@2.1.7
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.1.6
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @nextui-org/form
 
+## 2.1.7
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`afe0b52`](https://github.com/nextui-org/nextui/commit/afe0b527ce2dcd1f511b601fcba700fd2d12fcd6), [`e15ef62`](https://github.com/nextui-org/nextui/commit/e15ef62b6ccabc5aef2790c6f97d7457f204be92), [`e546124`](https://github.com/nextui-org/nextui/commit/e546124e1de49e8bd4d8f5e33cba87a0e83435ef)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/theme@2.4.4
+  - @nextui-org/react-utils@2.1.2
+  - @nextui-org/system@2.4.5
+
 ## 2.1.6
 
 ### Patch Changes

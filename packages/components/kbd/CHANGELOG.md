@@ -1,5 +1,14 @@
 # @nextui-org/kbd
 
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`76a72a9`](https://github.com/nextui-org/nextui/commit/76a72a9d1c8400d23b3f948670cb6844d9728b2a)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/system-rsc@2.3.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.2.4
 
 ### Patch Changes

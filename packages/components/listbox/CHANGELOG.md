@@ -1,5 +1,15 @@
 # @nextui-org/listbox
 
+## 2.3.8
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/divider@2.2.5
+  - @nextui-org/aria-utils@2.2.6
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.3.7
 
 ### Patch Changes

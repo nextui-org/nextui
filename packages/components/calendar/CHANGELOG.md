@@ -1,5 +1,16 @@
 # @nextui-org/calendar
 
+## 2.2.8
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/button@2.2.8
+  - @nextui-org/use-aria-button@2.2.4
+  - @nextui-org/framer-utils@2.1.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.2.7
 
 ### Patch Changes
