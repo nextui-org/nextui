@@ -4,7 +4,7 @@ import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
 import type {OverlayOptions} from "@nextui-org/aria-utils";
 
-import {ReactNode, Ref, useId, useImperativeHandle} from "react";
+import {ReactElement, ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
@@ -90,6 +90,8 @@ export type UseTooltipProps = Props &
   OverlayTriggerProps &
   OverlayOptions &
   PopoverVariantProps;
+
+export type LazyElement = ReactElement | ReactNode | null | undefined;
 
 export function useTooltip(originalProps: UseTooltipProps) {
   const globalContext = useProviderContext();
@@ -292,6 +294,19 @@ export function useTooltip(originalProps: UseTooltipProps) {
     getTriggerProps,
     getTooltipProps,
   };
+}
+
+export function isLazyElement(element: LazyElement): boolean {
+  if (typeof element !== "object" || element === null) {
+    return false;
+  }
+
+  // Check if it's a ReactElement and has the $$typeof property of React.lazy
+  const reactElement = element as ReactNode & {
+    $$typeof: symbol;
+  };
+
+  return reactElement.$$typeof === Symbol.for("react.lazy");
 }
 
 export type UseTooltipReturn = ReturnType<typeof useTooltip>;
