@@ -22,24 +22,14 @@ export const NextUIProSection = () => {
   const {theme} = useTheme();
   const isDarkMode = theme === "dark";
 
-  let imgSrc: string;
-
-  if (isDarkMode) {
-    imgSrc = isMobile
-      ? "/images/nextuipro-section-background@mobile.webp"
-      : "/images/nextuipro-section-background.webp";
-  } else {
-    imgSrc = isMobile
-      ? "/images/nextuipro-section-background-light@mobile.webp"
-      : "/images/nextuipro-section-background-light.webp";
-  }
+  let imgSrc: string = isDarkMode
+    ? "/images/nextuipro-section-background.webp"
+    : "/images/nextuipro-section-background-light.webp";
 
   useEffect(() => {
     const imagesToPreload = [
       "/images/nextuipro-section-background.webp",
       "/images/nextuipro-section-background-light.webp",
-      "/images/nextuipro-section-background@mobile.webp",
-      "/images/nextuipro-section-background-light@mobile.webp",
     ];
     const preloadImages = (images) => {
       images.forEach((src) => {
@@ -164,7 +154,7 @@ export const NextUIProSection = () => {
             </Button>
           </div>
         </div>
-        <div className="overflow-hidden">
+        <div className={cn("overflow-hidden", isMobile && "hidden")}>
           <Marquee
             vertical
             className="flex opacity-15 md:opacity-100 w-screen mt-4 absolute top-0 inset-0 isolate max-h-dvh "
@@ -184,8 +174,6 @@ export const NextUIProSection = () => {
               "absolute inset-0 pointer-events-none z-20 bg-white dark:bg-black",
               !isMobile &&
                 "[-webkit-mask-image:radial-gradient(at_70%_50%,_rgba(255,255,255,0)_20%,_rgba(255,255,255,0.8)_40%,_rgba(0,0,0,1)_60%)]",
-              isMobile &&
-                "[-webkit-mask-image:linear-gradient(to_left,_rgba(255,255,255,_0)_10%,_rgba(0,0,0,1)_100%)]",
             )}
           />
         </div>
