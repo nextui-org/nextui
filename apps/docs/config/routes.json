@@ -2,7 +2,7 @@
   "routes": [
     {
       "key": "guide",
-      "title": "Guide",
+      "title": "Getting Started",
       "defaultOpen": true,
       "keywords": "guide, getting started, start, heroui",
       "routes": [
@@ -47,6 +47,13 @@
           "title": "NextUI to HeroUI",
           "keywords": "migrate, nextui, hero, heroui",
           "path": "/docs/guide/nextui-to-heroui.mdx",
+          "newPost": true
+        },
+         {
+          "key": "figma",
+          "title": "Figma",
+          "keywords": "figma, design, ui kit",
+          "path": "/docs/guide/figma.mdx",
           "newPost": true
         },
         {
@@ -509,7 +516,8 @@
           "key": "figma",
           "title": "Figma",
           "keywords": "figma, heroui, design, ui kit",
-          "path": "/figma"
+          "path": "/docs/guide/figma.mdx",
+          "newPost": true
         },
         {
           "key": "roadmap",

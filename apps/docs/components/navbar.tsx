@@ -297,6 +297,30 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Components
             </NextLink>
           </NavbarItem>
+          {/* 
+          // TODO: add playground
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={pathname.includes("playground")}
+              href="/playground"
+              onClick={() => handlePressNavbarItem("playground", "/playground")}
+            >
+              Playground
+            </NextLink>
+          </NavbarItem> */}
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={pathname.includes("/docs/guide/figma")}
+              href="/docs/guide/figma"
+              onClick={() => handlePressNavbarItem("Figma", "/docs/guide/figma")}
+            >
+              Figma
+            </NextLink>
+          </NavbarItem>
           <NavbarItem>
             <NextLink
               className={navLinkClasses}
@@ -308,17 +332,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Blog
             </NextLink>
           </NavbarItem>
-          <NavbarItem>
-            <NextLink
-              className={navLinkClasses}
-              color="foreground"
-              data-active={pathname.includes("figma")}
-              href="/figma"
-              onClick={() => handlePressNavbarItem("Figma", "/figma")}
-            >
-              Figma
-            </NextLink>
-          </NavbarItem>
+
           <NavbarItem>
             <FbRoadmapLink className={navLinkClasses} />
           </NavbarItem>
