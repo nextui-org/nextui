@@ -27,17 +27,22 @@ directly in your React Server Components (RSC).
 
 ### NextUI CLI (recommended)
 
-If you are starting a new project, you can use the NextUI CLI to create a new project with NextUI pre-configured:
-
-```bash
-npm install -g nextui-cli
-```
-
-<Spacer y={4}/>
+If you are starting a new project, you can use the [NextUI CLI](https://nextui.org/docs/guide/cli) to create a new project with NextUI pre-configured:
 
 ```bash
 nextui init -t app
 ```
+
+or
+
+<PackageManagers
+  commands={{
+    npm: 'npx nextui-cli@latest init -t app',
+    yarn: 'yarn dlx nextui-cli@latest init -t app',
+    pnpm: 'pnpm dlx nextui-cli@latest init -t app',
+    bun: "bunx nextui-cli@latest init -t app"
+  }}
+/>
 
 ### create-next-app 
 
@@ -47,7 +52,8 @@ If you are starting a new project, you can run one of the following commands to 
   commands={{
     npm: 'npx create-next-app -e https://github.com/nextui-org/next-app-template',
     yarn: 'yarn create next-app -e https://github.com/nextui-org/next-app-template',
-    pnpm: 'pnpm create next-app -e https://github.com/nextui-org/next-app-template'
+    pnpm: 'pnpm create next-app -e https://github.com/nextui-org/next-app-template',
+    bun: 'bunx create-next-app -e https://github.com/nextui-org/next-app-template'
   }}
 />
 
