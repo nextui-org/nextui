@@ -76,7 +76,7 @@ const input = tv({
       flat: {
         inputWrapper: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-50",
+          "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
       },

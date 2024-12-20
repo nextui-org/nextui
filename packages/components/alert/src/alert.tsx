@@ -24,7 +24,7 @@ const iconMap = {
 
 export type AlertColor = keyof typeof iconMap;
 
-export interface AlertProps extends Omit<UseAlertProps, "hasDescription"> {}
+export interface AlertProps extends Omit<UseAlertProps, "hasContent"> {}
 
 const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   const {
@@ -73,7 +73,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
           aria-label="Close"
           radius="full"
           variant="light"
-          onClick={handleClose}
+          onPress={handleClose}
           {...(getCloseButtonProps() as ButtonProps)}
         >
           <CloseIcon height={20} width={20} />

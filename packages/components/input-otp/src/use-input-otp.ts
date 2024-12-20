@@ -119,6 +119,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     pasteTransformer,
     containerClassName,
     noScriptCSSFallback,
+    onChange,
     ...otherProps
   } = props;
 
@@ -209,6 +210,14 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
           }),
           filterDOMProps(props),
         ),
+        onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+          const val = e.target?.value;
+          const regex = new RegExp(allowedKeys);
+
+          if (regex.test(val)) {
+            onChange?.(e);
+          }
+        },
       };
     },
     [baseDomRef, slots, baseStyles, isDisabled, isInvalid, isRequired, isReadOnly, value, length],

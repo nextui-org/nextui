@@ -38,8 +38,8 @@ const select = tv({
       flat: {
         trigger: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-50",
-          "group-data-[focus=true]:bg-default-50",
+          "data-[hover=true]:bg-default-200",
+          "group-data-[focus=true]:bg-default-200",
         ],
       },
       faded: {
@@ -90,11 +90,21 @@ const select = tv({
     },
     color: {
       default: {},
-      primary: {},
-      secondary: {},
-      success: {},
-      warning: {},
-      danger: {},
+      primary: {
+        selectorIcon: "text-primary",
+      },
+      secondary: {
+        selectorIcon: "text-secondary",
+      },
+      success: {
+        selectorIcon: "text-success",
+      },
+      warning: {
+        selectorIcon: "text-warning",
+      },
+      danger: {
+        selectorIcon: "text-danger",
+      },
     },
     size: {
       sm: {
@@ -222,7 +232,7 @@ const select = tv({
       color: "default",
       class: {
         value: "group-data-[has-value=true]:text-default-foreground",
-        trigger: ["bg-default-100", "data-[hover=true]:bg-default-50"],
+        trigger: ["bg-default-100", "data-[hover=true]:bg-default-200"],
       },
     },
     {

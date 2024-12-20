@@ -36,7 +36,7 @@ Most fields should have a visible label. In rare exceptions, the `aria-label` or
 
 ## Submitting data
 
-How you submit form data depends on your framework, application, and server. By default,**HTML** forms are submitted via a full-page refresh in the browser.
+How you submit form data depends on your framework, application, and server. By default, **HTML** forms are submitted via a full-page refresh in the browser.
 You can call `preventDefault` in the `onSubmit` event to handle form data submission via an API.
 
 Frameworks like [Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#forms), [Remix](https://remix.run/docs/en/main/guides/forms), and [React Router](https://reactrouter.com/en/main/route/form-submission) provide their own ways to handle form submission.
@@ -196,7 +196,7 @@ NextUI supports native HTML constraint validation and allows for custom validati
 #### Built-in validation
 
 NextUI form components support [native HTML validation](https://developer.mozilla.org/docs/Web/HTML/Constraint_validation) attributes like `isRequired` and `minLength`.
-These constraints are checked by the browser when the user commits changes (e.g., onBlur) or submits the form.
+These constraints are checked by the browser when the user commits changes (e.g., on blur) or submits the form.
 You can display validation errors with custom styles instead of the browser's default UI.
 
 ```tsx {10}
@@ -235,7 +235,7 @@ Supported constraints include:
 - `minValue` and `maxValue` specify the minimum and maximum value in a date picker or number field.
 - `minLength` and `maxLength` specify the minimum and length of text input.
 - `pattern` provides a custom regular expression that a text input must conform to.
-- `type="email"` and `type="url"` provide builtin validation for email addresses and URLs.
+- `type="email"` and `type="url"` provide built-in validation for email addresses and URLs.
 
 See each component's documentation for more details on the supported validation props.
 

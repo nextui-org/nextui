@@ -99,6 +99,11 @@ export default {
         disable: true,
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -148,7 +153,7 @@ const Template = ({
       <Button>{label}</Button>
     </DropdownTrigger>
     <DropdownMenu aria-label="Actions" color={color} variant={variant}>
-      <DropdownItem key="new" onClick={() => alert("New file")}>
+      <DropdownItem key="new" onPress={() => alert("New file")}>
         New file
       </DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
@@ -814,4 +819,19 @@ export const WithFallbackPlacements = {
       </div>
     </div>
   ),
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8">
+        <Template {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <Template {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
+
+  args: {
+    ...defaultProps,
+  },
 };
