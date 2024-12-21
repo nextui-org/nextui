@@ -1199,7 +1199,12 @@ describe("validation", () => {
         };
 
         return (
-          <Form data-testid="form" validationErrors={serverErrors} onSubmit={onSubmit}>
+          <Form
+            data-testid="form"
+            validationBehavior="aria"
+            validationErrors={serverErrors}
+            onSubmit={onSubmit}
+          >
             <Select
               isRequired
               aria-label="Favorite Animal"
@@ -1249,7 +1254,7 @@ describe("validation", () => {
 
     it("supports validate function", async () => {
       const {getByTestId} = render(
-        <Form data-testid="form">
+        <Form data-testid="form" validationBehavior="aria">
           <Select
             aria-label="Favorite Animal"
             data-testid="select"
