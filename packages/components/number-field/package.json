@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@nextui-org/form": "workspace:*",
+    "@nextui-org/button": "workspace:*",
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
@@ -55,6 +56,7 @@
     "@react-stately/numberfield": "3.9.8",
     "@react-types/shared": "3.25.0",
     "@react-types/numberfield": "3.8.6",
+    "@react-types/button": "3.10.1",
     "react-textarea-autosize": "^8.5.3"
   },
   "devDependencies": {

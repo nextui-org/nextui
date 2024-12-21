@@ -2192,6 +2192,9 @@ importers:
 
   packages/components/number-field:
     dependencies:
+      '@nextui-org/button':
+        specifier: workspace:*
+        version: link:../button
       '@nextui-org/form':
         specifier: workspace:*
         version: link:../form
@@ -2225,6 +2228,9 @@ importers:
       '@react-stately/utils':
         specifier: 3.10.4
         version: 3.10.4(react@18.2.0)
+      '@react-types/button':
+        specifier: 3.10.1
+        version: 3.10.1(react@18.2.0)
       '@react-types/numberfield':
         specifier: 3.8.6
         version: 3.8.6(react@18.2.0)
