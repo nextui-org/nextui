@@ -4,6 +4,7 @@ import * as React from "react";
 import {render, renderHook, screen} from "@testing-library/react";
 import {Controller, useForm} from "react-hook-form";
 import userEvent, {UserEvent} from "@testing-library/user-event";
+import {Form} from "@nextui-org/form";
 
 import {InputOtp} from "../src";
 
@@ -182,6 +183,45 @@ describe("InputOtp Component", () => {
     const segments = screen.getAllByRole("presentation");
 
     expect(segments[0]).not.toHaveAttribute("data-focus", "true");
+  });
+});
+
+describe("Validation", () => {
+  let user: UserEvent;
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+
+  it("supports isRequired when validationBehavior=native", async () => {
+    const {getByTestId} = render(
+      <Form validationBehavior="native">
+        <InputOtp isRequired data-testid="base" length={4} />
+        <button data-testid="submit" type="submit" />
+        <button data-testid="reset" type="reset" />
+      </Form>,
+    );
+
+    const inputOtpBase = getByTestId("base");
+
+    expect(inputOtpBase).toHaveAttribute("aria-required", "true");
+    expect(inputOtpBase).not.toHaveAttribute("data-invalid");
+
+    const submitButton = getByTestId("submit");
+
+    await user.click(submitButton);
+
+    expect(inputOtpBase).toHaveAttribute("data-invalid", "true");
+    const errorMessage = document.querySelector("[data-slot='error-message']");
+
+    expect(errorMessage).toBeInTheDocument();
+
+    const resetButton = getByTestId("reset");
+
+    await user.click(resetButton);
+
+    expect(inputOtpBase).not.toHaveAttribute("data-invalid");
+    expect(errorMessage).not.toBeInTheDocument();
   });
 });
 

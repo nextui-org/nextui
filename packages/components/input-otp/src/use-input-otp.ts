@@ -158,7 +158,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   });
 
   useFormReset(inputRef, value, setValue);
-  useFormValidation(props, validationState, inputRef);
+  useFormValidation({...props, validationBehavior}, validationState, inputRef);
 
   const {
     isInvalid: isAriaInvalid,
