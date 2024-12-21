@@ -13,7 +13,7 @@ import {
 } from "@nextui-org/system";
 import {inputOtp} from "@nextui-org/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps, isPatternNumeric} from "@nextui-org/shared-utils";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps, useFormReset} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
@@ -246,6 +246,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         pushPasswordManagerStrategy,
         pasteTransformer,
         noScriptCSSFallback,
+        inputMode: isPatternNumeric(allowedKeys) ? "numeric" : "text",
         containerClassName: slots.wrapper?.({class: clsx(classNames?.wrapper, containerClassName)}),
         ...props,
       };
