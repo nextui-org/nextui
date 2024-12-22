@@ -120,6 +120,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     containerClassName,
     noScriptCSSFallback,
     onChange,
+    inputMode,
     ...otherProps
   } = props;
 
@@ -237,16 +238,16 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         minLength: minLength ?? length,
         textAlign,
         ref: inputRef,
-        name: name,
-        value: value,
+        name,
+        value,
         autoFocus,
         onChange: setValue,
         onBlur: chain(focusProps.onBlur, props?.onBlur),
-        onComplete: onComplete,
+        onComplete,
         pushPasswordManagerStrategy,
         pasteTransformer,
         noScriptCSSFallback,
-        inputMode: isPatternNumeric(allowedKeys) ? "numeric" : "text",
+        inputMode: inputMode ?? (isPatternNumeric(allowedKeys) ? "numeric" : "text"),
         containerClassName: slots.wrapper?.({class: clsx(classNames?.wrapper, containerClassName)}),
         ...props,
       };
@@ -254,6 +255,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       return otpProps;
     },
     [
+      inputMode,
       isRequired,
       isDisabled,
       isReadOnly,
