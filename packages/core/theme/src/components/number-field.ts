@@ -76,7 +76,7 @@ const numberField = tv({
       flat: {
         inputWrapper: [
           "bg-default-100",
-          "data-[hover=true]:bg-default-50",
+          "data-[hover=true]:bg-default-200",
           "group-data-[focus=true]:bg-default-100",
         ],
       },
@@ -548,11 +548,19 @@ const numberField = tv({
         inputWrapper: "after:!bg-danger",
       },
     },
-    // labelPlacement=[inside,outside]
+    // labelPlacement=[outside]
     {
-      labelPlacement: ["outside"],
+      labelPlacement: "outside",
       class: {
-        label: ["group-data-[filled-within=true]:pointer-events-auto"],
+        base: "relative justify-end",
+        label: [
+          "pb-0",
+          "z-20",
+          "top-1/2",
+          "-translate-y-1/2",
+          "group-data-[filled-within=true]:pointer-events-auto",
+          "group-data-[filled-within=true]:start-0",
+        ],
       },
     },
     // variant=underlined & size
@@ -570,26 +578,50 @@ const numberField = tv({
         innerWrapper: "pb-1.5",
       },
     },
-    // outside-left & size & hasHelper
+    // outside & size
     {
-      labelPlacement: "outside-left",
+      labelPlacement: "outside",
       size: "sm",
       class: {
-        label: "group-data-[has-helper=true]:pt-2",
+        label: [
+          "start-2",
+          "text-tiny",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
       },
     },
     {
-      labelPlacement: "outside-left",
+      labelPlacement: "outside",
       size: "md",
       class: {
-        label: "group-data-[has-helper=true]:pt-3",
+        label: [
+          "start-3",
+          "end-auto",
+          "text-small",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
       },
     },
     {
-      labelPlacement: "outside-left",
+      labelPlacement: "outside",
       size: "lg",
       class: {
-        label: "group-data-[has-helper=true]:pt-4",
+        label: [
+          "start-3",
+          "end-auto",
+          "text-medium",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
+      },
+    },
+    // text truncate labelPlacement=[outside]
+    {
+      labelPlacement: ["outside"],
+      class: {
+        label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
       },
     },
   ],
