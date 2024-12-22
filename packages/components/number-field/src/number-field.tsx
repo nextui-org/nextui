@@ -28,7 +28,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     getLabelProps,
     getNumberFieldProps,
     getInnerWrapperProps,
-    getNumberFieldWrapperProps,
+    getInputWrapperProps,
     getMainWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,
@@ -114,8 +114,10 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
   const mainWrapper = useMemo(() => {
     return (
       <div {...getMainWrapperProps()}>
-        {!isOutsideLeft ? labelContent : null}
-        <div {...getNumberFieldWrapperProps()}>{innerWrapper}</div>
+        <div {...getInputWrapperProps()}>
+          {!isOutsideLeft ? labelContent : null}
+          {innerWrapper}
+        </div>
         {helperWrapper}
       </div>
     );
@@ -128,7 +130,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     errorMessage,
     description,
     getMainWrapperProps,
-    getNumberFieldWrapperProps,
+    getInputWrapperProps,
     getErrorMessageProps,
     getDescriptionProps,
   ]);
