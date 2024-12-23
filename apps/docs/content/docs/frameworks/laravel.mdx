@@ -1,9 +1,9 @@
 ---
-title: Vite
-description: How to use Laravel with Vite
+title: Laravel
+description: How to use NextUI with Laravel
 ---
 
-# Vite
+# Laravel
 
 Requirements:
 
@@ -80,7 +80,7 @@ After installing NextUI, you need to set up the `NextUIProvider` at the `root` o
 
 Go to the src directory and inside `app.jsx` or `app.tsx`, wrap `NextUIProvider` around App:
 
-```jsx {8,22}
+```jsx {8,23,25}
 // app.tsx or app.jsx
 import '../css/app.css';
 import './bootstrap';
@@ -102,7 +102,11 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<NextUIProvider><App {...props} /></NextUIProvider>);
+        root.render(
+            <NextUIProvider>
+                <App {...props} />
+            </NextUIProvider>
+        );
     },
     progress: {
         color: '#4B5563',
