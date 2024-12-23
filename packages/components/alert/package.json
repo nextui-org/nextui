@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/alert",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "Alerts are temporary notifications that provide concise feedback about an action or event.",
   "keywords": [
     "alert"
