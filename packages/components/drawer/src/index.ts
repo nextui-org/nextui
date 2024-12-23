@@ -3,10 +3,10 @@ import {
   ModalBody,
   ModalFooter,
   ModalContent,
-  ModalContentProps,
-  ModalHeaderProps,
-  ModalBodyProps,
-  ModalFooterProps,
+  type ModalContentProps,
+  type ModalHeaderProps,
+  type ModalBodyProps,
+  type ModalFooterProps,
 } from "@nextui-org/modal";
 
 import Drawer from "./drawer";
