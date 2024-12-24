@@ -176,7 +176,6 @@ const numberField = tv({
       },
       "outside-left": {
         base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
-        inputWrapper: "flex-1",
         mainWrapper: "flex flex-col",
         label: "relative text-foreground pe-2 ps-2 pointer-events-auto",
       },
@@ -617,6 +616,28 @@ const numberField = tv({
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
+      },
+    },
+    // outside-left & size & hasHelper
+    {
+      labelPlacement: "outside-left",
+      size: "sm",
+      class: {
+        label: "group-data-[has-helper=true]:pt-2",
+      },
+    },
+    {
+      labelPlacement: "outside-left",
+      size: "md",
+      class: {
+        label: "group-data-[has-helper=true]:pt-3",
+      },
+    },
+    {
+      labelPlacement: "outside-left",
+      size: "lg",
+      class: {
+        label: "group-data-[has-helper=true]:pt-4",
       },
     },
     // text truncate labelPlacement=[outside]
