@@ -326,6 +326,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         "data-filled-within": dataAttr(isFilledWithin),
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
+        "data-direction": steps,
         className: slots.input({
           class: clsx(classNames?.input, isFilled ? "is-filled" : ""),
         }),
