@@ -7,7 +7,9 @@ description: How to use NextUI with Laravel
 
 Requirements:
 
-- [Laravel](https://laravel.com/)
+- [Laravel 11](https://laravel.com/)
+- [PHP v8.2](https://www.php.net/)
+- [React 18](https://reactjs.org/) or later
 - [Tailwind CSS 3.4](https://tailwindcss.com/docs/guides/vite#react) or later
 - [Framer Motion 11.9](https://www.framer.com/motion/) or later
 
@@ -17,9 +19,122 @@ Requirements:
 
 To use NextUI in your Laravel project, you need to follow the following steps:
 
+### Using NextUI + Laravel template
+
+If you are starting a new project, you can run one of the following commands to create a Laravel project pre-configured with NextUI:
+
+<PackageManagers
+  commands={{
+    npm: 'npx create-laravel@latest --template https://github.com/nextui-org/laravel-template',
+    yarn: 'yarn create laravel --template https://github.com/nextui-org/laravel-template',
+    pnpm: 'pnpm create laravel --template https://github.com/nextui-org/laravel-template',
+    bun: 'bunx create-laravel@latest --template https://github.com/nextui-org/laravel-template',
+  }}
+/>
+
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx {3,7,9}
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {8,23,25}
+// app.tsx or app.jsx
+import '../css/app.css';
+import './bootstrap';
+
+import { createInertiaApp } from '@inertiajs/react';
+import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import { createRoot } from 'react-dom/client';
+import {NextUIProvider} from "@nextui-org/react";
+
+const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+
+createInertiaApp({
+    title: (title) => `${title} - ${appName}`,
+    resolve: (name) =>
+        resolvePageComponent(
+            `./Pages/${name}.tsx`,
+            import.meta.glob('./Pages/**/*.tsx'),
+        ),
+    setup({ el, App, props }) {
+        const root = createRoot(el);
+
+        root.render(
+            <NextUIProvider>
+                <App {...props} />
+            </NextUIProvider>
+        );
+    },
+    progress: {
+        color: '#4B5563',
+    },
+});
+```
+
+### Manual Installation
+
 <Steps>
 
-### Installation
+### Add dependencies
 
 In your Laravel project, run one of the following command to install NextUI:
 
