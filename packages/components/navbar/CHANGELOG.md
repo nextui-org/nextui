@@ -1,5 +1,22 @@
 # @nextui-org/navbar
 
+## 2.2.7
+
+### Patch Changes
+
+- [`6430bc0`](https://github.com/nextui-org/nextui/commit/6430bc00844ca580027aa7c1389a210f2eac0732) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix release
+
+## 2.2.6
+
+### Patch Changes
+
+- [#4406](https://github.com/nextui-org/nextui/pull/4406) [`de0e277`](https://github.com/nextui-org/nextui/commit/de0e2776fe8b31125847a70e6d558e538f4d63f0) Thanks [@macci001](https://github.com/macci001)! - Resolving the issue preventing the navbar from opening(#4345)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/framer-utils@2.1.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.2.5
 
 ### Patch Changes

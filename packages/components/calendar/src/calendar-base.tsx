@@ -152,11 +152,9 @@ export function CalendarBase(props: CalendarBaseProps) {
           data-slot="content"
         >
           <AnimatePresence custom={direction} initial={false} mode="popLayout">
-            <>
-              <MotionConfig transition={transition}>
-                <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
-              </MotionConfig>
-            </>
+            <MotionConfig transition={transition}>
+              <LazyMotion features={domAnimation}>{calendarContent}</LazyMotion>
+            </MotionConfig>
           </AnimatePresence>
         </ResizablePanel>
       )}

@@ -1,5 +1,20 @@
 # @nextui-org/input-otp
 
+## 2.1.7
+
+### Patch Changes
+
+- [#4411](https://github.com/nextui-org/nextui/pull/4411) [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31) Thanks [@macci001](https://github.com/macci001)! - Fix virtual keyboard to display the keys based on allowedKeys(#4408)
+
+- [#4417](https://github.com/nextui-org/nextui/pull/4417) [`93c9df1`](https://github.com/nextui-org/nextui/commit/93c9df15d99cb7467927700f73b3a683f98f0ccf) Thanks [@Peterl561](https://github.com/Peterl561)! - fixed isRequired not showing error when validationBehavior=native is not explicitly set
+
+- [#4338](https://github.com/nextui-org/nextui/pull/4338) [`2f55ecb`](https://github.com/nextui-org/nextui/commit/2f55ecb4b2e61fb9d9a91df9f4d7c1eff6b7b05e) Thanks [@macci001](https://github.com/macci001)! - Change ensures that the input value does not accept any disallowed characters when the value prop contains them (#4329)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/form@2.1.7
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.1.6
 
 ### Patch Changes

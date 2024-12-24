@@ -1,5 +1,14 @@
 # @nextui-org/date-input
 
+## 2.3.7
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/form@2.1.7
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.3.6
 
 ### Patch Changes

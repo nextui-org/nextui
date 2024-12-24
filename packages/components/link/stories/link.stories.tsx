@@ -58,7 +58,7 @@ const PressableTemplate = (args: LinkProps) => {
   };
 
   return (
-    <Link {...args} onClick={handlePress}>
+    <Link {...args} onPress={handlePress}>
       {isOpen ? "Open" : "Close"}
     </Link>
   );

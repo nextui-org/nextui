@@ -301,6 +301,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
           },
         } as React.ChangeEvent<HTMLSelectElement>);
       }
+      state.commitValidation();
     },
   });
 

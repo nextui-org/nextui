@@ -29,7 +29,7 @@ const alert = tv({
     title: "text-small w-full font-medium block text-inherit leading-5",
     description: "pl-[1px] text-small font-normal text-inherit",
     closeButton: "relative text-inherit translate-x-1 -translate-y-1",
-    iconWrapper: "flex-none relative w-9 h-9 rounded-full",
+    iconWrapper: "flex-none relative w-9 h-9 rounded-full grid place-items-center",
     alertIcon: "fill-current w-6 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2",
   },
   variants: {
@@ -76,13 +76,13 @@ const alert = tv({
     hideIconWrapper: {
       true: {
         base: "gap-x-0",
-        iconWrapper: "!bg-transparent !shadow-none",
+        iconWrapper: "!bg-transparent !shadow-none !border-none",
       },
     },
-    hasDescription: {
+    hasContent: {
       false: {
         base: "items-start",
-        mainWrapper: "justify-center",
+        mainWrapper: "justify-center items-center",
       },
     },
   },
