@@ -1,5 +1,11 @@
 # @nextui-org/system-rsc
 
+## 2.3.5
+
+### Patch Changes
+
+- [#4291](https://github.com/nextui-org/nextui/pull/4291) [`76a72a9`](https://github.com/nextui-org/nextui/commit/76a72a9d1c8400d23b3f948670cb6844d9728b2a) Thanks [@shlyamster](https://github.com/shlyamster)! - Fix data type returned by the extendVariants function (#4269)
+
 ## 2.3.4
 
 ### Patch Changes
