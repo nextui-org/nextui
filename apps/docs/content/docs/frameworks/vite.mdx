@@ -18,9 +18,128 @@ Requirements:
 
 To use NextUI in your Vite project, you need to follow the following steps:
 
+### NextUI CLI (recommended)
+
+If you are starting a new project, you can use the [NextUI CLI](https://nextui.org/docs/guide/cli) to create a new project with NextUI pre-configured:
+
+```bash
+nextui init -t vite
+```
+
+or
+
+<PackageManagers
+  commands={{
+    npm: 'npx nextui-cli@latest init -t vite',
+    yarn: 'yarn dlx nextui-cli@latest init -t vite',
+    pnpm: 'pnpm dlx nextui-cli@latest init -t vite',
+    bun: "bunx nextui-cli@latest init -t vite"
+  }}
+/>
+
+### Using NextUI + Vite template
+
+If you are starting a new project, you can run one of the following commands to create a Vite project pre-configured with NextUI:
+
+<PackageManagers
+  commands={{
+    npm: 'npx degit https://github.com/nextui-org/vite-template my-vite-app',
+    yarn: 'yarn dlx degit https://github.com/nextui-org/vite-template my-vite-app',
+    pnpm: 'pnpm dlx degit https://github.com/nextui-org/vite-template my-vite-app',
+    bun: 'bunx degit https://github.com/nextui-org/vite-template my-vite-app',
+  }}
+/>
+
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+nextui add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+nextui add button input
+```
+
+Or you can add the main library `@nextui-org/react` by running the following command:
+
+```codeBlock bash
+nextui add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx {3,7,9}
+// app/providers.tsx
+
+import {NextUIProvider} from '@nextui-org/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <NextUIProvider>
+      {children}
+    </NextUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {6,10,12,14}
+// app/layout.tsx
+
+// globals.css includes @tailwind directives
+// adjust the path if necessary
+import "@/styles/globals.css";
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+### Manual Installation
+
 <Steps>
 
-### Installation
+### Add dependencies
 
 In your Vite React project, run one of the following command to install NextUI:
 
