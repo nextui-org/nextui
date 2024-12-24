@@ -67,6 +67,7 @@ const numberField = tv({
       ...dataFocusVisibleClasses,
     ],
     stepperButton: ["bg-transparent min-w-4 w-4"],
+    verticalStepperWrapper: ["flex flex-col h-full"],
     helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",

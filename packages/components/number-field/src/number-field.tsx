@@ -36,6 +36,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     getClearButtonProps,
     getStepperIncreaseButtonProps,
     getStepperDecreaseButtonProps,
+    getVerticalStepperWrapperProps,
   } = useNumberField({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
@@ -102,7 +103,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
         <input {...getNumberFieldProps()} />
         {end}
         {!hideStepper && (
-          <div className="flex flex-col h-full">
+          <div {...getVerticalStepperWrapperProps()}>
             <NumberFieldVerticalStepper {...getStepperIncreaseButtonProps()} direction="up" />
             <NumberFieldVerticalStepper {...getStepperDecreaseButtonProps()} direction="down" />
           </div>
