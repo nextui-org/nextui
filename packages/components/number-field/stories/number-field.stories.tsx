@@ -601,8 +601,9 @@ export const MinValue = {
 
   args: {
     ...defaultProps,
-    label: "Enter a number (min value: 0)",
-    minValue: 0,
+    label: "Enter a number (min value: 60)",
+    minValue: 60,
+    defaultValue: 64,
   },
 };
 
