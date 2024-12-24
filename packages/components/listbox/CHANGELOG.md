@@ -1,5 +1,17 @@
 # @nextui-org/listbox
 
+## 2.3.8
+
+### Patch Changes
+
+- [#4369](https://github.com/nextui-org/nextui/pull/4369) [`b5943db`](https://github.com/nextui-org/nextui/commit/b5943db1fdad3cacba54e10ef828bc24c740f01b) Thanks [@EReguero](https://github.com/EReguero)! - fix listbox section items prop in html element (#4277)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/divider@2.2.5
+  - @nextui-org/aria-utils@2.2.6
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.3.7
 
 ### Patch Changes

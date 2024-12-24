@@ -1,5 +1,65 @@
 # @nextui-org/react
 
+## 2.6.10
+
+### Patch Changes
+
+- Updated dependencies [[`6430bc0`](https://github.com/nextui-org/nextui/commit/6430bc00844ca580027aa7c1389a210f2eac0732)]:
+  - @nextui-org/navbar@2.2.7
+
+## 2.6.9
+
+### Patch Changes
+
+- Updated dependencies [[`b5943db`](https://github.com/nextui-org/nextui/commit/b5943db1fdad3cacba54e10ef828bc24c740f01b), [`c0e3dab`](https://github.com/nextui-org/nextui/commit/c0e3dab5e8104b4f9335892e850b26359d33b3e8), [`9e8a656`](https://github.com/nextui-org/nextui/commit/9e8a656665464152c4d226fa520fc4219eca0a8d), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31), [`0b117e5`](https://github.com/nextui-org/nextui/commit/0b117e59b22a485d95054491b5aea4e67d257bff), [`f8f6bfe`](https://github.com/nextui-org/nextui/commit/f8f6bfea5a7f783636c4d0ce9ba7291ce0ea0a97), [`afe0b52`](https://github.com/nextui-org/nextui/commit/afe0b527ce2dcd1f511b601fcba700fd2d12fcd6), [`f7e1b17`](https://github.com/nextui-org/nextui/commit/f7e1b17c40f448670cc6feda6c6c90d1195ac724), [`e15ef62`](https://github.com/nextui-org/nextui/commit/e15ef62b6ccabc5aef2790c6f97d7457f204be92), [`93c9df1`](https://github.com/nextui-org/nextui/commit/93c9df15d99cb7467927700f73b3a683f98f0ccf), [`e546124`](https://github.com/nextui-org/nextui/commit/e546124e1de49e8bd4d8f5e33cba87a0e83435ef), [`5946e90`](https://github.com/nextui-org/nextui/commit/5946e90335c713e361e09927ab459445d707d7e4), [`2f55ecb`](https://github.com/nextui-org/nextui/commit/2f55ecb4b2e61fb9d9a91df9f4d7c1eff6b7b05e), [`de0e277`](https://github.com/nextui-org/nextui/commit/de0e2776fe8b31125847a70e6d558e538f4d63f0), [`fa38828`](https://github.com/nextui-org/nextui/commit/fa388283458602cd8e128486323472498a145fa2)]:
+  - @nextui-org/listbox@2.3.8
+  - @nextui-org/calendar@2.2.8
+  - @nextui-org/input@2.4.7
+  - @nextui-org/input-otp@2.1.7
+  - @nextui-org/checkbox@2.3.7
+  - @nextui-org/switch@2.2.7
+  - @nextui-org/radio@2.3.7
+  - @nextui-org/drawer@2.2.6
+  - @nextui-org/theme@2.4.4
+  - @nextui-org/select@2.4.8
+  - @nextui-org/alert@2.2.8
+  - @nextui-org/navbar@2.2.6
+  - @nextui-org/autocomplete@2.3.8
+  - @nextui-org/date-picker@2.3.8
+  - @nextui-org/accordion@2.2.6
+  - @nextui-org/modal@2.2.6
+  - @nextui-org/popover@2.3.8
+  - @nextui-org/tabs@2.2.6
+  - @nextui-org/avatar@2.2.5
+  - @nextui-org/badge@2.2.4
+  - @nextui-org/breadcrumbs@2.2.5
+  - @nextui-org/button@2.2.8
+  - @nextui-org/card@2.2.8
+  - @nextui-org/chip@2.2.5
+  - @nextui-org/code@2.2.5
+  - @nextui-org/date-input@2.3.7
+  - @nextui-org/divider@2.2.5
+  - @nextui-org/dropdown@2.3.8
+  - @nextui-org/form@2.1.7
+  - @nextui-org/image@2.2.4
+  - @nextui-org/kbd@2.2.5
+  - @nextui-org/link@2.2.6
+  - @nextui-org/menu@2.2.8
+  - @nextui-org/pagination@2.2.7
+  - @nextui-org/progress@2.2.5
+  - @nextui-org/ripple@2.2.6
+  - @nextui-org/scroll-shadow@2.3.4
+  - @nextui-org/skeleton@2.2.4
+  - @nextui-org/slider@2.4.6
+  - @nextui-org/snippet@2.2.9
+  - @nextui-org/spacer@2.2.5
+  - @nextui-org/spinner@2.2.5
+  - @nextui-org/table@2.2.7
+  - @nextui-org/tooltip@2.2.6
+  - @nextui-org/user@2.2.5
+  - @nextui-org/framer-utils@2.1.5
+  - @nextui-org/system@2.4.5
+
 ## 2.6.8
 
 ### Patch Changes
