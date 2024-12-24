@@ -1,7 +1,13 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {render, act, fireEvent, waitFor, within} from "@testing-library/react";
-import {pointerMap, triggerPress} from "@nextui-org/test-utils";
+import {
+  errorSpy,
+  pointerMap,
+  shouldIgnoreReactWarning,
+  triggerPress,
+  warnSpy,
+} from "@nextui-org/test-utils";
 import userEvent from "@testing-library/user-event";
 import {CalendarDate, CalendarDateTime} from "@internationalized/date";
 import {NextUIProvider} from "@nextui-org/system";
@@ -66,6 +72,7 @@ describe("DatePicker", () => {
     user = userEvent.setup({delay: null, pointerMap});
     jest.useFakeTimers();
   });
+
   afterEach(() => {
     act(() => {
       jest.runAllTimers();
@@ -435,8 +442,6 @@ describe("DatePicker", () => {
   describe("Calendar popover", function () {
     it("should emit onChange when selecting a date in the calendar in controlled mode", function () {
       let onChange = jest.fn();
-      const consoleWarnSpy = jest.spyOn(console, "warn").mockImplementation(() => {});
-      const consoleErrorSpy = jest.spyOn(console, "error").mockImplementation(() => {});
 
       let {getByRole, getAllByRole, queryByLabelText} = render(
         <DatePicker
@@ -479,10 +484,16 @@ describe("DatePicker", () => {
       expect(onChange).toHaveBeenCalledWith(new CalendarDate(2019, 2, 4));
       expect(getTextValue(combobox)).toBe("2/3/2019"); // controlled
 
-      expect(consoleWarnSpy).not.toHaveBeenCalled();
-      expect(consoleErrorSpy).not.toHaveBeenCalled();
-      consoleWarnSpy.mockRestore();
-      consoleErrorSpy.mockRestore();
+      if (!shouldIgnoreReactWarning(warnSpy)) {
+        expect(warnSpy).not.toHaveBeenCalled();
+      }
+
+      if (!shouldIgnoreReactWarning(errorSpy)) {
+        expect(errorSpy).not.toHaveBeenCalled();
+      }
+
+      warnSpy.mockRestore();
+      errorSpy.mockRestore();
     });
 
     it("should emit onChange when selecting a date in the calendar in uncontrolled mode", function () {

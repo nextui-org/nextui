@@ -2,6 +2,7 @@ import "@testing-library/jest-dom";
 import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
+import {spy, shouldIgnoreReactWarning} from "@nextui-org/test-utils";
 import {useForm} from "react-hook-form";
 import {Form} from "@nextui-org/form";
 
@@ -88,6 +89,11 @@ describe("Autocomplete", () => {
   it("should render correctly", () => {
     const wrapper = render(<AutocompleteExample />);
 
+    if (shouldIgnoreReactWarning(spy)) {
+      return;
+    }
+
+    expect(spy).toHaveBeenCalledTimes(0);
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
