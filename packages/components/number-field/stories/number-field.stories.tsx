@@ -395,6 +395,15 @@ export const HorizontalStepper = {
   },
 };
 
+export const HideStepper = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    hideStepper: true,
+  },
+};
+
 export const Required = {
   render: FormTemplate,
 
