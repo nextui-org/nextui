@@ -58,7 +58,13 @@ export const Default = {
   render: Template,
   args: {
     ...defaultProps,
-    variant: "bordered",
-    color: "danger",
+  },
+};
+
+export const WithTimeout = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    timeout: 3000,
   },
 };

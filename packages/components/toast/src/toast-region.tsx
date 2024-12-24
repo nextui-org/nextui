@@ -18,7 +18,7 @@ export function ToastRegion<T extends ToastType>({toastQueue, ...props}: ToastRe
       <div
         {...regionProps}
         ref={ref}
-        className="fixed bottom-0 left-0 w-screen flex flex-col items-center justify-center"
+        className="fixed bottom-6 right-6 w-screen flex flex-col items-end justify-center"
       >
         {toastQueue.visibleToasts.map((toast: QueuedToast<ToastType>) => {
           return (

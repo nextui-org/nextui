@@ -149,8 +149,8 @@ export function useToast<T extends ToastType>(originalProps: UseToastProps<T>) {
   const isProgressBarHidden = toast.timeout ? "block" : "hidden";
   const progressBarProps = {
     classNames: {
-      track: "bg-default-200",
-      indicator: "bg-default-700/40",
+      track: slots.progressTrack({class: clsx(classNames?.progressTrack)}),
+      indicator: "bg-default-600",
     },
     radius: "none",
     isDisabled: true,

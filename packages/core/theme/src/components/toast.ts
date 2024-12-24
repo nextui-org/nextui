@@ -43,9 +43,10 @@ const toast = tv({
       "bottom-0",
       "w-full",
       "overflow-hidden",
-      "bg-black-500",
+      "bg-green-500",
       "rounded-none",
     ],
+    progressTrack: ["bg-default-200"],
     closeButton: [
       "w-4 h-4 min-w-4 p-0.5 absolute -right-1 -top-1 flex items-center justify-center bg-default-100 hover:bg-default-200 text-default-400 hover:text-default-600 border border-1 border-default-400",
     ],
@@ -62,12 +63,23 @@ const toast = tv({
     },
     color: {
       default: "",
-      primary: "",
-      secondary: "",
-      success: "",
-      warning: "",
-      danger: "",
+      primary: {
+        progressTrack: "bg-primary-200",
+      },
+      secondary: {
+        progressTrack: "bg-secondary-200",
+      },
+      success: {
+        progressTrack: "bg-success-200",
+      },
+      warning: {
+        progressTrack: "bg-warning-200",
+      },
+      danger: {
+        progressTrack: "bg-danger-200",
+      },
     },
+    position: {},
   },
   defaultVariants: {
     size: "xs",
@@ -80,6 +92,7 @@ const toast = tv({
       color: "primary",
       class: {
         base: "bg-primary-100/40 text-primary-400",
+        closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
       },
     },
     {
@@ -87,27 +100,32 @@ const toast = tv({
       color: "secondary",
       class: {
         base: "bg-secondary-100/40 text-secondary-400",
+        closeButton:
+          "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
       },
     },
     {
-      variant: "faded",
+      variant: "flat",
       color: "success",
       class: {
         base: "bg-success-100/40 text-success-400",
+        closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
       },
     },
     {
-      variant: "faded",
+      variant: "flat",
       color: "warning",
       class: {
         base: "bg-warning-100/40 text-warning-400",
+        closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
       },
     },
     {
-      variant: "faded",
+      variant: "flat",
       color: "danger",
       class: {
         base: "bg-danger-100/40 text-danger-400",
+        closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
       },
     },
     // faded and color
@@ -158,8 +176,7 @@ const toast = tv({
       color: "primary",
       class: {
         base: "border-primary-400 text-primary-400",
-        closeButton:
-          "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
       },
     },
     {

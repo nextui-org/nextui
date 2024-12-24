@@ -2,8 +2,7 @@ import {forwardRef} from "@nextui-org/system";
 import {Button, ButtonProps} from "@nextui-org/button";
 import {CloseIcon} from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
-
-import {Progress} from "../../../core/react/src";
+import {Progress} from "@nextui-org/progress";
 
 import {UseToastProps, useToast} from "./use-toast";
 

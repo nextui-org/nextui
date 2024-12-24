@@ -27,7 +27,7 @@ export const ToastProvider = ({maxVisibleToasts = 5}: ToastProviderProps) => {
     return null;
   }
 
-  return <>{<ToastRegion toastQueue={toastQueue} />}</>;
+  return <ToastRegion toastQueue={toastQueue} />;
 };
 
 export const addToast = ({
