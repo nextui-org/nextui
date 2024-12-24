@@ -1,5 +1,11 @@
 # @nextui-org/drawer
 
+## 2.2.7
+
+### Patch Changes
+
+- [#4438](https://github.com/nextui-org/nextui/pull/4438) [`07780a7`](https://github.com/nextui-org/nextui/commit/07780a75a2747405e16af99c1692aef496f54175) Thanks [@wingkwong](https://github.com/wingkwong)! - use top-level type-only import instead of inline type specifiers
+
 ## 2.2.6
 
 ### Patch Changes
