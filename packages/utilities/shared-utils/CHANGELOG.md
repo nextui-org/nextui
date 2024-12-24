@@ -1,5 +1,13 @@
 # @nextui-org/shared-utils
 
+## 2.1.2
+
+### Patch Changes
+
+- [#4327](https://github.com/nextui-org/nextui/pull/4327) [`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10) Thanks [@s524797336](https://github.com/s524797336)! - fix process is not defined
+
+- [#4411](https://github.com/nextui-org/nextui/pull/4411) [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31) Thanks [@macci001](https://github.com/macci001)! - Fix virtual keyboard to display the keys based on allowedKeys(#4408)
+
 ## 2.1.1
 
 ### Patch Changes

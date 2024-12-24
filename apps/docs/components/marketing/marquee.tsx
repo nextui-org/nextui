@@ -9,6 +9,7 @@ import {cn} from "@nextui-org/react";
 
 interface MarqueeProps {
   className?: string;
+  wrapperClassName?: string;
   reverse?: boolean;
   shadow?: boolean;
   duration?: number;
@@ -20,6 +21,7 @@ interface MarqueeProps {
 
 export const Marquee = ({
   className,
+  wrapperClassName,
   reverse,
   duration = 40,
   shadow = false,
@@ -59,14 +61,18 @@ export const Marquee = ({
       }}
     >
       <div
-        className={cn("flex w-max items-stretch gap-[--gap]", {
-          "flex-col": vertical,
-          "h-full": vertical,
-          "animate-scrolling-banner": !vertical,
-          "animate-scrolling-banner-vertical": vertical,
-          "[animation-direction:reverse]": reverse,
-          "hover:[animation-play-state:paused]": pauseOnHover,
-        })}
+        className={cn(
+          "flex w-max items-stretch gap-[--gap]",
+          {
+            "flex-col": vertical,
+            "h-full": vertical,
+            "animate-scrolling-banner": !vertical,
+            "animate-scrolling-banner-vertical": vertical,
+            "[animation-direction:reverse]": reverse,
+            "hover:[animation-play-state:paused]": pauseOnHover,
+          },
+          wrapperClassName,
+        )}
       >
         {Children.map(children, (child) =>
           child && typeof child === "object" && "type" in child ? cloneElement(child) : child,

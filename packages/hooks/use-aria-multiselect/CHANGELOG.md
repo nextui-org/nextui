@@ -1,5 +1,12 @@
 # @nextui-org/use-aria-multiselect
 
+## 2.4.3
+
+### Patch Changes
+
+- [#4427](https://github.com/nextui-org/nextui/pull/4427) [`f7e1b17`](https://github.com/nextui-org/nextui/commit/f7e1b17c40f448670cc6feda6c6c90d1195ac724) Thanks [@Peterl561](https://github.com/Peterl561)! - fixed validationBehavior=native showing browser ui error for select component (#3913)
+  fixed select not committing error message when validationBehavior=native
+
 ## 2.4.2
 
 ### Patch Changes

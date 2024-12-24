@@ -327,6 +327,10 @@ module.exports = {
           from: {transform: "translateY(0)"},
           to: {transform: "translateY(calc(-50% - var(--gap)/2))"},
         },
+        fadeIn: {
+          "0%": { opacity: 0 },
+          "100%": { opacity: 1 },
+        },
       },
       animation: {
         heartbeat: "heartbeat 1s ease-in-out infinite",
@@ -336,6 +340,7 @@ module.exports = {
         "text-gradient": "text-gradient 4s linear 0s infinite normal forwards running",
         "scrolling-banner": "scrolling-banner var(--duration) linear infinite",
         "scrolling-banner-vertical": "scrolling-banner-vertical var(--duration) linear infinite",
+        fadeIn: "fadeIn 0.5s ease-in-out forwards",
       },
       maxWidth: {
         "8xl": "90rem", // 1440px

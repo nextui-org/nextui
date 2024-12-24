@@ -34,6 +34,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "nextui.org",
       },
+      {
+        protocol: "https",
+        hostname: "heroui-assets.nyc3.cdn.digitaloceanspaces.com",
+      },
     ],
   },
 };
