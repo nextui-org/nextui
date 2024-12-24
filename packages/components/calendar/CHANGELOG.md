@@ -1,5 +1,38 @@
 # @nextui-org/calendar
 
+
+## 2.3.0
+
+### Minor Changes
+
+- [`0218de1`](https://github.com/nextui-org/nextui/commit/0218de16f0831a7fee14065352b3284aa52c39c3) Thanks [@1amageek](https://github.com/1amageek)! - Added support for custom cell content rendering in Calendar components:
+  - Added `children` prop to both `Calendar` and `RangeCalendar`
+  - `children` can be either a render function `(date: CalendarDate) => ReactNode` or a `ReactNode`
+  - Allows full customization of calendar cell content
+
+  Example usage:
+  1. Full Custom Rendering - Complete control over cell content:
+```tsx
+  <Calendar>
+    {(date) => (
+      <div>
+        <span>{date.day}</span>
+        {isHoliday(date) && <span>🎉</span>}
+      </div>
+    )}
+  </Calendar>
+```
+  2. Content Extension - Using built-in components with custom content:
+```tsx
+  <Calendar>
+    {(date) => (
+      <CalendarCellContent>
+        <CalendarCellHeader />
+        <CalendarCellBody>Custom content</CalendarCellBody>
+      </CalendarCellContent>
+    )}
+  </Calendar>
+```
 ## 2.2.8
 
 ### Patch Changes
@@ -55,6 +88,7 @@
 - Updated dependencies [[`6a94a12`](https://github.com/nextui-org/nextui/commit/6a94a125d4836b0a18d9cd2cb521c85a6bfa9050)]:
   - @nextui-org/button@2.2.3
   - @nextui-org/framer-utils@2.1.3
+
 
 ## 2.2.2
 

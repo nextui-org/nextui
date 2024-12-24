@@ -82,6 +82,12 @@ interface Props extends NextUIBaseProps {
    */
   onHeaderExpandedChange?: (isExpanded: boolean) => void;
   /**
+   * Function to custom render the content of the calendar cell
+   * @param date The date to render
+   * @returns ReactNode
+   */
+  cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
+  /**
    * This function helps to reduce the bundle size by providing a custom calendar system.
    *
    * In the example above, the createCalendar function from the `@internationalized/date` package
@@ -181,6 +187,7 @@ export type ContextType<T extends CalendarState | RangeCalendarState> = {
   setIsHeaderExpanded?: (isExpanded: boolean) => void;
   classNames?: SlotsToClasses<CalendarSlots>;
   disableAnimation?: boolean;
+  cellContent?: ((date: CalendarDate) => React.ReactNode) | React.ReactNode;
 };
 
 export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
@@ -200,7 +207,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
   const {
     ref,
     as,
-    children,
     className,
     topContent,
     bottomContent,
@@ -315,7 +321,6 @@ export function useCalendarBase(originalProps: UseCalendarBasePropsComplete) {
 
   return {
     Component,
-    children,
     domRef,
     slots,
     locale,
