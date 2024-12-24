@@ -386,6 +386,15 @@ export const Default = {
   },
 };
 
+export const HorizontalStepper = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    steps: "horizontal",
+  },
+};
+
 export const Required = {
   render: FormTemplate,
 
