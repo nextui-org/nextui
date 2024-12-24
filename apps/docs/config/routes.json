@@ -326,6 +326,13 @@
           "path": "/docs/components/navbar.mdx"
         },
         {
+          "key": "number-field",
+          "title": "NumberField",
+          "keywords": "input, numeric input, number field",
+          "path": "/docs/components/number-field.mdx",
+          "newPost": true
+        },
+        {
           "key": "pagination",
           "title": "Pagination",
           "keywords": "pagination, page navigation, content division, browsing control",
