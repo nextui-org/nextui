@@ -72,10 +72,12 @@ export function useImage(props: UseImageProps = {}) {
 
   const imageRef = useRef<HTMLImageElement | null>(isHydrated ? new Image() : null);
 
-  const [status, setStatus] = useState<Status>(() => setImageAndGetInitialStatus(props, imageRef));
+  const [status, setStatus] = useState<Status>(() =>
+    isHydrated ? setImageAndGetInitialStatus(props, imageRef) : "pending",
+  );
 
   useSafeLayoutEffect(() => {
-    if (isHydrated) {
+    if (!isHydrated) {
       return;
     }
 
