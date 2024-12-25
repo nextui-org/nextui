@@ -6,7 +6,6 @@ import type {ImgHTMLAttributes, SyntheticEvent} from "react";
 
 import {useRef, useState, useEffect, MutableRefObject} from "react";
 import {useIsHydrated} from "@nextui-org/react-utils";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
 type NativeImageProps = ImgHTMLAttributes<HTMLImageElement>;
 
@@ -66,7 +65,7 @@ type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
  */
 
 export function useImage(props: UseImageProps = {}) {
-  const {loading, src, srcSet, onLoad, onError, crossOrigin, sizes, ignoreFallback} = props;
+  const {onLoad, onError, ignoreFallback} = props;
 
   const isHydrated = useIsHydrated();
 
@@ -75,18 +74,6 @@ export function useImage(props: UseImageProps = {}) {
   const [status, setStatus] = useState<Status>(() =>
     isHydrated ? setImageAndGetInitialStatus(props, imageRef) : "pending",
   );
-
-  useSafeLayoutEffect(() => {
-    if (!isHydrated) {
-      return;
-    }
-
-    setStatus(setImageAndGetInitialStatus(props, imageRef));
-
-    return () => {
-      flush();
-    };
-  }, [src, crossOrigin, srcSet, sizes, loading]);
 
   useEffect(() => {
     if (!imageRef.current) return;
