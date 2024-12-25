@@ -1,20 +1,36 @@
 import {forwardRef} from "@nextui-org/system";
 import {Button, ButtonProps} from "@nextui-org/button";
-import {CloseIcon} from "@nextui-org/shared-icons";
+import {
+  CloseIcon,
+  DangerIcon,
+  InfoFilledIcon,
+  SuccessIcon,
+  WarningIcon,
+} from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
 import {Progress} from "@nextui-org/progress";
+import {cloneElement, isValidElement} from "react";
 
 import {UseToastProps, useToast} from "./use-toast";
 
 export interface ToastProps extends UseToastProps {}
 
+const iconMap = {
+  primary: InfoFilledIcon,
+  secondary: InfoFilledIcon,
+  success: SuccessIcon,
+  warning: WarningIcon,
+  danger: DangerIcon,
+} as const;
+
 const Toast = forwardRef<"div", ToastProps>((props, ref) => {
   const {
     Component,
-    Icon,
+    icon,
     domRef,
     endContent,
     closeProgressBarValue,
+    color,
     getToastProps,
     getContentProps,
     getTitleProps,
@@ -33,6 +49,9 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     exit: {opacity: 0, y: 50},
   };
 
+  const customIcon = icon && isValidElement(icon) ? cloneElement(icon, getIconProps()) : null;
+  const IconComponent = iconMap[color] || iconMap.primary;
+
   return (
     <AnimatePresence>
       <motion.div
@@ -44,7 +63,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
       >
         <Component ref={domRef} {...getToastProps()}>
           <main {...getContentProps()}>
-            <Icon {...getIconProps()} />
+            {customIcon || <IconComponent {...getIconProps()} />}
             <div>
               <div {...getTitleProps()}>{props.toast.content.title}</div>
               <div {...getDescriptionProps()}>{props.toast.content.description}</div>

@@ -15,8 +15,7 @@ const toast = tv({
       "justify-center",
     ],
     base: [
-      "flex",
-      "flex-col",
+      "flex gap-x-4 items-center",
       "relative",
       "bg-white",
       "z-50",
@@ -32,7 +31,7 @@ const toast = tv({
       "text-white",
       "shadow-inner",
     ],
-    icon: ["w-6 h-6"],
+    icon: ["w-6 h-6 fill-current"],
     content: ["flex flex-grow flex-row gap-x-1 items-center"],
     title: ["font-medium", "ms-4"],
     description: ["font-light", "ms-4"],
@@ -53,7 +52,15 @@ const toast = tv({
   },
   variants: {
     size: {
-      xs: "",
+      sm: {
+        icon: "w-4 h-4",
+      },
+      md: {
+        icon: "w-6 h-6",
+      },
+      lg: {
+        icon: "w-8 h-8",
+      },
     },
     variant: {
       flat: "bg-default",
@@ -79,11 +86,28 @@ const toast = tv({
         progressTrack: "bg-danger-200",
       },
     },
-    position: {},
+    radius: {
+      none: {
+        base: "rounded-none",
+      },
+      sm: {
+        base: "rounded-small",
+      },
+      md: {
+        base: "rounded-medium",
+      },
+      lg: {
+        base: "rounded-large",
+      },
+      full: {
+        base: "rounded-full",
+      },
+    },
   },
   defaultVariants: {
-    size: "xs",
+    size: "sm",
     variant: "flat",
+    radius: "none",
   },
   compoundVariants: [
     // flat and color

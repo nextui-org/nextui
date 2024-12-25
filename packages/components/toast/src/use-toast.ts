@@ -8,33 +8,26 @@ import {ReactNode, useCallback, useEffect, useMemo, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
-import {InfoFilledIcon} from "@nextui-org/shared-icons";
 
-export type ToastType = {
-  title: string;
-  description: string;
-  config: ToastVariantProps;
-};
-
-interface Props<T> extends HTMLNextUIProps<"div"> {
-  /**
-   * Ref to the DOM node.
-   */
+export interface ToastProps extends ToastVariantProps {
   ref?: ReactRef<HTMLElement | null>;
-  toast: QueuedToast<T>;
-  state: ToastState<T>;
+  title?: string;
+  description?: string;
   classNames?: SlotsToClasses<ToastSlots>;
-  /**
-   * Content to be displayed in the end side of the alert
-   */
   endContent?: ReactNode;
+  icon?: ReactNode;
 }
 
-export type UseToastProps<T = ToastType> = Props<T> &
+interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
+  toast: QueuedToast<T>;
+  state: ToastState<T>;
+}
+
+export type UseToastProps<T = ToastProps> = Props<T> &
   ToastVariantProps &
   Omit<AriaToastProps<T>, "div">;
 
-export function useToast<T extends ToastType>(originalProps: UseToastProps<T>) {
+export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, toastTheme.variantKeys);
 
   const [closeProgressBarValue, setCloseProgressBarValue] = useState(0);
@@ -56,7 +49,7 @@ export function useToast<T extends ToastType>(originalProps: UseToastProps<T>) {
   const {ref, as, className, classNames, toast, endContent, ...otherProps} = props;
 
   const Component = as || "div";
-  let Icon = InfoFilledIcon;
+  const icon: ReactNode = props.icon;
 
   const domRef = useDOMRef(ref);
   const baseStyles = clsx(className, classNames?.base);
@@ -108,7 +101,7 @@ export function useToast<T extends ToastType>(originalProps: UseToastProps<T>) {
 
   const getIconProps: PropGetter = useCallback(
     (props = {}) => ({
-      className: slots.content({class: classNames?.icon}),
+      className: slots.icon({class: classNames?.icon}),
       ...props,
     }),
     [],
@@ -166,11 +159,12 @@ export function useToast<T extends ToastType>(originalProps: UseToastProps<T>) {
 
   return {
     Component,
-    Icon,
+    icon,
     styles,
     domRef,
     classNames,
     closeProgressBarValue,
+    color: variantProps["color"],
     getToastProps,
     getTitleProps,
     getContentProps,
