@@ -31,6 +31,8 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     endContent,
     closeProgressBarValue,
     color,
+    hideIcon,
+    position,
     getToastProps,
     getContentProps,
     getTitleProps,
@@ -43,11 +45,17 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     ref,
   });
 
-  const toastVariants = {
-    hidden: {opacity: 0, y: 50},
-    visible: {opacity: 1, y: 0},
-    exit: {opacity: 0, y: 50},
-  };
+  const toastVariants = position.includes("bottom")
+    ? {
+        hidden: {opacity: 0, y: 50},
+        visible: {opacity: 1, y: 0},
+        exit: {opacity: 0, y: 50},
+      }
+    : {
+        hidden: {opacity: 0, y: -50},
+        visible: {opacity: 1, y: 0},
+        exit: {opacity: 0, y: -50},
+      };
 
   const customIcon = icon && isValidElement(icon) ? cloneElement(icon, getIconProps()) : null;
   const IconComponent = iconMap[color] || iconMap.primary;
@@ -63,7 +71,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
       >
         <Component ref={domRef} {...getToastProps()}>
           <main {...getContentProps()}>
-            {customIcon || <IconComponent {...getIconProps()} />}
+            {!hideIcon ? customIcon || <IconComponent {...getIconProps()} /> : null}
             <div>
               <div {...getTitleProps()}>{props.toast.content.title}</div>
               <div {...getDescriptionProps()}>{props.toast.content.description}</div>

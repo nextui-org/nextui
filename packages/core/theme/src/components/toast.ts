@@ -4,22 +4,10 @@ import {tv} from "../utils/tv";
 
 const toast = tv({
   slots: {
-    wrapper: [
-      "flex",
-      "w-screen",
-      "min-h-10",
-      "fixed",
-      "inset-0",
-      "z-50",
-      "overflow-x-auto",
-      "justify-center",
-    ],
     base: [
       "flex gap-x-4 items-center",
       "relative",
-      "bg-white",
-      "z-50",
-      "w-full",
+      "z-500",
       "box-border",
       "outline-none",
       "p-2 px-4 mx-1",
@@ -31,10 +19,10 @@ const toast = tv({
       "text-white",
       "shadow-inner",
     ],
-    icon: ["w-6 h-6 fill-current"],
-    content: ["flex flex-grow flex-row gap-x-1 items-center"],
     title: ["font-medium", "ms-4"],
     description: ["font-light", "ms-4"],
+    icon: ["w-6 h-6 fill-current"],
+    content: ["flex flex-grow flex-row gap-x-1 items-center"],
     progressBar: [
       "absolute",
       "h-[2px]",

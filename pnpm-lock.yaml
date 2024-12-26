@@ -3278,6 +3278,9 @@ importers:
       '@nextui-org/theme':
         specifier: workspace:*
         version: link:../theme
+      '@nextui-org/toast':
+        specifier: workspace:*
+        version: link:../../components/toast
       '@nextui-org/tooltip':
         specifier: workspace:*
         version: link:../../components/tooltip

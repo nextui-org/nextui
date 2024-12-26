@@ -1,0 +1,263 @@
+---
+title: "Toast"
+description: "Toast are temporary notifications that provide concise feedback about an action or event."
+---
+
+import {toastContent} from "@/content/components/toast";
+
+# Toast
+
+Toasts are temporary notifications that provide concise feedback about an action or event.
+
+<ComponentLinks component="toast" />
+
+---
+
+<CarbonAd />
+
+## Installation
+
+<PackageManagers
+  showGlobalInstallWarning
+  commands={{
+    cli: "npx nextui-cli@latest add toast",
+    npm: "npm install @nextui-org/toast",
+    yarn: "yarn add @nextui-org/toast",
+    pnpm: "pnpm add @nextui-org/toast",
+    bun: "bun add @nextui-org/toast",
+  }}
+/>
+
+## Import
+
+<ImportTabs
+  commands={{
+    main: 'import {addToast, ToastProvider} from "@nextui-org/react";',
+    individual: 'import {addToast, ToastProvider} from "@nextui-org/toast";',
+  }}
+/>
+
+> **Note**: Before using the addToast function, ensure you have added `ToastProvider` to your application (or the relevant part of it). This is necessary to initialize the context for managing toasts.
+
+### Usage
+
+<CodeDemo
+  asIframe
+  title="Usage"
+  previewHeight="300px"
+  iframeSrc="/examples/toast/usage"
+  files={toastContent.usage}
+/>
+
+### Colors
+
+Toast comes with 6 color variants to convey different meanings.
+
+<CodeDemo
+  asIframe
+  title="Color"
+  previewHeight="600px"
+  iframeSrc="/examples/toast/color"
+  files={toastContent.color}
+/>
+
+### Variants
+
+<CodeDemo
+  asIframe
+  title="Variants"
+  previewHeight="500px"
+  iframeSrc="/examples/toast/variant"
+  files={toastContent.variants}
+/>
+
+### Radius
+
+<CodeDemo
+  asIframe
+  title="Radius"
+  previewHeight="600px"
+  iframeSrc="/examples/toast/radius"
+  files={toastContent.radius}
+/>
+
+### Custom Icon
+
+By default, Toast displays an appropriate icon based on the `color` prop. You can override this by providing a custom icon using the `icon` prop.
+
+<CodeDemo
+  asIframe
+  title="Custom Icon"
+  previewHeight="600px"
+  iframeSrc="/examples/toast/custom-icon"
+  files={toastContent.customIcon}
+/>
+
+### Without Icon
+
+You can hide the icon by setting the `hideIcon` prop to `true`.
+
+<CodeDemo
+  asIframe
+  title="Without Icon"
+  previewHeight="350px"
+  iframeSrc="/examples/toast/hidden-icon"
+  files={toastContent.hiddenIcon}
+/>
+
+### With Action
+
+Toast supports an `endContent` prop for additional actions.
+
+<CodeDemo
+  asIframe
+  title="With Action"
+  previewHeight="350px"
+  iframeSrc="/examples/toast/with-action"
+  files={toastContent.withAction}
+/>
+
+### Toast Position
+
+<CodeDemo
+  asIframe
+  title="Position"
+  previewHeight="400px"
+  iframeSrc="/examples/toast/position"
+  files={toastContent.position}
+/>
+
+### Custom Styles
+
+You can customize the alert by passing custom Tailwind CSS classes to the component slots.
+
+<CodeDemo
+  asIframe
+  title="Custom Style"
+  previewHeight="350px"
+  iframeSrc="/examples/toast/custom-style"
+  files={toastContent.customStyles}
+/>
+
+<Spacer y={4} />
+
+## Data Attributes
+
+Toast has the following attributes on the `base` element:
+
+- **data-has-title**: When the toast has a title
+- **data-has-description**: When the toast has a description
+
+<Spacer y={4} />
+
+### Slots
+
+Toast has the following slots:
+
+- `base`: The main toast container element
+- `title`: The title element
+- `description`: The description element
+- `icon`: The icon element
+- `content`: The wrapper for the title, description and icon content
+- `progressBar`: The progressBar element that display timer to close the toast.
+- `progressTrack`: The track of the progressBar.
+- `closeButton`: The close button element
+
+## Accessibility
+
+- Toast has role of `alert`
+- All Toasts are present in ToastRegion.
+- Close button has aria-label="Close" by default
+- When no toast are present, ToastRegion is removed from the DOM
+
+<Spacer y={4} />
+
+## API
+
+### Toast Props
+
+<APITable
+  data={[
+    {
+      attribute: "title",
+      type: "string",
+      description: "The alert title",
+      default: "-"
+    },
+    {
+      attribute: "icon", 
+      type: "ReactNode",
+      description: "The alert icon - overrides the default icon",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode", 
+      description: "The alert description",
+      default: "-"
+    },
+    {
+      attribute: "color",
+      type: "default | primary | secondary | success | warning | danger",
+      description: "The alert color theme",
+      default: "default"
+    },
+    {
+      attribute: "variant",
+      type: "solid | bordered | flat | faded",
+      description: "The alert variant",
+      default: "flat"
+    },
+    {
+      attribute: "radius",
+      type: "none | sm | md | lg | full",
+      description: "The alert border radius",
+      default: "md"
+    },
+    {
+      attribute: "endContent",
+      type: "ReactNode",
+      description: "The alert end content", 
+      default: "-"
+    },
+    {
+      attribute: "hideIcon",
+      type: "boolean",
+      description: "Whether the icon is hidden",
+      default: "false"
+    },
+  ]}
+/>
+
+### ToastProvider Props
+
+<APITable
+  data={[
+    {
+      attribute: "maxVisibleToasts",
+      type: "number",
+      description: "Maximum toasts which will be visible",
+      default: "5"
+    },
+    {
+      attribute: "position", 
+      type: "right-bottom" | "left-bottom" | "center-bottom" | "right-top" | "left-top" | "center-top",
+      description: "The position where the toast should appear.",
+      default: "right-bottom"
+    },
+  ]}
+/>
+
+
+### Toast Events
+
+<APITable
+  data={[
+    {
+      attribute: "onClose",
+      type: "() => void",
+      description: "Handler called when the close button is clicked",
+      default: "-"
+    }
+  ]}
+/>

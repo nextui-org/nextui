@@ -30,29 +30,45 @@ export default {
         type: "boolean",
       },
     },
+    hideIcon: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
+  decorators: [
+    (Story) => (
+      <div className="flex justify-start items-start w-screen h-screen">
+        <Story />
+      </div>
+    ),
+  ],
 } as Meta<typeof Toast>;
 
 const defaultProps = {
   ...toast.defaultVariants,
 };
 
-const Template = (args: ToastProps) => (
-  <>
-    <ToastProvider {...args} />
-    <Button
-      onPress={() => {
-        addToast({
-          title: "Toast Title",
-          description: "Toast description",
-          ...args,
-        });
-      }}
-    >
-      Toast
-    </Button>
-  </>
-);
+const Template = (args: ToastProps) => {
+  return (
+    <>
+      <ToastProvider />
+      <div>
+        <Button
+          onPress={() => {
+            addToast({
+              title: "Toast Title",
+              description: "Toast Displayed Successfully",
+              ...args,
+            });
+          }}
+        >
+          Show toast
+        </Button>
+      </div>
+    </>
+  );
+};
 
 const TimeoutTemplate = (args: ToastProps) => {
   return (
