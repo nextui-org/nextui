@@ -1,6 +1,11 @@
 import type {SlotsToClasses, ToastSlots, ToastVariantProps} from "@nextui-org/theme";
 
-import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
+import {
+  HTMLNextUIProps,
+  PropGetter,
+  mapPropsVariants,
+  useProviderContext,
+} from "@nextui-org/system";
 import {toast as toastTheme} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
@@ -10,13 +15,57 @@ import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
 
 export interface ToastProps extends ToastVariantProps {
+  /**
+   * Ref to the DOM node.
+   */
   ref?: ReactRef<HTMLElement | null>;
+  /**
+   * title of the toast
+   */
   title?: string;
+  /**
+   * description of the toast
+   */
   description?: string;
+  /**
+   * Classname or List of classes to change the classNames of the element.
+   * if `className` is passed, it will be added to the base slot.
+   *
+   * @example
+   * ```ts
+   * addToast({
+   *   classNames={{
+   *    base:"base-classes",
+   *    content: "content-classes"
+   *    description: "description-classes"
+   *    title: "title-classes"
+   *    icon: "icon-classes",
+   *    progressBar: "progress-bar-classes",
+   *    progressTrack: "progress-track-classes",
+   *    progressIndicator: "progress-indicator-classes",
+   *    closeButton: "closeButton-classes"
+   *    closeIcon: "closeIcon-classes"
+   * }}
+   * })
+   * ```
+   */
   classNames?: SlotsToClasses<ToastSlots>;
+  /**
+   * Content to be displayed in the end side of the alert
+   */
   endContent?: ReactNode;
+  /**
+   * Icon to be displayed in the alert - overrides the default icon
+   */
   icon?: ReactNode;
+  /**
+   * Whether the toast-icon is hidden.
+   * @default false
+   */
   hideIcon?: boolean;
+  /**
+   * Position of the toast in the view-port.
+   */
   position?:
     | "right-bottom"
     | "left-bottom"
@@ -24,6 +73,9 @@ export interface ToastProps extends ToastVariantProps {
     | "right-top"
     | "left-top"
     | "center-top";
+  /**
+   * function which is called when toast is closed.
+   */
   onClose?: () => void;
 }
 
@@ -37,14 +89,17 @@ export type UseToastProps<T = ToastProps> = Props<T> &
   Omit<AriaToastProps<T>, "div">;
 
 export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) {
+  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, toastTheme.variantKeys);
 
   const [closeProgressBarValue, setCloseProgressBarValue] = useState(0);
-  const [isToastClicked, setIsToastClicked] = useState(false);
+  const [isToastHovered, setIsToastHovered] = useState(false);
+  const disableAnimation =
+    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
   useEffect(() => {
     const interval = setInterval(async () => {
-      if (isToastClicked) {
+      if (isToastHovered) {
         return;
       }
       setCloseProgressBarValue(closeProgressBarValue + 10);
@@ -66,6 +121,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     endContent,
     hideIcon = false,
     position = "right-bottom",
+    state,
     ...otherProps
   } = props;
 
@@ -80,19 +136,11 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     domRef,
   );
 
-  const styles = useMemo(
-    () =>
-      toastTheme({
-        ...variantProps,
-        className,
-      }),
-    [objectToDeps(variantProps), className],
-  );
-
   const slots = useMemo(
     () =>
       toastTheme({
         ...variantProps,
+        disableAnimation,
       }),
     [objectToDeps(variantProps)],
   );
@@ -101,18 +149,18 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     (props = {}) => ({
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, classNames?.base)}),
-      onMouseDown: () => {
+      onMouseEnter: () => {
         if (!toast.timer) {
           return;
         }
-        setIsToastClicked(true);
+        setIsToastHovered(true);
         toast.timer.pause();
       },
-      onMouseUp: () => {
+      onMouseLeave: () => {
         if (!toast.timer) {
           return;
         }
-        setIsToastClicked(false);
+        setIsToastHovered(false);
         toast.timer.resume();
       },
       "data-has-title": dataAttr(!isEmpty(title)),
@@ -167,7 +215,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const progressBarProps = {
     classNames: {
       track: slots.progressTrack({class: clsx(classNames?.progressTrack)}),
-      indicator: "bg-default-600",
+      indicator: slots.progressIndicator({class: clsx(classNames?.progressIndicator)}),
     },
     radius: "none",
     isDisabled: true,
@@ -186,13 +234,15 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     title,
     description,
     icon,
-    styles,
     domRef,
     classNames,
     closeProgressBarValue,
     color: variantProps["color"],
     hideIcon,
     position,
+    state,
+    toast: props.toast,
+    disableAnimation,
     getToastProps,
     getTitleProps,
     getContentProps,

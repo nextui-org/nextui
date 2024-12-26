@@ -117,6 +117,18 @@ Toast supports an `endContent` prop for additional actions.
   files={toastContent.withAction}
 />
 
+### With Timeout
+
+Toast supports an `endContent` prop for additional actions.
+
+<CodeDemo
+  asIframe
+  title="With Timeout"
+  previewHeight="350px"
+  iframeSrc="/examples/toast/with-timeout"
+  files={toastContent.withTimeout}
+/>
+
 ### Toast Position
 
 <CodeDemo
@@ -161,6 +173,7 @@ Toast has the following slots:
 - `content`: The wrapper for the title, description and icon content
 - `progressBar`: The progressBar element that display timer to close the toast.
 - `progressTrack`: The track of the progressBar.
+- `progressIndicator`: The indicator of the progressBar.
 - `closeButton`: The close button element
 
 ## Accessibility
@@ -219,6 +232,18 @@ Toast has the following slots:
       type: "ReactNode",
       description: "The alert end content", 
       default: "-"
+    },
+    {
+      attribute: "timeout",
+      type: "number | undefined",
+      description: "Time in milliseconds after which the toast will be closed", 
+      default: "undefined"
+    },
+    {
+      attribute: "priority",
+      type: "number | undefined",
+      description: "Priority at which the toast will be displayed",
+      default: "undefined",
     },
     {
       attribute: "hideIcon",

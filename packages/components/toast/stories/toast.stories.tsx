@@ -35,6 +35,22 @@ export default {
         type: "boolean",
       },
     },
+    disableAnimation: {
+      control: {
+        type: "boolean",
+      },
+    },
+    position: {
+      control: {type: "select"},
+      options: [
+        "right-bottom",
+        "left-bottom",
+        "center-bottom",
+        "right-top",
+        "left-top",
+        "center-top",
+      ],
+    },
   },
   decorators: [
     (Story) => (
@@ -116,6 +132,27 @@ const WithEndContentTemplate = (args) => {
   );
 };
 
+const PositionTemplate = (args: ToastProps) => {
+  return (
+    <>
+      <ToastProvider position={args.position} />
+      <div>
+        <Button
+          onPress={() => {
+            addToast({
+              title: "Toast Title",
+              description: "Toast Displayed Successfully",
+              ...args,
+            });
+          }}
+        >
+          Show toast
+        </Button>
+      </div>
+    </>
+  );
+};
+
 const CustomToastComponent = (args) => {
   const color = args.color;
   const colorMap = {
@@ -191,7 +228,7 @@ export const Default = {
   },
 };
 
-export const WithIcon = {
+export const WithCustomIcon = {
   render: Template,
   args: {
     ...defaultProps,
@@ -217,8 +254,23 @@ export const WithIcon = {
   },
 };
 
+export const iconHidden = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    hideIcon: true,
+  },
+};
+
 export const WithTimeout = {
   render: TimeoutTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Position = {
+  render: PositionTemplate,
   args: {
     ...defaultProps,
   },
