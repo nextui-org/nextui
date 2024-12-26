@@ -3,7 +3,7 @@ import type {SlotsToClasses, ToastSlots, ToastVariantProps} from "@nextui-org/th
 import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
 import {toast as toastTheme} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactNode, useCallback, useEffect, useMemo, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
@@ -16,6 +16,15 @@ export interface ToastProps extends ToastVariantProps {
   classNames?: SlotsToClasses<ToastSlots>;
   endContent?: ReactNode;
   icon?: ReactNode;
+  hideIcon?: boolean;
+  position?:
+    | "right-bottom"
+    | "left-bottom"
+    | "center-bottom"
+    | "right-top"
+    | "left-top"
+    | "center-top";
+  onClose?: () => void;
 }
 
 interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
@@ -46,7 +55,19 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     };
   });
 
-  const {ref, as, className, classNames, toast, endContent, ...otherProps} = props;
+  const {
+    ref,
+    as,
+    title,
+    description,
+    className,
+    classNames,
+    toast,
+    endContent,
+    hideIcon = false,
+    position = "right-bottom",
+    ...otherProps
+  } = props;
 
   const Component = as || "div";
   const icon: ReactNode = props.icon;
@@ -94,6 +115,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
         setIsToastClicked(false);
         toast.timer.resume();
       },
+      "data-has-title": dataAttr(!isEmpty(title)),
+      "data-has-description": dataAttr(!isEmpty(description)),
       ...mergeProps(props, otherProps, toastProps),
     }),
     [slots, classNames, toastProps],
@@ -134,7 +157,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const getCloseButtonProps: PropGetter = useCallback(
     (props = {}) => ({
       className: slots.closeButton({class: classNames?.closeButton}),
-      ...mergeProps(props, otherProps, closeButtonProps),
+      "aria-label": "close-button",
+      ...mergeProps(props, otherProps, closeButtonProps, {onPress: props.onClose}),
     }),
     [closeButtonProps],
   );
@@ -159,12 +183,16 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
 
   return {
     Component,
+    title,
+    description,
     icon,
     styles,
     domRef,
     classNames,
     closeProgressBarValue,
     color: variantProps["color"],
+    hideIcon,
+    position,
     getToastProps,
     getTitleProps,
     getContentProps,

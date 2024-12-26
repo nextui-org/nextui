@@ -3281,6 +3281,9 @@ importers:
       '@heroui/theme':
         specifier: workspace:*
         version: link:../theme
+      '@heroui/toast':
+        specifier: workspace:*
+        version: link:../../components/toast
       '@heroui/tooltip':
         specifier: workspace:*
         version: link:../../components/tooltip
