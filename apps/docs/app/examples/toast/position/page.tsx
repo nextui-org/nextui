@@ -8,7 +8,6 @@ export default function App() {
       <div className="flex flex-wrap gap-x-2">
         <Button
           className="w-fit m-2"
-          variant={"bordered"}
           onPress={() =>
             addToast({
               title: "Toast title",

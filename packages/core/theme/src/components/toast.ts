@@ -6,11 +6,13 @@ const toast = tv({
   slots: {
     base: [
       "flex gap-x-4 items-center",
+      "group",
+      "cursor-pointer",
       "relative",
       "z-500",
       "box-border",
       "outline-none",
-      "p-2 px-4 mx-1",
+      "p-4 px-6 mx-1",
       "my-1",
       "sm:mx-4",
       "sm:my-4",
@@ -19,39 +21,45 @@ const toast = tv({
       "text-white",
       "shadow-inner",
     ],
-    title: ["font-medium", "ms-4"],
-    description: ["font-light", "ms-4"],
+    title: ["font-medium", "ms-4", "text-sm"],
+    description: ["font-light", "ms-4", "text-xs"],
     icon: ["w-6 h-6 fill-current"],
-    content: ["flex flex-grow flex-row gap-x-1 items-center"],
+    content: ["flex flex-grow flex-row gap-x-1 items-center relative"],
     progressBar: [
       "absolute",
       "h-[2px]",
       "right-0",
-      "bottom-0",
+      "-bottom-3",
       "w-full",
       "overflow-hidden",
-      "bg-green-500",
-      "rounded-none",
+      "rounded-full",
     ],
     progressTrack: ["bg-default-200"],
+    progressIndicator: ["bg-default-400"],
     closeButton: [
-      "w-4 h-4 min-w-4 p-0.5 absolute -right-1 -top-1 flex items-center justify-center bg-default-100 hover:bg-default-200 text-default-400 hover:text-default-600 border border-1 border-default-400",
+      "opacity-0 group-hover:opacity-100 w-4 h-4 min-w-4 p-0.5 absolute -right-1 -top-1 items-center justify-center bg-default-100 hover:bg-default-200 text-default-400 hover:text-default-600 border border-1 border-default-400",
     ],
   },
   variants: {
     size: {
       sm: {
         icon: "w-4 h-4",
+        title: "text-sm font-medium",
+        description: "text-xs font-light",
       },
       md: {
         icon: "w-6 h-6",
+        title: "text-sm font-semibold",
+        description: "text-xs font-light",
       },
       lg: {
         icon: "w-8 h-8",
+        title: "text-md font-semibold",
+        description: "text-sm font-light",
       },
     },
     variant: {
-      flat: "bg-default",
+      flat: "bg-default-50",
       faded: "bg-default border border-1 border-default-400",
       solid: "bg-default shadow-inner",
       bordered: "bg-white dark:bg-black border border-1 border-default-400",
@@ -60,18 +68,23 @@ const toast = tv({
       default: "",
       primary: {
         progressTrack: "bg-primary-200",
+        progressIndicator: "bg-primary-400",
       },
       secondary: {
         progressTrack: "bg-secondary-200",
+        progressIndicator: "bg-secondary-400",
       },
       success: {
         progressTrack: "bg-success-200",
+        progressIndicator: "bg-success-400",
       },
       warning: {
         progressTrack: "bg-warning-200",
+        progressIndicator: "bg-warning-400",
       },
       danger: {
         progressTrack: "bg-danger-200",
+        progressIndicator: "bg-danger-400",
       },
     },
     radius: {
@@ -91,11 +104,19 @@ const toast = tv({
         base: "rounded-full",
       },
     },
+    disableAnimation: {
+      true: {
+        closeButton: "transition-none",
+      },
+      false: {
+        closeButton: "transition-opacity ease-in duration-300",
+      },
+    },
   },
   defaultVariants: {
-    size: "sm",
+    size: "md",
     variant: "flat",
-    radius: "none",
+    radius: "md",
   },
   compoundVariants: [
     // flat and color

@@ -5,6 +5,7 @@ import customIcon from "./custom-icon";
 import hiddenIcon from "./hidden-icon";
 import withAction from "./with-action";
 import customStyles from "./custom-styles";
+import withTimeout from "./with-timeout";
 
 export const toastContent = {
   color,
@@ -14,4 +15,5 @@ export const toastContent = {
   hiddenIcon,
   withAction,
   customStyles,
+  withTimeout,
 };
