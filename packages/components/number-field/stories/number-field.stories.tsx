@@ -38,12 +38,6 @@ export default {
       },
       options: ["sm", "md", "lg"],
     },
-    labelPlacement: {
-      control: {
-        type: "select",
-      },
-      options: ["inside", "outside", "outside-left"],
-    },
     isDisabled: {
       control: {
         type: "boolean",
@@ -102,37 +96,6 @@ const ControlledTemplate = (args) => {
     </div>
   );
 };
-
-const LabelPlacementTemplate = (args) => (
-  <div className="w-full flex flex-col items-center gap-12">
-    <div className="flex flex-col gap-3">
-      <h3>Without placeholder</h3>
-      <div className="w-full max-w-xl flex flex-row items-end gap-4">
-        <NumberField {...args} description="inside" />
-        <NumberField {...args} description="outside" labelPlacement="outside" />
-        <NumberField {...args} description="outside-left" labelPlacement="outside-left" />
-      </div>
-    </div>
-    <div className="flex flex-col gap-3">
-      <h3>With placeholder</h3>
-      <div className="w-full max-w-xl flex flex-row items-end gap-4">
-        <NumberField {...args} description="inside" placeholder="Enter a number" />
-        <NumberField
-          {...args}
-          description="outside"
-          labelPlacement="outside"
-          placeholder="Enter a number"
-        />
-        <NumberField
-          {...args}
-          description="outside-left"
-          labelPlacement="outside-left"
-          placeholder="Enter a number"
-        />
-      </div>
-    </div>
-  </div>
-);
 
 const StartContentTemplate = (args) => (
   <div className="w-full max-w-[240px]">
@@ -222,7 +185,6 @@ const CustomWithClassNamesTemplate = (args) => (
         ],
       }}
       endContent={<div className="pointer-events-none flex items-center">€</div>}
-      labelPlacement="outside"
       placeholder="Enter the amount"
     />
   </div>
@@ -466,14 +428,6 @@ export const WithFormatOptions = {
   },
 };
 
-export const LabelPlacement = {
-  render: LabelPlacementTemplate,
-
-  args: {
-    ...defaultProps,
-  },
-};
-
 export const Clearable = {
   render: Template,
 
@@ -492,7 +446,6 @@ export const StartContent = {
   args: {
     ...defaultProps,
     variant: "bordered",
-    labelPlacement: "outside",
   },
 };
 
@@ -502,7 +455,6 @@ export const EndContent = {
   args: {
     ...defaultProps,
     variant: "bordered",
-    labelPlacement: "outside",
   },
 };
 
@@ -512,7 +464,6 @@ export const StartAndEndContent = {
   args: {
     ...defaultProps,
     variant: "bordered",
-    labelPlacement: "outside",
   },
 };
 
