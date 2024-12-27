@@ -46,6 +46,7 @@
     "@react-aria/button": "3.9.5",
     "@react-aria/toast": "3.0.0-beta.15",
     "@react-aria/utils": "3.24.1",
+    "@react-aria/interactions": "3.22.5",
     "@react-stately/toast": "3.0.0-beta.5"
   },
   "devDependencies": {

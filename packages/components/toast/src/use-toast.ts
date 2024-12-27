@@ -20,6 +20,18 @@ export interface ToastProps extends ToastVariantProps {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
+   * Index of the toast
+   */
+  index?: number;
+  /**
+   * Total number of the toasts
+   */
+  total?: number;
+  /**
+   * Is the region hovered
+   */
+  isRegionHovered?: boolean;
+  /**
    * title of the toast
    */
   title?: string;
@@ -50,11 +62,11 @@ export interface ToastProps extends ToastVariantProps {
    */
   classNames?: SlotsToClasses<ToastSlots>;
   /**
-   * Content to be displayed in the end side of the alert
+   * Content to be displayed in the end side of the toast
    */
   endContent?: ReactNode;
   /**
-   * Icon to be displayed in the alert - overrides the default icon
+   * Icon to be displayed in the toast - overrides the default icon
    */
   icon?: ReactNode;
   /**
@@ -154,7 +166,10 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     endContent,
     hideIcon = false,
     position = "right-bottom",
+    isRegionHovered,
     state,
+    total = 1,
+    index = 0,
     ...otherProps
   } = props;
 
@@ -258,6 +273,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     toast: props.toast,
     disableAnimation,
     isProgressBarVisible: !!props.toast.timeout,
+    total,
+    index,
     getToastProps,
     getTitleProps,
     getContentProps,
@@ -267,6 +284,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     progressBarRef,
     endContent,
     slots,
+    isRegionHovered,
   };
 }
 

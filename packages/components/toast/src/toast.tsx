@@ -8,7 +8,7 @@ import {
   WarningIcon,
 } from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
-import {cloneElement, isValidElement, useState} from "react";
+import {cloneElement, isValidElement, useEffect, useState} from "react";
 
 import {UseToastProps, useToast} from "./use-toast";
 
@@ -38,6 +38,9 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     classNames,
     slots,
     isProgressBarVisible,
+    total,
+    index,
+    isRegionHovered,
     getToastProps,
     getContentProps,
     getTitleProps,
@@ -48,6 +51,16 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     ...props,
     ref,
   });
+
+  const [toastHeight, setToastHeight] = useState(0);
+
+  useEffect(() => {
+    if (domRef.current) {
+      const {height} = domRef.current.getBoundingClientRect();
+
+      setToastHeight(height);
+    }
+  }, []);
 
   const toastVariants = position.includes("bottom")
     ? {
@@ -63,35 +76,19 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
 
   const customIcon = icon && isValidElement(icon) ? cloneElement(icon, getIconProps()) : null;
   const IconComponent = iconMap[color] || iconMap.primary;
-  const [isOut, setIsOut] = useState(false);
 
   const handleDragEnd = (offsetX: number, offsetY: number) => {
-    if (position.includes("right")) {
-      if (offsetX < 50) {
-        return;
-      }
-      setIsOut(true);
-      state.close(toast.key);
-    }
-    if (position.includes("left")) {
-      if (offsetX > -50) {
-        return;
-      }
-      setIsOut(true);
-      state.close(toast.key);
-    }
-    if (position == "center-top") {
-      if (offsetY > -50) {
-        return;
-      }
-      setIsOut(true);
-      state.close(toast.key);
-    }
-    if (position == "center-bottom") {
-      if (offsetY < 50) {
-        return;
-      }
-      setIsOut(true);
+    const isRight = position.includes("right");
+    const isLeft = position.includes("left");
+    const isTop = position === "center-top";
+    const isBottom = position === "center-bottom";
+
+    if (
+      (isRight && offsetX >= 50) ||
+      (isLeft && offsetX <= -50) ||
+      (isTop && offsetY <= -50) ||
+      (isBottom && offsetY >= 50)
+    ) {
       state.close(toast.key);
     }
   };
@@ -127,12 +124,19 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
       ) : (
         <AnimatePresence>
           <motion.div
-            animate={isOut ? {x: "100vw"} : "visible"}
+            animate={{
+              opacity: 1,
+              y: isRegionHovered
+                ? (1 + index - total) * (toastHeight + 5)
+                : 0 - (total - 1 - index) * 15,
+              scale: isRegionHovered ? 1 : 1 - (total - 1 - index) * 0.1,
+            }}
+            className="fixed bottom-0 right-0 transform -translate-x-1/2"
             drag={position.includes("center") ? "y" : "x"}
             dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
-            exit="exit"
-            initial="hidden"
-            transition={{duration: 0.5}}
+            exit={{opacity: 0, y: -100}}
+            initial={{opacity: 0, y: 50, scale: 1}}
+            transition={{duration: 0.5, ease: "easeOut"}}
             variants={toastVariants}
             onDragEnd={(_, info) => {
               const offsetX = info.offset.x;

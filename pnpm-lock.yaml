@@ -3011,6 +3011,9 @@ importers:
       '@react-aria/button':
         specifier: 3.9.5
         version: 3.9.5(react@18.2.0)
+      '@react-aria/interactions':
+        specifier: 3.22.5
+        version: 3.22.5(react@18.2.0)
       '@react-aria/toast':
         specifier: 3.0.0-beta.15
         version: 3.0.0-beta.15(react@18.2.0)
