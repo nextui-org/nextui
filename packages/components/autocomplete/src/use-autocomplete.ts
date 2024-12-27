@@ -433,12 +433,18 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }),
     } as ButtonProps);
 
+  // prevent use-input's useFormValidation hook from overwriting use-autocomplete's useFormValidation hook when there are uncommitted validation errors
+  const hasUncommittedValidation =
+    validationBehavior === "native" &&
+    state.displayValidation.isInvalid === false &&
+    state.realtimeValidation.isInvalid === true;
+
   const getInputProps = () =>
     ({
       ...otherProps,
       ...inputProps,
       ...slotsProps.inputProps,
-      isInvalid,
+      isInvalid: hasUncommittedValidation ? undefined : isInvalid,
       validationBehavior,
       errorMessage:
         typeof errorMessage === "function"
