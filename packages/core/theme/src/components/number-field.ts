@@ -23,10 +23,9 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  */
 const numberField = tv({
   slots: {
-    base: "group flex flex-col data-[hidden=true]:hidden",
+    base: "group flex flex-col data-[hidden=true]:hidden relative justify-end",
     label: [
       "absolute",
-      "z-10",
       "pointer-events-none",
       "origin-top-left",
       "flex-shrink-0",
@@ -36,8 +35,18 @@ const numberField = tv({
       "block",
       "text-small",
       "text-foreground-500",
+      "pb-0",
+      "z-20",
+      "top-1/2",
+      "-translate-y-1/2",
+      "group-data-[filled-within=true]:pointer-events-auto",
+      "group-data-[filled-within=true]:start-0",
+      "pe-2",
+      "max-w-full",
+      "text-ellipsis",
+      "overflow-hidden",
     ],
-    mainWrapper: "h-full",
+    mainWrapper: "h-full flex flex-col",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-4 py-3 gap-3",
     innerWrapper: "inline-flex w-full items-center h-full box-border",
@@ -136,18 +145,36 @@ const numberField = tv({
     },
     size: {
       sm: {
-        label: "text-tiny",
+        label: [
+          "start-2",
+          "text-tiny",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
         inputWrapper: "h-8 min-h-8 px-2 rounded-small",
         input: "text-small",
         clearButton: "text-medium",
       },
       md: {
+        label: [
+          "start-3",
+          "end-auto",
+          "text-small",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
         inputWrapper: "h-10 min-h-10 rounded-medium",
         input: "text-small",
         clearButton: "text-large",
       },
       lg: {
-        label: "text-medium",
+        label: [
+          "start-3",
+          "end-auto",
+          "text-medium",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
+        ],
+        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
         inputWrapper: "h-12 min-h-12 rounded-large",
         input: "text-medium",
         clearButton: "text-large",
@@ -168,16 +195,6 @@ const numberField = tv({
       },
       full: {
         inputWrapper: "rounded-full",
-      },
-    },
-    labelPlacement: {
-      outside: {
-        mainWrapper: "flex flex-col",
-      },
-      "outside-left": {
-        base: "flex-row items-center flex-nowrap data-[has-helper=true]:items-start",
-        mainWrapper: "flex flex-col",
-        label: "relative text-foreground pe-2 ps-2 pointer-events-auto",
       },
     },
     fullWidth: {
@@ -245,7 +262,6 @@ const numberField = tv({
     color: "default",
     size: "md",
     fullWidth: true,
-    labelPlacement: "outside",
     isDisabled: false,
   },
   compoundVariants: [
@@ -468,14 +484,6 @@ const numberField = tv({
         label: "text-danger",
       },
     },
-    // labelPlacement=outside & default
-    {
-      labelPlacement: "outside",
-      color: "default",
-      class: {
-        label: "group-data-[filled-within=true]:text-foreground",
-      },
-    },
     // radius-full & size
     {
       radius: "full",
@@ -549,21 +557,6 @@ const numberField = tv({
         inputWrapper: "after:!bg-danger",
       },
     },
-    // labelPlacement=[outside]
-    {
-      labelPlacement: "outside",
-      class: {
-        base: "relative justify-end",
-        label: [
-          "pb-0",
-          "z-20",
-          "top-1/2",
-          "-translate-y-1/2",
-          "group-data-[filled-within=true]:pointer-events-auto",
-          "group-data-[filled-within=true]:start-0",
-        ],
-      },
-    },
     // variant=underlined & size
     {
       variant: "underlined",
@@ -577,74 +570,6 @@ const numberField = tv({
       size: ["md", "lg"],
       class: {
         innerWrapper: "pb-1.5",
-      },
-    },
-    // outside & size
-    {
-      labelPlacement: "outside",
-      size: "sm",
-      class: {
-        label: [
-          "start-2",
-          "text-tiny",
-          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
-        ],
-        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
-      },
-    },
-    {
-      labelPlacement: "outside",
-      size: "md",
-      class: {
-        label: [
-          "start-3",
-          "end-auto",
-          "text-small",
-          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
-        ],
-        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
-      },
-    },
-    {
-      labelPlacement: "outside",
-      size: "lg",
-      class: {
-        label: [
-          "start-3",
-          "end-auto",
-          "text-medium",
-          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
-        ],
-        base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
-      },
-    },
-    // outside-left & size & hasHelper
-    {
-      labelPlacement: "outside-left",
-      size: "sm",
-      class: {
-        label: "group-data-[has-helper=true]:pt-2",
-      },
-    },
-    {
-      labelPlacement: "outside-left",
-      size: "md",
-      class: {
-        label: "group-data-[has-helper=true]:pt-3",
-      },
-    },
-    {
-      labelPlacement: "outside-left",
-      size: "lg",
-      class: {
-        label: "group-data-[has-helper=true]:pt-4",
-      },
-    },
-    // text truncate labelPlacement=[outside]
-    {
-      labelPlacement: ["outside"],
-      class: {
-        label: ["pe-2", "max-w-full", "text-ellipsis", "overflow-hidden"],
       },
     },
   ],
