@@ -283,6 +283,6 @@ export const WithEndContent = {
   },
 };
 
-export const CustomTemplate = {
+export const CustomStyles = {
   render: CustomToastTemplate,
 };
