@@ -19,9 +19,9 @@ interface Props extends HTMLNextUIProps<"div"> {
    */
   title?: string;
   /**
-   * Main body of the alert message
+   * description of the alert message
    */
-  description: ReactNode;
+  description?: ReactNode;
   /**
    * Icon to be displayed in the alert - overrides the default icon
    */
