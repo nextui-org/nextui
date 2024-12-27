@@ -8,6 +8,11 @@ export interface UseClipboardProps {
   timeout?: number;
 }
 
+const transformValue = (text: string) => {
+  // Manually replace all &nbsp; to avoid get different unicode characters;
+  return text.replace(/[\u00A0]/g, " ");
+};
+
 /**
  * Copies the given text to the clipboard.
  * @param {number} timeout - timeout in ms, default 2000
@@ -33,16 +38,11 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
     [onClearTimeout, timeout],
   );
 
-  const transformWhitespace = useCallback((text: string) => {
-    // Manually replace all &nbsp; to avoid get different unicode characters;
-    return text.replace(/[\u00A0]/g, " ");
-  }, []);
-
   const copy = useCallback(
     (valueToCopy: any) => {
       if ("clipboard" in navigator) {
         const transformedValue =
-          typeof valueToCopy === "string" ? transformWhitespace(valueToCopy) : valueToCopy;
+          typeof valueToCopy === "string" ? transformValue(valueToCopy) : valueToCopy;
 
         navigator.clipboard
           .writeText(transformedValue)
@@ -52,7 +52,7 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
         setError(new Error("useClipboard: navigator.clipboard is not supported"));
       }
     },
-    [handleCopyResult, transformWhitespace],
+    [handleCopyResult],
   );
 
   const reset = useCallback(() => {
