@@ -208,8 +208,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
 
   const isInvalid = validationState === "invalid" || isAriaInvalid;
 
-  const labelPlacement = originalProps.labelPlacement ?? "outside";
-
   const errorMessage =
     typeof props.errorMessage === "function"
       ? props.errorMessage({isInvalid, validationErrors, validationDetails})
@@ -219,38 +217,21 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const hasPlaceholder = !!props.placeholder;
   const hasLabel = !!label;
   const hasHelper = !!description || !!errorMessage;
-  const shouldLabelBeOutside = labelPlacement === "outside" || labelPlacement === "outside-left";
   const isPlaceholderShown = domRef.current
     ? (!domRef.current.value || domRef.current.value === "" || !inputValue) && hasPlaceholder
     : false;
-  const isOutsideLeft = labelPlacement === "outside-left";
 
   const hasStartContent = !!startContent;
-  const isLabelOutside = shouldLabelBeOutside
-    ? labelPlacement === "outside-left" ||
-      hasPlaceholder ||
-      (labelPlacement === "outside" && hasStartContent)
-    : false;
-  const isLabelOutsideAsPlaceholder =
-    labelPlacement === "outside" && !hasPlaceholder && !hasStartContent;
 
   const slots = useMemo(
     () =>
       numberField({
         ...variantProps,
         isInvalid,
-        labelPlacement,
         isClearable,
         disableAnimation,
       }),
-    [
-      objectToDeps(variantProps),
-      isInvalid,
-      labelPlacement,
-      isClearable,
-      hasStartContent,
-      disableAnimation,
-    ],
+    [objectToDeps(variantProps), isInvalid, isClearable, hasStartContent, disableAnimation],
   );
 
   const getBaseProps: PropGetter = useCallback(
@@ -541,14 +522,9 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     description,
     startContent,
     endContent,
-    labelPlacement,
     isClearable,
     hasHelper,
     hasStartContent,
-    isLabelOutside,
-    isOutsideLeft,
-    isLabelOutsideAsPlaceholder,
-    shouldLabelBeOutside,
     hasPlaceholder,
     isInvalid,
     errorMessage,

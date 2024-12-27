@@ -16,10 +16,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     isClearable,
     startContent,
     endContent,
-    labelPlacement,
     hasHelper,
-    isOutsideLeft,
-    shouldLabelBeOutside,
     errorMessage,
     isInvalid,
     hideStepper,
@@ -116,16 +113,14 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     return (
       <div {...getMainWrapperProps()}>
         <div {...getInputWrapperProps()}>
-          {!isOutsideLeft ? labelContent : null}
+          {labelContent}
           {innerWrapper}
         </div>
         {helperWrapper}
       </div>
     );
   }, [
-    labelPlacement,
     helperWrapper,
-    shouldLabelBeOutside,
     labelContent,
     innerWrapper,
     errorMessage,
@@ -136,12 +131,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     getDescriptionProps,
   ]);
 
-  return (
-    <Component {...getBaseProps()}>
-      {isOutsideLeft ? labelContent : null}
-      {mainWrapper}
-    </Component>
-  );
+  return <Component {...getBaseProps()}>{mainWrapper}</Component>;
 });
 
 NumberField.displayName = "NextUI.NumberField";
