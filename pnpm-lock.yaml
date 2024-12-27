@@ -2999,9 +2999,6 @@ importers:
 
   packages/components/toast:
     dependencies:
-      '@nextui-org/progress':
-        specifier: workspace:*
-        version: link:../progress
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
