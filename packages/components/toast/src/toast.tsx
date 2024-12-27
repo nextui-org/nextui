@@ -8,7 +8,6 @@ import {
   WarningIcon,
 } from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
-import {Progress} from "@nextui-org/progress";
 import {cloneElement, isValidElement, useState} from "react";
 
 import {UseToastProps, useToast} from "./use-toast";
@@ -29,18 +28,20 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     icon,
     domRef,
     endContent,
-    closeProgressBarValue,
     color,
     hideIcon,
     position,
     toast,
     state,
     disableAnimation,
+    progressBarRef,
+    classNames,
+    slots,
+    isProgressBarVisible,
     getToastProps,
     getContentProps,
     getTitleProps,
     getDescriptionProps,
-    getProgressBarProps,
     getCloseButtonProps,
     getIconProps,
   } = useToast({
@@ -102,11 +103,14 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
         <div>
           <div {...getTitleProps()}>{props.toast.content.title}</div>
           <div {...getDescriptionProps()}>{props.toast.content.description}</div>
-          <Progress
-            {...getProgressBarProps()}
-            aria-label="toast-close-indicator"
-            value={closeProgressBarValue}
-          />
+          {isProgressBarVisible && (
+            <div className={slots.progressTrack({class: classNames?.progressTrack})}>
+              <div
+                ref={progressBarRef}
+                className={slots.progressIndicator({class: classNames?.progressIndicator})}
+              />
+            </div>
+          )}
         </div>
       </main>
       <Button {...(getCloseButtonProps() as ButtonProps)} isIconOnly variant="bordered">

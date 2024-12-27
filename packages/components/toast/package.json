@@ -43,7 +43,6 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/progress": "workspace:*",
     "@react-aria/button": "3.9.5",
     "@react-aria/toast": "3.0.0-beta.15",
     "@react-aria/utils": "3.24.1",

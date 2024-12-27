@@ -9,7 +9,7 @@ import {
 import {toast as toastTheme} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useState} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
@@ -40,12 +40,11 @@ export interface ToastProps extends ToastVariantProps {
    *    description: "description-classes"
    *    title: "title-classes"
    *    icon: "icon-classes",
-   *    progressBar: "progress-bar-classes",
    *    progressTrack: "progress-track-classes",
    *    progressIndicator: "progress-indicator-classes",
    *    closeButton: "closeButton-classes"
    *    closeIcon: "closeIcon-classes"
-   * }}
+   *   }}
    * })
    * ```
    */
@@ -59,7 +58,7 @@ export interface ToastProps extends ToastVariantProps {
    */
   icon?: ReactNode;
   /**
-   * Whether the toast-icon is hidden.
+   * Whether the toast-icon should be hidden.
    * @default false
    */
   hideIcon?: boolean;
@@ -92,23 +91,57 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, toastTheme.variantKeys);
 
-  const [closeProgressBarValue, setCloseProgressBarValue] = useState(0);
   const [isToastHovered, setIsToastHovered] = useState(false);
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
+  const animationRef = useRef<number | null>(null);
+  const startTime = useRef<number | null>(null);
+  const progressRef = useRef<number>(0);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const pausedTime = useRef<number>(0);
+
   useEffect(() => {
-    const interval = setInterval(async () => {
-      if (isToastHovered) {
+    const updateProgress = (timestamp: number) => {
+      const timeout = props.toast.timeout;
+
+      if (!timeout) {
         return;
       }
-      setCloseProgressBarValue(closeProgressBarValue + 10);
-    }, Number(props.toast.timeout) / 20);
+
+      if (startTime.current === null) {
+        startTime.current = timestamp;
+      }
+
+      if (isToastHovered) {
+        pausedTime.current += timestamp - startTime.current;
+        startTime.current = null;
+        animationRef.current = requestAnimationFrame(updateProgress);
+
+        return;
+      }
+
+      const elapsed = timestamp - startTime.current + pausedTime.current;
+
+      progressRef.current = Math.min((elapsed / timeout) * 100, 100);
+
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = `${progressRef.current}%`;
+      }
+
+      if (progressRef.current < 100) {
+        animationRef.current = requestAnimationFrame(updateProgress);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(updateProgress);
 
     return () => {
-      clearInterval(interval);
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+      }
     };
-  });
+  }, [props.toast.timeout, isToastHovered]);
 
   const {
     ref,
@@ -149,14 +182,14 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     (props = {}) => ({
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, classNames?.base)}),
-      onMouseEnter: () => {
+      onPointerEnter: () => {
         if (!toast.timer) {
           return;
         }
         setIsToastHovered(true);
         toast.timer.pause();
       },
-      onMouseLeave: () => {
+      onPointerLeave: () => {
         if (!toast.timer) {
           return;
         }
@@ -211,24 +244,6 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     [closeButtonProps],
   );
 
-  const isProgressBarHidden = toast.timeout ? "block" : "hidden";
-  const progressBarProps = {
-    classNames: {
-      track: slots.progressTrack({class: clsx(classNames?.progressTrack)}),
-      indicator: slots.progressIndicator({class: clsx(classNames?.progressIndicator)}),
-    },
-    radius: "none",
-    isDisabled: true,
-  };
-
-  const getProgressBarProps: PropGetter = useCallback(
-    (props = {}) => ({
-      className: slots.progressBar({class: clsx(isProgressBarHidden, classNames?.progressBar)}),
-      ...mergeProps(props, otherProps, progressBarProps),
-    }),
-    [],
-  );
-
   return {
     Component,
     title,
@@ -236,21 +251,22 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     icon,
     domRef,
     classNames,
-    closeProgressBarValue,
     color: variantProps["color"],
     hideIcon,
     position,
     state,
     toast: props.toast,
     disableAnimation,
+    isProgressBarVisible: !!props.toast.timeout,
     getToastProps,
     getTitleProps,
     getContentProps,
     getDescriptionProps,
-    getProgressBarProps,
     getCloseButtonProps,
     getIconProps,
+    progressBarRef,
     endContent,
+    slots,
   };
 }
 
