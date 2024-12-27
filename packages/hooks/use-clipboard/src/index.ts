@@ -34,8 +34,8 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
   );
 
   const transformWhitespace = useCallback((text: string) => {
-    // Manually replace all whitespace to avoid get different unicode characters;
-    return text.replace(/\s/g, " ");
+    // Manually replace all &nbsp; to avoid get different unicode characters;
+    return text.replace(/[\u00A0]/g, " ");
   }, []);
 
   const copy = useCallback(
