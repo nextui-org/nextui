@@ -41,11 +41,11 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
   const copy = useCallback(
     (valueToCopy: any) => {
       if ("clipboard" in navigator) {
-        const decodedValue =
+        const transformedValue =
           typeof valueToCopy === "string" ? transformWhitespace(valueToCopy) : valueToCopy;
 
         navigator.clipboard
-          .writeText(decodedValue)
+          .writeText(transformedValue)
           .then(() => handleCopyResult(true))
           .catch((err) => setError(err));
       } else {
