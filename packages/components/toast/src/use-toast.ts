@@ -206,7 +206,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     (props = {}) => ({
       className: slots.closeButton({class: classNames?.closeButton}),
       "aria-label": "close-button",
-      ...mergeProps(props, otherProps, closeButtonProps, {onPress: props.onClose}),
+      ...mergeProps(props, closeButtonProps, {onPress: originalProps.onClose}),
     }),
     [closeButtonProps],
   );

@@ -1,8 +1,11 @@
 import * as React from "react";
-import {render} from "@testing-library/react";
+import {render, screen} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 
 import {addToast, ToastProvider} from "../src";
+
+const title = "Testing Title";
+const description = "Testing Description";
 
 describe("Toast", () => {
   let user: UserEvent;
@@ -56,5 +59,66 @@ describe("Toast", () => {
 
     await user.click(button);
     expect(ref.current).not.toBeNull();
+  });
+
+  it("should display title and description when component is rendered", async () => {
+    const wrapper = render(
+      <>
+        <ToastProvider />
+        <button
+          data-testid="button"
+          onClick={() => {
+            addToast({
+              title: title,
+              description: description,
+            });
+          }}
+        >
+          Show Toast
+        </button>
+      </>,
+    );
+
+    const button = wrapper.getByTestId("button");
+
+    await user.click(button);
+
+    const region = screen.getByRole("region");
+
+    expect(region).toContainHTML(title);
+    expect(region).toContainHTML(description);
+  });
+
+  it("should close", async () => {
+    const wrapper = render(
+      <>
+        <ToastProvider />
+        <button
+          data-testid="button"
+          onClick={() => {
+            addToast({
+              title: title,
+              description: description,
+            });
+          }}
+        >
+          Show Toast
+        </button>
+      </>,
+    );
+
+    const button = wrapper.getByTestId("button");
+
+    await user.click(button);
+
+    const initialCloseButtons = wrapper.getAllByRole("button");
+    const initialButtonLength = initialCloseButtons.length;
+
+    await user.click(initialCloseButtons[initialButtonLength - 1]);
+
+    const finalCloseButtons = wrapper.getAllByRole("button");
+    const finalButtonLength = finalCloseButtons.length;
+
+    expect(initialButtonLength).toEqual(finalButtonLength + 1);
   });
 });
