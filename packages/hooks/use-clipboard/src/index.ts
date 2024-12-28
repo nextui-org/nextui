@@ -8,6 +8,11 @@ export interface UseClipboardProps {
   timeout?: number;
 }
 
+const transformValue = (text: string) => {
+  // Manually replace all &nbsp; to avoid get different unicode characters;
+  return text.replace(/[\u00A0]/g, " ");
+};
+
 /**
  * Copies the given text to the clipboard.
  * @param {number} timeout - timeout in ms, default 2000
@@ -36,8 +41,11 @@ export function useClipboard({timeout = 2000}: UseClipboardProps = {}) {
   const copy = useCallback(
     (valueToCopy: any) => {
       if ("clipboard" in navigator) {
+        const transformedValue =
+          typeof valueToCopy === "string" ? transformValue(valueToCopy) : valueToCopy;
+
         navigator.clipboard
-          .writeText(valueToCopy)
+          .writeText(transformedValue)
           .then(() => handleCopyResult(true))
           .catch((err) => setError(err));
       } else {
