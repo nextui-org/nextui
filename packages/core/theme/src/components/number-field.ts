@@ -1,7 +1,11 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
+import {
+  numberFieldLabelClasses,
+  dataFocusVisibleClasses,
+  groupDataFocusVisibleClasses,
+} from "../utils";
 
 /**
  * NumberField wrapper **Tailwind Variants** component
@@ -25,28 +29,7 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
 const numberField = tv({
   slots: {
     base: "group flex flex-col data-[hidden=true]:hidden relative justify-end",
-    label: [
-      "absolute",
-      "pointer-events-none",
-      "origin-top-left",
-      "flex-shrink-0",
-      // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
-      "rtl:origin-top-right",
-      "subpixel-antialiased",
-      "block",
-      "text-small",
-      "text-foreground-500",
-      "pb-0",
-      "z-20",
-      "top-1/2",
-      "-translate-y-1/2",
-      "group-data-[filled-within=true]:pointer-events-auto",
-      "group-data-[filled-within=true]:start-0",
-      "pe-2",
-      "max-w-full",
-      "text-ellipsis",
-      "overflow-hidden",
-    ],
+    label: numberFieldLabelClasses,
     mainWrapper: "h-full flex flex-col",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-4 py-3 gap-3",
@@ -80,7 +63,7 @@ const numberField = tv({
     stepperButton: ["bg-transparent min-w-4 w-4"],
     verticalStepperWrapper: ["flex flex-col h-full"],
     helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
-    description: "text-tiny text-foreground-400",
+    description: [...numberFieldLabelClasses, "text-tiny", "text-default-400"],
     helperText: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -150,24 +133,35 @@ const numberField = tv({
         label: [
           "start-2",
           "text-tiny",
-          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_16px)]",
+          "group-data-[filled-within=true]:group-data-[has-description=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_32px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_8px)]",
         inputWrapper: "h-8 min-h-8 px-2 rounded-small",
         input: "text-small",
         clearButton: "text-medium",
+        description: [
+          "start-1",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+          "group-data-[filled-within=true]:group-data-[has-label=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_16px)]",
+        ],
       },
       md: {
         label: [
           "start-3",
           "end-auto",
-          "text-small",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_20px)]",
+          "group-data-[filled-within=true]:group-data-[has-description=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_36px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_10px)]",
         inputWrapper: "h-10 min-h-10 rounded-medium",
         input: "text-small",
         clearButton: "text-large",
+        description: [
+          "start-2",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_20px)]",
+          "group-data-[filled-within=true]:group-data-[has-label=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_20px)]",
+        ],
       },
       lg: {
         label: [
@@ -175,11 +169,17 @@ const numberField = tv({
           "end-auto",
           "text-medium",
           "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_24px)]",
+          "group-data-[filled-within=true]:group-data-[has-description=true]:-translate-y-[calc(100%_+_theme(fontSize.small)/2_+_40px)]",
         ],
         base: "data-[has-label=true]:mt-[calc(theme(fontSize.small)_+_12px)]",
         inputWrapper: "h-12 min-h-12 rounded-large",
         input: "text-medium",
         clearButton: "text-large",
+        description: [
+          "start-2",
+          "group-data-[filled-within=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_24px)]",
+          "group-data-[filled-within=true]:group-data-[has-label=true]:-translate-y-[calc(100%_+_theme(fontSize.tiny)/2_+_24px)]",
+        ],
       },
     },
     radius: {
