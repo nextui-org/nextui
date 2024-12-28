@@ -88,7 +88,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     if (steps === "horizontal") {
       return (
         <div {...getInnerWrapperProps()}>
-          <NumberFieldHorizontalStepper {...getStepperIncreaseButtonProps()} direction="left" />
+          <NumberFieldHorizontalStepper {...getStepperDecreaseButtonProps()} direction="left" />
           {startContent}
           <input {...getNumberFieldProps()} />
           {end}
