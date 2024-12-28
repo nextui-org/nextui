@@ -62,7 +62,6 @@ export default {
 const defaultProps = {
   ...numberField.defaultVariants,
   defaultValue: 1024,
-  label: "Width",
 };
 
 const Template = (args) => (
@@ -348,12 +347,41 @@ export const Default = {
   },
 };
 
+export const WithLabel = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Width",
+  },
+};
+
+export const WithDescription = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    description: "Specify the width in meters.",
+  },
+};
+
+export const WithHelperText = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    helperText: "Width should be between 5 and 50 inches",
+  },
+};
+
 export const HorizontalStepper = {
   render: Template,
 
   args: {
     ...defaultProps,
     steps: "horizontal",
+    label: "Horizontal Stepper",
+    helperText: "Set `steps` to `horizontal` to show the stepper horizontally.",
   },
 };
 
@@ -363,6 +391,8 @@ export const HideStepper = {
   args: {
     ...defaultProps,
     hideStepper: true,
+    label: "Hide Stepper",
+    helperText: "Set `hideStepper` to `true` to hide the stepper.",
   },
 };
 
@@ -403,15 +433,6 @@ export const WithoutLabel = {
     label: null,
     "aria-label": "Email",
     placeholder: "Enter a number",
-  },
-};
-
-export const WithDescription = {
-  render: Template,
-
-  args: {
-    ...defaultProps,
-    description: "Enter a number",
   },
 };
 
