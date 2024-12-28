@@ -27,7 +27,7 @@ export const getToastQueue = (maxVisibleToasts: number) => {
 };
 
 export const ToastProvider = ({
-  maxVisibleToasts = 5,
+  maxVisibleToasts = 3,
   position = "right-bottom",
 }: ToastProviderProps) => {
   const toastQueue = useToastQueue(getToastQueue(maxVisibleToasts));

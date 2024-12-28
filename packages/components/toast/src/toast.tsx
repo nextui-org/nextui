@@ -9,6 +9,7 @@ import {
 } from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
 import {cloneElement, isValidElement, useEffect, useState} from "react";
+import {clsx} from "@nextui-org/shared-utils";
 
 import {UseToastProps, useToast} from "./use-toast";
 
@@ -117,6 +118,17 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     </Component>
   );
 
+  const positionStyles: Record<string, string> = {
+    "right-bottom": "bottom-0 right-0 w-max",
+    "left-bottom": "bottom-0 left-0 w-max",
+    "center-bottom": "bottom-0 left-0 right-0 mx-auto w-max",
+    "right-top": "top-0 right-0 w-max",
+    "left-top": "top-0 left-0 w-max",
+    "center-top": "top-0 left-0 right-0 mx-auto w-max",
+  };
+  const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
+  const multiplier = position.includes("top") ? -1 : 1;
+
   return (
     <>
       {disableAnimation ? (
@@ -127,15 +139,15 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
             animate={{
               opacity: 1,
               y: isRegionHovered
-                ? (1 + index - total) * (toastHeight + 5)
-                : 0 - (total - 1 - index) * 15,
+                ? (1 + index - total) * (toastHeight + 5) * multiplier
+                : (0 - (total - 1 - index) * 15) * multiplier,
               scale: isRegionHovered ? 1 : 1 - (total - 1 - index) * 0.1,
             }}
-            className="fixed bottom-0 right-0 transform -translate-x-1/2"
+            className={clsx("absolute", positionStyle)}
             drag={position.includes("center") ? "y" : "x"}
             dragConstraints={{left: 0, right: 0, top: 0, bottom: 0}}
             exit={{opacity: 0, y: -100}}
-            initial={{opacity: 0, y: 50, scale: 1}}
+            initial={{opacity: 0, y: 50 * multiplier, scale: 1}}
             transition={{duration: 0.5, ease: "easeOut"}}
             variants={toastVariants}
             onDragEnd={(_, info) => {
