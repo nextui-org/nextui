@@ -223,6 +223,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const hasPlaceholder = !!props.placeholder;
   const hasLabel = !!label;
   const hasHelper = !!helperText || !!errorMessage;
+  const hasDescription = !!description;
   const isPlaceholderShown = domRef.current
     ? (!domRef.current.value || domRef.current.value === "" || !inputValue) && hasPlaceholder
     : false;
@@ -262,6 +263,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         "data-disabled": dataAttr(originalProps.isDisabled),
         "data-has-elements": dataAttr(hasElements),
         "data-has-helper": dataAttr(hasHelper),
+        "data-has-description": dataAttr(hasDescription),
         "data-has-label": dataAttr(hasLabel),
         "data-has-value": dataAttr(!isPlaceholderShown),
         "data-hidden": dataAttr(isHiddenType),
@@ -280,6 +282,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       hasHelper,
       hasLabel,
       hasElements,
+      hasDescription,
       isPlaceholderShown,
       hasStartContent,
       isFocusWithin,
@@ -435,7 +438,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         ...props,
         ...descriptionProps,
         "data-slot": "description",
-        className: slots.description({class: clsx(classNames?.description, props?.className)}),
+        className: slots.description({class: clsx(classNames?.label, props?.className)}),
       };
     },
     [slots, classNames?.description],

@@ -40,6 +40,10 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
+  const descriptionContent = description ? (
+    <div {...getDescriptionProps()}>{description}</div>
+  ) : null;
+
   const end = useMemo(() => {
     if (isClearable) {
       return <button {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</button>;
@@ -56,11 +60,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
 
     return (
       <div {...getHelperWrapperProps()}>
-        {shouldShowError ? (
-          <div {...getErrorMessageProps()}>{errorMessage}</div>
-        ) : (
-          <div {...getDescriptionProps()}>{description}</div>
-        )}
+        {shouldShowError && <div {...getErrorMessageProps()}>{errorMessage}</div>}
         {helperText && <div {...getHelperTextProps()}>{helperText}</div>}
       </div>
     );
@@ -117,6 +117,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
       <div {...getMainWrapperProps()}>
         <div {...getInputWrapperProps()}>
           {labelContent}
+          {descriptionContent}
           {innerWrapper}
         </div>
         {helperWrapper}
