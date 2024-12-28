@@ -61,7 +61,7 @@ export default {
 
 const defaultProps = {
   ...numberField.defaultVariants,
-  defaultValue: 1024,
+  defaultValue: 24,
 };
 
 const Template = (args) => (
@@ -286,7 +286,7 @@ const CustomWithClassNamesTemplate = (args) => (
 //     handleSubmit,
 //   } = useForm({
 //     defaultValues: {
-//       withDefaultValue: 1024,
+//       withDefaultValue: 24,
 //       withoutDefaultValue: "",
 //       requiredField: "",
 //     },
@@ -361,6 +361,7 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
+    label: "Width",
     description: "Specify the width in meters.",
   },
 };
@@ -370,7 +371,11 @@ export const WithHelperText = {
 
   args: {
     ...defaultProps,
-    helperText: "Width should be between 5 and 50 inches",
+    label: "Width",
+    description: "Specify the width in meters.",
+    helperText: "Width should be between 5 and 50 meters",
+    minValue: 5,
+    maxValue: 50,
   },
 };
 
@@ -422,17 +427,6 @@ export const ReadOnly = {
     ...defaultProps,
     variant: "bordered",
     isReadOnly: true,
-  },
-};
-
-export const WithoutLabel = {
-  render: Template,
-
-  args: {
-    ...defaultProps,
-    label: null,
-    "aria-label": "Email",
-    placeholder: "Enter a number",
   },
 };
 
