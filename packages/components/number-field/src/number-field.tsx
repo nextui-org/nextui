@@ -13,6 +13,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     Component,
     label,
     description,
+    helperText,
     isClearable,
     startContent,
     endContent,
@@ -29,6 +30,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     getMainWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,
+    getHelperTextProps,
     getErrorMessageProps,
     getClearButtonProps,
     getStepperIncreaseButtonProps,
@@ -48,7 +50,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
 
   const helperWrapper = useMemo(() => {
     const shouldShowError = isInvalid && errorMessage;
-    const hasContent = shouldShowError || description;
+    const hasContent = shouldShowError || description || helperText;
 
     if (!hasHelper || !hasContent) return null;
 
@@ -59,6 +61,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
         ) : (
           <div {...getDescriptionProps()}>{description}</div>
         )}
+        {helperText && <div {...getHelperTextProps()}>{helperText}</div>}
       </div>
     );
   }, [

@@ -8,15 +8,16 @@ import {dataFocusVisibleClasses, groupDataFocusVisibleClasses} from "../utils";
  *
  * @example
  * ```js
- * const {base, label, inputWrapper, input, clearButton, description, errorMessage} = numberField({...})
+ * const {base, label, inputWrapper, input, clearButton, description, helperText, errorMessage} = numberField({...})
  *
  * <div className={base())}>
  *  <label className={label()}>Label</label>
+ *  <span className={description()}>Description</span>
  *  <div className={inputWrapper()}>
  *    <input className={input()}/>
  *    <button className={clearButton()}>Clear</button>
  *  </div>
- *  <span className={description()}>Description</span>
+ *  <span className={helperText()}>Helper text</span>
  *  <span className={errorMessage()}>Invalid input</span>
  * </div>
  * ```
@@ -80,6 +81,7 @@ const numberField = tv({
     verticalStepperWrapper: ["flex flex-col h-full"],
     helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: "text-tiny text-foreground-400",
+    helperText: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
   variants: {

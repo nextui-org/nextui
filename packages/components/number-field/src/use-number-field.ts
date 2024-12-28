@@ -53,6 +53,10 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
    */
   endContent?: React.ReactNode;
   /**
+   * 	A helper text for the field. Provides a hint such as specific requirements for what to choose.
+   */
+  helperText?: React.ReactNode;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -69,6 +73,7 @@ export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLIn
    *    helperWrapper: "helper-wrapper-classes",
    *    verticalStepperWrapper: "vertical-stepper-wrapper-classes",
    *    description: "description-classes",
+   *    helperText: "helper-text-classes",
    *    errorMessage: "error-message-classes",
    * }} />
    * ```
@@ -112,6 +117,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     baseRef,
     wrapperRef,
     description,
+    helperText,
     className,
     classNames,
     autoFocus,
@@ -213,10 +219,10 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       ? props.errorMessage({isInvalid, validationErrors, validationDetails})
       : props.errorMessage || validationErrors?.join(" ");
   const isClearable = !!onClear || originalProps.isClearable;
-  const hasElements = !!label || !!description || !!errorMessage;
+  const hasElements = !!label || !!description || !!errorMessage || !!helperText;
   const hasPlaceholder = !!props.placeholder;
   const hasLabel = !!label;
-  const hasHelper = !!description || !!errorMessage;
+  const hasHelper = !!helperText || !!errorMessage;
   const isPlaceholderShown = domRef.current
     ? (!domRef.current.value || domRef.current.value === "" || !inputValue) && hasPlaceholder
     : false;
@@ -435,6 +441,18 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     [slots, classNames?.description],
   );
 
+  const getHelperTextProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        ...props,
+        ...descriptionProps, // apply description props
+        "data-slot": "helper-text",
+        className: slots.helperText({class: clsx(classNames?.helperText, props?.className)}),
+      };
+    },
+    [slots, classNames?.helperText],
+  );
+
   const getErrorMessageProps: PropGetter = useCallback(
     (props = {}) => {
       return {
@@ -520,6 +538,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     domRef,
     label,
     description,
+    helperText,
     startContent,
     endContent,
     isClearable,
@@ -540,6 +559,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     getInnerWrapperProps,
     getHelperWrapperProps,
     getDescriptionProps,
+    getHelperTextProps,
     getErrorMessageProps,
     getClearButtonProps,
     getStepperIncreaseButtonProps,
