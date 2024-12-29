@@ -67,8 +67,8 @@
     "@nextui-org/user": "workspace:*",
     "@react-stately/data": "3.12.0",
     "clean-package": "2.2.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
+    "react": "18.3.0",
+    "react-dom": "18.3.0",
     "swr": "^2.2.1"
   },
   "clean-package": "../../../clean-package.config.json"
