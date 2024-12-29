@@ -235,6 +235,49 @@ describe("Autocomplete", () => {
     expect(autocomplete).toHaveFocus();
   });
 
+  it("should clear arbitrary value after clicking clear button", async () => {
+    const wrapper = render(
+      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    await user.keyboard("pe");
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // click the clear button
+    await user.click(clearButton);
+
+    // assert that the input has empty value
+    expect(autocomplete).toHaveValue("");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+  });
+
   it("should keep the ListBox open after clicking clear button", async () => {
     const wrapper = render(
       <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
