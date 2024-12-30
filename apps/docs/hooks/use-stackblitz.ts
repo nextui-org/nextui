@@ -1,7 +1,7 @@
 import {Project} from "@stackblitz/sdk";
 import {SandpackFiles} from "@codesandbox/sandpack-react/types";
 
-import {mapKeys} from "@/../../packages/utilities/shared-utils/src";
+import {mapKeys, omit} from "@/../../packages/utilities/shared-utils/src";
 import {useSandpack} from "@/components/sandpack/use-sandpack";
 
 export interface UseSandpackProps {
@@ -42,7 +42,7 @@ export function useStackblitz(props: UseSandpackProps) {
   "dependencies": {
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    ${Object.entries(dependencies)
+    ${Object.entries(omit(dependencies as any, ["react", "react-dom"]))
       .map(([key, value]) => `"${key}": "${value}"`)
       .join(",\n    ")}
   },
