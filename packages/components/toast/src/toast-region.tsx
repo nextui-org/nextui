@@ -41,6 +41,14 @@ export function ToastRegion<T extends ToastProps>({
   };
   const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
 
+  const toasts = document.querySelectorAll<HTMLElement>("[data-toast]");
+  let height = 0;
+
+  for (let i = toasts.length - 1; i >= 0; i--) {
+    toasts[i].style.setProperty(`--toast-gap`, `${height}px`);
+    height = height + toasts[i].offsetHeight;
+  }
+
   return createPortal(
     <div
       {...mergeProps(regionProps, hoverProps)}
