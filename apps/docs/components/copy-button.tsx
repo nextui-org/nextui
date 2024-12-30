@@ -1,5 +1,6 @@
 import {ButtonProps} from "@nextui-org/react";
 import {useClipboard} from "@nextui-org/use-clipboard";
+import {memo} from "react";
 
 import {PreviewButton} from "./preview-button";
 
@@ -9,7 +10,7 @@ export interface CopyButtonProps extends ButtonProps {
   value?: string;
 }
 
-export const CopyButton = ({value, className, ...buttonProps}) => {
+export const CopyButton = memo<CopyButtonProps>(({value, className, ...buttonProps}) => {
   const {copy, copied} = useClipboard();
 
   const icon = copied ? (
@@ -31,4 +32,6 @@ export const CopyButton = ({value, className, ...buttonProps}) => {
   };
 
   return <PreviewButton className={className} icon={icon} onPress={handleCopy} {...buttonProps} />;
-};
+});
+
+CopyButton.displayName = "CopyButton";
