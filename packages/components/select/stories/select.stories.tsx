@@ -1391,6 +1391,85 @@ export const CustomItemHeight = {
   },
 };
 
+const AVATAR_DECORATIONS: {[key: string]: string[]} = {
+  arcane: ["jinx", "atlas-gauntlets", "flame-chompers", "fishbones", "hexcore", "shimmer"],
+  anime: ["cat-ears", "heart-bloom", "in-love", "in-tears", "soul-leaving-body", "starry-eyed"],
+  "lofi-vibes": ["chromawave", "cozy-cat", "cozy-headphones", "doodling", "rainy-mood"],
+  valorant: [
+    "a-hint-of-clove",
+    "blade-storm",
+    "cypher",
+    "frag-out",
+    "omen-cowl",
+    "reyna-leer",
+    "vct-supernova",
+    "viper",
+    "yoru",
+    "carnalito",
+    "a-hint-of-clove",
+    "blade-storm",
+    "cypher",
+    "frag-out",
+    "omen-cowl",
+    "reyna-leer",
+    "vct-supernova",
+    "viper",
+    "yoru",
+    "carnalito",
+  ],
+  spongebob: [
+    "flower-clouds",
+    "gary-the-snail",
+    "imagination",
+    "musclebob",
+    "sandy-cheeks",
+    "spongebob",
+  ],
+  arcade: ["clyde-invaders", "hot-shot", "joystick", "mallow-jump", "pipedream", "snake"],
+  "street-fighter": ["akuma", "cammy", "chun-li", "guile", "juri", "ken", "m.bison", "ryu"],
+};
+
+export const NonVirtualizedVsVirtualizedWithSections = {
+  render: () => {
+    const SelectComponent = ({isVirtualized}: {isVirtualized: boolean}) => (
+      <Select
+        disallowEmptySelection
+        className="max-w-xs"
+        color="secondary"
+        defaultSelectedKeys={["jinx"]}
+        isVirtualized={isVirtualized}
+        label={`Avatar Decoration ${isVirtualized ? "(Virtualized)" : "(Non-virtualized)"}`}
+        selectedKeys={["jinx"]}
+        selectionMode="single"
+        variant="bordered"
+      >
+        {Object.keys(AVATAR_DECORATIONS).map((key) => (
+          <SelectSection
+            key={key}
+            classNames={{
+              heading: "uppercase text-secondary",
+            }}
+            title={key}
+          >
+            {AVATAR_DECORATIONS[key].map((item) => (
+              <SelectItem key={item} className="capitalize" color="secondary" variant="bordered">
+                {item.replace(/-/g, " ")}
+              </SelectItem>
+            ))}
+          </SelectSection>
+        ))}
+      </Select>
+    );
+
+    return (
+      <div className="flex gap-4 w-full">
+        <SelectComponent isVirtualized={false} />
+        <SelectComponent isVirtualized={true} />
+      </div>
+    );
+  },
+};
+
 export const ValidationBehaviorAria = {
   render: ValidationBehaviorAriaTemplate,
   args: {

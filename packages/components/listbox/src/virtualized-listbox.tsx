@@ -1,7 +1,8 @@
-import {useRef} from "react";
+import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useVirtualizer} from "@tanstack/react-virtual";
 import {isEmpty} from "@nextui-org/shared-utils";
+import {Node} from "@react-types/shared";
 
 import ListboxItem from "./listbox-item";
 import ListboxSection from "./listbox-section";
@@ -12,6 +13,21 @@ interface Props extends UseListboxReturn {
   isVirtualized?: boolean;
   virtualization?: VirtualizationProps;
 }
+
+const getItemSizesForCollection = (collection: Node<object>[], itemHeight: number) => {
+  const sizes: number[] = [];
+
+  for (const item of collection) {
+    if (item.type === "section") {
+      /* +1 for the section header */
+      sizes.push(([...item.childNodes].length + 1) * itemHeight);
+    } else {
+      sizes.push(itemHeight);
+    }
+  }
+
+  return sizes;
+};
 
 const VirtualizedListbox = (props: Props) => {
   const {
@@ -46,16 +62,20 @@ const VirtualizedListbox = (props: Props) => {
   const listHeight = Math.min(maxListboxHeight, itemHeight * state.collection.size);
 
   const parentRef = useRef(null);
+  const itemSizes = useMemo(
+    () => getItemSizesForCollection([...state.collection], itemHeight),
+    [state.collection, itemHeight],
+  );
 
   const rowVirtualizer = useVirtualizer({
-    count: state.collection.size,
+    count: [...state.collection].length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => itemHeight,
+    estimateSize: (i) => itemSizes[i],
   });
 
   const virtualItems = rowVirtualizer.getVirtualItems();
 
-  const renderRow = ({
+  const ListBoxRow = ({
     index,
     style: virtualizerStyle,
   }: {
@@ -63,6 +83,10 @@ const VirtualizedListbox = (props: Props) => {
     style: React.CSSProperties;
   }) => {
     const item = [...state.collection][index];
+
+    if (!item) {
+      return null;
+    }
 
     const itemProps = {
       color,
@@ -111,6 +135,7 @@ const VirtualizedListbox = (props: Props) => {
       )}
       <div
         ref={parentRef}
+        className="scrollbar-hide"
         style={{
           height: maxListboxHeight,
           overflow: "auto",
@@ -124,19 +149,22 @@ const VirtualizedListbox = (props: Props) => {
               position: "relative",
             }}
           >
-            {virtualItems.map((virtualItem) =>
-              renderRow({
-                index: virtualItem.index,
-                style: {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: `${virtualItem.size}px`,
-                  transform: `translateY(${virtualItem.start}px)`,
-                },
-              }),
-            )}
+            {virtualItems.map((virtualItem) => {
+              return (
+                <ListBoxRow
+                  key={virtualItem.index}
+                  index={virtualItem.index}
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: `${virtualItem.size}px`,
+                    transform: `translateY(${virtualItem.start}px)`,
+                  }}
+                />
+              );
+            })}
           </div>
         )}
       </div>
