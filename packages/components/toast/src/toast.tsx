@@ -8,7 +8,7 @@ import {
   WarningIcon,
 } from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
-import {cloneElement, isValidElement, useEffect, useState} from "react";
+import {cloneElement, isValidElement} from "react";
 import {clsx} from "@nextui-org/shared-utils";
 
 import {UseToastProps, useToast} from "./use-toast";
@@ -52,16 +52,6 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     ...props,
     ref,
   });
-
-  const [toastHeight, setToastHeight] = useState(0);
-
-  useEffect(() => {
-    if (domRef.current) {
-      const {height} = domRef.current.getBoundingClientRect();
-
-      setToastHeight(height);
-    }
-  }, []);
 
   const toastVariants = position.includes("bottom")
     ? {
@@ -119,15 +109,31 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
   );
 
   const positionStyles: Record<string, string> = {
-    "right-bottom": "bottom-0 right-0 w-max",
-    "left-bottom": "bottom-0 left-0 w-max",
+    "right-bottom": "bottom-0 right-0 max-auto w-max",
+    "left-bottom": "bottom-0 left-0 mx-auto w-max",
     "center-bottom": "bottom-0 left-0 right-0 mx-auto w-max",
-    "right-top": "top-0 right-0 w-max",
-    "left-top": "top-0 left-0 w-max",
+    "right-top": "top-0 right-0 max-auto w-max",
+    "left-top": "top-0 left-0 mx-auto w-max",
     "center-top": "top-0 left-0 right-0 mx-auto w-max",
   };
   const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
   const multiplier = position.includes("top") ? -1 : 1;
+  let gap = 0;
+  let currentHeight = 0;
+
+  if (domRef.current) {
+    const styles = getComputedStyle(domRef.current);
+
+    gap = parseFloat(styles.getPropertyValue("--toast-gap")) || 0;
+    currentHeight = domRef.current.offsetHeight || 0;
+  }
+
+  const toasts = document.querySelectorAll<HTMLElement>("[data-toast]");
+  let height = 0;
+
+  if (toasts.length > 0) {
+    height = toasts[toasts.length - 1].offsetHeight;
+  }
 
   return (
     <>
@@ -139,9 +145,11 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
             animate={{
               opacity: 1,
               y: isRegionHovered
-                ? (1 + index - total) * (toastHeight + 5) * multiplier
-                : (0 - (total - 1 - index) * 15) * multiplier,
-              scale: isRegionHovered ? 1 : 1 - (total - 1 - index) * 0.1,
+                ? (-gap + 4 * (1 + index - total)) * multiplier
+                : total - 1 - index === 0
+                ? 0
+                : (currentHeight * (1 - 0.1 * (total - 1 - index)) - height) * multiplier,
+              scaleX: isRegionHovered ? 1 : 1 - (total - 1 - index) * 0.1,
             }}
             className={clsx("absolute", positionStyle)}
             drag={position.includes("center") ? "y" : "x"}

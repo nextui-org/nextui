@@ -213,6 +213,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       },
       "data-has-title": dataAttr(!isEmpty(title)),
       "data-has-description": dataAttr(!isEmpty(description)),
+      "data-toast": true,
       ...mergeProps(props, otherProps, toastProps),
     }),
     [slots, classNames, toastProps],

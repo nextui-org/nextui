@@ -179,7 +179,6 @@ const CustomToastComponent = (args) => {
                 "relative before:content-[''] before:absolute before:z-10",
                 "before:left-0 before:top-[-1px] before:bottom-[-1px] before:w-1",
                 "rounded-l-none border-l-0",
-                "min-w-[350px]",
                 "rounded-md",
                 "flex flex-col items-start",
                 colorMap[color],
@@ -284,5 +283,8 @@ export const WithEndContent = {
 };
 
 export const CustomStyles = {
+  args: {
+    disableAnimation: true,
+  },
   render: CustomToastTemplate,
 };
