@@ -81,6 +81,8 @@ export interface Props extends HTMLNextUIProps<"div"> {
   onClose?: () => void;
 }
 
+const DEFAULT_PLACEMENT = "top";
+
 export type UsePopoverProps = Props &
   Omit<ReactAriaPopoverProps, "triggerRef" | "popoverRef"> &
   OverlayTriggerProps &
@@ -110,7 +112,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     portalContainer,
     updatePositionDeps,
     dialogProps: dialogPropsProp,
-    placement: placementProp = "top",
+    placement: placementProp = DEFAULT_PLACEMENT,
     triggerType = "dialog",
     showArrow = false,
     offset = 7,
@@ -204,7 +206,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     "data-focus": dataAttr(isFocused),
     "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
-    "data-placement": getArrowPlacement(placement || "top", placementProp),
+    "data-placement": getArrowPlacement(placement || DEFAULT_PLACEMENT, placementProp),
     ...mergeProps(focusProps, dialogPropsProp, props),
     className: slots.base({class: clsx(baseStyles)}),
     style: {
@@ -218,7 +220,7 @@ export function usePopover(originalProps: UsePopoverProps) {
       "data-slot": "content",
       "data-open": dataAttr(state.isOpen),
       "data-arrow": dataAttr(showArrow),
-      "data-placement": getArrowPlacement(placement || "top", placementProp),
+      "data-placement": getArrowPlacement(placement || DEFAULT_PLACEMENT, placementProp),
       className: slots.content({class: clsx(classNames?.content, props.className)}),
     }),
     [slots, state.isOpen, showArrow, placement, placementProp, classNames],
@@ -305,7 +307,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     classNames,
     showArrow,
     triggerRef,
-    placement,
+    placement: placement || DEFAULT_PLACEMENT,
     isNonModal,
     popoverRef: domRef,
     portalContainer,
