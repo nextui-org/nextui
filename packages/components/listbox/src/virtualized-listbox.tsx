@@ -1,6 +1,6 @@
 import {useMemo, useRef, useState} from "react";
 import {mergeProps} from "@react-aria/utils";
-import {useVirtualizer} from "@tanstack/react-virtual";
+import {useVirtualizer, VirtualItem} from "@tanstack/react-virtual";
 import {isEmpty} from "@nextui-org/shared-utils";
 import {Node} from "@react-types/shared";
 import {ScrollShadowProps, useScrollShadow} from "@nextui-org/scroll-shadow";
@@ -108,14 +108,8 @@ const VirtualizedListbox = (props: Props) => {
   /* Here we need the base props for scroll shadow, contains the className (scrollbar-hide and scrollshadow config based on the user inputs on select props) */
   const {getBaseProps: getBasePropsScrollShadow} = useScrollShadow({...scrollShadowProps});
 
-  const ListBoxRow = ({
-    index,
-    style: virtualizerStyle,
-  }: {
-    index: number;
-    style: React.CSSProperties;
-  }) => {
-    const item = [...state.collection][index];
+  const renderRow = (virtualItem: VirtualItem) => {
+    const item = [...state.collection][virtualItem.index];
 
     if (!item) {
       return null;
@@ -129,6 +123,15 @@ const VirtualizedListbox = (props: Props) => {
       disableAnimation,
       hideSelectedIcon,
       ...item.props,
+    };
+
+    const virtualizerStyle = {
+      position: "absolute" as const,
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: `${virtualItem.size}px`,
+      transform: `translateY(${virtualItem.start}px)`,
     };
 
     if (item.type === "section") {
@@ -194,22 +197,7 @@ const VirtualizedListbox = (props: Props) => {
               position: "relative",
             }}
           >
-            {virtualItems.map((virtualItem) => {
-              return (
-                <ListBoxRow
-                  key={virtualItem.index}
-                  index={virtualItem.index}
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    width: "100%",
-                    height: `${virtualItem.size}px`,
-                    transform: `translateY(${virtualItem.start}px)`,
-                  }}
-                />
-              );
-            })}
+            {virtualItems.map((virtualItem) => renderRow(virtualItem))}
           </div>
         )}
       </div>
