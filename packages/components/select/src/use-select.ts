@@ -566,6 +566,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),
       }),
+      scrollShadowProps: slotsProps.scrollShadowProps,
       ...mergeProps(slotsProps.listboxProps, props, menuProps),
     } as ListboxProps;
   };

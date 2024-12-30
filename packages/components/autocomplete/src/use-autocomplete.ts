@@ -461,6 +461,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
             itemHeight,
           }
         : undefined,
+      scrollShadowProps: slotsProps.scrollShadowProps,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
