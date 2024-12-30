@@ -14,7 +14,7 @@ import {
   PropGetter,
   useProviderContext,
 } from "@nextui-org/system";
-import {getArrowPlacement, getShouldUseAxisPlacement} from "@nextui-org/aria-utils";
+import {getArrowPlacement} from "@nextui-org/aria-utils";
 import {popover} from "@nextui-org/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
@@ -150,11 +150,7 @@ export function usePopover(originalProps: UsePopoverProps) {
 
   const state = stateProp || innerState;
 
-  const {
-    popoverProps,
-    underlayProps,
-    placement: ariaPlacement,
-  } = useReactAriaPopover(
+  const {popoverProps, underlayProps, placement} = useReactAriaPopover(
     {
       triggerRef,
       isNonModal,
@@ -208,7 +204,7 @@ export function usePopover(originalProps: UsePopoverProps) {
     "data-focus": dataAttr(isFocused),
     "data-arrow": dataAttr(showArrow),
     "data-focus-visible": dataAttr(isFocusVisible),
-    "data-placement": getArrowPlacement(ariaPlacement || "top", placementProp),
+    "data-placement": getArrowPlacement(placement || "top", placementProp),
     ...mergeProps(focusProps, dialogPropsProp, props),
     className: slots.base({class: clsx(baseStyles)}),
     style: {
@@ -222,18 +218,10 @@ export function usePopover(originalProps: UsePopoverProps) {
       "data-slot": "content",
       "data-open": dataAttr(state.isOpen),
       "data-arrow": dataAttr(showArrow),
-      "data-placement": getArrowPlacement(ariaPlacement || "top", placementProp),
+      "data-placement": getArrowPlacement(placement || "top", placementProp),
       className: slots.content({class: clsx(classNames?.content, props.className)}),
     }),
-    [slots, state.isOpen, showArrow, ariaPlacement, placementProp, classNames],
-  );
-
-  const placement = useMemo(
-    () =>
-      getShouldUseAxisPlacement(ariaPlacement || "top", placementProp)
-        ? ariaPlacement || placementProp
-        : placementProp,
-    [ariaPlacement, placementProp],
+    [slots, state.isOpen, showArrow, placement, placementProp, classNames],
   );
 
   const onPress = useCallback(
