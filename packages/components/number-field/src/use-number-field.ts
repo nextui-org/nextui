@@ -148,7 +148,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
   const state = useNumberFieldState({
-    ...props,
+    ...originalProps,
     validationBehavior,
     locale: "en-US",
     onChange: onValueChange,
@@ -165,7 +165,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     isInvalid: isAriaInvalid,
     validationErrors,
     validationDetails,
-  } = useAriaNumberField(props, state, domRef);
+  } = useAriaNumberField(originalProps, state, domRef);
 
   const inputValue = isNaN(state.numberValue) ? "" : state.numberValue;
   const isFilled = !isEmpty(inputValue);
