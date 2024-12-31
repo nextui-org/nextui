@@ -16,21 +16,18 @@ interface ToastProviderProps {
     | "center-top";
 }
 
-export const getToastQueue = (maxVisibleToasts: number) => {
+export const getToastQueue = () => {
   if (!globalToastQueue) {
     globalToastQueue = new ToastQueue({
-      maxVisibleToasts,
+      maxVisibleToasts: Infinity,
     });
   }
 
   return globalToastQueue;
 };
 
-export const ToastProvider = ({
-  maxVisibleToasts = 3,
-  position = "right-bottom",
-}: ToastProviderProps) => {
-  const toastQueue = useToastQueue(getToastQueue(maxVisibleToasts));
+export const ToastProvider = ({position = "right-bottom"}: ToastProviderProps) => {
+  const toastQueue = useToastQueue(getToastQueue());
 
   if (toastQueue.visibleToasts.length == 0) {
     return null;

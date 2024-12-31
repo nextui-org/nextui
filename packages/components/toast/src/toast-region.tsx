@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useRef, useState} from "react";
 import {useToastRegion, AriaToastRegionProps} from "@react-aria/toast";
 import {QueuedToast, ToastState} from "@react-stately/toast";
 import {createPortal} from "react-dom";
@@ -40,14 +40,7 @@ export function ToastRegion<T extends ToastProps>({
     "center-top": "top-0 left-1/2 -translate-x-1/2",
   };
   const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
-
-  const toasts = document.querySelectorAll<HTMLElement>("[data-toast]");
-  let height = 0;
-
-  for (let i = toasts.length - 1; i >= 0; i--) {
-    toasts[i].style.setProperty(`--toast-gap`, `${height}px`);
-    height = height + toasts[i].offsetHeight;
-  }
+  const [heights, setHeights] = useState<number[]>([]);
 
   return createPortal(
     <div
@@ -62,9 +55,11 @@ export function ToastRegion<T extends ToastProps>({
             state={toastQueue}
             toast={toast}
             {...toast.content}
+            heights={heights}
             index={index}
             isRegionHovered={isHovered}
             position={position}
+            setHeights={setHeights}
             total={toastQueue.visibleToasts.length}
           />
         );
