@@ -154,8 +154,8 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     onChange: onValueChange,
   });
 
-  let {
-    // groupProps,
+  const {
+    groupProps,
     labelProps,
     inputProps,
     incrementButtonProps,
@@ -390,7 +390,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const getInnerWrapperProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ...props,
         ref: innerWrapperRef,
         "data-slot": "inner-wrapper",
         onClick: (e) => {
@@ -401,6 +400,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         className: slots.innerWrapper({
           class: clsx(classNames?.innerWrapper, props?.className),
         }),
+        ...mergeProps(groupProps, props),
       };
     },
     [slots, classNames?.innerWrapper],
@@ -492,8 +492,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         className: slots.verticalStepperWrapper({
           class: clsx(classNames?.verticalStepperWrapper, props?.className),
         }),
-        // TODO: check press props & focus props
-        ...incrementButtonProps,
       };
     },
     [slots],
@@ -511,7 +509,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
           // class: clsx(classNames?.stepperIncreaseButton, props?.className),
         }),
         // TODO: check press props & focus props
-        ...incrementButtonProps,
+        ...mergeProps(incrementButtonProps, props),
       };
     },
     [slots],
@@ -520,7 +518,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const getStepperDecreaseButtonProps: PropGetter = useCallback(
     (props = {}) => {
       return {
-        ...props,
         type: "button",
         disabled: originalProps.isDisabled,
         "aria-label": "decrease value",
@@ -529,7 +526,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
           // class: clsx(classNames?.stepperDereaseButton, props?.className),
         }),
         // TODO: check press props & focus props
-        ...decrementButtonProps,
+        ...mergeProps(decrementButtonProps, props),
       };
     },
     [slots],
