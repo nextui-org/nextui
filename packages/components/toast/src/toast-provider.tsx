@@ -48,3 +48,15 @@ export const addToast = ({...props}: ToastProps & ToastOptions) => {
 
   globalToastQueue.add(props, options);
 };
+
+export const closeAll = () => {
+  if (!globalToastQueue) {
+    return;
+  }
+
+  const keys = globalToastQueue.visibleToasts.map((toast) => toast.key);
+
+  keys.map((key) => {
+    globalToastQueue?.close(key);
+  });
+};

@@ -1,9 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Meta} from "@storybook/react";
 import {cn, toast} from "@nextui-org/theme";
 import {Button} from "@nextui-org/button";
 
-import {Toast, ToastProps, ToastProvider, addToast} from "../src";
+import {Toast, ToastProps, ToastProvider, addToast, closeAll} from "../src";
 
 export default {
   title: "Components/Toast",
@@ -58,6 +58,15 @@ export default {
         <Story />
       </div>
     ),
+    (Story) => {
+      useEffect(() => {
+        return () => {
+          closeAll();
+        };
+      }, []);
+
+      return <Story />;
+    },
   ],
 } as Meta<typeof Toast>;
 
