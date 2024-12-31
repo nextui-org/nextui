@@ -9,7 +9,7 @@ import {
 import {toast as toastTheme} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
+import {ReactNode, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
@@ -93,6 +93,8 @@ export interface ToastProps extends ToastVariantProps {
 interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
   toast: QueuedToast<T>;
   state: ToastState<T>;
+  heights: number[];
+  setHeights: (val: number[]) => void;
 }
 
 export type UseToastProps<T = ToastProps> = Props<T> &
@@ -170,6 +172,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     state,
     total = 1,
     index = 0,
+    heights,
+    setHeights,
     ...otherProps
   } = props;
 
@@ -183,6 +187,45 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     props.state,
     domRef,
   );
+
+  const [mounted, setMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const [initialHeight, setInitialHeight] = useState<number>(0);
+
+  useLayoutEffect(() => {
+    if (!domRef.current || !mounted) {
+      return;
+    }
+    const toastNode = domRef.current;
+    const originalHeight = toastNode.style.height;
+
+    toastNode.style.height = "auto";
+    const newHeight = toastNode.getBoundingClientRect().height;
+
+    toastNode.style.height = originalHeight;
+
+    setInitialHeight((prevHeight) => (prevHeight !== newHeight ? newHeight : prevHeight));
+    const updatedHeights = [...heights];
+
+    if (updatedHeights.length > index) {
+      updatedHeights[index] = newHeight;
+    } else {
+      updatedHeights.push(newHeight);
+    }
+    setHeights(updatedHeights);
+  }, [mounted, total, setHeights, index]);
+
+  let liftHeight = 4;
+
+  for (let idx = index + 1; idx < total; idx++) {
+    liftHeight += 4 + heights[idx];
+  }
+
+  const frontHeight = heights[heights.length - 1];
 
   const slots = useMemo(
     () =>
@@ -286,6 +329,9 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     endContent,
     slots,
     isRegionHovered,
+    liftHeight,
+    frontHeight,
+    initialHeight,
   };
 }
 
