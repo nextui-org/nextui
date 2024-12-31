@@ -344,6 +344,7 @@ export const Default = {
 
   args: {
     ...defaultProps,
+    "aria-label": "Width",
   },
 };
 
