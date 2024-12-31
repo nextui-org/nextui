@@ -17,7 +17,6 @@ export interface PopoverProps extends UsePopoverProps {
 const Popover = forwardRef<"div", PopoverProps>((props, ref) => {
   const {children, ...otherProps} = props;
   const context = usePopover({...otherProps, ref});
-
   const [trigger, content] = Children.toArray(children);
 
   const overlay = <Overlay portalContainer={context.portalContainer}>{content}</Overlay>;
