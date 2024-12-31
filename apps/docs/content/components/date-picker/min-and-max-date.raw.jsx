@@ -8,7 +8,7 @@ export default function App() {
         <h3>Min date</h3>
         <DatePicker
           defaultValue={today(getLocalTimeZone()).subtract({days: 1})}
-          label="Date and time"
+          label="Date"
           minValue={today(getLocalTimeZone())}
         />
       </div>
@@ -16,7 +16,7 @@ export default function App() {
         <h3>Max date</h3>
         <DatePicker
           defaultValue={today(getLocalTimeZone()).add({days: 1})}
-          label="Date and time"
+          label="Date"
           maxValue={today(getLocalTimeZone())}
         />
       </div>
