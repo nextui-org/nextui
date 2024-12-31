@@ -408,6 +408,8 @@ export const Required = {
   args: {
     ...defaultProps,
     isRequired: true,
+    defaultValue: undefined,
+    placeholder: "Enter a number",
   },
 };
 
