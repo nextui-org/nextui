@@ -41,7 +41,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     isProgressBarVisible,
     total,
     index,
-    isRegionHovered,
+    isRegionExpanded,
     getToastProps,
     getContentProps,
     getTitleProps,
@@ -132,9 +132,10 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
           <motion.div
             animate={{
               opacity: total - index - 1 <= 2 ? 1 : 0,
-              y: isRegionHovered ? liftHeight * multiplier : (total - 1 - index) * 8 * multiplier,
-              scaleX: isRegionHovered ? 1 : 1 - (total - 1 - index) * 0.1,
-              height: isRegionHovered ? initialHeight : frontHeight,
+              pointerEvents: total - index - 1 <= 2 ? "all" : "none",
+              y: isRegionExpanded ? liftHeight * multiplier : (total - 1 - index) * 8 * multiplier,
+              scaleX: isRegionExpanded ? 1 : 1 - (total - 1 - index) * 0.1,
+              height: isRegionExpanded ? initialHeight : frontHeight,
             }}
             className={clsx(
               "fixed",

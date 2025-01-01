@@ -31,6 +31,7 @@ export const getToastQueue = () => {
 export const ToastProvider = ({
   position = "right-bottom",
   disableAnimation: disableAnimationProp = false,
+  maxVisibleToasts = 3,
 }: ToastProviderProps) => {
   const toastQueue = useToastQueue(getToastQueue());
   const globalContext = useProviderContext();
@@ -41,7 +42,12 @@ export const ToastProvider = ({
   }
 
   return (
-    <ToastRegion disableAnimation={disableAnimation} position={position} toastQueue={toastQueue} />
+    <ToastRegion
+      disableAnimation={disableAnimation}
+      maxVisibleToasts={maxVisibleToasts}
+      position={position}
+      toastQueue={toastQueue}
+    />
   );
 };
 
