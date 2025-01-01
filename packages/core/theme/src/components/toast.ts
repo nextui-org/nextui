@@ -46,8 +46,8 @@ const toast = tv({
     },
     variant: {
       flat: "bg-default-50",
-      faded: "bg-default border border-1 border-default-400",
-      solid: "bg-default shadow-inner",
+      faded: "bg-default-50 border border-1 border-default-400",
+      solid: "bg-default-50 shadow-inner",
       bordered: "bg-white dark:bg-black border border-1 border-default-400",
     },
     color: {
@@ -111,41 +111,51 @@ const toast = tv({
       variant: "flat",
       color: "primary",
       class: {
-        base: "bg-primary-50 text-primary-400",
+        base: "bg-primary-50 text-primary-600",
         closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        title: "text-primary-600",
+        description: "text-primary-400",
       },
     },
     {
       variant: "flat",
       color: "secondary",
       class: {
-        base: "bg-secondary-50 text-secondary-400",
+        base: "bg-secondary-50 text-secondary-600",
         closeButton:
           "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        title: "text-secondary-600",
+        description: "text-secondary-400",
       },
     },
     {
       variant: "flat",
       color: "success",
       class: {
-        base: "bg-success-50 text-success-400",
+        base: "bg-success-50 text-success-600",
         closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        title: "text-success-600",
+        description: "text-success-400",
       },
     },
     {
       variant: "flat",
       color: "warning",
       class: {
-        base: "bg-warning-50 text-warning-400",
+        base: "bg-warning-50 text-warning-600",
         closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        title: "text-warning-600",
+        description: "text-warning-400",
       },
     },
     {
       variant: "flat",
       color: "danger",
       class: {
-        base: "bg-danger-50 text-danger-400",
+        base: "bg-danger-50 text-danger-600",
         closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        title: "text-danger-600",
+        description: "text-danger-400",
       },
     },
     // faded and color
@@ -153,41 +163,51 @@ const toast = tv({
       variant: "faded",
       color: "primary",
       class: {
-        base: "bg-primary-50 text-primary-400 border-primary-400",
+        base: "bg-primary-50 text-primary-400 border-primary-600",
         closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        title: "text-primary-600",
+        description: "text-primary-400",
       },
     },
     {
       variant: "faded",
       color: "secondary",
       class: {
-        base: "bg-secondary-50 text-secondary-400 border-secondary-400",
+        base: "bg-secondary-50 text-secondary-400 border-secondary-600",
         closeButton:
           "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        title: "text-secondary-600",
+        description: "text-secondary-400",
       },
     },
     {
       variant: "faded",
       color: "success",
       class: {
-        base: "bg-success-50 text-success-400 border-success-400",
+        base: "bg-success-50 text-success-400 border-success-600",
         closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        title: "text-success-600",
+        description: "text-success-400",
       },
     },
     {
       variant: "faded",
       color: "warning",
       class: {
-        base: "bg-warning-50 text-warning-400 border-warning-400",
+        base: "bg-warning-50 text-warning-400 border-warning-600",
         closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        title: "text-warning-600",
+        description: "text-warning-400",
       },
     },
     {
       variant: "faded",
       color: "danger",
       class: {
-        base: "bg-danger-50 text-danger-400 border-danger-400",
+        base: "bg-danger-50 text-danger-400 border-danger-600",
         closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        title: "text-danger-600",
+        description: "text-danger-400",
       },
     },
     // bordered and color
@@ -195,41 +215,51 @@ const toast = tv({
       variant: "bordered",
       color: "primary",
       class: {
-        base: "border-primary-400 text-primary-400",
+        base: "border-primary-400 text-primary-600",
         closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        title: "text-primary-600",
+        description: "text-primary-400",
       },
     },
     {
       variant: "bordered",
       color: "secondary",
       class: {
-        base: "border-secondary-400 text-secondary-400",
+        base: "border-secondary-400 text-secondary-600",
         closeButton:
           "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        title: "text-secondary-600",
+        description: "text-secondary-400",
       },
     },
     {
       variant: "bordered",
       color: "success",
       class: {
-        base: "border-success-400 text-success-400",
+        base: "border-success-400 text-success-600",
         closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        title: "text-success-600",
+        description: "text-success-400",
       },
     },
     {
       variant: "bordered",
       color: "warning",
       class: {
-        base: "border-warning-400 text-warning-400",
+        base: "border-warning-400 text-warning-600",
         closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        title: "text-warning-600",
+        description: "text-warning-400",
       },
     },
     {
       variant: "bordered",
       color: "danger",
       class: {
-        base: "border-danger-400 text-danger-400",
+        base: "border-danger-400 text-danger-600",
         closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        title: "text-danger-600",
+        description: "text-danger-400",
       },
     },
     // solid and color
@@ -237,41 +267,51 @@ const toast = tv({
       variant: "solid",
       color: "primary",
       class: {
-        base: "bg-primary-100 text-default-600",
+        base: "bg-primary-100 text-primary-600",
         closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        title: "text-primary-600",
+        description: "text-primary-400",
       },
     },
     {
       variant: "solid",
       color: "secondary",
       class: {
-        base: "bg-secondary-100 text-default-600",
+        base: "bg-secondary-100 text-secondary-600",
         closeButton:
           "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        title: "text-secondary-600",
+        description: "text-secondary-400",
       },
     },
     {
       variant: "solid",
       color: "success",
       class: {
-        base: "bg-success-100 text-default-600",
+        base: "bg-success-100 text-success-600",
         closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        title: "text-success-600",
+        description: "text-success-400",
       },
     },
     {
       variant: "solid",
       color: "warning",
       class: {
-        base: "bg-warning-100 text-default-600",
+        base: "bg-warning-100 text-warning-600",
         closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        title: "text-warning-600",
+        description: "text-warning-400",
       },
     },
     {
       variant: "solid",
       color: "danger",
       class: {
-        base: "bg-danger-100 text-default-600",
+        base: "bg-danger-100 text-danger-600",
         closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        title: "text-danger-600",
+        description: "text-danger-400",
       },
     },
   ],
