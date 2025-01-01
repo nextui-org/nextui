@@ -1,13 +1,11 @@
-import {
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  ModalContent,
-  type ModalContentProps,
-  type ModalHeaderProps,
-  type ModalBodyProps,
-  type ModalFooterProps,
+import type {
+  ModalContentProps,
+  ModalHeaderProps,
+  ModalBodyProps,
+  ModalFooterProps,
 } from "@nextui-org/modal";
+
+import {ModalHeader, ModalBody, ModalFooter, ModalContent} from "@nextui-org/modal";
 
 import Drawer from "./drawer";
 

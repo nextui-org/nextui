@@ -25,7 +25,8 @@ import {colorVariants} from "../utils";
 const alert = tv({
   slots: {
     base: "flex flex-grow flex-row w-full items-start py-3 px-4 gap-x-1",
-    mainWrapper: "h-full flex-grow min-h-10 ms-2 flex flex-col box-border items-start text-inherit",
+    mainWrapper:
+      "h-full flex-grow min-h-10 ms-2 flex flex-col box-border items-start text-inherit justify-center",
     title: "text-small w-full font-medium block text-inherit leading-5",
     description: "pl-[1px] text-small font-normal text-inherit",
     closeButton: "relative text-inherit translate-x-1 -translate-y-1",
