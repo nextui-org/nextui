@@ -234,7 +234,7 @@ describe("NumberField with React Hook Form", () => {
   });
 
   it("should work with defaultValues", () => {
-    expect(input1).toHaveValue(1234);
+    expect(input1).toHaveValue("1234");
     expect(input2).not.toHaveValue();
     expect(input3).not.toHaveValue();
   });

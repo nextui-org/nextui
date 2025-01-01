@@ -329,7 +329,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         onChange: chain(inputProps.onChange, onChange),
         value: inputValue,
         ref: domRef,
-        type: "number",
       };
     },
     [
