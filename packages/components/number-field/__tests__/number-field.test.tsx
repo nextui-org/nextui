@@ -289,7 +289,7 @@ describe("NumberField with React Hook Form", () => {
           "Constraints not satisfied",
         );
 
-        await user.keyboard("234");
+        await user.keyboard("1234");
 
         expect(input).toHaveAttribute("aria-describedby");
         expect(input.validity.valid).toBe(true);
@@ -304,9 +304,9 @@ describe("NumberField with React Hook Form", () => {
           <Form data-testid="form">
             <NumberField
               data-testid="input"
-              defaultValue="Foo"
+              defaultValue={1234}
               label="Name"
-              validate={(v) => (v === "Foo" ? "Invalid width" : null)}
+              validate={(v) => (v === 1234 ? "Invalid width" : null)}
               validationBehavior="native"
             />
           </Form>,
@@ -327,7 +327,7 @@ describe("NumberField with React Hook Form", () => {
           "Invalid width",
         );
 
-        await user.keyboard("hello");
+        await user.keyboard("1234");
 
         expect(input).toHaveAttribute("aria-describedby");
         expect(input.validity.valid).toBe(true);
@@ -393,7 +393,7 @@ describe("NumberField with React Hook Form", () => {
         );
         expect(input.validity.valid).toBe(false);
 
-        await user.keyboard("hello");
+        await user.keyboard("1234");
         await user.tab();
 
         expect(input).not.toHaveAttribute("aria-describedby");
@@ -424,7 +424,7 @@ describe("NumberField with React Hook Form", () => {
         expect(input.validity.valid).toBe(true);
 
         await user.tab();
-        await user.keyboard("hello");
+        await user.keyboard("1234");
         // TODO: fix this
         // expect(input).not.toHaveAttribute("aria-describedby");
         // expect(input).not.toHaveAttribute("aria-invalid");
@@ -446,7 +446,7 @@ describe("NumberField with React Hook Form", () => {
         );
 
         await user.tab();
-        await user.keyboard("hello");
+        await user.keyboard("1234");
         await user.tab();
 
         // TODO: fix this
