@@ -35,11 +35,6 @@ export default {
         type: "boolean",
       },
     },
-    disableAnimation: {
-      control: {
-        type: "boolean",
-      },
-    },
     position: {
       control: {type: "select"},
       options: [
@@ -77,7 +72,7 @@ const defaultProps = {
 const Template = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider />
+      <ToastProvider position={args.position} />
       <div>
         <Button
           onPress={() => {
@@ -98,7 +93,7 @@ const Template = (args: ToastProps) => {
 const TimeoutTemplate = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider />
+      <ToastProvider position={args.position} />
       <Button
         onPress={() => {
           addToast({
@@ -118,7 +113,7 @@ const TimeoutTemplate = (args: ToastProps) => {
 const WithEndContentTemplate = (args) => {
   return (
     <>
-      <ToastProvider />
+      <ToastProvider position={args.position} />
       <Button
         onPress={() => {
           addToast({
@@ -151,6 +146,49 @@ const PositionTemplate = (args: ToastProps) => {
             addToast({
               title: "Toast Title",
               description: "Toast Displayed Successfully",
+              ...args,
+            });
+          }}
+        >
+          Show toast
+        </Button>
+      </div>
+    </>
+  );
+};
+
+const DisableAnimationTemplate = (args: ToastProps) => {
+  return (
+    <>
+      <ToastProvider disableAnimation={true} position={args.position} />
+      <div>
+        <Button
+          onPress={() => {
+            addToast({
+              title: "Toast Title",
+              description: "Toast Displayed Successfully",
+              ...args,
+            });
+          }}
+        >
+          Show toast
+        </Button>
+      </div>
+    </>
+  );
+};
+
+const PromiseToastTemplate = (args: ToastProps) => {
+  return (
+    <>
+      <ToastProvider position={args.position} />
+      <div>
+        <Button
+          onPress={() => {
+            addToast({
+              title: "Toast Title",
+              description: "Toast Displayed Successfully",
+              promise: new Promise((resolve) => setTimeout(resolve, 4000)),
               ...args,
             });
           }}
@@ -214,12 +252,12 @@ const CustomToastComponent = (args) => {
   );
 };
 
-const CustomToastTemplate = () => {
+const CustomToastTemplate = (args) => {
   const colors = ["primary", "secondary", "warning", "danger", "success"];
 
   return (
     <>
-      <ToastProvider />
+      <ToastProvider position={args.position} />
       <div className="flex gap-2">
         {colors.map((color, idx) => (
           <CustomToastComponent key={idx} color={color} />
@@ -270,6 +308,20 @@ export const iconHidden = {
   },
 };
 
+export const DisableAnimation = {
+  render: DisableAnimationTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const PromiseToast = {
+  render: PromiseToastTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
 export const WithTimeout = {
   render: TimeoutTemplate,
   args: {
@@ -292,8 +344,8 @@ export const WithEndContent = {
 };
 
 export const CustomStyles = {
-  args: {
-    disableAnimation: true,
-  },
   render: CustomToastTemplate,
+  args: {
+    ...defaultProps,
+  },
 };

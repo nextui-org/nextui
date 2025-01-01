@@ -3023,6 +3023,9 @@ importers:
       '@react-stately/toast':
         specifier: 3.0.0-beta.5
         version: 3.0.0-beta.5(react@18.2.0)
+      '@react-stately/utils':
+        specifier: 3.10.5
+        version: 3.10.5(react@18.2.0)
     devDependencies:
       '@nextui-org/button':
         specifier: workspace:*

@@ -47,7 +47,8 @@
     "@react-aria/toast": "3.0.0-beta.15",
     "@react-aria/utils": "3.24.1",
     "@react-aria/interactions": "3.22.5",
-    "@react-stately/toast": "3.0.0-beta.5"
+    "@react-stately/toast": "3.0.0-beta.5",
+    "@react-stately/utils": "3.10.5"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
