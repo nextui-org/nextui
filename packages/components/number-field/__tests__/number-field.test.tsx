@@ -234,7 +234,7 @@ describe("NumberField with React Hook Form", () => {
   });
 
   it("should work with defaultValues", () => {
-    expect(input1).toHaveValue("1234");
+    expect(input1).toHaveValue(1234);
     expect(input2).not.toHaveValue();
     expect(input3).not.toHaveValue();
   });
@@ -327,7 +327,7 @@ describe("NumberField with React Hook Form", () => {
           "Invalid width",
         );
 
-        await user.keyboard("1234");
+        await user.keyboard("4321");
 
         expect(input).toHaveAttribute("aria-describedby");
         expect(input.validity.valid).toBe(true);
