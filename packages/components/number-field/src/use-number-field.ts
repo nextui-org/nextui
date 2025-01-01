@@ -167,7 +167,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
 
   const inputValue = isNaN(state.numberValue) ? "" : state.numberValue;
   const isFilled = !isEmpty(inputValue);
-  const isFilledWithin = isFilled || isFocusWithin;
 
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
@@ -247,9 +246,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         "data-filled": dataAttr(
           isFilled || hasPlaceholder || hasStartContent || isPlaceholderShown,
         ),
-        "data-filled-within": dataAttr(
-          isFilledWithin || hasPlaceholder || hasStartContent || isPlaceholderShown,
-        ),
         "data-focus-within": dataAttr(isFocusWithin),
         "data-focus-visible": dataAttr(isFocusVisible),
         "data-readonly": dataAttr(originalProps.isReadOnly),
@@ -283,7 +279,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       hasStartContent,
       isFocusWithin,
       isFocusVisible,
-      isFilledWithin,
       hasPlaceholder,
       focusWithinProps,
       originalProps.isReadOnly,
@@ -308,7 +303,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       return {
         "data-slot": "input",
         "data-filled": dataAttr(isFilled),
-        "data-filled-within": dataAttr(isFilledWithin),
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
         "data-direction": steps,
@@ -338,7 +332,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       inputProps,
       otherProps,
       isFilled,
-      isFilledWithin,
       hasStartContent,
       endContent,
       classNames?.input,
