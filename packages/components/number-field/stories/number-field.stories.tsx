@@ -380,6 +380,29 @@ export const WithHelperText = {
   },
 };
 
+export const WithStepValue = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Width",
+    step: 10,
+    helperText: "Set `step` to `10` to increment / decrement the value by 10.",
+  },
+};
+
+export const WithWheelDisabled = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Width",
+    step: 10,
+    helperText: "Set `isWheelDisabled` to `true` to disable the wheel.",
+    isWheelDisabled: true,
+  },
+};
+
 export const HorizontalStepper = {
   render: Template,
 
@@ -441,7 +464,9 @@ export const WithFormatOptions = {
     label: "Transaction amount",
     formatOptions: {
       style: "currency",
-      currency: "USD",
+      currency: "EUR",
+      currencyDisplay: "code",
+      currencySign: "accounting",
     },
   },
 };
@@ -505,6 +530,7 @@ export const WithErrorMessageFunction = {
     type: "number",
     isRequired: true,
     label: "Number",
+    validationBehavior: "native",
     placeholder: "Enter a number(0-100)",
     errorMessage: (value: ValidationResult) => {
       if (value.validationDetails.rangeOverflow) {
