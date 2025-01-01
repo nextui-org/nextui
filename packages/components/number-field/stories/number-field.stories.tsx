@@ -430,6 +430,7 @@ export const Required = {
 
   args: {
     ...defaultProps,
+    label: "Width",
     isRequired: true,
     defaultValue: undefined,
     placeholder: "Enter a number",
