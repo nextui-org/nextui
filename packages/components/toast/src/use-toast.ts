@@ -31,6 +31,10 @@ export interface ToastProps extends ToastVariantProps {
    */
   description?: string;
   /**
+   * Promise based on which the notification will be sent.
+   */
+  promise?: Promise<any>;
+  /**
    * Classname or List of classes to change the classNames of the element.
    * if `className` is passed, it will be added to the base slot.
    *
@@ -164,9 +168,19 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     total = 1,
     index = 0,
     heights,
+    promise: promiseProp,
     setHeights,
     ...otherProps
   } = props;
+
+  const [isLoading, setIsLoading] = useState<boolean>(!!promiseProp);
+
+  useEffect(() => {
+    if (!promiseProp) return;
+    promiseProp.finally(() => {
+      setIsLoading(false);
+    });
+  }, [promiseProp]);
 
   const Component = as || "div";
   const icon: ReactNode = props.icon;
@@ -326,6 +340,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     liftHeight,
     frontHeight,
     initialHeight,
+    isLoading,
   };
 }
 

@@ -78,6 +78,10 @@ export function ToastRegion<T extends ToastProps>({
       onTouchStart={handleTouchStart}
     >
       {toastQueue.visibleToasts.map((toast: QueuedToast<ToastProps>, index) => {
+        if (disableAnimation && total - index > maxVisibleToasts) {
+          return null;
+        }
+
         if (total - index <= 4 || (isHovered && total - index <= maxVisibleToasts + 1)) {
           return (
             <Toast

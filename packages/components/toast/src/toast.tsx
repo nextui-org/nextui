@@ -6,6 +6,7 @@ import {
   InfoFilledIcon,
   SuccessIcon,
   WarningIcon,
+  LoadingIcon,
 } from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
 import {cloneElement, isValidElement, useState} from "react";
@@ -51,6 +52,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     liftHeight,
     initialHeight,
     frontHeight,
+    isLoading,
   } = useToast({
     ...props,
     ref,
@@ -70,6 +72,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
 
   const customIcon = icon && isValidElement(icon) ? cloneElement(icon, getIconProps()) : null;
   const IconComponent = iconMap[color] || iconMap.primary;
+  const loadingIcon = isLoading ? <LoadingIcon /> : null;
 
   const handleDragEnd = (offsetX: number, offsetY: number) => {
     const isRight = position.includes("right");
@@ -87,10 +90,24 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     }
   };
 
+  const positionStyles: Record<string, string> = {
+    "right-bottom": "bottom-0 right-0 mx-auto w-max",
+    "left-bottom": "bottom-0 left-0 mx-auto w-max",
+    "center-bottom": "bottom-0 left-0 right-0 w-max mx-auto",
+    "right-top": "top-0 right-0 mx-auto w-max",
+    "left-top": "top-0 left-0 mx-auto w-max",
+    "center-top": "top-0 left-0 right-0 w-max mx-auto",
+  };
+  const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
+  const multiplier = position.includes("top") ? 1 : -1;
+  const [drag, setDrag] = useState(false);
+
   const toastContent = (
     <Component ref={domRef} {...getToastProps()}>
       <main {...getContentProps()}>
-        {hideIcon ? null : customIcon || <IconComponent {...getIconProps()} />}
+        {hideIcon && !isLoading
+          ? null
+          : loadingIcon || customIcon || <IconComponent {...getIconProps()} />}
         <div>
           <div {...getTitleProps()}>{props.toast.content.title}</div>
           <div {...getDescriptionProps()}>{props.toast.content.description}</div>
@@ -110,18 +127,6 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
       {endContent}
     </Component>
   );
-
-  const positionStyles: Record<string, string> = {
-    "right-bottom": "bottom-0 right-0 mx-auto w-max",
-    "left-bottom": "bottom-0 left-0 mx-auto w-max",
-    "center-bottom": "bottom-0 left-0 right-0 w-max mx-auto",
-    "right-top": "top-0 right-0 mx-auto w-max",
-    "left-top": "top-0 left-0 mx-auto w-max",
-    "center-top": "top-0 left-0 right-0 w-max mx-auto",
-  };
-  const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
-  const multiplier = position.includes("top") ? 1 : -1;
-  const [drag, setDrag] = useState(false);
 
   return (
     <>
