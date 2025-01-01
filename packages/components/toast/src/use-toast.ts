@@ -23,10 +23,6 @@ export interface ToastProps extends ToastVariantProps {
    */
   total?: number;
   /**
-   * Is the region hovered
-   */
-  isRegionHovered?: boolean;
-  /**
    * title of the toast
    */
   title?: string;
@@ -91,6 +87,7 @@ interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
   heights: number[];
   setHeights: (val: number[]) => void;
   disableAnimation: boolean;
+  isRegionExpanded: boolean;
 }
 
 export type UseToastProps<T = ToastProps> = Props<T> &
@@ -162,7 +159,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     endContent,
     hideIcon = false,
     position = "right-bottom",
-    isRegionHovered,
+    isRegionExpanded,
     state,
     total = 1,
     index = 0,
@@ -216,7 +213,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     setHeights(updatedHeights);
   }, [mounted, total, setHeights, index]);
 
-  let liftHeight = 0;
+  let liftHeight = 4;
 
   for (let idx = index + 1; idx < total; idx++) {
     liftHeight += heights[idx];
@@ -325,7 +322,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     progressBarRef,
     endContent,
     slots,
-    isRegionHovered,
+    isRegionExpanded,
     liftHeight,
     frontHeight,
     initialHeight,

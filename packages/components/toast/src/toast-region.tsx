@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import {useToastRegion, AriaToastRegionProps} from "@react-aria/toast";
 import {QueuedToast, ToastState} from "@react-stately/toast";
 import {createPortal} from "react-dom";
@@ -19,12 +19,14 @@ interface ToastRegionProps<T> extends AriaToastRegionProps {
     | "left-top"
     | "center-top";
   disableAnimation: boolean;
+  maxVisibleToasts: number;
 }
 
 export function ToastRegion<T extends ToastProps>({
   toastQueue,
   position,
   disableAnimation,
+  maxVisibleToasts,
   ...props
 }: ToastRegionProps<T>) {
   const ref = useRef(null);
@@ -32,6 +34,26 @@ export function ToastRegion<T extends ToastProps>({
   const {hoverProps, isHovered} = useHover({
     isDisabled: false,
   });
+
+  const [isTouched, setIsTouched] = useState(false);
+
+  useEffect(() => {
+    function handleTouchOutside(event: TouchEvent) {
+      if (ref.current && !(ref.current as HTMLDivElement).contains(event.target as Node)) {
+        setIsTouched(false);
+      }
+    }
+    function handlePointerMove() {
+      setIsTouched(false);
+    }
+
+    document.addEventListener("touchstart", handleTouchOutside);
+    document.addEventListener("pointermove", handlePointerMove);
+
+    return () => {
+      document.removeEventListener("touchstart", handleTouchOutside);
+    };
+  }, []);
 
   const positionStyles: Record<string, string> = {
     "right-bottom": "fixed flex flex-col bottom-0 right-0 pr-2",
@@ -43,29 +65,38 @@ export function ToastRegion<T extends ToastProps>({
   };
   const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
   const [heights, setHeights] = useState<number[]>([]);
+  const total = toastQueue.visibleToasts.length;
+  const handleTouchStart = () => {
+    setIsTouched(true);
+  };
 
   return createPortal(
     <div
       {...mergeProps(regionProps, hoverProps)}
       ref={ref}
       className={clsx(disableAnimation ? positionStyle : "")}
+      onTouchStart={handleTouchStart}
     >
       {toastQueue.visibleToasts.map((toast: QueuedToast<ToastProps>, index) => {
-        return (
-          <Toast
-            key={toast.key}
-            state={toastQueue}
-            toast={toast}
-            {...toast.content}
-            disableAnimation={disableAnimation}
-            heights={heights}
-            index={index}
-            isRegionHovered={isHovered}
-            position={position}
-            setHeights={setHeights}
-            total={toastQueue.visibleToasts.length}
-          />
-        );
+        if (total - index <= 4 || (isHovered && total - index <= maxVisibleToasts + 1)) {
+          return (
+            <Toast
+              key={toast.key}
+              state={toastQueue}
+              toast={toast}
+              {...toast.content}
+              disableAnimation={disableAnimation}
+              heights={heights}
+              index={index}
+              isRegionExpanded={isHovered || isTouched}
+              position={position}
+              setHeights={setHeights}
+              total={total}
+            />
+          );
+        }
+
+        return null;
       })}
     </div>,
     document.body,
