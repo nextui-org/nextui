@@ -111,7 +111,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const {
     ref,
     as,
-    type,
     label,
     baseRef,
     wrapperRef,
@@ -169,7 +168,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const inputValue = isNaN(state.numberValue) ? "" : state.numberValue;
   const isFilled = !isEmpty(inputValue);
   const isFilledWithin = isFilled || isFocusWithin;
-  const isHiddenType = type === "hidden";
 
   const baseStyles = clsx(classNames?.base, className, isFilled ? "is-filled" : "");
 
@@ -265,7 +263,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         "data-has-description": dataAttr(hasDescription),
         "data-has-label": dataAttr(hasLabel),
         "data-has-value": dataAttr(!isPlaceholderShown),
-        "data-hidden": dataAttr(isHiddenType),
         ...focusWithinProps,
         ...props,
       };
@@ -289,7 +286,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       isFilledWithin,
       hasPlaceholder,
       focusWithinProps,
-      isHiddenType,
       originalProps.isReadOnly,
       originalProps.isRequired,
       originalProps.isDisabled,
