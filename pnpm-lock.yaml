@@ -307,6 +307,9 @@ importers:
       '@nextui-org/listbox':
         specifier: workspace:*
         version: link:../../packages/components/listbox
+      '@nextui-org/number-field':
+        specifier: workspace:*
+        version: link:../../packages/components/number-field
       '@nextui-org/react':
         specifier: workspace:*
         version: link:../../packages/core/react
