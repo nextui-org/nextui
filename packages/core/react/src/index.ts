@@ -47,6 +47,7 @@ export * from "@nextui-org/form";
 export * from "@nextui-org/alert";
 export * from "@nextui-org/drawer";
 export * from "@nextui-org/input-otp";
+export * from "@nextui-org/number-field";
 
 /**
  * React Aria - Exports

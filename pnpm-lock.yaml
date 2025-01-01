@@ -3254,6 +3254,9 @@ importers:
       '@nextui-org/navbar':
         specifier: workspace:*
         version: link:../../components/navbar
+      '@nextui-org/number-field':
+        specifier: workspace:*
+        version: link:../../components/number-field
       '@nextui-org/pagination':
         specifier: workspace:*
         version: link:../../components/pagination
