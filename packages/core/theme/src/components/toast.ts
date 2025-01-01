@@ -14,8 +14,6 @@ const toast = tv({
       "outline-none",
       "p-3 mx-1",
       "my-1",
-      "sm:mx-4",
-      "sm:my-4",
       "w-[210px] sm:w-[270px] md:w-[300px]",
       "min-h-4",
       "text-white",

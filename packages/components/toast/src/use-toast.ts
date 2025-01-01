@@ -1,11 +1,6 @@
 import type {SlotsToClasses, ToastSlots, ToastVariantProps} from "@nextui-org/theme";
 
-import {
-  HTMLNextUIProps,
-  PropGetter,
-  mapPropsVariants,
-  useProviderContext,
-} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
 import {toast as toastTheme} from "@nextui-org/theme";
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
@@ -95,6 +90,7 @@ interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
   state: ToastState<T>;
   heights: number[];
   setHeights: (val: number[]) => void;
+  disableAnimation: boolean;
 }
 
 export type UseToastProps<T = ToastProps> = Props<T> &
@@ -102,12 +98,10 @@ export type UseToastProps<T = ToastProps> = Props<T> &
   Omit<AriaToastProps<T>, "div">;
 
 export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) {
-  const globalContext = useProviderContext();
   const [props, variantProps] = mapPropsVariants(originalProps, toastTheme.variantKeys);
 
   const [isToastHovered, setIsToastHovered] = useState(false);
-  const disableAnimation =
-    originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
+  const disableAnimation = originalProps.disableAnimation;
 
   const animationRef = useRef<number | null>(null);
   const startTime = useRef<number | null>(null);
@@ -204,7 +198,10 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     const originalHeight = toastNode.style.height;
 
     toastNode.style.height = "auto";
-    const newHeight = toastNode.getBoundingClientRect().height;
+    const computedStyle = getComputedStyle(toastNode);
+    const marginTop = parseFloat(computedStyle.marginTop);
+    const marginBottom = parseFloat(computedStyle.marginBottom);
+    const newHeight = toastNode.getBoundingClientRect().height + marginTop + marginBottom;
 
     toastNode.style.height = originalHeight;
 
@@ -219,10 +216,10 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     setHeights(updatedHeights);
   }, [mounted, total, setHeights, index]);
 
-  let liftHeight = 4;
+  let liftHeight = 0;
 
   for (let idx = index + 1; idx < total; idx++) {
-    liftHeight += 4 + heights[idx];
+    liftHeight += heights[idx];
   }
 
   const frontHeight = heights[heights.length - 1];

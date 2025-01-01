@@ -1,4 +1,5 @@
 import {ToastOptions, ToastQueue, useToastQueue} from "@react-stately/toast";
+import {useProviderContext} from "@nextui-org/system";
 
 import {ToastRegion} from "./toast-region";
 import {ToastProps} from "./use-toast";
@@ -14,6 +15,7 @@ interface ToastProviderProps {
     | "right-top"
     | "left-top"
     | "center-top";
+  disableAnimation?: boolean;
 }
 
 export const getToastQueue = () => {
@@ -26,14 +28,21 @@ export const getToastQueue = () => {
   return globalToastQueue;
 };
 
-export const ToastProvider = ({position = "right-bottom"}: ToastProviderProps) => {
+export const ToastProvider = ({
+  position = "right-bottom",
+  disableAnimation: disableAnimationProp = false,
+}: ToastProviderProps) => {
   const toastQueue = useToastQueue(getToastQueue());
+  const globalContext = useProviderContext();
+  const disableAnimation = disableAnimationProp ?? globalContext?.disableAnimation ?? false;
 
   if (toastQueue.visibleToasts.length == 0) {
     return null;
   }
 
-  return <ToastRegion position={position} toastQueue={toastQueue} />;
+  return (
+    <ToastRegion disableAnimation={disableAnimation} position={position} toastQueue={toastQueue} />
+  );
 };
 
 export const addToast = ({...props}: ToastProps & ToastOptions) => {

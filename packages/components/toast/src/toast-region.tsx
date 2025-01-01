@@ -18,11 +18,13 @@ interface ToastRegionProps<T> extends AriaToastRegionProps {
     | "right-top"
     | "left-top"
     | "center-top";
+  disableAnimation: boolean;
 }
 
 export function ToastRegion<T extends ToastProps>({
   toastQueue,
   position,
+  disableAnimation,
   ...props
 }: ToastRegionProps<T>) {
   const ref = useRef(null);
@@ -32,12 +34,12 @@ export function ToastRegion<T extends ToastProps>({
   });
 
   const positionStyles: Record<string, string> = {
-    "right-bottom": "bottom-0 right-0 pr-2",
-    "left-bottom": "bottom-0 left-0 pl-2",
-    "center-bottom": "bottom-0 left-1/2 -translate-x-1/2",
-    "right-top": "top-0 right-0 pr-2",
-    "left-top": "top-0 left-0 pl-2",
-    "center-top": "top-0 left-1/2 -translate-x-1/2",
+    "right-bottom": "fixed flex flex-col bottom-0 right-0 pr-2",
+    "left-bottom": "fixed flex flex-col bottom-0 left-0 pl-2",
+    "center-bottom": "fixed flex flex-col bottom-0 left-1/2 -translate-x-1/2",
+    "right-top": "fixed flex flex-col top-0 right-0 pr-2",
+    "left-top": "fixed flex flex-col top-0 left-0 pl-2",
+    "center-top": "fixed flex flex-col top-0 left-1/2 -translate-x-1/2",
   };
   const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
   const [heights, setHeights] = useState<number[]>([]);
@@ -46,7 +48,7 @@ export function ToastRegion<T extends ToastProps>({
     <div
       {...mergeProps(regionProps, hoverProps)}
       ref={ref}
-      className={clsx("fixed flex flex-col", positionStyle)}
+      className={clsx(disableAnimation ? positionStyle : "")}
     >
       {toastQueue.visibleToasts.map((toast: QueuedToast<ToastProps>, index) => {
         return (
@@ -55,6 +57,7 @@ export function ToastRegion<T extends ToastProps>({
             state={toastQueue}
             toast={toast}
             {...toast.content}
+            disableAnimation={disableAnimation}
             heights={heights}
             index={index}
             isRegionHovered={isHovered}
