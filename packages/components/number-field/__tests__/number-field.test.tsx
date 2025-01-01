@@ -234,9 +234,9 @@ describe("NumberField with React Hook Form", () => {
   });
 
   it("should work with defaultValues", () => {
-    expect(input1).toHaveValue(1234);
-    expect(input2).toHaveValue(undefined);
-    expect(input3).toHaveValue(undefined);
+    expect(input1).toHaveValue("1234");
+    expect(input2).not.toHaveValue();
+    expect(input3).not.toHaveValue();
   });
 
   it("should not submit form when required field is empty", async () => {
