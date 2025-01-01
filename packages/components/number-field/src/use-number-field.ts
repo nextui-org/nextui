@@ -20,12 +20,11 @@ import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {FormContext, useSlottedContext} from "@nextui-org/form";
 
-export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
-  extends Omit<HTMLNextUIProps<"input">, keyof NumberFieldVariantProps> {
+export interface Props extends Omit<HTMLNextUIProps<"input">, keyof NumberFieldVariantProps> {
   /**
    * Ref to the DOM node.
    */
-  ref?: Ref<T>;
+  ref?: Ref<HTMLInputElement>;
   /**
    * Ref to the container DOM node.
    */
