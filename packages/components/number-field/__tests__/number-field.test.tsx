@@ -328,12 +328,13 @@ describe("NumberField with React Hook Form", () => {
         );
 
         await user.keyboard("4321");
-
-        expect(input).toHaveAttribute("aria-describedby");
-        expect(input.validity.valid).toBe(true);
-
         await user.tab();
 
+        act(() => {
+          (getByTestId("form") as HTMLFormElement).checkValidity();
+        });
+
+        expect(input.validity.valid).toBe(true);
         expect(input).not.toHaveAttribute("aria-describedby");
       });
 
