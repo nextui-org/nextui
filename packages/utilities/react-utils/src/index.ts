@@ -32,3 +32,5 @@ export {
   renderFn,
   filterDOMProps,
 } from "@nextui-org/react-rsc-utils";
+
+export {useIsHydrated} from "./use-is-hydrated";
