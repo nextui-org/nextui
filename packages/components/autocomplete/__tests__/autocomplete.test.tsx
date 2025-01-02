@@ -782,6 +782,60 @@ describe("Autocomplete", () => {
         expect(input).not.toHaveAttribute("aria-describedby");
         expect(input.validity.valid).toBe(true);
       });
+
+      // this test is to cover a case where hovering over the combobox causes the validation from use-input to overwrite the validation from use-autocomplete if not handled properly
+      // this causes the first form submit after initial render to always succeed even if the validate function returns an error
+      it("should work with validate after hovering", async () => {
+        const onSubmit = jest.fn((e) => {
+          e.preventDefault();
+        });
+
+        const {getByTestId, findByRole} = render(
+          <Form validationBehavior="native" onSubmit={onSubmit}>
+            <AutocompleteExample
+              data-testid="combobox"
+              name="animal"
+              validate={(value) => {
+                if (!value?.selectedKey) {
+                  return "Please select an animal";
+                }
+              }}
+              validationBehavior="native"
+            />
+            <button data-testid="submit" type="submit">
+              Submit
+            </button>
+          </Form>,
+        );
+
+        const combobox = getByTestId("combobox") as HTMLInputElement;
+        const submit = getByTestId("submit");
+
+        expect(combobox).not.toHaveAttribute("aria-describedby");
+        expect(combobox.validity.valid).toBe(false);
+
+        await user.hover(combobox);
+        await user.click(submit);
+
+        expect(onSubmit).toHaveBeenCalledTimes(0);
+        expect(combobox).toHaveAttribute("aria-describedby");
+        expect(
+          document.getElementById(combobox.getAttribute("aria-describedby")!),
+        ).toHaveTextContent("Please select an animal");
+
+        await user.click(combobox);
+        await user.keyboard("pe");
+
+        const listbox = await findByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        expect(combobox).toHaveAttribute("aria-describedby");
+
+        await user.click(submit);
+        expect(onSubmit).toHaveBeenCalledTimes(1);
+        expect(combobox).not.toHaveAttribute("aria-describedby");
+      });
     });
 
     describe("validationBehavior=aria", () => {
