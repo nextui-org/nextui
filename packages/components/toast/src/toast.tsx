@@ -91,11 +91,11 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
   };
 
   const positionStyles: Record<string, string> = {
-    "right-bottom": "bottom-0 right-0 mx-auto w-max",
-    "left-bottom": "bottom-0 left-0 mx-auto w-max",
+    "right-bottom": "bottom-0 right-0 mx-auto w-max mr-2",
+    "left-bottom": "bottom-0 left-0 mx-auto w-max ml-2",
     "center-bottom": "bottom-0 left-0 right-0 w-max mx-auto",
-    "right-top": "top-0 right-0 mx-auto w-max",
-    "left-top": "top-0 left-0 mx-auto w-max",
+    "right-top": "top-0 right-0 mx-auto w-max mr-2",
+    "left-top": "top-0 left-0 mx-auto w-max ml-2",
     "center-top": "top-0 left-0 right-0 w-max mx-auto",
   };
   const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
@@ -166,7 +166,14 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
               setDrag(true);
             }}
           >
-            {toastContent}
+            <motion.div
+              animate={{opacity: 1}}
+              exit={{opacity: 0}}
+              initial={{opacity: 0}}
+              transition={{duration: 0.25, ease: "easeOut", delay: 0.1}}
+            >
+              {toastContent}
+            </motion.div>
           </motion.div>
         </AnimatePresence>
       )}

@@ -25,7 +25,7 @@ const toast = tv({
     progressTrack: ["absolute h-[2px] left-0 -bottom-2 w-full bg-default-200"],
     progressIndicator: ["absolute h-[2px] left-0 bg-default-400"],
     closeButton: [
-      "opacity-0 group-hover:opacity-100 w-4 h-4 min-w-4 p-0.5 absolute -right-1 -top-1 items-center justify-center bg-default-100 hover:bg-default-200 text-default-400 hover:text-default-600 border border-1 border-default-400",
+      "opacity-0 group-hover:opacity-100 w-5 h-5 min-w-4 p-1 absolute -right-1 -top-1 items-center justify-center bg-default-100 hover:bg-default-200 text-default-400 hover:text-default-600 border border-1 border-default-400",
     ],
   },
   variants: {
@@ -46,9 +46,9 @@ const toast = tv({
     },
     variant: {
       flat: "bg-default-50",
-      faded: "bg-default-50 border border-1 border-default-400",
+      faded: "bg-default-50 border border-1 border-default-200",
       solid: "bg-default-50 shadow-inner",
-      bordered: "bg-white dark:bg-black border border-1 border-default-400",
+      bordered: "bg-white dark:bg-black border border-1 border-default-200",
     },
     color: {
       default: "",
