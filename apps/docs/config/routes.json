@@ -86,7 +86,8 @@
           "key": "laravel",
           "title": "Laravel",
           "keywords": "laravel, nextui",
-          "path": "/docs/frameworks/laravel.mdx"
+          "path": "/docs/frameworks/laravel.mdx",
+          "newPost": true
         }
       ]
     },
