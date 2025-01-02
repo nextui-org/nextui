@@ -46,6 +46,7 @@ const calendar = tv({
       "data-[unavailable=true]:text-default-300",
       "data-[unavailable=true]:cursor-default",
       "data-[unavailable=true]:line-through",
+      ...dataFocusVisibleClasses,
     ],
     cellBody: "w-full h-full",
     pickerWrapper:

@@ -43,7 +43,7 @@ export const CalendarCellHeader = ({children}: CalendarCellHeaderProps) => {
       data-selection-start={dataAttr(isSelectionStart)}
     >
       <span
-        className={slots?.cellHeader({class: classNames?.cellButton})}
+        className={slots?.cellHeader({class: classNames?.cellHeader})}
         data-disabled={dataAttr(isDisabled && !isInvalid)}
         data-focus-visible={dataAttr(isFocused && isFocusVisible)}
         data-hover={dataAttr(isHovered)}
