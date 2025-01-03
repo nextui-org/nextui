@@ -18,6 +18,7 @@ export * from "./moon";
 export * from "./moon-filled";
 export * from "./headphones";
 export * from "./anchor";
+export * from "./info-filled";
 export * from "./info";
 export * from "./shield-security";
 export * from "./monitor-mobile";
@@ -37,6 +38,7 @@ export * from "./info-circle";
 export * from "./warning";
 export * from "./danger";
 export * from "./success";
+export * from "./loading";
 
 // sets
 export * from "./bulk";
