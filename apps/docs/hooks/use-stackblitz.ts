@@ -35,9 +35,10 @@ export function useStackblitz(props: UseSandpackProps) {
     files: filesData,
     entryFile,
   } = useSandpack({
-    ...transformSandpackFiles(files),
+    files: transformSandpackFiles(files),
     typescriptStrict,
   });
+
   const transformFiles = mapKeys(filesData, (_, key) => key.replace(/^\//, ""));
 
   const dependencies = {...customSetup.dependencies, ...customSetup.devDependencies};
