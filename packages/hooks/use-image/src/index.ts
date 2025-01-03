@@ -71,9 +71,7 @@ export function useImage(props: UseImageProps = {}) {
 
   const imageRef = useRef<HTMLImageElement | null>(isHydrated ? new Image() : null);
 
-  const [status, setStatus] = useState<Status>(() =>
-    isHydrated ? setImageAndGetInitialStatus(props, imageRef) : "pending",
-  );
+  const [status, setStatus] = useState<Status>("pending");
 
   useEffect(() => {
     if (!imageRef.current) return;
@@ -96,6 +94,12 @@ export function useImage(props: UseImageProps = {}) {
       imageRef.current = null;
     }
   };
+
+  useEffect(() => {
+    if (isHydrated) {
+      setStatus(setImageAndGetInitialStatus(props, imageRef));
+    }
+  }, [isHydrated]);
 
   /**
    * If user opts out of the fallback/placeholder
