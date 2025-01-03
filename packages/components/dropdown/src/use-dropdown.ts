@@ -9,12 +9,11 @@ import {useMenuTrigger} from "@react-aria/menu";
 import {dropdown} from "@nextui-org/theme";
 import {clsx} from "@nextui-org/shared-utils";
 import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {ariaShouldCloseOnInteractOutside, toReactAriaPlacement} from "@nextui-org/aria-utils";
+import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
 import {useMemo, useRef} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@nextui-org/menu";
 import {CollectionElement} from "@react-types/shared";
-import {useOverlayPosition} from "@react-aria/overlays";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -99,10 +98,6 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     disableAnimation = globalContext?.disableAnimation ?? false,
     onClose,
     className,
-    containerPadding = 12,
-    offset = 7,
-    crossOffset = 0,
-    shouldFlip = true,
     ...otherProps
   } = props;
 
@@ -139,17 +134,6 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
     [className],
   );
 
-  const {placement} = useOverlayPosition({
-    isOpen: state.isOpen,
-    targetRef: triggerRef,
-    overlayRef: popoverRef,
-    placement: toReactAriaPlacement(placementProp),
-    offset,
-    crossOffset,
-    shouldFlip,
-    containerPadding,
-  });
-
   const onMenuAction = (menuCloseOnSelect?: boolean) => {
     if (menuCloseOnSelect !== undefined && !menuCloseOnSelect) {
       return;
@@ -164,7 +148,7 @@ export function useDropdown(props: UseDropdownProps): UseDropdownReturn {
 
     return {
       state,
-      placement: placement || DEFAULT_PLACEMENT,
+      placement: placementProp,
       ref: popoverRef,
       disableAnimation,
       shouldBlockScroll,
