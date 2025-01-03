@@ -3,6 +3,8 @@
 import {FC, useRef} from "react";
 import {SandpackProvider, SandpackLayout, SandpackPreview} from "@codesandbox/sandpack-react";
 
+import {StackblitzButton} from "../stackblitz-button";
+
 import {SandpackCodeViewer} from "./code-viewer";
 import {nextuiTheme} from "./theme";
 import {UseSandpackProps, useSandpack} from "./use-sandpack";
@@ -72,6 +74,18 @@ export const Sandpack: FC<SandpackProps> = ({
               {showReportBug && <BugReportButton />}
               {showCopyCode && <CopyButton />}
               {!showPreview && showOpenInCodeSandbox && <CodeSandboxButton />}
+              {!showPreview && showOpenInCodeSandbox && (
+                <StackblitzButton
+                  isIconOnly
+                  as="span"
+                  className="dark:text-zinc-500 text-white"
+                  files={files}
+                  size="sm"
+                  title="Open in Stackblitz"
+                  typescriptStrict={typescriptStrict}
+                  variant="light"
+                />
+              )}
             </div>
             {hasTypescript && sandpackTemplate && (
               <LanguageSelector template={sandpackTemplate} onChange={setCurrentTemplate} />

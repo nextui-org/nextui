@@ -18,6 +18,15 @@ export default defineConfig({
 });
 `;
 
+function transformSandpackFiles(files: SandpackFiles) {
+  return Object.fromEntries(
+    Object.entries(files).map(([key, value]) => [
+      key,
+      typeof value === "string" ? value : value.code,
+    ]),
+  );
+}
+
 export function useStackblitz(props: UseSandpackProps) {
   const {files, typescriptStrict = false} = props;
 
@@ -26,7 +35,7 @@ export function useStackblitz(props: UseSandpackProps) {
     files: filesData,
     entryFile,
   } = useSandpack({
-    files,
+    ...transformSandpackFiles(files),
     typescriptStrict,
   });
   const transformFiles = mapKeys(filesData, (_, key) => key.replace(/^\//, ""));
@@ -58,9 +67,7 @@ export function useStackblitz(props: UseSandpackProps) {
 
   const stackblitzPrefillConfig: Project = {
     files: {
-      ...Object.fromEntries(
-        Object.entries(transformFiles).map(([key, value]) => [key, value.code ?? value]),
-      ),
+      ...transformSandpackFiles(transformFiles),
       "vite.config.js": viteConfig,
       "package.json": packageJson,
     },
