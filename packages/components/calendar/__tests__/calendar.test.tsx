@@ -464,4 +464,25 @@ describe("Calendar", () => {
       expect(year).toHaveAttribute("data-value", "2567");
     });
   });
+
+  describe("Custom cell content", () => {
+    it("should render custom content in the calendar cells", () => {
+      const wrapper = render(
+        <Calendar defaultValue={new CalendarDate(2024, 3, 31)}>
+          {(date) => (
+            <div>
+              {date.day}
+              <span>*</span>
+            </div>
+          )}
+        </Calendar>,
+      );
+
+      const gridCells = wrapper.getAllByRole("gridcell");
+      const customContentCell = gridCells.find((cell) => cell.textContent === "31*");
+
+      expect(customContentCell).not.toBeNull();
+      expect(customContentCell).toHaveTextContent("31*");
+    });
+  });
 });
