@@ -38,8 +38,8 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.3.0-beta.0",
-    "@nextui-org/system": ">=2.3.0-beta.0"
+    "@nextui-org/theme": ">=2.4.5",
+    "@nextui-org/system": ">=2.4.5"
   },
   "dependencies": {
     "@nextui-org/form": "workspace:*",
@@ -48,16 +48,15 @@
     "@nextui-org/shared-icons": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/interactions": "3.22.4",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/interactions": "3.22.5",
     "@react-aria/numberfield": "3.11.9",
-    "@react-aria/utils": "3.25.3",
-    "@react-stately/utils": "3.10.4",
+    "@react-aria/utils": "3.26.0",
+    "@react-stately/utils": "3.10.5",
     "@react-stately/numberfield": "3.9.8",
-    "@react-types/shared": "3.25.0",
-    "@react-types/numberfield": "3.8.6",
-    "@react-types/button": "3.10.1",
-    "react-textarea-autosize": "^8.5.3"
+    "@react-types/shared": "3.26.0",
+    "@react-types/numberfield": "3.8.7",
+    "@react-types/button": "3.10.1"
   },
   "devDependencies": {
     "@nextui-org/system": "workspace:*",
