@@ -22,6 +22,7 @@ import realTimeValidation from "./real-time-validation";
 import serverValidation from "./server-validation";
 import customStyles from "./custom-styles";
 import customImpl from "./custom-impl";
+import formatOptions from "./format-options";
 
 export const numberFieldContent = {
   usage,
@@ -48,4 +49,5 @@ export const numberFieldContent = {
   serverValidation,
   customStyles,
   customImpl,
+  formatOptions,
 };
