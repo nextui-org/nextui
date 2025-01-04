@@ -139,7 +139,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const disableAnimation =
     originalProps.disableAnimation ?? globalContext?.disableAnimation ?? false;
 
-  const domRef = useDOMRef(ref);
+  const domRef = useDOMRef<HTMLInputElement>(ref);
 
   const baseDomRef = useDOMRef<HTMLDivElement>(baseRef);
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
