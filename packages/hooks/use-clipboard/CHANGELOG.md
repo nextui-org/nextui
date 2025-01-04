@@ -1,5 +1,11 @@
 # @nextui-org/use-clipboard
 
+## 2.1.2
+
+### Patch Changes
+
+- [#4392](https://github.com/nextui-org/nextui/pull/4392) [`4f0ef58`](https://github.com/nextui-org/nextui/commit/4f0ef5818be83071d6c2032080251b41039656f1) Thanks [@winchesHe](https://github.com/winchesHe)! - Fix clipboard get different unicode whitespace (#4225)
+
 ## 2.1.1
 
 ### Patch Changes

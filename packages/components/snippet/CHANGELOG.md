@@ -1,5 +1,15 @@
 # @nextui-org/snippet
 
+## 2.2.10
+
+### Patch Changes
+
+- Updated dependencies [[`4f0ef58`](https://github.com/nextui-org/nextui/commit/4f0ef5818be83071d6c2032080251b41039656f1), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/use-clipboard@2.1.2
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/button@2.2.9
+  - @nextui-org/tooltip@2.2.7
+
 ## 2.2.9
 
 ### Patch Changes

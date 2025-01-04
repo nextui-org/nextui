@@ -1,5 +1,18 @@
 # @nextui-org/use-image
 
+## 2.1.2
+
+### Patch Changes
+
+- [#4486](https://github.com/nextui-org/nextui/pull/4486) [`5d0fc9f`](https://github.com/nextui-org/nextui/commit/5d0fc9f786ef522d74333f2dc9384626fd8cad3b) Thanks [@wingkwong](https://github.com/wingkwong)! - set status after hydrated
+
+- [`ef916ea`](https://github.com/nextui-org/nextui/commit/ef916ead525414d7b62c01f26ae5580fd9ba7f14) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Retry changeset release
+
+- [#4442](https://github.com/nextui-org/nextui/pull/4442) [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2) Thanks [@wingkwong](https://github.com/wingkwong)! - fix cached image flickering issue (#4271)
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+
 ## 2.1.1
 
 ### Patch Changes

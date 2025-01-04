@@ -1,5 +1,13 @@
 # @nextui-org/image
 
+## 2.2.5
+
+### Patch Changes
+
+- Updated dependencies [[`5d0fc9f`](https://github.com/nextui-org/nextui/commit/5d0fc9f786ef522d74333f2dc9384626fd8cad3b), [`ef916ea`](https://github.com/nextui-org/nextui/commit/ef916ead525414d7b62c01f26ae5580fd9ba7f14), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/use-image@2.1.2
+  - @nextui-org/react-utils@2.1.3
+
 ## 2.2.4
 
 ### Patch Changes
