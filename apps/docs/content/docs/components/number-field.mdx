@@ -114,9 +114,15 @@ You can set the maximum value of the input by passing the `maxValue` property.
 
 ### With Wheel Disabled
 
-You can disablechanging the vaule with scroll in NumberField by passing the `isWheelDisabled` property.
+You can disable changing the vaule with scroll in NumberField by passing the `isWheelDisabled` property.
 
 <CodeDemo title="With Wheel Disabled" files={numberFieldContent.isWheelDisabled} />
+
+### With Format Options
+
+You can format the value of the input by passing the `formatOptions` property.
+
+<CodeDemo title="With Format Options" files={numberFieldContent.formatOptions} />
 
 ### With Helper Text
 
@@ -266,9 +272,21 @@ In case you need to customize the input even further, you can use the `useInput`
       default: "-"
     },
     {
+      attribute: "name",
+      type: "string",
+      description: "The name of the input element, used when submitting an HTML form.",
+      default: "-"
+    },
+    {
       attribute: "label",
       type: "ReactNode",
       description: "The content to display as the label.",
+      default: "-"
+    },
+    {
+      attribute: "description",
+      type: "ReactNode",
+      description: "A description for the input. Provides a description for the input.",
       default: "-"
     },
     {
@@ -284,21 +302,15 @@ In case you need to customize the input even further, you can use the `useInput`
       default: "-"
     },
     {
-      attribute: "placeholder",
-      type: "string",
-      description: "The placeholder of the input.",
-      default: "-"
-    },
-    {
-      attribute: "description",
-      type: "ReactNode",
-      description: "A description for the input. Provides a description for the input.",
-      default: "-"
-    },
-    {
       attribute: "helperText",
       type: "ReactNode",
       description: "A helper text for the input. Provides a hint such as specific requirements for what to choose.",
+      default: "-"
+    },
+    {
+      attribute: "placeholder",
+      type: "string",
+      description: "The placeholder of the input.",
       default: "-"
     },
     {
@@ -311,6 +323,12 @@ In case you need to customize the input even further, you can use the `useInput`
       attribute: "validate",
       type: "(value: string) => ValidationError | true | null | undefined",
       description: "Validate input values when committing (e.g. on blur), returning error messages for invalid values.",
+      default: "-"
+    },
+    {
+      attribute: "validationState",
+      type: "valid | invalid",
+      description: "Whether the inputs should display its \"valid\" or \"invalid\" visual styling. (Deprecated) use isInvalid instead.",
       default: "-"
     },
     {
@@ -329,6 +347,36 @@ In case you need to customize the input even further, you can use the `useInput`
       attribute: "maxValue",
       type: "number",
       description: "The maximum value of the input.",
+      default: "-"
+    },
+    {
+      attribute: "formatOptions",
+      type: "Intl.NumberFormatOptions",
+      description: "The format options for the input.",
+      default: "-"
+    },
+    {
+      attribute: "step",
+      type: "number",
+      description: "The amount that the input value changes with each increment or decrement tick.",
+      default: "1"
+    },
+    {
+      attribute: "steps",
+      type: "vertical | horizontal",
+      description: "The steps of the input.",
+      default: "vertical"
+    },
+    {
+      attribute: "hideStepper",
+      type: "boolean",
+      description: "Whether the stepper buttons should be hidden.",
+      default: "-"
+    },
+    {
+      attribute: "isWheelDisabled",
+      type: "boolean",
+      description: "Whether the wheel should be disabled.",
       default: "-"
     },
     {
@@ -382,13 +430,13 @@ In case you need to customize the input even further, you can use the `useInput`
     {
       attribute: "incrementAriaLabel",
       type: "string",
-      description: "A custom aria-label for the increment button. If not provided, the localized string "Increment" is used.",
+      description: "A custom aria-label for the increment button. If not provided, the localized string `Increment` is used.",
       default: "-"
     },
     {
       attribute: "decrementAriaLabel",
       type: "string",
-      description: "A custom aria-label for the increment button. If not provided, the localized string "Decrement" is used.",
+      description: "A custom aria-label for the increment button. If not provided, the localized string `Decrement` is used.",
       default: "-"
     },
     {

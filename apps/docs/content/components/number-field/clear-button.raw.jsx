@@ -7,7 +7,7 @@ export default function App() {
       className="max-w-xs"
       defaultValue={1024}
       label="Width"
-      placeholder="Enter your width"
+      placeholder="Enter the width"
       variant="bordered"
       // eslint-disable-next-line no-console
       onClear={() => console.log("number field cleared")}
