@@ -1,5 +1,17 @@
 # @nextui-org/popover
 
+## 2.3.9
+
+### Patch Changes
+
+- [#4460](https://github.com/nextui-org/nextui/pull/4460) [`fb46df2`](https://github.com/nextui-org/nextui/commit/fb46df2430f95cddef0c25fce4639c2078b34f62) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix initial animation direction to match fallback placement (#4290)
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/button@2.2.9
+  - @nextui-org/aria-utils@2.2.7
+  - @nextui-org/framer-utils@2.1.6
+
 ## 2.3.8
 
 ### Patch Changes

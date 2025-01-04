@@ -1,5 +1,11 @@
 # @nextui-org/theme
 
+## 2.4.5
+
+### Patch Changes
+
+- [#4447](https://github.com/nextui-org/nextui/pull/4447) [`a83388a`](https://github.com/nextui-org/nextui/commit/a83388aaf4521f0ed8dfed99a54998156df1868b) Thanks [@wingkwong](https://github.com/wingkwong)! - fix the alignment when only alert children is provided
+
 ## 2.4.4
 
 ### Patch Changes

@@ -1,5 +1,12 @@
 # @nextui-org/aria-utils
 
+## 2.2.7
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @nextui-org/system@2.4.6
+
 ## 2.2.6
 
 ### Patch Changes
