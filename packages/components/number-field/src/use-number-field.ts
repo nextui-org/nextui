@@ -491,7 +491,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         ...props,
         type: "button",
         disabled: originalProps.isDisabled,
-        "aria-label": "increase value",
         "data-slot": "increase-button",
         className: slots.stepperButton({
           // class: clsx(classNames?.stepperIncreaseButton, props?.className),
@@ -508,7 +507,6 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       return {
         type: "button",
         disabled: originalProps.isDisabled,
-        "aria-label": "decrease value",
         "data-slot": "decrease-button",
         className: slots.stepperButton({
           // class: clsx(classNames?.stepperDereaseButton, props?.className),
