@@ -380,6 +380,18 @@ In case you need to customize the input even further, you can use the `useInput`
       default: "false"
     },
     {
+      attribute: "incrementAriaLabel",
+      type: "string",
+      description: "A custom aria-label for the increment button. If not provided, the localized string "Increment" is used.",
+      default: "-"
+    },
+    {
+      attribute: "decrementAriaLabel",
+      type: "string",
+      description: "A custom aria-label for the increment button. If not provided, the localized string "Decrement" is used.",
+      default: "-"
+    },
+    {
       attribute: "baseRef",
       type: "RefObject<HTMLDivElement>",
       description: "The ref to the base element.",
