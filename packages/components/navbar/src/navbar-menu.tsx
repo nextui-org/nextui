@@ -4,6 +4,7 @@ import {clsx, dataAttr} from "@nextui-org/shared-utils";
 import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {Overlay} from "@react-aria/overlays";
+import React from "react";
 
 import {menuVariants} from "./navbar-menu-transitions";
 import {useNavbarContext} from "./navbar-context";
@@ -31,47 +32,54 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
 
   const styles = clsx(classNames?.menu, className);
 
+  // only apply overlay when menu is open
+  const OverlayComponent = isMenuOpen ? Overlay : React.Fragment;
+
   const contents = disableAnimation ? (
-    <ul
-      ref={domRef}
-      className={slots.menu?.({class: styles})}
-      data-open={dataAttr(isMenuOpen)}
-      style={{
-        // @ts-expect-error
-        "--navbar-height": typeof height === "number" ? `${height}px` : height,
-      }}
-      {...otherProps}
-    >
-      {children}
-    </ul>
+    <OverlayComponent portalContainer={portalContainer}>
+      <ul
+        ref={domRef}
+        className={slots.menu?.({class: styles})}
+        data-open={dataAttr(isMenuOpen)}
+        style={{
+          // @ts-expect-error
+          "--navbar-height": typeof height === "number" ? `${height}px` : height,
+        }}
+        {...otherProps}
+      >
+        {children}
+      </ul>
+    </OverlayComponent>
   ) : (
     <AnimatePresence mode="wait">
       {isMenuOpen ? (
-        <LazyMotion features={domAnimation}>
-          <m.ul
-            ref={domRef}
-            layoutScroll
-            animate="enter"
-            className={slots.menu?.({class: styles})}
-            data-open={dataAttr(isMenuOpen)}
-            exit="exit"
-            initial="exit"
-            style={{
-              // @ts-expect-error
-              "--navbar-height": typeof height === "number" ? `${height}px` : height,
-              ...style,
-            }}
-            variants={menuVariants}
-            {...mergeProps(motionProps, otherProps)}
-          >
-            {children}
-          </m.ul>
-        </LazyMotion>
+        <Overlay portalContainer={portalContainer}>
+          <LazyMotion features={domAnimation}>
+            <m.ul
+              ref={domRef}
+              layoutScroll
+              animate="enter"
+              className={slots.menu?.({class: styles})}
+              data-open={dataAttr(isMenuOpen)}
+              exit="exit"
+              initial="exit"
+              style={{
+                // @ts-expect-error
+                "--navbar-height": typeof height === "number" ? `${height}px` : height,
+                ...style,
+              }}
+              variants={menuVariants}
+              {...mergeProps(motionProps, otherProps)}
+            >
+              {children}
+            </m.ul>
+          </LazyMotion>
+        </Overlay>
       ) : null}
     </AnimatePresence>
   );
 
-  return <Overlay portalContainer={portalContainer}>{contents}</Overlay>;
+  return contents;
 });
 
 NavbarMenu.displayName = "NextUI.NavbarMenu";
