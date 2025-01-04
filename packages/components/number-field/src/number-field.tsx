@@ -47,7 +47,14 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
 
   const end = useMemo(() => {
     if (isClearable) {
-      return <button {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</button>;
+      return (
+        <>
+          <button {...getClearButtonProps()}>
+            <CloseFilledIcon />
+          </button>
+          {endContent}
+        </>
+      );
     }
 
     return endContent;
