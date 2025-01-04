@@ -2,4 +2,4 @@
 "@nextui-org/input": patch
 ---
 
-input use onPress for wrapper click focus (#4287)
+fixed input inconsistent focus behaviour on wrapper click (#4287)
