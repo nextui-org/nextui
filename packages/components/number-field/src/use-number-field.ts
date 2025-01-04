@@ -504,7 +504,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         disabled: originalProps.isDisabled,
         "data-slot": "increase-button",
         className: slots.stepperButton({
-          // class: clsx(classNames?.stepperIncreaseButton, props?.className),
+          class: clsx(classNames?.stepperButton, props?.className),
         }),
         // TODO: check press props & focus props
         ...mergeProps(incrementButtonProps, props),
@@ -520,7 +520,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         disabled: originalProps.isDisabled,
         "data-slot": "decrease-button",
         className: slots.stepperButton({
-          // class: clsx(classNames?.stepperDereaseButton, props?.className),
+          class: clsx(classNames?.stepperButton, props?.className),
         }),
         // TODO: check press props & focus props
         ...mergeProps(decrementButtonProps, props),
