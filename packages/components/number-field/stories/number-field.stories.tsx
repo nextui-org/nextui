@@ -414,6 +414,21 @@ export const HorizontalStepper = {
   },
 };
 
+export const WithFormatOptions = {
+  render: Template,
+
+  args: {
+    ...defaultProps,
+    label: "Transaction amount",
+    formatOptions: {
+      style: "currency",
+      currency: "EUR",
+      currencyDisplay: "code",
+      currencySign: "accounting",
+    },
+  },
+};
+
 export const HideStepper = {
   render: Template,
 
@@ -454,21 +469,6 @@ export const ReadOnly = {
     ...defaultProps,
     variant: "bordered",
     isReadOnly: true,
-  },
-};
-
-export const WithFormatOptions = {
-  render: Template,
-
-  args: {
-    ...defaultProps,
-    label: "Transaction amount",
-    formatOptions: {
-      style: "currency",
-      currency: "EUR",
-      currencyDisplay: "code",
-      currencySign: "accounting",
-    },
   },
 };
 
