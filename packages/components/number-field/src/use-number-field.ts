@@ -321,13 +321,11 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
         ),
         "aria-readonly": dataAttr(originalProps.isReadOnly),
         onChange: chain(inputProps.onChange, onChange),
-        value: inputValue,
         ref: domRef,
       };
     },
     [
       slots,
-      inputValue,
       focusProps,
       inputProps,
       otherProps,
@@ -339,6 +337,19 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
       originalProps.isRequired,
       onChange,
     ],
+  );
+
+  const getHiddenNumberFieldProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        name: originalProps.name,
+        value: inputValue,
+        "data-slot": "hidden-input",
+        type: "hidden",
+        ...props,
+      };
+    },
+    [inputValue, originalProps.name],
   );
 
   const getInputWrapperProps: PropGetter = useCallback(
@@ -540,6 +551,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     getBaseProps,
     getLabelProps,
     getNumberFieldProps,
+    getHiddenNumberFieldProps,
     getMainWrapperProps,
     getInputWrapperProps,
     getInnerWrapperProps,

@@ -25,6 +25,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     getBaseProps,
     getLabelProps,
     getNumberFieldProps,
+    getHiddenNumberFieldProps,
     getInnerWrapperProps,
     getInputWrapperProps,
     getMainWrapperProps,
@@ -80,6 +81,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
         <div {...getInnerWrapperProps()}>
           {startContent}
           <input {...getNumberFieldProps()} />
+          <input {...getHiddenNumberFieldProps()} />
           {end}
         </div>
       );
@@ -91,6 +93,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
           <NumberFieldHorizontalStepper {...getStepperDecreaseButtonProps()} direction="left" />
           {startContent}
           <input {...getNumberFieldProps()} />
+          <input {...getHiddenNumberFieldProps()} />
           {end}
           <NumberFieldHorizontalStepper {...getStepperIncreaseButtonProps()} direction="right" />
         </div>
@@ -101,6 +104,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
       <div {...getInnerWrapperProps()}>
         {startContent}
         <input {...getNumberFieldProps()} />
+        <input {...getHiddenNumberFieldProps()} />
         {end}
         {!hideStepper && (
           <div {...getVerticalStepperWrapperProps()}>
