@@ -1,11 +1,7 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {
-  numberFieldLabelClasses,
-  dataFocusVisibleClasses,
-  groupDataFocusVisibleClasses,
-} from "../utils";
+import {numberFieldLabelClasses, groupDataFocusVisibleClasses} from "../utils";
 
 /**
  * NumberField wrapper **Tailwind Variants** component
@@ -42,23 +38,16 @@ const numberField = tv({
       "autofill:bg-transparent bg-clip-text",
     ],
     clearButton: [
-      "p-2",
-      "-m-2",
-      "z-10",
-      "absolute",
-      "end-3",
-      "start-auto",
-      "pointer-events-none",
-      "appearance-none",
-      "outline-none",
-      "select-none",
       "opacity-0",
-      "hover:!opacity-100",
-      "cursor-pointer",
-      "active:!opacity-70",
-      "rounded-full",
-      // focus ring
-      ...dataFocusVisibleClasses,
+      "pointer-events-none",
+      "group-data-[invalid=true]:text-danger",
+      "peer-data-[filled=true]:opacity-100", // on mobile is always visible when there is a value
+      "peer-data-[filled=true]:pointer-events-auto",
+      "peer-data-[filled=true]:cursor-pointer",
+      "sm:peer-data-[filled=true]:opacity-0", // only visible on hover
+      "sm:peer-data-[filled=true]:pointer-events-none",
+      "sm:group-data-[hover=true]:peer-data-[filled=true]:opacity-100",
+      "sm:group-data-[hover=true]:peer-data-[filled=true]:pointer-events-auto",
     ],
     stepperButton: ["bg-transparent min-w-4 w-4"],
     verticalStepperWrapper: ["flex flex-col h-full"],
@@ -207,11 +196,9 @@ const numberField = tv({
     isClearable: {
       true: {
         input: "peer pe-6 input-search-cancel-button-none",
-        clearButton: [
-          "peer-data-[filled=true]:pointer-events-auto",
-          "peer-data-[filled=true]:opacity-70 peer-data-[filled=true]:block",
-          "peer-data-[filled=true]:scale-100",
-        ],
+      },
+      false: {
+        clearButton: "hidden",
       },
     },
     isDisabled: {
