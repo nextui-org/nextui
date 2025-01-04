@@ -28,7 +28,7 @@ const numberField = tv({
     label: numberFieldLabelClasses,
     mainWrapper: "h-full flex flex-col",
     inputWrapper:
-      "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-4 py-3 gap-3",
+      "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 py-2 h-8 gap-3",
     innerWrapper: "inline-flex w-full items-center h-full box-border",
     input: [
       "w-full font-normal bg-transparent !outline-none placeholder:text-foreground-500 focus-visible:outline-none",
@@ -49,8 +49,8 @@ const numberField = tv({
       "sm:group-data-[hover=true]:peer-data-[filled=true]:opacity-100",
       "sm:group-data-[hover=true]:peer-data-[filled=true]:pointer-events-auto",
     ],
-    stepperButton: ["bg-transparent min-w-4 w-4"],
-    verticalStepperWrapper: ["flex flex-col h-full"],
+    stepperButton: ["bg-transparent", "min-w-5", "w-5", "h-4", "rounded-none"],
+    verticalStepperWrapper: ["flex flex-col"],
     helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
     description: [...numberFieldLabelClasses, "text-tiny", "text-default-400"],
     helperText: "text-tiny text-foreground-400",
