@@ -161,7 +161,9 @@ export type UseSelectProps<T> = Omit<
   SelectVariantProps & {
     /**
      * The height of each item in the listbox.
+     * For dataset with sections, the itemHeight must be the height of each item (including padding, border, margin).
      * This is required for virtualized listboxes to calculate the height of each item.
+     * @default 36
      */
     itemHeight?: number;
     /**
@@ -208,7 +210,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
     onSelectionChange,
     placeholder,
     isVirtualized,
-    itemHeight = 32,
+    itemHeight = 36,
     maxListboxHeight = 256,
     children,
     disallowEmptySelection = false,
@@ -564,6 +566,7 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
       className: slots.listbox({
         class: clsx(classNames?.listbox, props?.className),
       }),
+      scrollShadowProps: slotsProps.scrollShadowProps,
       ...mergeProps(slotsProps.listboxProps, props, menuProps),
     } as ListboxProps;
   };

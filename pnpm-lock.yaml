@@ -3697,6 +3697,9 @@ importers:
 
   packages/hooks/use-image:
     dependencies:
+      '@nextui-org/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
       '@nextui-org/use-safe-layout-effect':
         specifier: workspace:*
         version: link:../use-safe-layout-effect

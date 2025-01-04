@@ -34,4 +34,11 @@ describe("use-image hook", () => {
     expect(result.current).toEqual("loading");
     await waitFor(() => expect(result.current).toBe("failed"));
   });
+
+  it("can handle cached image", async () => {
+    mockImage.simulate("loaded");
+    const {result} = renderHook(() => useImage({src: "/test.png"}));
+
+    await waitFor(() => expect(result.current).toBe("loaded"));
+  });
 });
