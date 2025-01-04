@@ -61,6 +61,7 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     <div ref={tooltipRef} id={id} style={style}>
       <LazyMotion features={domAnimation}>
         <m.div
+          key={id}
           animate="enter"
           exit="exit"
           initial="exit"
@@ -79,8 +80,8 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
   return (
     <>
       {trigger}
-      {disableAnimation && isOpen ? (
-        <OverlayContainer portalContainer={portalContainer}>
+      {disableAnimation ? (
+        isOpen && <OverlayContainer portalContainer={portalContainer}>
           <div ref={tooltipRef} id={id} style={style} {...otherTooltipProps}>
             <Component {...getTooltipContentProps()}>{content}</Component>
           </div>
@@ -88,7 +89,7 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
       ) : (
         <AnimatePresence>
           {isOpen ? (
-            <OverlayContainer portalContainer={portalContainer}>{animatedContent}</OverlayContainer>
+            <OverlayContainer key={id} portalContainer={portalContainer}>{animatedContent}</OverlayContainer>
           ) : null}
         </AnimatePresence>
       )}
