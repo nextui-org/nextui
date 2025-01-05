@@ -1,4 +1,4 @@
-name = "nextui-docs"
+name = "heroui-docs"
 
 compatibility_date = "2024-09-23"
 compatibility_flags = ["nodejs_compat"]
@@ -13,5 +13,5 @@ NEXT_PUBLIC_POSTHOG_HOST = "https://us.i.posthog.com"
 NEXT_PUBLIC_POSTHOG_KEY = "phc_QB1Ktw9FS3mk1FtAEvpWadtj8ZxuSaCbwVbrzK6Cwk2"
 
 [env.staging]
-name = "nextui-docs-staging"
+name = "heroui-docs-staging"
 route = { pattern = "workers-staging.heroui.com/*", zone_name = "heroui.com" }
