@@ -629,6 +629,9 @@ importers:
       uuid:
         specifier: ^8.3.2
         version: 8.3.2
+      wrangler:
+        specifier: 3.99.0
+        version: 3.99.0
 
   packages/components/accordion:
     dependencies:

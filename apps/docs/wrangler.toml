@@ -10,7 +10,7 @@ route = { pattern = "heroui.com/*", zone_name = "heroui.com" }
 [vars]
 NODE_ENV = "production"
 NEXT_PUBLIC_POSTHOG_HOST = "https://us.i.posthog.com"
-
+NEXT_PUBLIC_POSTHOG_KEY = "phc_QB1Ktw9FS3mk1FtAEvpWadtj8ZxuSaCbwVbrzK6Cwk2"
 
 [env.staging]
 name = "nextui-docs-staging"
