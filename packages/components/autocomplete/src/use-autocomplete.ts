@@ -482,6 +482,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       triggerType: "listbox",
       ...popoverProps,
       classNames: {
+        ...slotsProps.popoverProps?.classNames,
         content: slots.popoverContent({
           class: clsx(
             classNames?.popoverContent,
