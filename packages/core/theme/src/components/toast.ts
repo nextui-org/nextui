@@ -9,17 +9,16 @@ const toast = tv({
       "group",
       "cursor-pointer",
       "relative",
-      "z-500",
+      "z-[9999]",
       "box-border",
       "outline-none",
       "p-3 mx-1",
       "my-1",
       "w-[210px] sm:w-[270px] md:w-[300px]",
       "min-h-4",
-      "drop-shadow",
     ],
-    title: ["font-medium", "text-sm", "me-4", "text-foreground"],
-    description: ["text-sm", "me-4", "text-default-600"],
+    title: ["font-medium", "text-small", "me-4", "text-foreground"],
+    description: ["text-small", "me-4", "text-default-600"],
     icon: ["w-6 h-6 fill-current"],
     content: ["flex flex-grow flex-row gap-x-4 items-center relative"],
     progressTrack: ["absolute h-[2px] left-0 -bottom-2 w-full bg-default-200"],
@@ -45,7 +44,7 @@ const toast = tv({
       },
     },
     variant: {
-      flat: "bg-default-50",
+      flat: "bg-content1",
       faded: "bg-default-50 border border-1 border-default-200",
       solid: "bg-default-50 shadow-inner",
       bordered: "bg-white dark:bg-black border border-1 border-default-200",
@@ -99,11 +98,26 @@ const toast = tv({
         closeButton: "transition-opacity ease-in duration-300",
       },
     },
+    shadow: {
+      none: {
+        base: "shadow-none",
+      },
+      sm: {
+        base: "shadow-small",
+      },
+      md: {
+        base: "shadow-medium",
+      },
+      lg: {
+        base: "shadow-large",
+      },
+    },
   },
   defaultVariants: {
     size: "md",
     variant: "flat",
     radius: "md",
+    shadow: "sm",
   },
   compoundVariants: [
     // flat and color
