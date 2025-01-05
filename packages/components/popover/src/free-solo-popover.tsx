@@ -58,7 +58,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
         // @ts-ignore
         transformOrigin,
       };
-    } else {
+    } else if (placement) {
       style = {
         ...style,
         ...getTransformOrigins(placement === "center" ? "top" : placement),
