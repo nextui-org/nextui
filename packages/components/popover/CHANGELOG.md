@@ -1,5 +1,31 @@
 # @nextui-org/popover
 
+## 2.3.9
+
+### Patch Changes
+
+- [#4498](https://github.com/nextui-org/nextui/pull/4498) [`33e0418`](https://github.com/nextui-org/nextui/commit/33e0418d08c29f829b00ee3bc41972dfce6a3370) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix incorrect initial popover animation and arrow display (#4466)
+
+- [#4460](https://github.com/nextui-org/nextui/pull/4460) [`fb46df2`](https://github.com/nextui-org/nextui/commit/fb46df2430f95cddef0c25fce4639c2078b34f62) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix initial animation direction to match fallback placement (#4290)
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/button@2.2.9
+  - @nextui-org/aria-utils@2.2.7
+  - @nextui-org/framer-utils@2.1.6
+
+## 2.3.8
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/button@2.2.8
+  - @nextui-org/use-aria-button@2.2.4
+  - @nextui-org/aria-utils@2.2.6
+  - @nextui-org/framer-utils@2.1.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.3.7
 
 ### Patch Changes

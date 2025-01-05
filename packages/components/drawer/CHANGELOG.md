@@ -1,5 +1,28 @@
 # @nextui-org/drawer
 
+## 2.2.7
+
+### Patch Changes
+
+- [#4438](https://github.com/nextui-org/nextui/pull/4438) [`07780a7`](https://github.com/nextui-org/nextui/commit/07780a75a2747405e16af99c1692aef496f54175) Thanks [@wingkwong](https://github.com/wingkwong)! - use top-level type-only import instead of inline type specifiers
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/modal@2.2.7
+  - @nextui-org/framer-utils@2.1.6
+
+## 2.2.6
+
+### Patch Changes
+
+- [#4310](https://github.com/nextui-org/nextui/pull/4310) [`f8f6bfe`](https://github.com/nextui-org/nextui/commit/f8f6bfea5a7f783636c4d0ce9ba7291ce0ea0a97) Thanks [@omarshehab221](https://github.com/omarshehab221)! - Export useDisclosure and Drawer children props from `@nextui-org/drawer`
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/modal@2.2.6
+  - @nextui-org/framer-utils@2.1.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.2.5
 
 ### Patch Changes

@@ -34,7 +34,27 @@ const nextConfig = {
         protocol: "https",
         hostname: "nextui.org",
       },
+      {
+        protocol: "https",
+        hostname: "heroui-assets.nyc3.cdn.digitaloceanspaces.com",
+      },
     ],
+  },
+  rewrites: async () => {
+    return [
+      {
+        destination: "https://us-assets.i.posthog.com/static/:path*",
+        source: "/ingest/static/:path*",
+      },
+      {
+        destination: "https://us.i.posthog.com/:path*",
+        source: "/ingest/:path*",
+      },
+      {
+        destination: "https://us.i.posthog.com/decide",
+        source: "/ingest/decide",
+      },
+    ];
   },
 };
 

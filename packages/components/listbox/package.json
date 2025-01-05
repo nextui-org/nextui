@@ -1,6 +1,6 @@
 {
   "name": "@nextui-org/listbox",
-  "version": "2.3.7",
+  "version": "2.3.9",
   "description": "A listbox displays a list of options and allows a user to select one or more of them.",
   "keywords": [
     "listbox"
@@ -45,7 +45,7 @@
     "@nextui-org/react-utils": "workspace:*",
     "@nextui-org/shared-utils": "workspace:*",
     "@nextui-org/use-is-mobile": "workspace:*",
-    "@tanstack/react-virtual": "3.10.9",
+    "@tanstack/react-virtual": "3.11.2",
     "@react-aria/utils": "3.26.0",
     "@react-aria/listbox": "3.13.6",
     "@react-stately/list": "3.11.1",

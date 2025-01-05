@@ -80,6 +80,9 @@ const PopoverContent = (props: PopoverContentProps) => {
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
+  const style = placement
+    ? getTransformOrigins(placement === "center" ? "top" : placement)
+    : undefined;
   const contents = (
     <>
       {disableAnimation ? (
@@ -90,9 +93,7 @@ const PopoverContent = (props: PopoverContentProps) => {
             animate="enter"
             exit="exit"
             initial="initial"
-            style={{
-              ...getTransformOrigins(placement === "center" ? "top" : placement),
-            }}
+            style={style}
             variants={TRANSITION_VARIANTS.scaleSpringOpacity}
             {...motionProps}
           >

@@ -1,5 +1,30 @@
 # @nextui-org/listbox
 
+## 2.3.9
+
+### Patch Changes
+
+- [#4463](https://github.com/nextui-org/nextui/pull/4463) [`d92468a`](https://github.com/nextui-org/nextui/commit/d92468aa1e35d5022c071b5d2674f5bfb6408001) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@tanstack/react-virtual` to support react 19 peer dep
+
+- [#4462](https://github.com/nextui-org/nextui/pull/4462) [`16c57ec`](https://github.com/nextui-org/nextui/commit/16c57ece6467d755645f109b8de810c9063e5665) Thanks [@vinroger](https://github.com/vinroger)! - add support for dataset with section, add support for scrollshadow
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/divider@2.2.5
+  - @nextui-org/aria-utils@2.2.7
+
+## 2.3.8
+
+### Patch Changes
+
+- [#4369](https://github.com/nextui-org/nextui/pull/4369) [`b5943db`](https://github.com/nextui-org/nextui/commit/b5943db1fdad3cacba54e10ef828bc24c740f01b) Thanks [@EReguero](https://github.com/EReguero)! - fix listbox section items prop in html element (#4277)
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/divider@2.2.5
+  - @nextui-org/aria-utils@2.2.6
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.3.7
 
 ### Patch Changes

@@ -1,5 +1,23 @@
 # @nextui-org/modal
 
+## 2.2.7
+
+### Patch Changes
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/framer-utils@2.1.6
+
+## 2.2.6
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+  - @nextui-org/use-aria-button@2.2.4
+  - @nextui-org/framer-utils@2.1.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.2.5
 
 ### Patch Changes

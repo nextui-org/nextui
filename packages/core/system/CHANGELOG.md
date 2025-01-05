@@ -1,5 +1,21 @@
 # @nextui-org/system
 
+## 2.4.6
+
+### Patch Changes
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/system-rsc@2.3.5
+
+## 2.4.5
+
+### Patch Changes
+
+- Updated dependencies [[`76a72a9`](https://github.com/nextui-org/nextui/commit/76a72a9d1c8400d23b3f948670cb6844d9728b2a)]:
+  - @nextui-org/system-rsc@2.3.5
+  - @nextui-org/react-utils@2.1.2
+
 ## 2.4.4
 
 ### Patch Changes

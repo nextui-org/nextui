@@ -1,5 +1,18 @@
 # @nextui-org/react-utils
 
+## 2.1.3
+
+### Patch Changes
+
+- [#4442](https://github.com/nextui-org/nextui/pull/4442) [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2) Thanks [@wingkwong](https://github.com/wingkwong)! - add useIsHydrated
+
+## 2.1.2
+
+### Patch Changes
+
+- Updated dependencies [[`77206bc`](https://github.com/nextui-org/nextui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/nextui-org/nextui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
+  - @nextui-org/shared-utils@2.1.2
+
 ## 2.1.1
 
 ### Patch Changes

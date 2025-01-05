@@ -93,6 +93,13 @@
           "title": "Astro",
           "keywords": "astro, heroui",
           "path": "/docs/frameworks/astro.mdx"
+        },
+        {
+          "key": "laravel",
+          "title": "Laravel",
+          "keywords": "laravel, nextui",
+          "path": "/docs/frameworks/laravel.mdx",
+          "newPost": true
         }
       ]
     },
