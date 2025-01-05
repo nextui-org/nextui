@@ -1,5 +1,13 @@
 # @nextui-org/link
 
+## 2.2.7
+
+### Patch Changes
+
+- Updated dependencies [[`b2e924f`](https://github.com/nextui-org/nextui/commit/b2e924fe19f4c6620ec0a0e464b9b35386ed2319), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/use-aria-link@2.2.5
+  - @nextui-org/react-utils@2.1.3
+
 ## 2.2.6
 
 ### Patch Changes
