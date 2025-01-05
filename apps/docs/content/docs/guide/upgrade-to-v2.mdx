@@ -31,14 +31,14 @@ directly in your React Server Components (RSC).
 
 ### Installation
 
-In your Next.js project, run one of the following command to install NextUI:
+In your Next.js project, run one of the following command to install HeroUI:
 
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
+    npm: 'npm i @heroui/react framer-motion',
+    yarn: 'yarn add @heroui/react framer-motion',
+    pnpm: 'pnpm add @heroui/react framer-motion',
   }}
 />
 
@@ -51,7 +51,7 @@ In your Next.js project, run one of the following command to install NextUI:
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -65,45 +65,45 @@ the following code to your `tailwind.config.js` file:
 
 ```js {9,14-15}
 // tailwind.config.js
-const { nextui } = require("@nextui-org/react");
+const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [heroui()]
 }
 ```
 
 ### Setup Provider
 
-Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
+Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the Component with the `HeroUIProvider`:
 
 ```jsx
 // app/providers.tsx
 'use client'
 
-import {NextUIProvider} from '@nextui-org/react'
+import {HeroUIProvider} from '@heroui/react'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   )
 }
 ```
 
 ### Add Provider to Root
 
-Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
+Now, Go to your `root` layout page and wrap it with the `HeroUIProvider`:
 
 ```jsx {6,8,10}
 // app/layout.tsx
@@ -156,14 +156,14 @@ export default function Page() {
 
 ### Installation
 
-In your Next.js project, run one of the following command to install NextUI:
+In your Next.js project, run one of the following command to install HeroUI:
 
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
+    npm: 'npm i @heroui/react framer-motion',
+    yarn: 'yarn add @heroui/react framer-motion',
+    pnpm: 'pnpm add @heroui/react framer-motion',
   }}
 />
 
@@ -176,7 +176,7 @@ In your Next.js project, run one of the following command to install NextUI:
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -190,36 +190,36 @@ the following code to your `tailwind.config.js` file:
 
 ```js {9,14-15}
 // tailwind.config.js
-const { nextui } = require("@nextui-org/react");
+const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [heroui()]
 }
 ```
 
 ### Setup Provider
 
-Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `NextUIProvider`:
+Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and wrap the Component with the `HeroUIProvider`:
 
 ```jsx
 // pages/_app.js
-import {NextUIProvider} from '@nextui-org/react'
+import {HeroUIProvider} from '@heroui/react'
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <Component {...pageProps} />
-    </NextUIProvider>
+    </HeroUIProvider>
   )
 }
 
@@ -281,7 +281,7 @@ In v2, NextUI now requires `framer-motion` as a dependency. To install both, use
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -296,40 +296,40 @@ NextUI v2 now uses Tailwind CSS. Add the NextUI plugin to your `tailwind.config.
 
 ```js {9,14-15}
 // tailwind.config.js
-const { nextui } = require("@nextui-org/react");
+const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [heroui()]
 }
 ```
 
 ### Provider Setup
 
-Go to `root` file and wrap the Component with the `NextUIProvider`:
+Go to `root` file and wrap the Component with the `HeroUIProvider`:
 
 ```jsx
 // src/main.jsx
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import {NextUIProvider} from '@nextui-org/react'
+import {HeroUIProvider} from '@heroui/react'
 import App from './App'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <NextUIProvider>
+    <HeroUIProvider>
       <App />
-    </NextUIProvider>
+    </HeroUIProvider>
   </React.StrictMode>,
 )
 ```

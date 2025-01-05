@@ -1,6 +1,6 @@
 ---
 title: Remix
-description: How to use NextUI with Remix
+description: How to use HeroUI with Remix
 ---
 
 # Remix
@@ -15,7 +15,7 @@ Requirements:
 
 <CarbonAd/>
 
-To use NextUI in your Remix project, you need to follow the following steps:
+To use HeroUI in your Remix project, you need to follow the following steps:
 
 ### Using NextUI + Remix template
 
@@ -121,34 +121,34 @@ export default function RootLayout({children}: { children: React.ReactNode }) {
 
 ### Add dependencies
 
-In your Remix project, run one of the following command to install NextUI:
+In your Remix project, run one of the following command to install HeroUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
-    bun: "bun add @nextui-org/react framer-motion"
+    npm: 'npm i @heroui/react framer-motion',
+    yarn: 'yarn add @heroui/react framer-motion',
+    pnpm: 'pnpm add @heroui/react framer-motion',
+    bun: "bun add @heroui/react framer-motion"
   }}
 />
 
 ### Hoisted Dependencies Setup
 
 <Blockquote color="primary">
-**Note**: This step is only for those who use `pnpm` to install. If you install NextUI using other package managers, you may skip this step.
+**Note**: This step is only for those who use `pnpm` to install. If you install HeroUI using other package managers, you may skip this step.
 </Blockquote>
 
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 ### Tailwind CSS Setup
 
-NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+HeroUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
 [installation guide](https://tailwindcss.com/docs/guides/remix) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
@@ -158,7 +158,7 @@ the following code to your `tailwind.config.js` file:
 
 ```ts {2,10,15-16}
 // tailwind.config.ts
-const { nextui } = require("@nextui-org/react");
+const { heroui } = require("@heroui/react");
 
 import type { Config } from 'tailwindcss'
 
@@ -166,21 +166,21 @@ export default {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [heroui()]
 } satisfies Config
 ```
 
 ### Provider Setup
 
-After installing NextUI, you need to set up the `NextUIProvider` at the `root` of your application.
+After installing HeroUI, you need to set up the `HeroUIProvider` at the `root` of your application.
 
-Go to the src directory and inside `root.tsx`, wrap `NextUIProvider` around App:
+Go to the src directory and inside `root.tsx`, wrap `HeroUIProvider` around App:
 
 ```tsx {9,19,24}
 import {
@@ -191,7 +191,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export default function App() {
   return (
@@ -201,12 +201,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <NextUIProvider>
+        <HeroUIProvider>
           <Outlet />
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
-        </NextUIProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );
@@ -214,10 +214,3 @@ export default function App() {
 ```
 
 </Steps>
-
-<Blockquote
- color="warning"
->
-  Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please use <Link href="https://v1.nextui.org/docs/getting-started" isExternal>version 1 of NextUI</Link>.
-</Blockquote>
-

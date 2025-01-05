@@ -22,7 +22,7 @@ export const Customization = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI is based on{" "}
+            HeroUI is based on{" "}
             <Link
               isExternal
               className="text-xl text-default-500 font-light [&>svg]:ml-1"

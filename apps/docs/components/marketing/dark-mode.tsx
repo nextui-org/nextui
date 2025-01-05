@@ -33,7 +33,7 @@ export const DarkMode = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI comes with a fully well-scaled default dark theme that you can apply to your
+            HeroUI comes with a fully well-scaled default dark theme that you can apply to your
             application with just adding the <Code>dark</Code> attribute to your <Code>html</Code>.
           </p>
         </div>

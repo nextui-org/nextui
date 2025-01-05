@@ -16,19 +16,27 @@ import {useIsMobile} from "@/hooks/use-media-query";
 
 const themesTabs = (isMobile: boolean) => [
   {
-    id: "nextui",
-    title: () => <p className="group-data-[selected=true]:text-primary">NextUI</p>,
+    id: "heroui",
+    title: () => (
+      <p className="group-data-[selected=true]:text-foreground group-data-[selected=true]:font-medium">
+        HeroUI
+      </p>
+    ),
     icon: () => (
       <NextUILogo
-        small
-        className="text-default-400 group-data-[selected=true]:text-primary"
+        outlined
+        className="text-default-400 group-data-[selected=true]:text-foreground"
         size={isMobile ? 34 : 44}
       />
     ),
   },
   {
     id: "modern",
-    title: () => <p className="group-data-[selected=true]:text-secondary">Modern</p>,
+    title: () => (
+      <p className="group-data-[selected=true]:text-secondary group-data-[selected=true]:font-medium">
+        Modern
+      </p>
+    ),
     icon: () => (
       <PaletteIcon
         className="group-data-[selected=true]:text-secondary"
@@ -38,12 +46,20 @@ const themesTabs = (isMobile: boolean) => [
   },
   {
     id: "elegant",
-    title: () => <p className="group-data-[selected=true]:text-foreground">Elegant</p>,
+    title: () => (
+      <p className="group-data-[selected=true]:text-foreground group-data-[selected=true]:font-medium">
+        Elegant
+      </p>
+    ),
     icon: () => <MagicIcon size={isMobile ? 34 : 44} />,
   },
   {
     id: "retro",
-    title: () => <p className="group-data-[selected=true]:text-warning">Retro</p>,
+    title: () => (
+      <p className="group-data-[selected=true]:text-warning group-data-[selected=true]:font-medium">
+        Retro
+      </p>
+    ),
     icon: () => (
       <GamingConsoleIcon
         className="group-data-[selected=true]:text-warning"
@@ -224,7 +240,7 @@ export const CustomThemes = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI provides a custom TailwindCSS plugin that allows you to customize the default
+            HeroUI provides a custom TailwindCSS plugin that allows you to customize the default
             themes or create your own.
           </p>
         </div>

@@ -7,6 +7,7 @@ import {usePostHog} from "posthog-js/react";
 
 import {ThemeSwitch} from "./theme-switch";
 import {InfoCircle} from "./icons/info-circle";
+import {FigmaButton} from "./figma-button";
 
 import {Sandpack} from "@/components/sandpack";
 import {CarbonAd} from "@/components/ads/carbon-ad";
@@ -198,6 +199,10 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
       disableAnimation={true}
       href={href}
       {...externalProps}
+      style={{
+        // font size inherit from parent
+        fontSize: "inherit",
+      }}
       onPress={handleClick}
     >
       {children}
@@ -336,6 +341,7 @@ export const MDXComponents = {
   ...DocsComponents,
   Sandpack,
   ThemeSwitch,
+  FigmaButton,
   /**
    * Blog components
    */
