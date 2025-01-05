@@ -1495,3 +1495,23 @@ export const ValidationBehaviorAria = {
     ...defaultProps,
   },
 };
+
+export const PopoverTopOrBottom = {
+  args: {
+    ...defaultProps,
+  },
+  render: (args) => (
+    <div className="relative h-screen w-screen">
+      <div className="absolute top-0 p-8">
+        <div className="w-48">
+          <Template {...args} />
+        </div>
+      </div>
+      <div className="absolute top-1/2 p-8">
+        <div className="w-48">
+          <Template {...args} popoverProps={{placement: "top"}} />
+        </div>
+      </div>
+    </div>
+  ),
+};
