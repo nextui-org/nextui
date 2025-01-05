@@ -1,5 +1,17 @@
 # @nextui-org/dropdown
 
+## 2.3.9
+
+### Patch Changes
+
+- [#4498](https://github.com/nextui-org/nextui/pull/4498) [`33e0418`](https://github.com/nextui-org/nextui/commit/33e0418d08c29f829b00ee3bc41972dfce6a3370) Thanks [@ryo-manba](https://github.com/ryo-manba)! - Fix incorrect initial popover animation and arrow display (#4466)
+
+- Updated dependencies [[`33e0418`](https://github.com/nextui-org/nextui/commit/33e0418d08c29f829b00ee3bc41972dfce6a3370), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2), [`fb46df2`](https://github.com/nextui-org/nextui/commit/fb46df2430f95cddef0c25fce4639c2078b34f62)]:
+  - @nextui-org/popover@2.3.9
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/menu@2.2.9
+  - @nextui-org/aria-utils@2.2.7
+
 ## 2.3.8
 
 ### Patch Changes
