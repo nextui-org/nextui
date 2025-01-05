@@ -418,13 +418,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
         if (state.selectedItem) {
-          state.setInputValue("");
           state.setSelectedKey(null);
-        } else {
-          if (allowsCustomValue) {
-            state.setInputValue("");
-          }
         }
+        state.setInputValue("");
         state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
@@ -433,12 +429,19 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }),
     } as ButtonProps);
 
+  // prevent use-input's useFormValidation hook from overwriting use-autocomplete's useFormValidation hook when there are uncommitted validation errors
+  // see https://github.com/nextui-org/nextui/pull/4452
+  const hasUncommittedValidation =
+    validationBehavior === "native" &&
+    state.displayValidation.isInvalid === false &&
+    state.realtimeValidation.isInvalid === true;
+
   const getInputProps = () =>
     ({
       ...otherProps,
       ...inputProps,
       ...slotsProps.inputProps,
-      isInvalid,
+      isInvalid: hasUncommittedValidation ? undefined : isInvalid,
       validationBehavior,
       errorMessage:
         typeof errorMessage === "function"
@@ -461,6 +464,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
             itemHeight,
           }
         : undefined,
+      scrollShadowProps: slotsProps.scrollShadowProps,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
@@ -478,6 +482,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       triggerType: "listbox",
       ...popoverProps,
       classNames: {
+        ...slotsProps.popoverProps?.classNames,
         content: slots.popoverContent({
           class: clsx(
             classNames?.popoverContent,

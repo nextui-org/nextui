@@ -1,5 +1,13 @@
 # @nextui-org/slider
 
+## 2.4.7
+
+### Patch Changes
+
+- Updated dependencies [[`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2)]:
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/tooltip@2.2.7
+
 ## 2.4.6
 
 ### Patch Changes

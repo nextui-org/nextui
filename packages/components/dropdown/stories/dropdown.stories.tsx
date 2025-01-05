@@ -835,3 +835,28 @@ export const WithShouldBlockScroll = {
     ...defaultProps,
   },
 };
+
+export const Placements = {
+  args: {
+    ...defaultProps,
+  },
+  render: (args) => (
+    <div className="inline-grid grid-cols-3 gap-4">
+      <Template {...args} label="Top Start" placement="top-start" />
+      <Template {...args} label="Top" placement="top" />
+      <Template {...args} label="Top End" placement="top-end" />
+
+      <Template {...args} label="Bottom Start" placement="bottom-start" />
+      <Template {...args} label="Bottom" placement="bottom" />
+      <Template {...args} label="Bottom End" placement="bottom-end" />
+
+      <Template {...args} label="Right Start" placement="right-start" />
+      <Template {...args} label="Right" placement="right" />
+      <Template {...args} label="Right End" placement="right-end" />
+
+      <Template {...args} label="Left Start" placement="left-start" />
+      <Template {...args} label="Left" placement="left" />
+      <Template {...args} label="Left End" placement="left-end" />
+    </div>
+  ),
+};
