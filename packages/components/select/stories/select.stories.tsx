@@ -1509,7 +1509,7 @@ export const PopoverTopOrBottom = {
       </div>
       <div className="absolute top-1/2 p-8">
         <div className="w-48">
-          <Template {...args} popoverProps={{placement: "top"}} />
+          <Template {...args} />
         </div>
       </div>
     </div>
