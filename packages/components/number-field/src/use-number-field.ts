@@ -13,6 +13,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {numberField} from "@nextui-org/theme";
 import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
+import {useLocale} from "@react-aria/i18n";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 import {useNumberFieldState} from "@react-stately/numberfield";
 import {useNumberField as useAriaNumberField} from "@react-aria/numberfield";
@@ -145,10 +146,12 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   const inputWrapperRef = useDOMRef<HTMLDivElement>(wrapperRef);
   const innerWrapperRef = useDOMRef<HTMLDivElement>(innerWrapperRefProp);
 
+  const {locale} = useLocale();
+
   const state = useNumberFieldState({
     ...originalProps,
     validationBehavior,
-    locale: "en-US",
+    locale,
     onChange: onValueChange,
   });
 
