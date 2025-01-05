@@ -51,7 +51,7 @@ const numberField = tv({
     ],
     stepperButton: ["bg-transparent", "min-w-5", "w-5", "h-4", "rounded-none"],
     verticalStepperWrapper: ["flex flex-col"],
-    helperWrapper: "hidden group-data-[has-helper=true]:flex p-1 relative flex-col gap-1.5",
+    helperWrapper: "hidden group-data-[has-helper=true]:flex py-2 relative flex-col gap-1.5",
     description: [...numberFieldLabelClasses, "text-tiny", "text-default-400"],
     helperText: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
