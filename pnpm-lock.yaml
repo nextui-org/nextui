@@ -2219,6 +2219,9 @@ importers:
       '@react-aria/focus':
         specifier: 3.19.0
         version: 3.19.0(react@18.2.0)
+      '@react-aria/i18n':
+        specifier: 3.12.4
+        version: 3.12.4(react@18.2.0)
       '@react-aria/interactions':
         specifier: 3.22.5
         version: 3.22.5(react@18.2.0)
