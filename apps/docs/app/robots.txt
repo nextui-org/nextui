@@ -1,2 +1,8 @@
 User-agent: *
 Disallow: /
+
+# Host
+Host: https://heroui.com
+
+# Sitemaps
+Sitemap: https://heroui.com/sitemap.xml
