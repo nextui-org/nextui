@@ -1,0 +1,17 @@
+name = "nextui-docs"
+
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+main = ".open-next/worker.js"
+assets = { directory = ".open-next/assets", binding = "ASSETS" }
+route = { pattern = "heroui.com/*", zone_name = "heroui.com" }
+
+[vars]
+NODE_ENV = "production"
+NEXT_PUBLIC_POSTHOG_HOST = "https://us.i.posthog.com"
+
+
+[env.staging]
+name = "nextui-docs-staging"
+route = { pattern = "workers-staging.heroui.com/*", zone_name = "heroui.com" }
