@@ -25,6 +25,7 @@
     "url": "https://github.com/nextui-org/nextui/issues"
   },
   "scripts": {
+    "postinstall": "node -e \"try{require('./scripts/postinstall.js')}catch(e){}\"",
     "build": "tsup src --dts",
     "dev": "pnpm build:fast --watch",
     "clean": "rimraf dist .turbo",
@@ -43,6 +44,7 @@
     "format": [
       "cjs",
       "esm"
-    ]
+    ],
+    "splitting": false
   }
 }

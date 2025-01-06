@@ -9,3 +9,5 @@ export * from "./console";
 export * from "./types";
 export * from "./dates";
 export * from "./regex";
+
+export type {getInertValue} from "./demi/demi";
