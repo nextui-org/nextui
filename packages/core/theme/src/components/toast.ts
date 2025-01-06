@@ -143,8 +143,8 @@ const toast = tv({
       color: "foreground",
       class: {
         base: "bg-foreground-50 text-foreground-600",
-        closeButton:
-          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        closeButton: "text-foreground-400 hover:text-foreground-600",
+        closeIcon: "border border-1 border-foreground-400 bg-foreground-100",
         title: "text-foreground-600",
         description: "text-foreground-400",
       },
@@ -154,7 +154,8 @@ const toast = tv({
       color: "primary",
       class: {
         base: "bg-primary-50 text-primary-600",
-        closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        closeButton: "text-primary-400 hover:text-primary-600",
+        closeIcon: "border border-1 border-primary-400 bg-primary-100",
         title: "text-primary-600",
         description: "text-primary-400",
       },
@@ -164,8 +165,8 @@ const toast = tv({
       color: "secondary",
       class: {
         base: "bg-secondary-50 text-secondary-600",
-        closeButton:
-          "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        closeButton: "text-secondary-400 hover:text-secondary-600",
+        closeIcon: "border border-1 border-secondary-400 bg-secondary-100",
         title: "text-secondary-600",
         description: "text-secondary-400",
       },
@@ -175,7 +176,8 @@ const toast = tv({
       color: "success",
       class: {
         base: "bg-success-50 text-success-600",
-        closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        closeButton: "text-success-400 hover:text-success-600",
+        closeIcon: "border border-1 border-success-400 bg-success-100",
         title: "text-success-600",
         description: "text-success-400",
       },
@@ -185,7 +187,8 @@ const toast = tv({
       color: "warning",
       class: {
         base: "bg-warning-50 text-warning-600",
-        closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        closeButton: "text-warning-400 hover:text-warning-600",
+        closeIcon: "border border-1 border-warning-400 bg-warning-100",
         title: "text-warning-600",
         description: "text-warning-400",
       },
@@ -195,7 +198,8 @@ const toast = tv({
       color: "danger",
       class: {
         base: "bg-danger-50 text-danger-600",
-        closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        closeButton: "text-danger-400 hover:text-danger-600",
+        closeIcon: "border border-1 border-danger-400 bg-danger-100",
         title: "text-danger-600",
         description: "text-danger-400",
       },
@@ -206,8 +210,8 @@ const toast = tv({
       color: "foreground",
       class: {
         base: "bg-foreground-50 text-foreground-400 border-foreground-600",
-        closeButton:
-          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        closeButton: "text-foreground-400 hover:text-foreground-600",
+        closeIcon: "border border-1 border-foreground-400 bg-foreground-100",
         title: "text-foreground-600",
         description: "text-foreground-400",
       },
@@ -217,7 +221,8 @@ const toast = tv({
       color: "primary",
       class: {
         base: "bg-primary-50 text-primary-400 border-primary-600",
-        closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        closeButton: "text-primary-400 hover:text-primary-600",
+        closeIcon: "border border-1 border-primary-400 bg-primary-100",
         title: "text-primary-600",
         description: "text-primary-400",
       },
@@ -227,8 +232,8 @@ const toast = tv({
       color: "secondary",
       class: {
         base: "bg-secondary-50 text-secondary-400 border-secondary-600",
-        closeButton:
-          "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        closeButton: "text-secondary-400 hover:text-secondary-600",
+        closeIcon: "border border-1 border-secondary-400 bg-secondary-100",
         title: "text-secondary-600",
         description: "text-secondary-400",
       },
@@ -238,7 +243,8 @@ const toast = tv({
       color: "success",
       class: {
         base: "bg-success-50 text-success-400 border-success-600",
-        closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        closeButton: "text-success-400 hover:text-success-600",
+        closeIcon: "border border-1 border-success-400 bg-success-100",
         title: "text-success-600",
         description: "text-success-400",
       },
@@ -248,7 +254,8 @@ const toast = tv({
       color: "warning",
       class: {
         base: "bg-warning-50 text-warning-400 border-warning-600",
-        closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        closeButton: "text-warning-400 hover:text-warning-600",
+        closeIcon: "border border-1 border-warning-400 bg-warning-100",
         title: "text-warning-600",
         description: "text-warning-400",
       },
@@ -258,7 +265,8 @@ const toast = tv({
       color: "danger",
       class: {
         base: "bg-danger-50 text-danger-400 border-danger-600",
-        closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        closeButton: "text-danger-400 hover:text-danger-600",
+        closeIcon: "border border-1 border-danger-400 bg-danger-100",
         title: "text-danger-600",
         description: "text-danger-400",
       },
@@ -266,23 +274,24 @@ const toast = tv({
     // bordered and color
     {
       variant: "bordered",
-      color: "primary",
+      color: "foreground",
       class: {
-        base: "border-primary-400 text-primary-600",
-        closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
-        title: "text-primary-600",
-        description: "text-primary-400",
+        base: "border-foreground-400 text-foreground-600",
+        closeButton: "text-foreground-400 hover:text-foreground-600",
+        closeIcon: "border border-1 border-foreground-400 bg-foreground-100",
+        title: "text-foreground-600",
+        description: "text-foreground-400",
       },
     },
     {
       variant: "bordered",
-      color: "foreground",
+      color: "primary",
       class: {
-        base: "border-foreground-400 text-foreground-600",
-        closeButton:
-          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
-        title: "text-foreground-600",
-        description: "text-foreground-400",
+        base: "border-primary-400 text-primary-600",
+        closeButton: "text-primary-400 hover:text-primary-600",
+        closeIcon: "border border-1 border-primary-400 bg-primary-100",
+        title: "text-primary-600",
+        description: "text-primary-400",
       },
     },
     {
@@ -290,8 +299,8 @@ const toast = tv({
       color: "secondary",
       class: {
         base: "border-secondary-400 text-secondary-600",
-        closeButton:
-          "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        closeButton: "text-secondary-400 hover:text-secondary-600",
+        closeIcon: "border border-1 border-secondary-400 bg-secondary-100",
         title: "text-secondary-600",
         description: "text-secondary-400",
       },
@@ -301,7 +310,8 @@ const toast = tv({
       color: "success",
       class: {
         base: "border-success-400 text-success-600",
-        closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        closeButton: "text-success-400 hover:text-success-600",
+        closeIcon: "border border-1 border-success-400 bg-success-100",
         title: "text-success-600",
         description: "text-success-400",
       },
@@ -311,7 +321,8 @@ const toast = tv({
       color: "warning",
       class: {
         base: "border-warning-400 text-warning-600",
-        closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        closeButton: "text-warning-400 hover:text-warning-600",
+        closeIcon: "border border-1 border-warning-400 bg-warning-100",
         title: "text-warning-600",
         description: "text-warning-400",
       },
@@ -321,7 +332,8 @@ const toast = tv({
       color: "danger",
       class: {
         base: "border-danger-400 text-danger-600",
-        closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        closeButton: "text-danger-400 hover:text-danger-600",
+        closeIcon: "border border-1 border-danger-400 bg-danger-100",
         title: "text-danger-600",
         description: "text-danger-400",
       },
@@ -332,8 +344,8 @@ const toast = tv({
       color: "foreground",
       class: {
         base: "bg-foreground-100 text-foreground-600",
-        closeButton:
-          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        closeButton: "text-foreground-400 hover:text-foreground-600",
+        closeIcon: "border border-1 border-foreground-400 bg-foreground-100",
         title: "text-foreground-600",
         description: "text-foreground-400",
       },
@@ -343,7 +355,8 @@ const toast = tv({
       color: "primary",
       class: {
         base: "bg-primary-100 text-primary-600",
-        closeButton: "bg-primary-100 hover:bg-primary-200 border-primary-400 text-primary-400",
+        closeButton: "text-primary-400 hover:text-primary-600",
+        closeIcon: "border border-1 border-primary-400 bg-primary-100",
         title: "text-primary-600",
         description: "text-primary-400",
       },
@@ -353,8 +366,8 @@ const toast = tv({
       color: "secondary",
       class: {
         base: "bg-secondary-100 text-secondary-600",
-        closeButton:
-          "bg-secondary-100 hover:bg-secondary-200 border-secondary-400 text-secondary-400",
+        closeButton: "text-secondary-400 hover:text-secondary-600",
+        closeIcon: "border border-1 border-secondary-400 bg-secondary-100",
         title: "text-secondary-600",
         description: "text-secondary-400",
       },
@@ -364,7 +377,8 @@ const toast = tv({
       color: "success",
       class: {
         base: "bg-success-100 text-success-600",
-        closeButton: "bg-success-100 hover:bg-success-200 border-success-400 text-success-400",
+        closeButton: "text-success-400 hover:text-success-600",
+        closeIcon: "border border-1 border-success-400 bg-success-100",
         title: "text-success-600",
         description: "text-success-400",
       },
@@ -374,7 +388,8 @@ const toast = tv({
       color: "warning",
       class: {
         base: "bg-warning-100 text-warning-600",
-        closeButton: "bg-warning-100 hover:bg-warning-200 border-warning-400 text-warning-400",
+        closeButton: "text-warning-400 hover:text-warning-600",
+        closeIcon: "border border-1 border-warning-400 bg-warning-100",
         title: "text-warning-600",
         description: "text-warning-400",
       },
@@ -384,7 +399,8 @@ const toast = tv({
       color: "danger",
       class: {
         base: "bg-danger-100 text-danger-600",
-        closeButton: "bg-danger-100 hover:bg-danger-200 border-danger-400 text-danger-400",
+        closeButton: "text-danger-400 hover:text-danger-600",
+        closeIcon: "border border-1 border-danger-400 bg-danger-100",
         title: "text-danger-600",
         description: "text-danger-400",
       },
