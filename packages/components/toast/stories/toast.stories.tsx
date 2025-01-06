@@ -15,7 +15,7 @@ export default {
     },
     color: {
       control: {type: "select"},
-      options: ["default", "primary", "secondary", "success", "warning", "danger"],
+      options: ["default", "foreground", "primary", "secondary", "success", "warning", "danger"],
     },
     radius: {
       control: {type: "select"},

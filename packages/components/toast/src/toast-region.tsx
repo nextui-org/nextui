@@ -1,7 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import {useToastRegion, AriaToastRegionProps} from "@react-aria/toast";
 import {QueuedToast, ToastState} from "@react-stately/toast";
-import {createPortal} from "react-dom";
 import {useHover} from "@react-aria/interactions";
 import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@nextui-org/shared-utils";
@@ -70,11 +69,12 @@ export function ToastRegion<T extends ToastProps>({
     setIsTouched(true);
   };
 
-  return createPortal(
+  return (
     <div
       {...mergeProps(regionProps, hoverProps)}
       ref={ref}
       className={clsx(disableAnimation ? positionStyle : "")}
+      data-position={position}
       onTouchStart={handleTouchStart}
     >
       {toastQueue.visibleToasts.map((toast: QueuedToast<ToastProps>, index) => {
@@ -102,7 +102,6 @@ export function ToastRegion<T extends ToastProps>({
 
         return null;
       })}
-    </div>,
-    document.body,
+    </div>
   );
 }
