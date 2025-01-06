@@ -19,6 +19,8 @@ export interface AriaLinkOptions extends AriaLinkProps {
   "aria-current"?: DOMAttributes["aria-current"];
   /** Whether the link is disabled. */
   isDisabled?: boolean;
+  /** The role of the element */
+  role?: string;
   /**
    * The HTML element used to render the link, e.g. 'a', or 'span'.
    * @default 'a'
@@ -46,6 +48,7 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
     onPressEnd,
     // @ts-ignore
     onClick: deprecatedOnClick,
+    role,
     isDisabled,
     ...otherProps
   } = props;
@@ -61,7 +64,7 @@ export function useAriaLink(props: AriaLinkOptions, ref: RefObject<FocusableElem
 
   let isMobile = isIOS() || isAndroid();
 
-  if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
+  if (deprecatedOnClick && typeof deprecatedOnClick === "function" && role !== "button") {
     warn(
       "onClick is deprecated, please use onPress instead. See: https://github.com/nextui-org/nextui/issues/4292",
       "useLink",

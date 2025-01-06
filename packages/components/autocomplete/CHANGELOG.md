@@ -1,5 +1,28 @@
 # @nextui-org/autocomplete
 
+## 2.3.9
+
+### Patch Changes
+
+- [#4458](https://github.com/nextui-org/nextui/pull/4458) [`7c2bc4a`](https://github.com/nextui-org/nextui/commit/7c2bc4a18ef01424c7ff464cad3401dd6596e7b3) Thanks [@wingkwong](https://github.com/wingkwong)! - clear autocomplete value when pressing clear button (#4402)
+
+- [#4452](https://github.com/nextui-org/nextui/pull/4452) [`0401f25`](https://github.com/nextui-org/nextui/commit/0401f2548f525fc4194186b54f563cb91c6ccd0c) Thanks [@Peterl561](https://github.com/Peterl561)! - fixed autocomplete validate prop not working after hovering when validation behavior is native
+
+- [#4462](https://github.com/nextui-org/nextui/pull/4462) [`16c57ec`](https://github.com/nextui-org/nextui/commit/16c57ece6467d755645f109b8de810c9063e5665) Thanks [@vinroger](https://github.com/vinroger)! - add support for dataset with section, add support for scrollshadow
+
+- [#4496](https://github.com/nextui-org/nextui/pull/4496) [`0c45fed`](https://github.com/nextui-org/nextui/commit/0c45fed420747b41a4d2a7bb07e9582f6f609287) Thanks [@wingkwong](https://github.com/wingkwong)! - fix missing popover props except content (#4484)
+
+- Updated dependencies [[`d92468a`](https://github.com/nextui-org/nextui/commit/d92468aa1e35d5022c071b5d2674f5bfb6408001), [`33e0418`](https://github.com/nextui-org/nextui/commit/33e0418d08c29f829b00ee3bc41972dfce6a3370), [`16c57ec`](https://github.com/nextui-org/nextui/commit/16c57ece6467d755645f109b8de810c9063e5665), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2), [`fb46df2`](https://github.com/nextui-org/nextui/commit/fb46df2430f95cddef0c25fce4639c2078b34f62)]:
+  - @nextui-org/listbox@2.3.9
+  - @nextui-org/popover@2.3.9
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/button@2.2.9
+  - @nextui-org/form@2.1.8
+  - @nextui-org/input@2.4.8
+  - @nextui-org/scroll-shadow@2.3.5
+  - @nextui-org/spinner@2.2.6
+  - @nextui-org/aria-utils@2.2.7
+
 ## 2.3.8
 
 ### Patch Changes

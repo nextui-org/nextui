@@ -1,5 +1,22 @@
 # @nextui-org/select
 
+## 2.4.9
+
+### Patch Changes
+
+- [#4463](https://github.com/nextui-org/nextui/pull/4463) [`d92468a`](https://github.com/nextui-org/nextui/commit/d92468aa1e35d5022c071b5d2674f5bfb6408001) Thanks [@wingkwong](https://github.com/wingkwong)! - bump `@tanstack/react-virtual` to support react 19 peer dep
+
+- [#4462](https://github.com/nextui-org/nextui/pull/4462) [`16c57ec`](https://github.com/nextui-org/nextui/commit/16c57ece6467d755645f109b8de810c9063e5665) Thanks [@vinroger](https://github.com/vinroger)! - add support for dataset with section, add support for scrollshadow
+
+- Updated dependencies [[`d92468a`](https://github.com/nextui-org/nextui/commit/d92468aa1e35d5022c071b5d2674f5bfb6408001), [`33e0418`](https://github.com/nextui-org/nextui/commit/33e0418d08c29f829b00ee3bc41972dfce6a3370), [`16c57ec`](https://github.com/nextui-org/nextui/commit/16c57ece6467d755645f109b8de810c9063e5665), [`e7ff673`](https://github.com/nextui-org/nextui/commit/e7ff6730d7e891f1e9e3ca232b1faaebc5aedef2), [`fb46df2`](https://github.com/nextui-org/nextui/commit/fb46df2430f95cddef0c25fce4639c2078b34f62)]:
+  - @nextui-org/listbox@2.3.9
+  - @nextui-org/popover@2.3.9
+  - @nextui-org/react-utils@2.1.3
+  - @nextui-org/form@2.1.8
+  - @nextui-org/scroll-shadow@2.3.5
+  - @nextui-org/spinner@2.2.6
+  - @nextui-org/aria-utils@2.2.7
+
 ## 2.4.8
 
 ### Patch Changes

@@ -53,6 +53,7 @@
     "@react-stately/layout": "4.1.0",
     "@react-stately/tree": "3.8.6",
     "@rehooks/local-storage": "^2.4.5",
+    "@stackblitz/sdk": "^1.11.0",
     "@tanstack/react-virtual": "3.11.2",
     "canvas-confetti": "^1.9.2",
     "clsx": "^1.2.1",

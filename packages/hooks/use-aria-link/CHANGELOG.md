@@ -1,5 +1,11 @@
 # @nextui-org/use-aria-link
 
+## 2.2.5
+
+### Patch Changes
+
+- [#4497](https://github.com/nextui-org/nextui/pull/4497) [`b2e924f`](https://github.com/nextui-org/nextui/commit/b2e924fe19f4c6620ec0a0e464b9b35386ed2319) Thanks [@wingkwong](https://github.com/wingkwong)! - fix onclick deprecation warning for Button as Link (#4493)
+
 ## 2.2.4
 
 ### Patch Changes
