@@ -8,6 +8,7 @@ import {ReactNode, useCallback, useEffect, useLayoutEffect, useMemo, useRef, use
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
+import {MotionProps} from "framer-motion";
 
 export interface ToastProps extends ToastVariantProps {
   /**
@@ -244,6 +245,35 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     [objectToDeps(variantProps)],
   );
 
+  const multiplier = position.includes("top") ? 1 : -1;
+  const toastVariants = position.includes("bottom")
+    ? {
+        hidden: {opacity: 0, y: 50},
+        visible: {opacity: 1, y: 0},
+        exit: {opacity: 0, y: 50},
+      }
+    : {
+        hidden: {opacity: 0, y: -50},
+        visible: {opacity: 1, y: 0},
+        exit: {opacity: 0, y: -50},
+      };
+  const [drag, setDrag] = useState(false);
+  const handleDragEnd = (offsetX: number, offsetY: number) => {
+    const isRight = position.includes("right");
+    const isLeft = position.includes("left");
+    const isTop = position === "center-top";
+    const isBottom = position === "center-bottom";
+
+    if (
+      (isRight && offsetX >= 50) ||
+      (isLeft && offsetX <= -50) ||
+      (isTop && offsetY <= -50) ||
+      (isBottom && offsetY >= 50)
+    ) {
+      state.close(toast.key);
+    }
+  };
+
   const getToastProps: PropGetter = useCallback(
     (props = {}) => ({
       ref: domRef,
@@ -311,6 +341,76 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     [closeButtonProps],
   );
 
+  const getCloseIconProps: PropGetter = useCallback(
+    (props = {}) => ({
+      className: slots.closeIcon({class: classNames?.closeIcon}),
+      "aria-label": "close-icon",
+      ...props,
+    }),
+    [],
+  );
+
+  const getMotionDivProps = useCallback(
+    (
+      props = {},
+    ): MotionProps & {
+      "data-drag": string | boolean;
+      "data-position": string;
+      className: string;
+    } => {
+      const isCloseToEnd = total - index - 1 <= 2;
+      const dragDirection = position.includes("center") ? "y" : "x";
+      const dragConstraints = {left: 0, right: 0, top: 0, bottom: 0};
+
+      return {
+        animate: {
+          opacity: isCloseToEnd ? 1 : 0,
+          pointerEvents: isCloseToEnd ? "all" : "none",
+          y: isRegionExpanded ? liftHeight * multiplier : (total - 1 - index) * 8 * multiplier,
+          scaleX: isRegionExpanded ? 1 : 1 - (total - 1 - index) * 0.1,
+          height: isRegionExpanded ? initialHeight : frontHeight,
+        },
+        drag: dragDirection,
+        dragConstraints: dragConstraints,
+        exit: {opacity: 0, y: 100},
+        initial: {opacity: 0, y: -40 * multiplier, scale: 1},
+        transition: {duration: 0.3, ease: "easeOut"},
+        variants: toastVariants,
+        onDragEnd: (_, info) => {
+          setDrag(false);
+          const {x: offsetX, y: offsetY} = info.offset;
+
+          handleDragEnd(offsetX, offsetY);
+        },
+        onDragStart: () => {
+          setDrag(true);
+        },
+        "data-drag": dataAttr(drag),
+        "data-position": position,
+        className: slots.motionDiv({class: classNames?.motionDiv}),
+        ...props,
+      };
+    },
+    [
+      closeButtonProps,
+      total,
+      index,
+      position,
+      isRegionExpanded,
+      liftHeight,
+      multiplier,
+      initialHeight,
+      frontHeight,
+      toastVariants,
+      classNames,
+      drag,
+      dataAttr,
+      setDrag,
+      handleDragEnd,
+      slots,
+    ],
+  );
+
   return {
     Component,
     title,
@@ -333,6 +433,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     getDescriptionProps,
     getCloseButtonProps,
     getIconProps,
+    getMotionDivProps,
+    getCloseIconProps,
     progressBarRef,
     endContent,
     slots,

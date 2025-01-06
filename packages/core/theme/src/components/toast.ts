@@ -23,8 +23,21 @@ const toast = tv({
     content: ["flex flex-grow flex-row gap-x-4 items-center relative"],
     progressTrack: ["absolute h-[2px] left-0 -bottom-2 w-full bg-default-200"],
     progressIndicator: ["absolute h-[2px] left-0 bg-default-400"],
+    motionDiv: [
+      "fixed",
+      "data-[drag=true]:before:content-[''] data-[drag=true]:before:absolute data-[drag=true]:before:left-0 data-[drag=true]:before:right-0 data-[drag=true]:before:h-full data-[drag=true]:before:-z-10",
+      "data-[position=right-bottom]:bottom-0 data-[position=right-bottom]:right-0 data-[position=right-bottom]:mx-auto data-[position=right-bottom]:w-max data-[position=right-bottom]:mr-2",
+      "data-[position=left-bottom]:bottom-0 data-[position=left-bottom]:left-0 data-[position=left-bottom]:mx-auto data-[position=left-bottom]:w-max data-[position=left-bottom]:ml-2",
+      "data-[position=center-bottom]:bottom-0 data-[position=center-bottom]:left-0 data-[position=center-bottom]:right-0 data-[position=center-bottom]:w-max data-[position=center-bottom]:mx-auto",
+      "data-[position=right-top]:top-0 data-[position=right-top]:right-0 data-[position=right-top]:mx-auto data-[position=right-top]:w-max data-[position=right-top]:mr-2",
+      "data-[position=left-top]:top-0 data-[position=left-top]:left-0 data-[position=left-top]:mx-auto data-[position=left-top]:w-max data-[position=left-top]:ml-2",
+      "data-[position=center-top]:top-0 data-[position=center-top]:left-0 data-[position=center-top]:right-0 data-[position=center-top]:w-max data-[position=center-top]:mx-auto",
+    ],
     closeButton: [
-      "opacity-0 group-hover:opacity-100 w-5 h-5 min-w-4 p-1 absolute -right-1 -top-1 items-center justify-center bg-default-100 hover:bg-default-200 text-default-400 hover:text-default-600 border border-1 border-default-400",
+      "opacity-0 p-0 group-hover:opacity-100 w-6 h-6 min-w-4 absolute -right-2 -top-2 items-center justify-center bg-transparent text-default-400 hover:text-default-600 border border-3 border-transparent",
+    ],
+    closeIcon: [
+      "rounded-full w-full h-full p-0.5 border border-1 border-default-400 bg-default-100",
     ],
   },
   variants: {
@@ -51,6 +64,10 @@ const toast = tv({
     },
     color: {
       default: "",
+      foreground: {
+        progressTrack: "bg-foreground-200",
+        progressIndicator: "bg-foreground-400",
+      },
       primary: {
         progressTrack: "bg-primary-200",
         progressIndicator: "bg-primary-400",
@@ -123,6 +140,17 @@ const toast = tv({
     // flat and color
     {
       variant: "flat",
+      color: "foreground",
+      class: {
+        base: "bg-foreground-50 text-foreground-600",
+        closeButton:
+          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        title: "text-foreground-600",
+        description: "text-foreground-400",
+      },
+    },
+    {
+      variant: "flat",
       color: "primary",
       class: {
         base: "bg-primary-50 text-primary-600",
@@ -173,6 +201,17 @@ const toast = tv({
       },
     },
     // faded and color
+    {
+      variant: "faded",
+      color: "foreground",
+      class: {
+        base: "bg-foreground-50 text-foreground-400 border-foreground-600",
+        closeButton:
+          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        title: "text-foreground-600",
+        description: "text-foreground-400",
+      },
+    },
     {
       variant: "faded",
       color: "primary",
@@ -237,6 +276,17 @@ const toast = tv({
     },
     {
       variant: "bordered",
+      color: "foreground",
+      class: {
+        base: "border-foreground-400 text-foreground-600",
+        closeButton:
+          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        title: "text-foreground-600",
+        description: "text-foreground-400",
+      },
+    },
+    {
+      variant: "bordered",
       color: "secondary",
       class: {
         base: "border-secondary-400 text-secondary-600",
@@ -277,6 +327,17 @@ const toast = tv({
       },
     },
     // solid and color
+    {
+      variant: "solid",
+      color: "foreground",
+      class: {
+        base: "bg-foreground-100 text-foreground-600",
+        closeButton:
+          "bg-foreground-100 hover:bg-foreground-200 border-foreground-400 text-foreground-400",
+        title: "text-foreground-600",
+        description: "text-foreground-400",
+      },
+    },
     {
       variant: "solid",
       color: "primary",

@@ -114,7 +114,7 @@ describe("Toast", () => {
     const initialCloseButtons = wrapper.getAllByRole("button");
     const initialButtonLength = initialCloseButtons.length;
 
-    await user.click(initialCloseButtons[initialButtonLength - 1]);
+    await user.click(initialCloseButtons[0]);
 
     const finalCloseButtons = wrapper.getAllByRole("button");
     const finalButtonLength = finalCloseButtons.length;
