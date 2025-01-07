@@ -32,7 +32,7 @@ const nextConfig = {
       },
       {
         protocol: "https",
-        hostname: "heroui",
+        hostname: "heroui.com",
       },
       {
         protocol: "https",
