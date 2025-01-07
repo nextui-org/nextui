@@ -2,7 +2,7 @@
 
 Display user information with avatar and name.
 
-Please refer to the [documentation](https://nextui.org/docs/components/user) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/user) for more information.
 
 ## Installation
 

@@ -9,7 +9,7 @@ export default function App() {
         <Input
           key={r}
           className="max-w-[220px]"
-          defaultValue="junior@nextui.org"
+          defaultValue="junior@heroui.com"
           label="Email"
           placeholder="Enter your email"
           radius={r}

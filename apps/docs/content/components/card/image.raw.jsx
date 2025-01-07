@@ -12,7 +12,7 @@ export default function App() {
         <Image
           alt="Card background"
           className="object-cover rounded-xl"
-          src="https://nextui.org/images/hero-card-complete.jpeg"
+          src="https://heroui.com/images/hero-card-complete.jpeg"
           width={270}
         />
       </CardBody>

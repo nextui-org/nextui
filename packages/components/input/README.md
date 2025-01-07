@@ -4,7 +4,7 @@ Input is a component that allows users to enter text. It can be used to get user
 
 This package contains the Input component and the TextArea component.
 
-Please refer to the [documentation](https://nextui.org/docs/components/input) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/input) for more information.
 
 ## Installation
 

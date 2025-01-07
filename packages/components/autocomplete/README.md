@@ -2,7 +2,7 @@
 
 An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
 
-Please refer to the [documentation](https://nextui.org/docs/components/autocomplete) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/autocomplete) for more information.
 
 ## Installation
 

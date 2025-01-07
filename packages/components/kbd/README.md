@@ -2,7 +2,7 @@
 
 Keyboard key or kbd is a component to display which key or combination of keys performs a given action.
 
-Please refer to the [documentation](https://nextui.org/docs/components/kbd) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/kbd) for more information.
 
 ## Installation
 

@@ -2,7 +2,7 @@
 
 Radio Group allow users to select a single option from a list of mutually exclusive options.
 
-Please refer to the [documentation](https://nextui.org/docs/components/radio-group) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/radio-group) for more information.
 
 ## Installation
 

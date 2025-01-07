@@ -2,7 +2,7 @@
 
 A calendar displays one or more date grids and allows users to select a single date.
 
-Please refer to the [documentation](https://nextui.org/docs/components/calendar) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/calendar) for more information.
 
 ## Installation
 

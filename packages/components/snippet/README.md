@@ -2,7 +2,7 @@
 
 Snippet is a component that can be used to display inline or multiline code snippets.
 
-Please refer to the [documentation](https://nextui.org/docs/components/snippet) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/snippet) for more information.
 
 ## Installation
 

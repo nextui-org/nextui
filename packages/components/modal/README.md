@@ -2,7 +2,7 @@
 
 Displays a dialog with a custom content that requires attention or provides additional information.
 
-Please refer to the [documentation](https://nextui.org/docs/components/modal) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/modal) for more information.
 
 ## Installation
 

@@ -30,7 +30,7 @@ const {theme} = useTheme();
 ### setTheme
 
 You can use any theme name you want, but make sure it exists in your 
-`tailwind.config.js` file. See [Create Theme](https://nextui.org/docs/customization/create-theme) for more details.
+`tailwind.config.js` file. See [Create Theme](https://heroui.com/docs/customization/create-theme) for more details.
 
 ```tsx
 // set `theme` by using `setTheme`

@@ -5,7 +5,7 @@ export default function App() {
     <Image
       isZoomed
       alt="NextUI Fruit Image with Zoom"
-      src="https://nextui.org/images/fruit-1.jpeg"
+      src="https://heroui.com/images/fruit-1.jpeg"
       width={240}
     />
   );

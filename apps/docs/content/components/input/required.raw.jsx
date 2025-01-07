@@ -5,7 +5,7 @@ export default function App() {
     <Input
       isRequired
       className="max-w-xs"
-      defaultValue="junior@nextui.org"
+      defaultValue="junior@heroui.com"
       label="Email"
       type="email"
     />

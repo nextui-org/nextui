@@ -2,7 +2,7 @@
 
 The Switch component is used as an alternative between checked and not checked states.
 
-Please refer to the [documentation](https://nextui.org/docs/components/switch) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/switch) for more information.
 
 ## Installation
 

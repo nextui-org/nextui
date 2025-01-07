@@ -10,7 +10,7 @@ export default function App() {
           key={color}
           className="max-w-[220px]"
           color={color}
-          defaultValue="junior@nextui.org"
+          defaultValue="junior@heroui.com"
           label="Email"
           placeholder="Enter your email"
           type="email"

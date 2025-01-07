@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   ],
   creator: "getnextui",
   alternates: {
-    canonical: "https://nextui.org",
+    canonical: "https://heroui.com",
     types: {
-      "application/rss+xml": [{url: "https://nextui.org/feed.xml", title: "NextUI RSS Feed"}],
+      "application/rss+xml": [{url: "https://heroui.com/feed.xml", title: "NextUI RSS Feed"}],
     },
   },
 };

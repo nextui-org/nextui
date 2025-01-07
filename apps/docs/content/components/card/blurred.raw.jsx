@@ -171,7 +171,7 @@ export default function App() {
               className="object-cover"
               height={200}
               shadow="md"
-              src="https://nextui.org/images/album-cover.png"
+              src="https://heroui.com/images/album-cover.png"
               width="100%"
             />
           </div>

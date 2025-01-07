@@ -111,7 +111,7 @@ const WithFooterTemplate = (args: CardProps) => (
       />
       <div className="flex flex-col">
         <b className="text-lg">NextUI</b>
-        <p className="text-default-500">nextui.org</p>
+        <p className="text-default-500">heroui.com</p>
       </div>
     </CardHeader>
     <CardBody className="py-2">
@@ -184,7 +184,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-4.jpeg"
+        src="https://heroui.com/images/card-example-4.jpeg"
       />
     </Card>
     <Card {...args} className="col-span-12 sm:col-span-4">
@@ -195,7 +195,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-3.jpeg"
+        src="https://heroui.com/images/card-example-3.jpeg"
       />
     </Card>
     <Card {...args} className="col-span-12 sm:col-span-4">
@@ -206,7 +206,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-2.jpeg"
+        src="https://heroui.com/images/card-example-2.jpeg"
       />
     </Card>
     <Card {...args} isFooterBlurred className="w-full h-[400px] col-span-12 sm:col-span-5">
@@ -217,7 +217,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card example background"
         className="w-full h-full scale-125 -translate-y-10 object-cover"
-        src="https://nextui.org/images/card-example-6.jpeg"
+        src="https://heroui.com/images/card-example-6.jpeg"
       />
       <CardFooter className="absolute bg-white/30 bottom-0 border-t border-slate-300 z-10 justify-between">
         <div>
@@ -237,7 +237,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Relaxing app background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-5.jpeg"
+        src="https://heroui.com/images/card-example-5.jpeg"
       />
       <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-default-600 dark:border-default-100">
         <div className="flex flex-grow gap-2 items-center">
@@ -335,7 +335,7 @@ const PrimaryActionTemplate = (args: CardProps) => {
             <img
               alt={item.title}
               className="w-full h-[140px] object-cover"
-              src={"https://nextui.org" + item.img}
+              src={"https://heroui.com" + item.img}
             />
           </CardBody>
           <CardFooter className="justify-between">

@@ -2,7 +2,7 @@
 
 Divider is a component that separates content in a page.
 
-Please refer to the [documentation](https://nextui.org/docs/components/divider) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/divider) for more information.
 
 ## Installation
 

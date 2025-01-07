@@ -4,7 +4,7 @@ InputOTP is a component that allows users to enter otp input. It can be used to 
 
 This package contains the InputOTPcomponent.
 
-Please refer to the [documentation](https://nextui.org/docs/components/input-otp) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/input-otp) for more information.
 
 ## Installation
 

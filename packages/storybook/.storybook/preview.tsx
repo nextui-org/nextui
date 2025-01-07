@@ -25,7 +25,7 @@ const decorators: Preview["decorators"] = [
 
 const commonTheme = {
   brandTitle: "NextUI",
-  brandUrl: "https://nextui.org",
+  brandUrl: "https://heroui.com",
   brandTarget: "_self",
 };
 

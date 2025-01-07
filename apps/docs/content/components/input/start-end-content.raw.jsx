@@ -47,7 +47,7 @@ export default function App() {
         <Input
           label="Website"
           labelPlacement="outside"
-          placeholder="nextui.org"
+          placeholder="heroui.com"
           startContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-small">https://</span>

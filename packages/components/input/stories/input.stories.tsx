@@ -225,7 +225,7 @@ const StartContentTemplate = (args) => (
     <Input
       {...args}
       label="Website"
-      placeholder="nextui.org"
+      placeholder="heroui.com"
       startContent={
         <div className="pointer-events-none flex items-center">
           <span className="text-default-400 text-sm">https://</span>
@@ -561,7 +561,7 @@ export const Disabled = {
 
   args: {
     ...defaultProps,
-    defaultValue: "junior@nextui.org",
+    defaultValue: "junior@heroui.com",
     variant: "faded",
     isDisabled: true,
   },
@@ -572,7 +572,7 @@ export const ReadOnly = {
 
   args: {
     ...defaultProps,
-    defaultValue: "junior@nextui.org",
+    defaultValue: "junior@heroui.com",
     variant: "bordered",
     isReadOnly: true,
   },
@@ -624,7 +624,7 @@ export const Clearable = {
     ...defaultProps,
     variant: "bordered",
     placeholder: "Enter your email",
-    defaultValue: "junior@nextui.org",
+    defaultValue: "junior@heroui.com",
     // eslint-disable-next-line no-console
     onClear: () => console.log("input cleared"),
   },

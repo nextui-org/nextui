@@ -2,7 +2,7 @@
 
 Tooltips display a brief, informative message that appears when a user interacts with an element.
 
-Please refer to the [documentation](https://nextui.org/docs/components/tooltip) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/tooltip) for more information.
 
 ## Installation
 

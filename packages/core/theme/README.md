@@ -2,7 +2,7 @@
 
 NextUI theme primitives, here you can find the TailwindCSS `plugin`, `colors`, `layout`, `spacing`, `typography` and some other utilities.
 
-Please refer to the [documentation](https://nextui.org/theme) for more information.
+Please refer to the [documentation](https://heroui.com/theme) for more information.
 
 ## Installation
 

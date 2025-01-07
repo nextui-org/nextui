@@ -13,7 +13,7 @@ export default function App() {
         />
         <div className="flex flex-col">
           <p className="text-md">NextUI</p>
-          <p className="text-small text-default-500">nextui.org</p>
+          <p className="text-small text-default-500">heroui.com</p>
         </div>
       </CardHeader>
       <Divider />

@@ -2,7 +2,7 @@
 
 Popover is a non-modal dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something.
 
-Please refer to the [documentation](https://nextui.org/docs/components/popover) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/popover) for more information.
 
 ## Installation
 

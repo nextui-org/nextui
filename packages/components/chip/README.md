@@ -2,7 +2,7 @@
 
 A Chip is a small block of essential information that represent an input, attribute, or action.
 
-Please refer to the [documentation](https://nextui.org/docs/components/chip) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/chip) for more information.
 
 ## Installation
 

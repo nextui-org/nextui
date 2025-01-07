@@ -2,7 +2,7 @@
 
 Accordion display a list of high-level options that can expand/collapse to reveal more information.
 
-Please refer to the [documentation](https://nextui.org//docs/components/accordion) for more information.
+Please refer to the [documentation](https://heroui.com//docs/components/accordion) for more information.
 
 ## Installation
 

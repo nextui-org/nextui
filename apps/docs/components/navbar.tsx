@@ -101,7 +101,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const handleVersionChange = useCallback((key: Key) => {
     if (key === "v1") {
-      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
+      const newWindow = window.open("https://v1.heroui.com", "_blank", "noopener,noreferrer");
 
       if (newWindow) newWindow.opener = null;
     }

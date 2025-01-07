@@ -2,7 +2,7 @@
 
 The Avatar component is used to represent a user, and displays the profile picture, initials or fallback icon.
 
-Please refer to the [documentation](https://nextui.org/docs/components/avatar) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/avatar) for more information.
 
 ## Installation
 

@@ -2,7 +2,7 @@
 
 Breadcrumbs display a hierarchy of links to the current page or resource in an application.
 
-Please refer to the [documentation](https://nextui.org/docs/components/breadcrumbs) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/breadcrumbs) for more information.
 
 ## Installation
 

@@ -417,7 +417,7 @@ const CustomStylesTemplate = (args: DrawerProps) => {
 
                         <p className="mt-4">
                           Brought to you by the{" "}
-                          <Link className="text-default-700" href="https://nextui.org">
+                          <Link className="text-default-700" href="https://heroui.com">
                             NextUI team
                           </Link>
                           .
@@ -430,7 +430,7 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                         <Avatar
                           name="NextUI"
                           size="sm"
-                          src="https://nextui.org/android-chrome-192x192.png"
+                          src="https://heroui.com/android-chrome-192x192.png"
                         />
                         <span className="text-small text-default-500">NextUI Team</span>
                       </div>
@@ -482,10 +482,10 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                 </div>
               </DrawerBody>
               <DrawerFooter className="flex flex-col gap-1">
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Contact the host
                 </Link>
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Report event
                 </Link>
               </DrawerFooter>

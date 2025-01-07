@@ -2,7 +2,7 @@
 
 The Image component is used to display images with support for fallback.
 
-Please refer to the [documentation](https://nextui.org/docs/components/image) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/image) for more information.
 
 ## Installation
 

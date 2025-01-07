@@ -2,7 +2,7 @@
 
 Card is a container for text, photos, and actions in the context of a single subject.
 
-Please refer to the [documentation](https://nextui.org/docs/components/card) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/card) for more information.
 
 ## Installation
 

@@ -2,7 +2,7 @@
 
 A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse menu and more.
 
-Please refer to the [documentation](https://nextui.org/docs/components/navbar) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/navbar) for more information.
 
 ## Installation
 

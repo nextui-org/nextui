@@ -29,7 +29,7 @@ interface Props {
   isFocusable?: boolean;
   /**
    * The user avatar props
-   * @see https://nextui.org/docs/components/avatar
+   * @see https://heroui.com/docs/components/avatar
    */
   avatarProps?: Partial<AvatarProps>;
   /**

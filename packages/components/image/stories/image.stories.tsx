@@ -99,7 +99,7 @@ export const Zoomed = {
     width: 300,
     isZoomed: true,
     radius: "lg",
-    src: "https://nextui.org/images/card-example-2.jpeg",
+    src: "https://heroui.com/images/card-example-2.jpeg",
   },
 };
 

@@ -40,7 +40,7 @@ interface Props extends HTMLNextUIProps<"button"> {
   endContent?: ReactNode;
   /**
    * Spinner to display when loading.
-   * @see https://nextui.org/components/spinner
+   * @see https://heroui.com/components/spinner
    */
   spinner?: ReactNode;
   /**

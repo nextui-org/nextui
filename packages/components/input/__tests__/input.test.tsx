@@ -152,7 +152,7 @@ describe("Input", () => {
       <Input
         ref={ref}
         isClearable
-        defaultValue="junior@nextui.org"
+        defaultValue="junior@heroui.com"
         label="test input"
         onClear={onClear}
       />,

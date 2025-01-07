@@ -2,7 +2,7 @@
 
 The Pagination component allows you to display active page and navigate between multiple pages.
 
-Please refer to the [documentation](https://nextui.org/docs/components/pagination) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/pagination) for more information.
 
 ## Installation
 
