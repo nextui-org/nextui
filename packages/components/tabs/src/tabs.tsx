@@ -2,7 +2,7 @@ import {ForwardedRef, ReactElement, useId, useState, useEffect, useCallback} fro
 import {LayoutGroup} from "framer-motion";
 import {forwardRef} from "@nextui-org/system";
 import {EllipsisIcon} from "@nextui-org/shared-icons";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, debounce} from "@nextui-org/shared-utils";
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/dropdown";
 
 import {UseTabsProps, useTabs} from "./use-tabs";
@@ -111,11 +111,15 @@ const Tabs = forwardRef(function Tabs<T extends object>(
   }, [isDropdownOpen, tabListProps.ref]);
 
   useEffect(() => {
-    checkOverflow();
+    const debouncedCheckOverflow = debounce(checkOverflow, 100);
 
-    window.addEventListener("resize", checkOverflow);
+    debouncedCheckOverflow();
 
-    return () => window.removeEventListener("resize", checkOverflow);
+    window.addEventListener("resize", debouncedCheckOverflow);
+
+    return () => {
+      window.removeEventListener("resize", debouncedCheckOverflow);
+    };
   }, [checkOverflow]);
 
   const tabsProps = {
