@@ -8,7 +8,7 @@ import css from "refractor/lang/css";
 import diff from "refractor/lang/diff";
 import {toHtml} from "hast-util-to-html";
 import rangeParser from "parse-numeric-range";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {Pre} from "./pre";
 import {WindowActions} from "./window-actions";

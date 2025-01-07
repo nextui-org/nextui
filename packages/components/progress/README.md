@@ -1,4 +1,4 @@
-# @nextui-org/progress
+# @heroui/progress
 
 The Progress component allows you to view the progress of any activity.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/progress)
 ## Installation
 
 ```sh
-yarn add @nextui-org/progress
+yarn add @heroui/progress
 # or
-npm i @nextui-org/progress
+npm i @heroui/progress
 ```
 
 ## Contribution

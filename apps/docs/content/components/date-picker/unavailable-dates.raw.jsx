@@ -1,4 +1,4 @@
-import {DatePicker} from "@nextui-org/react";
+import {DatePicker} from "@heroui/react";
 import {today, isWeekend, getLocalTimeZone} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 

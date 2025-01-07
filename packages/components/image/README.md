@@ -1,4 +1,4 @@
-# @nextui-org/image
+# @heroui/image
 
 The Image component is used to display images with support for fallback.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/image) fo
 ## Installation
 
 ```sh
-yarn add @nextui-org/image
+yarn add @heroui/image
 # or
-npm i @nextui-org/image
+npm i @heroui/image
 ```
 
 ## Contribution

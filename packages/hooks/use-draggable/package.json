@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/use-draggable",
+  "name": "@heroui/use-draggable",
   "version": "2.1.2",
   "description": "This hook can provide drag and drop interaction",
   "keywords": [

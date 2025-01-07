@@ -1,4 +1,4 @@
-# @nextui-org/form
+# @heroui/form
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/form
+yarn add @heroui/form
 # or
-npm i @nextui-org/form
+npm i @heroui/form
 ```
 
 ## Contribution

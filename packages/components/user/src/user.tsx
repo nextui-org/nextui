@@ -1,5 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
-import {Avatar} from "@nextui-org/avatar";
+import {forwardRef} from "@heroui/system";
+import {Avatar} from "@heroui/avatar";
 
 import {UseUserProps, useUser} from "./use-user";
 

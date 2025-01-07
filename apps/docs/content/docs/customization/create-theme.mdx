@@ -17,7 +17,7 @@ We recommend adding a palette that ranges from `50` to `900`. You can use tools 
 
 ```js {9-43}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/react");
+const {nextui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -74,17 +74,17 @@ Now, applying the new theme is as simple as adding the theme name `purple-dark` 
 // main.tsx or main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <NextUIProvider>
+    <HeroUIProvider>
       <main className="purple-dark text-foreground bg-background">
         <App />
       </main>
-    </NextUIProvider>
+    </HeroUIProvider>
   </React.StrictMode>,
 );
 ```
@@ -94,7 +94,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 All components that use the `primary` color will be affected by this change.
 
 ```jsx
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export default function App() {
   return (

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {cloneElement, ReactElement} from "react";
 
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";

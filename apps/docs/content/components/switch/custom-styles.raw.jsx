@@ -1,4 +1,4 @@
-import {Switch, cn} from "@nextui-org/react";
+import {Switch, cn} from "@heroui/react";
 
 export default function App() {
   return (

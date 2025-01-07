@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/image",
+  "name": "@heroui/image",
   "version": "2.2.5",
   "description": "A simple image component",
   "keywords": [
@@ -36,17 +36,17 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-image": "workspace:*"
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/use-image": "workspace:*"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

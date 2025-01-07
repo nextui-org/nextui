@@ -228,13 +228,13 @@ Here's and example using the `Indian` calendar system:
 
 <CodeDemo title="International Calendar" files={datePickerContent.internationalCalendar} />
 
-Alternatively you can set the `locale` globally by using the `NextUIProvider` component:
+Alternatively you can set the `locale` globally by using the `HeroUIProvider` component:
 
 ```jsx
 // Next.js App Router example
 "use client";
 
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export interface ProvidersProps {
   children: React.ReactNode;
@@ -243,7 +243,7 @@ export interface ProvidersProps {
 export function Providers({children}: ProvidersProps) {
   const router = useRouter();
 
-  return <NextUIProvider locale="hi-IN-u-ca-indian">{children}</NextUIProvider>;
+  return <HeroUIProvider locale="hi-IN-u-ca-indian">{children}</HeroUIProvider>;
 }
 ```
 
@@ -251,14 +251,14 @@ If no `locale` is provided, it will extract the locale from the browser.
 
 ### NextUI Provider
 
-The `NextUIProvider` component was updated to include the `createCalendar` function, which allows you to create a calendar instance with the specified locale and time zone,
+The `HeroUIProvider` component was updated to include the `createCalendar` function, which allows you to create a calendar instance with the specified locale and time zone,
 and the `defaultDates` object which allows you to set global minimum and maximum dates for the components.
 
 ```jsx
 // Next.js App Router example
 "use client";
 
-import {NextUIProvider, SupportedCalendars} from "@nextui-org/react";
+import {HeroUIProvider, SupportedCalendars} from "@heroui/react";
 import {CalendarDate, GregorianCalendar} from "@internationalized/date";
 
 export interface ProvidersProps {
@@ -278,7 +278,7 @@ export function Providers({children}: ProvidersProps) {
   const router = useRouter();
 
   return (
-    <NextUIProvider
+    <HeroUIProvider
       locale="hi-IN-u-ca-indian"
       defaultDates={{
         minDate: new CalendarDate(1900, 1, 1),
@@ -287,7 +287,7 @@ export function Providers({children}: ProvidersProps) {
       createCalendar={createCalendar}
     >
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
@@ -325,7 +325,7 @@ npm install tailwindcss@latest
 3. Find all `-unit` classes in your project and replace them with a `-` separator. For example, replace `p-unit-4` with `p-4`.
 
 ```diff-jsx
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export const MyButton = () => {
   return (
@@ -369,11 +369,11 @@ That's it! Your project should now be using the latest version of TailwindCSS an
 
 - Fixed an HSL color rounding issue in the theme settings to ensure accurate color representation. [PR](https://github.com/nextui-org/nextui/pull/2702) - [@wingkwong](https://github.com/wingkwong)
 - Removed conflicting transition definitions affecting CSS classes. [PR](https://github.com/nextui-org/nextui/pull/2677) - [@u3u](https://github.com/u3u)
-- Patched the "@nextui-org/autocomplete" package to fix an issue where empty items with `allowCustomValue` would not render properly due to a null node problem. [PR](https://github.com/nextui-org/nextui/pull/2674) - [@wingkwong](https://github.com/wingkwong)
+- Patched the "@heroui/autocomplete" package to fix an issue where empty items with `allowCustomValue` would not render properly due to a null node problem. [PR](https://github.com/nextui-org/nextui/pull/2674) - [@wingkwong](https://github.com/wingkwong)
 - Implemented a fix in modal components to prevent carryover of IME (Input Method Editor) input when switching fields using the Tab key. [PR](https://github.com/nextui-org/nextui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
 - Enhanced accessibility by handling Tab key press event in the `ModalContent` component. [PR](https://github.com/nextui-org/nextui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
 - Fixed an issue where disabled select components could still be changed using blur and keyboard shortcuts. [PR](https://github.com/nextui-org/nextui/pull/2649) - [@wingkwong](https://github.com/wingkwong)
-- Patched issues in "@nextui-org/use-aria-multiselect" and "@nextui-org/stories-utils" packages to fix a warning about `SELECT defaultSelectedKeys`. [PR](https://github.com/nextui-org/nextui/pull/2648) - [@wingkwong](https://github.com/wingkwong)
+- Patched issues in "@heroui/use-aria-multiselect" and "@heroui/stories-utils" packages to fix a warning about `SELECT defaultSelectedKeys`. [PR](https://github.com/nextui-org/nextui/pull/2648) - [@wingkwong](https://github.com/wingkwong)
 - Fixed an issue with incorrect `onChange` typing in Checkbox Group, ensuring it now correctly handles an array of strings as values. [PR](https://github.com/nextui-org/nextui/pull/2595) - [@wingkwong](https://github.com/wingkwong)
 - Fixed the `label` placement issue in `Select` component if a `description` prop is used [PR](https://github.com/nextui-org/nextui/pull/2553) - [@novsource](https://github.com/novsource)
 - Fixed the `originalProps` spread issue in the `Dropdown` component. [PR](https://github.com/nextui-org/nextui/pull/2450) - [@wingkwong](https://github.com/wingkwong)

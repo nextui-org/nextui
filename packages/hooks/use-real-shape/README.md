@@ -1,4 +1,4 @@
-# @nextui-org/use-real-shape
+# @heroui/use-real-shape
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-real-shape
+yarn add @heroui/use-real-shape
 # or
-npm i @nextui-org/use-real-shape
+npm i @heroui/use-real-shape
 ```
 
 ## Contribution

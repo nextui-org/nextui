@@ -1,5 +1,5 @@
-import {CloseFilledIcon} from "@nextui-org/shared-icons";
-import {forwardRef} from "@nextui-org/system";
+import {CloseFilledIcon} from "@heroui/shared-icons";
+import {forwardRef} from "@heroui/system";
 import {useMemo} from "react";
 
 import {UseChipProps, useChip} from "./use-chip";

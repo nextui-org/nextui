@@ -1,13 +1,13 @@
-import type {ButtonProps} from "@nextui-org/button";
-import type {AlertSlots, AlertVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {ButtonProps} from "@heroui/button";
+import type {AlertSlots, AlertVariantProps, SlotsToClasses} from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
+import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
-import {alert} from "@nextui-org/theme";
+import {alert} from "@heroui/theme";
 import {useControlledState} from "@react-stately/utils";
-import {dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
+import {dataAttr, isEmpty, objectToDeps} from "@heroui/shared-utils";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**

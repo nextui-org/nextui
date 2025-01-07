@@ -1,4 +1,4 @@
-# @nextui-org/use-clipboard
+# @heroui/use-clipboard
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-clipboard
+yarn add @heroui/use-clipboard
 # or
-npm i @nextui-org/use-clipboard
+npm i @heroui/use-clipboard
 ```
 
 ## Contribution

@@ -1,4 +1,4 @@
-# @nextui-org/input-otp
+# @heroui/input-otp
 
 InputOTP is a component that allows users to enter otp input. It can be used to get user otp in forms.
 
@@ -9,9 +9,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/input-otp
 ## Installation
 
 ```sh
-yarn add @nextui-org/input-otp
+yarn add @heroui/input-otp
 # or
-npm i @nextui-org/input-otp
+npm i @heroui/input-otp
 ```
 
 ## Contribution

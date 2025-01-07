@@ -1,4 +1,4 @@
-# @nextui-org/spacer
+# @heroui/spacer
 
 Spacer is a component used to add space between components.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/spacer) f
 ## Installation
 
 ```sh
-yarn add @nextui-org/spacer
+yarn add @heroui/spacer
 # or
-npm i @nextui-org/spacer
+npm i @heroui/spacer
 ```
 
 ## Contribution

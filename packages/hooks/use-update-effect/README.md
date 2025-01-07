@@ -1,4 +1,4 @@
-# @nextui-org/use-update-effect
+# @heroui/use-update-effect
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-update-effect
+yarn add @heroui/use-update-effect
 # or
-npm i @nextui-org/use-update-effect
+npm i @heroui/use-update-effect
 ```
 
 ## Contribution

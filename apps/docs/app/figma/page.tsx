@@ -1,4 +1,4 @@
-import {Image} from "@nextui-org/react";
+import {Image} from "@heroui/react";
 
 import {Blockquote} from "@/components/docs/components/blockquote";
 import {FigmaButton} from "@/components/figma-button";

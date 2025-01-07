@@ -1,4 +1,4 @@
-import {getUniqueID} from "@nextui-org/shared-utils";
+import {getUniqueID} from "@heroui/shared-utils";
 import React, {useCallback, useState} from "react";
 import {PressEvent} from "@react-types/shared";
 

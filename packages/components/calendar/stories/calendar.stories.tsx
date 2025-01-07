@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {calendar} from "@nextui-org/theme";
+import {calendar} from "@heroui/theme";
 import {
   today,
   parseDate,
@@ -10,10 +10,10 @@ import {
   startOfMonth,
 } from "@internationalized/date";
 import {I18nProvider, useLocale} from "@react-aria/i18n";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/theme";
-import {NextUIProvider} from "@nextui-org/system";
+import {Button, ButtonGroup} from "@heroui/button";
+import {Radio, RadioGroup} from "@heroui/radio";
+import {cn} from "@heroui/theme";
+import {HeroUIProvider} from "@heroui/system";
 
 import {Calendar, CalendarProps, DateValue} from "../src";
 
@@ -267,21 +267,21 @@ const ReducedMotionTemplate = (args: CalendarProps) => {
     <div className="flex gap-4">
       <div className="flex flex-col items-center gap-4">
         <p className="text-small text-default-600">reducedMotion: never</p>
-        <NextUIProvider reducedMotion="never">
+        <HeroUIProvider reducedMotion="never">
           <Calendar {...args} />
-        </NextUIProvider>
+        </HeroUIProvider>
       </div>
       <div className="flex flex-col items-center gap-4">
         <p className="text-small text-default-600">reducedMotion: always</p>
-        <NextUIProvider reducedMotion="always">
+        <HeroUIProvider reducedMotion="always">
           <Calendar {...args} />
-        </NextUIProvider>
+        </HeroUIProvider>
       </div>
       <div className="flex flex-col items-center gap-4">
         <p className="text-small text-default-600">reducedMotion: user</p>
-        <NextUIProvider reducedMotion="user">
+        <HeroUIProvider reducedMotion="user">
           <Calendar {...args} />
-        </NextUIProvider>
+        </HeroUIProvider>
       </div>
     </div>
   );

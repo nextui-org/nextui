@@ -1,4 +1,4 @@
-# @nextui-org/input
+# @heroui/input
 
 Input is a component that allows users to enter text. It can be used to get user inputs in forms, search fields, and more.
 
@@ -9,9 +9,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/input) fo
 ## Installation
 
 ```sh
-yarn add @nextui-org/input
+yarn add @heroui/input
 # or
-npm i @nextui-org/input
+npm i @heroui/input
 ```
 
 ## Contribution

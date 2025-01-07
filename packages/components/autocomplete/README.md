@@ -1,4 +1,4 @@
-# @nextui-org/autocomplete
+# @heroui/autocomplete
 
 An autocomplete combines a text input with a listbox, allowing users to filter a list of options to items matching a query.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/autocompl
 ## Installation
 
 ```sh
-yarn add @nextui-org/autocomplete
+yarn add @heroui/autocomplete
 # or
-npm i @nextui-org/autocomplete
+npm i @heroui/autocomplete
 ```
 
 ## Contribution

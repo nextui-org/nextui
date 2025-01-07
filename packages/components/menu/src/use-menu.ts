@@ -1,14 +1,14 @@
-import type {HTMLNextUIProps, PropGetter, SharedSelection} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter, SharedSelection} from "@heroui/system";
 
-import {useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@heroui/system";
 import {AriaMenuProps} from "@react-types/menu";
 import {AriaMenuOptions} from "@react-aria/menu";
 import {useMenu as useAriaMenu} from "@react-aria/menu";
-import {menu, MenuVariantProps, SlotsToClasses, MenuSlots} from "@nextui-org/theme";
+import {menu, MenuVariantProps, SlotsToClasses, MenuSlots} from "@heroui/theme";
 import {TreeState, useTreeState} from "@react-stately/tree";
-import {ReactRef, filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, filterDOMProps, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useMemo} from "react";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {MenuItemProps} from "./menu-item";
 

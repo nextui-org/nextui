@@ -1,4 +1,4 @@
-# @nextui-org/use-ref-state
+# @heroui/use-ref-state
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-ref-state
+yarn add @heroui/use-ref-state
 # or
-npm i @nextui-org/use-ref-state
+npm i @heroui/use-ref-state
 ```
 
 ## Contribution

@@ -1,4 +1,4 @@
-# @nextui-org/aria-utils
+# @heroui/aria-utils
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/aria-utils
+yarn add @heroui/aria-utils
 # or
-npm i @nextui-org/aria-utils
+npm i @heroui/aria-utils
 ```
 
 ## Contribution

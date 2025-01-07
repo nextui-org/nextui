@@ -1,4 +1,4 @@
-# @nextui-org/kbd
+# @heroui/kbd
 
 Keyboard key or kbd is a component to display which key or combination of keys performs a given action.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/kbd) for 
 ## Installation
 
 ```sh
-yarn add @nextui-org/kbd
+yarn add @heroui/kbd
 # or
-npm i @nextui-org/kbd
+npm i @heroui/kbd
 ```
 
 ## Contribution

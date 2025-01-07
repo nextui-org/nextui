@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {progress} from "@nextui-org/theme";
+import {progress} from "@heroui/theme";
 
 import {Progress, ProgressProps} from "../src";
 

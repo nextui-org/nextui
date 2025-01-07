@@ -1,5 +1,5 @@
 import React from "react";
-import {Code} from "@nextui-org/react";
+import {Code} from "@heroui/react";
 
 import {
   MoonIcon,
@@ -94,7 +94,7 @@ export default {
       icon: <MagicIcon className="text-pink-500" />,
     },
   ],
-  themingCode: `const { nextui } = require("@nextui-org/react");
+  themingCode: `const { nextui } = require("@heroui/react");
 
 module.exports = {
   // ...
@@ -182,22 +182,22 @@ module.exports = {
 `,
 
   darkModeCode: `import React from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 const Application = ({Component, pageProps}) => {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <main className={isDark ? "dark" : "light"}>
         <Component {...pageProps} />
       </main>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 };
 
 export default Application;  
 `,
   customizationCode: `import React from 'react';
-import {Button} from '@nextui-org/react';
+import {Button} from '@heroui/react';
 import confetti from 'canvas-confetti';
 
 const CustomButton = () => {
@@ -227,14 +227,14 @@ export default CustomButton;
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 import {
   AddNoteBulkIcon,
   CopyDocumentBulkIcon,
   EditDocumentBulkIcon,
   DeleteDocumentBulkIcon,
-} from "@nextui-org/shared-icons";
+} from "@heroui/shared-icons";
 
 const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
@@ -299,9 +299,9 @@ export const Example = () => {
   );
 };
 `,
-  darkModeExampleCode: `import {Card, CardBody, Button, Image, Progress, CardProps} from "@nextui-org/react";
+  darkModeExampleCode: `import {Card, CardBody, Button, Image, Progress, CardProps} from "@heroui/react";
 import {useState, FC} from "react";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {
   PauseCircleBoldIcon,

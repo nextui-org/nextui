@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/use-scroll-position",
+  "name": "@heroui/use-scroll-position",
   "version": "2.1.1",
   "description": "Provides the logic to control the scroll over an element",
   "keywords": [

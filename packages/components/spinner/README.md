@@ -1,4 +1,4 @@
-# @nextui-org/loading
+# @heroui/loading
 
 Spinner express an unspecified wait time or display the length of a process.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/loading) 
 ## Installation
 
 ```sh
-yarn add @nextui-org/loading
+yarn add @heroui/loading
 # or
-npm i @nextui-org/loading
+npm i @heroui/loading
 ```
 
 ## Contribution

@@ -10,7 +10,7 @@ import {MotionConfig, MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
 
-export interface NextUIProviderProps
+export interface HeroUIProviderProps
   extends Omit<ModalProviderProps, "children">,
     ProviderContextProps {
   children: React.ReactNode;
@@ -48,7 +48,7 @@ export interface NextUIProviderProps
   useHref?: (href: Href) => string;
 }
 
-export const NextUIProvider: React.FC<NextUIProviderProps> = ({
+export const HeroUIProvider: React.FC<HeroUIProviderProps> = ({
   children,
   navigate,
   disableAnimation,

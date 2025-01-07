@@ -1,4 +1,4 @@
-# @nextui-org/use-is-mounted
+# @heroui/use-is-mounted
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-is-mounted
+yarn add @heroui/use-is-mounted
 # or
-npm i @nextui-org/use-is-mounted
+npm i @heroui/use-is-mounted
 ```
 
 ## Contribution

@@ -1,5 +1,5 @@
 import {forwardRef} from "react";
-import {useButton, Ripple, Spinner, ButtonProps as BaseButtonProps} from "@nextui-org/react";
+import {useButton, Ripple, Spinner, ButtonProps as BaseButtonProps} from "@heroui/react";
 
 export interface ButtonProps extends BaseButtonProps {}
 

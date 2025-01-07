@@ -1,4 +1,4 @@
-# @nextui-org/code
+# @heroui/code
 
 Code is a component used to display inline code.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/code) for
 ## Installation
 
 ```sh
-yarn add @nextui-org/code
+yarn add @heroui/code
 # or
-npm i @nextui-org/code
+npm i @heroui/code
 ```
 
 ## Contribution

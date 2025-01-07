@@ -1,4 +1,4 @@
-# @nextui-org/use-image
+# @heroui/use-image
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-image
+yarn add @heroui/use-image
 # or
-npm i @nextui-org/use-image
+npm i @heroui/use-image
 ```
 
 ## Contribution

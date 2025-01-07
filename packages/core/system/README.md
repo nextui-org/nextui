@@ -1,15 +1,15 @@
-# @nextui-org/system
+# @heroui/system
 
-NextUI system primitives, here you can find the `extendVariants` utility, `NextUIProvider` and some other utilities.
+NextUI system primitives, here you can find the `extendVariants` utility, `HeroUIProvider` and some other utilities.
 
 Please refer to the [documentation](https://nextui.org) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/system
+yarn add @heroui/system
 # or
-npm i @nextui-org/system
+npm i @heroui/system
 ```
 
 ## Contribution

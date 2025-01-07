@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/breadcrumbs",
+  "name": "@heroui/breadcrumbs",
   "version": "2.2.6",
   "description": "Breadcrumbs display a hierarchy of links to the current page or resource in an application.",
   "keywords": [
@@ -36,13 +36,13 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
     "@react-aria/focus": "3.19.0",
     "@react-aria/breadcrumbs": "3.5.19",
     "@react-aria/utils": "3.26.0",
@@ -50,11 +50,11 @@
     "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/dropdown": "workspace:*",
-    "@nextui-org/tooltip": "workspace:*",
-    "@nextui-org/button": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/dropdown": "workspace:*",
+    "@heroui/tooltip": "workspace:*",
+    "@heroui/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

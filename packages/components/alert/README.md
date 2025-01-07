@@ -1,4 +1,4 @@
-# @nextui-org/alert
+# @heroui/alert
 
 Alerts are temporary notifications that provide concise feedback about an action or event.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/alert) fo
 ## Installation
 
 ```sh
-yarn add @nextui-org/alert
+yarn add @heroui/alert
 # or
-npm i @nextui-org/alert
+npm i @heroui/alert
 ```
 
 ## Contribution

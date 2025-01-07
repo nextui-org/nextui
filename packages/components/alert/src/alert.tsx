@@ -1,15 +1,15 @@
-import type {ButtonProps} from "@nextui-org/button";
+import type {ButtonProps} from "@heroui/button";
 
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {
   CloseIcon,
   DangerIcon,
   InfoCircleIcon,
   SuccessIcon,
   WarningIcon,
-} from "@nextui-org/shared-icons";
-import {isEmpty} from "@nextui-org/shared-utils";
-import {Button} from "@nextui-org/button";
+} from "@heroui/shared-icons";
+import {isEmpty} from "@heroui/shared-utils";
+import {Button} from "@heroui/button";
 import {cloneElement, isValidElement} from "react";
 
 import {useAlert, UseAlertProps} from "./use-alert";

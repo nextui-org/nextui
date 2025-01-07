@@ -82,7 +82,7 @@ You can also add multiple components at once:
 nextui add button input
 ```
 
-Or you can add the main library `@nextui-org/react` by running the following command:
+Or you can add the main library `@heroui/react` by running the following command:
 
 ```codeBlock bash
 nextui add --all
@@ -133,10 +133,10 @@ To install NextUI, run one of the following commands in your terminal:
 
 <PackageManagers
   commands={{
-    npm: "npm install @nextui-org/react framer-motion",
-    yarn: "yarn add @nextui-org/react framer-motion",
-    pnpm: "pnpm add @nextui-org/react framer-motion",
-    bun: "bun add @nextui-org/react framer-motion"
+    npm: "npm install @heroui/react framer-motion",
+    yarn: "yarn add @heroui/react framer-motion",
+    pnpm: "pnpm add @heroui/react framer-motion",
+    bun: "bun add @heroui/react framer-motion"
   }}
 />
 
@@ -149,7 +149,7 @@ To install NextUI, run one of the following commands in your terminal:
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -166,14 +166,14 @@ the following code to your `tailwind.config.js` file:
 
 ```js {9,14-15}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/react");
+const {nextui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
@@ -185,20 +185,20 @@ module.exports = {
 
 #### Provider Setup
 
-It is essential to add the `NextUIProvider` at the `root` of your application.
+It is essential to add the `HeroUIProvider` at the `root` of your application.
 
 ```jsx
 import * as React from "react";
 
-// 1. import `NextUIProvider` component
-import {NextUIProvider} from "@nextui-org/react";
+// 1. import `HeroUIProvider` component
+import {HeroUIProvider} from "@heroui/react";
 
 function App() {
-  // 2. Wrap NextUIProvider at the root of your app
+  // 2. Wrap HeroUIProvider at the root of your app
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <YourApplication />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
@@ -228,10 +228,10 @@ Run one of the following commands in your terminal to install the core packages:
 
 <PackageManagers
   commands={{
-    npm: "npm install @nextui-org/theme @nextui-org/system framer-motion",
-    yarn: "yarn add @nextui-org/theme @nextui-org/system framer-motion",
-    pnpm: "pnpm add @nextui-org/theme @nextui-org/system framer-motion",
-    bun: "bun add @nextui-org/theme @nextui-org/system framer-motion"
+    npm: "npm install @heroui/theme @heroui/system framer-motion",
+    yarn: "yarn add @heroui/theme @heroui/system framer-motion",
+    pnpm: "pnpm add @heroui/theme @heroui/system framer-motion",
+    bun: "bun add @heroui/theme @heroui/system framer-motion"
   }}
 />
 
@@ -243,10 +243,10 @@ in your terminal:
 
 <PackageManagers
   commands={{
-    npm: "npm install @nextui-org/button",
-    yarn: "yarn add @nextui-org/button",
-    pnpm: "pnpm add @nextui-org/button",
-    bun: "bun add @nextui-org/button"
+    npm: "npm install @heroui/button",
+    yarn: "yarn add @heroui/button",
+    pnpm: "pnpm add @heroui/button",
+    bun: "bun add @heroui/button"
   }}
 />
 
@@ -259,7 +259,7 @@ in your terminal:
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
@@ -273,15 +273,15 @@ styles of the components you're using to your `tailwind.config.js` file. For exa
 
 ```js {8,10,16}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/theme");
+const {nextui} = require("@heroui/theme");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // single component styles
-    "./node_modules/@nextui-org/theme/dist/components/button.js",
+    "./node_modules/@heroui/theme/dist/components/button.js",
     // or you can use a glob pattern (multiple component styles)
-    './node_modules/@nextui-org/theme/dist/components/(button|snippet|code|input).js'
+    './node_modules/@heroui/theme/dist/components/(button|snippet|code|input).js'
   ],
   theme: {
     extend: {},
@@ -293,20 +293,20 @@ module.exports = {
 
 #### Provider Setup
 
-It is essential to add the `NextUIProvider` at the `root` of your application.
+It is essential to add the `HeroUIProvider` at the `root` of your application.
 
 ```jsx
 import * as React from "react";
 
-// 1. import `NextUIProvider` component
-import {NextUIProvider} from "@nextui-org/system";
+// 1. import `HeroUIProvider` component
+import {HeroUIProvider} from "@heroui/system";
 
 function App() {
-  // 2. Wrap NextUIProvider at the root of your app
+  // 2. Wrap HeroUIProvider at the root of your app
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <YourApplication />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
@@ -317,7 +317,7 @@ Now, you can use the component you installed in your application:
 
 ```jsx
 import * as React from "react";
-import {Button} from "@nextui-org/button";
+import {Button} from "@heroui/button";
 
 function App() {
   return (

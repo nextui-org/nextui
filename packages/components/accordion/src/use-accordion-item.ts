@@ -1,12 +1,12 @@
-import type {AccordionItemVariantProps} from "@nextui-org/theme";
+import type {AccordionItemVariantProps} from "@heroui/theme";
 
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
+import {HTMLNextUIProps, PropGetter, useProviderContext} from "@heroui/system";
 import {useFocusRing} from "@react-aria/focus";
-import {accordionItem} from "@nextui-org/theme";
-import {clsx, callAllHandlers, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {NodeWithProps} from "@nextui-org/aria-utils";
-import {useReactAriaAccordionItem} from "@nextui-org/use-aria-accordion";
+import {accordionItem} from "@heroui/theme";
+import {clsx, callAllHandlers, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef, useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {NodeWithProps} from "@heroui/aria-utils";
+import {useReactAriaAccordionItem} from "@heroui/use-aria-accordion";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";

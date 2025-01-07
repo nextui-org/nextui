@@ -1,13 +1,13 @@
-# @nextui-org/date-input
+# @heroui/date-input
 
 A date input allows users to enter and edit date and time values using a keyboard.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/date-input
+yarn add @heroui/date-input
 # or
-npm i @nextui-org/date-input
+npm i @heroui/date-input
 ```
 
 ## Contribution

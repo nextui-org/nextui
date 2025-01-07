@@ -1,4 +1,4 @@
-import {Form, Input, Select, SelectItem, Checkbox, Button} from "@nextui-org/react";
+import {Form, Input, Select, SelectItem, Checkbox, Button} from "@heroui/react";
 
 export default function App() {
   const [password, setPassword] = React.useState("");

@@ -1,4 +1,4 @@
-# @nextui-org/link
+# @heroui/link
 
 Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an `<a>` tag.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/link) for
 ## Installation
 
 ```sh
-yarn add @nextui-org/link
+yarn add @heroui/link
 # or
-npm i @nextui-org/link
+npm i @heroui/link
 ```
 
 ## Contribution

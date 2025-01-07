@@ -1,4 +1,4 @@
-# @nextui-org/react-rsc-utils
+# @heroui/react-rsc-utils
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/react-rsc-utils
+yarn add @heroui/react-rsc-utils
 # or
-npm i @nextui-org/react-rsc-utils
+npm i @heroui/react-rsc-utils
 ```
 
 ## Contribution

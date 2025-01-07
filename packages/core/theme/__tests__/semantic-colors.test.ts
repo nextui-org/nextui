@@ -1,5 +1,5 @@
 import {getContrast} from "color2k";
-import {get} from "@nextui-org/shared-utils";
+import {get} from "@heroui/shared-utils";
 
 import {semanticColors} from "../src/colors/semantic";
 

@@ -1,4 +1,4 @@
-import {Button, ButtonProps, Code, Link, Tooltip} from "@nextui-org/react";
+import {Button, ButtonProps, Code, Link, Tooltip} from "@heroui/react";
 import {ReactNode} from "react";
 import Balancer from "react-wrap-balancer";
 import {usePostHog} from "posthog-js/react";
@@ -86,10 +86,10 @@ export const ComponentLinks = ({
         Storybook
       </ButtonLink>
       <ButtonLink
-        href={`https://www.npmjs.com/package/@nextui-org/${npm || component}`}
+        href={`https://www.npmjs.com/package/@heroui/${npm || component}`}
         startContent={<NpmIcon className="text-2xl text-[#E53E3E]" />}
       >
-        {`@nextui-org/${npm || component}`}
+        {`@heroui/${npm || component}`}
       </ButtonLink>
       {reactAriaHook && (
         <ButtonLink

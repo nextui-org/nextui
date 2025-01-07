@@ -1,6 +1,6 @@
 "use client";
 
-import {Tabs, Tab, Snippet, Code} from "@nextui-org/react";
+import {Tabs, Tab, Snippet, Code} from "@heroui/react";
 import {Key, useState} from "react";
 
 import Codeblock from "./codeblock";
@@ -101,8 +101,8 @@ export const PackageManagers = ({
       {showGlobalInstallWarning && (
         <Blockquote className="my-2 text-base md:text-small" color="warning">
           The above command is for individual installation only. You may skip this step if{" "}
-          <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@nextui-org/react</Code>{" "}
-          is already installed globally.
+          <Code className="px-1 py-0.5 text-small md:text-tiny font-mono">@heroui/react</Code> is
+          already installed globally.
         </Blockquote>
       )}
     </>

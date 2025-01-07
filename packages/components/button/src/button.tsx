@@ -1,6 +1,6 @@
-import {Spinner} from "@nextui-org/spinner";
-import {Ripple} from "@nextui-org/ripple";
-import {forwardRef} from "@nextui-org/system";
+import {Spinner} from "@heroui/spinner";
+import {Ripple} from "@heroui/ripple";
+import {forwardRef} from "@heroui/system";
 
 import {UseButtonProps, useButton} from "./use-button";
 

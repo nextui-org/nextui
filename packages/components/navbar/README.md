@@ -1,4 +1,4 @@
-# @nextui-org/navbar
+# @heroui/navbar
 
 A responsive navigation header positioned on top side of your page that includes support for branding, links, navigation, collapse menu and more.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/navbar) f
 ## Installation
 
 ```sh
-yarn add @nextui-org/navbar
+yarn add @heroui/navbar
 # or
-npm i @nextui-org/navbar
+npm i @heroui/navbar
 ```
 
 ## Contribution

@@ -1,4 +1,4 @@
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps} from "@heroui/system";
 import {Column} from "@react-stately/table";
 import {SpectrumColumnProps} from "@react-types/table";
 

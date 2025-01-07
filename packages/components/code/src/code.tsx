@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@heroui/system-rsc";
 
 import {useCode, UseCodeProps} from "./use-code";
 

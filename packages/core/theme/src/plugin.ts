@@ -6,7 +6,7 @@
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
 import deepMerge from "deepmerge";
-import {omit, kebabCase, mapKeys} from "@nextui-org/shared-utils";
+import {omit, kebabCase, mapKeys} from "@heroui/shared-utils";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";

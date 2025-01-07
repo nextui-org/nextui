@@ -1,4 +1,4 @@
-# @nextui-org/pagination
+# @heroui/pagination
 
 The Pagination component allows you to display active page and navigate between multiple pages.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/paginatio
 ## Installation
 
 ```sh
-yarn add @nextui-org/pagination
+yarn add @heroui/pagination
 # or
-npm i @nextui-org/pagination
+npm i @heroui/pagination
 ```
 
 ## Contribution

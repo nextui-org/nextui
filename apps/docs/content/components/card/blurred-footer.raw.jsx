@@ -1,4 +1,4 @@
-import {Card, CardFooter, Image, Button} from "@nextui-org/react";
+import {Card, CardFooter, Image, Button} from "@heroui/react";
 
 export default function App() {
   return (

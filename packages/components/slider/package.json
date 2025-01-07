@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/slider",
+  "name": "@heroui/slider",
   "version": "2.4.7",
   "description": "A slider allows a user to select one or more values within a range.",
   "keywords": [
@@ -36,13 +36,13 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/tooltip": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/tooltip": "workspace:*",
     "@react-aria/focus": "3.19.0",
     "@react-aria/i18n": "3.12.4",
     "@react-aria/interactions": "3.22.5",
@@ -52,10 +52,10 @@
     "@react-stately/slider": "3.6.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/test-utils": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

@@ -10,7 +10,7 @@ import {
   isIOS,
 } from "@react-aria/utils";
 import {RefObject} from "react";
-import {warn} from "@nextui-org/shared-utils";
+import {warn} from "@heroui/shared-utils";
 import {useFocusable} from "@react-aria/focus";
 import {usePress} from "@react-aria/interactions";
 

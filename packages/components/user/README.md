@@ -1,4 +1,4 @@
-# @nextui-org/user
+# @heroui/user
 
 Display user information with avatar and name.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/user) for
 ## Installation
 
 ```sh
-yarn add @nextui-org/user
+yarn add @heroui/user
 # or
-npm i @nextui-org/user
+npm i @heroui/user
 ```
 
 ## Contribution

@@ -1,4 +1,4 @@
-# @nextui-org/use-aria-button
+# @heroui/use-aria-button
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-aria-button
+yarn add @heroui/use-aria-button
 # or
-npm i @nextui-org/use-aria-button
+npm i @heroui/use-aria-button
 ```
 
 ## Contribution

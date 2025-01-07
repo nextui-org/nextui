@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/dom-animation",
+  "name": "@heroui/dom-animation",
   "version": "2.1.1",
   "description": "Dom Animation from Framer Motion for dynamic import",
   "keywords": [

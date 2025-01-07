@@ -23,7 +23,7 @@ or **error message**. The label and help text are announced by assistive technol
 the field.
 
 ```tsx {5,6}
-import {Input} from "@nextui-org/react";
+import {Input} from "@heroui/react";
 
 <Input
   type="password"
@@ -48,7 +48,7 @@ Each field should have a `name` prop to identify it, and the values will be seri
 
 ```tsx {12,15}
 import * as React from "react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const [submitted, setSubmitted] = React.useState(null);
@@ -96,7 +96,7 @@ NextUI form components are uncontrolled by default, but if you need to manage st
 
 ```tsx {5,26-27}
 import * as React from "react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const [email, setEmail] = React.useState("");
@@ -147,7 +147,7 @@ By default, error messages are provided by the browser.
 You can customize these messages by providing a function to the `errorMessage` prop.
 
 ```tsx {12-16}
-import {Form, Input, Button} from "@nextui-org/react";
+import {Form, Input, Button} from "@heroui/react";
 
 export default function App() {
   const onSubmit = (e) => {
@@ -200,7 +200,7 @@ These constraints are checked by the browser when the user commits changes (e.g.
 You can display validation errors with custom styles instead of the browser's default UI.
 
 ```tsx {10}
-import {Form, Input, Button} from "@nextui-org/react";
+import {Form, Input, Button} from "@heroui/react";
 
 export default function App() {
   const onSubmit = (e) => {
@@ -248,7 +248,7 @@ See each component's documentation for more details on the supported validation 
 In addition to built-in constraints, you can provide a function to the `validate` prop to support custom validation.
 
 ```tsx {17-23}
-import {Form, Input, Button} from "@nextui-org/react";
+import {Form, Input, Button} from "@heroui/react";
 
 export default function App() {
   const onSubmit = (e) => {
@@ -289,7 +289,7 @@ export default function App() {
 If you want to display validation errors while the user is typing, you can control the field value and use the `isInvalid` prop along with the `errorMessage` prop.
 
 ```tsx {19-26,30,32}
-import {Input} from "@nextui-org/react";
+import {Input} from "@heroui/react";
 
 export function Example() {
   const [password, setPassword] = React.useState("");
@@ -339,7 +339,7 @@ NextUI allows you to display server-side validation errors by using the `validat
 This prop should be an object where each key is the field `name` and the value is the error message.
 
 ```tsx {4,17,25-26}
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const [errors, setErrors] = React.useState({});
@@ -434,7 +434,7 @@ The [useActionState](https://react.dev/reference/react/useActionState) hook can 
 "use client";
 
 import {useActionState} from "react";
-import {Button, Input, Label} from "@nextui-org/react";
+import {Button, Input, Label} from "@heroui/react";
 import {createTodo} from "@/app/actions";
 
 export function AddForm() {
@@ -479,7 +479,7 @@ You can use the [useSubmit](https://remix.run/docs/en/main/hooks/use-submit) hoo
 // app/routes/signup.tsx
 import type {ActionFunctionArgs} from "@remix-run/node";
 import {useActionData, useSubmit} from "@remix-run/react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 export default function SignupForm() {
   let submit = useSubmit();
@@ -529,7 +529,7 @@ Controller allows you to manage field values and validation errors, and reflect 
 
 ```tsx
 import {Controller, useForm} from "react-hook-form";
-import {Button, Input, Label} from "@nextui-org/react";
+import {Button, Input, Label} from "@heroui/react";
 
 function App() {
   const {handleSubmit, control} = useForm({

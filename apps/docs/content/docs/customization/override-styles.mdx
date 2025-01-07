@@ -22,7 +22,7 @@ Components with slots have a `classNames` prop that allows you to style each slo
 Let's override the default styles of the [Button](/docs/components/button) component, which is a component that has no slots.
 
 ```jsx {7}
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export default function App() {
   return (
@@ -74,7 +74,7 @@ style.
 import slotsOverrideExample from "@/content/customization/override-styles/slots-example";
 
 ```jsx {9-12}
-import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import {CircularProgress, Card, CardBody} from "@heroui/react";
 
 export default function App() {
   return (
@@ -114,7 +114,7 @@ CSS Modules allow for the creation of local scope classes and variables. Here's 
 you can use it to override styles:
 
 ```jsx
-import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import {CircularProgress, Card, CardBody} from "@heroui/react";
 import styles from './App.module.css';
 
 export default function App() {
@@ -182,7 +182,7 @@ example to override the styles of a component:
 
 
 ```jsx
-import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import {CircularProgress, Card, CardBody} from "@heroui/react";
 import styled from 'styled-components';
 
 const StyledCard = styled(Card)`

@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/checkbox",
+  "name": "@heroui/checkbox",
   "version": "2.3.8",
   "description": "Checkboxes allow users to select multiple items from a list of individual items, or to mark one individual item as selected.",
   "keywords": [
@@ -34,17 +34,17 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.4.0",
-    "@nextui-org/theme": ">=2.4.3",
+    "@heroui/system": ">=2.4.0",
+    "@heroui/theme": ">=2.4.3",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@nextui-org/form": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/use-callback-ref": "workspace:*",
-    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@heroui/form": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/use-callback-ref": "workspace:*",
+    "@heroui/use-safe-layout-effect": "workspace:*",
     "@react-aria/checkbox": "3.15.0",
     "@react-aria/focus": "3.19.0",
     "@react-aria/interactions": "3.22.5",
@@ -56,12 +56,12 @@
     "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
-    "@nextui-org/chip": "workspace:*",
-    "@nextui-org/link": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/user": "workspace:*",
+    "@heroui/chip": "workspace:*",
+    "@heroui/link": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/user": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

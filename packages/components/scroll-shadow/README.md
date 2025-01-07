@@ -1,4 +1,4 @@
-# @nextui-org/scroll-shadow
+# @heroui/scroll-shadow
 
 A component that applies top and bottom shadows when content overflows on scroll.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/listbox) 
 ## Installation
 
 ```sh
-yarn add @nextui-org/scroll-shadow
+yarn add @heroui/scroll-shadow
 # or
-npm i @nextui-org/scroll-shadow
+npm i @heroui/scroll-shadow
 ```
 
 ## Contribution

@@ -1,8 +1,8 @@
 import type {InputHTMLAttributes} from "react";
 import type {GroupDOMAttributes} from "@react-types/shared";
-import type {DateInputReturnType, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {DateInputReturnType, DateInputSlots, SlotsToClasses} from "@heroui/theme";
 import type {DateFieldState} from "@react-stately/datepicker";
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {HTMLNextUIProps} from "@heroui/system";
 
 import {forwardRef} from "react";
 

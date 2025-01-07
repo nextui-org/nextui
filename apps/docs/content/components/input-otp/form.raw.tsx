@@ -1,6 +1,6 @@
-import {InputOtp} from "@nextui-org/react";
+import {InputOtp} from "@heroui/react";
 import {useForm, Controller, SubmitHandler} from "react-hook-form";
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 interface FormValues {
   otp: string;

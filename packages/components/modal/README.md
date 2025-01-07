@@ -1,4 +1,4 @@
-# @nextui-org/modal
+# @heroui/modal
 
 Displays a dialog with a custom content that requires attention or provides additional information.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/modal) fo
 ## Installation
 
 ```sh
-yarn add @nextui-org/modal
+yarn add @heroui/modal
 # or
-npm i @nextui-org/modal
+npm i @heroui/modal
 ```
 
 ## Contribution

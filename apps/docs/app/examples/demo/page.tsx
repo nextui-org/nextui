@@ -1,6 +1,6 @@
 "use client";
 
-import {Card, CardBody, CircularProgress} from "@nextui-org/react";
+import {Card, CardBody, CircularProgress} from "@heroui/react";
 
 export default function ButtonDemo() {
   return (

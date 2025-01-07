@@ -1,10 +1,10 @@
 "use client";
 
-import {Button, Link} from "@nextui-org/react";
-import {ArrowRightIcon} from "@nextui-org/shared-icons";
-import {clsx} from "@nextui-org/shared-utils";
+import {Button, Link} from "@heroui/react";
+import {ArrowRightIcon} from "@heroui/shared-icons";
+import {clsx} from "@heroui/shared-utils";
 import NextLink from "next/link";
-import {Code} from "@nextui-org/react";
+import {Code} from "@heroui/react";
 import {usePostHog} from "posthog-js/react";
 
 import {FeaturesGrid} from "./features-grid";
