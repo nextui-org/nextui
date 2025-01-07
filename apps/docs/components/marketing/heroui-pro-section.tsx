@@ -1,6 +1,6 @@
 "use client";
 
-import {Button, Chip} from "@nextui-org/react";
+import {Button, Chip} from "@heroui/react";
 import {useEffect, useState} from "react";
 import {useTheme} from "next-themes";
 

@@ -12,7 +12,7 @@ import {
   Dropdown,
   DropdownMenu,
   Avatar,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 import {SearchLinearIcon} from "@/components/icons";
 

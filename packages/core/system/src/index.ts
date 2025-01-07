@@ -16,7 +16,7 @@ export type {
   ExtendVariantWithSlotsProps,
   ExtendVariants,
   SharedSelection,
-} from "@nextui-org/system-rsc";
+} from "@heroui/system-rsc";
 
 export {
   forwardRef,
@@ -25,11 +25,11 @@ export {
   mapPropsVariantsWithCommon,
   isNextUIEl,
   extendVariants,
-} from "@nextui-org/system-rsc";
+} from "@heroui/system-rsc";
 
 export type {SupportedCalendars} from "./types";
-export type {NextUIProviderProps} from "./provider";
+export type {HeroUIProviderProps} from "./provider";
 export type {ProviderContextProps} from "./provider-context";
 
-export {NextUIProvider} from "./provider";
+export {HeroUIProvider} from "./provider";
 export {ProviderContext, useProviderContext} from "./provider-context";

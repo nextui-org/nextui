@@ -1,6 +1,6 @@
 "use client";
 
-import {Tabs, Tab, Snippet, Code} from "@nextui-org/react";
+import {Tabs, Tab, Snippet, Code} from "@heroui/react";
 import {Key, useState} from "react";
 
 import Codeblock from "./codeblock";

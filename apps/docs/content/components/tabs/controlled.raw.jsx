@@ -1,4 +1,4 @@
-import {Tabs, Tab, Card, CardBody} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardBody} from "@heroui/react";
 
 export default function App() {
   const [selected, setSelected] = React.useState("photos");

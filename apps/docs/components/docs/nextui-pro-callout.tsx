@@ -38,7 +38,7 @@ export const NextUIProCallout = () => {
       </div>
       <NextLink
         className="absolute inset-0 z-[1]"
-        href="https://nextui.pro/components?utm_source=nextui.org&utm_medium=callout"
+        href="https://nextui.pro/components?utm_source=heroui.com&utm_medium=callout"
         onClick={handleClick}
       />
     </div>

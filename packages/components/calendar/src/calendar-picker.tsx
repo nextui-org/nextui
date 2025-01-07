@@ -1,8 +1,8 @@
 import type {CalendarPickerProps} from "./use-calendar-picker";
 
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps} from "@heroui/system";
 import {useCallback} from "react";
-import {getInertValue} from "@nextui-org/shared-utils";
+import {getInertValue} from "@heroui/shared-utils";
 
 import {CalendarPickerItem} from "./calendar-picker-item";
 import {useCalendarPicker} from "./use-calendar-picker";

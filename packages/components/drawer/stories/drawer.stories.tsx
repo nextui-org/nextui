@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {drawer} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Checkbox} from "@nextui-org/checkbox";
-import {Link} from "@nextui-org/link";
-import {Tooltip} from "@nextui-org/tooltip";
-import {Image} from "@nextui-org/image";
-import {Avatar, AvatarGroup} from "@nextui-org/avatar";
-import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
-import {useDisclosure} from "@nextui-org/use-disclosure";
+import {drawer} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Checkbox} from "@heroui/checkbox";
+import {Link} from "@heroui/link";
+import {Tooltip} from "@heroui/tooltip";
+import {Image} from "@heroui/image";
+import {Avatar, AvatarGroup} from "@heroui/avatar";
+import {MailFilledIcon, LockFilledIcon} from "@heroui/shared-icons";
+import {useDisclosure} from "@heroui/use-disclosure";
 
 import {Drawer, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerProps} from "../src";
 
@@ -417,7 +417,7 @@ const CustomStylesTemplate = (args: DrawerProps) => {
 
                         <p className="mt-4">
                           Brought to you by the{" "}
-                          <Link className="text-default-700" href="https://nextui.org">
+                          <Link className="text-default-700" href="https://heroui.com">
                             NextUI team
                           </Link>
                           .
@@ -430,7 +430,7 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                         <Avatar
                           name="NextUI"
                           size="sm"
-                          src="https://nextui.org/android-chrome-192x192.png"
+                          src="https://heroui.com/android-chrome-192x192.png"
                         />
                         <span className="text-small text-default-500">NextUI Team</span>
                       </div>
@@ -482,10 +482,10 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                 </div>
               </DrawerBody>
               <DrawerFooter className="flex flex-col gap-1">
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Contact the host
                 </Link>
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Report event
                 </Link>
               </DrawerFooter>

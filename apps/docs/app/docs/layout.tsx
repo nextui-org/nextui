@@ -1,4 +1,4 @@
-import {Image} from "@nextui-org/react";
+import {Image} from "@heroui/react";
 
 import manifest from "@/config/routes.json";
 import {DocsSidebar} from "@/components/docs/sidebar";

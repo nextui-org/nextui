@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata, Viewport} from "next";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {Providers} from "./providers";
 
@@ -49,9 +49,9 @@ export const metadata: Metadata = {
   ],
   creator: "getnextui",
   alternates: {
-    canonical: "https://nextui.org",
+    canonical: "https://heroui.com",
     types: {
-      "application/rss+xml": [{url: "https://nextui.org/feed.xml", title: "NextUI RSS Feed"}],
+      "application/rss+xml": [{url: "https://heroui.com/feed.xml", title: "NextUI RSS Feed"}],
     },
   },
 };

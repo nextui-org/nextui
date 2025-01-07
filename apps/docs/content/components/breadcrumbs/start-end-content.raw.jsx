@@ -1,4 +1,4 @@
-import {Breadcrumbs, BreadcrumbItem} from "@nextui-org/react";
+import {Breadcrumbs, BreadcrumbItem} from "@heroui/react";
 
 export const HomeIcon = (props) => {
   return (

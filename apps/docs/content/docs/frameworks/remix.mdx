@@ -23,10 +23,10 @@ If you are starting a new project, you can run one of the following commands to 
 
 <PackageManagers
   commands={{
-    npm: 'npx create-remix@latest --template https://github.com/nextui-org/remix-template',
-    yarn: 'yarn create remix --template https://github.com/nextui-org/remix-template',
-    pnpm: 'pnpm create remix --template https://github.com/nextui-org/remix-template',
-    bun: 'bunx create-remix@latest --template https://github.com/nextui-org/remix-template',
+    npm: 'npx create-remix@latest --template https://github.com/frontio-ai/remix-template',
+    yarn: 'yarn create remix --template https://github.com/frontio-ai/remix-template',
+    pnpm: 'pnpm create remix --template https://github.com/frontio-ai/remix-template',
+    bun: 'bunx create-remix@latest --template https://github.com/frontio-ai/remix-template',
   }}
 />
 
@@ -46,7 +46,7 @@ You can also add multiple components at once:
 nextui add button input
 ```
 
-Or you can add the main library `@nextui-org/react` by running the following command:
+Or you can add the main library `@heroui/react` by running the following command:
 
 ```codeBlock bash
 nextui add --all
@@ -81,13 +81,13 @@ You still need to add the provider to your app manually (we are working on autom
 ```jsx {3,7,9}
 // app/providers.tsx
 
-import {NextUIProvider} from '@nextui-org/react'
+import {HeroUIProvider} from '@heroui/react'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   )
 }
 ```
@@ -158,7 +158,7 @@ the following code to your `tailwind.config.js` file:
 
 ```ts {2,10,15-16}
 // tailwind.config.ts
-const { heroui } = require("@heroui/react");
+const { nextui } = require("@heroui/react");
 
 import type { Config } from 'tailwindcss'
 
@@ -178,7 +178,7 @@ export default {
 
 ### Provider Setup
 
-After installing HeroUI, you need to set up the `HeroUIProvider` at the `root` of your application.
+After installing NextUI, you need to set up the `HeroUIProvider` at the `root` of your application.
 
 Go to the src directory and inside `root.tsx`, wrap `HeroUIProvider` around App:
 

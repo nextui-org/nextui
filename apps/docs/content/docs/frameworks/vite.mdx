@@ -20,7 +20,7 @@ To use HeroUI in your Vite project, you need to follow the following steps:
 
 ### NextUI CLI (recommended)
 
-If you are starting a new project, you can use the [NextUI CLI](https://nextui.org/docs/guide/cli) to create a new project with NextUI pre-configured:
+If you are starting a new project, you can use the [NextUI CLI](https://heroui.com/docs/guide/cli) to create a new project with NextUI pre-configured:
 
 ```bash
 nextui init -t vite
@@ -43,10 +43,10 @@ If you are starting a new project, you can run one of the following commands to 
 
 <PackageManagers
   commands={{
-    npm: 'npx degit https://github.com/nextui-org/vite-template my-vite-app',
-    yarn: 'yarn dlx degit https://github.com/nextui-org/vite-template my-vite-app',
-    pnpm: 'pnpm dlx degit https://github.com/nextui-org/vite-template my-vite-app',
-    bun: 'bunx degit https://github.com/nextui-org/vite-template my-vite-app',
+    npm: 'npx degit https://github.com/frontio-ai/vite-template my-vite-app',
+    yarn: 'yarn dlx degit https://github.com/frontio-ai/vite-template my-vite-app',
+    pnpm: 'pnpm dlx degit https://github.com/frontio-ai/vite-template my-vite-app',
+    bun: 'bunx degit https://github.com/frontio-ai/vite-template my-vite-app',
   }}
 />
 
@@ -66,7 +66,7 @@ You can also add multiple components at once:
 nextui add button input
 ```
 
-Or you can add the main library `@nextui-org/react` by running the following command:
+Or you can add the main library `@heroui/react` by running the following command:
 
 ```codeBlock bash
 nextui add --all
@@ -101,13 +101,13 @@ You still need to add the provider to your app manually (we are working on autom
 ```jsx {3,7,9}
 // app/providers.tsx
 
-import {NextUIProvider} from '@nextui-org/react'
+import {HeroUIProvider} from '@heroui/react'
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   )
 }
 ```
@@ -178,7 +178,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {2,8,13-14}
 // tailwind.config.js
-const { heroui } = require("@heroui/react");
+const { nextui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -196,7 +196,7 @@ module.exports = {
 
 ### Provider Setup
 
-After installing HeroUI, you need to set up the `HeroUIProvider` at the `root` of your application.
+After installing NextUI, you need to set up the `HeroUIProvider` at the `root` of your application.
 
 Go to the src directory and inside `main.jsx` or `main.tsx`, wrap `HeroUIProvider` around App:
 

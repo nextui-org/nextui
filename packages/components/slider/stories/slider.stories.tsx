@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {slider} from "@nextui-org/theme";
-import {InfoIcon, VolumeHighBoldIcon, VolumeLowBoldIcon} from "@nextui-org/shared-icons";
-import {Tooltip} from "@nextui-org/tooltip";
-import {cn} from "@nextui-org/theme";
+import {slider} from "@heroui/theme";
+import {InfoIcon, VolumeHighBoldIcon, VolumeLowBoldIcon} from "@heroui/shared-icons";
+import {Tooltip} from "@heroui/tooltip";
+import {cn} from "@heroui/theme";
 
 import {Slider, SliderProps, SliderValue} from "../src";
 

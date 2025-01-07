@@ -1,4 +1,4 @@
-import {Card, CardBody, Image, Button, Slider} from "@nextui-org/react";
+import {Card, CardBody, Image, Button, Slider} from "@heroui/react";
 
 export const HeartIcon = ({
   size = 24,
@@ -171,7 +171,7 @@ export default function App() {
               className="object-cover"
               height={200}
               shadow="md"
-              src="https://nextui.org/images/album-cover.png"
+              src="https://heroui.com/images/album-cover.png"
               width="100%"
             />
           </div>

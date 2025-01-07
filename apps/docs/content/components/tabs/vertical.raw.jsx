@@ -1,4 +1,4 @@
-import {Tabs, Tab, Card, CardBody, Switch} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardBody, Switch} from "@heroui/react";
 
 export default function App() {
   const [isVertical, setIsVertical] = React.useState(true);

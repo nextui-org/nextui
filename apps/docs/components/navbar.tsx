@@ -18,11 +18,11 @@ import {
   DropdownTrigger,
   Chip,
   Divider,
-} from "@nextui-org/react";
-import {dataFocusVisibleClasses} from "@nextui-org/theme";
-import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
+} from "@heroui/react";
+import {dataFocusVisibleClasses} from "@heroui/theme";
+import {ChevronDownIcon, LinkIcon} from "@heroui/shared-icons";
 import {isAppleDevice} from "@react-aria/utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
 import {motion, AnimatePresence} from "framer-motion";
@@ -101,7 +101,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const handleVersionChange = useCallback((key: Key) => {
     if (key === "v1") {
-      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
+      const newWindow = window.open("https://v1.heroui.com", "_blank", "noopener,noreferrer");
 
       if (newWindow) newWindow.opener = null;
     }

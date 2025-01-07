@@ -6,19 +6,19 @@
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
 import deepMerge from "deepmerge";
-import {omit, kebabCase, mapKeys} from "@nextui-org/shared-utils";
+import {omit, kebabCase, mapKeys} from "@heroui/shared-utils";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
 import {isBaseTheme} from "./utils/theme";
-import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
+import {ConfigTheme, ConfigThemes, DefaultThemeType, HeroUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, defaultLayout} from "./default-layout";
 import {baseStyles} from "./utils/classes";
 import {DEFAULT_TRANSITION_DURATION} from "./utilities/transition";
 
-const DEFAULT_PREFIX = "nextui";
+const DEFAULT_PREFIX = "heroui";
 
 const parsedColorsCache: Record<string, number[]> = {};
 
@@ -242,7 +242,7 @@ const corePlugin = (
   );
 };
 
-export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugin> => {
+export const heroui = (config: HeroUIPluginConfig = {}): ReturnType<typeof plugin> => {
   const {
     themes: themeObject = {},
     defaultTheme = "light",

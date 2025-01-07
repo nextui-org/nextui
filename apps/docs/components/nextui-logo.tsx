@@ -1,5 +1,5 @@
 import React from "react";
-import {cn} from "@nextui-org/react";
+import {cn} from "@heroui/theme";
 
 import {IconSvgProps} from "@/types";
 import {dataAttr} from "@/utils";

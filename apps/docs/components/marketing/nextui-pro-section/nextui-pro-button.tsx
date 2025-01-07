@@ -1,11 +1,11 @@
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export const NextUIProButton = () => (
   <Button
     as={"a"}
     className="px-6 flex items-center"
     color="primary"
-    href="https://nextui.pro?utm_source=nextui.org&utm_medium=nextui-homepage-section"
+    href="https://nextui.pro?utm_source=heroui.com&utm_medium=nextui-homepage-section"
     rel="noopener noreferrer"
     target="_blank"
   >

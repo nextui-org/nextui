@@ -1,7 +1,7 @@
-import type {ListboxSectionSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ListboxSectionSlots, SlotsToClasses} from "@heroui/theme";
 
-import {BaseSection, SectionProps} from "@nextui-org/aria-utils";
-import {DividerProps} from "@nextui-org/divider";
+import {BaseSection, SectionProps} from "@heroui/aria-utils";
+import {DividerProps} from "@heroui/divider";
 
 import {ListboxItemProps} from "../listbox-item";
 

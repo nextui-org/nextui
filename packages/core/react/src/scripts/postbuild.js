@@ -17,7 +17,7 @@ const docsComponentsDir = path.resolve(rootDir, 'apps/docs/content/docs/componen
 
 const themeDir = path.resolve(packagesDir, 'core/theme'); // Theme directory path
 
-const baseDocs = 'https://nextui.org/docs/components';
+const baseDocs = 'https://heroui.com/docs/components';
 const filePath = './src/index.ts'; // Updated file path
 const backupFilePath = filePath + '.backup.ts'; // Backup file
 

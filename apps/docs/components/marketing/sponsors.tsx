@@ -1,4 +1,4 @@
-import {Button, Link} from "@nextui-org/react";
+import {Button, Link} from "@heroui/react";
 
 import {sectionWrapper} from "@/components/primitives";
 import {Story2DesignLogo, CodeRabbitLogo} from "@/components/icons/sponsors";

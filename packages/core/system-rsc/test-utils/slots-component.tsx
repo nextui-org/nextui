@@ -1,10 +1,10 @@
 import type {HTMLNextUIProps} from "../src/types";
-import type {VariantProps} from "@nextui-org/theme";
+import type {VariantProps} from "@heroui/theme";
 
 import React, {useMemo} from "react";
-import {SlotsToClasses, tv} from "@nextui-org/theme";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {objectToDeps} from "@nextui-org/shared-utils";
+import {SlotsToClasses, tv} from "@heroui/theme";
+import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
+import {objectToDeps} from "@heroui/shared-utils";
 import clsx from "clsx";
 
 import {forwardRef, mapPropsVariants} from "../src/utils";

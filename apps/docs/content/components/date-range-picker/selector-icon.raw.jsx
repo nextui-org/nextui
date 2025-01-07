@@ -1,4 +1,4 @@
-import {DateRangePicker} from "@nextui-org/react";
+import {DateRangePicker} from "@heroui/react";
 
 export const SelectorIcon = (props) => {
   return (

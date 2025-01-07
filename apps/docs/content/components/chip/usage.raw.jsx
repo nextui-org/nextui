@@ -1,4 +1,4 @@
-import {Chip} from "@nextui-org/react";
+import {Chip} from "@heroui/react";
 
 export default function App() {
   return <Chip>Chip</Chip>;

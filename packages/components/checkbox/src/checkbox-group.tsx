@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {CheckboxGroupProvider} from "./checkbox-group-context";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";

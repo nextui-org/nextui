@@ -1,4 +1,4 @@
-import {DateInput} from "@nextui-org/react";
+import {DateInput} from "@heroui/react";
 import {parseAbsoluteToLocal} from "@internationalized/date";
 import {I18nProvider} from "@react-aria/i18n";
 

@@ -65,7 +65,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {9,14-15}
 // tailwind.config.js
-const { heroui } = require("@heroui/react");
+const { nextui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -133,7 +133,7 @@ the `use client;` directive:
 
 ```jsx {2}
 // app/page.tsx
-import {Button} from '@nextui-org/button'
+import {Button} from '@heroui/button'
 
 export default function Page() {
   return (
@@ -144,7 +144,7 @@ export default function Page() {
 }
 ```
 
-> **Important 🚨**: Note that you need to import the component from the individual package, not the from `@nextui-org/react`. 
+> **Important 🚨**: Note that you need to import the component from the individual package, not the from `@heroui/react`. 
 
 </Steps>
 
@@ -190,7 +190,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {9,14-15}
 // tailwind.config.js
-const { heroui } = require("@heroui/react");
+const { nextui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -231,7 +231,7 @@ export default MyApp;
 Now you can import any NextUI component wherever you want:
 
 ```jsx
-import {Button} from '@nextui-org/react'
+import {Button} from '@heroui/react'
 
 export default function Page() {
   return (
@@ -296,7 +296,7 @@ NextUI v2 now uses Tailwind CSS. Add the NextUI plugin to your `tailwind.config.
 
 ```js {9,14-15}
 // tailwind.config.js
-const { heroui } = require("@heroui/react");
+const { nextui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -339,7 +339,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
 Now you can import any NextUI component wherever you want:
 
 ```jsx
-import {Button} from '@nextui-org/react'
+import {Button} from '@heroui/react'
 
 export default function Page() {
   return (
@@ -355,6 +355,6 @@ export default function Page() {
 <Blockquote
  color="default"
 >
-  Please visit the <Link href="https://github.com/nextui-org/nextui/releases/tag/v2.0.0" showAnchorIcon isExternal>Release Notes</Link> for more information about the new features and breaking changes.
+  Please visit the <Link href="https://github.com/frontio-ai/heroui/releases/tag/v2.0.0" showAnchorIcon isExternal>Release Notes</Link> for more information about the new features and breaking changes.
 </Blockquote>
 

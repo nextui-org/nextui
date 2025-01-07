@@ -1,4 +1,4 @@
-import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@nextui-org/react";
+import {Card, CardHeader, CardBody, CardFooter, Divider, Link, Image} from "@heroui/react";
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
         />
         <div className="flex flex-col">
           <p className="text-md">NextUI</p>
-          <p className="text-small text-default-500">nextui.org</p>
+          <p className="text-small text-default-500">heroui.com</p>
         </div>
       </CardHeader>
       <Divider />
@@ -22,7 +22,7 @@ export default function App() {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link isExternal showAnchorIcon href="https://github.com/nextui-org/nextui">
+        <Link isExternal showAnchorIcon href="https://github.com/frontio-ai/heroui">
           Visit source code on GitHub.
         </Link>
       </CardFooter>

@@ -1,11 +1,11 @@
 import type {GridNode} from "@react-types/grid";
 
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableColumnHeader} from "@react-aria/table";
 import {mergeProps} from "@react-aria/utils";
-import {ChevronDownIcon} from "@nextui-org/shared-icons";
+import {ChevronDownIcon} from "@heroui/shared-icons";
 import {useFocusRing} from "@react-aria/focus";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {useHover} from "@react-aria/interactions";

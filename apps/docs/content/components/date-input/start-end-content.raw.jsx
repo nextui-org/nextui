@@ -1,4 +1,4 @@
-import {DateInput} from "@nextui-org/react";
+import {DateInput} from "@heroui/react";
 import {CalendarDate, parseDate} from "@internationalized/date";
 
 export const CalendarIcon = (props) => {

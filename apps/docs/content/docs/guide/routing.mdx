@@ -15,7 +15,7 @@ the flexibility to be rendered as **HTML links**.
 By default, links perform native browser navigation when they are interacted with. However, many apps and
 frameworks use client side routers to avoid a full page reload when navigating between pages.
 
-The `HeroUIProvider` component configures all HeroUI components within it to navigate using the client side
+The `HeroUIProvider` component configures all NextUI components within it to navigate using the client side
 router you provide.
 
 Set this up once in the `root` of your app, and any HeroUI component with the `href` prop will automatically navigate
@@ -273,7 +273,7 @@ to the router.
 ## Remix
 
 Remix uses React Router under the hood, so the same `useNavigate` and `useHref` hook described above also works in Remix
-apps. `HeroUIProvider` should be rendered at the `root` of each page that includes HeroUI components, or in
+apps. `HeroUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in
 `app/root.tsx` to add it to all pages. See the [Remix docs](https://remix.run/docs/en/main/file-conventions/root)
 for more details.
 

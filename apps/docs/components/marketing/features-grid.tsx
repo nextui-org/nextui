@@ -3,9 +3,9 @@
 import React, {ReactNode} from "react";
 import {usePostHog} from "posthog-js/react";
 import {tv} from "tailwind-variants";
-import {Card, CardHeader, CardBody, LinkProps, SlotsToClasses} from "@nextui-org/react";
+import {Card, CardHeader, CardBody, LinkProps, SlotsToClasses} from "@heroui/react";
 import {useRouter} from "next/navigation";
-import {LinkIcon} from "@nextui-org/shared-icons";
+import {LinkIcon} from "@heroui/shared-icons";
 
 const styles = tv({
   slots: {

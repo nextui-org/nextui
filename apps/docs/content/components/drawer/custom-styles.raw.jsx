@@ -11,7 +11,7 @@ import {
   Tooltip,
   Avatar,
   AvatarGroup,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -261,7 +261,7 @@ export default function App() {
 
                         <p className="mt-4">
                           Brought to you by the{" "}
-                          <Link className="text-default-700" href="https://nextui.org">
+                          <Link className="text-default-700" href="https://heroui.com">
                             NextUI team
                           </Link>
                           .
@@ -274,7 +274,7 @@ export default function App() {
                         <Avatar
                           name="NextUI"
                           size="sm"
-                          src="https://nextui.org/android-chrome-192x192.png"
+                          src="https://heroui.com/android-chrome-192x192.png"
                         />
                         <span className="text-small text-default-500">NextUI Team</span>
                       </div>
@@ -326,10 +326,10 @@ export default function App() {
                 </div>
               </DrawerBody>
               <DrawerFooter className="flex flex-col gap-1">
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Contact the host
                 </Link>
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Report event
                 </Link>
               </DrawerFooter>

@@ -1,4 +1,4 @@
-import {Switch} from "@nextui-org/react";
+import {Switch} from "@heroui/react";
 
 export default function App() {
   const [isSelected, setIsSelected] = React.useState(true);

@@ -1,4 +1,4 @@
-import {DateRangePicker} from "@nextui-org/react";
+import {DateRangePicker} from "@heroui/react";
 import {getLocalTimeZone, parseDate, today} from "@internationalized/date";
 
 export default function App() {

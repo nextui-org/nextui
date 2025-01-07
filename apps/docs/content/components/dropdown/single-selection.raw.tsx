@@ -1,7 +1,7 @@
-import type {Selection} from "@nextui-org/react";
+import type {Selection} from "@heroui/react";
 
 import React from "react";
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@nextui-org/react";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button} from "@heroui/react";
 
 export default function App() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["text"]));

@@ -2,7 +2,7 @@ import {DiscordIcon, GithubIcon, XIcon} from "@/components/icons";
 import {siteConfig} from "@/config/site";
 
 export const TWITTER_USER_NAME = "getnextui";
-export const SITE_URL = "https://nextui.org";
+export const SITE_URL = "https://heroui.com";
 
 export const communityAccounts = [
   {
