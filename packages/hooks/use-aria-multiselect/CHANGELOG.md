@@ -1,4 +1,4 @@
-# @nextui-org/use-aria-multiselect
+# @heroui/use-aria-multiselect
 
 ## 2.4.3
 

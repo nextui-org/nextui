@@ -1,4 +1,4 @@
-# @nextui-org/use-ssr
+# @heroui/use-ssr
 
 ## 2.1.1
 

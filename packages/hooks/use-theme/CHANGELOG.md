@@ -1,4 +1,4 @@
-# @nextui-org/use-theme
+# @heroui/use-theme
 
 ## 2.1.1
 

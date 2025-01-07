@@ -1,4 +1,4 @@
-# @nextui-org/use-scroll-position
+# @heroui/use-scroll-position
 
 ## 2.1.1
 

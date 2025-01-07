@@ -1,4 +1,4 @@
-# @nextui-org/use-is-mobile
+# @heroui/use-is-mobile
 
 ## 2.2.2
 

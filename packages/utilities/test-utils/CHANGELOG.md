@@ -1,4 +1,4 @@
-# @nextui-org/test-utils
+# @heroui/test-utils
 
 ## 2.1.1
 

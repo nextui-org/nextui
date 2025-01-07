@@ -1,4 +1,4 @@
-# @nextui-org/stories-utils
+# @heroui/stories-utils
 
 ## 2.1.1
 

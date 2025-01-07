@@ -1,4 +1,4 @@
-# @nextui-org/use-intersection-observer
+# @heroui/use-intersection-observer
 
 ## 2.2.2
 

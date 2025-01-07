@@ -1,4 +1,4 @@
-# @nextui-org/use-aria-accordion
+# @heroui/use-aria-accordion
 
 ## 2.2.2
 

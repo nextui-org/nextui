@@ -1,11 +1,11 @@
-# @nextui-org/use-aria-button
+# @heroui/use-aria-button
 
 ## 2.2.4
 
 ### Patch Changes
 
 - Updated dependencies [[`77206bc`](https://github.com/frontio-ai/heroui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/frontio-ai/heroui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
-  - @nextui-org/shared-utils@2.1.2
+  - @heroui/shared-utils@2.1.2
 
 ## 2.2.3
 
@@ -150,7 +150,7 @@
 - [`25e86fb41`](https://github.com/frontio-ai/heroui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - New version v2.2.0
 
 - Updated dependencies [[`25e86fb41`](https://github.com/frontio-ai/heroui/commit/25e86fb41770d3cdae6dfdb79306b78fa02d8187)]:
-  - @nextui-org/use-aria-press@2.0.1
+  - @heroui/use-aria-press@2.0.1
 
 ## 2.0.5
 

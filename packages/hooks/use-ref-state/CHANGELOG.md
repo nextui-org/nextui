@@ -1,4 +1,4 @@
-# @nextui-org/use-ref-state
+# @heroui/use-ref-state
 
 ## 2.1.1
 

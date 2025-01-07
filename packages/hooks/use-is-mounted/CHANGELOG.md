@@ -1,4 +1,4 @@
-# @nextui-org/use-is-mounted
+# @heroui/use-is-mounted
 
 ## 2.1.1
 

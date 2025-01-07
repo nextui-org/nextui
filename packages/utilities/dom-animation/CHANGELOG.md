@@ -1,4 +1,4 @@
-# @nextui-org/dom-animation
+# @heroui/dom-animation
 
 ## 2.1.1
 

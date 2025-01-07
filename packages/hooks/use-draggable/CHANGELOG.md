@@ -1,4 +1,4 @@
-# @nextui-org/use-draggable
+# @heroui/use-draggable
 
 ## 2.1.2
 

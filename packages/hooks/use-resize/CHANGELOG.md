@@ -1,4 +1,4 @@
-# @nextui-org/use-resize
+# @heroui/use-resize
 
 ## 2.1.1
 

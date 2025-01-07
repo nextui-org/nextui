@@ -1,4 +1,4 @@
-# @nextui-org/use-update-effect
+# @heroui/use-update-effect
 
 ## 2.1.1
 

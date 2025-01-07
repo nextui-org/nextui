@@ -1,4 +1,4 @@
-# @nextui-org/use-clipboard
+# @heroui/use-clipboard
 
 ## 2.1.2
 

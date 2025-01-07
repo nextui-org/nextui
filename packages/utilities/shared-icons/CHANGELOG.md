@@ -1,4 +1,4 @@
-# @nextui-org/shared-icons
+# @heroui/shared-icons
 
 ## 2.1.1
 

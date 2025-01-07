@@ -1,4 +1,4 @@
-# @nextui-org/shared-utils
+# @heroui/shared-utils
 
 ## 2.1.2
 

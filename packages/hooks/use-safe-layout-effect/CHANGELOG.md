@@ -1,4 +1,4 @@
-# @nextui-org/use-safe-layout-effect
+# @heroui/use-safe-layout-effect
 
 ## 2.1.1
 

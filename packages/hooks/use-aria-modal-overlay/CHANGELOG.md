@@ -1,4 +1,4 @@
-# @nextui-org/use-aria-modal-overlay
+# @heroui/use-aria-modal-overlay
 
 ## 2.2.3
 
@@ -117,7 +117,7 @@
 - [#3467](https://github.com/frontio-ai/heroui/pull/3467) [`123b7fbc9`](https://github.com/frontio-ai/heroui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae) Thanks [@chirokas](https://github.com/chirokas)! - Refactor overlays to reduce its complexity, while improving stability.
 
 - Updated dependencies [[`123b7fbc9`](https://github.com/frontio-ai/heroui/commit/123b7fbc9fb51613d7568572a00982ad230d02ae)]:
-  - @nextui-org/use-aria-overlay@2.0.1
+  - @heroui/use-aria-overlay@2.0.1
 
 ## 2.0.11
 

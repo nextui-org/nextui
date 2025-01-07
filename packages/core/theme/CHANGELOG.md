@@ -1,4 +1,4 @@
-# @nextui-org/theme
+# @heroui/theme
 
 ## 2.4.5
 
@@ -17,7 +17,7 @@
 - [#4373](https://github.com/frontio-ai/heroui/pull/4373) [`e546124`](https://github.com/frontio-ai/heroui/commit/e546124e1de49e8bd4d8f5e33cba87a0e83435ef) Thanks [@Peterl561](https://github.com/Peterl561)! - menu base use overflow-clip to fix listbox section sticky (#4335)
 
 - Updated dependencies [[`77206bc`](https://github.com/frontio-ai/heroui/commit/77206bc62596894d038b9715e40b361fec286c10), [`5f388fc`](https://github.com/frontio-ai/heroui/commit/5f388fc68c7db7f852432e73386686d919d44d31)]:
-  - @nextui-org/shared-utils@2.1.2
+  - @heroui/shared-utils@2.1.2
 
 ## 2.4.3
 
@@ -38,7 +38,7 @@
 - [`d6eee4a`](https://github.com/frontio-ai/heroui/commit/d6eee4a8767556152f47f06dcf04940951abc5af) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - v2.6.2
 
 - Updated dependencies [[`d6eee4a`](https://github.com/frontio-ai/heroui/commit/d6eee4a8767556152f47f06dcf04940951abc5af)]:
-  - @nextui-org/shared-utils@2.1.1
+  - @heroui/shared-utils@2.1.1
 
 ## 2.4.0
 
@@ -75,7 +75,7 @@
 - [#4206](https://github.com/frontio-ai/heroui/pull/4206) [`44958bf`](https://github.com/frontio-ai/heroui/commit/44958bf91a1677becd5e9f3c420b7956cf0244d8) Thanks [@vinroger](https://github.com/vinroger)! - Virtualization support added to Listbox and Menu
 
 - Updated dependencies [[`5786897`](https://github.com/frontio-ai/heroui/commit/5786897b9950d95c12351dacd2fb41bb1e298201)]:
-  - @nextui-org/shared-utils@2.1.0
+  - @heroui/shared-utils@2.1.0
 
 ## 2.3.0-beta.18
 
@@ -104,7 +104,7 @@
 - [`9869f2b91`](https://github.com/frontio-ai/heroui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27) Thanks [@wingkwong](https://github.com/wingkwong)! - bump version
 
 - Updated dependencies [[`9869f2b91`](https://github.com/frontio-ai/heroui/commit/9869f2b91d0829f9c7f0500ba05745707820bf27)]:
-  - @nextui-org/shared-utils@2.0.9-beta.8
+  - @heroui/shared-utils@2.0.9-beta.8
 
 ## 2.3.0-beta.14
 
@@ -131,7 +131,7 @@
 - [#4092](https://github.com/frontio-ai/heroui/pull/4092) [`528668db8`](https://github.com/frontio-ai/heroui/commit/528668db85b98b46473cb1e214780b7468cdadba) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Test new runner
 
 - Updated dependencies [[`528668db8`](https://github.com/frontio-ai/heroui/commit/528668db85b98b46473cb1e214780b7468cdadba)]:
-  - @nextui-org/shared-utils@2.0.9-beta.7
+  - @heroui/shared-utils@2.0.9-beta.7
 
 ## 2.3.0-beta.10
 
@@ -140,7 +140,7 @@
 - [#4086](https://github.com/frontio-ai/heroui/pull/4086) [`f69fe47b5`](https://github.com/frontio-ai/heroui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Pnpm clean
 
 - Updated dependencies [[`f69fe47b5`](https://github.com/frontio-ai/heroui/commit/f69fe47b5b8f6f3a77a7a8c20d8715263fa32acb)]:
-  - @nextui-org/shared-utils@2.0.9-beta.6
+  - @heroui/shared-utils@2.0.9-beta.6
 
 ## 2.3.0-beta.9
 
@@ -149,7 +149,7 @@
 - [#4083](https://github.com/frontio-ai/heroui/pull/4083) [`35058262c`](https://github.com/frontio-ai/heroui/commit/35058262c61628fb42907f529c4417886aa12bb2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix build
 
 - Updated dependencies [[`35058262c`](https://github.com/frontio-ai/heroui/commit/35058262c61628fb42907f529c4417886aa12bb2)]:
-  - @nextui-org/shared-utils@2.0.9-beta.5
+  - @heroui/shared-utils@2.0.9-beta.5
 
 ## 2.3.0-beta.8
 
@@ -174,7 +174,7 @@
 ### Patch Changes
 
 - Updated dependencies [[`5339b2571`](https://github.com/frontio-ai/heroui/commit/5339b2571e6d73ca6efe2acd34d88669419db9f7)]:
-  - @nextui-org/shared-utils@2.0.9-beta.4
+  - @heroui/shared-utils@2.0.9-beta.4
 
 ## 2.3.0-beta.4
 
@@ -189,7 +189,7 @@
 - [#4010](https://github.com/frontio-ai/heroui/pull/4010) [`ef432eb53`](https://github.com/frontio-ai/heroui/commit/ef432eb539714fded6cab86a2185956fb103e0df) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - framer-motion alpha version added
 
 - Updated dependencies [[`ef432eb53`](https://github.com/frontio-ai/heroui/commit/ef432eb539714fded6cab86a2185956fb103e0df)]:
-  - @nextui-org/shared-utils@2.0.9-beta.3
+  - @heroui/shared-utils@2.0.9-beta.3
 
 ## 2.3.0-beta.2
 
@@ -198,7 +198,7 @@
 - [#4008](https://github.com/frontio-ai/heroui/pull/4008) [`7c1c0dd8f`](https://github.com/frontio-ai/heroui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - React 19 added to peerDeps
 
 - Updated dependencies [[`7c1c0dd8f`](https://github.com/frontio-ai/heroui/commit/7c1c0dd8fef3ea72996c1095b919574c4b7f9b89)]:
-  - @nextui-org/shared-utils@2.0.9-beta.2
+  - @heroui/shared-utils@2.0.9-beta.2
 
 ## 2.3.0-beta.1
 
@@ -207,7 +207,7 @@
 - [#3990](https://github.com/frontio-ai/heroui/pull/3990) [`cb5bc4c74`](https://github.com/frontio-ai/heroui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Beta 1
 
 - Updated dependencies [[`cb5bc4c74`](https://github.com/frontio-ai/heroui/commit/cb5bc4c74f00caaee80dca89c1f02038db315b85)]:
-  - @nextui-org/shared-utils@2.0.9-beta.1
+  - @heroui/shared-utils@2.0.9-beta.1
 
 ## 2.3.0-beta.0
 
@@ -246,7 +246,7 @@
 - [#3764](https://github.com/frontio-ai/heroui/pull/3764) [`559436d46`](https://github.com/frontio-ai/heroui/commit/559436d462bdb8739d8c817d1aa98607969d8a07) Thanks [@wingkwong](https://github.com/wingkwong)! - add missing `data-[hover=true]:` for ghost button with danger color
 
 - Updated dependencies [[`3f0d81b56`](https://github.com/frontio-ai/heroui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb), [`3f0d81b56`](https://github.com/frontio-ai/heroui/commit/3f0d81b560e7ef3eb315bd98407249c0eb4ed5eb)]:
-  - @nextui-org/shared-utils@2.0.9-beta.0
+  - @heroui/shared-utils@2.0.9-beta.0
 
 ## 2.2.11
 
