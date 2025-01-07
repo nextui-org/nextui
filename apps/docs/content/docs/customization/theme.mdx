@@ -24,13 +24,13 @@ The first step to using HeroUI's theming capability is adding the `heroui` plugi
 
 ```js {9,14-15}
 // tailwind.config.js
-const {heroui} = require("@heroui/react");
+const {nextui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
-    // make sure it's pointing to the ROOT node_modules
+    // make sure it's pointing to the ROOT node_module
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {

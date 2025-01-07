@@ -1,4 +1,4 @@
-# @nextui-org/test-utils
+# @heroui/test-utils
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/test-utils
+yarn add @heroui/test-utils
 # or
-npm i @nextui-org/test-utils
+npm i @heroui/test-utils
 ```
 
 ## Contribution

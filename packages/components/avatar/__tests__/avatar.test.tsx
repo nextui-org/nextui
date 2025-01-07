@@ -1,6 +1,6 @@
 import * as React from "react";
 import {render, act} from "@testing-library/react";
-import {mocks} from "@nextui-org/test-utils";
+import {mocks} from "@heroui/test-utils";
 
 import {Avatar} from "../src";
 

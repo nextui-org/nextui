@@ -4,17 +4,17 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {input} from "@nextui-org/theme";
+import {input} from "@heroui/theme";
 import {
   MailFilledIcon,
   EyeFilledIcon,
   EyeSlashFilledIcon,
   SearchIcon,
   CloseFilledIcon,
-} from "@nextui-org/shared-icons";
-import {button} from "@nextui-org/theme";
+} from "@heroui/shared-icons";
+import {button} from "@heroui/theme";
 import {useForm} from "react-hook-form";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {Input, InputProps, useInput} from "../src";
 

@@ -1,4 +1,4 @@
-import {uniqBy} from "@nextui-org/shared-utils";
+import {uniqBy} from "@heroui/shared-utils";
 import fetch from "node-fetch";
 
 import {__PROD__} from "./env";

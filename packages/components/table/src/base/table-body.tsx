@@ -1,4 +1,4 @@
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps} from "@heroui/system";
 import {TableBody as TableBodyBase} from "@react-stately/table";
 import {TableBodyProps as TableBodyBaseProps} from "@react-types/table";
 import {ReactNode} from "react";

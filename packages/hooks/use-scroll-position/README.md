@@ -1,4 +1,4 @@
-# @nextui-org/use-scroll-position
+# @heroui/use-scroll-position
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-scroll-position
+yarn add @heroui/use-scroll-position
 # or
-npm i @nextui-org/use-scroll-position
+npm i @heroui/use-scroll-position
 ```
 
 ## Contribution

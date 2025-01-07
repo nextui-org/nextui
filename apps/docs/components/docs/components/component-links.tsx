@@ -1,4 +1,4 @@
-import {Button, ButtonProps, Code, Link, Tooltip} from "@nextui-org/react";
+import {Button, ButtonProps, Code, Link, Tooltip} from "@heroui/react";
 import {ReactNode} from "react";
 import Balancer from "react-wrap-balancer";
 import {usePostHog} from "posthog-js/react";

@@ -1,4 +1,4 @@
-# @nextui-org/use-measure
+# @heroui/use-measure
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-measure
+yarn add @heroui/use-measure
 # or
-npm i @nextui-org/use-measure
+npm i @heroui/use-measure
 ```
 
 ## Contribution

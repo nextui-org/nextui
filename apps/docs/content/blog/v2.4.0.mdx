@@ -23,7 +23,7 @@ We are excited to announce the latest update to NextUI, version **2.4.0**! This 
 
 ## What's New in v2.4.0?
 
-- [Disable Animations Globally](#disable-animations-globally) - Allows users to disable animation globally via NextUIProvider
+- [Disable Animations Globally](#disable-animations-globally) - Allows users to disable animation globally via HeroUIProvider
 - [API Improvements](#api-improvements) - Includes several props like `disableRipple`, `skipFramerMotionAnimations` and `validationBehavior`
 - [CLI Improvements](#cli-improvements) - Includes new command options and optimizes performance
 - [React Aria Packages Upgrades](#react-aria-packages-upgrades) - Upgrades and fixes the exact versions of React Aria
@@ -47,21 +47,21 @@ Upgrade today by running one of the following commands:
 
 ## Disable Animations Globally
 
-NextUI components are animated by default and can be disabled by setting the prop `disableAnimation` individually. Since v2.4.0, you can globally disable the animation by setting `disableAnimation` to `NextUIProvider`.
+NextUI components are animated by default and can be disabled by setting the prop `disableAnimation` individually. Since v2.4.0, you can globally disable the animation by setting `disableAnimation` to `HeroUIProvider`.
 
 ```tsx
 "use client";
 
 import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export function AppProvider(props: AppProviderProps) {
   const {children, className} = props;
 
   return (
-    <NextUIProvider className={className} disableAnimation>
+    <HeroUIProvider className={className} disableAnimation>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -77,21 +77,21 @@ interface AppProviderProps {
 
 ### disableRipple
 
-By default, there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `NextUIProvider`.
+By default, there is a ripple effect on press in Button and Card component and can be disabled by setting the prop `disableRipple` individually. Since v2.4.0, it can be disabled globally by setting `disableRipple` to `HeroUIProvider`.
 
 ```tsx
 "use client";
 
 import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export function AppProvider(props: AppProviderProps) {
   const {children, className} = props;
 
   return (
-    <NextUIProvider className={className} disableRipple>
+    <HeroUIProvider className={className} disableRipple>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -109,15 +109,15 @@ We can control whether `framer-motion` animations are skipped within the applica
 "use client";
 
 import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export function AppProvider(props: AppProviderProps) {
   const {children, className} = props;
 
   return (
-    <NextUIProvider className={className} skipFramerMotionAnimations>
+    <HeroUIProvider className={className} skipFramerMotionAnimations>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -135,15 +135,15 @@ We can set `validationBehavior` to either `native` or `aria` to control whether 
 "use client";
 
 import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export function AppProvider(props: AppProviderProps) {
   const {children, className} = props;
 
   return (
-    <NextUIProvider className={className} validationBehavior="native">
+    <HeroUIProvider className={className} validationBehavior="native">
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -244,26 +244,26 @@ We've upgraded and fixed React Aria packages dependencies across our components.
 
 ### Export improved `cn` utility
 
-> If you are using it from `@nextui-org/react`, no changes are required.
+> If you are using it from `@heroui/react`, no changes are required.
 
-The new `cn` utility exported from the `@nextui-org/theme` package includes `tailwind-merge` to avoid conflicts between tailwindcss classes overrides and includes the config for NextUI custom classes.
+The new `cn` utility exported from the `@heroui/theme` package includes `tailwind-merge` to avoid conflicts between tailwindcss classes overrides and includes the config for NextUI custom classes.
 
-If you are using the `cn` utility from the `@nextui-org/system`, 
+If you are using the `cn` utility from the `@heroui/system`, 
 
 ```diff-tsx
--import {cn} from "@nextui-org/system"
+-import {cn} from "@heroui/system"
 ```
 
-or `@nextui-org/system-rsc` package,
+or `@heroui/system-rsc` package,
 
 ```diff-tsx
--import {cn} from "@nextui-org/system-rsc"
+-import {cn} from "@heroui/system-rsc"
 ```
 
 you need to update the import as follows:
 
 ```diff-tsx
-+ import {cn} from "@nextui-org/theme"
++ import {cn} from "@heroui/theme"
 ```
 
 <Spacer y={4} />

@@ -1,4 +1,4 @@
-# @nextui-org/use-disclosure
+# @heroui/use-disclosure
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-disclosure
+yarn add @heroui/use-disclosure
 # or
-npm i @nextui-org/use-disclosure
+npm i @heroui/use-disclosure
 ```
 
 ## Contribution

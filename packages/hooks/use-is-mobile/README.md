@@ -1,4 +1,4 @@
-# @nextui-org/use-is-mobile
+# @heroui/use-is-mobile
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-is-mobile
+yarn add @heroui/use-is-mobile
 # or
-npm i @nextui-org/use-is-mobile
+npm i @heroui/use-is-mobile
 ```
 
 ## Contribution

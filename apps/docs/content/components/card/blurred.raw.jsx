@@ -1,4 +1,4 @@
-import {Card, CardBody, Image, Button, Slider} from "@nextui-org/react";
+import {Card, CardBody, Image, Button, Slider} from "@heroui/react";
 
 export const HeartIcon = ({
   size = 24,

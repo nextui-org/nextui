@@ -1,4 +1,4 @@
-# @nextui-org/stories-utils
+# @heroui/stories-utils
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/stories-utils
+yarn add @heroui/stories-utils
 # or
-npm i @nextui-org/stories-utils
+npm i @heroui/stories-utils
 ```
 
 ## Contribution

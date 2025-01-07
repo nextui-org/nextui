@@ -1,4 +1,4 @@
-# @nextui-org/select
+# @heroui/select
 
 A select displays a collapsible list of options and allows a user to select one of them.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/select) f
 ## Installation
 
 ```sh
-yarn add @nextui-org/select
+yarn add @heroui/select
 # or
-npm i @nextui-org/select
+npm i @heroui/select
 ```
 
 ## Contribution

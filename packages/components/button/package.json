@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/button",
+  "name": "@heroui/button",
   "version": "2.2.9",
   "description": "Buttons allow users to perform actions and choose with a single tap.",
   "keywords": [
@@ -37,15 +37,15 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/ripple": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/use-aria-button": "workspace:*",
+    "@heroui/ripple": "workspace:*",
+    "@heroui/spinner": "workspace:*",
     "@react-aria/button": "3.11.0",
     "@react-aria/interactions": "3.22.5",
     "@react-aria/utils": "3.26.0",
@@ -54,9 +54,9 @@
     "@react-types/button": "3.10.1"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
     "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",

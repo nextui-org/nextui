@@ -1,4 +1,4 @@
-# @nextui-org/switch
+# @heroui/switch
 
 The Switch component is used as an alternative between checked and not checked states.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/switch) f
 ## Installation
 
 ```sh
-yarn add @nextui-org/switch
+yarn add @heroui/switch
 # or
-npm i @nextui-org/switch
+npm i @heroui/switch
 ```
 
 ## Contribution

@@ -1,10 +1,10 @@
-import type {ButtonProps} from "@nextui-org/button";
+import type {ButtonProps} from "@heroui/button";
 import type {CalendarDate} from "@internationalized/date";
 
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLNextUIProps} from "@heroui/system";
 import {useDateFormatter} from "@react-aria/i18n";
 import {m} from "framer-motion";
-import {Button} from "@nextui-org/button";
+import {Button} from "@heroui/button";
 import {useCallback} from "react";
 
 import {slideVariants} from "./calendar-transitions";

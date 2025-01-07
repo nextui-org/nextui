@@ -1,10 +1,10 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {card} from "@nextui-org/theme";
-import {Link} from "@nextui-org/link";
-import {Button} from "@nextui-org/button";
-import {Code} from "@nextui-org/code";
-import {Image} from "@nextui-org/image";
+import {card} from "@heroui/theme";
+import {Link} from "@heroui/link";
+import {Button} from "@heroui/button";
+import {Code} from "@heroui/code";
+import {Image} from "@heroui/image";
 
 import {Card, CardBody, CardHeader, CardFooter, CardProps} from "../src";
 

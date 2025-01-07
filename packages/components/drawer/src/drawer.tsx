@@ -1,5 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
-import {Modal} from "@nextui-org/modal";
+import {forwardRef} from "@heroui/system";
+import {Modal} from "@heroui/modal";
 
 import {useDrawer, UseDrawerProps} from "./use-drawer";
 

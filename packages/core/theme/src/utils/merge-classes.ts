@@ -1,6 +1,6 @@
 import type {SlotsToClasses} from "./types";
 
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 /**
  * Merges two sets of class names for each slot in a component.

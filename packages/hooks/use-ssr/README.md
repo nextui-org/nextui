@@ -1,4 +1,4 @@
-# @nextui-org/use-ssr
+# @heroui/use-ssr
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-ssr
+yarn add @heroui/use-ssr
 # or
-npm i @nextui-org/use-ssr
+npm i @heroui/use-ssr
 ```
 
 ## Contribution

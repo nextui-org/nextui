@@ -1,4 +1,4 @@
-# @nextui-org/skeleton
+# @heroui/skeleton
 
 Skeleton is a placeholder to show a loading state and the expected shape of a component.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/skeleton)
 ## Installation
 
 ```sh
-yarn add @nextui-org/skeleton
+yarn add @heroui/skeleton
 # or
-npm i @nextui-org/skeleton
+npm i @heroui/skeleton
 ```
 
 ## Contribution

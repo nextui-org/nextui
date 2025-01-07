@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/link",
+  "name": "@heroui/link",
   "version": "2.2.7",
   "description": "Links allow users to click their way from page to page. This component is styled to resemble a hyperlink and semantically renders an &lt;a&gt;",
   "keywords": [
@@ -36,22 +36,22 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-aria-link": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/use-aria-link": "workspace:*",
     "@react-aria/link": "3.7.7",
     "@react-aria/utils": "3.26.0",
     "@react-aria/focus": "3.19.0",
     "@react-types/link": "3.5.9"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

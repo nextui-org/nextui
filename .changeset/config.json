@@ -14,7 +14,7 @@
     "onlyUpdatePeerDependentsWhenOutOfRange": true
   },
   "ignore": [
-    "@nextui-org/docs",
-    "@nextui-org/storybook"
+    "@heroui/docs",
+    "@heroui/storybook"
   ]
 }

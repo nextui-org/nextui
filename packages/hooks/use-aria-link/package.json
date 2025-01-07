@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/use-aria-link",
+  "name": "@heroui/use-aria-link",
   "version": "2.2.5",
   "description": "Internal hook to handle link a11y and events, this is based on react-aria link hook but without the onClick warning",
   "keywords": [
@@ -37,7 +37,7 @@
     "react": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
     "@react-aria/focus": "3.19.0",
     "@react-aria/interactions": "3.22.5",
     "@react-aria/utils": "3.26.0",

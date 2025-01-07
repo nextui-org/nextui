@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/alert",
+  "name": "@heroui/alert",
   "version": "2.2.9",
   "description": "Alerts are temporary notifications that provide concise feedback about an action or event.",
   "keywords": [
@@ -40,20 +40,20 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
     "@react-stately/utils": "3.10.5",
     "@react-aria/utils": "3.26.0",
-    "@nextui-org/button": "workspace:*"
+    "@heroui/button": "workspace:*"
   },
   "devDependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

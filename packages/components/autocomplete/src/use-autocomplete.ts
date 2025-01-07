@@ -1,25 +1,25 @@
-import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
-import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@heroui/theme";
+import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@heroui/system";
 
-import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {autocomplete} from "@nextui-org/theme";
+import {mapPropsVariants, useProviderContext} from "@heroui/system";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
+import {autocomplete} from "@heroui/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
-import {PopoverProps} from "@nextui-org/popover";
-import {ListboxProps} from "@nextui-org/listbox";
-import {InputProps} from "@nextui-org/input";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
+import {PopoverProps} from "@heroui/popover";
+import {ListboxProps} from "@heroui/listbox";
+import {InputProps} from "@heroui/input";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ScrollShadowProps} from "@heroui/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
-import {ButtonProps} from "@nextui-org/button";
+import {ButtonProps} from "@heroui/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+import {FormContext, useSlottedContext} from "@heroui/form";
+import {ariaShouldCloseOnInteractOutside} from "@heroui/aria-utils";
 
 interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
   /**

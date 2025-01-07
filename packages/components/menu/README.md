@@ -1,4 +1,4 @@
-# @nextui-org/menu
+# @heroui/menu
 
 A menu displays a list of options and allows a user to select one or more of them.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/menu) for
 ## Installation
 
 ```sh
-yarn add @nextui-org/menu
+yarn add @heroui/menu
 # or
-npm i @nextui-org/menu
+npm i @heroui/menu
 ```
 
 ## Contribution

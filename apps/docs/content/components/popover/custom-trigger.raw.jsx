@@ -10,7 +10,7 @@ import {
   PopoverContent,
   Button,
   User,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export const UserTwitterCard = () => {
   const [isFollowed, setIsFollowed] = React.useState(false);

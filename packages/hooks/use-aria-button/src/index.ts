@@ -11,7 +11,7 @@ import {
 } from "react";
 import {AriaButtonProps as BaseAriaButtonProps} from "@react-types/button";
 import {DOMAttributes, PressEvent} from "@react-types/shared";
-import {warn} from "@nextui-org/shared-utils";
+import {warn} from "@heroui/shared-utils";
 import {filterDOMProps, isAndroid, isIOS, mergeProps} from "@react-aria/utils";
 import {useFocusable} from "@react-aria/focus";
 import {usePress} from "@react-aria/interactions";

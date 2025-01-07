@@ -1,12 +1,12 @@
-import type {AriaButtonProps} from "@nextui-org/use-aria-button";
+import type {AriaButtonProps} from "@heroui/use-aria-button";
 
-import {HTMLNextUIProps} from "@nextui-org/system";
-import {useAriaButton} from "@nextui-org/use-aria-button";
+import {HTMLNextUIProps} from "@heroui/system";
+import {useAriaButton} from "@heroui/use-aria-button";
 import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {forwardRef} from "react";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {dataAttr} from "@nextui-org/shared-utils";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {dataAttr} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
 const CalendarPickerItem = forwardRef<

@@ -1,8 +1,8 @@
 import * as React from "react";
 import {act, render} from "@testing-library/react";
-import {focus} from "@nextui-org/test-utils";
+import {focus} from "@heroui/test-utils";
 import userEvent, {UserEvent} from "@testing-library/user-event";
-import {Input} from "@nextui-org/input";
+import {Input} from "@heroui/input";
 
 import {Accordion, AccordionItem} from "../src";
 

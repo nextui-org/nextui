@@ -1,4 +1,4 @@
-import {Avatar} from "@nextui-org/react";
+import {Avatar} from "@heroui/react";
 
 export const CameraIcon = ({fill, size, height, width, ...props}) => {
   return (

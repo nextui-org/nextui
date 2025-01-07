@@ -1,4 +1,4 @@
-# @nextui-org/badge
+# @heroui/badge
 
 Badges are used as a small numerical value or status descriptor for UI elements.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/badge) fo
 ## Installation
 
 ```sh
-yarn add @nextui-org/badge
+yarn add @heroui/badge
 # or
-npm i @nextui-org/badge
+npm i @heroui/badge
 ```
 
 ## Contribution

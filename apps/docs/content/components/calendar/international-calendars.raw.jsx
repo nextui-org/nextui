@@ -1,4 +1,4 @@
-import {Calendar} from "@nextui-org/react";
+import {Calendar} from "@heroui/react";
 import {I18nProvider} from "@react-aria/i18n";
 
 export default function App() {

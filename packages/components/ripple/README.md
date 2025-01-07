@@ -1,4 +1,4 @@
-# @nextui-org/ripple
+# @heroui/ripple
 
 This is a component that creates a ripple effect on the screen.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/button) f
 ## Installation
 
 ```sh
-yarn add @nextui-org/ripple
+yarn add @heroui/ripple
 # or
-npm i @nextui-org/ripple
+npm i @heroui/ripple
 ```
 
 ## Contribution

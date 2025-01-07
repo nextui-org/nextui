@@ -1,4 +1,4 @@
-# @nextui-org/calendar
+# @heroui/calendar
 
 A calendar displays one or more date grids and allows users to select a single date.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/calendar)
 ## Installation
 
 ```sh
-yarn add @nextui-org/calendar
+yarn add @heroui/calendar
 # or
-npm i @nextui-org/calendar
+npm i @heroui/calendar
 ```
 
 ## Contribution

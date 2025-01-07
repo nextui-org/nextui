@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/aria-utils",
+  "name": "@heroui/aria-utils",
   "version": "2.2.7",
   "description": "A package for managing @react-aria nextui utils.",
   "keywords": [
@@ -38,9 +38,9 @@
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-rsc-utils": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-rsc-utils": "workspace:*",
     "@react-aria/utils": "3.26.0",
     "@react-stately/collections": "3.12.0",
     "@react-stately/overlays": "3.6.12",

@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {drawer} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Checkbox} from "@nextui-org/checkbox";
-import {Link} from "@nextui-org/link";
-import {Tooltip} from "@nextui-org/tooltip";
-import {Image} from "@nextui-org/image";
-import {Avatar, AvatarGroup} from "@nextui-org/avatar";
-import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
-import {useDisclosure} from "@nextui-org/use-disclosure";
+import {drawer} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Checkbox} from "@heroui/checkbox";
+import {Link} from "@heroui/link";
+import {Tooltip} from "@heroui/tooltip";
+import {Image} from "@heroui/image";
+import {Avatar, AvatarGroup} from "@heroui/avatar";
+import {MailFilledIcon, LockFilledIcon} from "@heroui/shared-icons";
+import {useDisclosure} from "@heroui/use-disclosure";
 
 import {Drawer, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerProps} from "../src";
 

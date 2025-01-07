@@ -1,4 +1,4 @@
-import {Link, Button} from "@nextui-org/react";
+import {Link, Button} from "@heroui/react";
 
 export default function App() {
   return (

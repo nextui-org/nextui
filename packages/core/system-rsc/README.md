@@ -1,4 +1,4 @@
-# @nextui-org/system-rsc
+# @heroui/system-rsc
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/system-rsc
+yarn add @heroui/system-rsc
 # or
-npm i @nextui-org/system-rsc
+npm i @heroui/system-rsc
 ```
 
 ## Contribution

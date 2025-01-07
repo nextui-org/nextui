@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {popover, ButtonVariantProps} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Card, CardHeader, CardFooter} from "@nextui-org/card";
+import {popover, ButtonVariantProps} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Card, CardHeader, CardFooter} from "@heroui/card";
 
 import {Popover, PopoverTrigger, PopoverContent, PopoverProps} from "../src";
 

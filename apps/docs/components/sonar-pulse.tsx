@@ -1,6 +1,6 @@
 import {FC, ReactNode, useMemo} from "react";
 import {parseToRgba} from "color2k";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 import {useIsSSR} from "@react-aria/ssr";
 export interface SonarPulseProps {
   children: ReactNode;
@@ -59,7 +59,7 @@ export const SonarPulse: FC<SonarPulseProps> = ({
             animationPlayState: playState,
             animationDelay: `${i * 0.5}s`,
             border: `1px solid rgba(${rgbaColors[i - 1]})`,
-            background: `linear-gradient(-180deg, rgba(${rgbaColors[i]}) 20%, hsl(var(--nextui-background)) 100%)`,
+            background: `linear-gradient(-180deg, rgba(${rgbaColors[i]}) 20%, hsl(var(--heroui-background)) 100%)`,
           }}
         />,
       );
@@ -92,7 +92,7 @@ export const SonarPulse: FC<SonarPulseProps> = ({
             animationPlayState: playState,
             animationDelay: "1s",
             border: `1.5px solid rgba(${rgbaColors[0]})`,
-            background: `linear-gradient(-180deg, rgba(${rgbaColors[0]}) 40%, hsl(var(--nextui-background)) 100%)`,
+            background: `linear-gradient(-180deg, rgba(${rgbaColors[0]}) 40%, hsl(var(--heroui-background)) 100%)`,
           }}
         />
         {renderCircles}

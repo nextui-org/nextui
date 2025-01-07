@@ -1,4 +1,4 @@
-# @nextui-org/drawer
+# @heroui/drawer
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/drawer
+yarn add @heroui/drawer
 # or
-npm i @nextui-org/drawer
+npm i @heroui/drawer
 ```
 
 ## Contribution

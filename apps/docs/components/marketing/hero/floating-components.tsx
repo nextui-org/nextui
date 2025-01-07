@@ -9,8 +9,8 @@ import {
   Switch,
   Spinner,
   Pagination,
-} from "@nextui-org/react";
-import {MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
+} from "@heroui/react";
+import {MoonFilledIcon, SunFilledIcon} from "@heroui/shared-icons";
 import {useTheme} from "next-themes";
 import NextImage from "next/image";
 

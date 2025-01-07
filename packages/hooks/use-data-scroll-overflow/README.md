@@ -1,4 +1,4 @@
-# @nextui-org/use-data-scroll-overflow
+# @heroui/use-data-scroll-overflow
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-data-scroll-overflow
+yarn add @heroui/use-data-scroll-overflow
 # or
-npm i @nextui-org/use-data-scroll-overflow
+npm i @heroui/use-data-scroll-overflow
 ```
 
 ## Contribution

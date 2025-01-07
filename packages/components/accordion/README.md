@@ -1,4 +1,4 @@
-# @nextui-org/accordion
+# @heroui-org/accordion
 
 Accordion display a list of high-level options that can expand/collapse to reveal more information.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org//docs/components/accordio
 ## Installation
 
 ```sh
-yarn add @nextui-org/accordion
+yarn add @heroui/accordion
 # or
-npm i @nextui-org/accordion
+npm i @heroui/accordion
 ```
 
 ## Contribution

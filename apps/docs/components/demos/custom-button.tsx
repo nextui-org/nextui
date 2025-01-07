@@ -1,7 +1,7 @@
 "use client";
 
 import {useRef} from "react";
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 import {usePostHog} from "posthog-js/react";
 
 export const CustomButton = () => {

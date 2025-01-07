@@ -1,4 +1,4 @@
-# @nextui-org/use-draggable
+# @heroui/use-draggable
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-draggable
+yarn add @heroui/use-draggable
 # or
-npm i @nextui-org/use-draggable
+npm i @heroui/use-draggable
 ```
 
 ## Contribution

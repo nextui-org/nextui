@@ -1,4 +1,4 @@
-# @nextui-org/table
+# @heroui/table
 
 Tables are used to display tabular data using rows and columns. They allow users to quickly scan, sort, compare, and take action on large amounts of data.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/table) fo
 ## Installation
 
 ```sh
-yarn add @nextui-org/table
+yarn add @heroui/table
 # or
-npm i @nextui-org/table
+npm i @heroui/table
 ```
 
 ## Contribution

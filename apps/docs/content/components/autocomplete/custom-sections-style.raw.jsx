@@ -1,4 +1,4 @@
-import {Autocomplete, AutocompleteItem, AutocompleteSection} from "@nextui-org/react";
+import {Autocomplete, AutocompleteItem, AutocompleteSection} from "@heroui/react";
 
 export default function App() {
   const headingClasses =

@@ -1,4 +1,4 @@
-# @nextui-org/framer-utils
+# @heroui/framer-utils
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/framer-utils
+yarn add @heroui/framer-utils
 # or
-npm i @nextui-org/framer-utils
+npm i @heroui/framer-utils
 ```
 
 ## Contribution

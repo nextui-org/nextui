@@ -10,7 +10,7 @@ import {
   ModalBody,
   ModalFooter,
   Skeleton,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import Link from "next/link";
 
 import {CodeWindow} from "@/components/code-window";

@@ -1,4 +1,4 @@
-# @nextui-org/use-infinite-scroll
+# @heroui/use-infinite-scroll
 
 A Quick description of the component
 
@@ -7,9 +7,9 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-infinite-scroll
+yarn add @heroui/use-infinite-scroll
 # or
-npm i @nextui-org/use-infinite-scroll
+npm i @heroui/use-infinite-scroll
 ```
 
 ## Contribution

@@ -1,12 +1,12 @@
 import type {Ref} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
 import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
-import {PaginationItemValue} from "@nextui-org/use-pagination";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {PaginationItemValue} from "@heroui/use-pagination";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {chain, mergeProps, shouldClientNavigate, useRouter} from "@react-aria/utils";
-import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 

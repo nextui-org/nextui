@@ -1,5 +1,5 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
 
 export interface PaginationCursorProps extends HTMLNextUIProps<"span"> {
   /**

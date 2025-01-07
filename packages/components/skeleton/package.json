@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/skeleton",
+  "name": "@heroui/skeleton",
   "version": "2.2.5",
   "description": "Skeleton is used to display the loading state of some component.",
   "keywords": [
@@ -36,18 +36,18 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*"
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/card": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/card": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/system": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

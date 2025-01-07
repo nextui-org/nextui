@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/use-callback-ref",
+  "name": "@heroui/use-callback-ref",
   "version": "2.1.1",
   "description": "React hook to persist any value between renders, but keeps it up-to-date if it changes.",
   "keywords": [
@@ -34,7 +34,7 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@nextui-org/use-safe-layout-effect": "workspace:*"
+    "@heroui/use-safe-layout-effect": "workspace:*"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"

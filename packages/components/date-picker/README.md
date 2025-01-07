@@ -1,13 +1,13 @@
-# @nextui-org/date-picker
+# @heroui/date-picker
 
 A date picker combines a DateInput and a Calendar popover to allow users to enter or select a date and time value.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/date-picker
+yarn add @heroui/date-picker
 # or
-npm i @nextui-org/date-picker
+npm i @heroui/date-picker
 ```
 
 ## Contribution

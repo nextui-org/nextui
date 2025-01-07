@@ -1,4 +1,4 @@
-import {PopoverTrigger} from "@nextui-org/popover";
+import {PopoverTrigger} from "@heroui/popover";
 
 import {useDropdownContext} from "./dropdown-context";
 

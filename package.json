@@ -1,5 +1,5 @@
 {
-  "name": "nextui",
+  "name": "heroui",
   "private": true,
   "version": "2.0.0",
   "license": "MIT",
@@ -13,17 +13,17 @@
   },
   "scripts": {
     "dev": "pnpm sb",
-    "build": "turbo build --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
-    "build:fast": "turbo build:fast --filter=!@nextui-org/docs --filter=!@nextui-org/storybook",
-    "dev:docs": "turbo dev --filter=@nextui-org/docs",
-    "build:docs": "turbo build --filter=@nextui-org/docs",
+    "build": "turbo build --filter=!@heroui/docs --filter=!@heroui/storybook",
+    "build:fast": "turbo build:fast --filter=!@heroui/docs --filter=!@heroui/storybook",
+    "dev:docs": "turbo dev --filter=@heroui/docs",
+    "build:docs": "turbo build --filter=@heroui/docs",
     "build:docs-meta": "node ./scripts/update-index-docs.js",
-    "start:docs": "turbo start --filter=@nextui-org/docs",
-    "deploy:docs": "pnpm --filter @nextui-org/docs deploy",
-    "deploy:stage-docs": "pnpm --filter @nextui-org/docs deploy:stage",
-    "sb": "pnpm --filter @nextui-org/storybook dev",
-    "build:sb": "pnpm --filter @nextui-org/storybook build",
-    "start:sb": "pnpm --filter @nextui-org/storybook start",
+    "start:docs": "turbo start --filter=@heroui/docs",
+    "deploy:docs": "pnpm --filter @heroui/docs deploy",
+    "deploy:stage-docs": "pnpm --filter @heroui/docs deploy:stage",
+    "sb": "pnpm --filter @heroui/storybook dev",
+    "build:sb": "pnpm --filter @heroui/storybook build",
+    "start:sb": "pnpm --filter @heroui/storybook start",
     "test": "jest --verbose --config ./jest.config.js",
     "test:strict": "cross-env STRICT_MODE=true pnpm test",
     "typecheck": "turbo typecheck",
@@ -52,7 +52,7 @@
     "release": "changeset publish",
     "version:canary": "changeset version --snapshot canary",
     "release:canary": "changeset publish --snapshot --no-git-tag --tag canary",
-    "postinstall": "husky install && pnpm --filter @nextui-org/theme build"
+    "postinstall": "husky install && pnpm --filter @heroui/theme build"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",

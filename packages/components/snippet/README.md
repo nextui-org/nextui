@@ -1,4 +1,4 @@
-# @nextui-org/snippet
+# @heroui/snippet
 
 Snippet is a component that can be used to display inline or multiline code snippets.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/snippet) 
 ## Installation
 
 ```sh
-yarn add @nextui-org/snippet
+yarn add @heroui/snippet
 # or
-npm i @nextui-org/snippet
+npm i @heroui/snippet
 ```
 
 ## Contribution

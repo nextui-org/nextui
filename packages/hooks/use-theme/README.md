@@ -1,13 +1,13 @@
-# @nextui-org/use-theme
+# @heroui/use-theme
 
 React hook to switch between light and dark themes
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-theme
+yarn add @heroui/use-theme
 # or
-npm i @nextui-org/use-theme
+npm i @heroui/use-theme
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm i @nextui-org/use-theme
 Import `useTheme`
 
 ```tsx
-import {useTheme} from "@nextui-org/use-theme";
+import {useTheme} from "@heroui/use-theme";
 ```
 
 ### theme
