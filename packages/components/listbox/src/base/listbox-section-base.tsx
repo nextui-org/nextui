@@ -5,7 +5,8 @@ import {DividerProps} from "@nextui-org/divider";
 
 import {ListboxItemProps} from "../listbox-item";
 
-export interface ListboxSectionBaseProps<T extends object = {}> extends SectionProps<"ul", T> {
+export interface ListboxSectionBaseProps<T extends object = Record<string, unknown>>
+  extends SectionProps<"ul", T, "children" | "title"> {
   /**
    * The listbox section classNames.
    */
