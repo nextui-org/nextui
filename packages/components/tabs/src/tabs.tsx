@@ -1,4 +1,4 @@
-import {ForwardedRef, ReactElement, useId, useRef, useState, useEffect, useCallback} from "react";
+import {ForwardedRef, ReactElement, useId, useState, useEffect, useCallback} from "react";
 import {LayoutGroup} from "framer-motion";
 import {forwardRef} from "@nextui-org/system";
 import {EllipsisIcon} from "@nextui-org/shared-icons";
@@ -31,17 +31,18 @@ const Tabs = forwardRef(function Tabs<T extends object>(
   });
 
   const layoutId = useId();
-  const tabListRef = useRef<HTMLDivElement>(null);
   const [showOverflow, setShowOverflow] = useState(false);
   const [hiddenTabs, setHiddenTabs] = useState<Array<{key: string; title: string}>>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const layoutGroupEnabled = !props.disableAnimation && !props.disableCursorAnimation;
+  const tabListProps = getTabListProps();
+  const tabList =
+    tabListProps.ref && "current" in tabListProps.ref ? tabListProps.ref.current : null;
 
   const checkOverflow = useCallback(() => {
-    if (!tabListRef.current) return;
+    if (!tabList) return;
 
-    const tabList = tabListRef.current;
     const isOverflowing = tabList.scrollWidth > tabList.clientWidth;
 
     setShowOverflow(isOverflowing);
@@ -73,21 +74,24 @@ const Tabs = forwardRef(function Tabs<T extends object>(
     });
 
     setHiddenTabs(hiddenTabsList);
-  }, [state.collection]);
+  }, [state.collection, tabListProps.ref]);
 
-  const scrollToTab = useCallback((key: string) => {
-    if (!tabListRef.current) return;
+  const scrollToTab = useCallback(
+    (key: string) => {
+      if (!tabList) return;
 
-    const tabElement = tabListRef.current.querySelector(`[data-key="${key}"]`);
+      const tabElement = tabList.querySelector(`[data-key="${key}"]`);
 
-    if (!tabElement) return;
+      if (!tabElement) return;
 
-    tabElement.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center",
-    });
-  }, []);
+      tabElement.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    },
+    [tabListProps.ref],
+  );
 
   const handleTabSelect = useCallback(
     (key: string) => {
@@ -101,10 +105,10 @@ const Tabs = forwardRef(function Tabs<T extends object>(
   );
 
   useEffect(() => {
-    if (!tabListRef.current) return;
+    if (!tabList) return;
 
-    tabListRef.current.style.overflowX = isDropdownOpen ? "hidden" : "auto";
-  }, [isDropdownOpen]);
+    tabList.style.overflowX = isDropdownOpen ? "hidden" : "auto";
+  }, [isDropdownOpen, tabListProps.ref]);
 
   useEffect(() => {
     checkOverflow();
@@ -132,13 +136,16 @@ const Tabs = forwardRef(function Tabs<T extends object>(
 
   const renderTabs = (
     <>
-      <div {...getBaseProps()} className={clsx("relative flex w-full", getBaseProps().className)}>
+      <div
+        {...getBaseProps()}
+        className={clsx("relative flex w-full items-center", getBaseProps().className)}
+      >
         <Component
-          {...getTabListProps()}
-          ref={tabListRef}
+          {...tabListProps}
           className={clsx(
-            "relative flex-1 flex overflow-x-auto scrollbar-hide",
-            getTabListProps().className,
+            "relative flex overflow-x-auto scrollbar-hide",
+            showOverflow ? "w-[calc(100%-32px)]" : "w-full",
+            tabListProps.className,
           )}
           data-has-overflow={dataAttr(showOverflow)}
           onScroll={checkOverflow}
@@ -146,11 +153,11 @@ const Tabs = forwardRef(function Tabs<T extends object>(
           {layoutGroupEnabled ? <LayoutGroup id={layoutId}>{tabs}</LayoutGroup> : tabs}
         </Component>
         {showOverflow && (
-          <Dropdown isOpen={isDropdownOpen} showArrow={false} onOpenChange={setIsDropdownOpen}>
+          <Dropdown>
             <DropdownTrigger>
               <button
                 aria-label="Show more tabs"
-                className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center bg-gradient-to-l from-default-100 from-50% via-default-100 via-75% to-transparent dark:from-default-50 dark:via-default-50 pr-2 pl-8 z-10 h-full"
+                className="flex-none flex items-center justify-center w-10 h-8 ml-1 hover:bg-default-100 rounded-small transition-colors"
               >
                 <EllipsisIcon className="w-5 h-5" />
                 <span className="sr-only">More tabs</span>
