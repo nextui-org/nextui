@@ -1,4 +1,4 @@
-import type {HTMLNextUIProps} from "../src/types";
+import type {HTMLHeroUIProps} from "../src/types";
 import type {VariantProps} from "@heroui/theme";
 
 import React, {useMemo} from "react";
@@ -158,7 +158,7 @@ const card = tv({
 type CardVariantProps = VariantProps<typeof card>;
 type CardSlots = keyof ReturnType<typeof card>;
 
-interface CardProps extends HTMLNextUIProps, CardVariantProps {
+interface CardProps extends HTMLHeroUIProps, CardVariantProps {
   header?: React.ReactNode;
   footer?: React.ReactNode;
   children: React.ReactNode;

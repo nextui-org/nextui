@@ -17,6 +17,6 @@ const Drawer = forwardRef<"div", DrawerProps>(({children, ...props}, ref) => {
   );
 });
 
-Drawer.displayName = "NextUI.Drawer";
+Drawer.displayName = "HeorUI.Drawer";
 
 export default Drawer;

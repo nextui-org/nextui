@@ -3,7 +3,7 @@
 import {useRef, useState, FC, ReactNode, Key, useMemo, useCallback} from "react";
 import {
   link,
-  Navbar as NextUINavbar,
+  Navbar as HeroUINavbar,
   NavbarContent,
   NavbarMenu,
   NavbarMenuToggle,
@@ -166,7 +166,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           )}
         </AnimatePresence>
         <DropdownMenu
-          aria-label="NextUI versions"
+          aria-label="HeroUI versions"
           defaultSelectedKeys={["v2"]}
           selectionMode="single"
           onAction={handleVersionChange}
@@ -187,7 +187,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   }
 
   return (
-    <NextUINavbar
+    <HeroUINavbar
       ref={ref}
       className={clsx({
         "z-[100001]": isMenuOpen,
@@ -387,6 +387,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
         />
         {children}
       </NavbarMenu>
-    </NextUINavbar>
+    </HeroUINavbar>
   );
 };

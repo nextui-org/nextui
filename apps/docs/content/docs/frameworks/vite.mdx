@@ -18,28 +18,22 @@ Requirements:
 
 To use HeroUI in your Vite project, you need to follow the following steps:
 
-### NextUI CLI (recommended)
+### HeroUI CLI (recommended)
 
-If you are starting a new project, you can use the [NextUI CLI](https://heroui.com/docs/guide/cli) to create a new project with NextUI pre-configured:
-
-```bash
-nextui init -t vite
-```
-
-or
+If you are starting a new project, you can use the [HeroUI CLI](/docs/guide/cli) to create a new project with HeroUI pre-configured:
 
 <PackageManagers
   commands={{
-    npm: 'npx nextui-cli@latest init -t vite',
-    yarn: 'yarn dlx nextui-cli@latest init -t vite',
-    pnpm: 'pnpm dlx nextui-cli@latest init -t vite',
-    bun: "bunx nextui-cli@latest init -t vite"
+    npm: 'npx heroui-cli@latest init -t vite',
+    yarn: 'yarn dlx heroui-cli@latest init -t vite',
+    pnpm: 'pnpm dlx heroui-cli@latest init -t vite',
+    bun: "bunx heroui-cli@latest init -t vite"
   }}
 />
 
-### Using NextUI + Vite template
+### Using HeroUI + Vite template
 
-If you are starting a new project, you can run one of the following commands to create a Vite project pre-configured with NextUI:
+If you are starting a new project, you can run one of the following commands to create a Vite project pre-configured with HeroUI:
 
 <PackageManagers
   commands={{
@@ -55,7 +49,7 @@ If you are starting a new project, you can run one of the following commands to 
 You can add individual components using the CLI. For example, to add a button component:
 
 ```codeBlock bash
-nextui add button
+npx heroui-cli@latest add button
 ```
 
 This command adds the Button component to your project and manages all related dependencies.
@@ -63,13 +57,13 @@ This command adds the Button component to your project and manages all related d
 You can also add multiple components at once:
 
 ```codeBlock bash
-nextui add button input
+npx heroui-cli@latest add button input
 ```
 
 Or you can add the main library `@heroui/react` by running the following command:
 
 ```codeBlock bash
-nextui add --all
+npx heroui-cli@latest add --all
 ```
 
 If you leave out the component name, the CLI will prompt you to select the components you want to add.
@@ -168,7 +162,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 ### Tailwind CSS Setup
 
-NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+HeroUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
 [installation guide](https://tailwindcss.com/docs/guides/vite#react) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
@@ -178,7 +172,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {2,8,13-14}
 // tailwind.config.js
-const { nextui } = require("@heroui/react");
+const { heorui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -196,7 +190,7 @@ module.exports = {
 
 ### Provider Setup
 
-After installing NextUI, you need to set up the `HeroUIProvider` at the `root` of your application.
+After installing HeroUI, you need to set up the `HeroUIProvider` at the `root` of your application.
 
 Go to the src directory and inside `main.jsx` or `main.tsx`, wrap `HeroUIProvider` around App:
 

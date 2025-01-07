@@ -55,12 +55,6 @@
           "keywords": "figma, design, ui kit",
           "path": "/docs/guide/figma.mdx",
           "newPost": true
-        },
-        {
-          "key": "upgrade-to-v2",
-          "title": "Upgrade to v2",
-          "keywords": "upgrade, v2, heroui",
-          "path": "/docs/guide/upgrade-to-v2.mdx"
         }
       ]
     },

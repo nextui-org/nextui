@@ -6,7 +6,7 @@ const frameworks = [
     title: "Next.js 13 (App) Template",
     isExternal: true,
     description:
-      "A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.",
+      "A Next.js 13 with app directory template pre-configured with HeroUI (v2) and Tailwind CSS.",
     icon: <NewNextJSIcon height={40} width={40} />,
     href: "https://github.com/frontio-ai/next-app-template",
   },
@@ -14,7 +14,7 @@ const frameworks = [
     title: "Next.js 13 (Pages) Template",
     isExternal: true,
     description:
-      "A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.",
+      "A Next.js 13 with pages directory template pre-configured with HeroUI (v2) and Tailwind CSS.",
     icon: <NewNextJSIcon height={40} width={40} />,
     href: "https://github.com/frontio-ai/next-pages-template",
   },

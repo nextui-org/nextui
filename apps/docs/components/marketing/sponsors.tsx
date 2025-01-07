@@ -9,12 +9,12 @@ import {Sponsor, SponsorItem} from "@/components/marketing/sponsor-item";
 const sponsors: Sponsor[] = [
   {
     name: "story.to.design",
-    href: "https://story.to.design?utm_source=nextui&utm_marketing=partnership",
+    href: "https://story.to.design?utm_source=heroui&utm_marketing=partnership",
     logo: <Story2DesignLogo className="pt-1" />,
   },
   {
     name: "CodeRabbit",
-    href: "https://coderabbit.ai/?utm_source=nextui&utm_marketing=oss",
+    href: "https://coderabbit.ai/?utm_source=heroui&utm_marketing=oss",
     logo: <CodeRabbitLogo />,
   },
 ];

@@ -94,7 +94,7 @@ export default {
       icon: <MagicIcon className="text-pink-500" />,
     },
   ],
-  themingCode: `const { nextui } = require("@heroui/react");
+  themingCode: `const { heroui } = require("@heroui/react");
 
 module.exports = {
   // ...

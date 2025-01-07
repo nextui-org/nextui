@@ -45,6 +45,6 @@ const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
   );
 });
 
-Switch.displayName = "NextUI.Switch";
+Switch.displayName = "HeorUI.Switch";
 
 export default Switch;

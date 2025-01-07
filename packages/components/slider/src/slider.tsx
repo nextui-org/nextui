@@ -70,6 +70,6 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
   );
 });
 
-Slider.displayName = "NextUI.Slider";
+Slider.displayName = "HeorUI.Slider";
 
 export default Slider;

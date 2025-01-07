@@ -2,7 +2,7 @@ import type {SliderSlots, SliderVariantProps, SlotsToClasses} from "@heroui/them
 
 import {
   DOMAttributes,
-  HTMLNextUIProps,
+  HTMLHeroUIProps,
   mapPropsVariants,
   PropGetter,
   useProviderContext,
@@ -29,7 +29,7 @@ export type SliderStepMark = {
 
 export type SliderRenderThumbProps = DOMAttributes<HTMLDivElement> & {index?: number};
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

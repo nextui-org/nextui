@@ -28,6 +28,6 @@ const Link = forwardRef<"a", LinkProps>((props, ref) => {
   );
 });
 
-Link.displayName = "NextUI.Link";
+Link.displayName = "HeorUI.Link";
 
 export default Link;

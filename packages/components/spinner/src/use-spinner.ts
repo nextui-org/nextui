@@ -1,12 +1,12 @@
 import type {SpinnerVariantProps, SpinnerSlots, SlotsToClasses} from "@heroui/theme";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system-rsc";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system-rsc";
 
 import {mapPropsVariants} from "@heroui/system-rsc";
 import {spinner} from "@heroui/theme";
 import {clsx, objectToDeps} from "@heroui/shared-utils";
 import {useMemo, useCallback, Ref} from "react";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

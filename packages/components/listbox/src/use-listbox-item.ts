@@ -3,7 +3,7 @@ import type {MenuItemVariantProps} from "@heroui/theme";
 
 import {useMemo, useRef, useCallback} from "react";
 import {listboxItem} from "@heroui/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
 import {filterDOMProps} from "@heroui/react-utils";
@@ -20,7 +20,7 @@ interface Props<T extends object> extends ListboxItemBaseProps<T> {
 }
 
 export type UseListboxItemProps<T extends object> = Props<T> &
-  Omit<HTMLNextUIProps<"li">, keyof Props<T>> &
+  Omit<HTMLHeroUIProps<"li">, keyof Props<T>> &
   MenuItemVariantProps;
 
 export function useListboxItem<T extends object>(originalProps: UseListboxItemProps<T>) {

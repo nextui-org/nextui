@@ -1,7 +1,7 @@
 {
   "name": "@heroui/aria-utils",
   "version": "2.2.7",
-  "description": "A package for managing @react-aria nextui utils.",
+  "description": "A package for managing @react-aria HeroUI utils.",
   "keywords": [
     "aria-utils"
   ],

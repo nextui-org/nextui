@@ -1,4 +1,4 @@
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
@@ -9,7 +9,7 @@ import React from "react";
 import {menuVariants} from "./navbar-menu-transitions";
 import {useNavbarContext} from "./navbar-context";
 
-export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
+export interface NavbarMenuProps extends HTMLHeroUIProps<"ul"> {
   children?: React.ReactNode;
   /**
    * The container element in which the navbar menu overlay portal will be placed.
@@ -82,6 +82,6 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   return contents;
 });
 
-NavbarMenu.displayName = "NextUI.NavbarMenu";
+NavbarMenu.displayName = "HeorUI.NavbarMenu";
 
 export default NavbarMenu;

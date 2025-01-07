@@ -1,5 +1,5 @@
 import type {CodeVariantProps} from "@heroui/theme";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system-rsc";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system-rsc";
 
 import {code} from "@heroui/theme";
 import {mapPropsVariants} from "@heroui/system-rsc";
@@ -7,7 +7,7 @@ import {ReactRef} from "@heroui/react-utils";
 import {useMemo} from "react";
 import {objectToDeps} from "@heroui/shared-utils";
 
-export interface UseCodeProps extends HTMLNextUIProps<"code">, CodeVariantProps {
+export interface UseCodeProps extends HTMLHeroUIProps<"code">, CodeVariantProps {
   /**
    * Ref to the DOM node.
    */

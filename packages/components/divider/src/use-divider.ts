@@ -1,12 +1,12 @@
 import type {DividerVariantProps} from "@heroui/theme";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system-rsc";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system-rsc";
 
 import {divider} from "@heroui/theme";
 import {Ref, useCallback, useMemo} from "react";
 
 import {SeparatorProps as AriaSeparatorProps, useSeparator} from "./use-separator";
 
-interface Props extends HTMLNextUIProps<"hr"> {
+interface Props extends HTMLHeroUIProps<"hr"> {
   /**
    * Ref to the DOM node.
    */

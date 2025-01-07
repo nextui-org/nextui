@@ -152,6 +152,6 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   );
 });
 
-Tab.displayName = "NextUI.Tab";
+Tab.displayName = "HeorUI.Tab";
 
 export default Tab;

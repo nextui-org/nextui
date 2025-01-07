@@ -28,7 +28,7 @@ export const getHtmlFile = (theme: string, entryFile: string) => `<!DOCTYPE html
   </body>
 </html>`;
 
-export const tailwindConfig = `const { nextui } = require("@heroui/react");
+export const tailwindConfig = `const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -41,7 +41,7 @@ module.exports = {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [heroui()],
 };`;
 
 export const postcssConfig = `module.exports = {

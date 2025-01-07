@@ -1,5 +1,5 @@
 import type {DateValue, AriaRangeCalendarProps} from "@react-types/calendar";
-import type {HTMLNextUIProps} from "@heroui/system";
+import type {HTMLHeroUIProps} from "@heroui/system";
 import type {RangeCalendarState} from "@react-stately/calendar";
 
 import {useMemo, useRef} from "react";
@@ -14,12 +14,12 @@ import {chain} from "@react-aria/utils";
 import {ContextType, useCalendarBase, UseCalendarBaseProps} from "./use-calendar-base";
 import {CalendarBaseProps} from "./calendar-base";
 
-type NextUIBaseProps<T extends DateValue> = Omit<
-  HTMLNextUIProps<"div">,
+type HeroUIBaseProps<T extends DateValue> = Omit<
+  HTMLHeroUIProps<"div">,
   keyof AriaRangeCalendarProps<T>
 >;
 
-interface Props<T extends DateValue> extends UseCalendarBaseProps, NextUIBaseProps<T> {}
+interface Props<T extends DateValue> extends UseCalendarBaseProps, HeroUIBaseProps<T> {}
 
 export type UseRangeCalendarProps<T extends DateValue> = Props<T> & AriaRangeCalendarProps<T>;
 

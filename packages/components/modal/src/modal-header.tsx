@@ -1,11 +1,11 @@
 import {useEffect} from "react";
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {clsx} from "@heroui/shared-utils";
 
 import {useModalContext} from "./modal-context";
 
-export interface ModalHeaderProps extends HTMLNextUIProps<"header"> {
+export interface ModalHeaderProps extends HTMLHeroUIProps<"header"> {
   /**
    * Ref to the DOM node.
    */
@@ -43,6 +43,6 @@ const ModalHeader = forwardRef<"header", ModalHeaderProps>((props, ref) => {
   );
 });
 
-ModalHeader.displayName = "NextUI.ModalHeader";
+ModalHeader.displayName = "HeorUI.ModalHeader";
 
 export default ModalHeader;

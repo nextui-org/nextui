@@ -91,7 +91,7 @@ export const DarkMode = () => {
       <DemoCodeModal
         code={landingContent.darkModeExampleCode}
         isOpen={isModalOpen}
-        subtitle="A simple music player component built using components from NextUI."
+        subtitle="A simple music player component built using components from HeroUI."
         title="MusicPlayer"
         onClose={() => setIsModalOpen(false)}
       />

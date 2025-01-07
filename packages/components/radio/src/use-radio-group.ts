@@ -7,7 +7,7 @@ import {radioGroup} from "@heroui/theme";
 import {useCallback, useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter, useProviderContext} from "@heroui/system";
 import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
 import {clsx, safeAriaLabel} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -15,7 +15,7 @@ import {FormContext, useSlottedContext} from "@heroui/form";
 
 import {RadioProps} from "./index";
 
-interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
+interface Props extends Omit<HTMLHeroUIProps<"div">, "onChange"> {
   /**
    * Ref to the DOM node.
    */

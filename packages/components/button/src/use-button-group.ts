@@ -3,11 +3,11 @@ import type {ReactRef} from "@heroui/react-utils";
 import type {ButtonGroupVariantProps} from "@heroui/theme";
 
 import {buttonGroup} from "@heroui/theme";
-import {HTMLNextUIProps, PropGetter, mapPropsVariants, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter, mapPropsVariants, useProviderContext} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {useMemo, useCallback} from "react";
 import {objectToDeps} from "@heroui/shared-utils";
-interface Props extends HTMLNextUIProps, ButtonGroupVariantProps {
+interface Props extends HTMLHeroUIProps, ButtonGroupVariantProps {
   /**
    * Ref to the DOM node.
    */

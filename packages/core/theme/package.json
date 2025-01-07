@@ -1,7 +1,7 @@
 {
   "name": "@heroui/theme",
   "version": "2.4.5",
-  "description": "The default theme for NextUI components",
+  "description": "The default theme for HeroUI components",
   "keywords": [
     "theme",
     "theming",

@@ -1,4 +1,4 @@
-import type {HTMLNextUIProps, PropGetter, SharedSelection} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter, SharedSelection} from "@heroui/system";
 
 import {useProviderContext} from "@heroui/system";
 import {AriaMenuProps} from "@react-types/menu";
@@ -90,7 +90,7 @@ interface Props<T> {
 }
 
 export type UseMenuProps<T = object> = Props<T> &
-  Omit<HTMLNextUIProps<"ul">, keyof AriaMenuProps<T>> &
+  Omit<HTMLHeroUIProps<"ul">, keyof AriaMenuProps<T>> &
   Omit<AriaMenuProps<T>, "onSelectionChange"> &
   MenuVariantProps;
 

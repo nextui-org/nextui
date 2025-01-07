@@ -10,6 +10,6 @@ const Spacer = forwardRef<"span", SpacerProps>((props, ref) => {
   return <Component ref={ref} {...getSpacerProps()} />;
 });
 
-Spacer.displayName = "NextUI.Spacer";
+Spacer.displayName = "HeorUI.Spacer";
 
 export default Spacer;

@@ -1,6 +1,6 @@
 import type {NavbarVariantProps, SlotsToClasses, NavbarSlots} from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {navbar} from "@heroui/theme";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
@@ -12,7 +12,7 @@ import {useControlledState} from "@react-stately/utils";
 import {HTMLMotionProps} from "framer-motion";
 import {usePreventScroll} from "@react-aria/overlays";
 
-interface Props extends HTMLNextUIProps<"nav"> {
+interface Props extends HTMLHeroUIProps<"nav"> {
   /**
    * Ref to the DOM node.
    */

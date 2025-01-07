@@ -85,7 +85,7 @@ export default function App() {
           }
           label="Website"
           labelPlacement="outside"
-          placeholder="nextui"
+          placeholder="heroui"
           type="url"
         />
       </div>
@@ -98,7 +98,7 @@ export default function App() {
           }
           label="Email"
           labelPlacement="outside"
-          placeholder="nextui"
+          placeholder="heroui"
           startContent={
             <MailIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
           }
@@ -138,7 +138,7 @@ export default function App() {
           }
           label="Website"
           labelPlacement="outside"
-          placeholder="nextui"
+          placeholder="heroui"
           startContent={
             <div className="pointer-events-none flex items-center">
               <span className="text-default-400 text-small">https://</span>

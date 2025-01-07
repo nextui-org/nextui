@@ -5,7 +5,7 @@ export default function App() {
     <Textarea
       isDisabled
       className="max-w-xs"
-      defaultValue="NextUI is a React UI library that provides a set of accessible, reusable, and beautiful components."
+      defaultValue="HeroUI is a React UI library that provides a set of accessible, reusable, and beautiful components."
       label="Description"
       labelPlacement="outside"
       placeholder="Enter your description"

@@ -1,7 +1,6 @@
-#
-
+# *
 User-agent: *
-Disallow: /
+Allow: /
 
 # Host
 Host: https://heroui.com

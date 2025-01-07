@@ -14,6 +14,6 @@ const Code = forwardRef<"div", CodeProps>((props, ref) => {
   );
 });
 
-Code.displayName = "NextUI.Code";
+Code.displayName = "HeorUI.Code";
 
 export default Code;

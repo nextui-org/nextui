@@ -1,7 +1,7 @@
 import type {GridNode} from "@react-types/grid";
 import type {Key} from "react";
 
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableCell, useTableSelectionCheckbox} from "@react-aria/table";
@@ -13,7 +13,7 @@ import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {ValuesType} from "./use-table";
 
 // @internal
-export interface TableCheckboxCellProps<T = object> extends HTMLNextUIProps<"td"> {
+export interface TableCheckboxCellProps<T = object> extends HTMLHeroUIProps<"td"> {
   /**
    * The key of the table row.
    */
@@ -93,6 +93,6 @@ const TableCheckboxCell = forwardRef<"td", TableCheckboxCellProps>((props, ref) 
   );
 });
 
-TableCheckboxCell.displayName = "NextUI.TableCheckboxCell";
+TableCheckboxCell.displayName = "HeorUI.TableCheckboxCell";
 
 export default TableCheckboxCell;

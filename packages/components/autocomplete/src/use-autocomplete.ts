@@ -1,5 +1,5 @@
 import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@heroui/theme";
-import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {DOMAttributes, HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {mapPropsVariants, useProviderContext} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
@@ -21,7 +21,7 @@ import {useComboBox} from "@react-aria/combobox";
 import {FormContext, useSlottedContext} from "@heroui/form";
 import {ariaShouldCloseOnInteractOutside} from "@heroui/aria-utils";
 
-interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
+interface Props<T> extends Omit<HTMLHeroUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
    * Ref to the DOM node.
    */

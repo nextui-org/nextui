@@ -1,5 +1,5 @@
 import type {SpacerVariantProps} from "@heroui/theme";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system-rsc";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system-rsc";
 
 import {mapPropsVariants} from "@heroui/system-rsc";
 import {spacer} from "@heroui/theme";
@@ -9,7 +9,7 @@ import {useMemo} from "react";
 
 import {spacing, Space} from "./utils";
 
-interface Props extends HTMLNextUIProps<"span"> {
+interface Props extends HTMLHeroUIProps<"span"> {
   /**
    * Ref to the DOM node.
    */

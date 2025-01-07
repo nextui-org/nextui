@@ -160,7 +160,7 @@ export default function App() {
                     alt="Event image"
                     className="aspect-square w-full hover:scale-110"
                     height={300}
-                    src="https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/places/san-francisco.png"
+                    src="https://herouipro.nyc3.cdn.digitaloceanspaces.com/components-images/places/san-francisco.png"
                   />
                 </div>
                 <div className="flex flex-col gap-2 py-4">
@@ -262,7 +262,7 @@ export default function App() {
                         <p className="mt-4">
                           Brought to you by the{" "}
                           <Link className="text-default-700" href="https://heroui.com">
-                            NextUI team
+                            HeroUI team
                           </Link>
                           .
                         </p>
@@ -272,11 +272,11 @@ export default function App() {
                       <span className="text-small text-default-500">Hosted By</span>
                       <div className="flex gap-2 items-center">
                         <Avatar
-                          name="NextUI"
+                          name="HeroUI"
                           size="sm"
                           src="https://heroui.com/android-chrome-192x192.png"
                         />
-                        <span className="text-small text-default-500">NextUI Team</span>
+                        <span className="text-small text-default-500">HeroUI Team</span>
                       </div>
                     </div>
                     <div className="flex flex-col mt-4 gap-3 items-start">

@@ -14,6 +14,6 @@ const Skeleton = forwardRef<"div", SkeletonProps>((props, ref) => {
   );
 });
 
-Skeleton.displayName = "NextUI.Skeleton";
+Skeleton.displayName = "HeorUI.Skeleton";
 
 export default Skeleton;

@@ -10,7 +10,7 @@ export type {
   InternalForwardRefRenderFunction,
   PropsOf,
   Merge,
-  HTMLNextUIProps,
+  HTMLHeroUIProps,
   PropGetter,
   ExtendVariantProps,
   ExtendVariantWithSlotsProps,
@@ -23,7 +23,7 @@ export {
   toIterator,
   mapPropsVariants,
   mapPropsVariantsWithCommon,
-  isNextUIEl,
+  isHeroUIEl,
   extendVariants,
 } from "@heroui/system-rsc";
 

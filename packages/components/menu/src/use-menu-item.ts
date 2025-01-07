@@ -4,7 +4,7 @@ import type {Node, PressEvent} from "@react-types/shared";
 
 import {useMemo, useRef, useCallback} from "react";
 import {menuItem} from "@heroui/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useFocusRing} from "@react-aria/focus";
 import {TreeState} from "@react-stately/tree";
 import {clsx, dataAttr, objectToDeps, removeEvents, warn} from "@heroui/shared-utils";
@@ -20,7 +20,7 @@ interface Props<T extends object> extends MenuItemBaseProps<T> {
 }
 
 export type UseMenuItemProps<T extends object> = Props<T> &
-  Omit<HTMLNextUIProps<"li">, keyof Props<T>> &
+  Omit<HTMLHeroUIProps<"li">, keyof Props<T>> &
   MenuItemVariantProps;
 
 export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>) {

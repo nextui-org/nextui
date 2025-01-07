@@ -4,7 +4,7 @@
 import {
   Button,
   Image,
-  Link as NextUILink,
+  Link as HeroUILink,
   Dropdown,
   DropdownSection,
   DropdownMenu,
@@ -103,14 +103,14 @@ export const A11yOtb = () => {
           </div>
           <p className={subtitle()}>
             HeroUI components are built on top of&nbsp;
-            <NextUILink
+            <HeroUILink
               isExternal
               className="text-xl text-default-500 font-light [&>svg]:ml-1"
               href="https://react-spectrum.adobe.com/react-aria/"
               underline="always"
             >
               React Aria
-            </NextUILink>
+            </HeroUILink>
             &nbsp;ensuring exceptional accessibility support as a top priority.
           </p>
         </div>

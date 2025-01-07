@@ -20,7 +20,7 @@ Input is a component that allows users to enter text. It can be used to get user
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add input",
+    cli: "npx heroui-cli@latest add input",
     npm: "npm install @heroui/input",
     yarn: "yarn add @heroui/input",
     pnpm: "pnpm add @heroui/input",
@@ -157,7 +157,7 @@ If you want to display validation errors while the user is typing, you can contr
 #### Server Validation
 
 Client-side validation provides immediate feedback, but you should also validate data on the server to ensure accuracy and security.
-NextUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
+HeroUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
 This prop should be an object where each key is the field `name` and the value is the error message.
 
 <CodeDemo title="Server Validation" files={inputContent.serverValidation} />

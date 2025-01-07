@@ -8,7 +8,7 @@ import {CloseIcon} from "@heroui/shared-icons";
 import {LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {chain, mergeProps, useViewportSize} from "@react-aria/utils";
-import {HTMLNextUIProps} from "@heroui/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {KeyboardEvent} from "react";
 
 import {useModalContext} from "./modal-context";
@@ -16,7 +16,7 @@ import {scaleInOut} from "./modal-transition";
 
 type KeysToOmit = "children" | "role";
 
-export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div", KeysToOmit> {
+export interface ModalContentProps extends AriaDialogProps, HTMLHeroUIProps<"div", KeysToOmit> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
@@ -140,6 +140,6 @@ const ModalContent = (props: ModalContentProps) => {
   );
 };
 
-ModalContent.displayName = "NextUI.ModalContent";
+ModalContent.displayName = "HeorUI.ModalContent";
 
 export default ModalContent;

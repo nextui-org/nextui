@@ -29,7 +29,7 @@ export default {
 const defaultProps = {
   ...skeleton.defaultVariants,
   isLoaded: false,
-  children: <div className="w-[200px] h-[100px]">NextUI</div>,
+  children: <div className="w-[200px] h-[100px]">HeroUI</div>,
 };
 
 const DefaultTemplate = (args: SkeletonProps) => (

@@ -1,7 +1,7 @@
 import type {KeyboardDelegate} from "@react-types/shared";
 
 import {AriaListBoxProps, useListBox as useAriaListbox} from "@react-aria/listbox";
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter, useProviderContext} from "@heroui/system";
 import {listbox, ListboxVariantProps, ListboxSlots, SlotsToClasses} from "@heroui/theme";
 import {ListState, useListState} from "@react-stately/list";
 import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
@@ -30,7 +30,7 @@ interface AriaListBoxOptions<T> extends AriaListBoxProps<T> {
   shouldHighlightOnFocus?: boolean;
 }
 
-interface Props<T> extends Omit<HTMLNextUIProps<"ul">, "children"> {
+interface Props<T> extends Omit<HTMLHeroUIProps<"ul">, "children"> {
   /**
    * Ref to the DOM node.
    */

@@ -390,7 +390,7 @@ const usersData = [
   },
 ];
 
-export default function NextUIPerf() {
+export default function HeroUIPerf() {
   const [textA, setTextA] = useState<string>("");
   const [textB, setTextB] = useState<string>("");
   const [textC, setTextC] = useState<string>("");

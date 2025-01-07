@@ -121,6 +121,6 @@ const Input = forwardRef<"input", InputProps>((props, ref) => {
   );
 });
 
-Input.displayName = "NextUI.Input";
+Input.displayName = "HeorUI.Input";
 
 export default Input;

@@ -1,5 +1,5 @@
 import type {KbdVariantProps, KbdSlots, SlotsToClasses} from "@heroui/theme";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system-rsc";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system-rsc";
 
 import {mapPropsVariants} from "@heroui/system-rsc";
 import {kbd} from "@heroui/theme";
@@ -9,7 +9,7 @@ import {useMemo} from "react";
 
 import {KbdKey} from "./utils";
 
-interface Props extends HTMLNextUIProps<"kbd"> {
+interface Props extends HTMLHeroUIProps<"kbd"> {
   /**
    * Ref to the DOM node.
    */

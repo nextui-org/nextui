@@ -1,6 +1,6 @@
 import type {AriaButtonProps} from "@heroui/use-aria-button";
 
-import {HTMLNextUIProps} from "@heroui/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {useAriaButton} from "@heroui/use-aria-button";
 import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
@@ -11,7 +11,7 @@ import {mergeProps} from "@react-aria/utils";
 
 const CalendarPickerItem = forwardRef<
   HTMLButtonElement,
-  HTMLNextUIProps<"button"> & AriaButtonProps
+  HTMLHeroUIProps<"button"> & AriaButtonProps
 >(({children, autoFocus, isDisabled, onKeyDown, ...otherProps}, ref) => {
   const domRef = useDOMRef(ref);
 

@@ -1,7 +1,7 @@
 import type {InputVariantProps, SlotsToClasses, InputSlots} from "@heroui/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
@@ -16,7 +16,7 @@ import {useTextField} from "@react-aria/textfield";
 import {FormContext, useSlottedContext} from "@heroui/form";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
-  extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
+  extends Omit<HTMLHeroUIProps<"input">, keyof InputVariantProps> {
   /**
    * Ref to the DOM node.
    */

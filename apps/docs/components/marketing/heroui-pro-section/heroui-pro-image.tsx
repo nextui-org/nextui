@@ -4,7 +4,7 @@ import {useTheme} from "next-themes";
 import NextImage from "next/image";
 import {useEffect, useState} from "react";
 
-export const NextUIProImage = () => {
+export const HeroUIProImage = () => {
   const [mounted, setMounted] = useState(false);
   const {theme} = useTheme();
   const isDarkMode = theme === "dark";
@@ -14,8 +14,8 @@ export const NextUIProImage = () => {
   }, []);
 
   let imgSrc = isDarkMode
-    ? "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/nextuipro-section-background.webp"
-    : "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/nextuipro-section-background-light.webp";
+    ? "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/herouipro-section-background.webp"
+    : "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/herouipro-section-background-light.webp";
 
   if (!mounted) return null;
 

@@ -1,5 +1,5 @@
 import type {AriaButtonProps} from "@react-types/button";
-import type {As, HTMLNextUIProps} from "@heroui/system";
+import type {As, HTMLHeroUIProps} from "@heroui/system";
 import type {ButtonProps} from "@heroui/button";
 import type {HTMLAttributes, ReactNode, RefObject} from "react";
 
@@ -20,7 +20,7 @@ import {useCalendarContext} from "./calendar-context";
 
 const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);
 
-export interface CalendarBaseProps extends HTMLNextUIProps<"div"> {
+export interface CalendarBaseProps extends HTMLHeroUIProps<"div"> {
   Component?: As;
   showHelper?: boolean;
   topContent?: ReactNode;

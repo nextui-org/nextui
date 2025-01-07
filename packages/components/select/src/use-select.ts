@@ -3,7 +3,7 @@ import type {HiddenSelectProps} from "./hidden-select";
 
 import {
   DOMAttributes,
-  HTMLNextUIProps,
+  HTMLHeroUIProps,
   mapPropsVariants,
   PropGetter,
   SharedSelection,
@@ -51,7 +51,7 @@ export type SelectedItemProps<T = object> = {
 
 export type SelectedItems<T = object> = Array<SelectedItemProps<T>>;
 
-interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantProps> {
+interface Props<T> extends Omit<HTMLHeroUIProps<"select">, keyof SelectVariantProps> {
   /**
    * Ref to the DOM node.
    */

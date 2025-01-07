@@ -1,4 +1,4 @@
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableRowGroup} from "@react-aria/table";
@@ -12,7 +12,7 @@ import TableCheckboxCell from "./table-checkbox-cell";
 import {ValuesType} from "./use-table";
 
 // @internal
-export interface TableBodyProps extends HTMLNextUIProps<"tbody"> {
+export interface TableBodyProps extends HTMLHeroUIProps<"tbody"> {
   slots: ValuesType["slots"];
   collection: ValuesType["collection"];
   state: ValuesType["state"];
@@ -149,6 +149,6 @@ const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
   );
 });
 
-TableBody.displayName = "NextUI.TableBody";
+TableBody.displayName = "HeorUI.TableBody";
 
 export default TableBody;

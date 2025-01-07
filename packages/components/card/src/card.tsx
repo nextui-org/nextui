@@ -26,6 +26,6 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
   );
 });
 
-Card.displayName = "NextUI.Card";
+Card.displayName = "HeorUI.Card";
 
 export default Card;

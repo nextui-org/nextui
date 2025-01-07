@@ -1,7 +1,7 @@
 import type {ButtonProps} from "@heroui/button";
 import type {AlertSlots, AlertVariantProps, SlotsToClasses} from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
 import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
@@ -9,7 +9,7 @@ import {alert} from "@heroui/theme";
 import {useControlledState} from "@react-stately/utils";
 import {dataAttr, isEmpty, objectToDeps} from "@heroui/shared-utils";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

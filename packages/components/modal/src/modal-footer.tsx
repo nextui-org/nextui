@@ -1,10 +1,10 @@
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx} from "@heroui/shared-utils";
 
 import {useModalContext} from "./modal-context";
 
-export interface ModalFooterProps extends HTMLNextUIProps<"footer"> {}
+export interface ModalFooterProps extends HTMLHeroUIProps<"footer"> {}
 
 const ModalFooter = forwardRef<"footer", ModalFooterProps>((props, ref) => {
   const {as, children, className, ...otherProps} = props;
@@ -26,6 +26,6 @@ const ModalFooter = forwardRef<"footer", ModalFooterProps>((props, ref) => {
   );
 });
 
-ModalFooter.displayName = "NextUI.ModalFooter";
+ModalFooter.displayName = "HeorUI.ModalFooter";
 
 export default ModalFooter;

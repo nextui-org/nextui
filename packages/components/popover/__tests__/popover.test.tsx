@@ -1,3 +1,4 @@
+import "@testing-library/jest-dom";
 import * as React from "react";
 import {render, fireEvent, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
@@ -134,7 +135,7 @@ describe("Popover", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should work with NextUI button", async () => {
+  it("should work with HeroUI button", async () => {
     const onClose = jest.fn();
 
     const wrapper = render(

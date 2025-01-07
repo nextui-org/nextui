@@ -59,6 +59,6 @@ const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
   );
 });
 
-AccordionGroup.displayName = "NextUI.Accordion";
+AccordionGroup.displayName = "HeorUI.Accordion";
 
 export default AccordionGroup;

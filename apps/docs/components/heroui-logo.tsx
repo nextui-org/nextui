@@ -105,7 +105,7 @@ export const LargeLogo: React.FC<LogoProps> = ({auto, className, ...props}) => (
   </svg>
 );
 
-export const NextUILogo: React.FC<LogoProps> = ({auto, small, outlined, ...props}) => {
+export const HeroUILogo: React.FC<LogoProps> = ({auto, small, outlined, ...props}) => {
   if (outlined) {
     return <SmallLogoOutlined {...props} />;
   }

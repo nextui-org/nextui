@@ -31,6 +31,6 @@ const Kbd = forwardRef<"kbd", KbdProps>((props, ref) => {
   );
 });
 
-Kbd.displayName = "NextUI.Kbd";
+Kbd.displayName = "HeorUI.Kbd";
 
 export default Kbd;

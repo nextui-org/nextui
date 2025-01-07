@@ -1,6 +1,6 @@
 import type {GridNode} from "@react-types/grid";
 
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableColumnHeader} from "@react-aria/table";
@@ -13,7 +13,7 @@ import {useHover} from "@react-aria/interactions";
 import {ValuesType} from "./use-table";
 
 // @internal
-export interface TableColumnHeaderProps<T = object> extends HTMLNextUIProps<"th"> {
+export interface TableColumnHeaderProps<T = object> extends HTMLHeroUIProps<"th"> {
   slots: ValuesType["slots"];
   state: ValuesType["state"];
   classNames?: ValuesType["classNames"];
@@ -73,6 +73,6 @@ const TableColumnHeader = forwardRef<"th", TableColumnHeaderProps>((props, ref) 
   );
 });
 
-TableColumnHeader.displayName = "NextUI.TableColumnHeader";
+TableColumnHeader.displayName = "HeorUI.TableColumnHeader";
 
 export default TableColumnHeader;

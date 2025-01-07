@@ -332,7 +332,7 @@ export const MDXComponents = {
    */
   NextImage,
   /**
-   * NextUI components
+   * HeroUI components
    */
   ...Components,
   /**

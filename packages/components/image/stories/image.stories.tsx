@@ -53,7 +53,7 @@ export default {
 const defaultProps = {
   ...image.defaultVariants,
   src: "./images/local-image-1.jpeg",
-  alt: "NextUI hero image",
+  alt: "HeroUI hero image",
   disableSkeleton: true,
 };
 

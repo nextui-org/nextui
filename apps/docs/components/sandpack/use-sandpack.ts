@@ -131,15 +131,15 @@ export const useSandpack = ({
   /**
    * Uncomment this logic when specific imports are needed
    */
-  // const nextUIComponents = useMemo(
+  // const heroUIComponents = useMemo(
   //   () =>
-  //     Object.values(getNextUIComponents(sortedFiles) || {}).flatMap((e) =>
+  //     Object.values(getHeroUIComponents(sortedFiles) || {}).flatMap((e) =>
   //       e.split(",").map((name) => name.replace(/"/g, "")),
   //     ),
   //   [sortedFiles],
   // );
 
-  // const hasComponents = !isEmpty(nextUIComponents);
+  // const hasComponents = !isEmpty(heroUIComponents);
 
   // const dependencies = useMemo(() => {
   //   let deps = {
@@ -152,7 +152,7 @@ export const useSandpack = ({
   //       "@heroui/system": "canary",
   //     };
 
-  //     nextUIComponents.forEach((component) => {
+  //     heroUIComponents.forEach((component) => {
   //       deps = {
   //         ...deps,
   //         [`@heroui/${component}`]: "canary",
@@ -166,11 +166,11 @@ export const useSandpack = ({
   //     ...deps,
   //     "@heroui/react": "canary",
   //   };
-  // }, [hasComponents, nextUIComponents, component]);
+  // }, [hasComponents, heroUIComponents, component]);
 
   // const tailwindConfigFile = useMemo(
-  //   () => (hasComponents ? updateTailwindConfig(tailwindConfig, nextUIComponents) : tailwindConfig),
-  //   [tailwindConfig, nextUIComponents],
+  //   () => (hasComponents ? updateTailwindConfig(tailwindConfig, heroUIComponents) : tailwindConfig),
+  //   [tailwindConfig, heroUIComponents],
   // );
 
   const customSetup = {

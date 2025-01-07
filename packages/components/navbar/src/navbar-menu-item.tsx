@@ -1,10 +1,10 @@
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 
 import {useNavbarContext} from "./navbar-context";
 
-export interface NavbarMenuItemProps extends HTMLNextUIProps<"li"> {
+export interface NavbarMenuItemProps extends HTMLHeroUIProps<"li"> {
   /**
    * Whether the item is active or not.
    * @default false
@@ -35,6 +35,6 @@ const NavbarMenuItem = forwardRef<"li", NavbarMenuItemProps>((props, ref) => {
   );
 });
 
-NavbarMenuItem.displayName = "NextUI.NavbarMenuItem";
+NavbarMenuItem.displayName = "HeorUI.NavbarMenuItem";
 
 export default NavbarMenuItem;

@@ -1,6 +1,6 @@
 import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaCheckboxProps} from "@react-types/checkbox";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {useProviderContext} from "@heroui/system";
 import {ReactNode, Ref, useCallback, useId} from "react";
@@ -30,7 +30,7 @@ export type CheckboxIconProps = {
   className: string;
 };
 
-interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProps> {
+interface Props extends Omit<HTMLHeroUIProps<"input">, keyof CheckboxVariantProps> {
   /**
    * Ref to the DOM node.
    */

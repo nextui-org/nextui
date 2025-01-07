@@ -1,6 +1,6 @@
 import {CalendarDate, endOfMonth, getWeeksInMonth} from "@internationalized/date";
 import {CalendarPropsBase} from "@react-types/calendar";
-import {HTMLNextUIProps} from "@heroui/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {useLocale} from "@react-aria/i18n";
 import {useCalendarGrid} from "@react-aria/calendar";
 import {m} from "framer-motion";
@@ -10,7 +10,7 @@ import {CalendarCell} from "./calendar-cell";
 import {slideVariants} from "./calendar-transitions";
 import {useCalendarContext} from "./calendar-context";
 
-export interface CalendarMonthProps extends HTMLNextUIProps<"table">, CalendarPropsBase {
+export interface CalendarMonthProps extends HTMLHeroUIProps<"table">, CalendarPropsBase {
   startDate: CalendarDate;
   currentMonth: number;
   direction: number;

@@ -2,7 +2,7 @@ import type {ButtonVariantProps} from "@heroui/theme";
 import type {AriaButtonProps} from "@heroui/use-aria-button";
 import type {ReactNode} from "react";
 import type {RippleProps} from "@heroui/ripple";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {useProviderContext} from "@heroui/system";
 import {dataAttr} from "@heroui/shared-utils";
@@ -20,7 +20,7 @@ import {useRipple} from "@heroui/ripple";
 
 import {useButtonGroupContext} from "./button-group-context";
 
-interface Props extends HTMLNextUIProps<"button"> {
+interface Props extends HTMLHeroUIProps<"button"> {
   /**
    * Ref to the DOM node.
    */

@@ -1,6 +1,6 @@
 import type {BadgeSlots, BadgeVariantProps, SlotsToClasses} from "@heroui/theme";
 import type {ReactNode} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {badge} from "@heroui/theme";
 import {mapPropsVariants, useProviderContext} from "@heroui/system";
@@ -8,7 +8,7 @@ import {clsx, objectToDeps} from "@heroui/shared-utils";
 import {ReactRef} from "@heroui/react-utils";
 import {useMemo} from "react";
 
-interface Props extends HTMLNextUIProps<"span", "content"> {
+interface Props extends HTMLHeroUIProps<"span", "content"> {
   /**
    * Ref to the DOM node.
    */

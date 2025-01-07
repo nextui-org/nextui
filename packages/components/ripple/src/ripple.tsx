@@ -1,12 +1,12 @@
 import type {RippleType} from "./use-ripple";
 import type {FC} from "react";
 import type {HTMLMotionProps} from "framer-motion";
-import type {HTMLNextUIProps} from "@heroui/system";
+import type {HTMLHeroUIProps} from "@heroui/system";
 
 import {AnimatePresence, m, LazyMotion} from "framer-motion";
 import {clamp} from "@heroui/shared-utils";
 
-export interface RippleProps extends HTMLNextUIProps<"span"> {
+export interface RippleProps extends HTMLHeroUIProps<"span"> {
   ripples: RippleType[];
   color?: string;
   motionProps?: HTMLMotionProps<"span">;
@@ -29,7 +29,7 @@ const Ripple: FC<RippleProps> = (props) => {
             <AnimatePresence mode="popLayout">
               <m.span
                 animate={{transform: "scale(2)", opacity: 0}}
-                className="nextui-ripple"
+                className="heroui-ripple"
                 exit={{opacity: 0}}
                 initial={{transform: "scale(0)", opacity: 0.35}}
                 style={{
@@ -61,6 +61,6 @@ const Ripple: FC<RippleProps> = (props) => {
   );
 };
 
-Ripple.displayName = "NextUI.Ripple";
+Ripple.displayName = "HeorUI.Ripple";
 
 export default Ripple;

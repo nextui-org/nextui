@@ -1,12 +1,12 @@
 <p align="center">
   <a href="https://heroui.com">
-      <img width="20%" src="https://raw.githubusercontent.com/frontio-ai/heroui/main/apps/docs/public/isotipo.png" alt="nextui" />
-      <h1 align="center">NextUI</h1>
+      <img width="20%" src="https://raw.githubusercontent.com/frontio-ai/heroui/main/apps/docs/public/isotipo.png" alt="heorui" />
+      <h1 align="center">HeroUI</h1>
   </a>
 </p>
 </br>
 <p align="center">
-  <a href="https://github.com/jrgarciadev/nextui/blob/main/LICENSE">
+  <a href="https://github.com/frontio-ai/heroui/blob/main/LICENSE">
     <img src="https://img.shields.io/npm/l/@nextui-org/react?style=flat" alt="License">
   </a>
   <a href="https://codecov.io/gh/jrgarciadev/nextui">
@@ -24,7 +24,7 @@
 
 ## Getting Started
 
-Visit <a aria-label="nextui learn" href="https://heroui.com/learn">https://heroui.com/guide</a> to get started with NextUI.
+Visit <a aria-label="heroui learn" href="https://heroui.com/learn">https://heroui.com/guide</a> to get started with HeroUI.
 
 ## Documentation
 
@@ -43,11 +43,11 @@ Canary versions are available after every merge into `canary` branch. You can in
 
 ## Community
 
-We're excited to see the community adopt NextUI, raise issues, and provide feedback.
+We're excited to see the community adopt HeroUI, raise issues, and provide feedback.
 Whether it's a feature request, bug report, or a project to showcase, please get involved!
 
 - [Discord](https://discord.gg/9b6yyZKmH4)
-- [X](https://x.com/getnextui)
+- [X](https://x.com/hero_ui)
 - [GitHub Discussions](https://github.com/frontio-ai/heroui/discussions)
 
 ## Contributing

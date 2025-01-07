@@ -7,7 +7,7 @@ import type {TableCollection} from "@react-types/table";
 import {ReactNode, Key, useCallback} from "react";
 import {useTableState} from "@react-stately/table";
 import {AriaTableProps, useTable as useReactAriaTable} from "@react-aria/table";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {table} from "@heroui/theme";
 import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -18,7 +18,7 @@ import {CheckboxProps} from "@heroui/checkbox";
 
 type TableContentPlacement = "inside" | "outside";
 
-interface Props<T> extends HTMLNextUIProps<"table"> {
+interface Props<T> extends HTMLHeroUIProps<"table"> {
   /**
    * Ref to the DOM node.
    */

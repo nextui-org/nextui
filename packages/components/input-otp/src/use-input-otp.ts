@@ -5,7 +5,7 @@ import type {
   SlotsToClasses,
 } from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {inputOtp} from "@heroui/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr, objectToDeps, isPatternNumeric} from "@heroui/shared-utils";
@@ -19,7 +19,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {OTPInputProps} from "input-otp";
 import {FormContext, useSlottedContext} from "@heroui/form";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

@@ -40,7 +40,7 @@ export interface Props<T extends object = {}>
   subtitle?: ReactNode | string;
   /**
    * The accordion item `expanded` indicator, it's usually an arrow icon.
-   * If you pass a function, NextUI will expose the current indicator and the open status,
+   * If you pass a function, HeroUI will expose the current indicator and the open status,
    * In case you want to use a custom indicator or modify the current one.
    */
   indicator?: ReactNode | ((props: AccordionItemIndicatorProps) => ReactNode) | null;

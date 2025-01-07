@@ -30,6 +30,6 @@ const Modal = forwardRef<"div", ModalProps>((props, ref) => {
   );
 });
 
-Modal.displayName = "NextUI.Modal";
+Modal.displayName = "HeorUI.Modal";
 
 export default Modal;

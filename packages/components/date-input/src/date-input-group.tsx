@@ -94,4 +94,4 @@ export const DateInputGroup = forwardRef<"div", DateInputGroupProps>((props, ref
   );
 });
 
-DateInputGroup.displayName = "NextUI.DateInputGroup";
+DateInputGroup.displayName = "HeorUI.DateInputGroup";

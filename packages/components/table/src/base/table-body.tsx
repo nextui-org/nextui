@@ -1,11 +1,11 @@
-import {HTMLNextUIProps} from "@heroui/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {TableBody as TableBodyBase} from "@react-stately/table";
 import {TableBodyProps as TableBodyBaseProps} from "@react-types/table";
 import {ReactNode} from "react";
 
 export interface TableBodyProps<T>
   extends TableBodyBaseProps<T>,
-    Omit<HTMLNextUIProps<"tbody">, keyof TableBodyBaseProps<T>> {
+    Omit<HTMLHeroUIProps<"tbody">, keyof TableBodyBaseProps<T>> {
   /**
    * Provides content to display a loading component when the `loadingState` is `loading` or `loadingMore`.
    */

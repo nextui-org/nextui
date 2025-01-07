@@ -73,7 +73,7 @@ export function useStackblitz(props: UseSandpackProps) {
       "package.json": packageJson,
     },
     dependencies,
-    title: "NextUI",
+    title: "HeroUI",
     template: "node",
   };
 

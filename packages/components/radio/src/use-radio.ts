@@ -7,14 +7,14 @@ import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {radio} from "@heroui/theme";
 import {useRadio as useReactAriaRadio} from "@react-aria/radio";
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter, useProviderContext} from "@heroui/system";
 import {__DEV__, warn, clsx, dataAttr} from "@heroui/shared-utils";
 import {useDOMRef} from "@heroui/react-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 
 import {useRadioGroupContext} from "./radio-group-context";
 
-interface Props extends Omit<HTMLNextUIProps<"input">, keyof RadioVariantProps> {
+interface Props extends Omit<HTMLHeroUIProps<"input">, keyof RadioVariantProps> {
   /**
    * Ref to the DOM node.
    */

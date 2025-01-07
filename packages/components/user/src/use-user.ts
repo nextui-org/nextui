@@ -3,7 +3,7 @@ import type {AvatarProps} from "@heroui/avatar";
 
 import {ReactNode, useMemo, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import {user} from "@heroui/theme";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {filterDOMProps, ReactRef} from "@heroui/react-utils";
@@ -49,7 +49,7 @@ interface Props {
   classNames?: SlotsToClasses<UserSlots>;
 }
 
-export type UseUserProps = Props & Omit<HTMLNextUIProps<"div">, "children">;
+export type UseUserProps = Props & Omit<HTMLHeroUIProps<"div">, "children">;
 
 export function useUser(props: UseUserProps) {
   const {

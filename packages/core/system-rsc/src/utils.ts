@@ -96,10 +96,10 @@ export const mapPropsVariantsWithCommon = <
 };
 
 /**
- * Checks if a component is a NextUI component.
+ * Checks if a component is a HeroUI component.
  * @param component - The component to check.
- * @returns `true` if the component is a NextUI component, `false` otherwise.
+ * @returns `true` if the component is a HeroUI component, `false` otherwise.
  */
-export const isNextUIEl = (component: React.ReactComponentElement<any>) => {
-  return !!component.type?.render?.displayName?.includes("NextUI");
+export const isHeroUIEl = (component: React.ReactComponentElement<any>) => {
+  return !!component.type?.render?.displayName?.includes("HeroUI");
 };

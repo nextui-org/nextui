@@ -1,6 +1,6 @@
 ---
 title: Next.js
-description: How to use NextUI with Next.js
+description: How to use HeroUI with Next.js
 ---
 
 # Next.js
@@ -37,10 +37,10 @@ or
 
 <PackageManagers
   commands={{
-    npm: 'npx nextui-cli@latest init -t app',
-    yarn: 'yarn dlx nextui-cli@latest init -t app',
-    pnpm: 'pnpm dlx nextui-cli@latest init -t app',
-    bun: "bunx nextui-cli@latest init -t app"
+    npm: 'npx heroui-cli@latest init -t app',
+    yarn: 'yarn dlx heroui-cli@latest init -t app',
+    pnpm: 'pnpm dlx heroui-cli@latest init -t app',
+    bun: "bunx heroui-cli@latest init -t app"
   }}
 />
 
@@ -185,7 +185,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {2,9,14-15}
 // tailwind.config.js
-import {nextui} from "@heroui/react";
+import {heroui} from "@heroui/react";
 
 /** @type {import('tailwindcss').Config} */
 const config = {
@@ -429,7 +429,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {2,9,14-15}
 // tailwind.config.js
-import {nextui} from "@heroui/react";
+import {heroui} from "@heroui/react";
 
 /** @type {import('tailwindcss').Config} */
 const config = {

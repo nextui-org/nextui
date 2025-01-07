@@ -1,7 +1,7 @@
 import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@heroui/theme";
 
 import {snippet} from "@heroui/theme";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {ReactRef} from "@heroui/react-utils";
@@ -10,7 +10,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback, ReactElement, useRef} from "react";
 import {TooltipProps} from "@heroui/tooltip";
 import {ButtonProps} from "@heroui/button";
-export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, SnippetVariantProps {
+export interface UseSnippetProps extends Omit<HTMLHeroUIProps, "onCopy">, SnippetVariantProps {
   /**
    * Ref to the DOM node.
    */

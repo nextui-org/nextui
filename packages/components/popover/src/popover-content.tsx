@@ -5,7 +5,7 @@ import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {DismissButton} from "@react-aria/overlays";
 import {TRANSITION_VARIANTS} from "@heroui/framer-utils";
 import {m, LazyMotion} from "framer-motion";
-import {HTMLNextUIProps} from "@heroui/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {getTransformOrigins} from "@heroui/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 
@@ -13,7 +13,7 @@ import {usePopoverContext} from "./popover-context";
 
 export interface PopoverContentProps
   extends AriaDialogProps,
-    Omit<HTMLNextUIProps, "children" | "role"> {
+    Omit<HTMLHeroUIProps, "children" | "role"> {
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
@@ -112,6 +112,6 @@ const PopoverContent = (props: PopoverContentProps) => {
   );
 };
 
-PopoverContent.displayName = "NextUI.PopoverContent";
+PopoverContent.displayName = "HeorUI.PopoverContent";
 
 export default PopoverContent;

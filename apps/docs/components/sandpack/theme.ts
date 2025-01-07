@@ -1,6 +1,6 @@
 import {SandpackTheme} from "@codesandbox/sandpack-react";
 
-export const nextuiTheme: SandpackTheme = {
+export const herouiTheme: SandpackTheme = {
   colors: {
     surface1: "hsl(var(--heroui-code-background))",
     surface2: "hsl(var(--heroui-code-background))",

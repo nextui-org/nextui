@@ -13,7 +13,7 @@ import {clsx, dataAttr, debounce, isEmpty} from "@heroui/shared-utils";
 import {
   SpacerProps,
   Spacer,
-  Link as NextUILink,
+  Link as HeroUILink,
   Chip,
   dataFocusVisibleClasses,
 } from "@heroui/react";
@@ -130,7 +130,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     }
 
     return (
-      <NextUILink
+      <HeroUILink
         as={item.props?.comingSoon ? "div" : Link}
         className={clsx(cn, {
           "pointer-events-none": item.props?.comingSoon,
@@ -181,7 +181,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             Coming soon
           </Chip>
         )}
-      </NextUILink>
+      </HeroUILink>
     );
   };
 

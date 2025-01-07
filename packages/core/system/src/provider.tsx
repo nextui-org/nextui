@@ -19,7 +19,7 @@ export interface HeroUIProviderProps
    * This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`,
    * effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while
    * using the `disableAnimation` prop for other purposes, set this to `false`. However, note that
-   * animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+   * animations in HeroUI Components are still omitted if the `disableAnimation` prop is `true`.
    */
   skipFramerMotionAnimations?: boolean;
   /**

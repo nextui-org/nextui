@@ -2,7 +2,7 @@ import type {CalendarDate} from "@internationalized/date";
 import type {PressEvent} from "@react-types/shared";
 
 import {useDateFormatter} from "@react-aria/i18n";
-import {HTMLNextUIProps} from "@heroui/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {useCallback, useRef, useEffect} from "react";
 import {debounce} from "@heroui/shared-utils";
 import {areRectsIntersecting} from "@heroui/react-utils";
@@ -15,7 +15,7 @@ export type PickerValue = {
   value: string;
   label: string;
 };
-export interface CalendarPickerProps extends HTMLNextUIProps<"div"> {
+export interface CalendarPickerProps extends HTMLHeroUIProps<"div"> {
   date: CalendarDate;
   currentMonth: CalendarDate;
 }

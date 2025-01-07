@@ -1,6 +1,6 @@
 import type {ToggleVariantProps, ToggleSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaSwitchProps} from "@react-aria/switch";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {ReactNode, Ref, useCallback, useId, useRef} from "react";
 import {mapPropsVariants, useProviderContext} from "@heroui/system";
@@ -23,7 +23,7 @@ export type SwitchThumbIconProps = {
   className: string;
 };
 
-interface Props extends HTMLNextUIProps<"input"> {
+interface Props extends HTMLHeroUIProps<"input"> {
   /**
    * Ref to the DOM node.
    */

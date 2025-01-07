@@ -4,7 +4,7 @@ import type {MouseEventHandler} from "react";
 
 import {link} from "@heroui/theme";
 import {useAriaLink} from "@heroui/use-aria-link";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {dataAttr, objectToDeps} from "@heroui/shared-utils";
@@ -12,7 +12,7 @@ import {ReactRef} from "@heroui/react-utils";
 import {useMemo, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
 
-interface Props extends HTMLNextUIProps<"a">, LinkVariantProps {
+interface Props extends HTMLHeroUIProps<"a">, LinkVariantProps {
   /**
    * Ref to the DOM node.
    */

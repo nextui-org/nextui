@@ -9,7 +9,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {ariaHideOutside, useOverlayTrigger, usePreventScroll} from "@react-aria/overlays";
 import {OverlayTriggerProps} from "@react-types/overlays";
 import {getShouldUseAxisPlacement} from "@heroui/aria-utils";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {getArrowPlacement} from "@heroui/aria-utils";
 import {popover} from "@heroui/theme";
 import {mergeProps, mergeRefs} from "@react-aria/utils";
@@ -19,7 +19,7 @@ import {AriaDialogProps} from "@react-aria/dialog";
 
 import {useReactAriaPopover, ReactAriaPopoverProps} from "./use-aria-popover";
 
-export interface Props extends HTMLNextUIProps<"div"> {
+export interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -275,7 +275,7 @@ export function usePopover(originalProps: UsePopoverProps) {
         className: slots.trigger({
           class: clsx(classNames?.trigger, props.className),
           // apply isDisabled class names to make the trigger child disabled
-          // e.g. for elements like div or NextUI elements that don't have `isDisabled` prop
+          // e.g. for elements like div or HeroUI elements that don't have `isDisabled` prop
           isTriggerDisabled: isDisabled,
         }),
         ref: mergeRefs(_ref, triggerRef),

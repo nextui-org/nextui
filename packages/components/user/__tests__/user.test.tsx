@@ -66,7 +66,7 @@ describe("User", () => {
       <User
         description={
           <Link data-testid="test-user-link" href="https://heroui.com">
-            NextUI
+            HeroUI
           </Link>
         }
         name="User"

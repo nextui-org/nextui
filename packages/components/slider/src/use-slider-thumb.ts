@@ -1,6 +1,6 @@
 import type {SliderVariantProps} from "@heroui/theme";
 
-import {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import {useSliderThumb as useAriaSliderThumb} from "@react-aria/slider";
 import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {RefObject, useRef} from "react";
@@ -15,7 +15,7 @@ import {useNumberFormatter} from "@react-aria/i18n";
 
 import {UseSliderProps} from "./use-slider";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

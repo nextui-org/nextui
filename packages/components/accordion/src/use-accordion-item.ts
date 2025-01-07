@@ -1,6 +1,6 @@
 import type {AccordionItemVariantProps} from "@heroui/theme";
 
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, PropGetter, useProviderContext} from "@heroui/system";
 import {useFocusRing} from "@react-aria/focus";
 import {accordionItem} from "@heroui/theme";
 import {clsx, callAllHandlers, dataAttr, objectToDeps} from "@heroui/shared-utils";
@@ -14,7 +14,7 @@ import {TreeState} from "@react-stately/tree";
 
 import {AccordionItemBaseProps} from "./base/accordion-item-base";
 
-export interface Props<T extends object> extends HTMLNextUIProps<"div"> {
+export interface Props<T extends object> extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

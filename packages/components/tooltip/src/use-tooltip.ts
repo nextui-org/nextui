@@ -9,7 +9,7 @@ import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {popover} from "@heroui/theme";
 import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {ReactRef, mergeRefs} from "@heroui/react-utils";
@@ -18,7 +18,7 @@ import {useMemo, useRef, useCallback} from "react";
 import {toReactAriaPlacement, getArrowPlacement} from "@heroui/aria-utils";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 
-interface Props extends Omit<HTMLNextUIProps, "content"> {
+interface Props extends Omit<HTMLHeroUIProps, "content"> {
   /**
    * Ref to the DOM node.
    */

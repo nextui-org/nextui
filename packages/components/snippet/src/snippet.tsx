@@ -108,6 +108,6 @@ const Snippet = forwardRef<"div", SnippetProps>((props, ref) => {
   );
 });
 
-Snippet.displayName = "NextUI.Snippet";
+Snippet.displayName = "HeorUI.Snippet";
 
 export default Snippet;

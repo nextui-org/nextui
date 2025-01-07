@@ -14,7 +14,7 @@ export const ProBanner = () => {
   const posthog = usePostHog();
 
   const handleClick = () => {
-    posthog.capture("NextUI Pro Banner", {
+    posthog.capture("HeroUI Pro Banner", {
       action: "click",
       category: "landing-page",
     });

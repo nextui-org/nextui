@@ -36,6 +36,6 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
   );
 });
 
-Button.displayName = "NextUI.Button";
+Button.displayName = "HeorUI.Button";
 
 export default Button;

@@ -10,7 +10,7 @@ import type {ValueBase} from "@react-types/shared";
 import {dataAttr} from "@heroui/shared-utils";
 import {dateInput, DatePickerVariantProps} from "@heroui/theme";
 import {useCallback} from "react";
-import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, useProviderContext} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
 import {useDOMRef} from "@heroui/react-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
@@ -18,12 +18,12 @@ import {useControlledState} from "@react-stately/utils";
 
 import intlMessages from "../intl/messages";
 
-type NextUIBaseProps<T extends DateValue> = Omit<
-  HTMLNextUIProps<"div">,
+type HeroUIBaseProps<T extends DateValue> = Omit<
+  HTMLHeroUIProps<"div">,
   keyof AriaDatePickerBaseProps<T> | "onChange"
 >;
 
-interface Props<T extends DateValue> extends NextUIBaseProps<T> {
+interface Props<T extends DateValue> extends HeroUIBaseProps<T> {
   /**
    * The icon to toggle the date picker popover. Usually a calendar icon.
    */

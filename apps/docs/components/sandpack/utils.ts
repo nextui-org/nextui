@@ -71,7 +71,7 @@ export const getId = () => {
   return Math.random().toString(32).slice(2, 10);
 };
 
-export function getNextUIComponents(files: SandpackFiles): {[filePath: string]: string} {
+export function getHeroUIComponents(files: SandpackFiles): {[filePath: string]: string} {
   const output: {[filePath: string]: string} = {};
 
   for (const filePath in files) {

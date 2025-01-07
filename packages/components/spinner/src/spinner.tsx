@@ -18,6 +18,6 @@ const Spinner = forwardRef<"div", SpinnerProps>((props, ref) => {
   );
 });
 
-Spinner.displayName = "NextUI.Spinner";
+Spinner.displayName = "HeorUI.Spinner";
 
 export default Spinner;

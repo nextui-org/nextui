@@ -32,6 +32,6 @@ const Checkbox = forwardRef<"input", CheckboxProps>((props, ref) => {
   );
 });
 
-Checkbox.displayName = "NextUI.Checkbox";
+Checkbox.displayName = "HeorUI.Checkbox";
 
 export default Checkbox;

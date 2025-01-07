@@ -10,7 +10,7 @@ import {shopCartStyles} from "./styles";
 
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {PaletteIcon, MagicIcon, GamingConsoleIcon, StarIcon} from "@/components/icons";
-import {NextUILogo, CodeWindow} from "@/components";
+import {HeroUILogo, CodeWindow} from "@/components";
 import landingContent from "@/content/landing";
 import {useIsMobile} from "@/hooks/use-media-query";
 
@@ -23,7 +23,7 @@ const themesTabs = (isMobile: boolean) => [
       </p>
     ),
     icon: () => (
-      <NextUILogo
+      <HeroUILogo
         outlined
         className="text-default-400 group-data-[selected=true]:text-foreground"
         size={isMobile ? 34 : 44}
@@ -69,13 +69,13 @@ const themesTabs = (isMobile: boolean) => [
   },
 ];
 
-type Theme = "nextui" | "modern" | "elegant" | "retro";
+type Theme = "heroui" | "modern" | "elegant" | "retro";
 type Tab = {id: string; title: () => JSX.Element; icon: () => JSX.Element};
 
 const itemSizes = ["xs", "s", "m", "l", "xl"];
 
 const codeHighlights = {
-  nextui: "6-19",
+  heroui: "6-19",
   modern: "26-39",
   elegant: "46-59",
   retro: "66-84",
@@ -179,7 +179,7 @@ const CustomThemesExample = ({
               <Button
                 className={slots.buyButton()}
                 color="primary"
-                variant={selectedTheme === "nextui" ? "shadow" : "solid"}
+                variant={selectedTheme === "heroui" ? "shadow" : "solid"}
               >
                 Buy now
               </Button>

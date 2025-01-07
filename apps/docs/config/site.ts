@@ -31,7 +31,7 @@ export const siteConfig = {
     creator: "@hero_ui",
   },
   links: {
-    github: "https://github.com/nextui-inc/heroui",
+    github: "https://github.com/frontio-ai/heroui",
     twitter: "https://x.com/hero_ui",
     docs: "https://heroui.org",
     discord: "https://discord.gg/9b6yyZKmH4",

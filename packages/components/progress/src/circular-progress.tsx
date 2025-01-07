@@ -38,6 +38,6 @@ const CircularProgress = forwardRef<"div", CircularProgressProps>((props, ref) =
   );
 });
 
-CircularProgress.displayName = "NextUI.CircularProgress";
+CircularProgress.displayName = "HeorUI.CircularProgress";
 
 export default CircularProgress;

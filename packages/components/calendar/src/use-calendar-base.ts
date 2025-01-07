@@ -3,7 +3,7 @@ import type {CalendarPropsBase as AriaCalendarPropsBase} from "@react-types/cale
 import type {CalendarSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaCalendarGridProps} from "@react-aria/calendar";
 import type {AriaButtonProps} from "@react-types/button";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import type {ButtonProps} from "@heroui/button";
 import type {SupportedCalendars} from "@heroui/system";
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
@@ -19,9 +19,9 @@ import {useLocale} from "@react-aria/i18n";
 import {clamp, dataAttr, objectToDeps, getGregorianYearOffset} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 
-type NextUIBaseProps = Omit<HTMLNextUIProps<"div">, keyof AriaCalendarPropsBase | "onChange">;
+type HeroUIBaseProps = Omit<HTMLHeroUIProps<"div">, keyof AriaCalendarPropsBase | "onChange">;
 
-interface Props extends NextUIBaseProps {
+interface Props extends HeroUIBaseProps {
   /**
    * Ref to the DOM node.
    */

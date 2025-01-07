@@ -1,6 +1,6 @@
 import type {DateInputReturnType, DateInputSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaDatePickerProps} from "@react-types/datepicker";
-import type {HTMLNextUIProps} from "@heroui/system";
+import type {HTMLHeroUIProps} from "@heroui/system";
 import type {DateInputProps} from "@heroui/date-input";
 
 import {createCalendar} from "@internationalized/date";
@@ -14,13 +14,13 @@ import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
 import {useLocale} from "@react-aria/i18n";
 import {mergeProps} from "@react-aria/utils";
 
-type NextUIBaseProps<T extends DateValue> = Omit<
-  HTMLNextUIProps<"div">,
+type HeroUIBaseProps<T extends DateValue> = Omit<
+  HTMLHeroUIProps<"div">,
   keyof AriaDatePickerProps<T> | "onChange"
 >;
 
 export interface Props<T extends DateValue>
-  extends NextUIBaseProps<T>,
+  extends HeroUIBaseProps<T>,
     AriaDatePickerProps<T>,
     Pick<DateInputProps, "createCalendar"> {
   /** DateInput classes slots. */

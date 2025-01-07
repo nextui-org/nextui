@@ -1,6 +1,6 @@
 ---
 title: Laravel
-description: How to use NextUI with Laravel
+description: How to use HeroUI with Laravel
 ---
 
 # Laravel
@@ -17,11 +17,11 @@ Requirements:
 
 <CarbonAd/>
 
-To use NextUI in your Laravel project, you need to follow the following steps:
+To use HeroUI in your Laravel project, you need to follow the following steps:
 
-### Using NextUI + Laravel template
+### Using HeroUI + Laravel template
 
-If you are starting a new project, you can run one of the following commands to create a Laravel project pre-configured with NextUI:
+If you are starting a new project, you can run one of the following commands to create a Laravel project pre-configured with HeroUI:
 
 <PackageManagers
   commands={{
@@ -37,7 +37,7 @@ If you are starting a new project, you can run one of the following commands to 
 You can add individual components using the CLI. For example, to add a button component:
 
 ```codeBlock bash
-nextui add button
+heroui add button
 ```
 
 This command adds the Button component to your project and manages all related dependencies.
@@ -45,13 +45,13 @@ This command adds the Button component to your project and manages all related d
 You can also add multiple components at once:
 
 ```codeBlock bash
-nextui add button input
+heroui add button input
 ```
 
 Or you can add the main library `@heroui/react` by running the following command:
 
 ```codeBlock bash
-nextui add --all
+heroui add --all
 ```
 
 If you leave out the component name, the CLI will prompt you to select the components you want to add.
@@ -104,7 +104,7 @@ import './bootstrap';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { createRoot } from 'react-dom/client';
-import {HeroUIProvider} from "@heroui/react";
+import { HeroUIProvider } from "@heroui/react";
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -136,7 +136,7 @@ createInertiaApp({
 
 ### Add dependencies
 
-In your Laravel project, run one of the following command to install NextUI:
+In your Laravel project, run one of the following command to install HeroUI:
 
 <PackageManagers
   commands={{
@@ -150,7 +150,7 @@ In your Laravel project, run one of the following command to install NextUI:
 ### Hoisted Dependencies Setup
 
 <Blockquote color="primary">
-**Note**: This step is only for those who use `pnpm` to install. If you install NextUI using other package managers, you may skip this step.
+**Note**: This step is only for those who use `pnpm` to install. If you install HeroUI using other package managers, you may skip this step.
 </Blockquote>
 
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
@@ -163,7 +163,7 @@ After modifying the `.npmrc` file, you need to run `pnpm install` again to ensur
 
 ### Tailwind CSS Setup
 
-NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+HeroUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
 [installation guide](https://tailwindcss.com/docs/guides/vite#react) to install Tailwind CSS. Then you need to add
 the following code to your `tailwind.config.js` file:
 
@@ -173,7 +173,7 @@ the following code to your `tailwind.config.js` file:
 
 ```js {2,8,13-14}
 // tailwind.config.js
-const { nextui } = require("@heroui/react");
+const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -185,13 +185,13 @@ module.exports = {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [heroui()]
 }
 ```
 
 ### Provider Setup
 
-After installing NextUI, you need to set up the `HeroUIProvider` at the `root` of your application.
+After installing HeroUI, you need to set up the `HeroUIProvider` at the `root` of your application.
 
 Go to the src directory and inside `app.jsx` or `app.tsx`, wrap `HeroUIProvider` around App:
 
@@ -230,9 +230,3 @@ createInertiaApp({
 ```
 
 </Steps>
-
-<Blockquote
- color="warning"
->
-  Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please use <Link href="https://v1.heroui.com/docs/getting-started" isExternal>version 1 of NextUI</Link>.
-</Blockquote>

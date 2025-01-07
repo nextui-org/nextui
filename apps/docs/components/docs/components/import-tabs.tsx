@@ -26,7 +26,7 @@ export const ImportTabs = ({commands}: ImportTabsProps) => {
   return (
     <Tabs
       disableAnimation
-      aria-label="NextUI import commands"
+      aria-label="HeroUI import commands"
       classNames={{
         base: "group mt-4",
         tabList: "relative h-10",

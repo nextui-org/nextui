@@ -1,6 +1,6 @@
 import type {TabsVariantProps, SlotsToClasses, TabsSlots, TabsReturnType} from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {tabs} from "@heroui/theme";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, objectToDeps} from "@heroui/shared-utils";
@@ -13,7 +13,7 @@ import {CollectionProps} from "@heroui/aria-utils";
 import {CollectionChildren} from "@react-types/shared";
 import {HTMLMotionProps} from "framer-motion";
 
-export interface Props extends Omit<HTMLNextUIProps, "children"> {
+export interface Props extends Omit<HTMLHeroUIProps, "children"> {
   /**
    * Ref to the DOM node.
    */

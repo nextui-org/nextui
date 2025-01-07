@@ -1,6 +1,6 @@
 import type {GridNode} from "@react-types/grid";
 
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableColumnHeader, useTableSelectAllCheckbox} from "@react-aria/table";
@@ -11,7 +11,7 @@ import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {ValuesType} from "./use-table";
 
-export interface TableSelectAllCheckboxProps<T = object> extends HTMLNextUIProps<"th"> {
+export interface TableSelectAllCheckboxProps<T = object> extends HTMLHeroUIProps<"th"> {
   /**
    * The table column.
    */
@@ -86,6 +86,6 @@ const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((pr
   );
 });
 
-TableSelectAllCheckbox.displayName = "NextUI.TableSelectAllCheckbox";
+TableSelectAllCheckbox.displayName = "HeorUI.TableSelectAllCheckbox";
 
 export default TableSelectAllCheckbox;

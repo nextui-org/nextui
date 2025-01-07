@@ -1,10 +1,10 @@
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx} from "@heroui/shared-utils";
 
 import {useNavbarContext} from "./navbar-context";
 
-export interface NavbarBrandProps extends HTMLNextUIProps<"div"> {
+export interface NavbarBrandProps extends HTMLHeroUIProps<"div"> {
   children?: React.ReactNode | React.ReactNode[];
 }
 
@@ -25,6 +25,6 @@ const NavbarBrand = forwardRef<"div", NavbarBrandProps>((props, ref) => {
   );
 });
 
-NavbarBrand.displayName = "NextUI.NavbarBrand";
+NavbarBrand.displayName = "HeorUI.NavbarBrand";
 
 export default NavbarBrand;

@@ -4,7 +4,7 @@ import NextImage from "next/image";
 export default function App() {
   return (
     <Image
-      alt="NextUI hero Image"
+      alt="HeroUI hero Image"
       as={NextImage}
       height={200}
       src="https://heroui.com/images/hero-card-complete.jpeg"

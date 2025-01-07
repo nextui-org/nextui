@@ -19,7 +19,7 @@ import {FloatingTabs} from "./floating-tabs";
 import {UserTwitterCard} from "@/components/demos/user-twitter-card";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {useMediaQuery} from "@/hooks/use-media-query";
-import {NextUILogo} from "@/components/nextui-logo";
+import {HeroUILogo} from "@/components/heroui-logo";
 
 export const FloatingComponents: React.FC<{}> = () => {
   const {theme, setTheme} = useTheme();
@@ -86,7 +86,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           shadow="lg"
         >
           <CardBody>
-            <NextUILogo small size={60} />
+            <HeroUILogo small size={60} />
           </CardBody>
         </Card>
 

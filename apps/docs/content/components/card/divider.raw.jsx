@@ -5,14 +5,14 @@ export default function App() {
     <Card className="max-w-[400px]">
       <CardHeader className="flex gap-3">
         <Image
-          alt="nextui logo"
+          alt="heroui logo"
           height={40}
           radius="sm"
           src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
           width={40}
         />
         <div className="flex flex-col">
-          <p className="text-md">NextUI</p>
+          <p className="text-md">HeroUI</p>
           <p className="text-small text-default-500">heroui.com</p>
         </div>
       </CardHeader>

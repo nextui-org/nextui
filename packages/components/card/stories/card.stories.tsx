@@ -103,14 +103,14 @@ const WithFooterTemplate = (args: CardProps) => (
   <Card {...args} className="p-4 max-w-md">
     <CardHeader className="flex gap-3">
       <Image
-        alt="nextui logo"
+        alt="heroui logo"
         height={34}
         radius="lg"
         src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
         width={34}
       />
       <div className="flex flex-col">
-        <b className="text-lg">NextUI</b>
+        <b className="text-lg">HeroUI</b>
         <p className="text-default-500">heroui.com</p>
       </div>
     </CardHeader>

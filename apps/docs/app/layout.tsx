@@ -22,8 +22,9 @@ export const metadata: Metadata = {
   keywords: [
     "React",
     "Next.js",
-    "Tailwind CSS",
     "NextUI",
+    "Tailwind CSS",
+    "HeroUI",
     "React Aria",
     "Server Components",
     "React Components",
@@ -43,15 +44,15 @@ export const metadata: Metadata = {
   openGraph: siteConfig.openGraph,
   authors: [
     {
-      name: "getnextui",
-      url: "https://x.com/getnextui",
+      name: "hero_ui",
+      url: "https://x.com/hero_ui",
     },
   ],
-  creator: "getnextui",
+  creator: "frontioai",
   alternates: {
     canonical: "https://heroui.com",
     types: {
-      "application/rss+xml": [{url: "https://heroui.com/feed.xml", title: "NextUI RSS Feed"}],
+      "application/rss+xml": [{url: "https://heroui.com/feed.xml", title: "HeroUI RSS Feed"}],
     },
   },
 };

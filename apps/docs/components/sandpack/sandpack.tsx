@@ -6,7 +6,7 @@ import {SandpackProvider, SandpackLayout, SandpackPreview} from "@codesandbox/sa
 import {StackblitzButton} from "../stackblitz-button";
 
 import {SandpackCodeViewer} from "./code-viewer";
-import {nextuiTheme} from "./theme";
+import {herouiTheme} from "./theme";
 import {UseSandpackProps, useSandpack} from "./use-sandpack";
 import {BugReportButton} from "./bugreport-button";
 import {CopyButton} from "./copy-button";
@@ -51,7 +51,7 @@ export const Sandpack: FC<SandpackProps> = ({
       customSetup={customSetup}
       files={files}
       template={sandpackTemplate}
-      theme={nextuiTheme}
+      theme={herouiTheme}
     >
       <SandpackLayout
         style={{

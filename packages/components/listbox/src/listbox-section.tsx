@@ -130,6 +130,6 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
   },
 );
 
-ListboxSection.displayName = "NextUI.ListboxSection";
+ListboxSection.displayName = "HeorUI.ListboxSection";
 
 export default ListboxSection;

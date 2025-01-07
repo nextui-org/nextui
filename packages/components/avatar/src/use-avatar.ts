@@ -1,5 +1,5 @@
 import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@heroui/theme";
-import type {DOMElement, DOMAttributes, HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {DOMElement, DOMAttributes, HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {avatar} from "@heroui/theme";
 import {useProviderContext} from "@heroui/system";
@@ -13,7 +13,7 @@ import {useHover} from "@react-aria/interactions";
 
 import {useAvatarGroupContext} from "./avatar-group-context";
 
-interface Props extends HTMLNextUIProps<"span"> {
+interface Props extends HTMLHeroUIProps<"span"> {
   /**
    * Ref to the DOM node.
    */

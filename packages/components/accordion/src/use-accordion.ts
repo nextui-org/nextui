@@ -1,7 +1,7 @@
 import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@heroui/theme";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {useProviderContext} from "@heroui/system";
 import {ReactRef, filterDOMProps} from "@heroui/react-utils";
@@ -16,7 +16,7 @@ import {useReactAriaAccordion} from "@heroui/use-aria-accordion";
 
 import {AccordionItemProps} from "./accordion-item";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

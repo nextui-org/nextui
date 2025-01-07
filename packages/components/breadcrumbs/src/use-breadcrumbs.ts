@@ -2,7 +2,7 @@ import type {BreadcrumbsVariantProps, SlotsToClasses, BreadcrumbsSlots} from "@h
 import type {AriaBreadcrumbsProps} from "@react-types/breadcrumbs";
 
 import {Children, ReactNode, Key, ReactElement} from "react";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {breadcrumbs} from "@heroui/theme";
 import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@heroui/react-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -43,7 +43,7 @@ type RenderEllipsisItemProps = {
   separator: ReactNode;
 };
 
-interface Props extends HTMLNextUIProps<"nav">, AriaBreadcrumbsProps {
+interface Props extends HTMLHeroUIProps<"nav">, AriaBreadcrumbsProps {
   /**
    * Ref to the DOM node.
    */

@@ -11,7 +11,7 @@ import {useLocale} from "@react-aria/i18n";
 import {createCalendar, CalendarDate, DateFormatter} from "@internationalized/date";
 import {mergeProps} from "@react-aria/utils";
 import {PropGetter, useProviderContext} from "@heroui/system";
-import {HTMLNextUIProps, mapPropsVariants} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {useDateField as useAriaDateField} from "@react-aria/datepicker";
 import {useDateFieldState} from "@react-stately/datepicker";
@@ -20,12 +20,12 @@ import {dateInput, cn} from "@heroui/theme";
 import {useMemo} from "react";
 import {FormContext, useSlottedContext} from "@heroui/form";
 
-type NextUIBaseProps<T extends DateValue> = Omit<
-  HTMLNextUIProps<"div">,
+type HeroUIBaseProps<T extends DateValue> = Omit<
+  HTMLHeroUIProps<"div">,
   keyof AriaDateFieldProps<T> | "onChange"
 >;
 
-interface Props<T extends DateValue> extends NextUIBaseProps<T> {
+interface Props<T extends DateValue> extends HeroUIBaseProps<T> {
   /**
    * Ref to the DOM node.
    */

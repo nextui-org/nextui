@@ -1,7 +1,7 @@
 import type {AriaTabPanelProps} from "@react-aria/tabs";
 
 import {Key} from "@react-types/shared";
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, getInertValue} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
@@ -10,7 +10,7 @@ import {useFocusRing} from "@react-aria/focus";
 
 import {ValuesType} from "./use-tabs";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Whether to destroy inactive tab panel when switching tabs.
    * Inactive tab panels are inert and cannot be interacted with.
@@ -81,6 +81,6 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
   );
 });
 
-TabPanel.displayName = "NextUI.TabPanel";
+TabPanel.displayName = "HeorUI.TabPanel";
 
 export default TabPanel;

@@ -1,4 +1,4 @@
-import type {HTMLNextUIProps} from "../src/types";
+import type {HTMLHeroUIProps} from "../src/types";
 import type {VariantProps} from "@heroui/theme";
 
 import React, {useMemo} from "react";
@@ -55,7 +55,7 @@ const button = tv({
   ],
 });
 
-interface ButtonProps extends HTMLNextUIProps<"button">, VariantProps<typeof button> {
+interface ButtonProps extends HTMLHeroUIProps<"button">, VariantProps<typeof button> {
   children: React.ReactNode;
   disableRipple?: boolean;
   ref?: ReactRef<HTMLButtonElement | null>;

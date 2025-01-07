@@ -1,5 +1,5 @@
 import {AriaToggleButtonProps, useToggleButton as useAriaToggleButton} from "@react-aria/button";
-import {forwardRef, HTMLNextUIProps} from "@heroui/system";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
 import {useDOMRef} from "@heroui/react-utils";
 import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useToggleState} from "@react-stately/toggle";
@@ -10,7 +10,7 @@ import {useMemo, ReactNode} from "react";
 
 import {useNavbarContext} from "./navbar-context";
 
-export interface Props extends Omit<HTMLNextUIProps<"button">, keyof AriaToggleButtonProps> {
+export interface Props extends Omit<HTMLHeroUIProps<"button">, keyof AriaToggleButtonProps> {
   /**
    * The value of the input element, used when submitting an HTML form. See [MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#htmlattrdefvalue).
    */
@@ -89,6 +89,6 @@ const NavbarMenuToggle = forwardRef<"button", NavbarMenuToggleProps>((props, ref
   );
 });
 
-NavbarMenuToggle.displayName = "NextUI.NavbarMenuToggle";
+NavbarMenuToggle.displayName = "HeorUI.NavbarMenuToggle";
 
 export default NavbarMenuToggle;

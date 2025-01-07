@@ -1,6 +1,6 @@
 import type {PaginationSlots, PaginationVariantProps, SlotsToClasses} from "@heroui/theme";
 import type {Key, ReactNode, Ref} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {objectToDeps, Timer} from "@heroui/shared-utils";
 import {useLocale} from "@react-aria/i18n";
@@ -108,7 +108,7 @@ export type PaginationItemRenderProps = {
   getAriaLabel?: (page?: PaginationItemValue) => string | undefined;
 };
 
-interface Props extends Omit<HTMLNextUIProps<"nav">, "onChange"> {
+interface Props extends Omit<HTMLHeroUIProps<"nav">, "onChange"> {
   /**
    * Ref to the DOM node.
    */

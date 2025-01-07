@@ -75,6 +75,6 @@ const InputOtp = forwardRef<"input", InputOtpProps>((props, ref) => {
   );
 });
 
-InputOtp.displayName = "NextUI.InputOtp";
+InputOtp.displayName = "HeorUI.InputOtp";
 
 export default InputOtp;

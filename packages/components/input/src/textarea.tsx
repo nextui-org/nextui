@@ -168,6 +168,6 @@ const Textarea = forwardRef<"textarea", TextAreaProps>(
   },
 );
 
-Textarea.displayName = "NextUI.Textarea";
+Textarea.displayName = "HeorUI.Textarea";
 
 export default Textarea;

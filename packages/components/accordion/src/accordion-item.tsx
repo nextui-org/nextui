@@ -126,6 +126,6 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   );
 });
 
-AccordionItem.displayName = "NextUI.AccordionItem";
+AccordionItem.displayName = "HeorUI.AccordionItem";
 
 export default AccordionItem;

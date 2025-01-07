@@ -1,5 +1,5 @@
 import type {Ref} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 
 import {useMemo} from "react";
@@ -10,7 +10,7 @@ import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
-interface Props extends Omit<HTMLNextUIProps<"li">, "onClick"> {
+interface Props extends Omit<HTMLHeroUIProps<"li">, "onClick"> {
   /**
    * Ref to the DOM node.
    */
@@ -34,7 +34,7 @@ interface Props extends Omit<HTMLNextUIProps<"li">, "onClick"> {
    * @param e MouseEvent
    * @deprecated Use `onPress` instead.
    */
-  onClick?: HTMLNextUIProps<"li">["onClick"];
+  onClick?: HTMLHeroUIProps<"li">["onClick"];
   /**
    * Callback fired when the item is clicked.
    * @param e PressEvent

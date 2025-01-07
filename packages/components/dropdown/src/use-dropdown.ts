@@ -1,7 +1,7 @@
 import type {PopoverProps} from "@heroui/popover";
 import type {MenuTriggerType} from "@react-types/menu";
 import type {Ref} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@heroui/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {useProviderContext} from "@heroui/system";
 import {useMenuTriggerState} from "@react-stately/menu";
@@ -15,7 +15,7 @@ import {mergeProps} from "@react-aria/utils";
 import {MenuProps} from "@heroui/menu";
 import {CollectionElement} from "@react-types/shared";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Type of overlay that is opened by the trigger.
    */

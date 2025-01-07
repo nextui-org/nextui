@@ -2,7 +2,7 @@ import type {BreadcrumbItemVariantProps, SlotsToClasses, BreadcrumbItemSlots} fr
 import type {ReactNode} from "react";
 import type {BreadcrumbItemProps as AriaBreadcrumbItemProps} from "@react-types/breadcrumbs";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
 import {useFocusRing} from "@react-aria/focus";
 import {breadcrumbItem} from "@heroui/theme";
 import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
@@ -12,7 +12,7 @@ import {useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 
 interface Props
-  extends Omit<HTMLNextUIProps<"li">, keyof AriaBreadcrumbItemProps>,
+  extends Omit<HTMLHeroUIProps<"li">, keyof AriaBreadcrumbItemProps>,
     AriaBreadcrumbItemProps {
   /**
    * Ref to the DOM node.

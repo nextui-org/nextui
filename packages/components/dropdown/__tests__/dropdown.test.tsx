@@ -494,7 +494,7 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // NextUI Element that supports isDisabled prop in DropdownTrigger
+    // HeroUI Element that supports isDisabled prop in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -508,12 +508,12 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // NextUI Element that doesn't support isDisabled prop in DropdownTrigger
+    // HeroUI Element that doesn't support isDisabled prop in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
           <Image
-            alt="NextUI hero Image"
+            alt="HeroUI hero Image"
             src="https://heroui.com/images/hero-card-complete.jpeg"
             width={300}
           />

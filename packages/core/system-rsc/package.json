@@ -1,7 +1,7 @@
 {
   "name": "@heroui/system-rsc",
   "version": "2.3.5",
-  "description": "NextUI system primitives compatibles with RSC imports",
+  "description": "HeroUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
   ],

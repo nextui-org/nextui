@@ -9,13 +9,13 @@ import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {PressEvent, useHover} from "@react-aria/interactions";
 import {useAriaButton} from "@heroui/use-aria-button";
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {ReactRef, filterDOMProps} from "@heroui/react-utils";
 import {useDOMRef} from "@heroui/react-utils";
 import {useRipple} from "@heroui/ripple";
 
-export interface Props extends Omit<HTMLNextUIProps<"div">, "onClick"> {
+export interface Props extends Omit<HTMLHeroUIProps<"div">, "onClick"> {
   /**
    * Ref to the DOM node.
    */
