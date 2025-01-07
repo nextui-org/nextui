@@ -1,8 +1,8 @@
-# Next UI Contributing Guide
+# HeroUI Contributing Guide
 
-Hello!, I am very excited that you are interested in contributing with Next UI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
+Hello!, I am very excited that you are interested in contributing with HeroUI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
 
-- [Code of Conduct](https://github.com/jrgarciadev/nextui/blob/main/CODE_OF_CONDUCT.md)
+- [Code of Conduct](https://github.com/frontio-ai/heroui/blob/canary/CODE_OF_CONDUCT.md)
 - [Extraction request guidelines](#pull-request-guidelines)
 - [Development Setup](#development-setup)
 - [Tests](#tests)
@@ -235,7 +235,7 @@ best to be proactive in reaching out to those that are already helping out.
 GitHub by default does not publicly state that you are a member of the
 organization. Please feel free to change that setting for yourself so others
 will know who's helping out. That can be configured on the [organization
-list](https://github.com/orgs/nextui-org/people) page.
+list](https://github.com/orgs/frontio-ai/people) page.
 
 Being a maintainer is not an obligation. You can help when you have time and be
 less active when you don't. If you get a new job and get busy, that's alright.
