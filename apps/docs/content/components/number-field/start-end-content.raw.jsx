@@ -32,7 +32,6 @@ export default function App() {
               <span className="text-default-400 text-small">$</span>
             </div>
           }
-          type="number"
         />
         <NumberField
           endContent={
@@ -59,7 +58,6 @@ export default function App() {
               <span className="text-default-400 text-small">$</span>
             </div>
           }
-          type="number"
         />
       </div>
     </div>
