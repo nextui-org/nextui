@@ -79,7 +79,7 @@ https://www.conventionalcommits.org/ or check out the
    commit type. `scope` is just a short id that describes the scope of work.
 
 3. Make and commit your changes following the
-   [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
+   [commit convention](https://github.com/frontio-ai/heroui/blob/main/CONTRIBUTING.md#commit-convention).
    As you canary, you can run `pnpm build --filter=<module>` and
    `pnpm test packages/<module>/<pkg>` e.g. `pnpm build --filter=avatar & pnpm test packages/components/avatar` to make sure everything works as expected.
 

@@ -21,7 +21,7 @@ interface GithubInfo {
 
 async function getGithubInfo() {
   try {
-    const response = await fetch('https://api.github.com/repos/nextui-org/nextui');
+    const response = await fetch('https://api.github.com/repos/frontio-ai/heroui');
     const data = await response.json() as any;
 
     const githubInfo: GithubInfo = {

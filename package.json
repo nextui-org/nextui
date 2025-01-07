@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/nextui-org/nextui"
+    "url": "https://github.com/frontio-ai/heroui"
   },
   "scripts": {
     "dev": "pnpm sb",

@@ -29,7 +29,7 @@ export default function App() {
       isExternal
       showAnchorIcon
       anchorIcon={<AnchorIcon />}
-      href="https://github.com/nextui-org/nextui"
+      href="https://github.com/frontio-ai/heroui"
     >
       Custom Icon
     </Link>
