@@ -74,16 +74,16 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
         <div>
           <div {...getTitleProps()}>{props.toast.content.title}</div>
           <div {...getDescriptionProps()}>{props.toast.content.description}</div>
-          {isProgressBarVisible && (
-            <div className={slots.progressTrack({class: classNames?.progressTrack})}>
-              <div
-                ref={progressBarRef}
-                className={slots.progressIndicator({class: classNames?.progressIndicator})}
-              />
-            </div>
-          )}
         </div>
       </main>
+      {isProgressBarVisible && (
+        <div className={slots.progressTrack({class: classNames?.progressTrack})}>
+          <div
+            ref={progressBarRef}
+            className={slots.progressIndicator({class: classNames?.progressIndicator})}
+          />
+        </div>
+      )}
       <Button isIconOnly {...(getCloseButtonProps() as ButtonProps)}>
         <CloseIcon {...getCloseIconProps()} />
       </Button>
