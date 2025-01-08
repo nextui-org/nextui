@@ -22,7 +22,7 @@ The easiest way to migrate your NextUI project to HeroUI is using our official c
 Execute the codemod in your project directory:
 
 ```bash
-npx @heroui/codemod migrate
+npx @heroui/codemod@latest migrate
 ```
 
 This will automatically:
@@ -31,6 +31,7 @@ This will automatically:
 - Update TailwindCSS configuration
 - Transform provider components
 - Adjust any NextUI-specific utilities or hooks
+- Update `.npmrc` file pnpm only
 
 </Steps>
 
@@ -121,6 +122,18 @@ import {Button} from "@heroui/button";
 import {Input} from "@heroui/input";
 import {heroui} from "@heroui/theme";
 import {HeroUIProvider} from "@heroui/react";
+```
+
+### Npmrc Pnpm Only
+
+If you are using pnpm, you need to update your .npmrc file to use the new package name:
+
+```bash
+# Before
+public-hoist-pattern[]=*@nextui-org/*
+
+# After
+public-hoist-pattern[]=*@heroui/*
 ```
 
 </Steps>
