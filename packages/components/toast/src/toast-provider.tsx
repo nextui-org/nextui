@@ -57,7 +57,6 @@ export const addToast = ({...props}: ToastProps & ToastOptions) => {
   }
 
   const options: Partial<ToastOptions> = {
-    timeout: props?.timeout,
     priority: props?.priority,
   };
 
