@@ -299,9 +299,15 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       "data-has-title": dataAttr(!isEmpty(title)),
       "data-has-description": dataAttr(!isEmpty(description)),
       "data-toast": true,
+      "data-animation": originalProps.toast.animation,
+      onTransitionEnd: () => {
+        if (originalProps.toast.animation === "exiting") {
+          state.remove(originalProps.toast.key);
+        }
+      },
       ...mergeProps(props, otherProps, toastProps, hoverProps),
     }),
-    [slots, classNames, toastProps, hoverProps],
+    [slots, classNames, toastProps, hoverProps, originalProps.toast.animation],
   );
 
   const getIconProps: PropGetter = useCallback(

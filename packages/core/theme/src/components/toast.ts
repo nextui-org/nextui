@@ -109,9 +109,11 @@ const toast = tv({
     disableAnimation: {
       true: {
         closeButton: "transition-none",
+        base: "data-[animation=exiting]:opacity-0",
       },
       false: {
         closeButton: "transition-opacity ease-in duration-300",
+        base: "data-[animation=exiting]:transition data-[animation=exiting]:ease-out data-[animation=exiting]:duration-200 data-[animation=exiting]:opacity-0",
       },
     },
     shadow: {
