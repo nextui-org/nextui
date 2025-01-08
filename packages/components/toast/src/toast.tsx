@@ -61,7 +61,10 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
       : null;
   const loadingIconComponent = isLoading
     ? customLoadingIcon || (
-        <Spinner classNames={{wrapper: getLoadingIconProps().className}} color={color} />
+        <Spinner
+          classNames={{wrapper: getLoadingIconProps().className}}
+          color={color ?? "default"}
+        />
       )
     : null;
 

@@ -78,7 +78,6 @@ const Template = (args: ToastProps) => {
           onPress={() => {
             addToast({
               title: "Toast Title",
-              description: "Toast Displayed Successfully",
               ...args,
             });
           }}
@@ -270,6 +269,14 @@ const CustomToastTemplate = (args) => {
 export const Default = {
   render: Template,
   args: {
+    ...defaultProps,
+  },
+};
+
+export const WithDescription = {
+  render: Template,
+  args: {
+    description: "Toast displayed successfully.",
     ...defaultProps,
   },
 };
