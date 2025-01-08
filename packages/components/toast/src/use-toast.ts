@@ -80,9 +80,9 @@ export interface ToastProps extends ToastVariantProps {
    */
   timeout?: number;
   /**
-   * Position of the toast in the view-port.
+   * Placement of the toast in the view-port.
    */
-  position?:
+  placement?:
     | "right-bottom"
     | "left-bottom"
     | "center-bottom"
@@ -120,7 +120,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     toast,
     endContent,
     hideIcon = false,
-    position = "right-bottom",
+    placement = "right-bottom",
     isRegionExpanded,
     state,
     total = 1,
@@ -263,8 +263,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     [objectToDeps(variantProps)],
   );
 
-  const multiplier = position.includes("top") ? 1 : -1;
-  const toastVariants = position.includes("bottom")
+  const multiplier = placement.includes("top") ? 1 : -1;
+  const toastVariants = placement.includes("bottom")
     ? {
         hidden: {opacity: 0, y: 50},
         visible: {opacity: 1, y: 0},
@@ -277,10 +277,10 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       };
   const [drag, setDrag] = useState(false);
   const handleDragEnd = (offsetX: number, offsetY: number) => {
-    const isRight = position.includes("right");
-    const isLeft = position.includes("left");
-    const isTop = position.includes("top");
-    const isBottom = position.includes("bottom");
+    const isRight = placement.includes("right");
+    const isLeft = placement.includes("left");
+    const isTop = placement.includes("top");
+    const isBottom = placement.includes("bottom");
 
     if (
       (isRight && offsetX >= 50) ||
@@ -367,11 +367,11 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       props = {},
     ): MotionProps & {
       "data-drag": string | boolean;
-      "data-position": string;
+      "data-placement": string;
       className: string;
     } => {
       const isCloseToEnd = total - index - 1 <= 2;
-      const dragDirection = position.includes("center") ? "y" : "x";
+      const dragDirection = placement.includes("center") ? "y" : "x";
       const dragConstraints = {left: 0, right: 0, top: 0, bottom: 0};
 
       return {
@@ -398,7 +398,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
           setDrag(true);
         },
         "data-drag": dataAttr(drag),
-        "data-position": position,
+        "data-placement": placement,
         className: slots.motionDiv({class: classNames?.motionDiv}),
         ...props,
       };
@@ -407,7 +407,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       closeButtonProps,
       total,
       index,
-      position,
+      placement,
       isRegionExpanded,
       liftHeight,
       multiplier,
@@ -433,7 +433,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     classNames,
     color: variantProps["color"],
     hideIcon,
-    position,
+    placement,
     state,
     toast: props.toast,
     disableAnimation,

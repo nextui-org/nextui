@@ -11,7 +11,7 @@ export default {
   argTypes: {
     variant: {
       control: {type: "select"},
-      options: ["faded", "flat", "bordered", "solid"],
+      options: ["flat", "bordered", "solid"],
     },
     color: {
       control: {type: "select"},
@@ -25,17 +25,16 @@ export default {
       control: {type: "select"},
       options: ["sm", "md", "lg"],
     },
-    isDisabled: {
-      control: {
-        type: "boolean",
-      },
-    },
     hideIcon: {
       control: {
         type: "boolean",
       },
     },
-    position: {
+    shadow: {
+      control: {type: "select"},
+      options: ["sm", "md", "lg"],
+    },
+    placement: {
       control: {type: "select"},
       options: [
         "right-bottom",
@@ -72,7 +71,7 @@ const defaultProps = {
 const Template = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider position={args.position} />
+      <ToastProvider placement={args.placement} />
       <div>
         <Button
           onPress={() => {
@@ -92,7 +91,7 @@ const Template = (args: ToastProps) => {
 const TimeoutTemplate = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider position={args.position} />
+      <ToastProvider placement={args.placement} />
       <Button
         onPress={() => {
           addToast({
@@ -112,7 +111,7 @@ const TimeoutTemplate = (args: ToastProps) => {
 const WithEndContentTemplate = (args) => {
   return (
     <>
-      <ToastProvider position={args.position} />
+      <ToastProvider placement={args.placement} />
       <Button
         onPress={() => {
           addToast({
@@ -135,10 +134,10 @@ const WithEndContentTemplate = (args) => {
   );
 };
 
-const PositionTemplate = (args: ToastProps) => {
+const PlacementTemplate = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider position={args.position} />
+      <ToastProvider placement={args.placement} />
       <div>
         <Button
           onPress={() => {
@@ -159,7 +158,7 @@ const PositionTemplate = (args: ToastProps) => {
 const DisableAnimationTemplate = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider disableAnimation={true} position={args.position} />
+      <ToastProvider disableAnimation={true} placement={args.placement} />
       <div>
         <Button
           onPress={() => {
@@ -180,7 +179,7 @@ const DisableAnimationTemplate = (args: ToastProps) => {
 const PromiseToastTemplate = (args: ToastProps) => {
   return (
     <>
-      <ToastProvider position={args.position} />
+      <ToastProvider placement={args.placement} />
       <div>
         <Button
           onPress={() => {
@@ -256,7 +255,7 @@ const CustomToastTemplate = (args) => {
 
   return (
     <>
-      <ToastProvider position={args.position} />
+      <ToastProvider placement={args.placement} />
       <div className="flex gap-2">
         {colors.map((color, idx) => (
           <CustomToastComponent key={idx} color={color} />
@@ -336,8 +335,8 @@ export const WithTimeout = {
   },
 };
 
-export const Position = {
-  render: PositionTemplate,
+export const Placement = {
+  render: PlacementTemplate,
   args: {
     ...defaultProps,
   },

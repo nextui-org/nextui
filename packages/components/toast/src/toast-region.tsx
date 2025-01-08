@@ -10,7 +10,7 @@ import {ToastProps} from "./use-toast";
 
 interface ToastRegionProps<T> extends AriaToastRegionProps {
   toastQueue: ToastState<T>;
-  position?:
+  placement?:
     | "right-bottom"
     | "left-bottom"
     | "center-bottom"
@@ -23,7 +23,7 @@ interface ToastRegionProps<T> extends AriaToastRegionProps {
 
 export function ToastRegion<T extends ToastProps>({
   toastQueue,
-  position,
+  placement,
   disableAnimation,
   maxVisibleToasts,
   ...props
@@ -54,7 +54,7 @@ export function ToastRegion<T extends ToastProps>({
     };
   }, []);
 
-  const positionStyles: Record<string, string> = {
+  const placementStyles: Record<string, string> = {
     "right-bottom": "fixed flex flex-col bottom-0 right-0 pr-2",
     "left-bottom": "fixed flex flex-col bottom-0 left-0 pl-2",
     "center-bottom": "fixed flex flex-col bottom-0 left-1/2 -translate-x-1/2",
@@ -62,7 +62,7 @@ export function ToastRegion<T extends ToastProps>({
     "left-top": "fixed flex flex-col top-0 left-0 pl-2",
     "center-top": "fixed flex flex-col top-0 left-1/2 -translate-x-1/2",
   };
-  const positionStyle = position ? positionStyles[position] : positionStyles["right-bottom"];
+  const placementStyle = placement ? placementStyles[placement] : placementStyles["right-bottom"];
   const [heights, setHeights] = useState<number[]>([]);
   const total = toastQueue.visibleToasts.length;
   const handleTouchStart = () => {
@@ -73,8 +73,8 @@ export function ToastRegion<T extends ToastProps>({
     <div
       {...mergeProps(regionProps, hoverProps)}
       ref={ref}
-      className={clsx(disableAnimation ? positionStyle : "")}
-      data-position={position}
+      className={clsx(disableAnimation ? placementStyle : "")}
+      data-placement={placement}
       onTouchStart={handleTouchStart}
     >
       {toastQueue.visibleToasts.map((toast: QueuedToast<ToastProps>, index) => {
@@ -93,7 +93,7 @@ export function ToastRegion<T extends ToastProps>({
               heights={heights}
               index={index}
               isRegionExpanded={isHovered || isTouched}
-              position={position}
+              placement={placement}
               setHeights={setHeights}
               total={total}
             />
