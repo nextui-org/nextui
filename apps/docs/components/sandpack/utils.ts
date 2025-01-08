@@ -79,7 +79,7 @@ export function getHeroUIComponents(files: SandpackFiles): {[filePath: string]: 
     const code = typeof file === "string" ? file : file.code;
 
     // Extract the import statements
-    const importStatements = extractNextUIImport(code);
+    const importStatements = extractHeroUIImport(code);
 
     // Convert the import statements
     const convertedImports = importStatements.map(convertImportStatement);
@@ -91,7 +91,7 @@ export function getHeroUIComponents(files: SandpackFiles): {[filePath: string]: 
   return output;
 }
 
-export function extractNextUIImport(code: string): string[] {
+export function extractHeroUIImport(code: string): string[] {
   // Split the code into lines
   const lines = code.split("\n");
 
