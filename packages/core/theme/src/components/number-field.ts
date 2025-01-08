@@ -50,7 +50,7 @@ const numberField = tv({
       "sm:group-data-[hover=true]:peer-data-[filled=true]:pointer-events-auto",
     ],
     stepperButton: ["bg-transparent", "min-w-5", "w-5", "h-4", "rounded-none"],
-    verticalStepperWrapper: ["flex flex-col"],
+    verticalStepperWrapper: ["flex", "flex-col", "ps-1"],
     helperWrapper: "hidden group-data-[has-helper=true]:flex py-2 relative flex-col gap-1.5",
     description: [...numberFieldLabelClasses, "text-tiny", "text-default-400"],
     helperText: "text-tiny text-foreground-400",
