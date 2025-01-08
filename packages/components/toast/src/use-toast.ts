@@ -67,6 +67,10 @@ export interface ToastProps extends ToastVariantProps {
    */
   icon?: ReactNode;
   /**
+   * Icon to be displayed in the loading toast - overrides the loading icon
+   */
+  loadingIcon?: ReactNode;
+  /**
    * Whether the toast-icon should be hidden.
    * @default false
    */
@@ -197,6 +201,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
 
   const Component = as || "div";
   const icon: ReactNode = props.icon;
+  const loadingIcon: ReactNode = props.icon;
 
   const domRef = useDOMRef(ref);
   const baseStyles = clsx(className, classNames?.base);
@@ -301,6 +306,14 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const getIconProps: PropGetter = useCallback(
     (props = {}) => ({
       className: slots.icon({class: classNames?.icon}),
+      ...props,
+    }),
+    [],
+  );
+
+  const getLoadingIconProps: PropGetter = useCallback(
+    (props = {}) => ({
+      className: slots.loadingIcon({class: classNames?.loadingIcon}),
       ...props,
     }),
     [],
@@ -414,6 +427,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     title,
     description,
     icon,
+    loadingIcon,
     domRef,
     classNames,
     color: variantProps["color"],
@@ -433,6 +447,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     getIconProps,
     getMotionDivProps,
     getCloseIconProps,
+    getLoadingIconProps,
     progressBarRef,
     endContent,
     slots,

@@ -6,10 +6,11 @@ import {
   InfoFilledIcon,
   SuccessIcon,
   WarningIcon,
-  LoadingIcon,
 } from "@nextui-org/shared-icons";
 import {motion, AnimatePresence} from "framer-motion";
 import {cloneElement, isValidElement} from "react";
+
+import {Spinner} from "../../spinner/src";
 
 import {UseToastProps, useToast} from "./use-toast";
 
@@ -27,6 +28,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
   const {
     Component,
     icon,
+    loadingIcon,
     domRef,
     endContent,
     color,
@@ -44,6 +46,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
     getIconProps,
     getMotionDivProps,
     getCloseIconProps,
+    getLoadingIconProps,
     isLoading,
   } = useToast({
     ...props,
@@ -52,14 +55,22 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
 
   const customIcon = icon && isValidElement(icon) ? cloneElement(icon, getIconProps()) : null;
   const IconComponent = iconMap[color] || iconMap.primary;
-  const loadingIcon = isLoading ? <LoadingIcon /> : null;
+  const customLoadingIcon =
+    loadingIcon && isValidElement(loadingIcon)
+      ? cloneElement(loadingIcon, getLoadingIconProps())
+      : null;
+  const loadingIconComponent = isLoading
+    ? customLoadingIcon || (
+        <Spinner classNames={{wrapper: getLoadingIconProps().className}} color={color} />
+      )
+    : null;
 
   const toastContent = (
     <Component ref={domRef} {...getToastProps()}>
       <main {...getContentProps()}>
         {hideIcon && !isLoading
           ? null
-          : loadingIcon || customIcon || <IconComponent {...getIconProps()} />}
+          : loadingIconComponent || customIcon || <IconComponent {...getIconProps()} />}
         <div>
           <div {...getTitleProps()}>{props.toast.content.title}</div>
           <div {...getDescriptionProps()}>{props.toast.content.description}</div>

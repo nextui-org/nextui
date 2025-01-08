@@ -20,6 +20,7 @@ const toast = tv({
     title: ["font-medium", "text-small", "me-4", "text-foreground"],
     description: ["text-small", "me-4", "text-default-600"],
     icon: ["w-6 h-6 fill-current"],
+    loadingIcon: ["w-6 h-6 fill-current"],
     content: ["flex flex-grow flex-row gap-x-4 items-center relative"],
     progressTrack: ["absolute h-[2px] left-0 -bottom-2 w-full bg-default-200"],
     progressIndicator: ["absolute h-[2px] left-0 bg-default-400"],
@@ -44,6 +45,7 @@ const toast = tv({
     size: {
       sm: {
         icon: "w-4 h-4",
+        loadingIcon: "w-4 h-4",
         title: "text-sm font-medium",
         description: "text-xs font-light",
       },
