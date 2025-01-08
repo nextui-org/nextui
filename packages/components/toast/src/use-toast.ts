@@ -9,6 +9,7 @@ import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
 import {MotionProps} from "framer-motion";
+import {useHover} from "@react-aria/interactions";
 
 export interface ToastProps extends ToastVariantProps {
   /**
@@ -71,6 +72,10 @@ export interface ToastProps extends ToastVariantProps {
    */
   hideIcon?: boolean;
   /**
+   * Time to auto-close the toast.
+   */
+  timeout?: number;
+  /**
    * Position of the toast in the view-port.
    */
   position?:
@@ -101,58 +106,6 @@ export type UseToastProps<T = ToastProps> = Props<T> &
 
 export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) {
   const [props, variantProps] = mapPropsVariants(originalProps, toastTheme.variantKeys);
-
-  const [isToastHovered, setIsToastHovered] = useState(false);
-  const disableAnimation = originalProps.disableAnimation;
-
-  const animationRef = useRef<number | null>(null);
-  const startTime = useRef<number | null>(null);
-  const progressRef = useRef<number>(0);
-  const progressBarRef = useRef<HTMLDivElement>(null);
-  const pausedTime = useRef<number>(0);
-
-  useEffect(() => {
-    const updateProgress = (timestamp: number) => {
-      const timeout = props.toast.timeout;
-
-      if (!timeout) {
-        return;
-      }
-
-      if (startTime.current === null) {
-        startTime.current = timestamp;
-      }
-
-      if (isToastHovered) {
-        pausedTime.current += timestamp - startTime.current;
-        startTime.current = null;
-        animationRef.current = requestAnimationFrame(updateProgress);
-
-        return;
-      }
-
-      const elapsed = timestamp - startTime.current + pausedTime.current;
-
-      progressRef.current = Math.min((elapsed / timeout) * 100, 100);
-
-      if (progressBarRef.current) {
-        progressBarRef.current.style.width = `${progressRef.current}%`;
-      }
-
-      if (progressRef.current < 100) {
-        animationRef.current = requestAnimationFrame(updateProgress);
-      }
-    };
-
-    animationRef.current = requestAnimationFrame(updateProgress);
-
-    return () => {
-      if (animationRef.current !== null) {
-        cancelAnimationFrame(animationRef.current);
-      }
-    };
-  }, [props.toast.timeout, isToastHovered]);
-
   const {
     ref,
     as,
@@ -173,6 +126,65 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     setHeights,
     ...otherProps
   } = props;
+
+  const {isHovered: isToastHovered, hoverProps} = useHover({
+    isDisabled: false,
+  });
+  const disableAnimation = originalProps.disableAnimation;
+
+  const animationRef = useRef<number | null>(null);
+  const startTime = useRef<number | null>(null);
+  const progressRef = useRef<number>(0);
+  const progressBarRef = useRef<HTMLDivElement>(null);
+  const pausedTime = useRef<number>(0);
+  const timeElapsed = useRef<number>(0);
+
+  useEffect(() => {
+    const updateProgress = (timestamp: number) => {
+      const timeout = props.timeout;
+
+      if (!timeout) {
+        return;
+      }
+
+      if (startTime.current === null) {
+        startTime.current = timestamp;
+      }
+
+      if (isToastHovered || isRegionExpanded || index != total - 1) {
+        pausedTime.current += timestamp - startTime.current;
+        startTime.current = null;
+        animationRef.current = requestAnimationFrame(updateProgress);
+
+        return;
+      }
+
+      const elapsed = timestamp - startTime.current + pausedTime.current;
+
+      timeElapsed.current = elapsed;
+      if (timeElapsed.current >= timeout) {
+        props.state.close(toast.key);
+      }
+
+      progressRef.current = Math.min((elapsed / timeout) * 100, 100);
+
+      if (progressBarRef.current) {
+        progressBarRef.current.style.width = `${progressRef.current}%`;
+      }
+
+      if (progressRef.current < 100) {
+        animationRef.current = requestAnimationFrame(updateProgress);
+      }
+    };
+
+    animationRef.current = requestAnimationFrame(updateProgress);
+
+    return () => {
+      if (animationRef.current !== null) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [props.timeout, isToastHovered, index, total, isRegionExpanded]);
 
   const [isLoading, setIsLoading] = useState<boolean>(!!promiseProp);
 
@@ -278,26 +290,12 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     (props = {}) => ({
       ref: domRef,
       className: slots.base({class: clsx(baseStyles, classNames?.base)}),
-      onPointerEnter: () => {
-        if (!toast.timer) {
-          return;
-        }
-        setIsToastHovered(true);
-        toast.timer.pause();
-      },
-      onPointerLeave: () => {
-        if (!toast.timer) {
-          return;
-        }
-        setIsToastHovered(false);
-        toast.timer.resume();
-      },
       "data-has-title": dataAttr(!isEmpty(title)),
       "data-has-description": dataAttr(!isEmpty(description)),
       "data-toast": true,
-      ...mergeProps(props, otherProps, toastProps),
+      ...mergeProps(props, otherProps, toastProps, hoverProps),
     }),
-    [slots, classNames, toastProps],
+    [slots, classNames, toastProps, hoverProps],
   );
 
   const getIconProps: PropGetter = useCallback(
@@ -424,7 +422,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     state,
     toast: props.toast,
     disableAnimation,
-    isProgressBarVisible: !!props.toast.timeout,
+    isProgressBarVisible: !!props.timeout,
     total,
     index,
     getToastProps,
