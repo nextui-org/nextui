@@ -22,6 +22,7 @@ export const getToastQueue = () => {
   if (!globalToastQueue) {
     globalToastQueue = new ToastQueue({
       maxVisibleToasts: Infinity,
+      hasExitAnimation: true,
     });
   }
 
