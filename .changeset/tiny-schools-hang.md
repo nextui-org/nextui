@@ -2,4 +2,4 @@
 "@nextui-org/theme": patch
 ---
 
-Fix input height of select (#4321)
+Fix input height of select to avoid clipping of label (#4321)
