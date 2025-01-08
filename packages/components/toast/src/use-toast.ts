@@ -6,7 +6,7 @@ import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactNode, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
-import {mergeProps} from "@react-aria/utils";
+import {mergeProps, isAndroid, isIPhone} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
 import {MotionProps} from "framer-motion";
 import {useHover} from "@react-aria/interactions";
@@ -120,7 +120,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     toast,
     endContent,
     hideIcon = false,
-    position = "right-bottom",
+    position: positionProp,
     isRegionExpanded,
     state,
     total = 1,
@@ -130,6 +130,13 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     setHeights,
     ...otherProps
   } = props;
+
+  const isMobile = isIPhone() || isAndroid();
+  const position = isMobile
+    ? positionProp?.includes("top")
+      ? "top"
+      : "bottom"
+    : positionProp ?? "right-bottom";
 
   const {isHovered: isToastHovered, hoverProps} = useHover({
     isDisabled: false,
@@ -278,8 +285,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const handleDragEnd = (offsetX: number, offsetY: number) => {
     const isRight = position.includes("right");
     const isLeft = position.includes("left");
-    const isTop = position === "center-top";
-    const isBottom = position === "center-bottom";
+    const isTop = position.includes("top");
+    const isBottom = position.includes("bottom");
 
     if (
       (isRight && offsetX >= 50) ||

@@ -12,9 +12,9 @@ const toast = tv({
       "z-[9999]",
       "box-border",
       "outline-none",
-      "p-3 mx-1",
+      "p-3 sm:mx-1",
       "my-1",
-      "w-[210px] sm:w-[270px] md:w-[300px]",
+      "w-full sm:w-[270px] md:w-[300px]",
       "min-h-4",
     ],
     title: ["font-medium", "text-small", "me-4", "text-foreground"],
@@ -33,6 +33,8 @@ const toast = tv({
       "data-[position=right-top]:top-0 data-[position=right-top]:right-0 data-[position=right-top]:mx-auto data-[position=right-top]:w-max data-[position=right-top]:mr-2",
       "data-[position=left-top]:top-0 data-[position=left-top]:left-0 data-[position=left-top]:mx-auto data-[position=left-top]:w-max data-[position=left-top]:ml-2",
       "data-[position=center-top]:top-0 data-[position=center-top]:left-0 data-[position=center-top]:right-0 data-[position=center-top]:w-max data-[position=center-top]:mx-auto",
+      "data-[position=bottom]:bottom-0 data-[position=bottom]:left-0 data-[position=bottom]:right-0 w-full px-2",
+      "data-[position=top]:top-0 data-[position=top]:left-0 data-[position=top]:right-0 w-full px-2",
     ],
     closeButton: [
       "opacity-0 p-0 group-hover:opacity-100 w-6 h-6 min-w-4 absolute -right-2 -top-2 items-center justify-center bg-transparent text-default-400 hover:text-default-600 border border-3 border-transparent",
@@ -44,8 +46,8 @@ const toast = tv({
   variants: {
     size: {
       sm: {
-        icon: "w-4 h-4",
-        loadingIcon: "w-4 h-4",
+        icon: "w-5 h-5",
+        loadingIcon: "w-5 h-5",
         title: "text-sm font-medium",
         description: "text-xs font-light",
       },
