@@ -66,7 +66,7 @@ This plugin allows you to customize colors and layouts tokens that are used by N
 
 ```js {9,14-15}
 // tailwind.config.js
-const {nextui} = require("@heroui/react");
+const {heroui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -79,7 +79,7 @@ module.exports = {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [heroui()],
 };
 ```
 
