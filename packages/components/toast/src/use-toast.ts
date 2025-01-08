@@ -6,7 +6,7 @@ import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 import {ReactNode, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
-import {mergeProps, isAndroid, isIPhone} from "@react-aria/utils";
+import {mergeProps} from "@react-aria/utils";
 import {QueuedToast, ToastState} from "@react-stately/toast";
 import {MotionProps} from "framer-motion";
 import {useHover} from "@react-aria/interactions";
@@ -120,7 +120,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     toast,
     endContent,
     hideIcon = false,
-    position: positionProp,
+    position = "right-bottom",
     isRegionExpanded,
     state,
     total = 1,
@@ -130,13 +130,6 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     setHeights,
     ...otherProps
   } = props;
-
-  const isMobile = isIPhone() || isAndroid();
-  const position = isMobile
-    ? positionProp?.includes("top")
-      ? "top"
-      : "bottom"
-    : positionProp ?? "right-bottom";
 
   const {isHovered: isToastHovered, hoverProps} = useHover({
     isDisabled: false,
