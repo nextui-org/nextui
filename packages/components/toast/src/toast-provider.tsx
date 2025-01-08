@@ -8,7 +8,7 @@ let globalToastQueue: ToastQueue<ToastProps> | null = null;
 
 interface ToastProviderProps {
   maxVisibleToasts?: number;
-  position?:
+  placement?:
     | "right-bottom"
     | "left-bottom"
     | "center-bottom"
@@ -29,7 +29,7 @@ export const getToastQueue = () => {
 };
 
 export const ToastProvider = ({
-  position = "right-bottom",
+  placement = "right-bottom",
   disableAnimation: disableAnimationProp = false,
   maxVisibleToasts = 3,
 }: ToastProviderProps) => {
@@ -45,7 +45,7 @@ export const ToastProvider = ({
     <ToastRegion
       disableAnimation={disableAnimation}
       maxVisibleToasts={maxVisibleToasts}
-      position={position}
+      placement={placement}
       toastQueue={toastQueue}
     />
   );
