@@ -219,6 +219,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
 
   const [initialHeight, setInitialHeight] = useState<number>(0);
 
+  // Following was inspired from sonner ❤️
   useLayoutEffect(() => {
     if (!domRef.current || !mounted) {
       return;
