@@ -4,7 +4,7 @@
 
 import type {ImgHTMLAttributes, SyntheticEvent} from "react";
 
-import {useRef, useState, useEffect} from "react";
+import {useRef, useState, useEffect, useCallback} from "react";
 import {useIsHydrated} from "@nextui-org/react-utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
@@ -66,7 +66,7 @@ type ImageEvent = SyntheticEvent<HTMLImageElement, Event>;
  */
 
 export function useImage(props: UseImageProps = {}) {
-  const {onLoad, onError, ignoreFallback} = props;
+  const {onLoad, onError, ignoreFallback, src, crossOrigin, srcSet, sizes, loading} = props;
 
   const isHydrated = useIsHydrated();
 
@@ -96,9 +96,7 @@ export function useImage(props: UseImageProps = {}) {
     }
   };
 
-  const load = (): Status => {
-    const {loading, src, srcSet, crossOrigin, sizes, ignoreFallback} = props;
-
+  const load = useCallback((): Status => {
     if (!src) return "pending";
     if (ignoreFallback) return "loaded";
 
@@ -116,13 +114,13 @@ export function useImage(props: UseImageProps = {}) {
     }
 
     return "loading";
-  };
+  }, [src, crossOrigin, srcSet, sizes, onLoad, onError, loading]);
 
   useSafeLayoutEffect(() => {
-    if (isHydrated && status !== "loaded") {
+    if (isHydrated) {
       setStatus(load());
     }
-  }, [isHydrated]);
+  }, [isHydrated, load]);
 
   /**
    * If user opts out of the fallback/placeholder
