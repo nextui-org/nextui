@@ -2,6 +2,32 @@ import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
 
+const toastRegion = tv({
+  slots: {
+    base: "",
+  },
+  variants: {
+    disableAnimation: {
+      false: {
+        base: "",
+      },
+      true: {
+        base: [
+          "data-[placement=right-bottom]:bottom-0 data-[placement=right-bottom]:right-0 w-full px-2 sm:w-auto sm:px-0 data-[placement=right-bottom]:fixed data-[placement=right-bottom]:flex data-[placement=right-bottom]:flex-col",
+          "data-[placement=left-bottom]:bottom-0 data-[placement=left-bottom]:left-0 w-full px-2 sm:w-auto sm:px-0 data-[placement=left-bottom]:fixed data-[placement=left-bottom]:flex data-[placement=left-bottom]:flex-col",
+          "data-[placement=center-bottom]:bottom-0 data-[placement=center-bottom]:fixed w-full px-2 sm:w-auto sm:px-0 data-[placement=center-bottom]:flex data-[placement=center-bottom]:flex-col data-[placement=center-bottom]:left-1/2 data-[placement=center-bottom]:-translate-x-1/2",
+          "data-[placement=right-top]:top-0 data-[placement=right-top]:right-0 w-full px-2 sm:w-auto sm:px-0 data-[placement=right-top]:fixed data-[placement=right-top]:flex data-[placement=right-top]:flex-col",
+          "data-[placement=left-top]:top-0 data-[placement=left-top]:left-0 w-full px-2 sm:w-auto sm:px-0 data-[placement=left-top]:fixed data-[placement=left-top]:flex data-[placement=left-top]:flex-col",
+          "data-[placement=center-top]:top-0 data-[placement=center-top]:fixed w-full px-2 sm:w-auto sm:px-0 data-[placement=center-top]:flex data-[placement=center-top]:flex-col data-[placement=center-top]:left-1/2 data-[placement=center-top]:-translate-x-1/2",
+        ],
+      },
+    },
+  },
+  defaultVariants: {
+    disableAnimation: false,
+  },
+});
+
 const toast = tv({
   slots: {
     base: [
@@ -345,4 +371,4 @@ const toast = tv({
 export type ToastVariantProps = VariantProps<typeof toast>;
 export type ToastSlots = keyof ReturnType<typeof toast>;
 
-export {toast};
+export {toast, toastRegion};

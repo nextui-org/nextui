@@ -7,10 +7,9 @@ import {
   SuccessIcon,
   WarningIcon,
 } from "@nextui-org/shared-icons";
-import {motion, AnimatePresence} from "framer-motion";
+import {AnimatePresence, motion} from "framer-motion";
 import {cloneElement, isValidElement} from "react";
-
-import {Spinner} from "../../spinner/src";
+import {Spinner} from "@nextui-org/spinner";
 
 import {UseToastProps, useToast} from "./use-toast";
 
