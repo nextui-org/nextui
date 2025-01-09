@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       url: "https://x.com/hero_ui",
     },
   ],
-  creator: "frontioai",
+  creator: "frontio-ai",
   alternates: {
     canonical: "https://heroui.com",
     types: {

@@ -19,11 +19,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontioai/heroui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/components/storybook"
   },
   "bugs": {
-    "url": "https://github.com/frontioai/heroui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "dev": "pnpm storybook dev -p 6006",
