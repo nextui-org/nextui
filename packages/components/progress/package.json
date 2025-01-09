@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/frontioai/heroui.git",
     "directory": "packages/components/progress"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/frontioai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

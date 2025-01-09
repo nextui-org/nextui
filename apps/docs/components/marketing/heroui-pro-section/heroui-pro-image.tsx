@@ -14,8 +14,8 @@ export const HeroUIProImage = () => {
   }, []);
 
   let imgSrc = isDarkMode
-    ? "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/herouipro-section-background.webp"
-    : "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/herouipro-section-background-light.webp";
+    ? "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/nextuipro-section-background.webp"
+    : "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/nextuipro-section-background-light.webp";
 
   if (!mounted) return null;
 
