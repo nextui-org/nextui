@@ -2999,6 +2999,9 @@ importers:
 
   packages/components/toast:
     dependencies:
+      '@nextui-org/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
       '@nextui-org/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
@@ -3008,9 +3011,9 @@ importers:
       '@nextui-org/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@react-aria/button':
-        specifier: 3.9.5
-        version: 3.9.5(react@18.2.0)
+      '@nextui-org/spinner':
+        specifier: workspace:*
+        version: link:../spinner
       '@react-aria/interactions':
         specifier: 3.22.5
         version: 3.22.5(react@18.2.0)
@@ -6730,11 +6733,6 @@ packages:
 
   '@react-aria/button@3.11.0':
     resolution: {integrity: sha512-b37eIV6IW11KmNIAm65F3SEl2/mgj5BrHIysW6smZX3KoKWTGYsYfcQkmtNgY0GOSFfDxMCoolsZ6mxC00nSDA==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-aria/button@3.9.5':
-    resolution: {integrity: sha512-dgcYR6j8WDOMLKuVrtxzx4jIC05cVKDzc+HnPO8lNkBAOfjcuN5tkGRtIjLtqjMvpZHhQT5aDbgFpIaZzxgFIg==}
     peerDependencies:
       react: 18.2.0
 
@@ -18851,17 +18849,6 @@ snapshots:
       '@react-aria/focus': 3.19.0(react@18.2.0)
       '@react-aria/interactions': 3.22.5(react@18.2.0)
       '@react-aria/toolbar': 3.0.0-beta.11(react@18.2.0)
-      '@react-aria/utils': 3.26.0(react@18.2.0)
-      '@react-stately/toggle': 3.8.0(react@18.2.0)
-      '@react-types/button': 3.10.1(react@18.2.0)
-      '@react-types/shared': 3.26.0(react@18.2.0)
-      '@swc/helpers': 0.5.15
-      react: 18.2.0
-
-  '@react-aria/button@3.9.5(react@18.2.0)':
-    dependencies:
-      '@react-aria/focus': 3.19.0(react@18.2.0)
-      '@react-aria/interactions': 3.22.5(react@18.2.0)
       '@react-aria/utils': 3.26.0(react@18.2.0)
       '@react-stately/toggle': 3.8.0(react@18.2.0)
       '@react-types/button': 3.10.1(react@18.2.0)
