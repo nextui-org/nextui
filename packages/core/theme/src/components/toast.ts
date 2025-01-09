@@ -53,7 +53,6 @@ const toast = tv({
     motionDiv: [
       "fixed",
       "px-4 sm:px-0",
-      "data-[drag=true]:before:content-[''] data-[drag=true]:before:absolute data-[drag=true]:before:left-0 data-[drag=true]:before:right-0 data-[drag=true]:before:h-full data-[drag=true]:before:-z-10",
       "data-[placement=right-bottom]:bottom-0 data-[placement=right-bottom]:right-0 data-[placement=right-bottom]:mx-auto w-full sm:data-[placement=right-bottom]:w-max mb-1 sm:data-[placement=right-bottom]:mr-2",
       "data-[placement=left-bottom]:bottom-0 data-[placement=left-bottom]:left-0 data-[placement=left-bottom]:mx-auto w-full sm:data-[placement=left-bottom]:w-max mb-1 sm:data-[placement=left-bottom]:ml-2",
       "data-[placement=center-bottom]:bottom-0 data-[placement=center-bottom]:left-0 data-[placement=center-bottom]:right-0 w-full sm:data-[placement=center-bottom]:w-max sm:data-[placement=center-bottom]:mx-auto",
