@@ -169,6 +169,7 @@ export const A11yOtb = () => {
               <Dropdown
                 className="shadow-xl"
                 closeOnSelect={true}
+                isDismissable={false}
                 isOpen={isDropdownOpen}
                 placement="bottom"
                 portalContainer={ref.current}
