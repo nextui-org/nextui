@@ -4,7 +4,7 @@
 
 import type {ImgHTMLAttributes, SyntheticEvent} from "react";
 
-import {useRef, useState, useEffect, MutableRefObject} from "react";
+import {useRef, useState, useEffect} from "react";
 import {useIsHydrated} from "@nextui-org/react-utils";
 import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
 
@@ -96,42 +96,39 @@ export function useImage(props: UseImageProps = {}) {
     }
   };
 
-  useSafeLayoutEffect(() => {
-    if (isHydrated) {
-      setStatus(setImageAndGetInitialStatus(props, imageRef));
+  const load = (): Status => {
+    const {loading, src, srcSet, crossOrigin, sizes, ignoreFallback} = props;
+
+    if (!src) return "pending";
+    if (ignoreFallback) return "loaded";
+
+    const img = new Image();
+
+    img.src = src;
+    if (crossOrigin) img.crossOrigin = crossOrigin;
+    if (srcSet) img.srcset = srcSet;
+    if (sizes) img.sizes = sizes;
+    if (loading) img.loading = loading;
+
+    imageRef.current = img;
+    if (img.complete && img.naturalWidth) {
+      return "loaded";
     }
-  }, [isHydrated]);
+
+    return "loading";
+  };
+
+  useSafeLayoutEffect(() => {
+    if (isHydrated && status !== "loaded") {
+      setStatus(load());
+    }
+  }, [isHydrated, props]);
 
   /**
    * If user opts out of the fallback/placeholder
    * logic, let's just return 'loaded'
    */
   return ignoreFallback ? "loaded" : status;
-}
-
-function setImageAndGetInitialStatus(
-  props: UseImageProps,
-  imageRef: MutableRefObject<HTMLImageElement | null | undefined>,
-): Status {
-  const {loading, src, srcSet, crossOrigin, sizes, ignoreFallback} = props;
-
-  if (!src) return "pending";
-  if (ignoreFallback) return "loaded";
-
-  const img = new Image();
-
-  img.src = src;
-  if (crossOrigin) img.crossOrigin = crossOrigin;
-  if (srcSet) img.srcset = srcSet;
-  if (sizes) img.sizes = sizes;
-  if (loading) img.loading = loading;
-
-  imageRef.current = img;
-  if (img.complete && img.naturalWidth) {
-    return "loaded";
-  }
-
-  return "loading";
 }
 
 export const shouldShowFallbackImage = (status: Status, fallbackStrategy: FallbackStrategy) =>
