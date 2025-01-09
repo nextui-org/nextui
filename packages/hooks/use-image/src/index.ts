@@ -122,7 +122,7 @@ export function useImage(props: UseImageProps = {}) {
     if (isHydrated && status !== "loaded") {
       setStatus(load());
     }
-  }, [isHydrated, props]);
+  }, [isHydrated]);
 
   /**
    * If user opts out of the fallback/placeholder
