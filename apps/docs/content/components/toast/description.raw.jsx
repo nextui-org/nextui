@@ -7,7 +7,6 @@ export default function App() {
         onPress={() =>
           addToast({
             title: "Toast title",
-            description: "Toast displayed successfully",
           })
         }
       >

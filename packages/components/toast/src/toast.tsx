@@ -61,9 +61,9 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
   const loadingIconComponent = isLoading
     ? customLoadingIcon || (
         <Spinner
+          aria-label="loadingIcon"
           classNames={{wrapper: getLoadingIconProps().className}}
           color={color ?? "default"}
-          label="loadingIcon"
         />
       )
     : null;

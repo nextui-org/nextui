@@ -4,7 +4,7 @@ import {addToast, Button, ToastProvider} from "@nextui-org/react";
 export default function App() {
   return (
     <>
-      <ToastProvider position="center-bottom" />
+      <ToastProvider disableAnimation />
       <div className="flex flex-wrap gap-x-2">
         <Button
           className="w-fit m-2"
@@ -15,7 +15,7 @@ export default function App() {
             })
           }
         >
-          Show toast at right-top
+          Show toast
         </Button>
       </div>
     </>

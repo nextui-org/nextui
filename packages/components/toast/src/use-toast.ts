@@ -25,7 +25,7 @@ export interface ToastProps extends ToastVariantProps {
    */
   description?: string;
   /**
-   * Promise based on which the notification will be sent.
+   * Promise based on which the notification will be styled.
    */
   promise?: Promise<any>;
   /**
@@ -40,6 +40,7 @@ export interface ToastProps extends ToastVariantProps {
    *    content: "content-classes"
    *    description: "description-classes"
    *    title: "title-classes"
+   *    laodingIcon: "loading-icon-classes",
    *    icon: "icon-classes",
    *    progressTrack: "progress-track-classes",
    *    progressIndicator: "progress-indicator-classes",
@@ -307,6 +308,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       className: slots.base({class: clsx(baseStyles, classNames?.base)}),
       "data-has-title": dataAttr(!isEmpty(title)),
       "data-has-description": dataAttr(!isEmpty(description)),
+      "data-placement": placement,
+      "data-drag-value": dragValue,
       "data-toast": true,
       "data-animation": originalProps.toast.animation,
       "aria-label": "toast",

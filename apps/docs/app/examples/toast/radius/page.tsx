@@ -18,7 +18,6 @@ export default function App() {
                 description: "Toast displayed successfully",
                 // @ts-ignore
                 radius: radius,
-                color: "primary",
               })
             }
           >

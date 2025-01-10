@@ -1,4 +1,4 @@
-import {addToast, Button, cn, ToastProvider} from "@nextui-org/react";
+import {addToast, Button, cn} from "@nextui-org/react";
 
 const CustomToastComponent = () => {
   return (
@@ -46,7 +46,6 @@ const CustomToastComponent = () => {
 export default function App() {
   return (
     <>
-      <ToastProvider />
       <div className="flex gap-2">
         <CustomToastComponent />
       </div>
