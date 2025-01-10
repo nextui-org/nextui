@@ -1,9 +1,8 @@
-import {addToast, Button, ToastProvider} from "@nextui-org/react";
+import {addToast, Button} from "@nextui-org/react";
 
 export default function App() {
   return (
     <>
-      <ToastProvider />
       <div className="flex flex-wrap gap-x-2">
         {["none", "sm", "md", "lg", "full"].map((radius) => (
           <Button

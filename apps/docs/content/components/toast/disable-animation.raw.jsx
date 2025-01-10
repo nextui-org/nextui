@@ -10,11 +10,10 @@ export default function App() {
             addToast({
               title: "Toast title",
               description: "Toast displayed successfully",
-              hideIcon: true,
             })
           }
         >
-          Show toast with hidden icon
+          Show toast
         </Button>
       </div>
     </>

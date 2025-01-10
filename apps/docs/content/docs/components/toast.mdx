@@ -49,6 +49,16 @@ Toasts are temporary notifications that provide concise feedback about an action
   files={toastContent.usage}
 />
 
+### With Description
+
+<CodeDemo
+  asIframe
+  title="WithDescription"
+  previewHeight="300px"
+  iframeSrc="/examples/toast/with-description"
+  files={toastContent.description}
+/>
+
 ### Colors
 
 Toast comes with 6 color variants to convey different meanings.
@@ -93,7 +103,7 @@ By default, Toast displays an appropriate icon based on the `color` prop. You ca
   files={toastContent.customIcon}
 />
 
-### Without Icon
+### Icon Hidden
 
 You can hide the icon by setting the `hideIcon` prop to `true`.
 
@@ -129,14 +139,34 @@ Toast supports an `endContent` prop for additional actions.
   files={toastContent.withTimeout}
 />
 
-### Toast Position
+### Toast Placement
 
 <CodeDemo
   asIframe
-  title="Position"
+  title="Placement"
   previewHeight="400px"
-  iframeSrc="/examples/toast/position"
-  files={toastContent.position}
+  iframeSrc="/examples/toast/placement"
+  files={toastContent.placement}
+/>
+
+### Disable Animation
+
+<CodeDemo
+  asIframe
+  title="Placement"
+  previewHeight="400px"
+  iframeSrc="/examples/toast/disable-animation"
+  files={toastContent.disableAnimation}
+/>
+
+### Promise
+
+<CodeDemo
+  asIframe
+  title="Promise"
+  previewHeight="400px"
+  iframeSrc="/examples/toast/promise"
+  files={toastContent.promise}
 />
 
 ### Custom Styles
@@ -159,6 +189,9 @@ Toast has the following attributes on the `base` element:
 
 - **data-has-title**: When the toast has a title
 - **data-has-description**: When the toast has a description
+- **data-animation**: Shows the current animation of toast ("entering", "queued", "exiting", "undefined")
+- **data-placement**: Where the toast is placed on the view-port.
+- **data-drag-value**: Value by which the toast is dragged from it's original position. (This remains "0" in case of disabledAnimation)
 
 <Spacer y={4} />
 
@@ -170,10 +203,13 @@ Toast has the following slots:
 - `title`: The title element
 - `description`: The description element
 - `icon`: The icon element
+- `loadingIcon`: The icon to be displayed until `promise` is resolved/rejected.
 - `content`: The wrapper for the title, description and icon content
 - `progressTrack`: The track of the progressBar.
 - `progressIndicator`: The indicator of the progressBar.
 - `closeButton`: The close button element
+- `closeIcon`: The icon which resides in the close button.
+
 
 ## Accessibility
 
@@ -239,6 +275,18 @@ Toast has the following slots:
       default: "undefined"
     },
     {
+      attribute: "promise",
+      type: "Promise | undefined",
+      description: "Promise based on which the notification will be styled",
+      default: "undefined"
+    },
+    {
+      attribute: "loadingIcon", 
+      type: "ReactNode",
+      description: "The loading icon for toasts with promise prop - overrides the default loading icon",
+      default: "-"
+    },
+    {
       attribute: "priority",
       type: "number | undefined",
       description: "Priority at which the toast will be displayed",
@@ -264,10 +312,16 @@ Toast has the following slots:
       default: "5"
     },
     {
-      attribute: "position", 
+      attribute: "placement", 
       type: "right-bottom" | "left-bottom" | "center-bottom" | "right-top" | "left-top" | "center-top",
-      description: "The position where the toast should appear.",
+      description: "The placement of the toast.",
       default: "right-bottom"
+    },
+    {
+      attribute: "disableAnimation", 
+      type: "boolean",
+      description: "Disables the animation.",
+      default: "false"
     },
   ]}
 />

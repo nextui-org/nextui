@@ -11,6 +11,7 @@ const CustomToastComponent = () => {
           addToast({
             title: "Sucessful!",
             description: "Document uploaded to cloud successful.",
+            color: "primary",
             classNames: {
               base: cn([
                 "bg-default-50 dark:bg-background shadow-sm",

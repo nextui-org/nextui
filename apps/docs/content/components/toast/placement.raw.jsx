@@ -1,9 +1,8 @@
-import {addToast, Button, ToastProvider} from "@nextui-org/react";
+import {addToast, Button} from "@nextui-org/react";
 
 export default function App() {
   return (
     <>
-      <ToastProvider />
       <div className="flex flex-wrap gap-x-2">
         {[
           "left-top",
@@ -21,8 +20,6 @@ export default function App() {
               addToast({
                 title: "Toast title",
                 description: "Toast displayed successfully",
-                // @ts-ignore
-                position: position,
               })
             }
           >

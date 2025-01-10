@@ -17,7 +17,6 @@ export default function App() {
               </Button>
             ),
             color: "warning",
-            variant: "faded",
           });
         }}
       >
