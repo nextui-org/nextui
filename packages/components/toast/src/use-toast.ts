@@ -316,7 +316,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
         }
       },
       style: {
-        opacity: Math.max(0, 1 - dragValue / SWIPE_THRESHOLD),
+        opacity: drag ? Math.max(0, 1 - dragValue / (SWIPE_THRESHOLD + 20)) : undefined,
       },
       ...mergeProps(props, otherProps, toastProps, hoverProps),
     }),
