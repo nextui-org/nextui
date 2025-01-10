@@ -50,12 +50,7 @@ export function ToastRegion<T extends ToastProps>({
         setIsTouched(false);
       }
     }
-    function handlePointerMove() {
-      setIsTouched(false);
-    }
-
     document.addEventListener("touchstart", handleTouchOutside);
-    document.addEventListener("pointermove", handlePointerMove);
 
     return () => {
       document.removeEventListener("touchstart", handleTouchOutside);

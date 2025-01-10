@@ -439,7 +439,18 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
           setDragValue(0);
         },
         onDrag: (_, info) => {
-          setDragValue(Math.abs(info.offset.x));
+          let updatedDragValue = Math.abs(info.offset.x);
+
+          if (placement.includes("right")) {
+            updatedDragValue = info.offset.x;
+          }
+          if (placement.includes("left")) {
+            updatedDragValue = -info.offset.x;
+          }
+
+          if (updatedDragValue >= 0) {
+            setDragValue(updatedDragValue);
+          }
         },
         onDragStart: () => {
           setDrag(true);
