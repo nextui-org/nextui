@@ -87,6 +87,8 @@ describe("Toast", () => {
 
     expect(region).toContainHTML(title);
     expect(region).toContainHTML(description);
+
+    await user.click(wrapper.getAllByRole("button")[0]);
   });
 
   it("should close", async () => {
@@ -120,5 +122,56 @@ describe("Toast", () => {
     const finalButtonLength = finalCloseButtons.length;
 
     expect(initialButtonLength).toEqual(finalButtonLength + 1);
+  });
+
+  it("should work with placement", async () => {
+    const wrapper = render(
+      <>
+        <ToastProvider placement="left-bottom" />
+        <button
+          data-testid="button"
+          onClick={() => {
+            addToast({
+              title: title,
+              description: description,
+            });
+          }}
+        >
+          Show Toast
+        </button>
+      </>,
+    );
+
+    const region = wrapper.getByRole("region");
+
+    expect(region).toHaveAttribute("data-placement", "left-bottom");
+  });
+
+  it("should have loading-icon when promise prop is passed.", async () => {
+    const wrapper = render(
+      <>
+        <ToastProvider />
+        <button
+          data-testid="button"
+          onClick={() => {
+            addToast({
+              title: title,
+              description: description,
+              promise: new Promise((resolve) => setTimeout(resolve, 3000)),
+            });
+          }}
+        >
+          Show Toast
+        </button>
+      </>,
+    );
+
+    const button = wrapper.getByTestId("button");
+
+    await user.click(button);
+
+    const loadingIcon = wrapper.getByLabelText("loadingIcon");
+
+    expect(loadingIcon).toBeTruthy();
   });
 });
