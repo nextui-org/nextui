@@ -126,6 +126,8 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     isDisabled: false,
   });
   const disableAnimation = originalProps.disableAnimation;
+  const SWIPE_THRESHOLD = 100;
+  const INITIAL_POSITION = 50;
 
   const animationRef = useRef<number | null>(null);
   const startTime = useRef<number | null>(null);
@@ -255,17 +257,11 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   );
 
   const multiplier = placement.includes("top") ? 1 : -1;
-  const toastVariants = placement.includes("bottom")
-    ? {
-        hidden: {opacity: 0, y: 50},
-        visible: {opacity: 1, y: 0},
-        exit: {opacity: 0, y: 50},
-      }
-    : {
-        hidden: {opacity: 0, y: -50},
-        visible: {opacity: 1, y: 0},
-        exit: {opacity: 0, y: -50},
-      };
+  const toastVariants = {
+    hidden: {opacity: 0, y: -INITIAL_POSITION * multiplier},
+    visible: {opacity: 1, y: 0},
+    exit: {opacity: 0, y: -INITIAL_POSITION * multiplier},
+  };
 
   const [drag, setDrag] = useState(false);
   const [dragValue, setDragValue] = useState(0);
@@ -277,9 +273,9 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
     const isCenterBottom = placement === "center-bottom";
 
     if (
-      (isRight && offsetX >= 50) ||
-      (isLeft && offsetX <= -50) ||
-      ((isCenterTop || isCenterBottom) && Math.abs(offsetX) >= 50)
+      (isRight && offsetX >= SWIPE_THRESHOLD) ||
+      (isLeft && offsetX <= -SWIPE_THRESHOLD) ||
+      ((isCenterTop || isCenterBottom) && Math.abs(offsetX) >= SWIPE_THRESHOLD)
     ) {
       return true;
     }
@@ -320,7 +316,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
         }
       },
       style: {
-        opacity: Math.max(0, 1 - dragValue / 50),
+        opacity: Math.max(0, 1 - dragValue / SWIPE_THRESHOLD),
       },
       ...mergeProps(props, otherProps, toastProps, hoverProps),
     }),
