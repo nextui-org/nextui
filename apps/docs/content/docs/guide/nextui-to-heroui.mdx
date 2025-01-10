@@ -33,6 +33,19 @@ This will automatically:
 - Adjust any NextUI-specific utilities or hooks
 - Update `.npmrc` file pnpm only
 
+### Install Dependencies
+
+After running the codemod, install the new dependencies:
+
+<PackageManagers
+  commands={{
+    npm: "npm install",
+    yarn: "yarn install",
+    pnpm: "pnpm install",
+    bun: "bun install"
+  }}
+/>
+
 </Steps>
 
 ## Manual Migration
