@@ -17,14 +17,6 @@ export interface ToastProps extends ToastVariantProps {
    */
   ref?: ReactRef<HTMLElement | null>;
   /**
-   * Index of the toast
-   */
-  index?: number;
-  /**
-   * Total number of the toasts
-   */
-  total?: number;
-  /**
    * title of the toast
    */
   title?: string;
@@ -80,16 +72,6 @@ export interface ToastProps extends ToastVariantProps {
    */
   timeout?: number;
   /**
-   * Placement of the toast in the view-port.
-   */
-  placement?:
-    | "right-bottom"
-    | "left-bottom"
-    | "center-bottom"
-    | "right-top"
-    | "left-top"
-    | "center-top";
-  /**
    * function which is called when toast is closed.
    */
   onClose?: () => void;
@@ -97,11 +79,20 @@ export interface ToastProps extends ToastVariantProps {
 
 interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
   toast: QueuedToast<T>;
+  index: number;
+  total: number;
   state: ToastState<T>;
   heights: number[];
   setHeights: (val: number[]) => void;
   disableAnimation: boolean;
   isRegionExpanded: boolean;
+  placement?:
+    | "right-bottom"
+    | "left-bottom"
+    | "center-bottom"
+    | "right-top"
+    | "left-top"
+    | "center-top";
 }
 
 export type UseToastProps<T = ToastProps> = Props<T> &
@@ -322,6 +313,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
       "data-has-description": dataAttr(!isEmpty(description)),
       "data-toast": true,
       "data-animation": originalProps.toast.animation,
+      "aria-label": "toast",
       onTransitionEnd: () => {
         if (originalProps.toast.animation === "exiting") {
           state.remove(originalProps.toast.key);
@@ -337,6 +329,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
 
   const getIconProps: PropGetter = useCallback(
     (props = {}) => ({
+      "aria-label": "descriptionIcon",
       className: slots.icon({class: classNames?.icon}),
       ...props,
     }),
@@ -378,7 +371,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const getCloseButtonProps: PropGetter = useCallback(
     (props = {}) => ({
       className: slots.closeButton({class: classNames?.closeButton}),
-      "aria-label": "close-button",
+      "aria-label": "closeButton",
       ...mergeProps(props, closeButtonProps, {onPress: originalProps.onClose}),
     }),
     [closeButtonProps],
@@ -387,7 +380,7 @@ export function useToast<T extends ToastProps>(originalProps: UseToastProps<T>) 
   const getCloseIconProps: PropGetter = useCallback(
     (props = {}) => ({
       className: slots.closeIcon({class: classNames?.closeIcon}),
-      "aria-label": "close-icon",
+      "aria-label": "closeIcon",
       ...props,
     }),
     [],

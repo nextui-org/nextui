@@ -63,6 +63,7 @@ const Toast = forwardRef<"div", ToastProps>((props, ref) => {
         <Spinner
           classNames={{wrapper: getLoadingIconProps().className}}
           color={color ?? "default"}
+          label="loadingIcon"
         />
       )
     : null;
