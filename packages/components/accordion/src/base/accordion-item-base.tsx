@@ -33,15 +33,15 @@ export interface Props<T extends object = {}>
   /**
    * The content of the component.
    */
-  children?: ReactNode | null;
+  children?: ReactNode;
   /**
    * The accordion item title.
    */
-  title?: ReactNode | string;
+  title?: ReactNode;
   /**
    * The accordion item subtitle.
    */
-  subtitle?: ReactNode | string;
+  subtitle?: ReactNode;
   /**
    * The accordion item `expanded` indicator, it's usually an arrow icon.
    * If you pass a function, NextUI will expose the current indicator and the open status,

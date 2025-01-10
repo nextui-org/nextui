@@ -25,19 +25,19 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   /**
    * The content of the component.
    */
-  children?: ReactNode | null;
+  children?: ReactNode;
   /**
    * The menu item title.
    */
-  title?: ReactNode | string;
+  title?: ReactNode;
   /**
    * The menu item subtitle.
    */
-  description?: ReactNode | string;
+  description?: ReactNode;
   /**
    * The menu item keyboard shortcut.
    */
-  shortcut?: ReactNode | string;
+  shortcut?: ReactNode;
   /**
    * The menu item start content.
    */
