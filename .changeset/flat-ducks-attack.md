@@ -1,5 +1,5 @@
 ---
-"@nextui-org/form": minor
+"@nextui-org/form": patch
 ---
 
 changed form default validation behavior to native
