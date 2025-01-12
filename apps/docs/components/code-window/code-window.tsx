@@ -90,7 +90,7 @@ export const CodeWindow: React.FC<CodeWindowProps> = ({highlightLines, showCopy,
   return (
     <div className="relative">
       <CodeBlock ref={wrapperRef} {...props} />
-      {showCopy && <CopyButton value={props.value} />}
+      {showCopy && <CopyButton className="top-2 absolute right-2" value={props.value} />}
     </div>
   );
 };
