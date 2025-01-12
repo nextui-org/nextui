@@ -21,7 +21,6 @@ import customValidation from "./custom-validation";
 import realTimeValidation from "./real-time-validation";
 import serverValidation from "./server-validation";
 import customStyles from "./custom-styles";
-import customImpl from "./custom-impl";
 import formatOptions from "./format-options";
 
 export const numberFieldContent = {
@@ -48,6 +47,5 @@ export const numberFieldContent = {
   realTimeValidation,
   serverValidation,
   customStyles,
-  customImpl,
   formatOptions,
 };
