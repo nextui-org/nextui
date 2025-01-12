@@ -10,7 +10,7 @@ import {
   getKeyValue,
   Spinner,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {useAsyncList} from "@react-stately/data";
 import {useState} from "react";
 

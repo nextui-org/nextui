@@ -1,4 +1,4 @@
-import {Avatar, AvatarIcon} from "@nextui-org/react";
+import {Avatar, AvatarIcon} from "@heroui/react";
 
 export default function App() {
   return (

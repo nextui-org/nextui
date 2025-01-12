@@ -4,7 +4,7 @@ import * as React from "react";
 import {render, renderHook, screen} from "@testing-library/react";
 import {Controller, useForm} from "react-hook-form";
 import userEvent, {UserEvent} from "@testing-library/user-event";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {InputOtp} from "../src";
 

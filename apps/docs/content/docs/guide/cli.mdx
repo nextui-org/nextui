@@ -1,11 +1,11 @@
 ---
 title: CLI
-description: Use the CLI to manage and enhance your NextUI project components.
+description: Use the CLI to manage and enhance your HeroUI project components.
 ---
 
 # CLI
 
-The CLI offers a comprehensive suite of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or `upgrade` individual components, assess the health of your project, and more.
+The CLI offers a comprehensive suite of commands to initialize, manage, and improve your HeroUI projects. It enables you to `add`, `remove`, or `upgrade` individual components, assess the health of your project, and more.
 
 ## Installation
 
@@ -23,10 +23,10 @@ To install the `CLI` globally, execute one of the following commands in your ter
 
 <PackageManagers
   commands={{
-    npm: "npm install nextui-cli -g",
-    yarn: "yarn add nextui-cli -g",
-    pnpm: "pnpm add nextui-cli -g",
-    bun: "bun add nextui-cli -g",
+    npm: "npm install heroui-cli -g",
+    yarn: "yarn add heroui-cli -g",
+    pnpm: "pnpm add heroui-cli -g",
+    bun: "bun add heroui-cli -g",
   }}
 />
 
@@ -36,10 +36,10 @@ Alternatively, you can use the `CLI` without a global installation by running th
 
 <PackageManagers
   commands={{
-    npm: "npx nextui-cli@latest",
-    yarn: "yarn dlx nextui-cli@latest",
-    pnpm: "pnpm dlx nextui-cli@latest",
-    bun: "bunx nextui-cli@latest",
+    npm: "npx heroui-cli@latest",
+    yarn: "yarn dlx heroui-cli@latest",
+    pnpm: "pnpm dlx heroui-cli@latest",
+    bun: "bunx heroui-cli@latest",
   }}
 />
 
@@ -50,17 +50,17 @@ Alternatively, you can use the `CLI` without a global installation by running th
 Once the `CLI` is installed, run the following command to display available commands:
 
 ```codeBlock bash
-nextui
+heroui
 ```
 
 This will produce the following help output:
 
 ```codeBlock bash
-NextUI CLI <version>
+HeroUI CLI <version>
 
-A command line tool for seamless integration with NextUI
+A command line tool for seamless integration with HeroUI
 
-Usage: nextui [command]
+Usage: heroui [command]
 
 Options:
   -v, --version  Show the version number
@@ -68,10 +68,10 @@ Options:
   -h, --help     Display help for commands
 
 Commands:
-  init [options] [projectName]       Start a new NextUI project
-  add [options] [components...]      Add NextUI components to your project
-  upgrade [options] [components...]  Update NextUI components to the latest versions
-  remove [options] [components...]   Remove NextUI components from your project
+  init [options] [projectName]       Start a new HeroUI project
+  add [options] [components...]      Add HeroUI components to your project
+  upgrade [options] [components...]  Update HeroUI components to the latest versions
+  remove [options] [components...]   Remove HeroUI components from your project
   list [options]                     Show details of installed components
   env [options]                      Display debug information about the local environment
   doctor [options]                   Diagnose problems in your project
@@ -80,10 +80,10 @@ Commands:
 
 ## init
 
-Initialize a new NextUI project using the `init` command. This sets up your project with the necessary configurations.
+Initialize a new HeroUI project using the `init` command. This sets up your project with the necessary configurations.
 
 ```codeBlock bash
-nextui init my-nextui-app
+heroui init my-heroui-app
 ```
 
 <Spacer y={4} />
@@ -94,12 +94,12 @@ You will be prompted to configure your project:
 ┌  Create a new project
 │
 ◇  Select a template (Enter to select)
-│  ● App (A Next.js 14 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.)
-│  ○ Pages (A Next.js 14 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.)
-│  ○ Vite (A Vite template pre-configured with NextUI (v2) and Tailwind CSS.)
+│  ● App (A Next.js 14 with app directory template pre-configured with HeroUI (v2) and Tailwind CSS.)
+│  ○ Pages (A Next.js 14 with pages directory template pre-configured with HeroUI (v2) and Tailwind CSS.)
+│  ○ Vite (A Vite template pre-configured with HeroUI (v2) and Tailwind CSS.)
 │
 ◇  New project name (Enter to skip with default name)
-│  my-nextui-app
+│  my-heroui-app
 │
 ◇  Select a package manager (Enter to select)
 │  ● npm
@@ -111,7 +111,7 @@ You will be prompted to configure your project:
 │
 ◇  Next steps ───────╮
 │                    │
-│  cd my-nextui-app  │
+│  cd my-heroui-app  │
 │  npm install       │
 │                    │
 ├────────────────────╯
@@ -123,10 +123,10 @@ Install the dependencies to start the local server:
 
 <PackageManagers
   commands={{
-    npm: "cd my-nextui-app && npm install",
-    yarn: "cd my-nextui-app && yarn install",
-    pnpm: "cd my-nextui-app && pnpm install",
-    bun: "cd my-nextui-app && bun install",
+    npm: "cd my-heroui-app && npm install",
+    yarn: "cd my-heroui-app && yarn install",
+    pnpm: "cd my-heroui-app && pnpm install",
+    bun: "cd my-heroui-app && bun install",
   }}
 />
 
@@ -143,12 +143,12 @@ Start the local server:
 
 ## add
 
-Add components to your NextUI project with the add command. This command manages component dependencies and updates your project configurations.
+Add components to your HeroUI project with the add command. This command manages component dependencies and updates your project configurations.
 
 Without specifying a specific component:
 
 ```codeBlock bash
-nextui add
+heroui add
 ```
 
 <Spacer y={4} />
@@ -180,13 +180,13 @@ Filtered results for: Enter something to filter
 To add a specific component:
 
 ```codeBlock bash
-nextui add button
+heroui add button
 ```
 
 You will see an output confirming the addition of the component:
 
 ```codeBlock bash
-Adding the required dependencies: @nextui-org/button
+Adding the required dependencies: @heroui/button
 
 Tailwind CSS settings have been updated in: /project-path/tailwind.config.js
 
@@ -195,16 +195,16 @@ Tailwind CSS settings have been updated in: /project-path/tailwind.config.js
 
 ## upgrade
 
-Upgrade all the NextUI components within your project.
+Upgrade all the HeroUI components within your project.
 
 ```codeBlock bash
-nextui upgrade --all
+heroui upgrade --all
 ```
 
-Upgrade specific NextUI components within your project using the upgrade command to ensure they are up to date.
+Upgrade specific HeroUI components within your project using the upgrade command to ensure they are up to date.
 
 ```codeBlock bash
-nextui upgrade button
+heroui upgrade button
 ```
 
 You will be asked to confirm the upgrade:
@@ -212,12 +212,12 @@ You will be asked to confirm the upgrade:
 ```codeBlock bash
 
 ╭───────────────────────── Component ─────────────────────────╮
-│  @nextui-org/button              ^2.0.11  ->  ^2.0.31       │
+│  @heroui/button              ^2.0.11  ->  ^2.0.31       │
 ╰─────────────────────────────────────────────────────────────╯
 
-Required min version: @nextui-org/theme>=2.1.0, tailwindcss>=3.4.0
+Required min version: @heroui/theme>=2.1.0, tailwindcss>=3.4.0
 ╭───────────────────── PeerDependencies ─────────────────────╮
-│  @nextui-org/theme               2.0.1    ->  2.1.0        │
+│  @heroui/theme               2.0.1    ->  2.1.0        │
 │  tailwindcss                     ^3.2.3   ->  ^3.4.0       │
 ╰────────────────────────────────────────────────────────────╯
 2 minor, 1 patch
@@ -235,11 +235,11 @@ Upon confirmation, the command will execute and provide an output similar to:
 
 ## remove
 
-Remove components from your NextUI project with the remove command. This helps in managing the project's
+Remove components from your HeroUI project with the remove command. This helps in managing the project's
 component structure and dependencies.
 
 ```codeBlock bash
-nextui remove button
+heroui remove button
 ```
 
 A confirmation prompt will be displayed:
@@ -249,7 +249,7 @@ A confirmation prompt will be displayed:
 ╭──────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │   Package              │   Version              │   Status   │   Docs                                        │
 │──────────────────────────────────────────────────────────────────────────────────────────────────────────────│
-│   @nextui-org/button   │   2.0.27 🚀latest      │   stable   │   https://nextui.org/docs/components/button   │
+│   @heroui/button   │   2.0.27 🚀latest      │   stable   │   https://heroui.com/docs/components/button   │
 ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 ? Confirm removal of these components: › - Use arrow-keys. Return to submit.
@@ -260,15 +260,15 @@ A confirmation prompt will be displayed:
 Following confirmation, the output will indicate successful removal:
 
 ```codeBlock bash
-✅ Successfully removed the specified NextUI components: @nextui-org/button
+✅ Successfully removed the specified HeroUI components: @heroui/button
 ```
 
 ## list
 
-List all installed NextUI components in your project with the list command. This provides a clear overview of what is currently included in your project.
+List all installed HeroUI components in your project with the list command. This provides a clear overview of what is currently included in your project.
 
 ```codeBlock bash
-nextui list
+heroui list
 ```
 
 The output will detail each component:
@@ -279,10 +279,10 @@ Current installed components:
 ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │   Package                    │   Version              │   Status    │   Docs                                              │
 │───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│
-│   @nextui-org/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://nextui.org/docs/components/autocomplete   │
-│   @nextui-org/badge          │   2.0.24 🚀latest      │   stable    │   https://nextui.org/docs/components/badge          │
-│   @nextui-org/button         │   2.0.27 🚀latest      │   stable    │   https://nextui.org/docs/components/button         │
-│   @nextui-org/chip           │   2.0.25 🚀latest      │   stable    │   https://nextui.org/docs/components/chip           │
+│   @heroui/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://heroui.com/docs/components/autocomplete   │
+│   @heroui/badge          │   2.0.24 🚀latest      │   stable    │   https://heroui.com/docs/components/badge          │
+│   @heroui/button         │   2.0.27 🚀latest      │   stable    │   https://heroui.com/docs/components/button         │
+│   @heroui/chip           │   2.0.25 🚀latest      │   stable    │   https://heroui.com/docs/components/chip           │
 ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 ```
 
@@ -291,7 +291,7 @@ Current installed components:
 Diagnose and resolve issues within your project using the doctor command. This ensures your project's health and proper configuration.
 
 ```codeBlock bash
-nextui doctor
+heroui doctor
 ```
 
 Depending on your project's status, you might see:
@@ -311,7 +311,7 @@ Or, if issues are detected:
 Display detailed information about your project's environment settings using the env command. This includes system, dependencies, and configuration details.
 
 ```codeBlock bash
-nextui env
+heroui env
 ```
 
 The output will reflect your current environment setup:
@@ -322,10 +322,10 @@ Current installed components:
 ╭───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╮
 │   Package                    │   Version              │   Status    │   Docs                                              │
 │───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────│
-│   @nextui-org/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://nextui.org/docs/components/autocomplete   │
-│   @nextui-org/badge          │   2.0.24 🚀latest      │   stable    │   https://nextui.org/docs/components/badge          │
-│   @nextui-org/button         │   2.0.27 🚀latest      │   stable    │   https://nextui.org/docs/components/button         │
-│   @nextui-org/chip           │   2.0.25 🚀latest      │   stable    │   https://nextui.org/docs/components/chip           │
+│   @heroui/autocomplete   │   2.0.10 🚀latest      │   newPost   │   https://heroui.com/docs/components/autocomplete   │
+│   @heroui/badge          │   2.0.24 🚀latest      │   stable    │   https://heroui.com/docs/components/badge          │
+│   @heroui/button         │   2.0.27 🚀latest      │   stable    │   https://heroui.com/docs/components/button         │
+│   @heroui/chip           │   2.0.25 🚀latest      │   stable    │   https://heroui.com/docs/components/chip           │
 ╰───────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
 
 Environment Info:
@@ -340,4 +340,4 @@ Environment Info:
 
 Explore the complete CLI commands and features in the [API References](/docs/api-references/cli-api).
 
-For updates and source code, visit the [GitHub Repository](https://github.com/nextui-org/nextui-cli).
+For updates and source code, visit the [GitHub Repository](https://github.com/heroui-org/heroui-cli).

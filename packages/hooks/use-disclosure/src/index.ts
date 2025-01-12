@@ -1,6 +1,6 @@
 import {chain} from "@react-aria/utils";
 import {useControlledState} from "@react-stately/utils";
-import {useCallbackRef} from "@nextui-org/use-callback-ref";
+import {useCallbackRef} from "@heroui/use-callback-ref";
 import {useCallback, useId} from "react";
 
 export interface UseDisclosureProps {

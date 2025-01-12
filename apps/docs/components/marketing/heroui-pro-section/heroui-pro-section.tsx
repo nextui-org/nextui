@@ -4,9 +4,9 @@ import clsx from "clsx";
 import {sectionWrapper, title, titleWrapper, subtitle} from "../../primitives";
 import Marquee from "../marquee";
 
-import {NextUIProButton} from "./nextui-pro-button";
-import {NextUIProChip} from "./nextui-pro-chip";
-import {NextUIProImage} from "./nextui-pro-image";
+import {HeroUIProButton} from "./heroui-pro-button";
+import {HeroUIProChip} from "./heroui-pro-chip";
+import {HeroUIProImage} from "./heroui-pro-image";
 
 const CheckmarkIcon = memo(() => (
   <svg fill="none" height="11" viewBox="0 0 13 11" width="13" xmlns="http://www.w3.org/2000/svg">
@@ -22,7 +22,7 @@ const CheckmarkIcon = memo(() => (
 
 CheckmarkIcon.displayName = "CheckmarkIcon";
 
-export const NextUIProSection = () => {
+export const HeroUIProSection = () => {
   return (
     <section
       className={sectionWrapper({
@@ -31,7 +31,7 @@ export const NextUIProSection = () => {
     >
       <div className="flex min-h-[480px]">
         <div className="w-full w-full relative z-30 flex h-full flex-col items-start justify-center leading-8 pt-4">
-          <NextUIProChip />
+          <HeroUIProChip />
           <div className={titleWrapper({class: "mt-2 inline md:block"})}>
             <h1 className={title({size: "lg", class: "[text-shadow:_0_3px_0_rgb(0_0_0_/_10%)]"})}>
               Ship&nbsp;
@@ -59,7 +59,7 @@ export const NextUIProSection = () => {
           </div>
           <p className={subtitle({class: "pr-12 text-foreground-500"})}>
             Premade templates of over 210+ beautiful and responsive components, professionally
-            created by the team behind NextUI.
+            created by the team behind HeroUI.
           </p>
           <ul className="mt-4 text-foreground-600 font-medium">
             <li className="flex gap-x-4 items-center">
@@ -80,7 +80,7 @@ export const NextUIProSection = () => {
             </li>
           </ul>
           <div className="mt-4">
-            <NextUIProButton />
+            <HeroUIProButton />
           </div>
         </div>
       </div>
@@ -91,7 +91,7 @@ export const NextUIProSection = () => {
           duration={90}
           wrapperClassName="absolute md:top-24 -left-[47%] w-[1000px]"
         >
-          <NextUIProImage />
+          <HeroUIProImage />
         </Marquee>
         <div
           className={clsx(

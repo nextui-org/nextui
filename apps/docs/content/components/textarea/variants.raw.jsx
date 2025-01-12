@@ -1,4 +1,4 @@
-import {Textarea} from "@nextui-org/react";
+import {Textarea} from "@heroui/react";
 
 export default function App() {
   const variants = ["flat", "faded", "bordered", "underlined"];

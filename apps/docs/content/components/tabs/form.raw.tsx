@@ -1,5 +1,5 @@
 import React from "react";
-import {Tabs, Tab, Input, Link, Button, Card, CardBody} from "@nextui-org/react";
+import {Tabs, Tab, Input, Link, Button, Card, CardBody} from "@heroui/react";
 
 export default function App() {
   const [selected, setSelected] = React.useState<React.Key>("login");

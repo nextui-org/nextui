@@ -1,4 +1,4 @@
-import {Autocomplete, AutocompleteItem, Avatar} from "@nextui-org/react";
+import {Autocomplete, AutocompleteItem, Avatar} from "@heroui/react";
 
 export default function App() {
   return (

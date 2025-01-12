@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/scroll-shadow",
+  "name": "@heroui/scroll-shadow",
   "version": "2.3.5",
   "description": "A component that applies top and bottom shadows when content overflows on scroll.",
   "keywords": [
     "scroll-shadow"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/components/scroll-shadow"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -36,17 +36,17 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/use-data-scroll-overflow": "workspace:*"
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/use-data-scroll-overflow": "workspace:*"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
     "clean-package": "2.2.0",
     "react-lorem-component": "0.13.0",
     "react": "^18.0.0",

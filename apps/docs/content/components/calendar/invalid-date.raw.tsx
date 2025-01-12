@@ -1,7 +1,7 @@
 import type {DateValue} from "@react-types/calendar";
 
 import React from "react";
-import {Calendar} from "@nextui-org/react";
+import {Calendar} from "@heroui/react";
 import {today, getLocalTimeZone, isWeekend} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 

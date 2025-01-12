@@ -71,7 +71,7 @@ export const getId = () => {
   return Math.random().toString(32).slice(2, 10);
 };
 
-export function getNextUIComponents(files: SandpackFiles): {[filePath: string]: string} {
+export function getHeroUIComponents(files: SandpackFiles): {[filePath: string]: string} {
   const output: {[filePath: string]: string} = {};
 
   for (const filePath in files) {
@@ -79,7 +79,7 @@ export function getNextUIComponents(files: SandpackFiles): {[filePath: string]: 
     const code = typeof file === "string" ? file : file.code;
 
     // Extract the import statements
-    const importStatements = extractNextUIImport(code);
+    const importStatements = extractHeroUIImport(code);
 
     // Convert the import statements
     const convertedImports = importStatements.map(convertImportStatement);
@@ -91,13 +91,13 @@ export function getNextUIComponents(files: SandpackFiles): {[filePath: string]: 
   return output;
 }
 
-export function extractNextUIImport(code: string): string[] {
+export function extractHeroUIImport(code: string): string[] {
   // Split the code into lines
   const lines = code.split("\n");
 
-  // Filter the lines to only include import statements from "@nextui-org/react"
+  // Filter the lines to only include import statements from "@heroui/react"
   const importStatements = lines.filter(
-    (line) => line.startsWith("import") && line.includes("@nextui-org/react"),
+    (line) => line.startsWith("import") && line.includes("@heroui/react"),
   );
 
   // Return the import statements
@@ -133,7 +133,7 @@ export function updateTailwindConfig(tailwindConfig: string, componentNames: str
 
   // Find the index of the line to replace
   const lineIndex = lines.findIndex((line) =>
-    line.includes("./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"),
+    line.includes("./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"),
   );
 
   // If the line was found
@@ -147,11 +147,7 @@ export function updateTailwindConfig(tailwindConfig: string, componentNames: str
       const name = componentName.replace(/"/g, "");
 
       // Add the new line
-      lines.splice(
-        lineIndex,
-        0,
-        `  "./node_modules/@nextui-org/theme/dist/components/${name}.js",`,
-      );
+      lines.splice(lineIndex, 0, `  "./node_modules/@heroui/theme/dist/components/${name}.js",`);
     });
   }
 

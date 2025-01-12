@@ -1,4 +1,4 @@
-import {DatePicker} from "@nextui-org/react";
+import {DatePicker} from "@heroui/react";
 
 export default function App() {
   const placements = ["inside", "outside", "outside-left"];

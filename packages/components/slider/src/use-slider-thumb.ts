@@ -1,21 +1,21 @@
-import type {SliderVariantProps} from "@nextui-org/theme";
+import type {SliderVariantProps} from "@heroui/theme";
 
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import {useSliderThumb as useAriaSliderThumb} from "@react-aria/slider";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {RefObject, useRef} from "react";
 import {AriaSliderThumbProps} from "@react-aria/slider";
 import {SliderState} from "@react-stately/slider";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps} from "@react-aria/utils";
-import {dataAttr} from "@nextui-org/shared-utils";
-import {TooltipProps} from "@nextui-org/tooltip";
+import {dataAttr} from "@heroui/shared-utils";
+import {TooltipProps} from "@heroui/tooltip";
 import {useNumberFormatter} from "@react-aria/i18n";
 
 import {UseSliderProps} from "./use-slider";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

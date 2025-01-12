@@ -1,11 +1,11 @@
 ---
-title: NextUI Provider
-description: API References for NextUI Provider
+title: HeroUI Provider
+description: API References for HeroUI Provider
 ---
 
-# NextUI Provider
+# HeroUI Provider
 
-API reference for the `NextUIProvider`. 
+API reference for the `HeroUIProvider`. 
 
 ------
 
@@ -13,8 +13,8 @@ API reference for the `NextUIProvider`.
 
 <ImportTabs
   commands={{
-    main: 'import {NextUIProvider} from "@nextui-org/react";',
-    individual: 'import {NextUIProvider} from "@nextui-org/system";',
+    main: 'import {HeroUIProvider} from "@heroui/react";',
+    individual: 'import {HeroUIProvider} from "@heroui/system";',
   }}
 />
 
@@ -22,13 +22,13 @@ API reference for the `NextUIProvider`.
 
 ```jsx
 import * as React from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 function App() {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <YourApplication />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
@@ -82,15 +82,15 @@ Here's an example to set a Spanish locale.
 "use client";
 
 import {type ReactNode} from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export function AppProvider(props: AppProviderProps) {
   const {children, className} = props;
 
   return (
-    <NextUIProvider locale="es-ES" className={className}>
+    <HeroUIProvider locale="es-ES" className={className}>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -165,7 +165,7 @@ interface AppProviderProps {
   This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`,
   effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while
   using the `disableAnimation` prop for other purposes, set this to `false`. However, note that
-  animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+  animations in HeroUI Components are still omitted if the `disableAnimation` prop is `true`.
 - **Type**: `boolean`
 - **Default**: Same as `disableAnimation`
 

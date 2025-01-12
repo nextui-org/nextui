@@ -2,13 +2,13 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {modal} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Checkbox} from "@nextui-org/checkbox";
-import {Link} from "@nextui-org/link";
-import {Switch} from "@nextui-org/switch";
-import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
+import {modal} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Checkbox} from "@heroui/checkbox";
+import {Link} from "@heroui/link";
+import {Switch} from "@heroui/switch";
+import {MailFilledIcon, LockFilledIcon} from "@heroui/shared-icons";
 import Lorem from "react-lorem-component";
 
 import {

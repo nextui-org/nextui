@@ -1,4 +1,4 @@
-import {Select, SelectItem, SelectSection} from "@nextui-org/react";
+import {Select, SelectItem, SelectSection} from "@heroui/react";
 
 export default function App() {
   return (

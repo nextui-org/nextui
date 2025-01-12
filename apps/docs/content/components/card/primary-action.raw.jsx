@@ -1,4 +1,4 @@
-import {Card, CardBody, CardFooter, Image} from "@nextui-org/react";
+import {Card, CardBody, CardFooter, Image} from "@heroui/react";
 
 export default function App() {
   const list = [

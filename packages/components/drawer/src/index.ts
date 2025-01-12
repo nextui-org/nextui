@@ -3,9 +3,9 @@ import type {
   ModalHeaderProps,
   ModalBodyProps,
   ModalFooterProps,
-} from "@nextui-org/modal";
+} from "@heroui/modal";
 
-import {ModalHeader, ModalBody, ModalFooter, ModalContent} from "@nextui-org/modal";
+import {ModalHeader, ModalBody, ModalFooter, ModalContent} from "@heroui/modal";
 
 import Drawer from "./drawer";
 

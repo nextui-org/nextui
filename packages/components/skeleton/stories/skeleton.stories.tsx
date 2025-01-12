@@ -1,8 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {skeleton} from "@nextui-org/theme";
-import {Card} from "@nextui-org/card";
-import {Button} from "@nextui-org/button";
+import {skeleton} from "@heroui/theme";
+import {Card} from "@heroui/card";
+import {Button} from "@heroui/button";
 
 import {Skeleton, SkeletonProps} from "../src";
 
@@ -29,7 +29,7 @@ export default {
 const defaultProps = {
   ...skeleton.defaultVariants,
   isLoaded: false,
-  children: <div className="w-[200px] h-[100px]">NextUI</div>,
+  children: <div className="w-[200px] h-[100px]">HeroUI</div>,
 };
 
 const DefaultTemplate = (args: SkeletonProps) => (

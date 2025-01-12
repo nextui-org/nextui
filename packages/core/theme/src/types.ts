@@ -107,17 +107,17 @@ export type ConfigTheme = {
 export type ConfigThemes = Record<string, ConfigTheme>;
 
 /**
- * The NextUI config.
- * @see https://nextui.org/docs/customization/customize-theme
+ * The HeroUI config.
+ * @see https://heroui.com/docs/customization/customize-theme
  */
-export type NextUIPluginConfig = {
+export type HeroUIPluginConfig = {
   /**
    * The prefix for the css variables.
-   * @default "nextui"
+   * @default "heroui"
    */
   prefix?: string;
   /**
-   * If true, the common nextui colors (e.g. "blue", "green", "purple") will not be extended on the theme.
+   * If true, the common heroui colors (e.g. "blue", "green", "purple") will not be extended on the theme.
    * @default false
    */
   addCommonColors?: boolean;

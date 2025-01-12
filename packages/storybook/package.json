@@ -1,13 +1,13 @@
 {
-  "name": "@nextui-org/storybook",
+  "name": "@heroui/storybook",
   "version": "2.0.0",
-  "description": "The NextUI react components storybook ",
+  "description": "The HeroUI react components storybook ",
   "keywords": [
     "storybook"
   ],
   "type": "module",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": true,
@@ -19,11 +19,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/components/storybook"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "dev": "pnpm storybook dev -p 6006",
@@ -31,9 +31,9 @@
     "start": "pnpm dlx http-server storybook-static"
   },
   "dependencies": {
-    "@nextui-org/react": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
+    "@heroui/react": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },

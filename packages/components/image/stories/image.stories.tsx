@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {image} from "@nextui-org/theme";
+import {image} from "@heroui/theme";
 
 import {Image, ImageProps} from "../src";
 
@@ -53,7 +53,7 @@ export default {
 const defaultProps = {
   ...image.defaultVariants,
   src: "./images/local-image-1.jpeg",
-  alt: "NextUI hero image",
+  alt: "HeroUI hero image",
   disableSkeleton: true,
 };
 
@@ -99,7 +99,7 @@ export const Zoomed = {
     width: 300,
     isZoomed: true,
     radius: "lg",
-    src: "https://nextui.org/images/card-example-2.jpeg",
+    src: "https://heroui.com/images/card-example-2.jpeg",
   },
 };
 

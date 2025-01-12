@@ -1,10 +1,10 @@
-import {Textarea} from "@nextui-org/react";
+import {Textarea} from "@heroui/react";
 
 export default function App() {
   return (
     <Textarea
       className="max-w-xs"
-      defaultValue="NextUI is a React UI library with..."
+      defaultValue="HeroUI is a React UI library with..."
       errorMessage="The description should be at least 255 characters long."
       isInvalid={true}
       label="Description"

@@ -10,12 +10,12 @@ export type {ModalContentProps} from "./modal-content";
 export type {ModalHeaderProps} from "./modal-header";
 export type {ModalBodyProps} from "./modal-body";
 export type {ModalFooterProps} from "./modal-footer";
-export type {UseDisclosureProps} from "@nextui-org/use-disclosure";
+export type {UseDisclosureProps} from "@heroui/use-disclosure";
 
 // export hooks
 export {useModal} from "./use-modal";
-export {useDisclosure} from "@nextui-org/use-disclosure";
-export {useDraggable} from "@nextui-org/use-draggable";
+export {useDisclosure} from "@heroui/use-disclosure";
+export {useDraggable} from "@heroui/use-draggable";
 
 // export context
 export {ModalProvider, useModalContext} from "./modal-context";

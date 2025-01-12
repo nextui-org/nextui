@@ -2,13 +2,13 @@ import type {Ref} from "react";
 
 import {forwardRef} from "react";
 import {domAnimation, LazyMotion, m} from "framer-motion";
-import {useMeasure} from "@nextui-org/use-measure";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {useMeasure} from "@heroui/use-measure";
+import {HTMLHeroUIProps} from "@heroui/system";
 
 /**
  * Props for the ResizablePanel component.
  */
-export interface ResizablePanelProps extends HTMLNextUIProps<"div"> {}
+export interface ResizablePanelProps extends HTMLHeroUIProps<"div"> {}
 
 const ResizablePanel = forwardRef(
   (originalProps: ResizablePanelProps, ref: Ref<HTMLDivElement>) => {
@@ -34,6 +34,6 @@ const ResizablePanel = forwardRef(
   },
 );
 
-ResizablePanel.displayName = "NextUI - ResizablePanel";
+ResizablePanel.displayName = "HeroUI - ResizablePanel";
 
 export {ResizablePanel};

@@ -1,7 +1,7 @@
 import {SlotProps} from "input-otp";
 import {useMemo} from "react";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {cn} from "@nextui-org/theme";
+import {clsx, dataAttr} from "@heroui/shared-utils";
+import {cn} from "@heroui/theme";
 
 import {useInputOtpContext} from "./input-otp-context";
 

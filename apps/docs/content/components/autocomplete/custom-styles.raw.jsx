@@ -1,4 +1,4 @@
-import {Autocomplete, AutocompleteItem, Avatar, Button} from "@nextui-org/react";
+import {Autocomplete, AutocompleteItem, Avatar, Button} from "@heroui/react";
 
 const SearchIcon = ({size = 24, strokeWidth = 1.5, width, height, ...props}) => {
   return (

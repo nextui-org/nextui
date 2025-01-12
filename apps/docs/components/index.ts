@@ -1,4 +1,4 @@
-export * from "./nextui-logo";
+export * from "./heroui-logo";
 export * from "./theme-switch";
 export * from "./looper-bg";
 export * from "./code-window";

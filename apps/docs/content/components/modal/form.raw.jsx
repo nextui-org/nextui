@@ -9,7 +9,7 @@ import {
   Checkbox,
   Input,
   Link,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export const MailIcon = (props) => {
   return (

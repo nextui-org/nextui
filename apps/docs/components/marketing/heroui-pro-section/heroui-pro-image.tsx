@@ -4,7 +4,7 @@ import {useTheme} from "next-themes";
 import NextImage from "next/image";
 import {useEffect, useState} from "react";
 
-export const NextUIProImage = () => {
+export const HeroUIProImage = () => {
   const [mounted, setMounted] = useState(false);
   const {theme} = useTheme();
   const isDarkMode = theme === "dark";

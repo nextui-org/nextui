@@ -7,7 +7,7 @@ import type {FormProps as SharedFormProps} from "@react-types/form";
 
 import {FormValidationContext} from "@react-stately/form";
 import React, {createContext, ForwardedRef, forwardRef, useMemo} from "react";
-import {form} from "@nextui-org/theme";
+import {form} from "@heroui/theme";
 
 import {ContextValue, DOMProps, useContextProps} from "./utils";
 

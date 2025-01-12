@@ -1,4 +1,4 @@
-import {Calendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@nextui-org/react";
+import {Calendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@heroui/react";
 import {today, getLocalTimeZone, startOfWeek, startOfMonth} from "@internationalized/date";
 import {useLocale} from "@react-aria/i18n";
 

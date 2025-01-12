@@ -71,7 +71,7 @@ export const shopCartStyles = tv({
   },
   variants: {
     theme: {
-      nextui: {
+      heroui: {
         card: "py-5",
         imageWrapper: ["before:rounded-2xl", "before:from-[#010187] before:to-[#18000E]"],
         sizeOption: [
@@ -211,7 +211,7 @@ export const shopCartStyles = tv({
     },
   },
   defaultVariants: {
-    theme: "nextui",
+    theme: "heroui",
   },
 });
 

@@ -1,9 +1,7 @@
 "use client";
 
-import type {ReactNode} from "react";
-
 import * as React from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 import {ThemeProviderProps} from "next-themes";
 import {useRouter} from "next/navigation";
@@ -18,7 +16,7 @@ export interface ProvidersProps {
   themeProps?: ThemeProviderProps;
 }
 
-const ProviderWrapper = ({children}: {children: ReactNode}) => {
+const ProviderWrapper = ({children}: {children: React.ReactElement}) => {
   useEffect(() => {
     // Initialize PostHog only once when the app starts
     if (typeof window !== "undefined" && __PROD__ && !posthog.isFeatureEnabled("capture")) {
@@ -42,9 +40,9 @@ export function Providers({children, themeProps}: ProvidersProps) {
 
   return (
     <ProviderWrapper>
-      <NextUIProvider navigate={router.push}>
+      <HeroUIProvider navigate={router.push}>
         <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>
-      </NextUIProvider>
+      </HeroUIProvider>
     </ProviderWrapper>
   );
 }

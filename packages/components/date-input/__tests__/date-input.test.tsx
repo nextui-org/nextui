@@ -2,7 +2,7 @@
 import * as React from "react";
 import {fireEvent, render} from "@testing-library/react";
 import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
-import {pointerMap, triggerPress} from "@nextui-org/test-utils";
+import {pointerMap, triggerPress} from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";
 
 import {DateInput as DateInputBase, DateInputProps} from "../src";

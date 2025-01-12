@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable react/display-name */
-import {Button, Link} from "@nextui-org/react";
+import {Button, Link} from "@heroui/react";
 import NextLink from "next/link";
 
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
@@ -22,7 +22,7 @@ export const Customization = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI is based on{" "}
+            HeroUI is based on{" "}
             <Link
               isExternal
               className="text-xl text-default-500 font-light [&>svg]:ml-1"

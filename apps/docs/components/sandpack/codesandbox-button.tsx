@@ -1,6 +1,6 @@
 import React from "react";
 import {UnstyledOpenInCodeSandboxButton} from "@codesandbox/sandpack-react";
-import {Tooltip, Button} from "@nextui-org/react";
+import {Tooltip, Button} from "@heroui/react";
 
 import {CodeSandboxIcon} from "@/components/icons";
 

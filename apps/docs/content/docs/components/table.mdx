@@ -20,18 +20,18 @@ Tables are used to display tabular data using rows and columns. They allow users
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add table",
-    npm: "npm install @nextui-org/table",
-    yarn: "yarn add @nextui-org/table",
-    pnpm: "pnpm add @nextui-org/table",
-    bun: "bun add @nextui-org/table"
+    cli: "npx heroui-cli@latest add table",
+    npm: "npm install @heroui/table",
+    yarn: "yarn add @heroui/table",
+    pnpm: "pnpm add @heroui/table",
+    bun: "bun add @heroui/table"
   }}
 />
 
 
 ## Import
 
-NextUI exports 6 table-related components:
+HeroUI exports 6 table-related components:
 
 - **Table**: The main component to display a table.
 - **TableHeader**: The header of the table.
@@ -49,7 +49,7 @@ NextUI exports 6 table-related components:
     TableColumn,
     TableRow,
     TableCell
-} from "@nextui-org/react";`,
+} from "@heroui/react";`,
     individual: `import {
     Table,
     TableHeader,
@@ -57,7 +57,7 @@ NextUI exports 6 table-related components:
     TableColumn,
     TableRow,
     TableCell
-} from "@nextui-org/table";`,
+} from "@heroui/table";`,
   }}
 />
 
@@ -83,7 +83,7 @@ You could also use `Array.map` to render the items, but it will not be as perfor
 Example:
 
 ```jsx
-import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@nextui-org/react";
+import {Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, getKeyValue} from "@heroui/react";
 
 const rows = [...];
 
@@ -287,19 +287,19 @@ It is also possible to use the [Pagination](/components/pagination) component to
 ### Infinite Pagination
 
 Table also supports infinite pagination. To do so, you can use the `useAsyncList` hook from [@react-stately/data](https://react-spectrum.adobe.com/react-stately/useAsyncList.html) and
-[@nextui-org/use-infinite-scroll](https://www.npmjs.com/package/@nextui-org/use-infinite-scroll) hook.
+[@heroui/use-infinite-scroll](https://www.npmjs.com/package/@heroui/use-infinite-scroll) hook.
 
 <PackageManagers
   commands={{
-    npm: "npm install @react-stately/data @nextui-org/use-infinite-scroll",
-    yarn: "yarn add @react-stately/data @nextui-org/use-infinite-scroll",
-    pnpm: "pnpm add @react-stately/data @nextui-org/use-infinite-scroll",
-    bun: "bun add @react-stately/data @nextui-org/use-infinite-scroll",
+    npm: "npm install @react-stately/data @heroui/use-infinite-scroll",
+    yarn: "yarn add @react-stately/data @heroui/use-infinite-scroll",
+    pnpm: "pnpm add @react-stately/data @heroui/use-infinite-scroll",
+    bun: "bun add @react-stately/data @heroui/use-infinite-scroll",
   }}
 />
 
 ```jsx
-import { useInfiniteScroll } from "@nextui-org/use-infinite-scroll";
+import { useInfiniteScroll } from "@heroui/use-infinite-scroll";
 import { useAsyncList } from "@react-stately/data";
 ```
 

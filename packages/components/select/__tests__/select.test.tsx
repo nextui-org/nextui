@@ -4,7 +4,7 @@ import * as React from "react";
 import {act, render, renderHook, waitFor} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";

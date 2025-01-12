@@ -4,7 +4,7 @@ import NextLink from "next/link";
 import {usePostHog} from "posthog-js/react";
 import arrowRightUpIcon from "@iconify/icons-solar/arrow-right-up-linear";
 import {Icon} from "@iconify/react/dist/offline";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 type Props = {
   className?: string;

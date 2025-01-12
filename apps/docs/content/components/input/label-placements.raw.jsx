@@ -1,4 +1,4 @@
-import {Input} from "@nextui-org/react";
+import {Input} from "@heroui/react";
 
 export default function App() {
   const placements = ["inside", "outside", "outside-left"];

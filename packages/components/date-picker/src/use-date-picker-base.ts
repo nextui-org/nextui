@@ -1,29 +1,29 @@
 import type {DateValue} from "@internationalized/date";
 import type {AriaDatePickerBaseProps} from "@react-types/datepicker";
-import type {DateInputProps, TimeInputProps} from "@nextui-org/date-input";
-import type {ButtonProps} from "@nextui-org/button";
-import type {CalendarProps} from "@nextui-org/calendar";
-import type {PopoverProps} from "@nextui-org/popover";
+import type {DateInputProps, TimeInputProps} from "@heroui/date-input";
+import type {ButtonProps} from "@heroui/button";
+import type {CalendarProps} from "@heroui/calendar";
+import type {PopoverProps} from "@heroui/popover";
 import type {ReactNode} from "react";
 import type {ValueBase} from "@react-types/shared";
 
-import {dataAttr} from "@nextui-org/shared-utils";
-import {dateInput, DatePickerVariantProps} from "@nextui-org/theme";
+import {dataAttr} from "@heroui/shared-utils";
+import {dateInput, DatePickerVariantProps} from "@heroui/theme";
 import {useCallback} from "react";
-import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
+import {HTMLHeroUIProps, mapPropsVariants, useProviderContext} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {useDOMRef} from "@heroui/react-utils";
 import {useLocalizedStringFormatter} from "@react-aria/i18n";
 import {useControlledState} from "@react-stately/utils";
 
 import intlMessages from "../intl/messages";
 
-type NextUIBaseProps<T extends DateValue> = Omit<
-  HTMLNextUIProps<"div">,
+type HeroUIBaseProps<T extends DateValue> = Omit<
+  HTMLHeroUIProps<"div">,
   keyof AriaDatePickerBaseProps<T> | "onChange"
 >;
 
-interface Props<T extends DateValue> extends NextUIBaseProps<T> {
+interface Props<T extends DateValue> extends HeroUIBaseProps<T> {
   /**
    * The icon to toggle the date picker popover. Usually a calendar icon.
    */

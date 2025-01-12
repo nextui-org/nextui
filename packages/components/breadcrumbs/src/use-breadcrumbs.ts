@@ -1,19 +1,14 @@
-import type {BreadcrumbsVariantProps, SlotsToClasses, BreadcrumbsSlots} from "@nextui-org/theme";
+import type {BreadcrumbsVariantProps, SlotsToClasses, BreadcrumbsSlots} from "@heroui/theme";
 import type {AriaBreadcrumbsProps} from "@react-types/breadcrumbs";
 
 import {Children, ReactNode, Key, ReactElement} from "react";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {breadcrumbs} from "@nextui-org/theme";
-import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {breadcrumbs} from "@heroui/theme";
+import {filterDOMProps, pickChildren, ReactRef, useDOMRef} from "@heroui/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useBreadcrumbs as useAriaBreadcrumbs} from "@react-aria/breadcrumbs";
 import {useMemo} from "react";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 
 import BreadcrumbItem, {BreadcrumbItemProps} from "./breadcrumb-item";
 
@@ -48,7 +43,7 @@ type RenderEllipsisItemProps = {
   separator: ReactNode;
 };
 
-interface Props extends HTMLNextUIProps<"nav">, AriaBreadcrumbsProps {
+interface Props extends HTMLHeroUIProps<"nav">, AriaBreadcrumbsProps {
   /**
    * Ref to the DOM node.
    */

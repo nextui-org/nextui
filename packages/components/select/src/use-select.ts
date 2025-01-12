@@ -1,36 +1,36 @@
-import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {SelectSlots, SelectVariantProps, SlotsToClasses} from "@heroui/theme";
 import type {HiddenSelectProps} from "./hidden-select";
 
 import {
   DOMAttributes,
-  HTMLNextUIProps,
+  HTMLHeroUIProps,
   mapPropsVariants,
   PropGetter,
   SharedSelection,
   useProviderContext,
-} from "@nextui-org/system";
-import {select} from "@nextui-org/theme";
-import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+} from "@heroui/system";
+import {select} from "@heroui/theme";
+import {ReactRef, useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {useMemo, useCallback, useRef, Key, ReactNode, useEffect} from "react";
-import {ListboxProps} from "@nextui-org/listbox";
-import {useAriaButton} from "@nextui-org/use-aria-button";
+import {ListboxProps} from "@heroui/listbox";
+import {useAriaButton} from "@heroui/use-aria-button";
 import {useFocusRing} from "@react-aria/focus";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useHover} from "@react-aria/interactions";
-import {PopoverProps} from "@nextui-org/popover";
-import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
+import {PopoverProps} from "@heroui/popover";
+import {ScrollShadowProps} from "@heroui/scroll-shadow";
 import {
   MultiSelectProps,
   MultiSelectState,
   useMultiSelect,
   useMultiSelectState,
-} from "@nextui-org/use-aria-multiselect";
-import {SpinnerProps} from "@nextui-org/spinner";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+} from "@heroui/use-aria-multiselect";
+import {SpinnerProps} from "@heroui/spinner";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
+import {ariaShouldCloseOnInteractOutside} from "@heroui/aria-utils";
 import {CollectionChildren, ValidationError} from "@react-types/shared";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 export type SelectedItemProps<T = object> = {
   /** A unique key for the item. */
@@ -51,7 +51,7 @@ export type SelectedItemProps<T = object> = {
 
 export type SelectedItems<T = object> = Array<SelectedItemProps<T>>;
 
-interface Props<T> extends Omit<HTMLNextUIProps<"select">, keyof SelectVariantProps> {
+interface Props<T> extends Omit<HTMLHeroUIProps<"select">, keyof SelectVariantProps> {
   /**
    * Ref to the DOM node.
    */

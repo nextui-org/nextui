@@ -2,10 +2,10 @@ import type {CalendarDate} from "@internationalized/date";
 import type {PressEvent} from "@react-types/shared";
 
 import {useDateFormatter} from "@react-aria/i18n";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {useCallback, useRef, useEffect} from "react";
-import {debounce} from "@nextui-org/shared-utils";
-import {areRectsIntersecting} from "@nextui-org/react-utils";
+import {debounce} from "@heroui/shared-utils";
+import {areRectsIntersecting} from "@heroui/react-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 
 import {getMonthsInYear, getYearRange} from "./utils";
@@ -15,7 +15,7 @@ export type PickerValue = {
   value: string;
   label: string;
 };
-export interface CalendarPickerProps extends HTMLNextUIProps<"div"> {
+export interface CalendarPickerProps extends HTMLHeroUIProps<"div"> {
   date: CalendarDate;
   currentMonth: CalendarDate;
 }

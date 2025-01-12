@@ -1,4 +1,4 @@
-import {Slider} from "@nextui-org/react";
+import {Slider} from "@heroui/react";
 
 export default function App() {
   const [value, setValue] = React.useState([100, 300]);

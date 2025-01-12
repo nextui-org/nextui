@@ -1,10 +1,10 @@
-import {Image} from "@nextui-org/react";
+import {Image} from "@heroui/react";
 
 export default function App() {
   return (
     <Image
-      alt="NextUI hero Image"
-      src="https://nextui.org/images/hero-card-complete.jpeg"
+      alt="HeroUI hero Image"
+      src="https://heroui.com/images/hero-card-complete.jpeg"
       width={300}
     />
   );

@@ -1,18 +1,18 @@
-import type {ChipVariantProps, ChipSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ChipVariantProps, ChipSlots, SlotsToClasses} from "@heroui/theme";
 import type {ReactNode} from "react";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
 import {usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
-import {chip} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {chip} from "@heroui/theme";
+import {useDOMRef} from "@heroui/react-utils";
+import {clsx, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef} from "@heroui/react-utils";
 import {useMemo, isValidElement, cloneElement} from "react";
 import {PressEvent} from "@react-types/shared";
 
-export interface UseChipProps extends HTMLNextUIProps, ChipVariantProps {
+export interface UseChipProps extends HTMLHeroUIProps, ChipVariantProps {
   /**
    * Ref to the DOM node.
    */

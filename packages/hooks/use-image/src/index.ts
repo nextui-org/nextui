@@ -5,8 +5,8 @@
 import type {ImgHTMLAttributes, SyntheticEvent} from "react";
 
 import {useRef, useState, useEffect, MutableRefObject} from "react";
-import {useIsHydrated} from "@nextui-org/react-utils";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {useIsHydrated} from "@heroui/react-utils";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 
 type NativeImageProps = ImgHTMLAttributes<HTMLImageElement>;
 

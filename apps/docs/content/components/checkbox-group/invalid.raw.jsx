@@ -1,4 +1,4 @@
-import {CheckboxGroup, Checkbox} from "@nextui-org/react";
+import {CheckboxGroup, Checkbox} from "@heroui/react";
 
 export default function App() {
   const [isInvalid, setIsInvalid] = React.useState(true);

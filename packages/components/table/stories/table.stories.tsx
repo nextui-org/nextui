@@ -1,14 +1,14 @@
 import React, {useMemo} from "react";
 import {Meta} from "@storybook/react";
-import {table} from "@nextui-org/theme";
-import {User} from "@nextui-org/user";
-import {Chip, ChipProps} from "@nextui-org/chip";
-import {Button} from "@nextui-org/button";
-import {Spinner} from "@nextui-org/spinner";
-import {Pagination} from "@nextui-org/pagination";
-import {Tooltip} from "@nextui-org/tooltip";
-import {EditIcon, DeleteIcon, EyeIcon} from "@nextui-org/shared-icons";
-import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
+import {table} from "@heroui/theme";
+import {User} from "@heroui/user";
+import {Chip, ChipProps} from "@heroui/chip";
+import {Button} from "@heroui/button";
+import {Spinner} from "@heroui/spinner";
+import {Pagination} from "@heroui/pagination";
+import {Tooltip} from "@heroui/tooltip";
+import {EditIcon, DeleteIcon, EyeIcon} from "@heroui/shared-icons";
+import {useInfiniteScroll} from "@heroui/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
 import useSWR from "swr";
 

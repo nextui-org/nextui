@@ -2,7 +2,7 @@
 
 import React, {useCallback, useMemo, useRef} from "react";
 import dynamic from "next/dynamic";
-import {Skeleton, Tab, Tabs} from "@nextui-org/react";
+import {Skeleton, Tab, Tabs} from "@heroui/react";
 import {useInView} from "framer-motion";
 
 import {useCodeDemo, UseCodeDemoProps} from "./use-code-demo";

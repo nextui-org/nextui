@@ -1,4 +1,4 @@
-import {Chip, Avatar} from "@nextui-org/react";
+import {Chip, Avatar} from "@heroui/react";
 
 export default function App() {
   return (

@@ -1,23 +1,19 @@
 ---
 title: Layout
-description: NextUI offers a set of layout options to customize the theme.
+description: HeroUI offers a set of layout options to customize the theme.
 ---
 
 # Layout
 
-NextUI's plugin provides a variety of layout customization options. Alter spacing units, 
-font sizes, line heights, radius and more to personalize each theme to your liking.
+HeroUI provides layout customization options for spacing, fonts, and other visual properties. Layout tokens help maintain consistency across components without modifying Tailwind CSS defaults.
 
 <CarbonAd/>
-
-Using layout tokens, you can ensure a uniform aesthetic across all components without 
-needing to override the default Tailwind CSS configuration.
 
 
 ```js {4,7,11}
 module.exports = {
   plugins: [
-    nextui({
+    heroui({
       layout: {}, // common layout options
       themes: {
         light: {
@@ -44,7 +40,7 @@ Default values for the layout tokens are:
 ```js
 module.exports = {
   plugins: [
-    nextui({
+    heroui({
       layout: {
         dividerWeight: "1px", // h-divider the default height applied to the divider component
         disabledOpacity: 0.5, // this value is applied as opacity-[value] when the component is disabled
@@ -112,13 +108,13 @@ module.exports = {
 
 ### CSS Variables
 
-NextUI creates CSS variables using the format `--prefix-prop-name-scale` for each layout token. By
-default the prefix is `nextui`, but you can change it with the `prefix` option.
+HeroUI creates CSS variables using the format `--prefix-prop-name-scale` for each layout token. By
+default the prefix is `heroui`, but you can change it with the `prefix` option.
 
 ```js {4}
 module.exports = {
   plugins: [
-    nextui({
+    heroui({
       prefix: "myapp",
     }),
   ],
@@ -130,9 +126,9 @@ Then you can use the CSS variables in your CSS files.
 ```css
 /* With default prefix */
 .my-button {
-  font-size: var(--nextui-font-size-small);
-  line-height: var(--nextui-line-height-small);
-  border-radius: var(--nextui-radius-medium);
+  font-size: var(--heroui-font-size-small);
+  line-height: var(--heroui-line-height-small);
+  border-radius: var(--heroui-radius-medium);
 }
 
 /*  With custom prefix */

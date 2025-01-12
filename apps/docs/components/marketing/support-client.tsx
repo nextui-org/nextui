@@ -1,8 +1,8 @@
 "use client";
 
 import {FC, useMemo, useRef} from "react";
-import {Avatar, AvatarProps, Button, Spacer, Tooltip} from "@nextui-org/react";
-import {clamp} from "@nextui-org/shared-utils";
+import {Avatar, AvatarProps, Button, Spacer, Tooltip} from "@heroui/react";
+import {clamp} from "@heroui/shared-utils";
 import {usePostHog} from "posthog-js/react";
 
 import {sectionWrapper, titleWrapper, title, subtitle} from "../primitives";
@@ -21,9 +21,9 @@ export interface SupportProps {
 const supportAccounts = [
   {
     title: "Open Collective",
-    description: "Sponsor the NextUI maintainers.",
+    description: "Sponsor the HeroUI maintainers.",
     icon: <OpenCollectiveIcon className="text-pink-500" />,
-    href: "https://opencollective.com/nextui",
+    href: "https://opencollective.com/heroui",
     isExternal: true,
   },
   {
@@ -146,7 +146,7 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
         <div>
           <div className={titleWrapper({class: "text-center items-center"})}>
             <div className="flex md:inline-flex flex-col md:flex-row items-center">
-              <h1 className={title({size: "lg"})}>Support NextUI&nbsp;</h1>
+              <h1 className={title({size: "lg"})}>Support HeroUI&nbsp;</h1>
               <HeartBoldIcon
                 className="text-pink-500 animate-heartbeat"
                 size={50}
@@ -159,8 +159,8 @@ export const Support: FC<SupportProps> = ({sponsors = []}) => {
           <p
             className={subtitle({class: "md:w-full text-center flex justify-center items-center"})}
           >
-            Using NextUI in a profit-making product, as a freelancer, or for fun projects? Your
-            contributions will help to make NextUI better.
+            Using HeroUI in a profit-making product, as a freelancer, or for fun projects? Your
+            contributions will help to make HeroUI better.
           </p>
           <Spacer y={12} />
           <FeaturesGrid

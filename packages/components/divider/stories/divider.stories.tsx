@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {divider} from "@nextui-org/theme";
+import {divider} from "@heroui/theme";
 
 import {Divider, DividerProps} from "../src";
 
@@ -31,7 +31,7 @@ const defaultProps = {
 const Template = (args: DividerProps) => (
   <div className="max-w-md">
     <div className="space-y-1">
-      <h4 className="text-base font-medium">NextUI Components</h4>
+      <h4 className="text-base font-medium">HeroUI Components</h4>
       <p className="text-sm text-default-400">Beautiful, fast and modern React UI library.</p>
     </div>
     <Divider className="my-4" />

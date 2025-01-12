@@ -20,11 +20,11 @@ The Image component is used to display images with support for fallback.
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add image",
-    npm: "npm install @nextui-org/image",
-    yarn: "yarn add @nextui-org/image",
-    pnpm: "pnpm add @nextui-org/image",
-    bun: "bun add @nextui-org/image"
+    cli: "npx heroui-cli@latest add image",
+    npm: "npm install @heroui/image",
+    yarn: "yarn add @heroui/image",
+    pnpm: "pnpm add @heroui/image",
+    bun: "bun add @heroui/image"
   }}
 />
 
@@ -33,8 +33,8 @@ The Image component is used to display images with support for fallback.
 
 <ImportTabs
   commands={{
-    main: 'import {Image} from "@nextui-org/react";',
-    individual: 'import {Image} from "@nextui-org/image";',
+    main: 'import {Image} from "@heroui/react";',
+    individual: 'import {Image} from "@heroui/image";',
   }}
 />
 
@@ -77,11 +77,11 @@ You can use the `fallbackSrc` prop to display a fallback image when:
 ### With Next.js Image
 
 Next.js provides an optimized [Image](https://nextjs.org/docs/app/api-reference/components/image) component,
-you can use it with NextUI `Image` component as well.
+you can use it with HeroUI `Image` component as well.
 
 <CodeDemo showPreview={false} showOpenInCodeSandbox={false} title="With Next.js Image" files={imageContent.nextjs} />
 
-> **Note**: NextUI's `Image` component is `client-side`, using hooks like `useState` for loading states
+> **Note**: HeroUI's `Image` component is `client-side`, using hooks like `useState` for loading states
 > and animations. Use Next.js `Image` alone if these features aren't required.
 
 ## Slots

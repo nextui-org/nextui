@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {ButtonGroupProvider} from "./button-group-context";
 import {UseButtonGroupProps, useButtonGroup} from "./use-button-group";
@@ -20,6 +20,6 @@ const ButtonGroup = forwardRef<"div", ButtonGroupProps>((props, ref) => {
   );
 });
 
-ButtonGroup.displayName = "NextUI.ButtonGroup";
+ButtonGroup.displayName = "HeorUI.ButtonGroup";
 
 export default ButtonGroup;

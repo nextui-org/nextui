@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {spinner} from "@nextui-org/theme";
+import {spinner} from "@heroui/theme";
 
 import {Spinner} from "../src";
 

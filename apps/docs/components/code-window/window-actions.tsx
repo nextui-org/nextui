@@ -1,6 +1,6 @@
 import React from "react";
 import {tv} from "tailwind-variants";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 export type WindowActionsProps = {
   title?: string;

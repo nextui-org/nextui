@@ -1,4 +1,4 @@
-import {Snippet} from "@nextui-org/react";
+import {Snippet} from "@heroui/react";
 
 export const CopyIcon = ({size, height, width, ...props}) => {
   return (
@@ -37,7 +37,7 @@ export const CheckIcon = ({size, height, width, ...props}) => {
 export default function App() {
   return (
     <Snippet checkIcon={<CheckIcon />} copyIcon={<CopyIcon />} variant="bordered">
-      npm install @nextui-org/react
+      npm install @heroui/react
     </Snippet>
   );
 }

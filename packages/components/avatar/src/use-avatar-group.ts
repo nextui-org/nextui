@@ -1,16 +1,16 @@
 import type {ReactNode} from "react";
-import type {SlotsToClasses, AvatarGroupSlots, AvatarGroupVariantProps} from "@nextui-org/theme";
+import type {SlotsToClasses, AvatarGroupSlots, AvatarGroupVariantProps} from "@heroui/theme";
 
-import {avatarGroup} from "@nextui-org/theme";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, compact} from "@nextui-org/shared-utils";
-import {ReactRef, getValidChildren} from "@nextui-org/react-utils";
+import {avatarGroup} from "@heroui/theme";
+import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
+import {clsx, compact} from "@heroui/shared-utils";
+import {ReactRef, getValidChildren} from "@heroui/react-utils";
 import {cloneElement, useMemo} from "react";
 
 import {AvatarProps} from "./index";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

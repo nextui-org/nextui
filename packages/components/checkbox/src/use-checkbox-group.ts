@@ -1,22 +1,22 @@
-import type {CheckboxGroupSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {CheckboxGroupSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaCheckboxGroupProps} from "@react-types/checkbox";
 import type {Orientation} from "@react-types/shared";
-import type {ReactRef} from "@nextui-org/react-utils";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {ReactRef} from "@heroui/react-utils";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
-import {useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@heroui/system";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
-import {checkboxGroup} from "@nextui-org/theme";
+import {checkboxGroup} from "@heroui/theme";
 import {useCheckboxGroup as useReactAriaCheckboxGroup} from "@react-aria/checkbox";
 import {CheckboxGroupState, useCheckboxGroupState} from "@react-stately/checkbox";
-import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
+import {clsx, safeAriaLabel} from "@heroui/shared-utils";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 import {CheckboxProps} from "./index";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

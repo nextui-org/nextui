@@ -3,7 +3,7 @@
  */
 
 import {useCallback, useRef} from "react";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 
 /**
  * React hook to persist any value between renders,

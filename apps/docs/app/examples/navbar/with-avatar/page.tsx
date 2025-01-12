@@ -11,7 +11,7 @@ import {
   Dropdown,
   DropdownMenu,
   Avatar,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">

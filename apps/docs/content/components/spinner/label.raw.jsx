@@ -1,4 +1,4 @@
-import {Spinner} from "@nextui-org/react";
+import {Spinner} from "@heroui/react";
 
 export default function App() {
   return <Spinner color="warning" label="Loading..." />;

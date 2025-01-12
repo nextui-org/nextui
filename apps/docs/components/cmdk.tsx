@@ -4,16 +4,16 @@
 import {Command} from "cmdk";
 import {useEffect, useState, FC, useMemo, useCallback, useRef} from "react";
 import {matchSorter} from "match-sorter";
-import {Button, ButtonProps, Kbd, Modal, ModalContent} from "@nextui-org/react";
-import {CloseIcon} from "@nextui-org/shared-icons";
+import {Button, ButtonProps, Kbd, Modal, ModalContent} from "@heroui/react";
+import {CloseIcon} from "@heroui/shared-icons";
 import {tv} from "tailwind-variants";
 import {usePathname, useRouter} from "next/navigation";
 import MultiRef from "react-multi-ref";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {isAppleDevice, isWebKit} from "@react-aria/utils";
 import {create} from "zustand";
-import {isEmpty, intersectionBy} from "@nextui-org/shared-utils";
+import {isEmpty, intersectionBy} from "@heroui/shared-utils";
 import {writeStorage, useLocalStorage} from "@rehooks/local-storage";
 import {usePostHog} from "posthog-js/react";
 

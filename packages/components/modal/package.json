@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/modal",
+  "name": "@heroui/modal",
   "version": "2.2.7",
   "description": "Displays a dialog with a custom content that requires attention or provides additional information.",
   "keywords": [
     "modal"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/components/modal"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -37,19 +37,19 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/use-disclosure": "workspace:*",
-    "@nextui-org/use-draggable": "workspace:*",
-    "@nextui-org/use-aria-button": "workspace:*",
-    "@nextui-org/framer-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/use-aria-modal-overlay": "workspace:*",
-    "@nextui-org/dom-animation": "workspace:*",
+    "@heroui/use-disclosure": "workspace:*",
+    "@heroui/use-draggable": "workspace:*",
+    "@heroui/use-aria-button": "workspace:*",
+    "@heroui/framer-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/use-aria-modal-overlay": "workspace:*",
+    "@heroui/dom-animation": "workspace:*",
     "@react-aria/dialog": "3.5.20",
     "@react-aria/focus": "3.19.0",
     "@react-aria/interactions": "3.22.5",
@@ -59,13 +59,13 @@
     "@react-types/overlays": "3.8.11"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/input": "workspace:*",
-    "@nextui-org/checkbox": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/link": "workspace:*",
-    "@nextui-org/switch": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/input": "workspace:*",
+    "@heroui/checkbox": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/link": "workspace:*",
+    "@heroui/switch": "workspace:*",
     "react-lorem-component": "0.13.0",
     "framer-motion": "11.9.0",
     "clean-package": "2.2.0",

@@ -3,13 +3,13 @@
 import {usePostHog} from "posthog-js/react";
 import NextLink from "next/link";
 
-export const NextUIProCallout = () => {
+export const HeroUIProCallout = () => {
   const posthog = usePostHog();
 
   const handleClick = () => {
-    posthog.capture("NextUI Pro Banner", {
+    posthog.capture("HeroUI Pro Banner", {
       action: "click",
-      category: "nextui-callout",
+      category: "heroui-callout",
     });
   };
 
@@ -27,7 +27,7 @@ export const NextUIProCallout = () => {
           components
         </p>
         <p className="text-center text-xs mt-2 px-3 font-medium text-default-500 dark:text-default-400 leading-tight">
-          Discover 210+ stunning components by NextUI
+          Discover 210+ stunning components by HeroUI
         </p>
       </div>
       <div className="mt-3 w-fit flex group items-center text-foreground hover:shadow-sm relative overflow-hidden rounded-full p-[2px]">
@@ -38,7 +38,7 @@ export const NextUIProCallout = () => {
       </div>
       <NextLink
         className="absolute inset-0 z-[1]"
-        href="https://nextui.pro/components?utm_source=nextui.org&utm_medium=callout"
+        href="https://heroui.pro/components?utm_source=heroui.com&utm_medium=callout"
         onClick={handleClick}
       />
     </div>

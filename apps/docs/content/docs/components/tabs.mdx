@@ -20,25 +20,25 @@ Tabs organize content into multiple sections and allow users to navigate between
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add tabs",
-    npm: "npm install @nextui-org/tabs",
-    yarn: "yarn add @nextui-org/tabs",
-    pnpm: "pnpm add @nextui-org/tabs",
-    bun: "bun add @nextui-org/tabs"
+    cli: "npx heroui-cli@latest add tabs",
+    npm: "npm install @heroui/tabs",
+    yarn: "yarn add @heroui/tabs",
+    pnpm: "pnpm add @heroui/tabs",
+    bun: "bun add @heroui/tabs"
   }}
 />
 
 ## Import
 
-NextUI exports 2 tabs-related components:
+HeroUI exports 2 tabs-related components:
 
 - **Tabs**: The main component to display a tab list.
 - **Tab**: The component to display a tab item. The children of this component will be displayed as the content of the tab.
 
 <ImportTabs
   commands={{
-    main: 'import {Tabs, Tab} from "@nextui-org/react";',
-    individual: 'import {Tabs, Tab} from "@nextui-org/tabs";',
+    main: 'import {Tabs, Tab} from "@heroui/react";',
+    individual: 'import {Tabs, Tab} from "@heroui/tabs";',
   }}
 />
 
@@ -161,7 +161,7 @@ This example uses [React Router](https://reactrouter.com/en/main) to setup route
 
 ```tsx
 import {Route, Routes, useLocation} from "react-router-dom";
-import {Tabs, Tab} from "@nextui-org/react";
+import {Tabs, Tab} from "@heroui/react";
 
 function AppTabs() {
   const {pathname} = useLocation();

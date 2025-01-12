@@ -1,17 +1,17 @@
 export const rootFile = `
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { NextUIProvider } from "@nextui-org/react";
+import { HeroUIProvider } from "@heroui/react";
 import App from "./App";
 import "./styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <NextUIProvider>
+    <HeroUIProvider>
       <div className="w-screen h-screen p-8 flex items-start justify-center">
         <App />
       </div>
-    </NextUIProvider>
+    </HeroUIProvider>
   </React.StrictMode>
 );`;
 
@@ -28,20 +28,20 @@ export const getHtmlFile = (theme: string, entryFile: string) => `<!DOCTYPE html
   </body>
 </html>`;
 
-export const tailwindConfig = `const { nextui } = require("@nextui-org/react");
+export const tailwindConfig = `const { heroui } = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./index.html",
     "./*.{js,ts,jsx,tsx}",
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [heroui()],
 };`;
 
 export const postcssConfig = `module.exports = {

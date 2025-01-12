@@ -1,9 +1,4 @@
-import type {
-  TableVariantProps,
-  SlotsToClasses,
-  TableReturnType,
-  TableSlots,
-} from "@nextui-org/theme";
+import type {TableVariantProps, SlotsToClasses, TableReturnType, TableSlots} from "@heroui/theme";
 import type {Layout} from "@react-stately/virtualizer";
 import type {SelectionBehavior, DisabledBehavior, Node} from "@react-types/shared";
 import type {TableState, TableStateProps} from "@react-stately/table";
@@ -12,23 +7,18 @@ import type {TableCollection} from "@react-types/table";
 import {ReactNode, Key, useCallback} from "react";
 import {useTableState} from "@react-stately/table";
 import {AriaTableProps, useTable as useReactAriaTable} from "@react-aria/table";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {table} from "@nextui-org/theme";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {table} from "@heroui/theme";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {mergeProps} from "@react-aria/utils";
-import {clsx, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {clsx, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef} from "@heroui/react-utils";
 import {useMemo} from "react";
-import {CheckboxProps} from "@nextui-org/checkbox";
+import {CheckboxProps} from "@heroui/checkbox";
 
 type TableContentPlacement = "inside" | "outside";
 
-interface Props<T> extends HTMLNextUIProps<"table"> {
+interface Props<T> extends HTMLHeroUIProps<"table"> {
   /**
    * Ref to the DOM node.
    */

@@ -1,4 +1,4 @@
-import {RadioGroup, Radio} from "@nextui-org/react";
+import {RadioGroup, Radio} from "@heroui/react";
 
 export default function App() {
   const [selected, setSelected] = React.useState("london");

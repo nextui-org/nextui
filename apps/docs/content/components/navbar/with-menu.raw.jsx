@@ -8,7 +8,7 @@ import {
   NavbarMenuItem,
   Link,
   Button,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export const AcmeLogo = () => {
   return (

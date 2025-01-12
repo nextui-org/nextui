@@ -1,21 +1,21 @@
 import type {AriaRadioGroupProps} from "@react-types/radio";
 import type {Orientation} from "@react-types/shared";
-import type {ReactRef} from "@nextui-org/react-utils";
-import type {RadioGroupSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ReactRef} from "@heroui/react-utils";
+import type {RadioGroupSlots, SlotsToClasses} from "@heroui/theme";
 
-import {radioGroup} from "@nextui-org/theme";
+import {radioGroup} from "@heroui/theme";
 import {useCallback, useMemo} from "react";
 import {RadioGroupState, useRadioGroupState} from "@react-stately/radio";
 import {useRadioGroup as useReactAriaRadioGroup} from "@react-aria/radio";
-import {HTMLNextUIProps, PropGetter, useProviderContext} from "@nextui-org/system";
-import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, safeAriaLabel} from "@nextui-org/shared-utils";
+import {HTMLHeroUIProps, PropGetter, useProviderContext} from "@heroui/system";
+import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
+import {clsx, safeAriaLabel} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 import {RadioProps} from "./index";
 
-interface Props extends Omit<HTMLNextUIProps<"div">, "onChange"> {
+interface Props extends Omit<HTMLHeroUIProps<"div">, "onChange"> {
   /**
    * Ref to the DOM node.
    */

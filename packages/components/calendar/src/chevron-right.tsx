@@ -1,4 +1,4 @@
-import type {IconSvgProps} from "@nextui-org/shared-icons";
+import type {IconSvgProps} from "@heroui/shared-icons";
 
 export const ChevronRightIcon = (props: IconSvgProps) => (
   <svg

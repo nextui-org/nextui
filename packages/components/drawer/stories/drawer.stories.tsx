@@ -1,16 +1,16 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {drawer} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Checkbox} from "@nextui-org/checkbox";
-import {Link} from "@nextui-org/link";
-import {Tooltip} from "@nextui-org/tooltip";
-import {Image} from "@nextui-org/image";
-import {Avatar, AvatarGroup} from "@nextui-org/avatar";
-import {MailFilledIcon, LockFilledIcon} from "@nextui-org/shared-icons";
-import {useDisclosure} from "@nextui-org/use-disclosure";
+import {drawer} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Checkbox} from "@heroui/checkbox";
+import {Link} from "@heroui/link";
+import {Tooltip} from "@heroui/tooltip";
+import {Image} from "@heroui/image";
+import {Avatar, AvatarGroup} from "@heroui/avatar";
+import {MailFilledIcon, LockFilledIcon} from "@heroui/shared-icons";
+import {useDisclosure} from "@heroui/use-disclosure";
 
 import {Drawer, DrawerContent, DrawerHeader, DrawerBody, DrawerFooter, DrawerProps} from "../src";
 
@@ -316,7 +316,7 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                     alt="Event image"
                     className="aspect-square w-full hover:scale-110"
                     height={300}
-                    src="https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/places/san-francisco.png"
+                    src="https://herouipro.nyc3.cdn.digitaloceanspaces.com/components-images/places/san-francisco.png"
                   />
                 </div>
                 <div className="flex flex-col gap-2 py-4">
@@ -417,8 +417,8 @@ const CustomStylesTemplate = (args: DrawerProps) => {
 
                         <p className="mt-4">
                           Brought to you by the{" "}
-                          <Link className="text-default-700" href="https://nextui.org">
-                            NextUI team
+                          <Link className="text-default-700" href="https://heroui.com">
+                            HeroUI team
                           </Link>
                           .
                         </p>
@@ -428,11 +428,11 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                       <span className="text-small text-default-500">Hosted By</span>
                       <div className="flex gap-2 items-center">
                         <Avatar
-                          name="NextUI"
+                          name="HeroUI"
                           size="sm"
-                          src="https://nextui.org/android-chrome-192x192.png"
+                          src="https://heroui.com/android-chrome-192x192.png"
                         />
-                        <span className="text-small text-default-500">NextUI Team</span>
+                        <span className="text-small text-default-500">HeroUI Team</span>
                       </div>
                     </div>
                     <div className="flex flex-col mt-4 gap-3 items-start">
@@ -482,10 +482,10 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                 </div>
               </DrawerBody>
               <DrawerFooter className="flex flex-col gap-1">
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Contact the host
                 </Link>
-                <Link className="text-default-400" href="mailto:hello@nextui.org" size="sm">
+                <Link className="text-default-400" href="mailto:hello@heroui.com" size="sm">
                   Report event
                 </Link>
               </DrawerFooter>

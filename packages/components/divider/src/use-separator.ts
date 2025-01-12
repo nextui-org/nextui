@@ -4,7 +4,7 @@
 
 import type {AriaLabelingProps, DOMAttributes, DOMProps, Orientation} from "@react-types/shared";
 
-import {filterDOMProps} from "@nextui-org/react-rsc-utils";
+import {filterDOMProps} from "@heroui/react-rsc-utils";
 
 export interface SeparatorProps extends DOMProps, AriaLabelingProps {
   /**

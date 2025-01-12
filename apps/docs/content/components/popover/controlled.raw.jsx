@@ -1,4 +1,4 @@
-import {Popover, PopoverTrigger, PopoverContent, Button} from "@nextui-org/react";
+import {Popover, PopoverTrigger, PopoverContent, Button} from "@heroui/react";
 
 export default function App() {
   const [isOpen, setIsOpen] = React.useState(false);

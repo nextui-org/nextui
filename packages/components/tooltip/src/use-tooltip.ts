@@ -1,29 +1,24 @@
-import type {PopoverVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {PopoverVariantProps, SlotsToClasses} from "@heroui/theme";
 import type {AriaTooltipProps} from "@react-types/tooltip";
 import type {OverlayTriggerProps} from "@react-types/overlays";
 import type {HTMLMotionProps} from "framer-motion";
-import type {OverlayOptions} from "@nextui-org/aria-utils";
+import type {OverlayOptions} from "@heroui/aria-utils";
 
 import {ReactNode, Ref, useId, useImperativeHandle} from "react";
 import {useTooltipTriggerState} from "@react-stately/tooltip";
 import {mergeProps} from "@react-aria/utils";
 import {useTooltip as useReactAriaTooltip, useTooltipTrigger} from "@react-aria/tooltip";
 import {useOverlayPosition, useOverlay, AriaOverlayProps} from "@react-aria/overlays";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {popover} from "@nextui-org/theme";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef, mergeRefs} from "@nextui-org/react-utils";
-import {createDOMRef} from "@nextui-org/react-utils";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {popover} from "@heroui/theme";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef, mergeRefs} from "@heroui/react-utils";
+import {createDOMRef} from "@heroui/react-utils";
 import {useMemo, useRef, useCallback} from "react";
-import {toReactAriaPlacement, getArrowPlacement} from "@nextui-org/aria-utils";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {toReactAriaPlacement, getArrowPlacement} from "@heroui/aria-utils";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 
-interface Props extends Omit<HTMLNextUIProps, "content"> {
+interface Props extends Omit<HTMLHeroUIProps, "content"> {
   /**
    * Ref to the DOM node.
    */

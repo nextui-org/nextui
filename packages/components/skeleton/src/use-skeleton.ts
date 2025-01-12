@@ -1,13 +1,13 @@
-import type {SkeletonVariantProps, SkeletonSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {SkeletonVariantProps, SkeletonSlots, SlotsToClasses} from "@heroui/theme";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
-import {mapPropsVariants} from "@nextui-org/system";
-import {skeleton} from "@nextui-org/theme";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {mapPropsVariants} from "@heroui/system";
+import {skeleton} from "@heroui/theme";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {useMemo, Ref} from "react";
-import {useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@heroui/system";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

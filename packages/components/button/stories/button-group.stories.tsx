@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {button, buttonGroup} from "@nextui-org/theme";
+import {button, buttonGroup} from "@heroui/theme";
 
 import {Button, ButtonGroup, ButtonGroupProps} from "../src";
 

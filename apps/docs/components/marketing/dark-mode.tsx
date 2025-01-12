@@ -1,7 +1,7 @@
 "use client";
 
 /* eslint-disable react/display-name */
-import {Code, Button, Tooltip} from "@nextui-org/react";
+import {Code, Button, Tooltip} from "@heroui/react";
 import {useState} from "react";
 import NextLink from "next/link";
 import dynamic from "next/dynamic";
@@ -33,7 +33,7 @@ export const DarkMode = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI comes with a fully well-scaled default dark theme that you can apply to your
+            HeroUI comes with a fully well-scaled default dark theme that you can apply to your
             application with just adding the <Code>dark</Code> attribute to your <Code>html</Code>.
           </p>
         </div>
@@ -91,7 +91,7 @@ export const DarkMode = () => {
       <DemoCodeModal
         code={landingContent.darkModeExampleCode}
         isOpen={isModalOpen}
-        subtitle="A simple music player component built using components from NextUI."
+        subtitle="A simple music player component built using components from HeroUI."
         title="MusicPlayer"
         onClose={() => setIsModalOpen(false)}
       />

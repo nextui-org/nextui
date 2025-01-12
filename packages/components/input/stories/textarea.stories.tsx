@@ -2,10 +2,10 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {input} from "@nextui-org/theme";
-import {SendFilledIcon, PlusFilledIcon} from "@nextui-org/shared-icons";
-import {button} from "@nextui-org/theme";
-import {Form} from "@nextui-org/form";
+import {input} from "@heroui/theme";
+import {SendFilledIcon, PlusFilledIcon} from "@heroui/shared-icons";
+import {button} from "@heroui/theme";
+import {Form} from "@heroui/form";
 
 import {Textarea, TextAreaProps} from "../src";
 

@@ -1,4 +1,4 @@
-const App = `import {Button} from "@nextui-org/react";
+const App = `import {Button} from "@heroui/react";
 
 export default function App() {
   return (
@@ -18,7 +18,7 @@ export default function App() {
       <Button color="primary" variant="flat" className="rounded-[6px] bg-[#DD62ED]/20 text-[#DD62ED] data-[focus-visible=true]:outline-[#F182F6]">
         Flat
       </Button>  
-      <Button color="primary" variant="ghost" className="rounded-[6px] border-[#DD62ED] text-[#DD62ED] hover:!bg-[#DD62ED] hover:!text-[#FFFFFF] data-[focus-visible=true]:outline-[#F182F6]">
+      <Button color="primary" variant="ghost" className="rounded-[6px] border-[#DD62ED] text-[#DD62ED] data-[hover=true]:!bg-[#DD62ED] data-[hover=true]:!text-[#FFFFFF] data-[focus-visible=true]:outline-[#F182F6]">
         Ghost
       </Button>  
       <Button color="primary" variant="shadow" className="rounded-[6px] shadow-[#DD62ED]/40 bg-[#DD62ED] text-[#FFFFFF] data-[focus-visible=true]:outline-[#F182F6]">

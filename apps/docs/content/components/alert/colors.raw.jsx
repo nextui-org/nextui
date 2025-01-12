@@ -1,4 +1,4 @@
-import {Alert} from "@nextui-org/react";
+import {Alert} from "@heroui/react";
 
 export default function App() {
   return (

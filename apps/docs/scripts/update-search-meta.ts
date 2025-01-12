@@ -123,7 +123,7 @@ async function getSearchMeta(saveMode: "algolia" | "local" = "local") {
         fs.writeFileSync(outPath, json);
 
 
-      console.log("[NextUI] Search meta is ready ✅");
+      console.log("[HeroUI] Search meta is ready ✅");
 
       return;
     }
@@ -151,7 +151,7 @@ async function getSearchMeta(saveMode: "algolia" | "local" = "local") {
       safe: true,
     });
 
-    console.log("[NextUI] Search meta is ready ✅");
+    console.log("[HeroUI] Search meta is ready ✅");
   } catch (error) {
     console.error(`[ERROR 🔥]:`, error);
   }

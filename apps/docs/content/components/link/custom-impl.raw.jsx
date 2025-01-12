@@ -1,7 +1,7 @@
 import {forwardRef} from "react";
-import {LinkIcon} from "@nextui-org/shared-icons";
-import {linkAnchorClasses} from "@nextui-org/theme";
-import {useLink} from "@nextui-org/react";
+import {LinkIcon} from "@heroui/shared-icons";
+import {linkAnchorClasses} from "@heroui/theme";
+import {useLink} from "@heroui/react";
 
 const MyLink = forwardRef((props, ref) => {
   const {

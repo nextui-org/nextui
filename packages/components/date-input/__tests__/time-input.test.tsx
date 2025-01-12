@@ -3,7 +3,7 @@ import * as React from "react";
 import {fireEvent, render} from "@testing-library/react";
 import {Time, ZonedDateTime} from "@internationalized/date";
 import {TimeValue} from "@react-types/datepicker";
-import {pointerMap, triggerPress} from "@nextui-org/test-utils";
+import {pointerMap, triggerPress} from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";
 
 import {TimeInput as TimeInputBase, TimeInputProps} from "../src";

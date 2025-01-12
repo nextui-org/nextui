@@ -1,5 +1,5 @@
 import {RefObject, useCallback, useState, useEffect} from "react";
-import {ShapeType, getRealShape} from "@nextui-org/react-utils";
+import {ShapeType, getRealShape} from "@heroui/react-utils";
 
 export type ShapeResult = [ShapeType, () => void];
 

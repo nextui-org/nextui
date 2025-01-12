@@ -1,6 +1,6 @@
 import * as React from "react";
 import {render} from "@testing-library/react";
-import {Link} from "@nextui-org/link";
+import {Link} from "@heroui/link";
 
 import {User} from "../src";
 import {AvatarIcon} from "../../avatar/src";
@@ -65,8 +65,8 @@ describe("User", () => {
     const wrapper = render(
       <User
         description={
-          <Link data-testid="test-user-link" href="https://nextui.org">
-            NextUI
+          <Link data-testid="test-user-link" href="https://heroui.com">
+            HeroUI
           </Link>
         }
         name="User"

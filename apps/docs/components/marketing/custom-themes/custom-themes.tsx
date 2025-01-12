@@ -2,7 +2,7 @@
 
 /* eslint-disable react/display-name */
 import {useMemo, useState} from "react";
-import {Tabs, Tab, Card, CardBody, Image, Button, RadioGroup, Radio} from "@nextui-org/react";
+import {Tabs, Tab, Card, CardBody, Image, Button, RadioGroup, Radio} from "@heroui/react";
 import NextLink from "next/link";
 import NextImage from "next/image";
 
@@ -10,25 +10,33 @@ import {shopCartStyles} from "./styles";
 
 import {title, subtitle, titleWrapper, sectionWrapper} from "@/components/primitives";
 import {PaletteIcon, MagicIcon, GamingConsoleIcon, StarIcon} from "@/components/icons";
-import {NextUILogo, CodeWindow} from "@/components";
+import {HeroUILogo, CodeWindow} from "@/components";
 import landingContent from "@/content/landing";
 import {useIsMobile} from "@/hooks/use-media-query";
 
 const themesTabs = (isMobile: boolean) => [
   {
-    id: "nextui",
-    title: () => <p className="group-data-[selected=true]:text-primary">NextUI</p>,
+    id: "heroui",
+    title: () => (
+      <p className="group-data-[selected=true]:text-foreground group-data-[selected=true]:font-medium">
+        HeroUI
+      </p>
+    ),
     icon: () => (
-      <NextUILogo
-        small
-        className="text-default-400 group-data-[selected=true]:text-primary"
+      <HeroUILogo
+        outlined
+        className="text-default-400 group-data-[selected=true]:text-foreground"
         size={isMobile ? 34 : 44}
       />
     ),
   },
   {
     id: "modern",
-    title: () => <p className="group-data-[selected=true]:text-secondary">Modern</p>,
+    title: () => (
+      <p className="group-data-[selected=true]:text-secondary group-data-[selected=true]:font-medium">
+        Modern
+      </p>
+    ),
     icon: () => (
       <PaletteIcon
         className="group-data-[selected=true]:text-secondary"
@@ -38,12 +46,20 @@ const themesTabs = (isMobile: boolean) => [
   },
   {
     id: "elegant",
-    title: () => <p className="group-data-[selected=true]:text-foreground">Elegant</p>,
+    title: () => (
+      <p className="group-data-[selected=true]:text-foreground group-data-[selected=true]:font-medium">
+        Elegant
+      </p>
+    ),
     icon: () => <MagicIcon size={isMobile ? 34 : 44} />,
   },
   {
     id: "retro",
-    title: () => <p className="group-data-[selected=true]:text-warning">Retro</p>,
+    title: () => (
+      <p className="group-data-[selected=true]:text-warning group-data-[selected=true]:font-medium">
+        Retro
+      </p>
+    ),
     icon: () => (
       <GamingConsoleIcon
         className="group-data-[selected=true]:text-warning"
@@ -53,13 +69,13 @@ const themesTabs = (isMobile: boolean) => [
   },
 ];
 
-type Theme = "nextui" | "modern" | "elegant" | "retro";
+type Theme = "heroui" | "modern" | "elegant" | "retro";
 type Tab = {id: string; title: () => JSX.Element; icon: () => JSX.Element};
 
 const itemSizes = ["xs", "s", "m", "l", "xl"];
 
 const codeHighlights = {
-  nextui: "6-19",
+  heroui: "6-19",
   modern: "26-39",
   elegant: "46-59",
   retro: "66-84",
@@ -163,7 +179,7 @@ const CustomThemesExample = ({
               <Button
                 className={slots.buyButton()}
                 color="primary"
-                variant={selectedTheme === "nextui" ? "shadow" : "solid"}
+                variant={selectedTheme === "heroui" ? "shadow" : "solid"}
               >
                 Buy now
               </Button>
@@ -224,7 +240,7 @@ export const CustomThemes = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI provides a custom TailwindCSS plugin that allows you to customize the default
+            HeroUI provides a custom TailwindCSS plugin that allows you to customize the default
             themes or create your own.
           </p>
         </div>

@@ -1,7 +1,8 @@
+import "@testing-library/jest-dom";
 import * as React from "react";
 import {render, fireEvent, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
-import {Button} from "@nextui-org/button";
+import {Button} from "@heroui/button";
 
 import {Popover, PopoverContent, PopoverTrigger} from "../src";
 import {Select, SelectItem} from "../../select/src";
@@ -134,7 +135,7 @@ describe("Popover", () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
-  it("should work with NextUI button", async () => {
+  it("should work with HeroUI button", async () => {
     const onClose = jest.fn();
 
     const wrapper = render(

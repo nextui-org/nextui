@@ -21,18 +21,18 @@ The Avatar component is used to represent a user, and displays the profile pictu
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add avatar",
-    npm: "npm install @nextui-org/avatar",
-    yarn: "yarn add @nextui-org/avatar",
-    pnpm: "pnpm add @nextui-org/avatar",
-    bun: "bun add @nextui-org/avatar"
+    cli: "npx heroui-cli@latest add avatar",
+    npm: "npm install @heroui/avatar",
+    yarn: "yarn add @heroui/avatar",
+    pnpm: "pnpm add @heroui/avatar",
+    bun: "bun add @heroui/avatar"
   }}
 />
 
 
 ## Import
 
-NextUI exports 3 avatar-related components:
+HeroUI exports 3 avatar-related components:
 
 - **Avatar**: The main component to display an avatar.
 - **AvatarGroup**: A wrapper component to display a group of avatars.
@@ -40,8 +40,8 @@ NextUI exports 3 avatar-related components:
 
 <ImportTabs
   commands={{
-    main: 'import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/react";',
-    individual: 'import {Avatar, AvatarGroup, AvatarIcon} from "@nextui-org/avatar";',
+    main: 'import {Avatar, AvatarGroup, AvatarIcon} from "@heroui/react";',
+    individual: 'import {Avatar, AvatarGroup, AvatarIcon} from "@heroui/avatar";',
   }}
 />
 
@@ -120,7 +120,7 @@ You can display the total number of avatars by passing the `total` prop to the `
 
 ### Group Custom count
 
-NextUI provides a `renderCount` prop to customize the count displayed when the `total` prop is passed.
+`AvatarGroup` provides a `renderCount` prop to customize the count displayed when the `total` prop is passed.
 
 <CodeDemo title="Group Custom count" files={avatarContent.groupCustomCount} />
 

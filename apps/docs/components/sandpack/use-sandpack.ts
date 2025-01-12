@@ -71,7 +71,7 @@ export const useSandpack = ({
 
   let dependencies = {
     "framer-motion": "11.9.0",
-    "@nextui-org/react": "latest",
+    "@heroui/react": "latest",
   };
 
   // sort files by dependency
@@ -131,15 +131,15 @@ export const useSandpack = ({
   /**
    * Uncomment this logic when specific imports are needed
    */
-  // const nextUIComponents = useMemo(
+  // const heroUIComponents = useMemo(
   //   () =>
-  //     Object.values(getNextUIComponents(sortedFiles) || {}).flatMap((e) =>
+  //     Object.values(getHeroUIComponents(sortedFiles) || {}).flatMap((e) =>
   //       e.split(",").map((name) => name.replace(/"/g, "")),
   //     ),
   //   [sortedFiles],
   // );
 
-  // const hasComponents = !isEmpty(nextUIComponents);
+  // const hasComponents = !isEmpty(heroUIComponents);
 
   // const dependencies = useMemo(() => {
   //   let deps = {
@@ -148,14 +148,14 @@ export const useSandpack = ({
 
   //   if (hasComponents) {
   //     let deps = {
-  //       "@nextui-org/theme": "canary",
-  //       "@nextui-org/system": "canary",
+  //       "@heroui/theme": "canary",
+  //       "@heroui/system": "canary",
   //     };
 
-  //     nextUIComponents.forEach((component) => {
+  //     heroUIComponents.forEach((component) => {
   //       deps = {
   //         ...deps,
-  //         [`@nextui-org/${component}`]: "canary",
+  //         [`@heroui/${component}`]: "canary",
   //       };
   //     });
 
@@ -164,13 +164,13 @@ export const useSandpack = ({
 
   //   return {
   //     ...deps,
-  //     "@nextui-org/react": "canary",
+  //     "@heroui/react": "canary",
   //   };
-  // }, [hasComponents, nextUIComponents, component]);
+  // }, [hasComponents, heroUIComponents, component]);
 
   // const tailwindConfigFile = useMemo(
-  //   () => (hasComponents ? updateTailwindConfig(tailwindConfig, nextUIComponents) : tailwindConfig),
-  //   [tailwindConfig, nextUIComponents],
+  //   () => (hasComponents ? updateTailwindConfig(tailwindConfig, heroUIComponents) : tailwindConfig),
+  //   [tailwindConfig, heroUIComponents],
   // );
 
   const customSetup = {

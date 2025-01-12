@@ -7,7 +7,7 @@ import {
   TableCell,
   RadioGroup,
   Radio,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export default function App() {
   const [selectedColor, setSelectedColor] = React.useState("default");

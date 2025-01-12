@@ -1,4 +1,4 @@
-import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
+import {BaseItem, ItemProps} from "@heroui/aria-utils";
 import {ReactNode, RefObject} from "react";
 interface Props<T extends object = {}> extends Omit<ItemProps<"button", T>, "children" | "title"> {
   /**

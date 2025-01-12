@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {Link} from "@nextui-org/link";
+import {Link} from "@heroui/link";
 
 import {User} from "../src";
 

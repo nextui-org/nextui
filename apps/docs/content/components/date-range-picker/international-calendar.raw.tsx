@@ -2,7 +2,7 @@ import type {RangeValue} from "@react-types/shared";
 import type {DateValue} from "@react-types/datepicker";
 
 import React from "react";
-import {DateRangePicker} from "@nextui-org/react";
+import {DateRangePicker} from "@heroui/react";
 import {parseAbsoluteToLocal} from "@internationalized/date";
 import {I18nProvider} from "@react-aria/i18n";
 

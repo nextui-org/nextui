@@ -2,7 +2,7 @@ import type {Selection} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {accordionItem, button} from "@nextui-org/theme";
+import {accordionItem, button} from "@heroui/theme";
 import {
   AnchorIcon,
   MoonIcon,
@@ -11,10 +11,10 @@ import {
   ShieldSecurityIcon,
   MonitorMobileIcon,
   InvalidCardIcon,
-} from "@nextui-org/shared-icons";
-import {Avatar} from "@nextui-org/avatar";
-import {Input, Textarea} from "@nextui-org/input";
-import {Button} from "@nextui-org/button";
+} from "@heroui/shared-icons";
+import {Avatar} from "@heroui/avatar";
+import {Input, Textarea} from "@heroui/input";
+import {Button} from "@heroui/button";
 
 import {Accordion, AccordionProps, AccordionItem, AccordionItemProps} from "../src";
 

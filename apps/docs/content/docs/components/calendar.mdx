@@ -20,11 +20,11 @@ A calendar consists of a grouping element containing one or more date grids (e.g
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add calendar",
-    npm: "npm install @nextui-org/calendar",
-    yarn: "yarn add @nextui-org/calendar",
-    pnpm: "pnpm add @nextui-org/calendar",
-    bun: "bun add @nextui-org/calendar",
+    cli: "npx heroui-cli@latest add calendar",
+    npm: "npm install @heroui/calendar",
+    yarn: "yarn add @heroui/calendar",
+    pnpm: "pnpm add @heroui/calendar",
+    bun: "bun add @heroui/calendar",
   }}
 />
 
@@ -32,8 +32,8 @@ A calendar consists of a grouping element containing one or more date grids (e.g
 
 <ImportTabs
   commands={{
-    main: 'import {Calendar} from "@nextui-org/react";',
-    individual: 'import {Calendar} from "@nextui-org/calendar";',
+    main: 'import {Calendar} from "@heroui/react";',
+    individual: 'import {Calendar} from "@heroui/calendar";',
   }}
 />
 
@@ -342,7 +342,7 @@ Here's the example to customize `topContent` and `bottomContent` to have some pr
     {
       attribute: "createCalendar",
       type: "(calendar: SupportedCalendars) => Calendar | null",
-      description: "This function helps to reduce the bundle size by providing a custom calendar system. You can also use the NextUIProvider to provide the createCalendar function to all nested components.",
+      description: "This function helps to reduce the bundle size by providing a custom calendar system. You can also use the HeroUIProvider to provide the createCalendar function to all nested components.",
       default: "all calendars"
     },
     {

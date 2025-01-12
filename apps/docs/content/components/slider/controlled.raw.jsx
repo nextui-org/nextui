@@ -1,4 +1,4 @@
-import {Slider, Button} from "@nextui-org/react";
+import {Slider, Button} from "@heroui/react";
 
 export const VolumeHighIcon = (props) => {
   return (

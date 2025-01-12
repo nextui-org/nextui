@@ -1,4 +1,4 @@
-import {Snippet} from "@nextui-org/react";
+import {Snippet} from "@heroui/react";
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
         closeDelay: 0,
       }}
     >
-      npm install @nextui-org/react
+      npm install @heroui/react
     </Snippet>
   );
 }

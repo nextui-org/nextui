@@ -6,19 +6,19 @@
 import Color from "color";
 import plugin from "tailwindcss/plugin.js";
 import deepMerge from "deepmerge";
-import {omit, kebabCase, mapKeys} from "@nextui-org/shared-utils";
+import {omit, kebabCase, mapKeys} from "@heroui/shared-utils";
 
 import {semanticColors, commonColors} from "./colors";
 import {animations} from "./animations";
 import {utilities} from "./utilities";
 import {flattenThemeObject} from "./utils/object";
 import {isBaseTheme} from "./utils/theme";
-import {ConfigTheme, ConfigThemes, DefaultThemeType, NextUIPluginConfig} from "./types";
+import {ConfigTheme, ConfigThemes, DefaultThemeType, HeroUIPluginConfig} from "./types";
 import {lightLayout, darkLayout, defaultLayout} from "./default-layout";
 import {baseStyles} from "./utils/classes";
 import {DEFAULT_TRANSITION_DURATION} from "./utilities/transition";
 
-const DEFAULT_PREFIX = "nextui";
+const DEFAULT_PREFIX = "heroui";
 
 const parsedColorsCache: Record<string, number[]> = {};
 
@@ -80,30 +80,30 @@ const resolveConfig = (
         parsedColorsCache[colorValue] = parsedColor;
 
         const [h, s, l, defaultAlphaValue] = parsedColor;
-        const nextuiColorVariable = `--${prefix}-${colorName}`;
-        const nextuiOpacityVariable = `--${prefix}-${colorName}-opacity`;
+        const herouiColorVariable = `--${prefix}-${colorName}`;
+        const herouiOpacityVariable = `--${prefix}-${colorName}-opacity`;
 
         // set the css variable in "@layer utilities"
-        resolved.utilities[cssSelector]![nextuiColorVariable] = `${h} ${s}% ${l}%`;
+        resolved.utilities[cssSelector]![herouiColorVariable] = `${h} ${s}% ${l}%`;
         // if an alpha value was provided in the color definition, store it in a css variable
         if (typeof defaultAlphaValue === "number") {
-          resolved.utilities[cssSelector]![nextuiOpacityVariable] = defaultAlphaValue.toFixed(2);
+          resolved.utilities[cssSelector]![herouiOpacityVariable] = defaultAlphaValue.toFixed(2);
         }
         // set the dynamic color in tailwind config theme.colors
         resolved.colors[colorName] = ({opacityVariable, opacityValue}) => {
           // if the opacity is set  with a slash (e.g. bg-primary/90), use the provided value
           if (!isNaN(+opacityValue)) {
-            return `hsl(var(${nextuiColorVariable}) / ${opacityValue})`;
+            return `hsl(var(${herouiColorVariable}) / ${opacityValue})`;
           }
           // if no opacityValue was provided (=it is not parsable to a number)
-          // the nextuiOpacityVariable (opacity defined in the color definition rgb(0, 0, 0, 0.5)) should have the priority
+          // the herouiOpacityVariable (opacity defined in the color definition rgb(0, 0, 0, 0.5)) should have the priority
           // over the tw class based opacity(e.g. "bg-opacity-90")
           // This is how tailwind behaves as for v3.2.4
           if (opacityVariable) {
-            return `hsl(var(${nextuiColorVariable}) / var(${nextuiOpacityVariable}, var(${opacityVariable})))`;
+            return `hsl(var(${herouiColorVariable}) / var(${herouiOpacityVariable}, var(${opacityVariable})))`;
           }
 
-          return `hsl(var(${nextuiColorVariable}) / var(${nextuiOpacityVariable}, 1))`;
+          return `hsl(var(${herouiColorVariable}) / var(${herouiOpacityVariable}, 1))`;
         };
       } catch (error: any) {
         // eslint-disable-next-line no-console
@@ -242,7 +242,7 @@ const corePlugin = (
   );
 };
 
-export const nextui = (config: NextUIPluginConfig = {}): ReturnType<typeof plugin> => {
+export const heroui = (config: HeroUIPluginConfig = {}): ReturnType<typeof plugin> => {
   const {
     themes: themeObject = {},
     defaultTheme = "light",
