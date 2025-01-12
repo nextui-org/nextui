@@ -24,12 +24,12 @@ function modifyDts(path) {
 }
 
 function postinstall() {
-  const nextjs = tryRequirePkg('next')
-  const react = tryRequirePkg('react')
-  const nextjsVersion = nextjs?.version?.version || ''
-  const reactVersion = react?.version || ''
-
-  if (nextjsVersion.startsWith('14') || reactVersion.startsWith('18')) {
+  const nextjs = tryRequirePkg('next/package.json')
+  const react = tryRequirePkg('react/package.json')
+  const nextjsVersion = Number((nextjs?.version || '').split('.')[0])
+  const reactVersion = Number((react?.version || '').split('.')[0])
+  
+  if (reactVersion === 18 && nextjsVersion < 15) {
     copyDemiDir('react18')
   } else {
     copyDemiDir('react19')
