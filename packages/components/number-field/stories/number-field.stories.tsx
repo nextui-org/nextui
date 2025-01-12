@@ -90,194 +90,11 @@ const ControlledTemplate = (args) => {
 
   return (
     <div className="w-full flex flex-col gap-2 max-w-[240px]">
-      <NumberField {...args} placeholder="Enter a number" value={value} onValueChange={setValue} />
+      <NumberField {...args} value={value} onValueChange={setValue} />
       <p className="text-default-500 text-sm">NumberField value: {value}</p>
     </div>
   );
 };
-
-const StartContentTemplate = (args) => (
-  <div className="w-full max-w-[240px]">
-    <NumberField
-      {...args}
-      label="Price"
-      placeholder="0.00"
-      startContent={
-        <div className="pointer-events-none flex items-center">
-          <span className="text-default-400 text-sm">$</span>
-        </div>
-      }
-    />
-  </div>
-);
-
-const EndContentTemplate = (args) => (
-  <div className="w-full max-w-[240px]">
-    <NumberField
-      {...args}
-      endContent={
-        <div className="pointer-events-none flex items-center">
-          <span className="text-default-400 text-sm">€</span>
-        </div>
-      }
-      label="Price"
-      placeholder="0.00"
-    />
-  </div>
-);
-
-const StartAndEndContentTemplate = (args) => (
-  <div className="w-full max-w-[240px]">
-    <NumberField
-      {...args}
-      endContent={
-        <div className="flex items-center">
-          <label className="sr-only" htmlFor="currency">
-            Currency
-          </label>
-          <select
-            className="outline-none border-0 bg-transparent text-default-400 text-sm"
-            id="currency"
-            name="currency"
-          >
-            <option>USD</option>
-            <option>ARS</option>
-            <option>EUR</option>
-          </select>
-        </div>
-      }
-      label="Price"
-      placeholder="0.00"
-      startContent={
-        <div className="pointer-events-none flex items-center">
-          <span className="text-default-400 text-sm">$</span>
-        </div>
-      }
-    />
-  </div>
-);
-
-const CustomWithClassNamesTemplate = (args) => (
-  <div className="w-full max-w-[340px]">
-    <NumberField
-      {...args}
-      classNames={{
-        label: "hidden",
-        inputWrapper: [
-          "bg-slate-100",
-          "border",
-          "shadow",
-          "hover:bg-slate-200",
-          "focus-within:!bg-slate-100",
-          "dark:bg-slate-900",
-          "dark:hover:bg-slate-800",
-          "dark:border-slate-800",
-          "dark:focus-within:!bg-slate-900",
-        ],
-        innerWrapper: "gap-3",
-        input: [
-          "text-base",
-          "text-slate-500",
-          "placeholder:text-slate-500",
-          "dark:text-slate-400",
-          "dark:placeholder:text-slate-400",
-        ],
-      }}
-      endContent={<div className="pointer-events-none flex items-center">€</div>}
-      placeholder="Enter the amount"
-    />
-  </div>
-);
-
-// const CustomWithHooksTemplate = (args: NumberFieldProps) => {
-//   const {
-//     Component,
-//     label,
-//     domRef,
-//     description,
-//     isClearable,
-//     startContent,
-//     endContent,
-//     shouldLabelBeOutside,
-//     shouldLabelBeInside,
-//     errorMessage,
-//     getBaseProps,
-//     getLabelProps,
-//     getNumberFieldProps,
-//     getInnerWrapperProps,
-//     getNumberFieldWrapperProps,
-//     getDescriptionProps,
-//     getErrorMessageProps,
-//     getClearButtonProps,
-//   } = useNumberField({
-//     ...args,
-//     classNames: {
-//       label: "text-black/50 dark:text-white/90",
-//       input: [
-//         "bg-transparent",
-//         "text-black/90 dark:text-white/90",
-//         "placeholder:text-default-700/50 dark:placeholder:text-white/60",
-//       ],
-//       innerWrapper: "bg-transparent",
-//       inputWrapper: [
-//         "shadow-xl",
-//         "bg-default-200/50",
-//         "dark:bg-default/60",
-//         "backdrop-blur-xl",
-//         "backdrop-saturate-200",
-//         "hover:bg-default-200/70",
-//         "focus-within:!bg-default-200/50",
-//         "dark:hover:bg-default/70",
-//         "dark:focus-within:!bg-default/60",
-//         "!cursor-text",
-//       ],
-//     },
-//   });
-
-//   const labelContent = <label {...getLabelProps()}>{label}</label>;
-
-//   const end = React.useMemo(() => {
-//     if (isClearable) {
-//       return <span {...getClearButtonProps()}>{endContent || <CloseFilledIcon />}</span>;
-//     }
-
-//     return endContent;
-//   }, [isClearable, getClearButtonProps]);
-
-//   const innerWrapper = React.useMemo(() => {
-//     if (startContent || end) {
-//       return (
-//         <div {...getInnerWrapperProps()}>
-//           {startContent}
-//           <input {...getNumberFieldProps()} />
-//           {end}
-//         </div>
-//       );
-//     }
-
-//     return <input {...getNumberFieldProps()} />;
-//   }, [startContent, end, getNumberFieldProps, getInnerWrapperProps]);
-
-//   return (
-//     <div className="w-[340px] h-[300px] px-8 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
-//       <Component {...getBaseProps()}>
-//         {shouldLabelBeOutside ? labelContent : null}
-//         <div
-//           {...getNumberFieldWrapperProps()}
-//           role="button"
-//           onClick={() => {
-//             domRef.current?.focus();
-//           }}
-//         >
-//           {shouldLabelBeInside ? labelContent : null}
-//           {innerWrapper}
-//         </div>
-//         {description && <div {...getDescriptionProps()}>{description}</div>}
-//         {errorMessage && <div {...getErrorMessageProps()}>{errorMessage}</div>}
-//       </Component>
-//     </div>
-//   );
-// };
 
 // const WithReactHookFormTemplate = (args: NumberFieldProps) => {
 //   const {
@@ -331,7 +148,7 @@ const ServerValidationTemplate = (args: NumberFieldProps) => {
       validationErrors={serverErrors}
       onSubmit={onSubmit}
     >
-      <NumberField {...args} label="Width" name="width" />
+      <NumberField {...args} />
       <button className={button({color: "primary"})} type="submit">
         Submit
       </button>
@@ -459,6 +276,7 @@ export const Disabled = {
     ...defaultProps,
     variant: "faded",
     isDisabled: true,
+    "aria-label": "width",
   },
 };
 
@@ -469,6 +287,7 @@ export const ReadOnly = {
     ...defaultProps,
     variant: "bordered",
     isReadOnly: true,
+    "aria-label": "width",
   },
 };
 
@@ -480,34 +299,72 @@ export const Clearable = {
     variant: "bordered",
     placeholder: "Enter a number",
     // eslint-disable-next-line no-console
-    onClear: () => console.log("input cleared"),
+    onClear: () => console.log("number field cleared"),
+    "aria-label": "width",
   },
 };
 
 export const StartContent = {
-  render: StartContentTemplate,
+  render: Template,
 
   args: {
     ...defaultProps,
     variant: "bordered",
+    label: "Price",
+    placeholder: "0.00",
+    startContent: (
+      <div className="pointer-events-none flex items-center">
+        <span className="text-default-400 text-sm">$</span>
+      </div>
+    ),
   },
 };
 
 export const EndContent = {
-  render: EndContentTemplate,
+  render: Template,
 
   args: {
     ...defaultProps,
     variant: "bordered",
+    label: "Price",
+    placeholde: "0.00",
+    endContent: (
+      <div className="pointer-events-none flex items-center">
+        <span className="text-default-400 text-sm">€</span>
+      </div>
+    ),
   },
 };
 
 export const StartAndEndContent = {
-  render: StartAndEndContentTemplate,
+  render: Template,
 
   args: {
     ...defaultProps,
     variant: "bordered",
+    label: "Price",
+    placeholder: "0.00",
+    endContent: (
+      <div className="flex items-center">
+        <label className="sr-only" htmlFor="currency">
+          Currency
+        </label>
+        <select
+          className="outline-none border-0 bg-transparent text-default-400 text-sm"
+          id="currency"
+          name="currency"
+        >
+          <option>USD</option>
+          <option>ARS</option>
+          <option>EUR</option>
+        </select>
+      </div>
+    ),
+    startContent: (
+      <div className="pointer-events-none flex items-center">
+        <span className="text-default-400 text-sm">$</span>
+      </div>
+    ),
   },
 };
 
@@ -518,6 +375,7 @@ export const WithErrorMessage = {
     ...defaultProps,
     isInvalid: true,
     errorMessage: "Please enter a valid number",
+    "aria-label": "width",
   },
 };
 
@@ -568,6 +426,8 @@ export const WithServerValidation = {
 
   args: {
     ...defaultProps,
+    label: "width",
+    name: "width",
   },
 };
 
@@ -580,6 +440,7 @@ export const IsInvalid = {
     isInvalid: true,
     placeholder: "Enter a number",
     errorMessage: "Please enter a valid range of numbers",
+    "aria-label": "width",
   },
 };
 
@@ -589,6 +450,8 @@ export const Controlled = {
   args: {
     ...defaultProps,
     variant: "bordered",
+    placeholder: "Enter a number",
+    "aria-label": "width",
   },
 };
 
@@ -615,10 +478,35 @@ export const MaxValue = {
 };
 
 export const CustomWithClassNames = {
-  render: CustomWithClassNamesTemplate,
+  render: Template,
 
   args: {
     ...defaultProps,
+    classNames: {
+      label: "hidden",
+      inputWrapper: [
+        "bg-slate-100",
+        "border",
+        "shadow",
+        "hover:bg-slate-200",
+        "focus-within:!bg-slate-100",
+        "dark:bg-slate-900",
+        "dark:hover:bg-slate-800",
+        "dark:border-slate-800",
+        "dark:focus-within:!bg-slate-900",
+      ],
+      innerWrapper: "gap-3",
+      input: [
+        "text-base",
+        "text-slate-500",
+        "placeholder:text-slate-500",
+        "dark:text-slate-400",
+        "dark:placeholder:text-slate-400",
+      ],
+    },
+    endContent: <div className="pointer-events-none flex items-center">€</div>,
+    placeholder: "Enter the amount",
+    "aria-label": "amount",
   },
 };
 
