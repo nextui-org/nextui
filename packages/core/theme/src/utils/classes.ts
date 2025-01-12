@@ -102,3 +102,26 @@ export const hiddenInputClasses = [
   // Disabled state
   "disabled:cursor-default",
 ];
+
+export const numberFieldLabelClasses = [
+  "absolute",
+  "pointer-events-none",
+  "origin-top-left",
+  "flex-shrink-0",
+  // Using RTL here as Tailwind CSS doesn't support `start` and `end` logical properties for transforms yet.
+  "rtl:origin-top-right",
+  "subpixel-antialiased",
+  "block",
+  "text-small",
+  "text-default-foreground",
+  "pb-0",
+  "z-20",
+  "top-1/2",
+  "-translate-y-1/2",
+  "group-data-[filled-within=true]:pointer-events-auto",
+  "group-data-[filled-within=true]:start-0",
+  "pe-2",
+  "max-w-full",
+  "text-ellipsis",
+  "overflow-hidden",
+];
