@@ -127,8 +127,7 @@ export function useAlert(originalProps: UseAlertProps) {
   const baseStyles = clsx(classNames?.base, className);
 
   const slots = useMemo(
-    () =>
-      alert({hasContent: !isEmpty(description) || !isEmpty(children), ...variantProps, className}),
+    () => alert({hasContent: !isEmpty(description) || !isEmpty(children), ...variantProps}),
     [description, objectToDeps(variantProps)],
   );
 
