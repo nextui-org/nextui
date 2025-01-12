@@ -11,7 +11,8 @@
   "main": "src/index.ts",
   "sideEffects": false,
   "files": [
-    "dist"
+    "dist",
+    "scripts"
   ],
   "publishConfig": {
     "access": "public"
@@ -45,6 +46,7 @@
       "cjs",
       "esm"
     ],
-    "splitting": false
+    "splitting": false,
+    "entry": ["src/demi/react18", "src/demi/react19"]
   }
 }

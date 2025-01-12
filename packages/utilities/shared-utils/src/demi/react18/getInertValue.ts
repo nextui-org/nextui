@@ -12,4 +12,6 @@
  *
  * @see {@link https://github.com/facebook/react/issues/17157} for more details on the behavior in older React versions.
  */
-export declare function getInertValue(v: boolean): boolean | string | undefined;
+export const getInertValue = (v: boolean): boolean | string | undefined => {
+  return v ? "" : undefined;
+};
