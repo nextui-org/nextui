@@ -319,6 +319,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
             enabled: true,
             labelable: true,
             omitEventNames: new Set(Object.keys(inputProps)),
+            omitPropNames: new Set(["value"]),
           }),
           props,
         ),
