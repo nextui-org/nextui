@@ -12,6 +12,10 @@ export default function App() {
     setSubmitted(data);
   };
 
+  if (!width) {
+    errors.push("The value must not be empty");
+  }
+
   if (width < 100) {
     errors.push("The value must be greater than 100");
   }

@@ -178,7 +178,8 @@ This prop should be an object where each key is the field `name` and the value i
 - **innerWrapper**: Wraps the `input`, the `startContent` and the `endContent`.
 - **input**: The input element.
 - **clearButton**: The clear button, it is at the end of the input.
-- **helperWrapper**: Wraps the `helperText` and the `errorMessage`.
+- **stepperButton**: The stepper button to increase or decrease the value.
+- **verticalStepperWrapper**: The wrapper for the vertical stepper.
 - **description**: The description of NumberField.
 - **helperText**: The helper text of NumberField.
 - **errorMessage**: The error message of NumberField.
@@ -188,17 +189,6 @@ This prop should be an object where each key is the field `name` and the value i
 You can customize the `NumberField` component by passing custom Tailwind CSS classes to the component slots.
 
 <CodeDemo title="Custom Styles" files={numberFieldContent.customStyles} />
-
-### Custom Implementation
-
-In case you need to customize the input even further, you can use the `useInput` hook to create your own implementation.
-
-<CodeDemo
-  showPreview={false}
-  showOpenInCodeSandbox={true}
-  title="Custom Implementation"
-  files={numberFieldContent.customImpl}
-/>
 
 <Spacer y={4} />
 
@@ -222,6 +212,19 @@ In case you need to customize the input even further, you can use the `useInput`
   When the input is being focused with the keyboard. Based on [useFocusRing](https://react-spectrum.adobe.com/react-aria/useFocusRing.html).
 - **data-disabled**:
   When the input is disabled. Based on `isDisabled` prop.
+- **data-filled**:
+  When the input has content, placeholder, start content or the placeholder is shown.
+- **data-has-elements**:
+  When the input has any element (label, helper text, description, error message).
+- **data-has-helper**:
+  When the input has helper text.
+- **data-has-description**: 
+  When the input has a description.
+- **data-has-label**:
+  When the input has a label.
+- **data-has-value**:
+  When the input has a value (placeholder is not shown).
+
 
 <Spacer y={4} />
 

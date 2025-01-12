@@ -25,10 +25,9 @@ export default function App() {
       <NumberField
         isRequired
         isDisabled={isLoading}
-        label="Username"
-        labelPlacement="outside"
-        name="username"
-        placeholder="Enter your username"
+        label="Width"
+        name="width"
+        placeholder="Enter a number"
       />
       <Button color="primary" isLoading={isLoading} type="submit">
         Submit
@@ -43,7 +42,7 @@ async function callServer(_) {
 
   return {
     errors: {
-      username: "Sorry, this username is taken.",
+      width: "Sorry, this width is not valid.",
     },
   };
 }
