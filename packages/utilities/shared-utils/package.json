@@ -8,7 +8,7 @@
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://nextui.org",
   "license": "MIT",
-  "main": "dist/index.js",
+  "main": "src/index.ts",
   "sideEffects": false,
   "files": [
     "dist",
