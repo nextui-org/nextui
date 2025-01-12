@@ -33,7 +33,8 @@
     "typecheck": "tsc --noEmit",
     "build:fast": "tsup src",
     "prepack": "clean-package",
-    "postpack": "clean-package restore"
+    "postpack": "clean-package restore",
+    "postbuild": "npm run postinstall"
   },
   "devDependencies": {
     "clean-package": "2.2.0"
