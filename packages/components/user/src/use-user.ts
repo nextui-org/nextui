@@ -17,11 +17,11 @@ interface Props {
   /**
    * The user name.
    */
-  name: ReactNode | string;
+  name: ReactNode;
   /**
    * The user information, like email, phone, etc.
    */
-  description?: ReactNode | string;
+  description?: ReactNode;
   /**
    * Whether the user can be focused.
    * @default false

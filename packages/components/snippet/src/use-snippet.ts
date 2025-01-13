@@ -24,7 +24,7 @@ export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, Snippe
    * The content of the snippet.
    * if `string[]` is passed, it will be rendered as a multi-line snippet.
    */
-  children?: React.ReactNode | string | string[];
+  children?: React.ReactNode | string[];
   /**
    * The symbol to show before the snippet.
    * @default "$"
