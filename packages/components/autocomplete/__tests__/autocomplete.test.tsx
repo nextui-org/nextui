@@ -696,8 +696,8 @@ describe("Autocomplete", () => {
     describe("validationBehavior=native", () => {
       it("supports isRequired", async () => {
         const {getByTestId, getByRole, findByRole} = render(
-          <Form data-testid="form">
-            <AutocompleteExample isRequired validationBehavior="native" />
+          <Form data-testid="form" validationBehavior="native">
+            <AutocompleteExample isRequired />
           </Form>,
         );
 
@@ -738,8 +738,8 @@ describe("Autocomplete", () => {
           };
 
           return (
-            <Form validationErrors={serverErrors} onSubmit={onSubmit}>
-              <AutocompleteExample data-testid="input" name="value" validationBehavior="native" />
+            <Form validationBehavior="native" validationErrors={serverErrors} onSubmit={onSubmit}>
+              <AutocompleteExample data-testid="input" name="value" />
               <button data-testid="submit" type="submit">
                 Submit
               </button>
@@ -875,7 +875,7 @@ describe("Autocomplete", () => {
 
       it("supports server validation", async () => {
         const {getByTestId, getByRole} = render(
-          <Form validationErrors={{value: "Invalid value"}}>
+          <Form validationBehavior="aria" validationErrors={{value: "Invalid value"}}>
             <AutocompleteExample data-testid="input" name="value" />
           </Form>,
         );
