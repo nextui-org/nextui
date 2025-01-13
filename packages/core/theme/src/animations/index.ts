@@ -4,6 +4,7 @@ export const animations = {
     "spinner-ease-spin": "spinner-spin 0.8s ease infinite",
     "spinner-linear-spin": "spinner-spin 0.8s linear infinite",
     sway: "sway 750ms ease infinite",
+    blink: "blink 1.4s infinite both",
     "appearance-in": "appearance-in 250ms ease-out normal both",
     "appearance-out": "appearance-out 60ms ease-in normal both",
     "indeterminate-bar":
@@ -77,6 +78,17 @@ export const animations = {
       },
       "100%": {
         transform: "translate(0px, 0px)",
+      },
+    },
+    blink: {
+      "0%": {
+        opacity: "0.2",
+      },
+      "20%": {
+        opacity: "1",
+      },
+      "100%": {
+        opacity: "0.2",
       },
     },
   },

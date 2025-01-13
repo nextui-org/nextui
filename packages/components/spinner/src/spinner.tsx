@@ -7,7 +7,7 @@ export interface SpinnerProps extends UseSpinnerProps {}
 const Spinner = forwardRef<"div", SpinnerProps>((props, ref) => {
   const {slots, classNames, label, getSpinnerProps} = useSpinner({...props});
 
-  if (props.variant === "dots") {
+  if (props.variant === "dots" || props.variant === "dots-blink") {
     return (
       <div ref={ref} {...getSpinnerProps()}>
         <div className={slots.wrapper({class: classNames?.wrapper})}>

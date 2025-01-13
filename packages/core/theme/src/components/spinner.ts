@@ -148,6 +148,13 @@ const spinner = tv({
           "[&:nth-child(3)]:[animation-delay:500ms]",
         ],
       },
+      "dots-blink": {
+        dots: [
+          "animate-blink",
+          "[&:nth-child(2)]:[animation-delay:200ms]",
+          "[&:nth-child(3)]:[animation-delay:400ms]",
+        ],
+      },
     },
   },
   defaultVariants: {
@@ -187,6 +194,30 @@ const spinner = tv({
       class: {
         base: "h-10",
         wrapper: "w-12 h-2",
+      },
+    },
+    {
+      variant: "dots-blink",
+      size: "sm",
+      class: {
+        base: "h-5",
+        wrapper: "w-4 h-1",
+      },
+    },
+    {
+      variant: "dots-blink",
+      size: "md",
+      class: {
+        base: "h-8",
+        wrapper: "w-6 h-1.5",
+      },
+    },
+    {
+      variant: "dots-blink",
+      size: "lg",
+      class: {
+        base: "h-10",
+        wrapper: "w-9 h-2",
       },
     },
   ],
