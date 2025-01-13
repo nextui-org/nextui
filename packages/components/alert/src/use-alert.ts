@@ -7,7 +7,7 @@ import {ReactNode, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {alert} from "@nextui-org/theme";
 import {useControlledState} from "@react-stately/utils";
-import {dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 
 interface Props extends HTMLNextUIProps<"div"> {
   /**
@@ -103,6 +103,7 @@ export function useAlert(originalProps: UseAlertProps) {
     closeButtonProps = {
       size: "sm",
     },
+    className,
     classNames,
     ...otherProps
   } = props;
@@ -123,6 +124,8 @@ export function useAlert(originalProps: UseAlertProps) {
     onClose?.();
   }, [setIsVisible, onClose]);
 
+  const baseStyles = clsx(classNames?.base, className);
+
   const slots = useMemo(
     () => alert({hasContent: !isEmpty(description) || !isEmpty(children), ...variantProps}),
     [description, objectToDeps(variantProps)],
@@ -140,9 +143,9 @@ export function useAlert(originalProps: UseAlertProps) {
         }),
         filterDOMProps(props),
       ),
-      className: slots.base({class: classNames?.base}),
+      className: slots.base({class: baseStyles}),
     };
-  }, [slots, classNames?.base]);
+  }, [slots, baseStyles]);
 
   const getMainWrapperProps = useCallback<PropGetter>(() => {
     return {
