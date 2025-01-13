@@ -4,11 +4,11 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"button", T>, "chi
   /**
    * The content of the component.
    */
-  children?: ReactNode | null;
+  children?: ReactNode;
   /**
    * The title of the component.
    */
-  title?: ReactNode | null;
+  title?: ReactNode;
   /**
    *  A string representation of the item's contents. Use this when the title is not readable.
    *  This will be used as native `title` attribute.

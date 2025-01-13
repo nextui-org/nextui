@@ -29,7 +29,7 @@ const ListboxItem = (props: ListboxItemProps) => {
     getSelectedIconProps,
   } = useListboxItem(props);
 
-  const selectedContent = useMemo<ReactNode | null>(() => {
+  const selectedContent = useMemo<ReactNode>(() => {
     const defaultIcon = (
       <ListboxSelectedIcon disableAnimation={disableAnimation} isSelected={isSelected} />
     );
