@@ -9,7 +9,7 @@ import {alert} from "@nextui-org/theme";
 import {useControlledState} from "@react-stately/utils";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends Omit<HTMLNextUIProps<"div">, "title"> {
   /**
    * Ref to the DOM node.
    */
@@ -17,7 +17,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * title of the alert message
    */
-  title?: string;
+  title?: ReactNode;
   /**
    * description of the alert message
    */
