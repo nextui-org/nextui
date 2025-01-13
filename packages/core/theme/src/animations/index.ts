@@ -3,6 +3,7 @@ export const animations = {
     "drip-expand": "drip-expand 420ms linear",
     "spinner-ease-spin": "spinner-spin 0.8s ease infinite",
     "spinner-linear-spin": "spinner-spin 0.8s linear infinite",
+    sway: "sway 750ms ease infinite",
     "appearance-in": "appearance-in 250ms ease-out normal both",
     "appearance-out": "appearance-out 60ms ease-in normal both",
     "indeterminate-bar":
@@ -65,6 +66,17 @@ export const animations = {
       },
       "100%": {
         transform: "translateX(100%) scaleX(1)",
+      },
+    },
+    sway: {
+      "0%": {
+        transform: "translate(0px, 0px)",
+      },
+      "50%": {
+        transform: "translate(0px, -150%)",
+      },
+      "100%": {
+        transform: "translate(0px, 0px)",
       },
     },
   },
