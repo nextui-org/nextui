@@ -113,7 +113,7 @@ export function useAriaButton(
     // bypass since onClick is passed from <Link as={Button} /> internally
     role !== "link" &&
     // bypass since onClick is passed from useDisclosure's `getButtonProps` internally
-    !(props.hasOwnProperty("aria-controls") && props.hasOwnProperty("aria-controls"))
+    !(props.hasOwnProperty("aria-expanded") && props.hasOwnProperty("aria-controls"))
   ) {
     warn(
       "onClick is deprecated, please use onPress instead. See: https://github.com/nextui-org/nextui/issues/4292",
