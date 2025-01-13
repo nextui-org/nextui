@@ -1,5 +1,12 @@
 # @nextui-org/react
 
+## 2.6.12
+
+### Patch Changes
+
+- Updated dependencies [[`cfff127`](https://github.com/nextui-org/nextui/commit/cfff12746408524b89f036112c65b044e3d3e118), [`fcdf24a`](https://github.com/nextui-org/nextui/commit/fcdf24a019718b18655e1c9f80616dd26cbf02ef)]:
+  - @nextui-org/alert@2.2.10
+
 ## 2.6.11
 
 ### Patch Changes
