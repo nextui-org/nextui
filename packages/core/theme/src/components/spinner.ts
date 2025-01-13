@@ -115,6 +115,19 @@ const spinner = tv({
           "border-r-transparent",
         ],
       },
+      gradient: {
+        circle1: [
+          "border-0",
+          "bg-gradient-to-b",
+          "from-transparent",
+          "via-transparent",
+          "to-primary",
+          "animate-spinner-linear-spin",
+          "[animation-duration:1s]",
+          "[-webkit-mask:radial-gradient(closest-side,rgba(0,0,0,0.0)calc(100%-3px),rgba(0,0,0,1)calc(100%-3px))]",
+        ],
+        circle2: ["hidden"],
+      },
     },
   },
   defaultVariants: {
@@ -123,6 +136,16 @@ const spinner = tv({
     labelColor: "foreground",
     variant: "default",
   },
+  compoundVariants: [
+    {variant: "gradient", color: "current", class: {circle1: "to-current"}},
+    {variant: "gradient", color: "white", class: {circle1: "to-white"}},
+    {variant: "gradient", color: "default", class: {circle1: "to-default"}},
+    {variant: "gradient", color: "primary", class: {circle1: "to-primary"}},
+    {variant: "gradient", color: "secondary", class: {circle1: "to-secondary"}},
+    {variant: "gradient", color: "success", class: {circle1: "to-success"}},
+    {variant: "gradient", color: "warning", class: {circle1: "to-warning"}},
+    {variant: "gradient", color: "danger", class: {circle1: "to-danger"}},
+  ],
 });
 
 export type SpinnerVariantProps = VariantProps<typeof spinner>;
