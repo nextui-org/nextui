@@ -20,6 +20,22 @@ const Spinner = forwardRef<"div", SpinnerProps>((props, ref) => {
     );
   }
 
+  if (props.variant === "spinner-bars") {
+    return (
+      <div ref={ref} {...getSpinnerProps()}>
+        <div className={slots.wrapper({class: classNames?.wrapper})}>
+          {[...new Array(12)].map((_, index) => (
+            <i
+              key={`spinner-bar-${index}`}
+              className={slots.spinnerBars({class: classNames?.spinnerBars})}
+            />
+          ))}
+        </div>
+        {label && <span className={slots.label({class: classNames?.label})}>{label}</span>}
+      </div>
+    );
+  }
+
   return (
     <div ref={ref} {...getSpinnerProps()}>
       <div className={slots.wrapper({class: classNames?.wrapper})}>
