@@ -161,6 +161,12 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef.current?.focus();
   }, [setInputValue, onClear]);
 
+  const handleInputWrapperClick = useCallback(() => {
+    if (domRef.current) {
+      domRef.current?.focus();
+    }
+  }, [domRef.current]);
+
   // if we use `react-hook-form`, it will set the input value using the ref in register
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
@@ -223,6 +229,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {pressProps: clearPressProps} = usePress({
     isDisabled: !!originalProps?.isDisabled || !!originalProps?.isReadOnly,
     onPress: handleClear,
+  });
+
+  const {pressProps: inputWrapperPressProps} = usePress({
+    isDisabled: !!originalProps?.isDisabled || !!originalProps?.isReadOnly,
+    onPress: handleInputWrapperClick,
   });
 
   const isInvalid = validationState === "invalid" || isAriaInvalid;
@@ -403,12 +414,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         className: slots.inputWrapper({
           class: clsx(classNames?.inputWrapper, isFilled ? "is-filled" : ""),
         }),
-        ...mergeProps(props, hoverProps),
-        onClick: (e) => {
-          if (domRef.current && e.currentTarget === e.target) {
-            domRef.current.focus();
-          }
-        },
+        ...mergeProps(props, hoverProps, inputWrapperPressProps),
         style: {
           cursor: "text",
           ...props.style,
@@ -432,11 +438,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         ref: innerWrapperRef,
         "data-slot": "inner-wrapper",
-        onClick: (e) => {
-          if (domRef.current && e.currentTarget === e.target) {
-            domRef.current.focus();
-          }
-        },
         className: slots.innerWrapper({
           class: clsx(classNames?.innerWrapper, props?.className),
         }),
