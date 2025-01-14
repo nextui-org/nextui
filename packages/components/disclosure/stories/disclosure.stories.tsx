@@ -33,9 +33,11 @@ const defaultProps = {
 };
 
 const Template = (args: DisclosureProps) => (
-  <Disclosure {...args} subtitle="subtitle" title="title">
-    This is content
-  </Disclosure>
+  <>
+    <Disclosure {...args} subtitle="subtitle" title="title">
+      This is content
+    </Disclosure>
+  </>
 );
 
 export const Default = {

@@ -26,7 +26,7 @@ export type DisclosureItemIndicatorProps = {
   isDisabled?: boolean;
 };
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends Omit<HTMLNextUIProps<"div">, "title"> {
   /**
    * Ref to the DOM node.
    */
@@ -51,8 +51,8 @@ interface Props extends HTMLNextUIProps<"div"> {
    * The content of the component.
    */
   children?: ReactNode | null;
-  title: string;
-  subtitle?: string;
+  title?: ReactNode | string;
+  subtitle?: ReactNode | string;
   classNames?: SlotsToClasses<DisclosureSlots>;
 }
 
