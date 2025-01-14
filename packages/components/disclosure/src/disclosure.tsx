@@ -21,6 +21,7 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
     isDisabled,
     indicator,
     hideIndicator,
+    height,
     getBaseProps,
     getTriggerProps,
     getContentProps,
@@ -60,7 +61,9 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
           )}
         </button>
       </HeadingComponent>
-      <div {...getContentProps()}>{children}</div>
+      <div {...getContentProps()} style={{height}}>
+        {children}
+      </div>
     </Component>
   );
 });

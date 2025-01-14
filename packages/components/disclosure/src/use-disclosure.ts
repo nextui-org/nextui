@@ -5,7 +5,7 @@ import {As, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/sys
 import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
 import {useDisclosure as useAriaDisclosure} from "@react-aria/disclosure";
 import {DisclosureProps, useDisclosureState} from "@react-stately/disclosure";
-import {ReactNode, useCallback, useMemo, useRef} from "react";
+import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useButton} from "@react-aria/button";
@@ -77,12 +77,20 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
 
   const Component = as || "div";
   const domRef = useDOMRef(ref);
-  const {isDisabled, isExpanded, hideIndicator = false} = originalProps;
+  const {
+    isDisabled,
+    isExpanded,
+    hideIndicator = false,
+    disableIndicatorAnimation = false,
+    disableAnimation = false,
+  } = originalProps;
 
   const styles = useMemo(
     () =>
       disclosure({
         ...variantProps,
+        disableAnimation,
+        disableIndicatorAnimation,
         className,
       }),
     [objectToDeps(variantProps), className],
@@ -106,6 +114,18 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
   );
 
   const {buttonProps} = useButton(triggerProps, triggerRef);
+
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (state.isExpanded && contentRef.current) {
+      const contentHeight = contentRef.current.scrollHeight;
+
+      setHeight(contentHeight);
+    } else {
+      setHeight(0);
+    }
+  }, [state.isExpanded, contentRef]);
 
   const getBaseProps = useCallback<PropGetter>(
     (props = {}) => ({
@@ -136,15 +156,16 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     (props = {}) => ({
       ref: contentRef,
       className: slots.content({class: clsx(classNames?.content, props?.className)}),
+      "data-expanded": dataAttr(state.isExpanded),
       ...mergeProps(contentProps, props),
     }),
-    [contentProps, contentRef],
+    [contentProps, contentRef, state.isExpanded],
   );
 
   const getTitleProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
-        "data-open": dataAttr(state.isExpanded),
+        "data-expanded": dataAttr(state.isExpanded),
         "data-disabled": dataAttr(isDisabled),
         className: slots.title({class: classNames?.title}),
         ...props,
@@ -156,7 +177,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
   const getSubtitleProps = useCallback<PropGetter>(
     (props = {}) => {
       return {
-        "data-open": dataAttr(state.isExpanded),
+        "data-expanded": dataAttr(state.isExpanded),
         "data-disabled": dataAttr(isDisabled),
         className: slots.subtitle({class: classNames?.subtitle}),
         ...props,
@@ -169,13 +190,13 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     (props = {}) => {
       return {
         "aria-hidden": dataAttr(true),
-        "data-open": dataAttr(isExpanded),
+        "data-expanded": dataAttr(state.isExpanded),
         "data-disabled": dataAttr(isDisabled),
         className: slots.indicator({class: classNames?.indicator}),
         ...props,
       };
     },
-    [slots, classNames?.indicator, isExpanded, isDisabled, classNames?.indicator],
+    [slots, classNames?.indicator, state.isExpanded, isDisabled, classNames?.indicator],
   );
 
   return {
@@ -193,6 +214,8 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     isDisabled,
     indicator,
     hideIndicator,
+    contentRef,
+    height,
     getBaseProps,
     getTriggerProps,
     getContentProps,
@@ -200,6 +223,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     getTitleProps,
     getSubtitleProps,
     getIndicatorProps,
+    state,
   };
 }
 

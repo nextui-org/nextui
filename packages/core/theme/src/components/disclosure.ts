@@ -7,7 +7,7 @@ const disclosure = tv({
     base: "",
     heading: "",
     trigger: [
-      "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
+      "flex w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -16,7 +16,10 @@ const disclosure = tv({
     titleWrapper: "flex-1 flex flex-col text-start",
     title: "text-foreground text-medium",
     subtitle: "text-small text-foreground-500 font-normal",
-    content: "py-2",
+    content: [
+      "py-2",
+      "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100 transition-all duration-300",
+    ],
   },
   variants: {
     variant: {
@@ -45,7 +48,7 @@ const disclosure = tv({
     },
     disableAnimation: {
       true: {
-        content: "hidden data-[open=true]:block",
+        content: "",
       },
       false: {
         indicator: "transition-transform",
@@ -58,7 +61,7 @@ const disclosure = tv({
       },
       false: {
         indicator:
-          "rotate-0 data-[open=true]:-rotate-90 rtl:-rotate-180 rtl:data-[open=true]:-rotate-90",
+          "transition-transform rotate-0 data-[expanded=true]:-rotate-90 rtl:-rotate-180 rtl:data-[expanded=true]:-rotate-90",
       },
     },
   },
