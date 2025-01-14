@@ -11,7 +11,7 @@ HeroUI is the new identity for NextUI, bringing the same powerful components and
 
 <CarbonAd/>
 
-## Automatic Migration
+## Automatic Migration (Recommended)
 
 The easiest way to migrate your NextUI project to HeroUI is using our official codemod:
 
@@ -24,6 +24,8 @@ Execute the codemod in your project directory:
 ```bash
 npx @heroui/codemod@latest migrate
 ```
+
+> **Note:** If you're using a monorepo, run the codemod from the root directory
 
 This will automatically:
 - Update all package names from `@nextui-org/*` to `@heroui/*`
