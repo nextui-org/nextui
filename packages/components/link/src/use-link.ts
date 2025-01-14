@@ -98,7 +98,7 @@ export function useLink(originalProps: UseLinkProps) {
     otherProps.target = otherProps.target ?? "_blank";
   }
 
-  const classNames = useMemo(
+  const styles = useMemo(
     () =>
       link({
         ...variantProps,
@@ -111,13 +111,13 @@ export function useLink(originalProps: UseLinkProps) {
   const getLinkProps: PropGetter = useCallback(() => {
     return {
       ref: domRef,
-      className: classNames,
+      className: styles,
       "data-focus": dataAttr(isFocused),
       "data-disabled": dataAttr(originalProps.isDisabled),
       "data-focus-visible": dataAttr(isFocusVisible),
       ...mergeProps(focusProps, linkProps, otherProps),
     };
-  }, [classNames, isFocused, isFocusVisible, focusProps, linkProps, otherProps]);
+  }, [styles, isFocused, isFocusVisible, focusProps, linkProps, otherProps]);
 
   return {Component, children, anchorIcon, showAnchorIcon, getLinkProps};
 }
