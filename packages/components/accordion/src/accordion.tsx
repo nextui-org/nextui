@@ -6,9 +6,13 @@ import {AccordianContext} from "./accordian-context";
 export interface AccordionProps extends UseAccordionProps {}
 
 const AccordionGroup = forwardRef<"div", AccordionProps>((props) => {
-  const {state} = useAccordion(props);
+  const {state, values, children, Component, getBaseProps} = useAccordion(props);
 
-  return <AccordianContext value={state}>{props.children}</AccordianContext>;
+  return (
+    <AccordianContext value={{state, values}}>
+      <Component {...getBaseProps()}>{children}</Component>
+    </AccordianContext>
+  );
 });
 
 AccordionGroup.displayName = "HeroUI.Accordion";

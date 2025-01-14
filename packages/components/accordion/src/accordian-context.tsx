@@ -1,7 +1,12 @@
 import {createContext} from "@nextui-org/react-utils";
 import {DisclosureGroupState} from "@react-stately/disclosure";
 
-export const [AccordianContext, useAccordianContext] = createContext<DisclosureGroupState>({
+import {ValuesType} from "./use-accordion";
+
+export const [AccordianContext, useAccordianContext] = createContext<{
+  state: DisclosureGroupState;
+  values: ValuesType;
+}>({
   name: "AccordianContext",
   strict: true,
   errorMessage:

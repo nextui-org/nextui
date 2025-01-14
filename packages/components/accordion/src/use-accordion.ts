@@ -1,28 +1,27 @@
-import type {SelectionBehavior, MultipleSelection} from "@react-types/shared";
+import type {MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
-<<<<<<< HEAD
 import type {AccordionGroupVariantProps} from "@heroui/theme";
 import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {useProviderContext} from "@heroui/system";
 import {ReactRef, filterDOMProps} from "@heroui/react-utils";
-import React, {Key, useCallback} from "react";
-import {TreeState, useTreeState} from "@react-stately/tree";
+import {Key, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {accordion} from "@heroui/theme";
 import {useDOMRef} from "@heroui/react-utils";
-import {useMemo, useState} from "react";
+import {useMemo} from "react";
 import {DividerProps} from "@heroui/divider";
-import {useReactAriaAccordion} from "@heroui/use-aria-accordion";
-=======
 import type {AccordionGroupVariantProps} from "@nextui-org/theme";
-import type {HTMLNextUIProps} from "@nextui-org/system";
 
-import {ReactRef} from "@nextui-org/react-utils";
-import {Key} from "react";
+import {accordion} from "@nextui-org/theme";
+import {PropGetter, useProviderContext} from "@nextui-org/system";
+import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {Children, isValidElement, Key, useCallback, useMemo} from "react";
 import {DividerProps} from "@nextui-org/divider";
 import {useDisclosureGroupState} from "@react-stately/disclosure";
->>>>>>> 8a3997858 (chore: using the disclosure api)
+
+import {mergeProps} from "@react-aria/utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {AccordionItemProps} from "./accordion-item";
 
@@ -41,11 +40,7 @@ interface Props extends HTMLHeroUIProps<"div"> {
    * The divider props.
    */
   dividerProps?: Partial<DividerProps>;
-  /**
-   * The accordion selection behavior.
-   * @default "toggle"
-   */
-  selectionBehavior?: SelectionBehavior;
+  allowsMultipleExpanded?: boolean;
   /**
    * Whether to keep the accordion content mounted when collapsed.
    * @default false
@@ -55,13 +50,23 @@ interface Props extends HTMLHeroUIProps<"div"> {
    * The accordion items classNames.
    */
   itemClasses?: AccordionItemProps["classNames"];
+  disabledKeys?: Iterable<Key>;
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
   AccordionGroupVariantProps &
   AriaAccordionProps<T> &
   MultipleSelection &
-  AccordionGroupVariantProps;
+  AccordionGroupVariantProps &
+  Pick<
+    AccordionItemProps,
+    | "isCompact"
+    | "isDisabled"
+    | "hideIndicator"
+    | "disableAnimation"
+    | "disableIndicatorAnimation"
+    | "motionProps"
+  >;
 
 export type ValuesType = {
   focusedKey?: Key | null;
@@ -72,13 +77,89 @@ export type ValuesType = {
   keepContentMounted?: Props["keepContentMounted"];
   disableIndicatorAnimation?: AccordionItemProps["disableAnimation"];
   motionProps?: AccordionItemProps["motionProps"];
+  disabledKeys?: Iterable<Key>;
+  lastChildId?: string;
 };
 
 export function useAccordion<T extends object>(originalProps: UseAccordionProps<T>) {
   const state = useDisclosureGroupState(originalProps);
+  const globalContext = useProviderContext();
+
+  const {
+    as,
+    ref,
+    motionProps,
+    isCompact = false,
+    isDisabled = false,
+    hideIndicator = false,
+    disableAnimation = globalContext?.disableAnimation ?? false,
+    disableIndicatorAnimation = false,
+    disabledKeys,
+    variant,
+    className,
+    children,
+  } = originalProps;
+
+  const Component = as || "div";
+  const shouldFilterDOMProps = typeof Component === "string";
+  const lastChild = Children.toArray(children).at(-1);
+  const lastChildId = isValidElement(lastChild) ? lastChild.props.id : undefined;
+
+  const values: ValuesType = useMemo(
+    () => ({
+      motionProps,
+      isCompact,
+      isDisabled,
+      hideIndicator,
+      disableAnimation,
+      disableIndicatorAnimation,
+      disabledKeys,
+      lastChildId,
+    }),
+    [
+      isCompact,
+      isDisabled,
+      hideIndicator,
+      disableAnimation,
+      state?.expandedKeys.values,
+      disableIndicatorAnimation,
+      state.expandedKeys.size,
+      motionProps,
+      disabledKeys,
+      lastChildId,
+    ],
+  );
+
+  const domRef = useDOMRef(ref);
+  const classNames = useMemo(
+    () =>
+      accordion({
+        variant,
+        className,
+      }),
+    [variant, className],
+  );
+
+  const getBaseProps: PropGetter = useCallback((props = {}) => {
+    return {
+      ref: domRef,
+      "data-orientation": "vertical",
+      ...mergeProps(
+        filterDOMProps(originalProps, {
+          enabled: shouldFilterDOMProps,
+        }),
+        props,
+      ),
+      className: clsx(classNames, className),
+    };
+  }, []);
 
   return {
     state,
+    values,
+    children,
+    Component,
+    getBaseProps,
   };
 }
 

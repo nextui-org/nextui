@@ -80,6 +80,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
   const {
     isDisabled,
     isExpanded,
+    isCompact = false,
     hideIndicator = false,
     disableIndicatorAnimation = false,
     disableAnimation = false,
@@ -91,9 +92,10 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
         ...variantProps,
         disableAnimation,
         disableIndicatorAnimation,
+        isCompact,
         className,
       }),
-    [objectToDeps(variantProps), className, disableAnimation, disableIndicatorAnimation],
+    [objectToDeps(variantProps), className, disableAnimation, disableIndicatorAnimation, isCompact],
   );
 
   const state = useDisclosureState({

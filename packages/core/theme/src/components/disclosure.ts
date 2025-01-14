@@ -13,13 +13,10 @@ const disclosure = tv({
     ],
     startContent: "flex-shrink-0",
     indicator: "text-default-400",
-    titleWrapper: "flex-1 flex flex-col text-start",
+    titleWrapper: "flex-1 flex flex-col text-start select-none",
     title: "text-foreground text-medium",
     subtitle: "text-small text-foreground-500 font-normal",
-    content: [
-      "py-0",
-      "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100 transition-all",
-    ],
+    content: ["py-0", "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100"],
   },
   variants: {
     variant: {
@@ -27,11 +24,13 @@ const disclosure = tv({
         base: "px-4 bg-content1 shadow-medium rounded-medium",
       },
     },
-    isExpanded: {
+    isCompact: {
       false: {
         trigger: "py-2",
         title: "text-medium",
         subtitle: "text-small",
+        indicator: "text-medium",
+        content: "py-1",
       },
     },
     isDisabled: {
@@ -51,6 +50,7 @@ const disclosure = tv({
       false: {
         indicator: "transition-transform",
         trigger: "transition-opacity",
+        content: "transition-all",
       },
     },
     disableIndicatorAnimation: {
