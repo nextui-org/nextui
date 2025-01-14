@@ -58,7 +58,7 @@ interface Props extends HTMLHeroUIProps<"div"> {
 }
 
 export type UseAccordionProps<T extends object = {}> = Props &
-  AccordionItemProps &
+  AccordionGroupVariantProps &
   AriaAccordionProps<T> &
   MultipleSelection &
   AccordionGroupVariantProps;
