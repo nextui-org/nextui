@@ -1,5 +1,6 @@
 import {forwardRef} from "@heroui/system";
 import {Disclosure} from "@heroui/disclosure";
+import {Divider} from "@heroui/divider";
 
 import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 
@@ -9,9 +10,12 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
   const {disclosureProps, children} = useAccordionItem(props);
 
   return (
-    <Disclosure {...disclosureProps} ref={ref}>
-      {children}
-    </Disclosure>
+    <>
+      <Disclosure {...disclosureProps} ref={ref}>
+        {children}
+      </Disclosure>
+      <Divider />
+    </>
   );
 });
 

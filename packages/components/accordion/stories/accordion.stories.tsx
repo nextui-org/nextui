@@ -56,10 +56,14 @@ const defaultContent =
 const Template = () => (
   <Accordion>
     <AccordionItem id="0" title="hello0">
-      Content0
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, laborum et fuga optio ipsa
+      aperiam reprehenderit repudiandae modi, aut natus corporis placeat mollitia saepe sunt
+      doloremque aspernatur. Eos, beatae veniam!
     </AccordionItem>
     <AccordionItem id="1" title="hello1">
-      Content1
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti molestiae exercitationem
+      voluptate error repudiandae dolore itaque quo. Sapiente neque illum doloribus quis suscipit?
+      Consequuntur soluta nostrum culpa. Nobis, voluptas assumenda.
     </AccordionItem>
   </Accordion>
 );

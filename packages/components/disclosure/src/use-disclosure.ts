@@ -85,7 +85,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     disableAnimation = false,
   } = originalProps;
 
-  const styles = useMemo(
+  const slots = useMemo(
     () =>
       disclosure({
         ...variantProps,
@@ -93,9 +93,9 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
         disableIndicatorAnimation,
         className,
       }),
-    [objectToDeps(variantProps), className],
+    [objectToDeps(variantProps), className, disableAnimation, disableIndicatorAnimation],
   );
-  const slots = useMemo(() => disclosure(), []);
+
   const state = useDisclosureState({
     isExpanded,
     defaultExpanded,
@@ -202,7 +202,6 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
   return {
     Component,
     HeadingComponent,
-    styles,
     domRef,
     startContent,
     classNames,
