@@ -124,11 +124,10 @@ export function useTabs<T extends object>(originalProps: UseTabsProps<T>) {
     () =>
       tabs({
         ...variantProps,
-        className,
         disableAnimation,
         ...(isVertical ? {placement: "start"} : {}),
       }),
-    [objectToDeps(variantProps), className, disableAnimation, isVertical],
+    [objectToDeps(variantProps), disableAnimation, isVertical],
   );
 
   const baseStyles = clsx(classNames?.base, className);
