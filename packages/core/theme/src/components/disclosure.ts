@@ -17,7 +17,7 @@ const disclosure = tv({
     title: "text-foreground text-medium",
     subtitle: "text-small text-foreground-500 font-normal",
     content: [
-      "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100 data-[expanded=true]:my-2",
+      "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100 data-[expanded=true]:duration-300 data-[expanded=true]:my-2",
     ],
   },
   variants: {

@@ -21,9 +21,7 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
     isDisabled,
     indicator,
     hideIndicator,
-    height,
     keepContentMounted,
-    state,
     getBaseProps,
     getTriggerProps,
     getContentProps,
@@ -35,13 +33,13 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
 
   const indicatorContent = useMemo<ReactNode | null>(() => {
     if (typeof indicator === "function") {
-      return indicator({indicator: <ChevronIcon />, isExpanded: state.isExpanded, isDisabled});
+      return indicator({indicator: <ChevronIcon />, isExpanded: isExpanded, isDisabled});
     }
 
     if (indicator) return indicator;
 
     return null;
-  }, [indicator, state.isExpanded, isDisabled]);
+  }, [indicator, isExpanded, isDisabled]);
 
   const indicatorComponent = indicatorContent || <ChevronIcon />;
 
@@ -63,7 +61,7 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
           )}
         </button>
       </HeadingComponent>
-      <div {...getContentProps()} style={{height}}>
+      <div {...getContentProps()} style={{height: "auto"}}>
         {keepContentMounted || isExpanded ? children : null}
       </div>
     </Component>
