@@ -7,7 +7,7 @@ const disclosure = tv({
     base: "",
     heading: "",
     trigger: [
-      "flex w-full h-full gap-3 outline-none items-center tap-highlight-transparent py-2",
+      "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
       // focus ring
       ...dataFocusVisibleClasses,
     ],
@@ -16,7 +16,7 @@ const disclosure = tv({
     titleWrapper: "flex-1 flex flex-col text-start select-none",
     title: "text-foreground text-medium",
     subtitle: "text-small text-foreground-500 font-normal",
-    content: ["py-0", "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100"],
+    content: ["py-2", "overflow-hidden ease-in opacity-0 data-[expanded=true]:opacity-100"],
   },
   variants: {
     variant: {

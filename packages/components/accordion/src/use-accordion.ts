@@ -91,7 +91,7 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
     ref,
     motionProps,
     isCompact = false,
-    isDisabled = false,
+    isDisabled,
     hideIndicator = false,
     disableAnimation = globalContext?.disableAnimation ?? false,
     disableIndicatorAnimation = false,
