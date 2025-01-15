@@ -1,4 +1,3 @@
-import type {MultipleSelection} from "@react-types/shared";
 import type {AriaAccordionProps} from "@react-types/accordion";
 import type {AccordionGroupVariantProps} from "@heroui/theme";
 import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
@@ -56,7 +55,6 @@ interface Props extends HTMLHeroUIProps<"div"> {
 export type UseAccordionProps<T extends object = {}> = Props &
   AccordionGroupVariantProps &
   AriaAccordionProps<T> &
-  MultipleSelection &
   AccordionGroupVariantProps &
   Pick<
     AccordionItemProps,

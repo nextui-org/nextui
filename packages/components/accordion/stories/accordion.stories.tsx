@@ -265,7 +265,7 @@ const ControlledTemplate = (args: AccordionProps) => {
         <AccordionItem aria-label="Accordion 1" id="1" title="Accordion 1">
           {defaultContent}
         </AccordionItem>
-        <AccordionItem hidden aria-label="Accordion 2" id="2" title="Accordion 2">
+        <AccordionItem aria-label="Accordion 2" id="2" title="Accordion 2">
           {defaultContent}
         </AccordionItem>
         <AccordionItem aria-label="Accordion 3" id="3" title="Accordion 3">
