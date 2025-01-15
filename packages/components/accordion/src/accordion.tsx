@@ -5,8 +5,8 @@ import {AccordianContext} from "./accordian-context";
 
 export interface AccordionProps extends UseAccordionProps {}
 
-const AccordionGroup = forwardRef<"div", AccordionProps>((props) => {
-  const {state, values, children, Component, getBaseProps} = useAccordion(props);
+const AccordionGroup = forwardRef<"div", AccordionProps>((props, ref) => {
+  const {state, values, children, Component, getBaseProps} = useAccordion({...props, ref});
 
   return (
     <AccordianContext value={{state, values}}>

@@ -9,6 +9,7 @@ import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "reac
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useButton} from "@react-aria/button";
+import {useFocusRing} from "@react-aria/focus";
 
 export type DisclosureItemIndicatorProps = {
   /**
@@ -84,6 +85,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     hideIndicator = false,
     disableIndicatorAnimation = false,
     disableAnimation = false,
+    hidden = false,
   } = originalProps;
 
   const slots = useMemo(
@@ -104,6 +106,10 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     onExpandedChange: (isExpanded) => {
       onExpandedChange?.(isExpanded);
     },
+  });
+
+  const {isFocused, isFocusVisible, focusProps} = useFocusRing({
+    autoFocus: originalProps?.autoFocus,
   });
 
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -149,9 +155,15 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     (props = {}) => ({
       ref: triggerRef,
       className: slots.trigger({class: clsx(classNames?.trigger, props?.className)}),
-      ...mergeProps(buttonProps, props),
+      "aria-expanded": state.isExpanded,
+      "data-expanded": state.isExpanded,
+      "data-focus": dataAttr(isFocused),
+      "data-focus-visible": dataAttr(isFocusVisible),
+      ...mergeProps(buttonProps, props, focusProps),
+      disabled: isDisabled,
+      hidden,
     }),
-    [triggerProps],
+    [triggerProps, state.isExpanded, isDisabled, hidden],
   );
 
   const getContentProps = useCallback<PropGetter>(

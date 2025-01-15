@@ -79,6 +79,7 @@ export type ValuesType = {
   motionProps?: AccordionItemProps["motionProps"];
   disabledKeys?: Iterable<Key>;
   lastChildId?: string;
+  dividerProps?: Partial<DividerProps>;
 };
 
 export function useAccordion<T extends object>(originalProps: UseAccordionProps<T>) {
@@ -98,6 +99,7 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
     variant,
     className,
     children,
+    dividerProps,
   } = originalProps;
 
   const Component = as || "div";
@@ -115,6 +117,7 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
       disableIndicatorAnimation,
       disabledKeys,
       lastChildId,
+      dividerProps,
     }),
     [
       isCompact,
@@ -160,6 +163,7 @@ export function useAccordion<T extends object>(originalProps: UseAccordionProps<
     children,
     Component,
     getBaseProps,
+    domRef,
   };
 }
 

@@ -3,8 +3,11 @@ import type {AccordionItemVariantProps} from "@heroui/theme";
 import {HTMLHeroUIProps} from "@heroui/system";
 import {ReactRef} from "@heroui/react-utils";
 import {DisclosureProps} from "@heroui/disclosure";
+import {accordionItem, AccordionItemSlots, SlotsToClasses} from "@heroui/theme";
+import {PropGetter} from "@heroui/system";
+import {DisclosureProps} from "@heroui/disclosure";
 import {HTMLMotionProps} from "framer-motion";
-import {Key} from "react";
+import {Key, useCallback, useMemo} from "react";
 
 import {useAccordianContext} from "./accordian-context";
 
@@ -19,6 +22,7 @@ export interface Props extends HTMLHeroUIProps<"div"> {
   motionProps?: HTMLMotionProps<"section">;
   id: string;
   disabledKeys?: Iterable<Key>;
+  classNames?: SlotsToClasses<AccordionItemSlots>;
 }
 
 export type UseAccordionItemProps = Props & AccordionItemVariantProps & DisclosureProps;
@@ -26,7 +30,7 @@ export type UseAccordionItemProps = Props & AccordionItemVariantProps & Disclosu
 export function useAccordionItem(originalProps: UseAccordionItemProps) {
   const {state, values} = useAccordianContext();
 
-  const {id, ...otherProps} = originalProps;
+  const {id, classNames, ...otherProps} = originalProps;
 
   const containsKey = (iterable: Iterable<Key> | undefined, key: Key): boolean => {
     if (!iterable) {
@@ -56,10 +60,26 @@ export function useAccordionItem(originalProps: UseAccordionItemProps) {
     },
   };
 
+  const slots = useMemo(() => accordionItem(), []);
+
+  const getBaseProps: PropGetter = useCallback(
+    (props = {}) => {
+      return {
+        className: slots.base({class: classNames?.base}),
+        "data-hidden": originalProps.hidden,
+        ...props,
+      };
+    },
+    [originalProps.hidden],
+  );
+
   return {
     disclosureProps,
     children: originalProps.children,
     hideIndicator: (values.hideIndicator || values.lastChildId === id) ?? false,
+    dividerProps: values.dividerProps,
+    hidden: originalProps.hidden,
+    getBaseProps,
   };
 }
 

@@ -46,7 +46,8 @@
     "@react-aria/disclosure": "^3.0.0",
     "@react-aria/button": "^3.11.0",
     "@react-stately/disclosure": "^3.0.0",
-    "@react-aria/utils": "3.26.0"
+    "@react-aria/utils": "3.26.0",
+    "@react-aria/focus": "3.19.0"
   },
   "devDependencies": {
     "@nextui-org/theme": "workspace:*",
