@@ -22,6 +22,7 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
     indicator,
     hideIndicator,
     height,
+    keepContentMounted,
     getBaseProps,
     getTriggerProps,
     getContentProps,
@@ -62,7 +63,7 @@ const Disclosure = forwardRef<"div", DisclosureProps>((props, ref) => {
         </button>
       </HeadingComponent>
       <div {...getContentProps()} style={{height}}>
-        {children}
+        {keepContentMounted || isExpanded ? children : null}
       </div>
     </Component>
   );

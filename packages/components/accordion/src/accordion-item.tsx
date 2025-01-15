@@ -7,7 +7,7 @@ import {UseAccordionItemProps, useAccordionItem} from "./use-accordion-item";
 export interface AccordionItemProps extends UseAccordionItemProps {}
 
 const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
-  const {disclosureProps, hideIndicator, children, dividerProps, hidden, getBaseProps} =
+  const {disclosureProps, children, dividerProps, hidden, showDivider, getBaseProps} =
     useAccordionItem(props);
 
   return (
@@ -15,7 +15,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
       <Disclosure {...disclosureProps} ref={ref}>
         {children}
       </Disclosure>
-      {!hideIndicator && !hidden && <Divider {...dividerProps} />}
+      {showDivider && !hidden && <Divider {...dividerProps} />}
     </div>
   );
 });

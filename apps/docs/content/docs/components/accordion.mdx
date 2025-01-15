@@ -204,16 +204,10 @@ Here's an example of how to customize the accordion styles:
       default: "light"
     },
     {
-      attribute: "selectionMode", 
-      type: "none | single | multiple",
-      description: "The type of selection that is allowed in the collection.",
+      attribute: "allowsMultipleExpanded", 
+      type: "boolean",
+      description: "Should allow multiple accordion items to expand.",
       default: "-"
-    },
-    {
-      attribute: "selectionBehavior",
-      type: "toggle | replace",
-      description: "The accordion selection behavior.",
-      default: "toggle"
     },
     {
       attribute: "isCompact",
@@ -258,12 +252,6 @@ Here's an example of how to customize the accordion styles:
       default: "false"
     },
     {
-      attribute: "disallowEmptySelection",
-      type: "boolean",
-      description: "Whether the collection allows empty selection.",
-      default: "false"
-    },
-    {
       attribute: "keepContentMounted",
       type: "boolean",
       description: "Whether the Accordion items content should be always mounted.",
@@ -288,21 +276,15 @@ Here's an example of how to customize the accordion styles:
       default: "-"
     },
     {
-      attribute: "itemClasses",
-      type: "AccordionItemClassnames",
-      description: "The accordion items classNames.",
+      attribute: "expandedKeys",
+      type: "all | React.Key[]",
+      description: "The currently expanded keys in the collection (controlled).",
       default: "-"
     },
     {
-      attribute: "selectedKeys",
+      attribute: "defaultExpandedKeys",
       type: "all | React.Key[]",
-      description: "The currently selected keys in the collection (controlled).",
-      default: "-"
-    },
-    {
-      attribute: "defaultSelectedKeys",
-      type: "all | React.Key[]",
-      description: "The initial selected keys in the collection (uncontrolled).",
+      description: "The initial expanded keys in the collection (uncontrolled).",
       default: "-"
     }
   ]}
@@ -313,7 +295,7 @@ Here's an example of how to customize the accordion styles:
 <APITable
   data={[
     {
-      attribute: "onSelectionChange",
+      attribute: "onExpandedChange",
       type: "(keys: \"all\" | Set<React.Key>) => any",
       description: "Handler that is called when the selection changes.",
       default: "-"
@@ -353,12 +335,6 @@ Here's an example of how to customize the accordion styles:
       attribute: "startContent",
       type: "ReactNode",
       description: "The accordion item start content, usually an icon or avatar.",
-      default: "-"
-    },
-    {
-      attribute: "motionProps",
-      type: "MotionProps",
-      description: "The props to modify the framer motion animation. Use the variants API to create your own animation.",
       default: "-"
     },
     {
@@ -525,36 +501,4 @@ export type AccordionItemClassnames = {
   indicator?: string;
   content?: string;
 };
-```
-
-#### Motion Props
-
-```ts
-export type MotionProps = {
-  /**
-   * If `true`, the opacity of the content will be animated
-   * @default true
-   */
-  animateOpacity?: boolean;
-  /**
-   * The height you want the content in its collapsed state.
-   * @default 0
-   */
-  startingHeight?: number;
-  /**
-   * The height you want the content in its expanded state.
-   * @default "auto"
-   */
-  endingHeight?: number | string;
-  /**
-   * The y-axis offset you want the content in its collapsed state.
-   * @default 10
-   */
-  startingY?: number;
-  /**
-   * The y-axis offset you want the content in its expanded state.
-   * @default 0
-   */
-  endingY?: number;
-} & HTMLMotionProps;
 ```

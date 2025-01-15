@@ -7,9 +7,11 @@ import {useDisclosure as useAriaDisclosure} from "@react-aria/disclosure";
 import {DisclosureProps, useDisclosureState} from "@react-stately/disclosure";
 import {ReactNode, useCallback, useEffect, useMemo, useRef, useState} from "react";
 import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {mergeProps} from "@react-aria/utils";
+import {chain, mergeProps} from "@react-aria/utils";
 import {useButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
+import {usePress} from "@react-aria/interactions";
+import {PressEvents} from "@react-types/shared";
 
 export type DisclosureItemIndicatorProps = {
   /**
@@ -55,9 +57,10 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "title"> {
   title?: ReactNode | string;
   subtitle?: ReactNode | string;
   classNames?: SlotsToClasses<DisclosureSlots>;
+  keepContentMounted?: boolean;
 }
 
-export type UseDisclosureProps = Props & DisclosureVariantProps & DisclosureProps;
+export type UseDisclosureProps = Props & DisclosureVariantProps & DisclosureProps & PressEvents;
 
 export function useDisclosure(originalProps: UseDisclosureProps) {
   const [props, variantProps] = mapPropsVariants(originalProps, disclosure.variantKeys);
@@ -74,6 +77,12 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     children,
     HeadingComponent = as || "h2",
     indicator,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
+    onClick,
   } = props;
 
   const Component = as || "div";
@@ -86,6 +95,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     disableIndicatorAnimation = false,
     disableAnimation = false,
     hidden = false,
+    keepContentMounted = false,
   } = originalProps;
 
   const slots = useMemo(
@@ -135,6 +145,16 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     }
   }, [state.isExpanded, contentRef]);
 
+  const {pressProps, isPressed} = usePress({
+    ref: domRef,
+    isDisabled,
+    onPress,
+    onPressStart,
+    onPressEnd,
+    onPressChange,
+    onPressUp,
+  });
+
   const getBaseProps = useCallback<PropGetter>(
     (props = {}) => ({
       className: slots.base({class: clsx(classNames?.base, props?.className)}),
@@ -157,13 +177,18 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
       className: slots.trigger({class: clsx(classNames?.trigger, props?.className)}),
       "aria-expanded": state.isExpanded,
       "data-expanded": state.isExpanded,
+      "data-pressed": dataAttr(isPressed),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
-      ...mergeProps(buttonProps, props, focusProps),
+      onFocus: chain(originalProps.onFocus, focusProps.onFocus),
+      onBlur: chain(originalProps.onBlur, focusProps.onBlur),
+      ...mergeProps(buttonProps, props, focusProps, pressProps, {
+        onClick: chain(pressProps.onClick, onClick),
+      }),
       disabled: isDisabled,
       hidden,
     }),
-    [triggerProps, state.isExpanded, isDisabled, hidden],
+    [triggerProps, focusProps, pressProps, state.isExpanded, isDisabled, hidden],
   );
 
   const getContentProps = useCallback<PropGetter>(
@@ -229,6 +254,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     hideIndicator,
     contentRef,
     height,
+    keepContentMounted,
     getBaseProps,
     getTriggerProps,
     getContentProps,
