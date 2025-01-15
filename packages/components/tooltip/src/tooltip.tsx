@@ -81,15 +81,19 @@ const Tooltip = forwardRef<"div", TooltipProps>((props, ref) => {
     <>
       {trigger}
       {disableAnimation ? (
-        isOpen && <OverlayContainer portalContainer={portalContainer}>
-          <div ref={tooltipRef} id={id} style={style} {...otherTooltipProps}>
-            <Component {...getTooltipContentProps()}>{content}</Component>
-          </div>
-        </OverlayContainer>
+        isOpen && (
+          <OverlayContainer portalContainer={portalContainer}>
+            <div ref={tooltipRef} id={id} style={style} {...otherTooltipProps}>
+              <Component {...getTooltipContentProps()}>{content}</Component>
+            </div>
+          </OverlayContainer>
+        )
       ) : (
         <AnimatePresence>
           {isOpen ? (
-            <OverlayContainer key={id} portalContainer={portalContainer}>{animatedContent}</OverlayContainer>
+            <OverlayContainer key={id} portalContainer={portalContainer}>
+              {animatedContent}
+            </OverlayContainer>
           ) : null}
         </AnimatePresence>
       )}
