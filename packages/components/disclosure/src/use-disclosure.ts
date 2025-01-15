@@ -181,6 +181,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
       "data-pressed": dataAttr(isPressed),
       "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
+      "data-disabled": dataAttr(isDisabled),
       "data-focus-visible": dataAttr(isFocusVisible),
       onFocus: chain(originalProps.onFocus, focusProps.onFocus),
       onBlur: chain(originalProps.onBlur, focusProps.onBlur),
