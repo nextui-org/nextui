@@ -10,7 +10,7 @@ import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
-import {usePress} from "@react-aria/interactions";
+import {usePress, useHover} from "@react-aria/interactions";
 import {PressEvents} from "@react-types/shared";
 
 export type DisclosureItemIndicatorProps = {
@@ -154,6 +154,7 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
     onPressChange,
     onPressUp,
   });
+  const {isHovered, hoverProps} = useHover({isDisabled});
 
   const getBaseProps = useCallback<PropGetter>(
     (props = {}) => ({
@@ -178,11 +179,12 @@ export function useDisclosure(originalProps: UseDisclosureProps) {
       "aria-expanded": state.isExpanded,
       "data-expanded": state.isExpanded,
       "data-pressed": dataAttr(isPressed),
+      "data-hover": dataAttr(isHovered),
       "data-focus": dataAttr(isFocused),
       "data-focus-visible": dataAttr(isFocusVisible),
       onFocus: chain(originalProps.onFocus, focusProps.onFocus),
       onBlur: chain(originalProps.onBlur, focusProps.onBlur),
-      ...mergeProps(buttonProps, props, focusProps, pressProps, {
+      ...mergeProps(buttonProps, props, focusProps, hoverProps, pressProps, {
         onClick: chain(pressProps.onClick, onClick),
       }),
       disabled: isDisabled,

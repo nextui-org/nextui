@@ -71,6 +71,7 @@ export function useAccordionItem(originalProps: UseAccordionItemProps) {
     },
     onFocus: callAllHandlers(handleFocus, originalProps.onFocus),
     onBlur: callAllHandlers(handleBlur, originalProps.onBlur),
+    classNames,
   };
 
   const slots = useMemo(() => accordionItem(), []);
