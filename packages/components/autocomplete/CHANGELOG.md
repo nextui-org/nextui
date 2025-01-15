@@ -1,5 +1,13 @@
 # @nextui-org/autocomplete
 
+## 2.3.10
+
+### Patch Changes
+
+- Updated dependencies [[`992220a`](https://github.com/nextui-org/nextui/commit/992220a5a3d2a4e1639653b2fc0a9e8b4d9428f4)]:
+  - @nextui-org/input@2.4.9
+  - @nextui-org/popover@2.3.9
+
 ## 2.3.9
 
 ### Patch Changes

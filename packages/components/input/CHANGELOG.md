@@ -1,5 +1,11 @@
 # @nextui-org/input
 
+## 2.4.9
+
+### Patch Changes
+
+- [#4483](https://github.com/nextui-org/nextui/pull/4483) [`992220a`](https://github.com/nextui-org/nextui/commit/992220a5a3d2a4e1639653b2fc0a9e8b4d9428f4) Thanks [@Peterl561](https://github.com/Peterl561)! - fixed input inconsistent focus behaviour on wrapper click (#4287)
+
 ## 2.4.8
 
 ### Patch Changes

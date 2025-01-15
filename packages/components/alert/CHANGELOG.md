@@ -1,5 +1,13 @@
 # @nextui-org/alert
 
+## 2.2.10
+
+### Patch Changes
+
+- [#4535](https://github.com/nextui-org/nextui/pull/4535) [`cfff127`](https://github.com/nextui-org/nextui/commit/cfff12746408524b89f036112c65b044e3d3e118) Thanks [@wingkwong](https://github.com/wingkwong)! - propagate className (#4533)
+
+- [#4529](https://github.com/nextui-org/nextui/pull/4529) [`fcdf24a`](https://github.com/nextui-org/nextui/commit/fcdf24a019718b18655e1c9f80616dd26cbf02ef) Thanks [@wingkwong](https://github.com/wingkwong)! - fix title type in Avatar (#4525)
+
 ## 2.2.9
 
 ### Patch Changes
