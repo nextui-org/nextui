@@ -53,6 +53,6 @@ const PopoverTrigger = (props: PopoverTriggerProps) => {
   );
 };
 
-PopoverTrigger.displayName = "HeorUI.PopoverTrigger";
+PopoverTrigger.displayName = "HeroUI.PopoverTrigger";
 
 export default PopoverTrigger;

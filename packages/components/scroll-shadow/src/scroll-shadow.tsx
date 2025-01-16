@@ -10,6 +10,6 @@ const ScrollShadow = forwardRef<"div", ScrollShadowProps>((props, ref) => {
   return <Component {...getBaseProps()}>{children}</Component>;
 });
 
-ScrollShadow.displayName = "HeorUI.ScrollShadow";
+ScrollShadow.displayName = "HeroUI.ScrollShadow";
 
 export default ScrollShadow;

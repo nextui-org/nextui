@@ -38,6 +38,6 @@ const NavbarContent = forwardRef<"ul", NavbarContentProps>((props, ref) => {
   );
 });
 
-NavbarContent.displayName = "HeorUI.NavbarContent";
+NavbarContent.displayName = "HeroUI.NavbarContent";
 
 export default NavbarContent;

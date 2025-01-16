@@ -72,6 +72,6 @@ const TableCell = forwardRef<"td", TableCellProps>((props, ref) => {
   );
 });
 
-TableCell.displayName = "HeorUI.TableCell";
+TableCell.displayName = "HeroUI.TableCell";
 
 export default TableCell;

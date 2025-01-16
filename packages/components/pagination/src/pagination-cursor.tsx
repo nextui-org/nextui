@@ -21,6 +21,6 @@ const PaginationCursor = forwardRef<"span", PaginationCursorProps>((props, ref) 
   );
 });
 
-PaginationCursor.displayName = "HeorUI.PaginationCursor";
+PaginationCursor.displayName = "HeroUI.PaginationCursor";
 
 export default PaginationCursor;

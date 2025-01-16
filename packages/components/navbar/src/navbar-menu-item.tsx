@@ -35,6 +35,6 @@ const NavbarMenuItem = forwardRef<"li", NavbarMenuItemProps>((props, ref) => {
   );
 });
 
-NavbarMenuItem.displayName = "HeorUI.NavbarMenuItem";
+NavbarMenuItem.displayName = "HeroUI.NavbarMenuItem";
 
 export default NavbarMenuItem;

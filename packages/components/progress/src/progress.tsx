@@ -43,6 +43,6 @@ const Progress = forwardRef<"div", ProgressProps>((props, ref) => {
   );
 });
 
-Progress.displayName = "HeorUI.Progress";
+Progress.displayName = "HeroUI.Progress";
 
 export default Progress;

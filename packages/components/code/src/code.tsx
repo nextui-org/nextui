@@ -14,6 +14,6 @@ const Code = forwardRef<"div", CodeProps>((props, ref) => {
   );
 });
 
-Code.displayName = "HeorUI.Code";
+Code.displayName = "HeroUI.Code";
 
 export default Code;

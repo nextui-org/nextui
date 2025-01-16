@@ -28,6 +28,6 @@ const Link = forwardRef<"a", LinkProps>((props, ref) => {
   );
 });
 
-Link.displayName = "HeorUI.Link";
+Link.displayName = "HeroUI.Link";
 
 export default Link;

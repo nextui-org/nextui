@@ -56,6 +56,6 @@ const Avatar = forwardRef<"span", AvatarProps>((props, ref) => {
   );
 });
 
-Avatar.displayName = "HeorUI.Avatar";
+Avatar.displayName = "HeroUI.Avatar";
 
 export default Avatar;

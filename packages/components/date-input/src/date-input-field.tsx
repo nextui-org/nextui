@@ -42,4 +42,4 @@ export const DateInputField = forwardRef<"div", DateInputFieldProps>((props, ref
   );
 });
 
-DateInputField.displayName = "HeorUI.DateInputField";
+DateInputField.displayName = "HeroUI.DateInputField";

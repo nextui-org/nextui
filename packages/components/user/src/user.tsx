@@ -22,6 +22,6 @@ const User = forwardRef<"div", UserProps>((props, ref) => {
   );
 });
 
-User.displayName = "HeorUI.User";
+User.displayName = "HeroUI.User";
 
 export default User;

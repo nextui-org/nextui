@@ -35,6 +35,6 @@ const CheckboxGroup = forwardRef<"div", CheckboxGroupProps>((props, ref) => {
   );
 });
 
-CheckboxGroup.displayName = "HeorUI.CheckboxGroup";
+CheckboxGroup.displayName = "HeroUI.CheckboxGroup";
 
 export default CheckboxGroup;

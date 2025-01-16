@@ -20,6 +20,6 @@ const ButtonGroup = forwardRef<"div", ButtonGroupProps>((props, ref) => {
   );
 });
 
-ButtonGroup.displayName = "HeorUI.ButtonGroup";
+ButtonGroup.displayName = "HeroUI.ButtonGroup";
 
 export default ButtonGroup;

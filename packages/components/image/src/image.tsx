@@ -52,6 +52,6 @@ const Image = forwardRef<"img", ImageProps>((props, ref) => {
   return img;
 });
 
-Image.displayName = "HeorUI.Image";
+Image.displayName = "HeroUI.Image";
 
 export default Image;

@@ -81,6 +81,6 @@ const TabPanel = forwardRef<"div", TabPanelProps>((props, ref) => {
   );
 });
 
-TabPanel.displayName = "HeorUI.TabPanel";
+TabPanel.displayName = "HeroUI.TabPanel";
 
 export default TabPanel;

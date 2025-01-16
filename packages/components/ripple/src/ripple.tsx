@@ -61,6 +61,6 @@ const Ripple: FC<RippleProps> = (props) => {
   );
 };
 
-Ripple.displayName = "HeorUI.Ripple";
+Ripple.displayName = "HeroUI.Ripple";
 
 export default Ripple;

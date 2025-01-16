@@ -89,6 +89,6 @@ const NavbarMenuToggle = forwardRef<"button", NavbarMenuToggleProps>((props, ref
   );
 });
 
-NavbarMenuToggle.displayName = "HeorUI.NavbarMenuToggle";
+NavbarMenuToggle.displayName = "HeroUI.NavbarMenuToggle";
 
 export default NavbarMenuToggle;

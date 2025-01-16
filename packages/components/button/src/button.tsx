@@ -36,6 +36,6 @@ const Button = forwardRef<"button", ButtonProps>((props, ref) => {
   );
 });
 
-Button.displayName = "HeorUI.Button";
+Button.displayName = "HeroUI.Button";
 
 export default Button;

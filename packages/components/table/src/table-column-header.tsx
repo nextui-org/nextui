@@ -73,6 +73,6 @@ const TableColumnHeader = forwardRef<"th", TableColumnHeaderProps>((props, ref) 
   );
 });
 
-TableColumnHeader.displayName = "HeorUI.TableColumnHeader";
+TableColumnHeader.displayName = "HeroUI.TableColumnHeader";
 
 export default TableColumnHeader;

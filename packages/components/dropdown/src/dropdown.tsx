@@ -29,6 +29,6 @@ const Dropdown = (props: DropdownProps) => {
   );
 };
 
-Dropdown.displayName = "HeorUI.Dropdown";
+Dropdown.displayName = "HeroUI.Dropdown";
 
 export default Dropdown;

@@ -20,6 +20,6 @@ const DropdownTrigger = (props: DropdownTriggerProps) => {
   return <PopoverTrigger {...getMenuTriggerProps(otherProps)}>{children}</PopoverTrigger>;
 };
 
-DropdownTrigger.displayName = "HeorUI.DropdownTrigger";
+DropdownTrigger.displayName = "HeroUI.DropdownTrigger";
 
 export default DropdownTrigger;

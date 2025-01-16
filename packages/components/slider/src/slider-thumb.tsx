@@ -40,6 +40,6 @@ const SliderThumb = forwardRef<"div", SliderThumbProps>((props, ref) => {
   return showTooltip ? <Tooltip {...getTooltipProps()}>{content}</Tooltip> : content;
 });
 
-SliderThumb.displayName = "HeorUI.SliderThumb";
+SliderThumb.displayName = "HeroUI.SliderThumb";
 
 export default SliderThumb;

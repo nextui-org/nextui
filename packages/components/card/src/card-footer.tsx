@@ -23,6 +23,6 @@ const CardFooter = forwardRef<"div", CardFooterProps>((props, ref) => {
   );
 });
 
-CardFooter.displayName = "HeorUI.CardFooter";
+CardFooter.displayName = "HeroUI.CardFooter";
 
 export default CardFooter;

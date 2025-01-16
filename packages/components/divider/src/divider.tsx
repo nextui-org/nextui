@@ -10,6 +10,6 @@ const Divider = forwardRef<"div", DividerProps>((props, ref) => {
   return <Component ref={ref} {...getDividerProps()} />;
 });
 
-Divider.displayName = "HeorUI.Divider";
+Divider.displayName = "HeroUI.Divider";
 
 export default Divider;

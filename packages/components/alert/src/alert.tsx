@@ -83,6 +83,6 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   );
 });
 
-Alert.displayName = "HeorUI.Alert";
+Alert.displayName = "HeroUI.Alert";
 
 export default Alert;

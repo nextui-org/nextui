@@ -87,7 +87,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
   },
 );
 
-FreeSoloPopoverWrapper.displayName = "HeorUI.FreeSoloPopoverWrapper";
+FreeSoloPopoverWrapper.displayName = "HeroUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
   ({children, transformOrigin, disableDialogFocus = false, ...props}, ref) => {
@@ -165,6 +165,6 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
   },
 );
 
-FreeSoloPopover.displayName = "HeorUI.FreeSoloPopover";
+FreeSoloPopover.displayName = "HeroUI.FreeSoloPopover";
 
 export default FreeSoloPopover;

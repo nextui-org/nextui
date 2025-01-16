@@ -47,6 +47,6 @@ const TableHeaderRow = forwardRef<"tr", TableHeaderRowProps>((props, ref) => {
   );
 });
 
-TableHeaderRow.displayName = "HeorUI.TableHeaderRow";
+TableHeaderRow.displayName = "HeroUI.TableHeaderRow";
 
 export default TableHeaderRow;

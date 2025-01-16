@@ -32,6 +32,6 @@ const Radio = forwardRef<"input", RadioProps>((props, ref) => {
   );
 });
 
-Radio.displayName = "HeorUI.Radio";
+Radio.displayName = "HeroUI.Radio";
 
 export default Radio;

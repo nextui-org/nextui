@@ -112,6 +112,6 @@ const PopoverContent = (props: PopoverContentProps) => {
   );
 };
 
-PopoverContent.displayName = "HeorUI.PopoverContent";
+PopoverContent.displayName = "HeroUI.PopoverContent";
 
 export default PopoverContent;

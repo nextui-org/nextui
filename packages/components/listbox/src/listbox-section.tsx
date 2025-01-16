@@ -130,6 +130,6 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
   },
 );
 
-ListboxSection.displayName = "HeorUI.ListboxSection";
+ListboxSection.displayName = "HeroUI.ListboxSection";
 
 export default ListboxSection;

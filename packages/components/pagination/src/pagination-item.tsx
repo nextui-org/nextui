@@ -10,6 +10,6 @@ const PaginationItem = forwardRef<"li", PaginationItemProps>((props, ref) => {
   return <Component {...getItemProps()}>{children}</Component>;
 });
 
-PaginationItem.displayName = "HeorUI.PaginationItem";
+PaginationItem.displayName = "HeroUI.PaginationItem";
 
 export default PaginationItem;

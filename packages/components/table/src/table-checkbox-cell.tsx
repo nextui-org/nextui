@@ -93,6 +93,6 @@ const TableCheckboxCell = forwardRef<"td", TableCheckboxCellProps>((props, ref) 
   );
 });
 
-TableCheckboxCell.displayName = "HeorUI.TableCheckboxCell";
+TableCheckboxCell.displayName = "HeroUI.TableCheckboxCell";
 
 export default TableCheckboxCell;

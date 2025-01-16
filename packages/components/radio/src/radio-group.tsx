@@ -36,6 +36,6 @@ const RadioGroup = forwardRef<"div", RadioGroupProps>((props, ref) => {
   );
 });
 
-RadioGroup.displayName = "HeorUI.RadioGroup";
+RadioGroup.displayName = "HeroUI.RadioGroup";
 
 export default RadioGroup;

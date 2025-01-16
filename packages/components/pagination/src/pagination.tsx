@@ -204,6 +204,6 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
   );
 });
 
-Pagination.displayName = "HeorUI.Pagination";
+Pagination.displayName = "HeroUI.Pagination";
 
 export default Pagination;

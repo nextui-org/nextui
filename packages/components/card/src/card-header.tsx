@@ -21,6 +21,6 @@ const CardHeader = forwardRef<"div", HTMLHeroUIProps<"div">>((props, ref) => {
   );
 });
 
-CardHeader.displayName = "HeorUI.CardHeader";
+CardHeader.displayName = "HeroUI.CardHeader";
 
 export default CardHeader;

@@ -38,6 +38,6 @@ const ModalBody = forwardRef<"div", ModalBodyProps>((props, ref) => {
   );
 });
 
-ModalBody.displayName = "HeorUI.ModalBody";
+ModalBody.displayName = "HeroUI.ModalBody";
 
 export default ModalBody;

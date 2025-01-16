@@ -139,6 +139,6 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
   },
 );
 
-MenuSection.displayName = "HeorUI.MenuSection";
+MenuSection.displayName = "HeroUI.MenuSection";
 
 export default MenuSection;

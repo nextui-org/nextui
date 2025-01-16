@@ -110,6 +110,6 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
   );
 });
 
-Breadcrumbs.displayName = "HeorUI.Breadcrumbs";
+Breadcrumbs.displayName = "HeroUI.Breadcrumbs";
 
 export default Breadcrumbs;

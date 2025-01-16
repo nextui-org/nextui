@@ -149,6 +149,6 @@ const TableBody = forwardRef<"tbody", TableBodyProps>((props, ref) => {
   );
 });
 
-TableBody.displayName = "HeorUI.TableBody";
+TableBody.displayName = "HeroUI.TableBody";
 
 export default TableBody;

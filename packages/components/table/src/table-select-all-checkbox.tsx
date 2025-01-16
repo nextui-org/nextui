@@ -86,6 +86,6 @@ const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((pr
   );
 });
 
-TableSelectAllCheckbox.displayName = "HeorUI.TableSelectAllCheckbox";
+TableSelectAllCheckbox.displayName = "HeroUI.TableSelectAllCheckbox";
 
 export default TableSelectAllCheckbox;

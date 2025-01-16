@@ -34,6 +34,6 @@ const Popover = forwardRef<"div", PopoverProps>((props, ref) => {
   );
 });
 
-Popover.displayName = "HeorUI.Popover";
+Popover.displayName = "HeroUI.Popover";
 
 export default Popover;

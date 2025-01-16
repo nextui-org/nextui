@@ -48,6 +48,6 @@ const Chip = forwardRef<"div", ChipProps>((props, ref) => {
   );
 });
 
-Chip.displayName = "HeorUI.Chip";
+Chip.displayName = "HeroUI.Chip";
 
 export default Chip;

@@ -152,6 +152,6 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   );
 });
 
-Tab.displayName = "HeorUI.Tab";
+Tab.displayName = "HeroUI.Tab";
 
 export default Tab;

@@ -26,6 +26,6 @@ const ModalFooter = forwardRef<"footer", ModalFooterProps>((props, ref) => {
   );
 });
 
-ModalFooter.displayName = "HeorUI.ModalFooter";
+ModalFooter.displayName = "HeroUI.ModalFooter";
 
 export default ModalFooter;

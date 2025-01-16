@@ -62,6 +62,6 @@ const ListboxItem = (props: ListboxItemProps) => {
   );
 };
 
-ListboxItem.displayName = "HeorUI.ListboxItem";
+ListboxItem.displayName = "HeroUI.ListboxItem";
 
 export default ListboxItem;

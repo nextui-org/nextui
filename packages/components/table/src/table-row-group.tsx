@@ -32,6 +32,6 @@ const TableRowGroup = forwardRef<"thead", TableRowGroupProps>((props, ref) => {
   );
 });
 
-TableRowGroup.displayName = "HeorUI.TableRowGroup";
+TableRowGroup.displayName = "HeroUI.TableRowGroup";
 
 export default TableRowGroup;

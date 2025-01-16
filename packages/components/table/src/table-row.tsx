@@ -85,6 +85,6 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
   );
 });
 
-TableRow.displayName = "HeorUI.TableRow";
+TableRow.displayName = "HeroUI.TableRow";
 
 export default TableRow;

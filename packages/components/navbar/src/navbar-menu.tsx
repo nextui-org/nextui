@@ -82,6 +82,6 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   return contents;
 });
 
-NavbarMenu.displayName = "HeorUI.NavbarMenu";
+NavbarMenu.displayName = "HeroUI.NavbarMenu";
 
 export default NavbarMenu;

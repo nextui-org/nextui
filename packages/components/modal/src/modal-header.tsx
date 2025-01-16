@@ -43,6 +43,6 @@ const ModalHeader = forwardRef<"header", ModalHeaderProps>((props, ref) => {
   );
 });
 
-ModalHeader.displayName = "HeorUI.ModalHeader";
+ModalHeader.displayName = "HeroUI.ModalHeader";
 
 export default ModalHeader;

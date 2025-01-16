@@ -19,6 +19,6 @@ const Badge = forwardRef<"span", BadgeProps>((props, ref) => {
   );
 });
 
-Badge.displayName = "HeorUI.Badge";
+Badge.displayName = "HeroUI.Badge";
 
 export default Badge;

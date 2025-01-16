@@ -25,6 +25,6 @@ const NavbarBrand = forwardRef<"div", NavbarBrandProps>((props, ref) => {
   );
 });
 
-NavbarBrand.displayName = "HeorUI.NavbarBrand";
+NavbarBrand.displayName = "HeroUI.NavbarBrand";
 
 export default NavbarBrand;

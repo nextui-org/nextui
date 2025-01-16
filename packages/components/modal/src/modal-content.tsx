@@ -140,6 +140,6 @@ const ModalContent = (props: ModalContentProps) => {
   );
 };
 
-ModalContent.displayName = "HeorUI.ModalContent";
+ModalContent.displayName = "HeroUI.ModalContent";
 
 export default ModalContent;

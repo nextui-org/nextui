@@ -104,6 +104,6 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
   );
 });
 
-Table.displayName = "HeorUI.Table";
+Table.displayName = "HeroUI.Table";
 
 export default Table;

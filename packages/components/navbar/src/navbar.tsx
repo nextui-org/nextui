@@ -50,6 +50,6 @@ const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   );
 });
 
-Navbar.displayName = "HeorUI.Navbar";
+Navbar.displayName = "HeroUI.Navbar";
 
 export default Navbar;
