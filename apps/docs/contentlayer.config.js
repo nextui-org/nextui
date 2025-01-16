@@ -64,13 +64,12 @@ export const BlogPost = defineDocumentType(() => ({
         return date.toLocaleDateString("en-US", options);
       },
     },
-    // add https://heroui to the image path
     imageAsParams: {
       type: "string",
       resolve: (doc) => {
         const image = doc.image;
         if (image) {
-          return `https://heroui${image}`;
+          return `${siteConfig.siteUrl}${image}`;
         }
       },
     },
