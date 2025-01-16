@@ -20,8 +20,6 @@
   </a>
 </p>
 
-> **NOTE:** This is a community project, not associated with [Vercel](https://vercel.com).
-
 ## Getting Started
 
 Visit <a aria-label="heroui learn" href="https://heroui.com/learn">https://heroui.com/guide</a> to get started with HeroUI.
