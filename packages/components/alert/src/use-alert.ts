@@ -1,15 +1,15 @@
-import type {ButtonProps} from "@nextui-org/button";
-import type {AlertSlots, AlertVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {ButtonProps} from "@heroui/button";
+import type {AlertSlots, AlertVariantProps, SlotsToClasses} from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
+import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useCallback, useMemo} from "react";
 import {mergeProps} from "@react-aria/utils";
-import {alert} from "@nextui-org/theme";
+import {alert} from "@heroui/theme";
 import {useControlledState} from "@react-stately/utils";
-import {dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps} from "@heroui/shared-utils";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div", "title"> {
   /**
    * Ref to the DOM node.
    */
@@ -17,7 +17,7 @@ interface Props extends HTMLNextUIProps<"div"> {
   /**
    * title of the alert message
    */
-  title?: string;
+  title?: ReactNode;
   /**
    * description of the alert message
    */
@@ -103,6 +103,7 @@ export function useAlert(originalProps: UseAlertProps) {
     closeButtonProps = {
       size: "sm",
     },
+    className,
     classNames,
     ...otherProps
   } = props;
@@ -123,6 +124,8 @@ export function useAlert(originalProps: UseAlertProps) {
     onClose?.();
   }, [setIsVisible, onClose]);
 
+  const baseStyles = clsx(classNames?.base, className);
+
   const slots = useMemo(
     () => alert({hasContent: !isEmpty(description) || !isEmpty(children), ...variantProps}),
     [description, objectToDeps(variantProps)],
@@ -140,9 +143,9 @@ export function useAlert(originalProps: UseAlertProps) {
         }),
         filterDOMProps(props),
       ),
-      className: slots.base({class: classNames?.base}),
+      className: slots.base({class: baseStyles}),
     };
-  }, [slots, classNames?.base]);
+  }, [slots, baseStyles]);
 
   const getMainWrapperProps = useCallback<PropGetter>(() => {
     return {

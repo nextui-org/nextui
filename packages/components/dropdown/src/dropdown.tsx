@@ -1,5 +1,5 @@
 import React, {ReactNode} from "react";
-import {Popover} from "@nextui-org/popover";
+import {Popover} from "@heroui/popover";
 
 import {DropdownProvider} from "./dropdown-context";
 import {UseDropdownProps, useDropdown} from "./use-dropdown";
@@ -29,6 +29,6 @@ const Dropdown = (props: DropdownProps) => {
   );
 };
 
-Dropdown.displayName = "NextUI.Dropdown";
+Dropdown.displayName = "HeroUI.Dropdown";
 
 export default Dropdown;

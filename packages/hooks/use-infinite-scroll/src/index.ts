@@ -1,5 +1,5 @@
 import {useLayoutEffect, useRef, useCallback} from "react";
-import {debounce} from "@nextui-org/shared-utils";
+import {debounce} from "@heroui/shared-utils";
 
 export interface UseInfiniteScrollProps {
   /**

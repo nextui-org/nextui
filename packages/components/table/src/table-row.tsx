@@ -1,9 +1,9 @@
 import type {GridNode} from "@react-types/grid";
 import type {TableRowProps as BaseTableRowProps} from "./base/table-row";
 
-import {forwardRef} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {forwardRef} from "@heroui/system";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableRow} from "@react-aria/table";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
@@ -85,6 +85,6 @@ const TableRow = forwardRef<"tr", TableRowProps>((props, ref) => {
   );
 });
 
-TableRow.displayName = "NextUI.TableRow";
+TableRow.displayName = "HeroUI.TableRow";
 
 export default TableRow;

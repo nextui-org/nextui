@@ -1,4 +1,4 @@
-import {createContext} from "@nextui-org/react-utils";
+import {createContext} from "@heroui/react-utils";
 
 import {UsePopoverReturn} from "./use-popover";
 

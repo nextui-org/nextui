@@ -1,10 +1,10 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {badge} from "@nextui-org/theme";
-import {Avatar} from "@nextui-org/avatar";
-import {CheckIcon} from "@nextui-org/shared-icons";
-import {Switch} from "@nextui-org/switch";
-import {Notification, CartIcon} from "@nextui-org/shared-icons";
+import {badge} from "@heroui/theme";
+import {Avatar} from "@heroui/avatar";
+import {CheckIcon} from "@heroui/shared-icons";
+import {Switch} from "@heroui/switch";
+import {Notification, CartIcon} from "@heroui/shared-icons";
 
 import {Badge, BadgeProps} from "../src";
 

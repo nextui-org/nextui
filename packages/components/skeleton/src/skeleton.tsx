@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseSkeletonProps, useSkeleton} from "./use-skeleton";
 
@@ -14,6 +14,6 @@ const Skeleton = forwardRef<"div", SkeletonProps>((props, ref) => {
   );
 });
 
-Skeleton.displayName = "NextUI.Skeleton";
+Skeleton.displayName = "HeroUI.Skeleton";
 
 export default Skeleton;

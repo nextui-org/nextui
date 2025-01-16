@@ -1,11 +1,11 @@
-import type {ModalProps} from "@nextui-org/modal";
+import type {ModalProps} from "@heroui/modal";
 
-import {drawer} from "@nextui-org/theme";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {drawer} from "@heroui/theme";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {useCallback, useMemo} from "react";
-import {TRANSITION_EASINGS} from "@nextui-org/framer-utils";
-import {clsx, isEmpty} from "@nextui-org/shared-utils";
-import {PropGetter} from "@nextui-org/system";
+import {TRANSITION_EASINGS} from "@heroui/framer-utils";
+import {clsx, isEmpty} from "@heroui/shared-utils";
+import {PropGetter} from "@heroui/system";
 
 interface Props extends Omit<ModalProps, "placement" | "scrollBehavior" | "children"> {
   /**

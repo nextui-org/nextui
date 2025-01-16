@@ -1,15 +1,15 @@
 import type {GridNode} from "@react-types/grid";
 
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {clsx} from "@heroui/shared-utils";
 import {useTableHeaderRow} from "@react-aria/table";
 import {mergeProps} from "@react-aria/utils";
 
 import {ValuesType} from "./use-table";
 
 // @internal
-export interface TableHeaderRowProps<T = object> extends HTMLNextUIProps<"tr"> {
+export interface TableHeaderRowProps<T = object> extends HTMLHeroUIProps<"tr"> {
   /**
    * The table node to render.
    */
@@ -47,6 +47,6 @@ const TableHeaderRow = forwardRef<"tr", TableHeaderRowProps>((props, ref) => {
   );
 });
 
-TableHeaderRow.displayName = "NextUI.TableHeaderRow";
+TableHeaderRow.displayName = "HeroUI.TableHeaderRow";
 
 export default TableHeaderRow;

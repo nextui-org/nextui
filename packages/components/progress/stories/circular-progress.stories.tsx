@@ -1,8 +1,8 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {circularProgress} from "@nextui-org/theme";
-import {Card, CardBody, CardFooter} from "@nextui-org/card";
-import {Chip} from "@nextui-org/chip";
+import {circularProgress} from "@heroui/theme";
+import {Card, CardBody, CardFooter} from "@heroui/card";
+import {Chip} from "@heroui/chip";
 
 import {CircularProgress, CircularProgressProps} from "../src";
 

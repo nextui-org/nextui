@@ -2,7 +2,7 @@ import * as React from "react";
 import {render, renderHook, fireEvent, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {Input} from "../src";
 
@@ -152,7 +152,7 @@ describe("Input", () => {
       <Input
         ref={ref}
         isClearable
-        defaultValue="junior@nextui.org"
+        defaultValue="junior@heroui.com"
         label="test input"
         onClear={onClear}
       />,
@@ -223,6 +223,33 @@ describe("Input", () => {
     await user.click(clearButton);
 
     expect(onClear).toHaveBeenCalledTimes(0);
+  });
+
+  it("should focus input on click", async () => {
+    const {getByTestId} = render(<Input data-testid="input" />);
+
+    const input = getByTestId("input") as HTMLInputElement;
+    const innerWrapper = document.querySelector("[data-slot='inner-wrapper']") as HTMLDivElement;
+    const inputWrapper = document.querySelector("[data-slot='input-wrapper']") as HTMLDivElement;
+
+    const user = userEvent.setup();
+
+    expect(document.activeElement).not.toBe(input);
+
+    await user.click(input);
+    expect(document.activeElement).toBe(input);
+    input.blur();
+    expect(document.activeElement).not.toBe(input);
+
+    await user.click(innerWrapper);
+    expect(document.activeElement).toBe(input);
+    input.blur();
+    expect(document.activeElement).not.toBe(input);
+
+    await user.click(inputWrapper);
+    expect(document.activeElement).toBe(input);
+    input.blur();
+    expect(document.activeElement).not.toBe(input);
   });
 });
 

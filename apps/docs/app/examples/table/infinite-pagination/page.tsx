@@ -9,9 +9,9 @@ import {
   TableCell,
   getKeyValue,
   Spinner,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {useAsyncList} from "@react-stately/data";
-import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
+import {useInfiniteScroll} from "@heroui/use-infinite-scroll";
 import {useState} from "react";
 
 type SWCharacter = {

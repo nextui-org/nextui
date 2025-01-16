@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {AvatarIcon} from "./avatar-icon";
 import {useAvatar, UseAvatarProps} from "./use-avatar";
@@ -56,6 +56,6 @@ const Avatar = forwardRef<"span", AvatarProps>((props, ref) => {
   );
 });
 
-Avatar.displayName = "NextUI.Avatar";
+Avatar.displayName = "HeroUI.Avatar";
 
 export default Avatar;

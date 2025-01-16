@@ -1,4 +1,4 @@
-import {PopoverTrigger} from "@nextui-org/popover";
+import {PopoverTrigger} from "@heroui/popover";
 
 import {useDropdownContext} from "./dropdown-context";
 
@@ -20,6 +20,6 @@ const DropdownTrigger = (props: DropdownTriggerProps) => {
   return <PopoverTrigger {...getMenuTriggerProps(otherProps)}>{children}</PopoverTrigger>;
 };
 
-DropdownTrigger.displayName = "NextUI.DropdownTrigger";
+DropdownTrigger.displayName = "HeroUI.DropdownTrigger";
 
 export default DropdownTrigger;

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseCircularProgressProps, useCircularProgress} from "./use-circular-progress";
 
@@ -38,6 +38,6 @@ const CircularProgress = forwardRef<"div", CircularProgressProps>((props, ref) =
   );
 });
 
-CircularProgress.displayName = "NextUI.CircularProgress";
+CircularProgress.displayName = "HeroUI.CircularProgress";
 
 export default CircularProgress;

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@heroui/system-rsc";
 
 import {UseSpinnerProps, useSpinner} from "./use-spinner";
 
@@ -18,6 +18,6 @@ const Spinner = forwardRef<"div", SpinnerProps>((props, ref) => {
   );
 });
 
-Spinner.displayName = "NextUI.Spinner";
+Spinner.displayName = "HeroUI.Spinner";
 
 export default Spinner;

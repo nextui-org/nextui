@@ -1,4 +1,4 @@
-import {nextui} from '@nextui-org/theme/plugin';
+import {heroui} from "@heroui/theme/plugin";
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,7 +12,7 @@ export default {
   ],
   darkMode: "class",
   plugins: [
-    nextui({
+    heroui({
       addCommonColors: true,
       themes: {
         // "dark": {

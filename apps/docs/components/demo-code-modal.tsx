@@ -6,11 +6,11 @@ import {
   Button,
   ModalContent,
   ModalHeader,
-  Link as NextUILink,
+  Link as HeroUILink,
   ModalBody,
   ModalFooter,
   Skeleton,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import Link from "next/link";
 
 import {CodeWindow} from "@/components/code-window";
@@ -56,9 +56,9 @@ export const DemoCodeModal: FC<DemoCodeModalProps> = ({isOpen, code, title, subt
               <>
                 This is an example of how to use the {lowerTitle} component, for more information
                 please visit the&nbsp;
-                <NextUILink as={Link} href={`/docs/components/${lowerTitle}`}>
+                <HeroUILink as={Link} href={`/docs/components/${lowerTitle}`}>
                   {lowerTitle}
-                </NextUILink>
+                </HeroUILink>
                 &nbsp;docs.
               </>
             )}

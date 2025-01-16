@@ -1,7 +1,7 @@
 import {cloneElement, useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
-import {ChevronRightIcon, EllipsisIcon} from "@nextui-org/shared-icons";
-import {warn} from "@nextui-org/shared-utils";
+import {forwardRef} from "@heroui/system";
+import {ChevronRightIcon, EllipsisIcon} from "@heroui/shared-icons";
+import {warn} from "@heroui/shared-utils";
 import {chain} from "@react-aria/utils";
 
 import {UseBreadcrumbsProps, useBreadcrumbs} from "./use-breadcrumbs";
@@ -110,6 +110,6 @@ const Breadcrumbs = forwardRef<"div", BreadcrumbsProps>((props, ref) => {
   );
 });
 
-Breadcrumbs.displayName = "NextUI.Breadcrumbs";
+Breadcrumbs.displayName = "HeroUI.Breadcrumbs";
 
 export default Breadcrumbs;

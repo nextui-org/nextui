@@ -2,7 +2,7 @@ import type {SupportedCalendars} from "./types";
 import type {Calendar} from "@internationalized/date";
 import type {DateValue} from "@react-types/datepicker";
 
-import {createContext} from "@nextui-org/react-utils";
+import {createContext} from "@heroui/react-utils";
 
 export type ProviderContextProps = {
   /**

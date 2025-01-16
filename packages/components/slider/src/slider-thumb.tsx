@@ -1,6 +1,6 @@
-import {forwardRef} from "@nextui-org/system";
-import {Tooltip} from "@nextui-org/tooltip";
-import {renderFn} from "@nextui-org/react-utils";
+import {forwardRef} from "@heroui/system";
+import {Tooltip} from "@heroui/tooltip";
+import {renderFn} from "@heroui/react-utils";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {UseSliderThumbProps, useSliderThumb} from "./use-slider-thumb";
@@ -40,6 +40,6 @@ const SliderThumb = forwardRef<"div", SliderThumbProps>((props, ref) => {
   return showTooltip ? <Tooltip {...getTooltipProps()}>{content}</Tooltip> : content;
 });
 
-SliderThumb.displayName = "NextUI.SliderThumb";
+SliderThumb.displayName = "HeroUI.SliderThumb";
 
 export default SliderThumb;

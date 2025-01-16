@@ -1,27 +1,22 @@
-import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
+import type {InputVariantProps, SlotsToClasses, InputSlots} from "@heroui/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
-import {input} from "@nextui-org/theme";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {input} from "@heroui/theme";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@heroui/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
-  extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
+  extends Omit<HTMLHeroUIProps<"input">, keyof InputVariantProps> {
   /**
    * Ref to the DOM node.
    */
@@ -161,6 +156,12 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     domRef.current?.focus();
   }, [setInputValue, onClear]);
 
+  const handleInputWrapperClick = useCallback(() => {
+    if (domRef.current) {
+      domRef.current?.focus();
+    }
+  }, [domRef.current]);
+
   // if we use `react-hook-form`, it will set the input value using the ref in register
   // i.e. setting ref.current.value to something which is uncontrolled
   // hence, sync the state with `ref.current.value`
@@ -223,6 +224,11 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const {pressProps: clearPressProps} = usePress({
     isDisabled: !!originalProps?.isDisabled || !!originalProps?.isReadOnly,
     onPress: handleClear,
+  });
+
+  const {pressProps: inputWrapperPressProps} = usePress({
+    isDisabled: !!originalProps?.isDisabled || !!originalProps?.isReadOnly,
+    onPress: handleInputWrapperClick,
   });
 
   const isInvalid = validationState === "invalid" || isAriaInvalid;
@@ -403,12 +409,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         className: slots.inputWrapper({
           class: clsx(classNames?.inputWrapper, isFilled ? "is-filled" : ""),
         }),
-        ...mergeProps(props, hoverProps),
-        onClick: (e) => {
-          if (domRef.current && e.currentTarget === e.target) {
-            domRef.current.focus();
-          }
-        },
+        ...mergeProps(props, hoverProps, inputWrapperPressProps),
         style: {
           cursor: "text",
           ...props.style,
@@ -432,11 +433,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
         ...props,
         ref: innerWrapperRef,
         "data-slot": "inner-wrapper",
-        onClick: (e) => {
-          if (domRef.current && e.currentTarget === e.target) {
-            domRef.current.focus();
-          }
-        },
         className: slots.innerWrapper({
           class: clsx(classNames?.innerWrapper, props?.className),
         }),

@@ -66,7 +66,7 @@ NextUI version **v2.6.0** comes with 4 new components **Form**, **Drawer**, **In
 <PackageManagers
   commands={{
     cli: "nextui upgrade --all",
-    npm: "npx nextui-cli@latest upgrade --all",
+    npm: "npx heroui-cli@latest upgrade --all",
   }}
 />
 
@@ -76,10 +76,10 @@ NextUI version **v2.6.0** comes with 4 new components **Form**, **Drawer**, **In
 
 <PackageManagers
   commands={{
-    npm: "npm install @nextui-org/react@latest framer-motion@latest",
-    pnpm: "pnpm add @nextui-org/react@latest framer-motion@latest",
-    yarn: "yarn add @nextui-org/react@latest framer-motion@latest",
-    bun: "bun add @nextui-org/react@latest framer-motion@latest",
+    npm: "npm install @heroui/react@latest framer-motion@latest",
+    pnpm: "pnpm add @heroui/react@latest framer-motion@latest",
+    yarn: "yarn add @heroui/react@latest framer-motion@latest",
+    bun: "bun add @heroui/react@latest framer-motion@latest",
   }}
 />
 
@@ -98,7 +98,7 @@ Built on [React Aria's Form](https://react-spectrum.adobe.com/react-aria/forms.h
 You can use native HTML validation attributes or create custom validation rules.
 
 ```tsx
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   return (
@@ -172,7 +172,7 @@ The Form components works seamlessly with React Server Actions.
 "use client";
 
 import {useActionState} from "react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 export function AddForm() {
   const [{errors}, formAction] = useActionState(createTodo, {
@@ -194,7 +194,7 @@ You can also use popular form libraries like `react-hook-form` and `formik`.
 
 ```tsx
 import {Controller, useForm} from "react-hook-form";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const {handleSubmit, control} = useForm({
@@ -287,7 +287,7 @@ function handleRequest(formData: FormData) {
 ```tsx {13}
 // In your client.
 import {useFormState} from "react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 import {handleRequest} from "./server";
 
@@ -330,7 +330,7 @@ import {
   DrawerFooter,
   Button,
   useDisclosure,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export default function App() {
   const {isOpen, onOpen, onOpenChange} = useDisclosure();
@@ -391,7 +391,7 @@ See the [Drawer documentation](/docs/components/drawer) for more details and exa
 The [Input OTP](/docs/components/input-otp) component provides an accessible way to enter one-time passwords with built-in focus management and keyboard navigation. It is built on top of the [input-otp](https://github.com/guilhermerodz/input-otp) library by [@guilherme_rodz](https://twitter.com/guilherme_rodz).
 
 ```tsx
-import {Button, InputOtp, Form} from "@nextui-org/react";
+import {Button, InputOtp, Form} from "@heroui/react";
 
 export default function App() {
   const [otp, setOtp] = React.useState("");
@@ -444,7 +444,7 @@ See the [Input OTP documentation](/docs/components/input-otp) for more details a
 The [Alert](/docs/components/alert) component allows users to display messages to the user. It's built with accessibility in mind and includes features like focus management, keyboard navigation, and screen reader support.
 
 ```tsx
-import {Alert} from "@nextui-org/react";
+import {Alert} from "@heroui/react";
 
 export default function App() {
   return (
@@ -500,7 +500,7 @@ We created our own `use-theme` hook that replaces `use-dark-theme` hook to allow
 ```jsx
 // App.tsx or App.jsx
 import React from "react";
-import {useTheme} from "@nextui-org/use-theme";
+import {useTheme} from "@heroui/use-theme";
 
 export default function App() {
   const {theme} = useTheme();
@@ -517,7 +517,7 @@ export default function App() {
 
 ```jsx
 // components/ThemeSwitcher.tsx
-import {useTheme} from "@nextui-org/use-theme";
+import {useTheme} from "@heroui/use-theme";
 
 export const ThemeSwitcher = () => {
   const {theme, setTheme} = useTheme();
@@ -563,7 +563,7 @@ declare module "@react-types/shared" {
 }
 ```
 
-- **Improved Base Path Support**: Better handling of base paths through the new `useHref` prop in `NextUIProvider`
+- **Improved Base Path Support**: Better handling of base paths through the new `useHref` prop in `HeroUIProvider`
 - **Framework-specific Optimizations**: Built-in support for Next.js (both App and Pages Router), React Router, Remix, and TanStack Router
 
 See the [Routing documentation](/docs/guide/routing) for more details.
@@ -572,7 +572,7 @@ See the [Routing documentation](/docs/guide/routing) for more details.
 
 ## API Improvements
 
-### NextUIProvider
+### HeroUIProvider
 
 - `useHref` (added) - Converts a router-specific href to a native href for use on DOM elements. For example, if your router accepts relative paths or custom link formats, useHref will generate the full native href based on the RouterProvider's configuration.
 - `navigate` (modified) - `((path: Href, routerOptions?: RouterOptions) => void) | undefined` - we added the router options
@@ -615,7 +615,7 @@ See the [Routing documentation](/docs/guide/routing) for more details.
 
 - Added support for draggable modals (draggable from header)
 
-See the [NextUIProvider documentation](/docs/api-references/nextui-provider) for more details.
+See the [HeroUIProvider documentation](/docs/api-references/nextui-provider) for more details.
 
 <Spacer y={4} />
 
@@ -653,10 +653,10 @@ The circular progress Tailwind variants have been moved from `circular-progress`
 
 ```diff-tsx
 // Before
-- "./node_modules/@nextui-org/theme/dist/components/circular-progress.js";
+- "./node_modules/@heroui/theme/dist/components/circular-progress.js";
 
 // After
-+ "./node_modules/@nextui-org/theme/dist/components/progress.js";
++ "./node_modules/@heroui/theme/dist/components/progress.js";
 ```
 
 <Spacer y={4} />
@@ -665,20 +665,20 @@ The circular progress Tailwind variants have been moved from `circular-progress`
 
 **Features**:
 
-- Added Alert component by [@jrgarciadev](https://github.com/jrgarciadev) and [@abhinav700](https://github.com/abhinav700) in [PR #3982](https://github.com/nextui-org/nextui/pull/3982), [PR #3680](https://github.com/nextui-org/nextui/pull/3680), [PR #4071](https://github.com/nextui-org/nextui/pull/4071), and [PR #4073](https://github.com/nextui-org/nextui/pull/4073)
-- Added Draggable modal by [@jrgarciadev](https://github.com/jrgarciadev) and [@wzc520pyfm](https://github.com/wzc520pyfm) in [PR #3983](https://github.com/nextui-org/nextui/pull/3983) and [PR #2818](https://github.com/nextui-org/nextui/pull/2818)
-- Added Drawer component by [@jrgarciadev](https://github.com/jrgarciadev) and [@1111mp](https://github.com/1111mp) in [PR #3986](https://github.com/nextui-org/nextui/pull/3986), [PR #2223](https://github.com/nextui-org/nextui/pull/2223) and [PR #4057](https://github.com/nextui-org/nextui/pull/4057)
-- Added InputOTP component by [@macci001](https://github.com/macci001) in [PR #4052](https://github.com/nextui-org/nextui/pull/4052)
-- Added Form component by [@ryo-manba](https://github.com/ryo-manba) in [PR #3036](https://github.com/nextui-org/nextui/pull/3036)
-- Added `selectorButtonPlacement` prop to date-picker by [@ryo-manba](https://github.com/ryo-manba) in [PR #3248](https://github.com/nextui-org/nextui/pull/3248)
-- Added `tabRef` prop to tabs by [@winchesHe](https://github.com/winchesHe) in [PR #3974](https://github.com/nextui-org/nextui/pull/3974)
-- Added `shouldCloseOnScroll` prop to popover by [@awesome-pro](https://github.com/awesome-pro) in [PR #3595](https://github.com/nextui-org/nextui/pull/3595)
-- Added `showMonthAndYearPickers` prop to date-range-picker and range-calendar by [@ryo-manba](https://github.com/ryo-manba) in [PR #3302](https://github.com/nextui-org/nextui/pull/3302)
-- Added `use-theme` hook by [@wingkwong](https://github.com/wingkwong) in [PR #3169](https://github.com/nextui-org/nextui/pull/3169)
-- Added `isKeyboardNavigationDisabled` prop in Table by [@macci001](https://github.com/macci001) in [PR #3735](https://github.com/nextui-org/nextui/pull/3735)
-- Added `reducedMotion` to Provider by [@ryo-manba](https://github.com/ryo-manba) in [PR #3470](https://github.com/nextui-org/nextui/pull/3470)
-- Added `isClearable` to Textarea by [@jrgarciadev](https://github.com/jrgarciadev) and [@IsDyh01](https://github.com/IsDyh01) in [PR #4172](https://github.com/nextui-org/nextui/pull/4172) and [PR #3477](https://github.com/nextui-org/nextui/pull/3477)
-- Added `hideEmptyContent` to Select by [@Peterl561](https://github.com/Peterl561) in [PR #4219](https://github.com/nextui-org/nextui/pull/4219)
+- Added Alert component by [@jrgarciadev](https://github.com/jrgarciadev) and [@abhinav700](https://github.com/abhinav700) in [PR #3982](https://github.com/frontio-ai/heroui/pull/3982), [PR #3680](https://github.com/frontio-ai/heroui/pull/3680), [PR #4071](https://github.com/frontio-ai/heroui/pull/4071), and [PR #4073](https://github.com/frontio-ai/heroui/pull/4073)
+- Added Draggable modal by [@jrgarciadev](https://github.com/jrgarciadev) and [@wzc520pyfm](https://github.com/wzc520pyfm) in [PR #3983](https://github.com/frontio-ai/heroui/pull/3983) and [PR #2818](https://github.com/frontio-ai/heroui/pull/2818)
+- Added Drawer component by [@jrgarciadev](https://github.com/jrgarciadev) and [@1111mp](https://github.com/1111mp) in [PR #3986](https://github.com/frontio-ai/heroui/pull/3986), [PR #2223](https://github.com/frontio-ai/heroui/pull/2223) and [PR #4057](https://github.com/frontio-ai/heroui/pull/4057)
+- Added InputOTP component by [@macci001](https://github.com/macci001) in [PR #4052](https://github.com/frontio-ai/heroui/pull/4052)
+- Added Form component by [@ryo-manba](https://github.com/ryo-manba) in [PR #3036](https://github.com/frontio-ai/heroui/pull/3036)
+- Added `selectorButtonPlacement` prop to date-picker by [@ryo-manba](https://github.com/ryo-manba) in [PR #3248](https://github.com/frontio-ai/heroui/pull/3248)
+- Added `tabRef` prop to tabs by [@winchesHe](https://github.com/winchesHe) in [PR #3974](https://github.com/frontio-ai/heroui/pull/3974)
+- Added `shouldCloseOnScroll` prop to popover by [@awesome-pro](https://github.com/awesome-pro) in [PR #3595](https://github.com/frontio-ai/heroui/pull/3595)
+- Added `showMonthAndYearPickers` prop to date-range-picker and range-calendar by [@ryo-manba](https://github.com/ryo-manba) in [PR #3302](https://github.com/frontio-ai/heroui/pull/3302)
+- Added `use-theme` hook by [@wingkwong](https://github.com/wingkwong) in [PR #3169](https://github.com/frontio-ai/heroui/pull/3169)
+- Added `isKeyboardNavigationDisabled` prop in Table by [@macci001](https://github.com/macci001) in [PR #3735](https://github.com/frontio-ai/heroui/pull/3735)
+- Added `reducedMotion` to Provider by [@ryo-manba](https://github.com/ryo-manba) in [PR #3470](https://github.com/frontio-ai/heroui/pull/3470)
+- Added `isClearable` to Textarea by [@jrgarciadev](https://github.com/jrgarciadev) and [@IsDyh01](https://github.com/IsDyh01) in [PR #4172](https://github.com/frontio-ai/heroui/pull/4172) and [PR #3477](https://github.com/frontio-ai/heroui/pull/3477)
+- Added `hideEmptyContent` to Select by [@Peterl561](https://github.com/Peterl561) in [PR #4219](https://github.com/frontio-ai/heroui/pull/4219)
 
 **Documentation**:
 
@@ -688,71 +688,71 @@ The circular progress Tailwind variants have been moved from `circular-progress`
   - Moved descriptions into tooltips that appear right after titles
   - Decreased font size for better scanning
   - Improved color scheme for better contrast
-- Fixed broken links by [@wingkwong](https://github.com/wingkwong) in [PR #3796](https://github.com/nextui-org/nextui/pull/3796)
-- Fixed canary storybook links by [@wingkwong](https://github.com/wingkwong) in [PR #4030](https://github.com/nextui-org/nextui/pull/4030)
-- Fixed typos in dark mode page by [@wingkwong](https://github.com/wingkwong) in [PR #3823](https://github.com/nextui-org/nextui/pull/3823)
-- Fixed types for classNames and itemClasses by [@wingkwong](https://github.com/wingkwong) in [PR #4209](https://github.com/nextui-org/nextui/pull/4209)
-- Fixed typos in landing page by [@PentSec](https://github.com/PentSec) in [PR #3928](https://github.com/nextui-org/nextui/pull/3928)
-- Fixed typos in date picker page by [@dperconti](https://github.com/dperconti) in [PR #3516](https://github.com/nextui-org/nextui/pull/3516)
-- Fixed incorrect highlighted line in Select page by [@Choneas](https://github.com/Choneas) in [PR #3838](https://github.com/nextui-org/nextui/pull/3838)
-- Fixed unexpected translation in code block by [@nnmax](https://github.com/nnmax) in [PR #3878](https://github.com/nextui-org/nextui/pull/3878)
-- Fixed yarn command in installation page by [@AzpektDev](https://github.com/AzpektDev) in [PR #4132](https://github.com/nextui-org/nextui/pull/4132)
-- Added ethical ads by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #3803](https://github.com/nextui-org/nextui/pull/3803)
-- Added Form guide by [@ryo-manba](https://github.com/ryo-manba) in [PR #3882](https://github.com/nextui-org/nextui/pull/3882)
-- Enhanced overall DX for all pages by [@wingkwong](https://github.com/wingkwong) in [PR #4055](https://github.com/nextui-org/nextui/pull/4055)
-- Supported virtualization for Autocomplete by [@jrgarciadev](https://github.com/jrgarciadev) and [@vinroger](https://github.com/vinroger) in [PR #4094](https://github.com/nextui-org/nextui/pull/4094) and [PR #3444](https://github.com/nextui-org/nextui/pull/3444)
-- Supported virtualization for Select by [@vinroger](https://github.com/vinroger) in [PR #4203](https://github.com/nextui-org/nextui/pull/4203)
-- Supported virtualization for Listbox by [@vinroger](https://github.com/vinroger) in [PR #4206](https://github.com/nextui-org/nextui/pull/4206)
-- Optimized code fold by [@winchesHe](https://github.com/winchesHe) in [PR #4202](https://github.com/nextui-org/nextui/pull/4202)
-- Synced API from nextui-cli v0.3.5 by [@winchesHe](https://github.com/winchesHe) in [PR #4173](https://github.com/nextui-org/nextui/pull/4173)
+- Fixed broken links by [@wingkwong](https://github.com/wingkwong) in [PR #3796](https://github.com/frontio-ai/heroui/pull/3796)
+- Fixed canary storybook links by [@wingkwong](https://github.com/wingkwong) in [PR #4030](https://github.com/frontio-ai/heroui/pull/4030)
+- Fixed typos in dark mode page by [@wingkwong](https://github.com/wingkwong) in [PR #3823](https://github.com/frontio-ai/heroui/pull/3823)
+- Fixed types for classNames and itemClasses by [@wingkwong](https://github.com/wingkwong) in [PR #4209](https://github.com/frontio-ai/heroui/pull/4209)
+- Fixed typos in landing page by [@PentSec](https://github.com/PentSec) in [PR #3928](https://github.com/frontio-ai/heroui/pull/3928)
+- Fixed typos in date picker page by [@dperconti](https://github.com/dperconti) in [PR #3516](https://github.com/frontio-ai/heroui/pull/3516)
+- Fixed incorrect highlighted line in Select page by [@Choneas](https://github.com/Choneas) in [PR #3838](https://github.com/frontio-ai/heroui/pull/3838)
+- Fixed unexpected translation in code block by [@nnmax](https://github.com/nnmax) in [PR #3878](https://github.com/frontio-ai/heroui/pull/3878)
+- Fixed yarn command in installation page by [@AzpektDev](https://github.com/AzpektDev) in [PR #4132](https://github.com/frontio-ai/heroui/pull/4132)
+- Added ethical ads by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #3803](https://github.com/frontio-ai/heroui/pull/3803)
+- Added Form guide by [@ryo-manba](https://github.com/ryo-manba) in [PR #3882](https://github.com/frontio-ai/heroui/pull/3882)
+- Enhanced overall DX for all pages by [@wingkwong](https://github.com/wingkwong) in [PR #4055](https://github.com/frontio-ai/heroui/pull/4055)
+- Supported virtualization for Autocomplete by [@jrgarciadev](https://github.com/jrgarciadev) and [@vinroger](https://github.com/vinroger) in [PR #4094](https://github.com/frontio-ai/heroui/pull/4094) and [PR #3444](https://github.com/frontio-ai/heroui/pull/3444)
+- Supported virtualization for Select by [@vinroger](https://github.com/vinroger) in [PR #4203](https://github.com/frontio-ai/heroui/pull/4203)
+- Supported virtualization for Listbox by [@vinroger](https://github.com/vinroger) in [PR #4206](https://github.com/frontio-ai/heroui/pull/4206)
+- Optimized code fold by [@winchesHe](https://github.com/winchesHe) in [PR #4202](https://github.com/frontio-ai/heroui/pull/4202)
+- Synced API from heroui-cli v0.3.5 by [@winchesHe](https://github.com/winchesHe) in [PR #4173](https://github.com/frontio-ai/heroui/pull/4173)
 
 **Bug Fixes**:
 
-- Fixed avatar flashing issues by [@jrgarciadev](https://github.com/jrgarciadev) and [@rkkautsar](https://github.com/rkkautsar) in [PR #3987](https://github.com/nextui-org/nextui/pull/3987) and [PR #3444](https://github.com/nextui-org/nextui/pull/3444)
-- Fixed image ReferenceError in SSR by [@wingkwong](https://github.com/wingkwong) in [PR #4122](https://github.com/nextui-org/nextui/pull/4122)
-- Fixed navigate parameters by [@wingkwong](https://github.com/wingkwong) in [PR #4163](https://github.com/nextui-org/nextui/pull/4163)
-- Fixed missing peer / dev dependency for framer-motion by [@wingkwong](https://github.com/wingkwong) in [PR #4161](https://github.com/nextui-org/nextui/pull/4161)
-- Fixed menu item classNames by [@winchesHe](https://github.com/winchesHe) in [PR #4156](https://github.com/nextui-org/nextui/pull/4156)
-- Fixed controlled IsInvalid prop by [@chirokas](https://github.com/chirokas) in [PR #4082](https://github.com/nextui-org/nextui/pull/4082)
-- Fixed inert value with boolean type for React 19 by [@wingkwong](https://github.com/wingkwong) in [PR #4039](https://github.com/nextui-org/nextui/pull/4039)
-- Fixed typecheck errors by [@wingkwong](https://github.com/wingkwong) in [PR #4171](https://github.com/nextui-org/nextui/pull/4171)
-- Fixed tw nested group by [@wingkwong](https://github.com/wingkwong) in [PR #3909](https://github.com/nextui-org/nextui/pull/3909)
-- Fixed select styles consistent with input by [@macci001](https://github.com/macci001) in [PR #3881](https://github.com/nextui-org/nextui/pull/3881)
-- Fixed missing li tag when href is specified by [@macci001](https://github.com/macci001) in [PR #4168](https://github.com/nextui-org/nextui/pull/4168)
-- Fixed sliding issue caused by the helper wrapper by [@mstfblci](https://github.com/mstfblci) in [PR #3966](https://github.com/nextui-org/nextui/pull/3966)
-- Fixed element.ref warning in React 19 by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4003](https://github.com/nextui-org/nextui/pull/4003)
-- Fixed image load on NextJS by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #3998](https://github.com/nextui-org/nextui/pull/3998)
-- Fixed squish textarea label by [@Peterl561](https://github.com/Peterl561) in [PR #4197](https://github.com/nextui-org/nextui/pull/4197)
-- Fixed forwardRef render functions by [@winchesHe](https://github.com/winchesHe) in [PR #4198](https://github.com/nextui-org/nextui/pull/4198)
-- Fixed collection based components ref by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4207](https://github.com/nextui-org/nextui/pull/4207)
-- Fixed data-slot for select error message by [@jubar](https://github.com/jubar) in [PR #4214](https://github.com/nextui-org/nextui/pull/4214)
-- Fixed selection functionality on touch by [@macci001](https://github.com/macci001) in [PR #4220](https://github.com/nextui-org/nextui/pull/4220)
-- Fixed cursor position when hidden on init by [@Peterl561](https://github.com/Peterl561) in [PR #4222](https://github.com/nextui-org/nextui/pull/4222)
+- Fixed avatar flashing issues by [@jrgarciadev](https://github.com/jrgarciadev) and [@rkkautsar](https://github.com/rkkautsar) in [PR #3987](https://github.com/frontio-ai/heroui/pull/3987) and [PR #3444](https://github.com/frontio-ai/heroui/pull/3444)
+- Fixed image ReferenceError in SSR by [@wingkwong](https://github.com/wingkwong) in [PR #4122](https://github.com/frontio-ai/heroui/pull/4122)
+- Fixed navigate parameters by [@wingkwong](https://github.com/wingkwong) in [PR #4163](https://github.com/frontio-ai/heroui/pull/4163)
+- Fixed missing peer / dev dependency for framer-motion by [@wingkwong](https://github.com/wingkwong) in [PR #4161](https://github.com/frontio-ai/heroui/pull/4161)
+- Fixed menu item classNames by [@winchesHe](https://github.com/winchesHe) in [PR #4156](https://github.com/frontio-ai/heroui/pull/4156)
+- Fixed controlled IsInvalid prop by [@chirokas](https://github.com/chirokas) in [PR #4082](https://github.com/frontio-ai/heroui/pull/4082)
+- Fixed inert value with boolean type for React 19 by [@wingkwong](https://github.com/wingkwong) in [PR #4039](https://github.com/frontio-ai/heroui/pull/4039)
+- Fixed typecheck errors by [@wingkwong](https://github.com/wingkwong) in [PR #4171](https://github.com/frontio-ai/heroui/pull/4171)
+- Fixed tw nested group by [@wingkwong](https://github.com/wingkwong) in [PR #3909](https://github.com/frontio-ai/heroui/pull/3909)
+- Fixed select styles consistent with input by [@macci001](https://github.com/macci001) in [PR #3881](https://github.com/frontio-ai/heroui/pull/3881)
+- Fixed missing li tag when href is specified by [@macci001](https://github.com/macci001) in [PR #4168](https://github.com/frontio-ai/heroui/pull/4168)
+- Fixed sliding issue caused by the helper wrapper by [@mstfblci](https://github.com/mstfblci) in [PR #3966](https://github.com/frontio-ai/heroui/pull/3966)
+- Fixed element.ref warning in React 19 by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4003](https://github.com/frontio-ai/heroui/pull/4003)
+- Fixed image load on NextJS by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #3998](https://github.com/frontio-ai/heroui/pull/3998)
+- Fixed squish textarea label by [@Peterl561](https://github.com/Peterl561) in [PR #4197](https://github.com/frontio-ai/heroui/pull/4197)
+- Fixed forwardRef render functions by [@winchesHe](https://github.com/winchesHe) in [PR #4198](https://github.com/frontio-ai/heroui/pull/4198)
+- Fixed collection based components ref by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4207](https://github.com/frontio-ai/heroui/pull/4207)
+- Fixed data-slot for select error message by [@jubar](https://github.com/jubar) in [PR #4214](https://github.com/frontio-ai/heroui/pull/4214)
+- Fixed selection functionality on touch by [@macci001](https://github.com/macci001) in [PR #4220](https://github.com/frontio-ai/heroui/pull/4220)
+- Fixed cursor position when hidden on init by [@Peterl561](https://github.com/Peterl561) in [PR #4222](https://github.com/frontio-ai/heroui/pull/4222)
 
 **Enhancements**:
 
-- Automatically focus first non-disabled item by [@juliesaia](https://github.com/juliesaia) in [PR #2186](https://github.com/nextui-org/nextui/pull/2186)
-- Refactored RTL-specific styles by [@macci001](https://github.com/macci001) in [PR #3868](https://github.com/nextui-org/nextui/pull/3868)
-- Upgraded React Aria and Support NextJS 15 by [@ryo-manba](https://github.com/ryo-manba) in [PR #3732](https://github.com/nextui-org/nextui/pull/3732)
-- Upgraded tailwind-merge version by [@wingkwong](https://github.com/wingkwong) in [PR #3657](https://github.com/nextui-org/nextui/pull/3657)
-- Upgraded Storybook to v8 by [@winchesHe](https://github.com/winchesHe) in [PR #3946](https://github.com/nextui-org/nextui/pull/3946)
-- Optimized performance by [@wingkwong](https://github.com/wingkwong) in [PR #3523](https://github.com/nextui-org/nextui/pull/3523)
-- Applied `useMenu` and `useMenuItem` from `@react-aria` by [@wingkwong](https://github.com/wingkwong) in [PR #3261](https://github.com/nextui-org/nextui/pull/3261)
-- Revised label font size for lg by [@wingkwong](https://github.com/wingkwong) in [PR #4141](https://github.com/nextui-org/nextui/pull/4141)
-- Improved Form component by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4224](https://github.com/nextui-org/nextui/pull/4224)
+- Automatically focus first non-disabled item by [@juliesaia](https://github.com/juliesaia) in [PR #2186](https://github.com/frontio-ai/heroui/pull/2186)
+- Refactored RTL-specific styles by [@macci001](https://github.com/macci001) in [PR #3868](https://github.com/frontio-ai/heroui/pull/3868)
+- Upgraded React Aria and Support NextJS 15 by [@ryo-manba](https://github.com/ryo-manba) in [PR #3732](https://github.com/frontio-ai/heroui/pull/3732)
+- Upgraded tailwind-merge version by [@wingkwong](https://github.com/wingkwong) in [PR #3657](https://github.com/frontio-ai/heroui/pull/3657)
+- Upgraded Storybook to v8 by [@winchesHe](https://github.com/winchesHe) in [PR #3946](https://github.com/frontio-ai/heroui/pull/3946)
+- Optimized performance by [@wingkwong](https://github.com/wingkwong) in [PR #3523](https://github.com/frontio-ai/heroui/pull/3523)
+- Applied `useMenu` and `useMenuItem` from `@react-aria` by [@wingkwong](https://github.com/wingkwong) in [PR #3261](https://github.com/frontio-ai/heroui/pull/3261)
+- Revised label font size for lg by [@wingkwong](https://github.com/wingkwong) in [PR #4141](https://github.com/frontio-ai/heroui/pull/4141)
+- Improved Form component by [@jrgarciadev](https://github.com/jrgarciadev) in [PR #4224](https://github.com/frontio-ai/heroui/pull/4224)
 
 **Chore**:
 
-- Added git hook to auto update dependencies by [@winchesHe](https://github.com/winchesHe) in [PR #3365](https://github.com/nextui-org/nextui/pull/3365)
-- Added pre-release workflow by [@wingkwong](https://github.com/wingkwong) in [PR #2910](https://github.com/nextui-org/nextui/pull/2910)
-- Updated testing libraries by [@ryo-manba](https://github.com/ryo-manba) in [PR #3886](https://github.com/nextui-org/nextui/pull/3886)
-- Replaced VA by Posthog by [@wingkwong](https://github.com/wingkwong) in [PR #4123](https://github.com/nextui-org/nextui/pull/4123)
-- Moved circular-progress tv to progress by [@winchesHe](https://github.com/winchesHe) in [PR #3321](https://github.com/nextui-org/nextui/pull/3321)
+- Added git hook to auto update dependencies by [@winchesHe](https://github.com/winchesHe) in [PR #3365](https://github.com/frontio-ai/heroui/pull/3365)
+- Added pre-release workflow by [@wingkwong](https://github.com/wingkwong) in [PR #2910](https://github.com/frontio-ai/heroui/pull/2910)
+- Updated testing libraries by [@ryo-manba](https://github.com/ryo-manba) in [PR #3886](https://github.com/frontio-ai/heroui/pull/3886)
+- Replaced VA by Posthog by [@wingkwong](https://github.com/wingkwong) in [PR #4123](https://github.com/frontio-ai/heroui/pull/4123)
+- Moved circular-progress tv to progress by [@winchesHe](https://github.com/winchesHe) in [PR #3321](https://github.com/frontio-ai/heroui/pull/3321)
 
 Special thanks to NextUI Team members [@wingkwong](https://github.com/wingkwong), [@macci001](https://github.com/macci001), [@vinroger](https://github.com/vinroger),
 [@ryo-manba](https://github.com/ryo-manba), [@winchesHe](https://github.com/winchesHe), [@tianenpang](https://github.com/tianenpang) and contributors for their contributions to this release.
 
-For a full list of changes, please refer to the [release notes](https://github.com/nextui-org/nextui/releases/tag/%40nextui-org%2Freact%402.6.2).
+For a full list of changes, please refer to the [release notes](https://github.com/frontio-ai/heroui/releases/tag/%40nextui-org%2Freact%402.6.2).
 
 <Spacer y={6} />
 
@@ -769,4 +769,4 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 ## Contributing
 
-PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
+PR's on HeroUI are always welcome, please see our [contribution guidelines](https://github.com/frontio-ai/heroui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {useMemo} from "react";
 import {OTPInput} from "input-otp";
 
@@ -75,6 +75,6 @@ const InputOtp = forwardRef<"input", InputOtpProps>((props, ref) => {
   );
 });
 
-InputOtp.displayName = "NextUI.InputOtp";
+InputOtp.displayName = "HeroUI.InputOtp";
 
 export default InputOtp;

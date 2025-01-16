@@ -1,5 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
-import {Ripple} from "@nextui-org/ripple";
+import {forwardRef} from "@heroui/system";
+import {Ripple} from "@heroui/ripple";
 
 import {CardProvider} from "./card-context";
 import {useCard, UseCardProps} from "./use-card";
@@ -26,6 +26,6 @@ const Card = forwardRef<"div", CardProps>((props, ref) => {
   );
 });
 
-Card.displayName = "NextUI.Card";
+Card.displayName = "HeroUI.Card";
 
 export default Card;

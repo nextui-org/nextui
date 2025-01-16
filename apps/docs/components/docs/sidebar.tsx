@@ -2,21 +2,21 @@
 
 import {FC, useEffect, useState, useRef, useMemo, useLayoutEffect} from "react";
 import {usePostHog} from "posthog-js/react";
-import {ChevronIcon} from "@nextui-org/shared-icons";
+import {ChevronIcon} from "@heroui/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
-import {BaseItem} from "@nextui-org/aria-utils";
+import {BaseItem} from "@heroui/aria-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, debounce, isEmpty} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, debounce, isEmpty} from "@heroui/shared-utils";
 import {
   SpacerProps,
   Spacer,
-  Link as NextUILink,
+  Link as HeroUILink,
   Chip,
   dataFocusVisibleClasses,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import Link from "next/link";
 import {usePathname, useRouter} from "next/navigation";
 
@@ -130,7 +130,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     }
 
     return (
-      <NextUILink
+      <HeroUILink
         as={item.props?.comingSoon ? "div" : Link}
         className={clsx(cn, {
           "pointer-events-none": item.props?.comingSoon,
@@ -181,7 +181,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             Coming soon
           </Chip>
         )}
-      </NextUILink>
+      </HeroUILink>
     );
   };
 

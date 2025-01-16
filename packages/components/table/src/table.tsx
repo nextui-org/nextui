@@ -1,6 +1,6 @@
 import {useCallback} from "react";
-import {Spacer} from "@nextui-org/spacer";
-import {forwardRef} from "@nextui-org/system";
+import {Spacer} from "@heroui/spacer";
+import {forwardRef} from "@heroui/system";
 
 import {UseTableProps, useTable} from "./use-table";
 import TableRowGroup from "./table-row-group";
@@ -104,6 +104,6 @@ const Table = forwardRef<"table", TableProps>((props, ref) => {
   );
 });
 
-Table.displayName = "NextUI.Table";
+Table.displayName = "HeroUI.Table";
 
 export default Table;

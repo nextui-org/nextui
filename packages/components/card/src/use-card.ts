@@ -1,26 +1,21 @@
 import type {FocusableProps, PressEvents} from "@react-types/shared";
-import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "@nextui-org/theme";
-import type {AriaButtonProps} from "@nextui-org/use-aria-button";
-import type {RippleProps} from "@nextui-org/ripple";
+import type {SlotsToClasses, CardSlots, CardReturnType, CardVariantProps} from "@heroui/theme";
+import type {AriaButtonProps} from "@heroui/use-aria-button";
+import type {RippleProps} from "@heroui/ripple";
 
-import {card} from "@nextui-org/theme";
+import {card} from "@heroui/theme";
 import {MouseEventHandler, ReactNode, useCallback, useMemo} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
 import {PressEvent, useHover} from "@react-aria/interactions";
-import {useAriaButton} from "@nextui-org/use-aria-button";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef, filterDOMProps} from "@nextui-org/react-utils";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {useRipple} from "@nextui-org/ripple";
+import {useAriaButton} from "@heroui/use-aria-button";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef, filterDOMProps} from "@heroui/react-utils";
+import {useDOMRef} from "@heroui/react-utils";
+import {useRipple} from "@heroui/ripple";
 
-export interface Props extends Omit<HTMLNextUIProps<"div">, "onClick"> {
+export interface Props extends Omit<HTMLHeroUIProps<"div">, "onClick"> {
   /**
    * Ref to the DOM node.
    */

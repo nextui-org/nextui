@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/accordion",
+  "name": "@heroui/accordion",
   "version": "2.2.7",
   "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
   "keywords": [
@@ -12,7 +12,7 @@
     "tree view"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -24,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/components/accordion"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -43,18 +43,18 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/framer-utils": "workspace:*",
-    "@nextui-org/divider": "workspace:*",
-    "@nextui-org/use-aria-accordion": "workspace:*",
-    "@nextui-org/dom-animation": "workspace:*",
+    "@heroui/aria-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/framer-utils": "workspace:*",
+    "@heroui/divider": "workspace:*",
+    "@heroui/use-aria-accordion": "workspace:*",
+    "@heroui/dom-animation": "workspace:*",
     "@react-aria/interactions": "3.22.5",
     "@react-aria/focus": "3.19.0",
     "@react-aria/utils": "3.26.0",
@@ -64,12 +64,12 @@
     "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/avatar": "workspace:*",
-    "@nextui-org/input": "workspace:*",
-    "@nextui-org/test-utils": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/avatar": "workspace:*",
+    "@heroui/input": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "framer-motion": "11.9.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",

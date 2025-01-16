@@ -1,8 +1,8 @@
 "use client";
 
 import {useState} from "react";
-import {Card, CardHeader, Button, Avatar, CardBody, CardFooter} from "@nextui-org/react";
-import {clsx} from "@nextui-org/shared-utils";
+import {Card, CardHeader, Button, Avatar, CardBody, CardFooter} from "@heroui/react";
+import {clsx} from "@heroui/shared-utils";
 
 interface UserTwitterCardProps {
   className?: string;
@@ -44,7 +44,7 @@ export const UserTwitterCard = ({className}: UserTwitterCardProps) => {
       </CardHeader>
       <CardBody className="px-3 py-0">
         <p className="text-sm pl-px text-default-400">
-          Full-stack developer, @getnextui lover she/her&nbsp;
+          Full-stack developer, @hero_ui lover she/her&nbsp;
           <span aria-label="confetti" role="img">
             🎉
           </span>

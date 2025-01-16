@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {snippet} from "@nextui-org/theme";
+import {snippet} from "@heroui/theme";
 
 import {Snippet} from "../src";
 
@@ -73,7 +73,7 @@ export default {
 } as Meta<typeof Snippet>;
 
 const defaultProps = {
-  children: "npm install @nextui-org/react",
+  children: "npm install @heroui/react",
   symbol: "$",
   disableCopy: false,
   disableTooltip: false,
@@ -91,10 +91,6 @@ export const Default = {
 export const MultiLine = {
   args: {
     ...defaultProps,
-    children: [
-      "npm install @nextui-org/react",
-      "yarn add @nextui-org/react",
-      "pnpm add @nextui-org/react",
-    ],
+    children: ["npm install @heroui/react", "yarn add @heroui/react", "pnpm add @heroui/react"],
   },
 };

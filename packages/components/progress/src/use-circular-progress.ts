@@ -2,21 +2,21 @@ import type {
   CircularProgressVariantProps,
   SlotsToClasses,
   CircularProgressSlots,
-} from "@nextui-org/theme";
-import type {PropGetter} from "@nextui-org/system";
+} from "@heroui/theme";
+import type {PropGetter} from "@heroui/system";
 import type {AriaProgressBarProps} from "@react-types/progress";
 
-import {HTMLNextUIProps, mapPropsVariants, useProviderContext} from "@nextui-org/system";
-import {circularProgress} from "@nextui-org/theme";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clampPercentage, clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
+import {HTMLHeroUIProps, mapPropsVariants, useProviderContext} from "@heroui/system";
+import {circularProgress} from "@heroui/theme";
+import {useDOMRef} from "@heroui/react-utils";
+import {clampPercentage, clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef} from "@heroui/react-utils";
 import {mergeProps} from "@react-aria/utils";
 import {useMemo, useCallback} from "react";
-import {useIsMounted} from "@nextui-org/use-is-mounted";
+import {useIsMounted} from "@heroui/use-is-mounted";
 import {useProgressBar as useAriaProgress} from "@react-aria/progress";
 
-export interface Props extends HTMLNextUIProps<"div"> {
+export interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

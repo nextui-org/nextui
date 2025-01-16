@@ -1,15 +1,15 @@
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
-export const NextUIProButton = () => (
+export const HeroUIProButton = () => (
   <Button
     as={"a"}
     className="px-6 flex items-center"
     color="primary"
-    href="https://nextui.pro?utm_source=nextui.org&utm_medium=nextui-homepage-section"
+    href="https://heroui.pro?utm_source=heroui.com&utm_medium=heroui-homepage-section"
     rel="noopener noreferrer"
     target="_blank"
   >
-    Explore NextUI Pro
+    Explore HeroUI Pro
     <svg fill="none" height="21" viewBox="0 0 20 21" width="20" xmlns="http://www.w3.org/2000/svg">
       <path
         d="M12.0254 5.44189L17.0837 10.5002L12.0254 15.5586"

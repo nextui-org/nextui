@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/system-rsc",
+  "name": "@heroui/system-rsc",
   "version": "2.3.5",
-  "description": "NextUI system primitives compatibles with RSC imports",
+  "description": "HeroUI system primitives compatibles with RSC imports",
   "keywords": [
     "system-rsc"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/core/system-rsc"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -35,14 +35,14 @@
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0"
   },
   "devDependencies": {
     "react": "^18.0.0",
     "tailwind-variants": "^0.1.20",
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
     "clean-package": "2.2.0"
   },
   "dependencies": {

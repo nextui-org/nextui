@@ -1,31 +1,21 @@
 ---
 title: Theme
-description: Learn how to customize your application's appearance using NextUI's TailwindCSS plugin.
+description: Learn how to customize your application's appearance using HeroUI's TailwindCSS plugin.
 ---
 
 # Theme
 
-Theming is a key element in designing user interfaces (UIs). It enables the application of a
-consistent aesthetic across your application, enhancing the user experience and maintaining
-visual uniformity.
-
-In NextUI, we facilitate easy and flexible theme customization using a
-TailwindCSS plugin. This plugin, which is based on the [tw-colors](https://github.com/L-Blondy/tw-colors)
-plugin developed by [L-Blondy](https://github.com/L-Blondy), allows you to customize color schemes,
-layout configurations, and more, across different components of your application.
+Theming allows you to maintain a consistent look and feel across your application. HeroUI provides theme customization through a TailwindCSS plugin based on [tw-colors](https://github.com/L-Blondy/tw-colors), enabling you to easily customize colors, layouts and other UI elements.
 
 <CarbonAd/>
 
 ## What is a Theme?
 
-A theme, in the context of NextUI, is a predefined set of colors, layout attributes, and other
-UI elements that you can consistently apply across your application. Themes ensure visual
-consistency, enrich the user experience, and simplify the management and updates of your
-app's look and feel.
+A theme is a predefined set of colors and layout attributes that ensure visual consistency across your application. It simplifies managing and updating your app's appearance.
 
 ## Setup
 
-The first step to using NextUI's theming capability is adding the `nextui` plugin to your
+The first step to using HeroUI's theming capability is adding the `heroui` plugin to your
 `tailwind.config.js` file. Below is an example of how to do this:
 
 <Blockquote color="primary">
@@ -34,20 +24,20 @@ The first step to using NextUI's theming capability is adding the `nextui` plugi
 
 ```js {9,14-15}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/react");
+const {heroui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [heroui()],
 };
 ```
 
@@ -67,17 +57,17 @@ Go to the src directory and inside `main.jsx` or `main.tsx`, apply the following
 // main.tsx or main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <NextUIProvider>
+    <HeroUIProvider>
       <main className="dark text-foreground bg-background">
         <App />
       </main>
-    </NextUIProvider>
+    </HeroUIProvider>
   </React.StrictMode>,
 );
 ```
@@ -86,13 +76,13 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
 ### Default Plugin Options
 
-The `nextui` plugin provides a default structure. It is outlined as follows:
+The `heroui` plugin provides a default structure. It is outlined as follows:
 
 ```js
 module.exports = {
   plugins: [
-    nextui({
-      prefix: "nextui", // prefix for themes variables
+    heroui({
+      prefix: "heroui", // prefix for themes variables
       addCommonColors: false, // override common colors (e.g. "blue", "green", "pink").
       defaultTheme: "light", // default theme from the themes object
       defaultExtendTheme: "light", // default theme to extend on custom themes
@@ -120,7 +110,7 @@ These are the options that you can use to apply custom configurations to your th
 ```js {6-7,10-11}
 module.exports = {
   plugins: [
-    nextui({
+    heroui({
       themes: {
         light: {
           layout: {},
@@ -139,7 +129,7 @@ module.exports = {
 
 ### Nested themes
 
-NextUI supports nested themes, allowing you to apply different themes to different sections
+HeroUI supports nested themes, allowing you to apply different themes to different sections
 of your application:
 
 ```html
@@ -152,7 +142,7 @@ of your application:
 
 ### Theme based variants
 
-NextUI enables you to apply TailwindCSS styles based on the currently active theme. Below are
+HeroUI enables you to apply TailwindCSS styles based on the currently active theme. Below are
 examples of how to do this:
 
 ```html
@@ -173,12 +163,12 @@ examples of how to do this:
 ### API Reference
 
 The following table provides an overview of the various attributes you can use when working
-with themes in NextUI:
+with themes in HeroUI:
 
 | Attribute          | Type                          | Description                                                                                                     | Default  |
 | ------------------ | ----------------------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
-| prefix             | `string`                      | The prefix for the css variables.                                                                               | `nextui` |
-| addCommonColors    | `boolean`                     | If true, the common nextui colors (e.g. "blue", "green", "purple") will replace the TailwindCSS default colors. | `false`  |
+| prefix             | `string`                      | The prefix for the css variables.                                                                               | `heroui` |
+| addCommonColors    | `boolean`                     | If true, the common heroui colors (e.g. "blue", "green", "purple") will replace the TailwindCSS default colors. | `false`  |
 | defaultTheme       | `light` \| `dark`             | The default theme to use.                                                                                       | `light`  |
 | defaultExtendTheme | `light` \| `dark`             | The default theme to extend.                                                                                    | `light`  |
 | layout             | [LayoutTheme](#layouttheme)   | The layout definitions.                                                                                         | -        |

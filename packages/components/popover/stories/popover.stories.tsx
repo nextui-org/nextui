@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {popover, ButtonVariantProps} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Card, CardHeader, CardFooter} from "@nextui-org/card";
+import {popover, ButtonVariantProps} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Card, CardHeader, CardFooter} from "@heroui/card";
 
 import {Popover, PopoverTrigger, PopoverContent, PopoverProps} from "../src";
 
@@ -406,14 +406,14 @@ const WithBackdropTemplate = (args: PopoverProps) => (
     <img
       alt="Relaxing app background"
       className="w-full h-full object-cover"
-      src="https://nextui.org/images/card-example-5.jpeg"
+      src="https://heroui.com/images/card-example-5.jpeg"
     />
     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-default-600 dark:border-default-100">
       <div className="flex flex-grow gap-2 items-center">
         <img
           alt="Breathing app icon"
           className="rounded-full w-10 h-11 bg-black"
-          src="https://nextui.org/images/breathing-app-icon.jpeg"
+          src="https://heroui.com/images/breathing-app-icon.jpeg"
         />
         <div className="flex flex-col">
           <p className="text-xs text-white/60">Breathing App</p>
