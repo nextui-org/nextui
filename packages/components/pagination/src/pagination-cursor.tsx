@@ -1,7 +1,7 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
 
-export interface PaginationCursorProps extends HTMLNextUIProps<"span"> {
+export interface PaginationCursorProps extends HTMLHeroUIProps<"span"> {
   /**
    * The current active page.
    */
@@ -21,6 +21,6 @@ const PaginationCursor = forwardRef<"span", PaginationCursorProps>((props, ref) 
   );
 });
 
-PaginationCursor.displayName = "NextUI.PaginationCursor";
+PaginationCursor.displayName = "HeroUI.PaginationCursor";
 
 export default PaginationCursor;

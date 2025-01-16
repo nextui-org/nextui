@@ -2,9 +2,9 @@
 import * as React from "react";
 import {render, act, fireEvent} from "@testing-library/react";
 import {CalendarDate, isWeekend} from "@internationalized/date";
-import {triggerPress, keyCodes} from "@nextui-org/test-utils";
+import {triggerPress, keyCodes} from "@heroui/test-utils";
 import {useLocale} from "@react-aria/i18n";
-import {NextUIProvider} from "@nextui-org/system";
+import {HeroUIProvider} from "@heroui/system";
 
 import {Calendar as CalendarBase, CalendarProps} from "../src";
 
@@ -22,9 +22,9 @@ const CalendarWithLocale = React.forwardRef(
     const {locale, ...otherProps} = props;
 
     return (
-      <NextUIProvider locale={locale}>
+      <HeroUIProvider locale={locale}>
         <CalendarBase {...otherProps} ref={ref} disableAnimation />
-      </NextUIProvider>
+      </HeroUIProvider>
     );
   },
 );

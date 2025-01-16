@@ -1,9 +1,9 @@
 import {ReactNode, useCallback, useMemo, cloneElement} from "react";
-import {forwardRef} from "@nextui-org/system";
-import {Tooltip} from "@nextui-org/tooltip";
-import {CopyLinearIcon, CheckLinearIcon} from "@nextui-org/shared-icons";
-import {Button} from "@nextui-org/button";
-import {objectToDeps} from "@nextui-org/shared-utils";
+import {forwardRef} from "@heroui/system";
+import {Tooltip} from "@heroui/tooltip";
+import {CopyLinearIcon, CheckLinearIcon} from "@heroui/shared-icons";
+import {Button} from "@heroui/button";
+import {objectToDeps} from "@heroui/shared-utils";
 
 import {useSnippet, UseSnippetProps} from "./use-snippet";
 
@@ -108,6 +108,6 @@ const Snippet = forwardRef<"div", SnippetProps>((props, ref) => {
   );
 });
 
-Snippet.displayName = "NextUI.Snippet";
+Snippet.displayName = "HeroUI.Snippet";
 
 export default Snippet;

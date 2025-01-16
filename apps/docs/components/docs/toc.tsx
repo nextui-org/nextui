@@ -1,12 +1,12 @@
 "use client";
 
 import {FC, useRef, useEffect, useState} from "react";
-import {clsx} from "@nextui-org/shared-utils";
-import {Divider, Spacer} from "@nextui-org/react";
-import {ChevronCircleTopLinearIcon} from "@nextui-org/shared-icons";
+import {clsx} from "@heroui/shared-utils";
+import {Divider, Spacer} from "@heroui/react";
+import {ChevronCircleTopLinearIcon} from "@heroui/shared-icons";
 import scrollIntoView from "scroll-into-view-if-needed";
 
-import {NextUIProCallout} from "./nextui-pro-callout";
+import {HeroUIProCallout} from "./heroui-pro-callout";
 
 import {Heading} from "@/libs/docs/utils";
 import {useScrollSpy} from "@/hooks/use-scroll-spy";
@@ -124,7 +124,7 @@ export const DocsToc: FC<DocsTocProps> = ({headings}) => {
           </li>
         </ul>
       </div>
-      <NextUIProCallout />
+      <HeroUIProCallout />
     </div>
   );
 };

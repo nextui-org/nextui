@@ -1,6 +1,6 @@
-import {forwardRef} from "@nextui-org/system";
-import {LinkIcon} from "@nextui-org/shared-icons";
-import {linkAnchorClasses} from "@nextui-org/theme";
+import {forwardRef} from "@heroui/system";
+import {LinkIcon} from "@heroui/shared-icons";
+import {linkAnchorClasses} from "@heroui/theme";
 
 import {UseLinkProps, useLink} from "./use-link";
 
@@ -28,6 +28,6 @@ const Link = forwardRef<"a", LinkProps>((props, ref) => {
   );
 });
 
-Link.displayName = "NextUI.Link";
+Link.displayName = "HeroUI.Link";
 
 export default Link;

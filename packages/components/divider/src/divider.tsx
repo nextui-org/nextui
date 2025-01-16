@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@heroui/system-rsc";
 
 import {UseDividerProps, useDivider} from "./use-divider";
 
@@ -10,6 +10,6 @@ const Divider = forwardRef<"div", DividerProps>((props, ref) => {
   return <Component ref={ref} {...getDividerProps()} />;
 });
 
-Divider.displayName = "NextUI.Divider";
+Divider.displayName = "HeroUI.Divider";
 
 export default Divider;

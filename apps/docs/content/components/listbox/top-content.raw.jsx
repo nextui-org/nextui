@@ -1,4 +1,4 @@
-import {Listbox, ListboxItem, Chip, ScrollShadow, Avatar} from "@nextui-org/react";
+import {Listbox, ListboxItem, Chip, ScrollShadow, Avatar} from "@heroui/react";
 
 export const users = [
   {

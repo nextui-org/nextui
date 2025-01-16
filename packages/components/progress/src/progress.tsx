@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseProgressProps, useProgress} from "./use-progress";
 
@@ -43,6 +43,6 @@ const Progress = forwardRef<"div", ProgressProps>((props, ref) => {
   );
 });
 
-Progress.displayName = "NextUI.Progress";
+Progress.displayName = "HeroUI.Progress";
 
 export default Progress;

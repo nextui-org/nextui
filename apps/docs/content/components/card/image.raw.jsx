@@ -1,4 +1,4 @@
-import {Card, CardHeader, CardBody, Image} from "@nextui-org/react";
+import {Card, CardHeader, CardBody, Image} from "@heroui/react";
 
 export default function App() {
   return (
@@ -12,7 +12,7 @@ export default function App() {
         <Image
           alt="Card background"
           className="object-cover rounded-xl"
-          src="https://nextui.org/images/hero-card-complete.jpeg"
+          src="https://heroui.com/images/hero-card-complete.jpeg"
           width={270}
         />
       </CardBody>

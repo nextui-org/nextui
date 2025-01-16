@@ -20,17 +20,17 @@ A listbox displays a list of options and allows a user to select one or more of 
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add listbox",
-    npm: "npm install @nextui-org/listbox",
-    yarn: "yarn add @nextui-org/listbox",
-    pnpm: "pnpm add @nextui-org/listbox",
-    bun: "bun add @nextui-org/listbox"
+    cli: "npx heroui-cli@latest add listbox",
+    npm: "npm install @heroui/listbox",
+    yarn: "yarn add @heroui/listbox",
+    pnpm: "pnpm add @heroui/listbox",
+    bun: "bun add @heroui/listbox"
   }}
 />
 
 ## Import
 
-NextUI exports 3 listbox-related components:
+HeroUI exports 3 listbox-related components:
 
 - **Listbox**: The main component, which is a wrapper for the other components.
 - **ListboxSection**: The component that contains a group of listbox items.
@@ -42,12 +42,12 @@ NextUI exports 3 listbox-related components:
     Listbox,
     ListboxSection,
     ListboxItem
-} from "@nextui-org/react";`,
+} from "@heroui/react";`,
     individual: `import {
     Listbox,
     ListboxSection,
     ListboxItem
-} from "@nextui-org/listbox";`,
+} from "@heroui/listbox";`,
   }}
 />
 
@@ -135,7 +135,7 @@ The `<ListboxItem>` component works with frameworks and client side routers like
 [React Router](https://reactrouter.com/en/main). See the [Routing](/docs/guide/routing) guide to learn how to set this up.
 
 ```jsx
-import {Listbox, ListboxItem} from "@nextui-org/react";
+import {Listbox, ListboxItem} from "@heroui/react";
 
 function App() {
   return (

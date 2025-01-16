@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseBadgeProps, useBadge} from "./use-badge";
 
@@ -19,6 +19,6 @@ const Badge = forwardRef<"span", BadgeProps>((props, ref) => {
   );
 });
 
-Badge.displayName = "NextUI.Badge";
+Badge.displayName = "HeroUI.Badge";
 
 export default Badge;

@@ -1,4 +1,4 @@
-import {Spacer, Card} from "@nextui-org/react";
+import {Spacer, Card} from "@heroui/react";
 
 export const CustomCard = () => (
   <Card className="w-[200px] space-y-5 p-4" radius="2xl">

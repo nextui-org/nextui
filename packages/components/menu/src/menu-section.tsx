@@ -1,12 +1,12 @@
-import {menuSection} from "@nextui-org/theme";
+import {menuSection} from "@heroui/theme";
 import {Node} from "@react-types/shared";
 import {TreeState} from "@react-stately/tree";
 import {useMenuSection} from "@react-aria/menu";
 import {useMemo, Key} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
-import {clsx} from "@nextui-org/shared-utils";
-import {Divider} from "@nextui-org/divider";
+import {clsx} from "@heroui/shared-utils";
+import {Divider} from "@heroui/divider";
 
 import MenuItem, {MenuItemProps} from "./menu-item";
 import {MenuSectionBaseProps} from "./base/menu-section-base";
@@ -139,6 +139,6 @@ const MenuSection = forwardRef<"li", MenuSectionProps>(
   },
 );
 
-MenuSection.displayName = "NextUI.MenuSection";
+MenuSection.displayName = "HeroUI.MenuSection";
 
 export default MenuSection;

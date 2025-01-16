@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseScrollShadowProps, useScrollShadow} from "./use-scroll-shadow";
 
@@ -10,6 +10,6 @@ const ScrollShadow = forwardRef<"div", ScrollShadowProps>((props, ref) => {
   return <Component {...getBaseProps()}>{children}</Component>;
 });
 
-ScrollShadow.displayName = "NextUI.ScrollShadow";
+ScrollShadow.displayName = "HeroUI.ScrollShadow";
 
 export default ScrollShadow;

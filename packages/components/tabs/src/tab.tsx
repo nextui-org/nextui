@@ -1,8 +1,8 @@
 import type {TabItemProps as BaseTabItemProps} from "./base/tab-item-base";
 
-import {forwardRef} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps, mergeRefs} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {forwardRef} from "@heroui/system";
+import {useDOMRef, filterDOMProps, mergeRefs} from "@heroui/react-utils";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import scrollIntoView from "scroll-into-view-if-needed";
 import {useFocusRing} from "@react-aria/focus";
@@ -10,7 +10,7 @@ import {Node} from "@react-types/shared";
 import {useTab} from "@react-aria/tabs";
 import {useHover} from "@react-aria/interactions";
 import {m, domMax, LazyMotion} from "framer-motion";
-import {useIsMounted} from "@nextui-org/use-is-mounted";
+import {useIsMounted} from "@heroui/use-is-mounted";
 
 import {ValuesType} from "./use-tabs";
 
@@ -152,6 +152,6 @@ const Tab = forwardRef<"button", TabItemProps>((props, ref) => {
   );
 });
 
-Tab.displayName = "NextUI.Tab";
+Tab.displayName = "HeroUI.Tab";
 
 export default Tab;

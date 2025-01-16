@@ -1,6 +1,6 @@
 ---
 title: Override styles
-description: NextUI allows you to override the default styles of the components in several ways.
+description: HeroUI allows you to override the default styles of the components in several ways.
 ---
 
 # Override styles
@@ -12,17 +12,14 @@ or to the `classNames` prop for components with slots.
 
 ### What is a Slot?
 
-A slot is a part of a component that can be styled separately. For example, the [CircularProgress](/docs/components/circular-progress) component
-has multiple slots/parts that can be styled separately, such as the `track`, `indicator`, `value`, etc.
-
-Components with slots have a `classNames` prop that allows you to style each slot separately.
+A slot is a part of a component that can be styled separately using the `classNames` prop. For example, the [CircularProgress](/docs/components/circular-progress) component has slots like `track`, `indicator`, and `value` that can each be styled independently.
 
 ### Overriding a component
 
 Let's override the default styles of the [Button](/docs/components/button) component, which is a component that has no slots.
 
 ```jsx {7}
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export default function App() {
   return (
@@ -55,9 +52,7 @@ import buttonOverrideExample from "@/content/customization/override-styles/butto
 
 ### Components with slots
 
-Some NextUI components have slots, which means that you can style all the parts inside the component
-using the `classNames` prop. For example, the [CircularProgress](/docs/components/circular-progress) 
-component has the following slots:
+Some HeroUI components have slots that can be styled individually using the `classNames` prop. The [CircularProgress](/docs/components/circular-progress) component has the following slots:
 
 - **base**: The base slot of the circular progress, it is the main container.
 - **svgWrapper**: The wrapper of the svg circles and the value label.
@@ -67,14 +62,12 @@ component has the following slots:
 - **value**: The value content.
 - **label**: The label content.
 
-Each slot can be styled using the `classNames` prop, the example below shows how
-to change the styles of some slots to create a circular progress with a different
-style.
+The example below demonstrates styling these slots to create a custom circular progress:
 
 import slotsOverrideExample from "@/content/customization/override-styles/slots-example";
 
 ```jsx {9-12}
-import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import {CircularProgress, Card, CardBody} from "@heroui/react";
 
 export default function App() {
   return (
@@ -114,7 +107,7 @@ CSS Modules allow for the creation of local scope classes and variables. Here's 
 you can use it to override styles:
 
 ```jsx
-import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import {CircularProgress, Card, CardBody} from "@heroui/react";
 import styles from './App.module.css';
 
 export default function App() {
@@ -182,7 +175,7 @@ example to override the styles of a component:
 
 
 ```jsx
-import {CircularProgress, Card, CardBody} from "@nextui-org/react";
+import {CircularProgress, Card, CardBody} from "@heroui/react";
 import styled from 'styled-components';
 
 const StyledCard = styled(Card)`
@@ -221,7 +214,4 @@ export default function App() {
 }
 ```
 
-In this example, the `StyledCard`, `StyledCardBody`, and `StyledCircularProgress` components have 
-the combined styles of the original components and the custom styles defined in the template 
-strings. The `.attrs` method is used to add the classNames prop to the StyledCircularProgress 
-component.
+Each styled component combines the original component styles with custom styles defined in the template strings. The `StyledCircularProgress` uses `.attrs` to add classNames.

@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/aria-utils",
+  "name": "@heroui/aria-utils",
   "version": "2.2.7",
-  "description": "A package for managing @react-aria nextui utils.",
+  "description": "A package for managing @react-aria HeroUI utils.",
   "keywords": [
     "aria-utils"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/utilities/aria-utils"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -38,9 +38,9 @@
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-rsc-utils": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-rsc-utils": "workspace:*",
     "@react-aria/utils": "3.26.0",
     "@react-stately/collections": "3.12.0",
     "@react-stately/overlays": "3.6.12",

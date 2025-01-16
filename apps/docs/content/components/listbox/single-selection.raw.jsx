@@ -1,4 +1,4 @@
-import {Listbox, ListboxItem} from "@nextui-org/react";
+import {Listbox, ListboxItem} from "@heroui/react";
 
 export const ListboxWrapper = ({children}) => (
   <div className="w-[260px] border-small px-1 py-2 rounded-small border-default-200 dark:border-default-100">

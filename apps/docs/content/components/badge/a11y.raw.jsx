@@ -1,4 +1,4 @@
-import {Badge, Button} from "@nextui-org/react";
+import {Badge, Button} from "@heroui/react";
 
 export const NotificationIcon = ({size, height, width, ...props}) => {
   return (
