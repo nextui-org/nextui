@@ -121,7 +121,7 @@ export const HeroUIProSection = () => {
               as={"a"}
               className="px-6 flex items-center"
               color="primary"
-              href="https://heroui.pro?utm_source=heroui.org&utm_medium=heroui-homepage-section"
+              href="https://heroui.pro?utm_source=heroui.com&utm_medium=heroui-homepage-section"
               rel="noopener noreferrer"
               target="_blank"
             >

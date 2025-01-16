@@ -73,7 +73,7 @@ export const ProBanner = () => {
       <div className="flex w-full items-center justify-between md:justify-center gap-x-3">
         <a
           className="text-small flex items-end sm:text-[0.93rem] text-foreground hover:opacity-80 transition-opacity"
-          href="https://heroui.pro?utm_source=heroui.org&utm_medium=top-banner"
+          href="https://heroui.pro?utm_source=heroui.com&utm_medium=top-banner"
           rel="noopener noreferrer"
           target="_blank"
           onClick={handleClick}
@@ -96,7 +96,7 @@ export const ProBanner = () => {
         </a>
         <a
           className="flex group min-w-[120px] items-center font-semibold text-foreground shadow-sm gap-1.5 relative overflow-hidden rounded-full p-[1px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
-          href="https://heroui.pro?utm_source=heroui.org&utm_medium=top-banner"
+          href="https://heroui.pro?utm_source=heroui.com&utm_medium=top-banner"
           rel="noopener noreferrer"
           onClick={handleClick}
         >

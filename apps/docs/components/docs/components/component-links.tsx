@@ -78,7 +78,7 @@ export const ComponentLinks = ({
   return (
     <div className="flex flex-wrap gap-3 mt-6">
       <ButtonLink
-        href={`https://storybook.heroui.org/?path=/story/components-${
+        href={`https://storybook.heroui.com/?path=/story/components-${
           storybook || component
         }--default`}
         startContent={<StorybookIcon className="text-lg text-[#ff4785]" />}
