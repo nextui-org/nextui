@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import * as React from "react";
 import {render, act, fireEvent} from "@testing-library/react";
-import {CalendarDate, isWeekend} from "@internationalized/date";
+import {CalendarDate, DateValue, isWeekend} from "@internationalized/date";
 import {triggerPress, keyCodes} from "@nextui-org/test-utils";
 import {useLocale} from "@react-aria/i18n";
 import {NextUIProvider} from "@nextui-org/system";
@@ -11,14 +11,16 @@ import {Calendar as CalendarBase, CalendarProps} from "../src";
 /**
  * Custom calendar to disable animations and avoid issues with react-motion and jest
  */
-const Calendar = React.forwardRef((props: CalendarProps, ref: React.Ref<HTMLDivElement>) => {
-  return <CalendarBase {...props} ref={ref} disableAnimation />;
-});
+const Calendar = React.forwardRef(
+  (props: CalendarProps<DateValue>, ref: React.ForwardedRef<HTMLDivElement>) => {
+    return <CalendarBase {...props} ref={ref} disableAnimation />;
+  },
+);
 
 Calendar.displayName = "Calendar";
 
 const CalendarWithLocale = React.forwardRef(
-  (props: CalendarProps & {locale: string}, ref: React.Ref<HTMLDivElement>) => {
+  (props: CalendarProps<DateValue> & {locale: string}, ref: React.ForwardedRef<HTMLDivElement>) => {
     const {locale, ...otherProps} = props;
 
     return (

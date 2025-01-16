@@ -16,11 +16,9 @@ let cellFormatter = new Intl.DateTimeFormat("en-US", {
 /**
  * Custom range-calendar to disable animations and avoid issues with react-motion and jest
  */
-const RangeCalendar = React.forwardRef(
-  (props: RangeCalendarProps, ref: React.Ref<HTMLDivElement>) => {
-    return <RangeCalendarCalendarBase {...props} ref={ref} disableAnimation />;
-  },
-);
+const RangeCalendar = React.forwardRef<HTMLDivElement, RangeCalendarProps>((props, ref) => {
+  return <RangeCalendarCalendarBase {...props} ref={ref} disableAnimation />;
+});
 
 RangeCalendar.displayName = "RangeCalendar";
 
