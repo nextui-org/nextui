@@ -32,7 +32,7 @@ const MenuItem = (props: MenuItemProps) => {
     getSelectedIconProps,
   } = useMenuItem(props);
 
-  const selectedContent = useMemo<ReactNode | null>(() => {
+  const selectedContent = useMemo<ReactNode>(() => {
     const defaultIcon = (
       <MenuSelectedIcon disableAnimation={disableAnimation} isSelected={isSelected} />
     );

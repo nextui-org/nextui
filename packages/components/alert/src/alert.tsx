@@ -62,7 +62,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
         {customIcon || <IconComponent {...getAlertIconProps()} />}
       </div>
       <div {...getMainWrapperProps()}>
-        {title && <div {...getTitleProps()}>{title}</div>}
+        {!isEmpty(title) && <div {...getTitleProps()}>{title}</div>}
         {!isEmpty(description) && <div {...getDescriptionProps()}>{description}</div>}
         {children}
       </div>

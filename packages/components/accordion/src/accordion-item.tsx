@@ -40,7 +40,7 @@ const AccordionItem = forwardRef<"button", AccordionItemProps>((props, ref) => {
 
   const willChange = useWillChange();
 
-  const indicatorContent = useMemo<ReactNode | null>(() => {
+  const indicatorContent = useMemo<ReactNode>(() => {
     if (typeof indicator === "function") {
       return indicator({indicator: <ChevronIcon />, isOpen, isDisabled});
     }

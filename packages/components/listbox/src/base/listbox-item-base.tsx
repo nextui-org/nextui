@@ -25,15 +25,15 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   /**
    * The content of the component.
    */
-  children?: ReactNode | null;
+  children?: ReactNode;
   /**
    * The listbox item title.
    */
-  title?: ReactNode | string;
+  title?: ReactNode;
   /**
    * The listbox item subtitle.
    */
-  description?: ReactNode | string;
+  description?: ReactNode;
   /**
    * The listbox item start content.
    */
