@@ -454,6 +454,9 @@ importers:
       react:
         specifier: 18.2.0
         version: 18.2.0
+      react-colorful:
+        specifier: ^5.6.1
+        version: 5.6.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
@@ -520,6 +523,9 @@ importers:
       usehooks-ts:
         specifier: 3.1.0
         version: 3.1.0(react@18.2.0)
+      values.js:
+        specifier: ^2.1.1
+        version: 2.1.1
       zustand:
         specifier: 5.0.1
         version: 5.0.1(@types/react@18.2.8)(react@18.2.0)(use-sync-external-store@1.2.2(react@18.2.0))
@@ -3321,7 +3327,7 @@ importers:
         version: 18.2.0
       tailwind-variants:
         specifier: ^0.1.20
-        version: 0.1.20(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3)))
+        version: 0.1.20(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)))
 
   packages/core/theme:
     dependencies:
@@ -3348,7 +3354,7 @@ importers:
         version: 2.5.4
       tailwind-variants:
         specifier: ^0.1.20
-        version: 0.1.20(tailwindcss@3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3)))
+        version: 0.1.20(tailwindcss@3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)))
     devDependencies:
       '@types/color':
         specifier: ^3.0.3
@@ -3361,7 +3367,7 @@ importers:
         version: 2.2.0
       tailwindcss:
         specifier: ^3.4.0
-        version: 3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3))
+        version: 3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))
 
   packages/hooks/use-aria-accordion:
     dependencies:
@@ -10461,6 +10467,10 @@ packages:
   header-case@2.0.4:
     resolution: {integrity: sha512-H/vuk5TEEVZwrR0lp2zed9OCo1uAILMlx0JEMgC26rzyJJ3N1v6XkwHHXJQdR2doSjcGPM6OKPYoJgf0plJ11Q==}
 
+  hex-rgb@4.3.0:
+    resolution: {integrity: sha512-Ox1pJVrDCyGHMG9CFg1tmrRUMRPRsAWYc/PinY0XzJU4K7y7vjNoLKIQ7BR5UJMCxNN8EM1MNDmHWA/B3aZUuw==}
+    engines: {node: '>=6'}
+
   homedir-polyfill@1.0.3:
     resolution: {integrity: sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==}
     engines: {node: '>=0.10.0'}
@@ -12032,6 +12042,9 @@ packages:
   mitt@3.0.1:
     resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
 
+  mix-css-color@0.2.0:
+    resolution: {integrity: sha512-mZugANySFPE21tjELbQddhC6HAZNzqp7gDxmW8fJFURSWtJ0nuXU26dyrb/1AR6ZYxdEAtW2bbWT9QnRtI6Jzg==}
+
   mixin-deep@1.3.2:
     resolution: {integrity: sha512-WRoDn//mXBiJ1H40rqa3vH0toePwSsGb45iInWlTySa+Uu4k3tYUSxa2v1KqAiLtvlrSzaExqS1gtk96A9zvEA==}
     engines: {node: '>=0.10.0'}
@@ -12503,6 +12516,12 @@ packages:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
     engines: {node: '>=6'}
 
+  parse-css-color@0.1.2:
+    resolution: {integrity: sha512-z7v/tf0edGsnlm9VONQtH+u/YVrdUqZXrSBzqM13scef8Abl2VyZfYsZaJoyb/AyY4SIxtoJChSQ4MURHfY3Sg==}
+
+  parse-css-color@0.2.0:
+    resolution: {integrity: sha512-uWQyuOe+SMxnUgHf4mjdn2C/YzA1tOW+uU8Z2UiV3qnao9ZFnvYeyzeoU7TNv8NLIJo0PiRkETW48QNJZ4IA9g==}
+
   parse-entities@2.0.0:
     resolution: {integrity: sha512-kkywGpCcRYhqQIchaWqZ875wzpS/bMKhz5HnN3p7wveJTkTtyAB/AlnS0f8DFSqYW1T82t6yEAkEcB+A1I3MbQ==}
 
@@ -12895,6 +12914,9 @@ packages:
     resolution: {integrity: sha512-FLpr4flz5xZTSJxSeaheeMKN/EDzMdK7b8PTOC6a5PYFKTucWbdqjgqaEyH0shFiSJrVB1+Qqi4Tk19ccU6Aug==}
     engines: {node: '>=12.20'}
 
+  pure-color@1.3.0:
+    resolution: {integrity: sha512-QFADYnsVoBMw1srW7OVKEYjG+MbIa49s54w1MA1EDY6r2r/sTcKKYqRX1f4GYvnXP7eN/Pe9HFcX+hwzmrXRHA==}
+
   pure-rand@6.1.0:
     resolution: {integrity: sha512-bVWawvoZoBYpp6yIoQtQXHZjmz35RSVHnUOTefl8Vcjr8snTPY1wnpSPMWekcFwbxI6gtmT7rSYPFvz71ldiOA==}
 
@@ -12938,6 +12960,12 @@ packages:
   rc@1.2.8:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
+
+  react-colorful@5.6.1:
+    resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
+    peerDependencies:
+      react: 18.2.0
+      react-dom: 18.2.0
 
   react-devtools-inline@4.4.0:
     resolution: {integrity: sha512-ES0GolSrKO8wsKbsEkVeiR/ZAaHQTY4zDh1UW8DImVmm8oaGLl3ijJDvSGe+qDRKPZdPRnDtWWnSvvrgxXdThQ==}
@@ -14562,6 +14590,9 @@ packages:
   validate-npm-package-name@5.0.1:
     resolution: {integrity: sha512-OljLrQ9SQdOUqTaQxqL5dEfZWrXExyyWsozYlAWFawPVNuD83igl7uJD2RTkNMbniIYgt8l81eCJGIdQF7avLQ==}
     engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0}
+
+  values.js@2.1.1:
+    resolution: {integrity: sha512-pI6dKW3kv7BR/WzS0NvIuxegeH1r8gk8y6BuXrIYGVccynmUsUZPhSpTfkt39VBHyciD7WZi+lM+7Zyamowzeg==}
 
   vfile-location@5.0.3:
     resolution: {integrity: sha512-5yXvWDEgqeiYiBe1lbxYF7UMAIm/IcopxMHrMQDq3nvKcjPKIhZklUKL+AE7J7uApI4kwe2snsK+eI6UTj9EHg==}
@@ -23299,6 +23330,8 @@ snapshots:
       capital-case: 1.0.4
       tslib: 2.8.1
 
+  hex-rgb@4.3.0: {}
+
   homedir-polyfill@1.0.3:
     dependencies:
       parse-passwd: 1.0.0
@@ -25375,6 +25408,11 @@ snapshots:
 
   mitt@3.0.1: {}
 
+  mix-css-color@0.2.0:
+    dependencies:
+      parse-css-color: 0.1.2
+      pure-color: 1.3.0
+
   mixin-deep@1.3.2:
     dependencies:
       for-in: 1.0.2
@@ -26014,6 +26052,16 @@ snapshots:
     dependencies:
       callsites: 3.1.0
 
+  parse-css-color@0.1.2:
+    dependencies:
+      color-name: 1.1.4
+      hex-rgb: 4.3.0
+
+  parse-css-color@0.2.0:
+    dependencies:
+      color-name: 1.1.4
+      hex-rgb: 4.3.0
+
   parse-entities@2.0.0:
     dependencies:
       character-entities: 1.2.4
@@ -26182,6 +26230,14 @@ snapshots:
     dependencies:
       lilconfig: 2.1.0
       yaml: 1.10.2
+    optionalDependencies:
+      postcss: 8.4.49
+      ts-node: 10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)
+
+  postcss-load-config@4.0.2(postcss@8.4.49)(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)):
+    dependencies:
+      lilconfig: 3.1.2
+      yaml: 2.6.1
     optionalDependencies:
       postcss: 8.4.49
       ts-node: 10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)
@@ -26445,6 +26501,8 @@ snapshots:
     dependencies:
       escape-goat: 4.0.0
 
+  pure-color@1.3.0: {}
+
   pure-rand@6.1.0: {}
 
   querystring@0.2.0: {}
@@ -26486,6 +26544,11 @@ snapshots:
       ini: 1.3.8
       minimist: 1.2.8
       strip-json-comments: 2.0.1
+
+  react-colorful@5.6.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
 
   react-devtools-inline@4.4.0:
     dependencies:
@@ -27737,15 +27800,15 @@ snapshots:
       tailwind-merge: 1.14.0
       tailwindcss: 3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3))
 
-  tailwind-variants@0.1.20(tailwindcss@3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3))):
+  tailwind-variants@0.1.20(tailwindcss@3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))):
     dependencies:
       tailwind-merge: 1.14.0
-      tailwindcss: 3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3))
+      tailwindcss: 3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))
 
-  tailwind-variants@0.1.20(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3))):
+  tailwind-variants@0.1.20(tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))):
     dependencies:
       tailwind-merge: 1.14.0
-      tailwindcss: 3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3))
+      tailwindcss: 3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))
 
   tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3)):
     dependencies:
@@ -27767,6 +27830,33 @@ snapshots:
       postcss-import: 15.1.0(postcss@8.4.49)
       postcss-js: 4.0.1(postcss@8.4.49)
       postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.6.3))
+      postcss-nested: 6.2.0(postcss@8.4.49)
+      postcss-selector-parser: 6.1.2
+      resolve: 1.22.8
+      sucrase: 3.35.0
+    transitivePeerDependencies:
+      - ts-node
+
+  tailwindcss@3.4.15(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)):
+    dependencies:
+      '@alloc/quick-lru': 5.2.0
+      arg: 5.0.2
+      chokidar: 3.6.0
+      didyoumean: 1.2.2
+      dlv: 1.1.3
+      fast-glob: 3.3.2
+      glob-parent: 6.0.2
+      is-glob: 4.0.3
+      jiti: 1.21.6
+      lilconfig: 2.1.0
+      micromatch: 4.0.8
+      normalize-path: 3.0.0
+      object-hash: 3.0.0
+      picocolors: 1.1.1
+      postcss: 8.4.49
+      postcss-import: 15.1.0(postcss@8.4.49)
+      postcss-js: 4.0.1(postcss@8.4.49)
+      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))
       postcss-nested: 6.2.0(postcss@8.4.49)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
@@ -27801,7 +27891,7 @@ snapshots:
     transitivePeerDependencies:
       - ts-node
 
-  tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3)):
+  tailwindcss@3.4.16(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5)):
     dependencies:
       '@alloc/quick-lru': 5.2.0
       arg: 5.0.2
@@ -27820,7 +27910,7 @@ snapshots:
       postcss: 8.4.49
       postcss-import: 15.1.0(postcss@8.4.49)
       postcss-js: 4.0.1(postcss@8.4.49)
-      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@20.5.1)(typescript@5.6.3))
+      postcss-load-config: 4.0.2(postcss@8.4.49)(ts-node@10.9.2(@swc/core@1.9.2(@swc/helpers@0.5.15))(@types/node@15.14.9)(typescript@4.9.5))
       postcss-nested: 6.2.0(postcss@8.4.49)
       postcss-selector-parser: 6.1.2
       resolve: 1.22.8
@@ -27888,14 +27978,14 @@ snapshots:
       '@swc/core': 1.9.2(@swc/helpers@0.5.15)
       esbuild: 0.15.18
 
-  terser-webpack-plugin@5.3.10(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.15.18)(webpack-cli@3.3.12)):
+  terser-webpack-plugin@5.3.10(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack-cli@3.3.12(webpack@5.96.1))):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.25
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
       terser: 5.36.0
-      webpack: 5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.15.18)(webpack-cli@3.3.12)
+      webpack: 5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack-cli@3.3.12(webpack@5.96.1))
     optionalDependencies:
       '@swc/core': 1.9.2(@swc/helpers@0.5.15)
       esbuild: 0.21.5
@@ -28503,6 +28593,12 @@ snapshots:
 
   validate-npm-package-name@5.0.1: {}
 
+  values.js@2.1.1:
+    dependencies:
+      mix-css-color: 0.2.0
+      parse-css-color: 0.2.0
+      pure-color: 1.3.0
+
   vfile-location@5.0.3:
     dependencies:
       '@types/unist': 3.0.3
@@ -28702,7 +28798,7 @@ snapshots:
       neo-async: 2.6.2
       schema-utils: 3.3.0
       tapable: 2.2.1
-      terser-webpack-plugin: 5.3.10(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.15.18)(webpack-cli@3.3.12))
+      terser-webpack-plugin: 5.3.10(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack@5.96.1(@swc/core@1.9.2(@swc/helpers@0.5.15))(esbuild@0.21.5)(webpack-cli@3.3.12(webpack@5.96.1)))
       watchpack: 2.4.2
       webpack-sources: 3.2.3
     optionalDependencies:
