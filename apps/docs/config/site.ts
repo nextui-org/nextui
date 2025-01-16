@@ -3,7 +3,7 @@ export type SiteConfig = typeof siteConfig;
 export const siteConfig = {
   name: "HeroUI (Previously NextUI) - Beautiful, fast and modern React UI Library",
   description: "Make beautiful websites regardless of your design experience.",
-  ogImage: "https://heroui.com/twitter-cards/heroui.jpeg",
+  ogImage: "https://heroui.com/heroui.jpg",
   author: "Junior Garcia",
   email: "jrgarciadev@gmail.com",
   siteUrl: "https://heroui.com",
@@ -16,7 +16,7 @@ export const siteConfig = {
     description: "Beautiful, fast and modern React UI Library",
     images: [
       {
-        url: "https://heroui.com/twitter-cards/heroui.jpeg",
+        url: "https://heroui.com/heroui.jpg",
         width: 1200,
         height: 630,
         alt: "HeroUI (Previously NextUI)",
@@ -27,7 +27,7 @@ export const siteConfig = {
     card: "summary_large_image",
     title: "HeroUI (Previously NextUI) - Beautiful, fast and modern React UI Library",
     description: "Make beautiful websites regardless of your design experience.",
-    image: "https://heroui.com/twitter-cards/heroui.jpeg",
+    image: "https://heroui.com/heroui.jpg",
     creator: "@hero_ui",
   },
   links: {
