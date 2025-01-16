@@ -45,7 +45,7 @@ const BlogPostCard = (post: BlogPost) => {
             <CardHeader>
               <Link
                 as={NextLink}
-                className="font-semibold "
+                className="font-semibold text-foreground"
                 href={post.url}
                 size="lg"
                 underline="hover"

@@ -215,16 +215,16 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           {versionDropdown}
           <Chip
             as={NextLink}
-            className="hidden sm:flex bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"
+            className="hidden sm:flex bg-foreground-100/50 border-1 hover:bg-foreground-100/80 border-foreground-200/50 cursor-pointer"
             classNames={{
-              content: "font-semibold text-primary-500 dark:text-primary-600 text-xs ",
+              content: "font-semibold text-foreground text-xs ",
             }}
             color="primary"
-            href="/blog/v2.6.0"
+            href="/blog/introducing-heroui"
             variant="flat"
-            onClick={() => handlePressNavbarItem("New version v2.6.0", "/blog/v2.6.0")}
+            onClick={() => handlePressNavbarItem("Introducing HeroUI", "/blog/introducing-heroui")}
           >
-            New version v2.6.0&nbsp;
+            Introducing HeroUI&nbsp;
             <span aria-label="emoji" role="img">
               🔥
             </span>
