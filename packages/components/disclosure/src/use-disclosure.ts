@@ -13,7 +13,7 @@ import {useFocusRing} from "@react-aria/focus";
 import {usePress, useHover} from "@react-aria/interactions";
 import {PressEvents} from "@react-types/shared";
 
-export type DisclosureItemIndicatorProps = {
+export type DisclosureIndicatorProps = {
   /**
    * The current indicator, usually an arrow icon.
    */
@@ -43,7 +43,7 @@ interface Props extends Omit<HTMLNextUIProps<"div">, "title"> {
    * If you pass a function, NextUI will expose the current indicator and the open status,
    * In case you want to use a custom indicator or modify the current one.
    */
-  indicator?: ReactNode | ((props: DisclosureItemIndicatorProps) => ReactNode) | null;
+  indicator?: ReactNode | ((props: DisclosureIndicatorProps) => ReactNode) | null;
   /**
    * Customizable heading tag for Web accessibility:
    * use headings to describe content and use them consistently and semantically.

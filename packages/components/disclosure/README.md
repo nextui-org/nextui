@@ -1,8 +1,6 @@
 # @nextui-org/disclosure
 
-A Quick description of the component
-
-> This is an internal utility, not intended for public usage.
+Disclosure displays hidden content that can be revealed or concealed.
 
 ## Installation
 

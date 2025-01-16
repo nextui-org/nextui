@@ -4,7 +4,7 @@ import Disclosure from "./disclosure";
 export type {DisclosureProps} from "./disclosure";
 
 // export hooks
-export {useDisclosure} from "./use-disclosure";
+export {useDisclosure as useDisclosureComponent} from "./use-disclosure";
 
 // export component
 export {Disclosure};

@@ -4,7 +4,7 @@ import {dataFocusVisibleClasses} from "../utils";
 
 const disclosure = tv({
   slots: {
-    base: "",
+    base: "w-full",
     heading: "",
     trigger: [
       "flex py-4 w-full h-full gap-3 outline-none items-center tap-highlight-transparent",
