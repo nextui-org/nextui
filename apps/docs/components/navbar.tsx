@@ -100,11 +100,9 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   );
 
   const handleVersionChange = useCallback((key: Key) => {
-    if (key === "v1") {
-      const newWindow = window.open("https://v1.heroui.com", "_blank", "noopener,noreferrer");
+      const newWindow = window.open(`https://${key ? `${key}.` : ""}heroui.com`, "_blank", "noopener,noreferrer");
 
       if (newWindow) newWindow.opener = null;
-    }
   }, []);
 
   const handlePressNavbarItem = useCallback(
@@ -172,9 +170,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           onAction={handleVersionChange}
         >
           <DropdownItem key="v2">v{currentVersion}</DropdownItem>
-          <DropdownItem key="v1" endContent={<LinkIcon />}>
-            v1.0.0
-          </DropdownItem>
         </DropdownMenu>
       </Dropdown>
     ) : (
