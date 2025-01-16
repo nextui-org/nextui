@@ -1,5 +1,14 @@
 import {useEffect, useState} from "react";
-import {Card, CardBody, Switch} from "@nextui-org/react";
+import {
+  Card,
+  CardBody,
+  CardHeader,
+  Divider,
+  Button,
+  CardFooter,
+  Link,
+  ScrollShadow,
+} from "@nextui-org/react";
 import {useTheme} from "next-themes";
 import {useLocalStorage} from "usehooks-ts";
 import {Icon} from "@iconify/react/dist/offline";
@@ -20,9 +29,10 @@ import {LineHeights} from "./line-heights";
 import {Radiuses} from "./radiuses";
 import {BorderWidths} from "./border-widths";
 import {Other} from "./other";
-import {Actions} from "./actions";
 
 import usePrevious from "@/hooks/use-previous";
+import {RotateLeftLinearIcon} from "@/components/icons";
+import {ThemeSwitch} from "@/components/theme-switch";
 
 export default function Configuration() {
   const [selectedTemplate, setSelectedTemplate] = useState<Template | null>(null);
@@ -30,10 +40,8 @@ export default function Configuration() {
   const themeProps = useTheme();
   const theme = themeProps.theme as ThemeType;
   const prevTheme = usePrevious(theme);
-  const {setTheme} = themeProps;
   const [, setLsConfig] = useLocalStorage<Config>(configKey, initialConfig);
-  const [syncThemes, setSyncThemes] = useLocalStorage<boolean>(syncThemesKey, true);
-  const isLight = theme === "light";
+  const [syncThemes] = useLocalStorage<boolean>(syncThemesKey, true);
   const syncIcon = syncThemes ? <Icon className="flex-shrink-0" icon={LinkSquareIcon} /> : null;
 
   /**
@@ -52,20 +60,6 @@ export default function Configuration() {
   }, [config, theme, prevTheme]);
 
   /**
-   * Handle the syncing of the themes.
-   */
-  function handleThemeSyncing(isSyncing: boolean) {
-    setSyncThemes(isSyncing);
-  }
-
-  /**
-   * Handle the toggling of the theme.
-   */
-  function handleToggleTheme() {
-    setTheme(isLight ? "dark" : "light");
-  }
-
-  /**
    * Reset the theme to the default one.
    */
   function handleResetTheme() {
@@ -80,27 +74,27 @@ export default function Configuration() {
     setLsConfig(config);
   }
 
+  function handleCopy() {
+    navigator.clipboard.writeText(JSON.stringify(generatePluginConfig(config), null, 2));
+  }
+
   return (
-    <Card className="max-w-md w-full p-2 h-min relative mx-auto md:sticky md:top-28 z-30 md:h-[calc(100vh-12rem)]">
-      <CardBody className="flex flex-col">
-        <div className="flex flex-col gap-6">
-          <Actions
-            theme={theme}
-            onCopy={() => generatePluginConfig(config)}
-            onResetTheme={handleResetTheme}
-            onToggleTheme={handleToggleTheme}
-          />
-
-          <Switch
-            color="secondary"
-            isSelected={syncThemes}
-            size="sm"
-            startContent={<Icon icon={LinkSquareIcon} />}
-            onValueChange={handleThemeSyncing}
-          >
-            Sync dark and light themes
-          </Switch>
-
+    <Card className="max-w-sm w-full h-[70vh]">
+      <CardHeader className="p-2 px-4 flex justify-between">
+        <div className="flex gap-x-4 items-center">
+          <div className="text-xl font-medium text-default-800 ">Theme</div>
+          <Button className="text-tiny bg-default-100" onPress={handleResetTheme}>
+            Reset
+            <RotateLeftLinearIcon className="h-4 w-4" />
+          </Button>
+        </div>
+        <div>
+          <ThemeSwitch />
+        </div>
+      </CardHeader>
+      <Divider className="bg-default-100" />
+      <CardBody className="flex flex-col p-4 h-[60vh] overflow-scroll">
+        <ScrollShadow orientation="vertical">
           <SelectTemplate
             name={selectedTemplate?.name ?? null}
             onChange={(template) => {
@@ -109,19 +103,44 @@ export default function Configuration() {
               setSelectedTemplate(template);
             }}
           />
-        </div>
 
-        <div className="flex flex-col gap-8 mt-6">
-          <BrandColors config={config} syncIcon={syncIcon} syncThemes={syncThemes} theme={theme} />
-          <BaseColors config={config} theme={theme} />
-          <OtherColors config={config} syncIcon={syncIcon} syncThemes={syncThemes} theme={theme} />
-          <FontSizes config={config} />
-          <LineHeights config={config} />
-          <Radiuses config={config} />
-          <BorderWidths config={config} />
-          <Other config={config} />
-        </div>
+          <div className="flex flex-col gap-8 mt-6">
+            <BrandColors
+              config={config}
+              syncIcon={syncIcon}
+              syncThemes={syncThemes}
+              theme={theme}
+            />
+            <BaseColors config={config} theme={theme} />
+            <OtherColors
+              config={config}
+              syncIcon={syncIcon}
+              syncThemes={syncThemes}
+              theme={theme}
+            />
+            <FontSizes config={config} />
+            <LineHeights config={config} />
+            <Radiuses config={config} />
+            <BorderWidths config={config} />
+            <Other config={config} />
+          </div>
+        </ScrollShadow>
       </CardBody>
+      <Divider className="bg-default-100" />
+      <CardFooter className="flex flex-col">
+        <Button fullWidth className="text-" color="primary" onPress={handleCopy}>
+          Copy Theme
+        </Button>
+        <div className="text-tiny mt-2 text-default-500">
+          Learn how to setup your theme{" "}
+          <Link
+            className="text-default-800 text-tiny underline cursor-pointer"
+            href="/docs/customization/theme"
+          >
+            here
+          </Link>
+        </div>
+      </CardFooter>
     </Card>
   );
 }

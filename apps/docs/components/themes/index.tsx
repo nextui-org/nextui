@@ -16,8 +16,8 @@ export function ThemeBuilder() {
 
   return isClient ? (
     <ThemeBuilderProvider>
-      <Configuration />
       <Showcase />
+      <Configuration />
     </ThemeBuilderProvider>
   ) : (
     <div className="flex justify-center items-center w-full h-min md:h-[calc(100vh-15rem)]">

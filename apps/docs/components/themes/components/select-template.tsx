@@ -20,7 +20,7 @@ export function SelectTemplate({name, onChange}: SelectTemplateProps) {
 
   return (
     <Select
-      label="Theme templates"
+      label={<div className="text-default-500">Prebuilt Themes</div>}
       labelPlacement="outside"
       placeholder="Select a theme"
       selectedKeys={name === null ? [] : [name]}
