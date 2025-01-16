@@ -1,5 +1,13 @@
 # @heroui/react
 
+## 2.6.12
+
+### Patch Changes
+
+- [`f6da7d6`](https://github.com/frontio-ai/heroui/commit/f6da7d62e9dffe0d7683e4257e3021355b7436d2) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Update repo org, remove the triangle company from readme
+
+- [`1d5e452`](https://github.com/frontio-ai/heroui/commit/1d5e4520e97db6b9ccb81ece772217410b77b836) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Post build script fixed
+
 ## 2.6.11
 
 ### Patch Changes
