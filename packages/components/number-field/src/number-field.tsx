@@ -1,6 +1,6 @@
-import {CloseFilledIcon} from "@nextui-org/shared-icons";
+import {CloseFilledIcon} from "@heroui/shared-icons";
 import {useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseNumberFieldProps, useNumberField} from "./use-number-field";
 import NumberFieldVerticalStepper from "./number-field-vertical-stepper";

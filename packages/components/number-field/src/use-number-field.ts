@@ -1,25 +1,20 @@
-import type {NumberFieldVariantProps, SlotsToClasses, NumberFieldSlots} from "@nextui-org/theme";
+import type {NumberFieldVariantProps, SlotsToClasses, NumberFieldSlots} from "@heroui/theme";
 import type {AriaNumberFieldProps} from "@react-types/numberfield";
 import type {NumberFieldStateOptions} from "@react-stately/numberfield";
 
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {useFocusRing} from "@react-aria/focus";
-import {numberField} from "@nextui-org/theme";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {numberField} from "@heroui/theme";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
 import {useLocale} from "@react-aria/i18n";
-import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps} from "@heroui/shared-utils";
 import {useNumberFieldState} from "@react-stately/numberfield";
 import {useNumberField as useAriaNumberField} from "@react-aria/numberfield";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 export interface Props extends Omit<HTMLNextUIProps<"input">, keyof NumberFieldVariantProps> {
   /**

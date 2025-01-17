@@ -1,4 +1,4 @@
-# @nextui-org/number-field
+# @heroui/number-field
 
 NumberField is a component that allows users to enter number. It can be used to get user inputs in forms, search fields, and more.
 
@@ -7,9 +7,9 @@ Please refer to the [documentation](https://nextui.org/docs/components/number-fi
 ## Installation
 
 ```sh
-yarn add @nextui-org/number-field
+yarn add @heroui/number-field
 # or
-npm i @nextui-org/number-field
+npm i @heroui/number-field
 ```
 
 ## Contribution

@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/number-field",
+  "name": "@heroui/number-field",
   "version": "2.0.0",
   "description": "The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons",
   "keywords": [
@@ -8,7 +8,7 @@
     "numeric input"
   ],
   "author": "WK Wong <wingkwong.code@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -20,11 +20,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/frontio-ai/heroui.git",
     "directory": "packages/components/input"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/frontio-ai/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -38,16 +38,16 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.5",
-    "@nextui-org/system": ">=2.4.5"
+    "@heroui/theme": ">=2.4.5",
+    "@heroui/system": ">=2.4.5"
   },
   "dependencies": {
-    "@nextui-org/form": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/use-safe-layout-effect": "workspace:*",
+    "@heroui/form": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/use-safe-layout-effect": "workspace:*",
     "@react-aria/focus": "3.19.0",
     "@react-aria/i18n": "3.12.4",
     "@react-aria/interactions": "3.22.5",
@@ -60,8 +60,8 @@
     "@react-types/button": "3.10.1"
   },
   "devDependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

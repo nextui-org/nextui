@@ -4,8 +4,8 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {button} from "@nextui-org/theme";
-import {Form} from "@nextui-org/form";
+import {button} from "@heroui/theme";
+import {Form} from "@heroui/form";
 
 import {numberField} from "../../../core/theme";
 import {NumberField, NumberFieldProps} from "../src";

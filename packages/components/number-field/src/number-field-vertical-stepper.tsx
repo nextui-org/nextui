@@ -1,8 +1,8 @@
 import type {AriaButtonProps} from "@react-types/button";
-import type {ButtonProps} from "@nextui-org/button";
+import type {ButtonProps} from "@heroui/button";
 
-import {Button} from "@nextui-org/button";
-import {ChevronUpIcon, ChevronDownIcon} from "@nextui-org/shared-icons";
+import {Button} from "@heroui/button";
+import {ChevronUpIcon, ChevronDownIcon} from "@heroui/shared-icons";
 
 export interface NumberFieldVerticalStepperProps extends Omit<ButtonProps, keyof AriaButtonProps> {
   direction: "up" | "down";
