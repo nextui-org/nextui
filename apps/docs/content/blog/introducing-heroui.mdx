@@ -38,9 +38,16 @@ Additionally, we want to avoid any confusion about our library being created or 
 
 We've worked for months to make the migration as seamless as possible. You only need to run one command in your project's root folder:
 
-```bash
-npx @heroui/codemod@latest migrate
-```
+
+<PackageManagers
+  commands={{
+    npm: "npx @heroui/codemod@latest migrate",
+    pnpm: "pnpm dlx @heroui/codemod@latest migrate",
+    yarn: "yarn dlx @heroui/codemod@latest migrate",
+    bun: "bunx --bun @heroui/codemod@latest migrate"
+  }}
+/>
+
 
 This will automatically update your project to use HeroUI.
 
