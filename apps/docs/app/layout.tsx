@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata, Viewport} from "next";
 import {clsx} from "@heroui/shared-utils";
+import {Analytics} from "@vercel/analytics/next";
 
 import {Providers} from "./providers";
 
@@ -84,6 +85,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <ProBanner />
             <Navbar mobileRoutes={manifest.mobileRoutes} routes={manifest.routes} />
             {children}
+            <Analytics mode="production" />
             <Footer />
           </div>
           <Cmdk />
