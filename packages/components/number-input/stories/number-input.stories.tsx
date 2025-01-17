@@ -6,7 +6,7 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {button} from "@heroui/theme";
 import {Form} from "@heroui/form";
-import {numberField} from "@heroui/theme";
+import {numberInput} from "@heroui/theme";
 
 import {NumberInput, NumberInputProps} from "../src";
 
@@ -60,7 +60,7 @@ export default {
 } as Meta<typeof NumberInput>;
 
 const defaultProps = {
-  ...numberField.defaultVariants,
+  ...numberInput.defaultVariants,
   defaultValue: 24,
 };
 
