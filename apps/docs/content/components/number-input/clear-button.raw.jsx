@@ -10,7 +10,7 @@ export default function App() {
       placeholder="Enter the width"
       variant="bordered"
       // eslint-disable-next-line no-console
-      onClear={() => console.log("number field cleared")}
+      onClear={() => console.log("number input cleared")}
     />
   );
 }

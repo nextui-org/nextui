@@ -23,7 +23,7 @@ import serverValidation from "./server-validation";
 import customStyles from "./custom-styles";
 import formatOptions from "./format-options";
 
-export const numberFieldContent = {
+export const numberInputContent = {
   usage,
   disabled,
   readOnly,

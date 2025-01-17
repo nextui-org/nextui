@@ -340,8 +340,8 @@
         },
         {
           "key": "number-input",
-          "title": "Number Field",
-          "keywords": "input, numeric input, number field",
+          "title": "Number Input",
+          "keywords": "input, numeric input, number input",
           "path": "/docs/components/number-input.mdx",
           "newPost": true
         },

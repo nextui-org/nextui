@@ -1,11 +1,11 @@
 ---
-title: "Number Field"
+title: "Number Input"
 description: "The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons"
 ---
 
-import {numberFieldContent} from "@/content/components/number-input";
+import {numberInputContent} from "@/content/components/number-input";
 
-# Number Field
+# Number Input
 
 The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons
 
@@ -30,117 +30,117 @@ The numeric input component is designed for users to enter a number, and increas
 
 ## Usage
 
-<CodeDemo title="Usage" files={numberFieldContent.usage} />
+<CodeDemo title="Usage" files={numberInputContent.usage} />
 
 ### Disabled
 
-<CodeDemo title="Disabled" files={numberFieldContent.disabled} />
+<CodeDemo title="Disabled" files={numberInputContent.disabled} />
 
 ### Read Only
 
-<CodeDemo title="Read Only" files={numberFieldContent.readOnly} />
+<CodeDemo title="Read Only" files={numberInputContent.readOnly} />
 
 ### Required
 
 If you pass the `isRequired` property to the input, it will have a `danger` asterisk at
 the end of the label and the input will be required.
 
-<CodeDemo title="Required" files={numberFieldContent.required} />
+<CodeDemo title="Required" files={numberInputContent.required} />
 
 ### Sizes
 
-<CodeDemo title="Sizes" files={numberFieldContent.sizes} />
+<CodeDemo title="Sizes" files={numberInputContent.sizes} />
 
 ### Colors
 
-<CodeDemo title="Colors" files={numberFieldContent.colors} />
+<CodeDemo title="Colors" files={numberInputContent.colors} />
 
 ### Variants
 
-<CodeDemo title="Variants" files={numberFieldContent.variants} />
+<CodeDemo title="Variants" files={numberInputContent.variants} />
 
 ### Radius
 
-<CodeDemo title="Radius" files={numberFieldContent.radius} />
+<CodeDemo title="Radius" files={numberInputContent.radius} />
 
 ### Clear Button
 
 If you pass the `isClearable` property to NumberField, it will have a clear button at the
 end of NumberField, it will be visible when NumberField has a value.
 
-<CodeDemo title="Clear Button" files={numberFieldContent.clearButton} />
+<CodeDemo title="Clear Button" files={numberInputContent.clearButton} />
 
 ### Hide Stepper
 
 You can hide the stepper buttons by passing the `hideStepper` property.
 
-<CodeDemo title="Hide Stepper" files={numberFieldContent.hideStepper} />
+<CodeDemo title="Hide Stepper" files={numberInputContent.hideStepper} />
 
 ### Start & End Content
 
 You can use the `startContent` and `endContent` properties to add content to the start and end of NumberField.
 
-<CodeDemo title="Start and End Content" files={numberFieldContent.startEndContent} />
+<CodeDemo title="Start and End Content" files={numberInputContent.startEndContent} />
 
 ### With Label
 
 You can add a label to NumberField by passing the `label` property.
 
-<CodeDemo title="With Label" files={numberFieldContent.label} />
+<CodeDemo title="With Label" files={numberInputContent.label} />
 
 ### With Description
 
 You can add a description to NumberField by passing the `description` property.
 
-<CodeDemo title="With Description" files={numberFieldContent.description} />
+<CodeDemo title="With Description" files={numberInputContent.description} />
 
 ### With Helper Text
 
 You can add a helper text to NumberField by passing the `helperText` property.
 
-<CodeDemo title="With HelperText" files={numberFieldContent.helperText} />
+<CodeDemo title="With HelperText" files={numberInputContent.helperText} />
 
 ### With Min Value
 
 You can set the minimum value of the input by passing the `minValue` property.
 
-<CodeDemo title="With Min Value" files={numberFieldContent.minValue} />
+<CodeDemo title="With Min Value" files={numberInputContent.minValue} />
 
 ### With Max Value
 
 You can set the maximum value of the input by passing the `maxValue` property.
 
-<CodeDemo title="With Max Value" files={numberFieldContent.maxValue} />
+<CodeDemo title="With Max Value" files={numberInputContent.maxValue} />
 
 ### With Wheel Disabled
 
 You can disable changing the vaule with scroll in NumberField by passing the `isWheelDisabled` property.
 
-<CodeDemo title="With Wheel Disabled" files={numberFieldContent.isWheelDisabled} />
+<CodeDemo title="With Wheel Disabled" files={numberInputContent.isWheelDisabled} />
 
 ### With Format Options
 
 You can format the value of the input by passing the `formatOptions` property.
 
-<CodeDemo title="With Format Options" files={numberFieldContent.formatOptions} />
+<CodeDemo title="With Format Options" files={numberInputContent.formatOptions} />
 
 ### With Helper Text
 
 You can add a helper text to NumberField by passing the `helperText` property.
 
-<CodeDemo title="With HelperText" files={numberFieldContent.helperText} />
+<CodeDemo title="With HelperText" files={numberInputContent.helperText} />
 
 ### With Error Message
 
 You can combine the `isInvalid` and `errorMessage` properties to show an invalid input. `errorMessage` is only shown when `isInvalid` is set to `true`.
 
-<CodeDemo title="With Error Message" files={numberFieldContent.errorMessage} />
+<CodeDemo title="With Error Message" files={numberInputContent.errorMessage} />
 
 ### Controlled
 
 You can use the `value` and `onValueChange` properties to control NumberField value.
 
-<CodeDemo title="Controlled" files={numberFieldContent.controlled} />
+<CodeDemo title="Controlled" files={numberInputContent.controlled} />
 
 > **Note**: NextUI `NumberField` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
@@ -153,13 +153,13 @@ You can use the `value` and `onValueChange` properties to control NumberField va
 
 In addition to built-in constraints, you can provide a function to the `validate` property for custom validation.
 
-<CodeDemo title="Custom Validation" files={numberFieldContent.customValidation} />
+<CodeDemo title="Custom Validation" files={numberInputContent.customValidation} />
 
 #### Realtime Validation
 
 If you want to display validation errors while the user is typing, you can control the field value and use the `isInvalid` prop along with the `errorMessage` prop.
 
-<CodeDemo title="Realtime Validation" files={numberFieldContent.realTimeValidation} />
+<CodeDemo title="Realtime Validation" files={numberInputContent.realTimeValidation} />
 
 #### Server Validation
 
@@ -167,7 +167,7 @@ Client-side validation provides immediate feedback, but you should also validate
 NextUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
 This prop should be an object where each key is the field `name` and the value is the error message.
 
-<CodeDemo title="Server Validation" files={numberFieldContent.serverValidation} />
+<CodeDemo title="Server Validation" files={numberInputContent.serverValidation} />
 
 ## Slots
 
@@ -188,7 +188,7 @@ This prop should be an object where each key is the field `name` and the value i
 
 You can customize the `NumberField` component by passing custom Tailwind CSS classes to the component slots.
 
-<CodeDemo title="Custom Styles" files={numberFieldContent.customStyles} />
+<CodeDemo title="Custom Styles" files={numberInputContent.customStyles} />
 
 <Spacer y={4} />
 
