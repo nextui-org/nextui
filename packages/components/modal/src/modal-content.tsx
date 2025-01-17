@@ -3,12 +3,12 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {cloneElement, isValidElement, ReactNode, useMemo, useCallback} from "react";
 import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
-import {CloseIcon} from "@nextui-org/shared-icons";
+import {TRANSITION_VARIANTS} from "@heroui/framer-utils";
+import {CloseIcon} from "@heroui/shared-icons";
 import {LazyMotion, m} from "framer-motion";
 import {useDialog} from "@react-aria/dialog";
 import {chain, mergeProps, useViewportSize} from "@react-aria/utils";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {KeyboardEvent} from "react";
 
 import {useModalContext} from "./modal-context";
@@ -16,11 +16,11 @@ import {scaleInOut} from "./modal-transition";
 
 type KeysToOmit = "children" | "role";
 
-export interface ModalContentProps extends AriaDialogProps, HTMLNextUIProps<"div", KeysToOmit> {
+export interface ModalContentProps extends AriaDialogProps, HTMLHeroUIProps<"div", KeysToOmit> {
   children: ReactNode | ((onClose: () => void) => ReactNode);
 }
 
-const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);
 
 const ModalContent = (props: ModalContentProps) => {
   const {as, children, role = "dialog", ...otherProps} = props;
@@ -140,6 +140,6 @@ const ModalContent = (props: ModalContentProps) => {
   );
 };
 
-ModalContent.displayName = "NextUI.ModalContent";
+ModalContent.displayName = "HeroUI.ModalContent";
 
 export default ModalContent;

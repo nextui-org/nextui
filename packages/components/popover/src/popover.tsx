@@ -1,5 +1,5 @@
 import {Children, ReactNode} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {Overlay} from "@react-aria/overlays";
 import {AnimatePresence} from "framer-motion";
 
@@ -34,6 +34,6 @@ const Popover = forwardRef<"div", PopoverProps>((props, ref) => {
   );
 });
 
-Popover.displayName = "NextUI.Popover";
+Popover.displayName = "HeroUI.Popover";
 
 export default Popover;

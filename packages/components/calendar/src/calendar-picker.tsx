@@ -1,8 +1,8 @@
 import type {CalendarPickerProps} from "./use-calendar-picker";
 
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {useCallback} from "react";
-import {getInertValue} from "@nextui-org/shared-utils";
+import {getInertValue} from "@heroui/shared-utils";
 
 import {CalendarPickerItem} from "./calendar-picker-item";
 import {useCalendarPicker} from "./use-calendar-picker";
@@ -31,7 +31,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
   } = useCalendarPicker(props);
 
   const EmptyItem = useCallback(
-    (props: HTMLNextUIProps<"div">) => (
+    (props: HTMLHeroUIProps<"div">) => (
       <div
         aria-hidden="true"
         className={slots?.pickerItem({class: classNames?.pickerItem})}
@@ -46,7 +46,7 @@ export function CalendarPicker(props: CalendarPickerProps) {
   );
 
   const PickerItemWrapper = useCallback(
-    ({children}: HTMLNextUIProps<"div">) => (
+    ({children}: HTMLHeroUIProps<"div">) => (
       <>
         {Array.from({length: EMPTY_ITEMS_OFFSET}, (_, i) => (
           <EmptyItem key={i} />

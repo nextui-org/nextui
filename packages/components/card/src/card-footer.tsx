@@ -1,10 +1,10 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {useCardContext} from "./card-context";
 
-export interface CardFooterProps extends HTMLNextUIProps<"div"> {}
+export interface CardFooterProps extends HTMLHeroUIProps<"div"> {}
 
 const CardFooter = forwardRef<"div", CardFooterProps>((props, ref) => {
   const {as, className, children, ...otherProps} = props;
@@ -23,6 +23,6 @@ const CardFooter = forwardRef<"div", CardFooterProps>((props, ref) => {
   );
 });
 
-CardFooter.displayName = "NextUI.CardFooter";
+CardFooter.displayName = "HeroUI.CardFooter";
 
 export default CardFooter;

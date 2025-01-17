@@ -1,10 +1,10 @@
 import {useMemo, useRef, useState} from "react";
 import {mergeProps} from "@react-aria/utils";
 import {useVirtualizer, VirtualItem} from "@tanstack/react-virtual";
-import {isEmpty} from "@nextui-org/shared-utils";
+import {isEmpty} from "@heroui/shared-utils";
 import {Node} from "@react-types/shared";
-import {ScrollShadowProps, useScrollShadow} from "@nextui-org/scroll-shadow";
-import {filterDOMProps} from "@nextui-org/react-utils";
+import {ScrollShadowProps, useScrollShadow} from "@heroui/scroll-shadow";
+import {filterDOMProps} from "@heroui/react-utils";
 
 import ListboxItem from "./listbox-item";
 import ListboxSection from "./listbox-section";

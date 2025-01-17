@@ -2,7 +2,7 @@ import {PrismTheme} from "prism-react-renderer";
 
 const codeTheme: PrismTheme = {
   plain: {
-    backgroundColor: "hsl(var(--nextui-code-background))",
+    backgroundColor: "hsl(var(--heroui-code-background))",
     color: "#F4F4F4",
     fontWeight: "400",
     fontSize: "14px",

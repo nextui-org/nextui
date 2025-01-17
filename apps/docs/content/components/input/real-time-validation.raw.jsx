@@ -1,4 +1,4 @@
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 export default function App() {
   const [submitted, setSubmitted] = React.useState(null);

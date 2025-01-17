@@ -1,12 +1,13 @@
 /* eslint-disable react/display-name */
-import {clsx} from "@nextui-org/shared-utils";
-import * as Components from "@nextui-org/react";
+import {clsx} from "@heroui/shared-utils";
+import * as Components from "@heroui/react";
 import {Language} from "prism-react-renderer";
 import NextImage from "next/image";
 import {usePostHog} from "posthog-js/react";
 
 import {ThemeSwitch} from "./theme-switch";
 import {InfoCircle} from "./icons/info-circle";
+import {FigmaButton} from "./figma-button";
 
 import {Sandpack} from "@/components/sandpack";
 import {CarbonAd} from "@/components/ads/carbon-ad";
@@ -198,6 +199,10 @@ const Link = ({href, children}: {href?: string; children?: React.ReactNode}) => 
       disableAnimation={true}
       href={href}
       {...externalProps}
+      style={{
+        // font size inherit from parent
+        fontSize: "inherit",
+      }}
       onPress={handleClick}
     >
       {children}
@@ -327,7 +332,7 @@ export const MDXComponents = {
    */
   NextImage,
   /**
-   * NextUI components
+   * HeroUI components
    */
   ...Components,
   /**
@@ -336,6 +341,7 @@ export const MDXComponents = {
   ...DocsComponents,
   Sandpack,
   ThemeSwitch,
+  FigmaButton,
   /**
    * Blog components
    */

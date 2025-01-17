@@ -1,6 +1,6 @@
-import type {ListboxItemProps, ListboxSectionProps} from "@nextui-org/listbox";
+import type {ListboxItemProps, ListboxSectionProps} from "@heroui/listbox";
 
-import {ListboxItem, ListboxSection} from "@nextui-org/listbox";
+import {ListboxItem, ListboxSection} from "@heroui/listbox";
 
 import Select from "./select";
 import {HiddenSelect} from "./hidden-select";

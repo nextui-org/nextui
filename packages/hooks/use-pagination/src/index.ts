@@ -1,6 +1,6 @@
 import {useMemo, useCallback, useState, useEffect} from "react";
 import {useLocale} from "@react-aria/i18n";
-import {range} from "@nextui-org/shared-utils";
+import {range} from "@heroui/shared-utils";
 
 export enum PaginationItemType {
   DOTS = "dots",

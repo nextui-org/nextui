@@ -9,8 +9,8 @@ import {
   Switch,
   Spinner,
   Pagination,
-} from "@nextui-org/react";
-import {MoonFilledIcon, SunFilledIcon} from "@nextui-org/shared-icons";
+} from "@heroui/react";
+import {MoonFilledIcon, SunFilledIcon} from "@heroui/shared-icons";
 import {useTheme} from "next-themes";
 import NextImage from "next/image";
 
@@ -19,7 +19,7 @@ import {FloatingTabs} from "./floating-tabs";
 import {UserTwitterCard} from "@/components/demos/user-twitter-card";
 import {useIsMounted} from "@/hooks/use-is-mounted";
 import {useMediaQuery} from "@/hooks/use-media-query";
-import {NextUILogo} from "@/components/nextui-logo";
+import {HeroUILogo} from "@/components/heroui-logo";
 
 export const FloatingComponents: React.FC<{}> = () => {
   const {theme, setTheme} = useTheme();
@@ -52,7 +52,7 @@ export const FloatingComponents: React.FC<{}> = () => {
         <Input
           className="absolute -top-[60px] -right-[80px] animate-[levitate_10s_ease_infinite] w-[200px]"
           color="secondary"
-          defaultValue="NextUI"
+          defaultValue="HeroUI"
           label="Input"
           labelPlacement="outside"
           variant="bordered"
@@ -86,7 +86,7 @@ export const FloatingComponents: React.FC<{}> = () => {
           shadow="lg"
         >
           <CardBody>
-            <NextUILogo small size={60} />
+            <HeroUILogo small size={60} />
           </CardBody>
         </Card>
 

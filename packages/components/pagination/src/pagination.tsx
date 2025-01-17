@@ -1,10 +1,10 @@
-import {PaginationItemValue} from "@nextui-org/use-pagination";
+import {PaginationItemValue} from "@heroui/use-pagination";
 import {useCallback} from "react";
 import {useLocale} from "@react-aria/i18n";
-import {forwardRef} from "@nextui-org/system";
-import {PaginationItemType} from "@nextui-org/use-pagination";
-import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@nextui-org/shared-icons";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {forwardRef} from "@heroui/system";
+import {PaginationItemType} from "@heroui/use-pagination";
+import {ChevronIcon, EllipsisIcon, ForwardIcon} from "@heroui/shared-icons";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 
 import {UsePaginationProps, usePagination} from "./use-pagination";
 import PaginationItem from "./pagination-item";
@@ -204,6 +204,6 @@ const Pagination = forwardRef<"nav", PaginationProps>((props, ref) => {
   );
 });
 
-Pagination.displayName = "NextUI.Pagination";
+Pagination.displayName = "HeroUI.Pagination";
 
 export default Pagination;

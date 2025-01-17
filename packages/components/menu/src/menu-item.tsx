@@ -66,6 +66,6 @@ const MenuItem = (props: MenuItemProps) => {
   );
 };
 
-MenuItem.displayName = "NextUI.MenuItem";
+MenuItem.displayName = "HeroUI.MenuItem";
 
 export default MenuItem;

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {usePaginationItem, UsePaginationItemProps} from "./use-pagination-item";
 
@@ -10,6 +10,6 @@ const PaginationItem = forwardRef<"li", PaginationItemProps>((props, ref) => {
   return <Component {...getItemProps()}>{children}</Component>;
 });
 
-PaginationItem.displayName = "NextUI.PaginationItem";
+PaginationItem.displayName = "HeroUI.PaginationItem";
 
 export default PaginationItem;

@@ -1,16 +1,13 @@
-import type {ScrollShadowVariantProps} from "@nextui-org/theme";
+import type {ScrollShadowVariantProps} from "@heroui/theme";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {scrollShadow} from "@nextui-org/theme";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {
-  useDataScrollOverflow,
-  UseDataScrollOverflowProps,
-} from "@nextui-org/use-data-scroll-overflow";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
+import {scrollShadow} from "@heroui/theme";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
+import {useDataScrollOverflow, UseDataScrollOverflowProps} from "@heroui/use-data-scroll-overflow";
 import {useMemo} from "react";
-import {objectToDeps} from "@nextui-org/shared-utils";
+import {objectToDeps} from "@heroui/shared-utils";
 
-interface Props extends HTMLNextUIProps<"div">, Omit<UseDataScrollOverflowProps, "domRef"> {
+interface Props extends HTMLHeroUIProps<"div">, Omit<UseDataScrollOverflowProps, "domRef"> {
   /**
    * Ref to the DOM node.
    */

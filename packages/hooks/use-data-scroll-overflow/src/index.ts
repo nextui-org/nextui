@@ -1,4 +1,4 @@
-import {capitalize} from "@nextui-org/shared-utils";
+import {capitalize} from "@heroui/shared-utils";
 import {useEffect, useRef} from "react";
 
 export type ScrollOverflowVisibility =

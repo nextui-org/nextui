@@ -4,17 +4,17 @@ import type {ValidationResult} from "@react-types/shared";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {input} from "@nextui-org/theme";
+import {input} from "@heroui/theme";
 import {
   MailFilledIcon,
   EyeFilledIcon,
   EyeSlashFilledIcon,
   SearchIcon,
   CloseFilledIcon,
-} from "@nextui-org/shared-icons";
-import {button} from "@nextui-org/theme";
+} from "@heroui/shared-icons";
+import {button} from "@heroui/theme";
 import {useForm} from "react-hook-form";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {Input, InputProps, useInput} from "../src";
 
@@ -225,7 +225,7 @@ const StartContentTemplate = (args) => (
     <Input
       {...args}
       label="Website"
-      placeholder="nextui.org"
+      placeholder="heroui.com"
       startContent={
         <div className="pointer-events-none flex items-center">
           <span className="text-default-400 text-sm">https://</span>
@@ -264,7 +264,7 @@ const EndContentTemplate = (args) => (
         </div>
       }
       label="Website"
-      placeholder="nextui"
+      placeholder="heroui"
       type="url"
     />
   </div>
@@ -279,7 +279,7 @@ const StartAndEndContentTemplate = (args) => (
           <span className="text-default-400 text-sm">@gmail.com</span>
         </div>
       }
-      placeholder="nextui"
+      placeholder="heroui"
       startContent={
         <MailFilledIcon className="text-xl text-default-400 pointer-events-none flex-shrink-0" />
       }
@@ -319,7 +319,7 @@ const StartAndEndContentTemplate = (args) => (
         </div>
       }
       label="Website"
-      placeholder="nextui"
+      placeholder="heroui"
       startContent={
         <div className="pointer-events-none flex items-center">
           <span className="text-default-400 text-sm">https://</span>
@@ -561,7 +561,7 @@ export const Disabled = {
 
   args: {
     ...defaultProps,
-    defaultValue: "junior@nextui.org",
+    defaultValue: "junior@heroui.com",
     variant: "faded",
     isDisabled: true,
   },
@@ -572,7 +572,7 @@ export const ReadOnly = {
 
   args: {
     ...defaultProps,
-    defaultValue: "junior@nextui.org",
+    defaultValue: "junior@heroui.com",
     variant: "bordered",
     isReadOnly: true,
   },
@@ -624,7 +624,7 @@ export const Clearable = {
     ...defaultProps,
     variant: "bordered",
     placeholder: "Enter your email",
-    defaultValue: "junior@nextui.org",
+    defaultValue: "junior@heroui.com",
     // eslint-disable-next-line no-console
     onClear: () => console.log("input cleared"),
   },

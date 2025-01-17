@@ -1,8 +1,8 @@
 "use client";
 
 import NextLink from "next/link";
-import {Button, Link, Chip, Snippet} from "@nextui-org/react";
-import {ArrowRightIcon} from "@nextui-org/shared-icons";
+import {Button, Link, Chip, Snippet} from "@heroui/react";
+import {ArrowRightIcon} from "@heroui/shared-icons";
 import dynamic from "next/dynamic";
 import {usePostHog} from "posthog-js/react";
 
@@ -10,6 +10,7 @@ import {FloatingComponents} from "./floating-components";
 
 import {GithubIcon} from "@/components/icons";
 import {title, subtitle} from "@/components/primitives";
+import {siteConfig} from "@/config/site";
 
 const BgLooper = dynamic(() => import("./bg-looper").then((mod) => mod.BgLooper), {
   ssr: false,
@@ -33,16 +34,18 @@ export const Hero = () => {
         <div className="flex justify-center w-full md:hidden">
           <Chip
             as={NextLink}
-            className="bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"
+            className="bg-foreground-100/50 border-1 hover:bg-foreground-100/80 border-foreground-200/50 cursor-pointer"
             classNames={{
-              content: "font-semibold text-primary-500 dark:text-primary-600 text-xs ",
+              content: "font-semibold text-foreground text-xs ",
             }}
             color="primary"
-            href="/blog/v2.6.0"
+            href="/blog/introducing-heroui"
             variant="flat"
-            onClick={() => handlePressAnnouncement("New version v2.6.0", "/blog/v2.6.0")}
+            onClick={() =>
+              handlePressAnnouncement("Introducing HeroUI", "/blog/introducing-heroui")
+            }
           >
-            New version v2.6.0&nbsp;
+            Introducing HeroUI&nbsp;
             <span aria-label="emoji" role="img">
               🔥
             </span>
@@ -55,8 +58,9 @@ export const Hero = () => {
           </div>
           <h1 className={title()}>websites regardless of your design experience.</h1>
         </div>
-        <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left"})}>
-          Beautiful, fast and modern React UI library.
+        <h2 className={subtitle({fullWidth: true, class: "text-center md:text-left lg:pr-8"})}>
+          Beautiful, fast and modern React UI library for building accessible and customizable web
+          applications.
         </h2>
         <div className="flex flex-col items-center gap-4 md:flex-row">
           <Button
@@ -93,18 +97,18 @@ export const Hero = () => {
                 name: "Copy",
                 action: "click",
                 category: "landing-page",
-                data: "npx nextui-cli@latest init",
+                data: "npx heroui-cli@latest init",
               });
             }}
           >
-            npx nextui-cli@latest init
+            npx heroui-cli@latest init
           </Snippet>
           <Button
             fullWidth
             isExternal
             as={Link}
             className="w-full md:hidden"
-            href="https://github.com/nextui-org/nextui"
+            href={siteConfig.links.github}
             radius="full"
             size="lg"
             startContent={<GithubIcon />}
@@ -114,7 +118,7 @@ export const Hero = () => {
                 name: "Github",
                 action: "click",
                 category: "landing-page",
-                data: "https://github.com/nextui-org/nextui",
+                data: siteConfig.links.github,
               });
             }}
           >

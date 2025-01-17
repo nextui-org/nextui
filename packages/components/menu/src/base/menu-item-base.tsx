@@ -1,8 +1,8 @@
-import type {MenuItemVariantProps, MenuItemSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {MenuItemVariantProps, MenuItemSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaMenuItemProps} from "@react-aria/menu";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
-import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
+import {BaseItem, ItemProps} from "@heroui/aria-utils";
 import {MouseEventHandler, ReactNode} from "react";
 
 export type MenuItemSelectedIconProps = {
@@ -58,7 +58,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   hideSelectedIcon?: boolean;
   /**
    * The menu item `selected` icon, it's usually an checkmark icon.
-   * If you pass a function, NextUI will expose the current selected icon and the selected status,
+   * If you pass a function, HeroUI will expose the current selected icon and the selected status,
    * In case you want to use a custom indicator or modify the current one.
    *
    * Important: The selected icon will be rendered only if the menu selection mode is different than `none`.

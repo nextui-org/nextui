@@ -1,18 +1,13 @@
 import type {ButtonProps} from "./index";
-import type {ReactRef} from "@nextui-org/react-utils";
-import type {ButtonGroupVariantProps} from "@nextui-org/theme";
+import type {ReactRef} from "@heroui/react-utils";
+import type {ButtonGroupVariantProps} from "@heroui/theme";
 
-import {buttonGroup} from "@nextui-org/theme";
-import {
-  HTMLNextUIProps,
-  PropGetter,
-  mapPropsVariants,
-  useProviderContext,
-} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {buttonGroup} from "@heroui/theme";
+import {HTMLHeroUIProps, PropGetter, mapPropsVariants, useProviderContext} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
 import {useMemo, useCallback} from "react";
-import {objectToDeps} from "@nextui-org/shared-utils";
-interface Props extends HTMLNextUIProps, ButtonGroupVariantProps {
+import {objectToDeps} from "@heroui/shared-utils";
+interface Props extends HTMLHeroUIProps, ButtonGroupVariantProps {
   /**
    * Ref to the DOM node.
    */

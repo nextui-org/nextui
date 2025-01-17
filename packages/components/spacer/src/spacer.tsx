@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@heroui/system-rsc";
 
 import {UseSpacerProps, useSpacer} from "./use-spacer";
 
@@ -10,6 +10,6 @@ const Spacer = forwardRef<"span", SpacerProps>((props, ref) => {
   return <Component ref={ref} {...getSpacerProps()} />;
 });
 
-Spacer.displayName = "NextUI.Spacer";
+Spacer.displayName = "HeroUI.Spacer";
 
 export default Spacer;

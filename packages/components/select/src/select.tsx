@@ -1,12 +1,12 @@
 import type {ForwardedRef, ReactElement} from "react";
 
-import {Listbox} from "@nextui-org/listbox";
-import {FreeSoloPopover} from "@nextui-org/popover";
-import {ChevronDownIcon} from "@nextui-org/shared-icons";
-import {Spinner} from "@nextui-org/spinner";
+import {Listbox} from "@heroui/listbox";
+import {FreeSoloPopover} from "@heroui/popover";
+import {ChevronDownIcon} from "@heroui/shared-icons";
+import {Spinner} from "@heroui/spinner";
 import {useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
-import {ScrollShadow} from "@nextui-org/scroll-shadow";
+import {forwardRef} from "@heroui/system";
+import {ScrollShadow} from "@heroui/scroll-shadow";
 import {cloneElement} from "react";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {AnimatePresence} from "framer-motion";
