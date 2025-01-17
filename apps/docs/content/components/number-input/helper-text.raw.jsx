@@ -1,8 +1,8 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
   return (
-    <NumberField
+    <NumberInput
       className="max-w-xs"
       description="Enter the width of the element"
       helperText="The value of the element should be between 100 and 1000"

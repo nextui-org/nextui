@@ -1,9 +1,9 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
   return (
     <div className="w-[340px] h-[240px] px-8 rounded-2xl flex justify-center items-center bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg">
-      <NumberField
+      <NumberInput
         isClearable
         classNames={{
           label: "text-black/50 dark:text-white/90",

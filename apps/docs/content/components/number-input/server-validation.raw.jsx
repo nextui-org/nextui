@@ -1,4 +1,4 @@
-import {Button, Form, NumberField} from "@nextui-org/react";
+import {Button, Form, NumberInput} from "@heroui/react";
 
 export default function App() {
   const [isLoading, setIsLoading] = React.useState(false);
@@ -22,7 +22,7 @@ export default function App() {
       validationErrors={errors}
       onSubmit={onSubmit}
     >
-      <NumberField
+      <NumberInput
         isRequired
         isDisabled={isLoading}
         label="Width"

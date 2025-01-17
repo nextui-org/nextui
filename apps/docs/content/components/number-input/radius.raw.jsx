@@ -1,4 +1,4 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
   const radius = ["full", "lg", "md", "sm", "none"];
@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div className="w-full flex flex-row flex-wrap gap-4">
       {radius.map((r) => (
-        <NumberField
+        <NumberInput
           key={r}
           className="max-w-[220px]"
           defaultValue={1024}

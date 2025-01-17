@@ -1,8 +1,8 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
   return (
-    <NumberField
+    <NumberInput
       hideStepper
       className="max-w-xs"
       helperText="The value of the element should be greater than 100"

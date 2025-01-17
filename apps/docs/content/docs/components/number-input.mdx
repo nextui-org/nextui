@@ -65,8 +65,8 @@ the end of the label and the input will be required.
 
 ### Clear Button
 
-If you pass the `isClearable` property to NumberField, it will have a clear button at the
-end of NumberField, it will be visible when NumberField has a value.
+If you pass the `isClearable` property to NumberInput, it will have a clear button at the
+end of input, it will be visible when input has a value.
 
 <CodeDemo title="Clear Button" files={numberInputContent.clearButton} />
 
@@ -78,25 +78,25 @@ You can hide the stepper buttons by passing the `hideStepper` property.
 
 ### Start & End Content
 
-You can use the `startContent` and `endContent` properties to add content to the start and end of NumberField.
+You can use the `startContent` and `endContent` properties to add content to the start and end of NumberInput.
 
 <CodeDemo title="Start and End Content" files={numberInputContent.startEndContent} />
 
 ### With Label
 
-You can add a label to NumberField by passing the `label` property.
+You can add a label to NumberInput by passing the `label` property.
 
 <CodeDemo title="With Label" files={numberInputContent.label} />
 
 ### With Description
 
-You can add a description to NumberField by passing the `description` property.
+You can add a description to NumberInput by passing the `description` property.
 
 <CodeDemo title="With Description" files={numberInputContent.description} />
 
 ### With Helper Text
 
-You can add a helper text to NumberField by passing the `helperText` property.
+You can add a helper text to NumberInput by passing the `helperText` property.
 
 <CodeDemo title="With HelperText" files={numberInputContent.helperText} />
 
@@ -114,7 +114,7 @@ You can set the maximum value of the input by passing the `maxValue` property.
 
 ### With Wheel Disabled
 
-You can disable changing the vaule with scroll in NumberField by passing the `isWheelDisabled` property.
+You can disable changing the vaule with scroll in NumberInput by passing the `isWheelDisabled` property.
 
 <CodeDemo title="With Wheel Disabled" files={numberInputContent.isWheelDisabled} />
 
@@ -126,7 +126,7 @@ You can format the value of the input by passing the `formatOptions` property.
 
 ### With Helper Text
 
-You can add a helper text to NumberField by passing the `helperText` property.
+You can add a helper text to NumberInput by passing the `helperText` property.
 
 <CodeDemo title="With HelperText" files={numberInputContent.helperText} />
 
@@ -138,16 +138,16 @@ You can combine the `isInvalid` and `errorMessage` properties to show an invalid
 
 ### Controlled
 
-You can use the `value` and `onValueChange` properties to control NumberField value.
+You can use the `value` and `onValueChange` properties to control NumberInput value.
 
 <CodeDemo title="Controlled" files={numberInputContent.controlled} />
 
-> **Note**: NextUI `NumberField` also supports native events like `onChange`, useful for form libraries
+> **Note**: NextUI `NumberInput` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
 ### With Form
 
-`NumberField` can be used with a `Form` component to leverage form state management. By default, `Form` components use `validationBehavior="aria"`, which will not block form submission if any inputs are invalid. For more on form and validation behaviors, see the [Forms](/docs/guide/forms) guide.
+`NumberInput` can be used with a `Form` component to leverage form state management. By default, `Form` components use `validationBehavior="aria"`, which will not block form submission if any inputs are invalid. For more on form and validation behaviors, see the [Forms](/docs/guide/forms) guide.
 
 #### Custom Validation
 
@@ -180,13 +180,13 @@ This prop should be an object where each key is the field `name` and the value i
 - **clearButton**: The clear button, it is at the end of the input.
 - **stepperButton**: The stepper button to increase or decrease the value.
 - **verticalStepperWrapper**: The wrapper for the vertical stepper.
-- **description**: The description of NumberField.
-- **helperText**: The helper text of NumberField.
-- **errorMessage**: The error message of NumberField.
+- **description**: The description of NumberInput.
+- **helperText**: The helper text of NumberInput.
+- **errorMessage**: The error message of NumberInput.
 
 ### Custom Styles
 
-You can customize the `NumberField` component by passing custom Tailwind CSS classes to the component slots.
+You can customize the `NumberInput` component by passing custom Tailwind CSS classes to the component slots.
 
 <CodeDemo title="Custom Styles" files={numberInputContent.customStyles} />
 
@@ -194,7 +194,7 @@ You can customize the `NumberField` component by passing custom Tailwind CSS cla
 
 ## Data Attributes
 
-`NumberField` has the following attributes on the `base` element:
+`NumberInput` has the following attributes on the `base` element:
 
 - **data-invalid**:
   When the input is invalid. Based on `isInvalid` prop.
@@ -240,7 +240,7 @@ You can customize the `NumberField` component by passing custom Tailwind CSS cla
 
 ## API
 
-### NumberField Props
+### NumberInput Props
 
 <APITable
   data={[
@@ -463,7 +463,7 @@ You can customize the `NumberField` component by passing custom Tailwind CSS cla
   ]}
 />
 
-### NumberField Events
+### NumberInput Events
 
 <APITable
   data={[

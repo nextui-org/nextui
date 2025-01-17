@@ -1,8 +1,8 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
   return (
-    <NumberField
+    <NumberInput
       isReadOnly
       className="max-w-xs"
       defaultValue={1024}

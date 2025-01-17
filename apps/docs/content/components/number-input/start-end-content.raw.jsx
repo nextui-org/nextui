@@ -1,4 +1,4 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export const MailIcon = (props) => {
   return (
@@ -24,7 +24,7 @@ export default function App() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <NumberField
+        <NumberInput
           label="Price"
           placeholder="0.00"
           startContent={
@@ -33,7 +33,7 @@ export default function App() {
             </div>
           }
         />
-        <NumberField
+        <NumberInput
           endContent={
             <div className="flex items-center">
               <label className="sr-only" htmlFor="currency">

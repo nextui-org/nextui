@@ -1,10 +1,10 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <NumberField
+        <NumberInput
           className="max-w-xs"
           defaultValue={6}
           formatOptions={{
@@ -13,7 +13,7 @@ export default function App() {
           }}
           label="With Currency"
         />
-        <NumberField
+        <NumberInput
           className="max-w-xs"
           defaultValue={6}
           formatOptions={{
@@ -23,7 +23,7 @@ export default function App() {
           }}
           label="With Sign"
         />
-        <NumberField
+        <NumberInput
           className="max-w-xs"
           defaultValue={6}
           formatOptions={{
@@ -33,7 +33,7 @@ export default function App() {
         />
       </div>
       <div className="flex w-full flex-wrap md:flex-nowrap mb-6 md:mb-0 gap-4">
-        <NumberField
+        <NumberInput
           className="max-w-xs"
           defaultValue={6}
           formatOptions={{
@@ -44,7 +44,7 @@ export default function App() {
           }}
           label="With Currency Vaule"
         />
-        <NumberField
+        <NumberInput
           className="max-w-xs"
           defaultValue={6}
           formatOptions={{

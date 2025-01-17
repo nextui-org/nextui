@@ -1,5 +1,5 @@
-import {NumberField} from "@nextui-org/react";
+import {NumberInput} from "@heroui/react";
 
 export default function App() {
-  return <NumberField className="max-w-xs" placeholder="Enter the width" />;
+  return <NumberInput className="max-w-xs" placeholder="Enter the width" />;
 }
