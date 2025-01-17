@@ -120,8 +120,12 @@ describe("Input", () => {
 
     const {container} = render(<Input label="test input" onFocus={onFocus} />);
 
-    container.querySelector("input")?.focus();
-    container.querySelector("input")?.blur();
+    act(() => {
+      container.querySelector("input")?.focus();
+    });
+    act(() => {
+      container.querySelector("input")?.blur();
+    });
 
     expect(onFocus).toHaveBeenCalledTimes(1);
   });
@@ -203,7 +207,7 @@ describe("Input", () => {
   it("ref should update the value", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    const {container} = render(<Input ref={ref} type="text" />);
+    render(<Input ref={ref} type="text" />);
 
     if (!ref.current) {
       throw new Error("ref is null");
@@ -211,8 +215,6 @@ describe("Input", () => {
     const value = "value";
 
     ref.current!.value = value;
-
-    container.querySelector("input")?.focus();
 
     expect(ref.current?.value)?.toBe(value);
   });
