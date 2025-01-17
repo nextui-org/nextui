@@ -10,7 +10,7 @@ import {MotionConfig, MotionGlobalConfig} from "framer-motion";
 
 import {ProviderContext} from "./provider-context";
 
-export interface NextUIProviderProps
+export interface HeroUIProviderProps
   extends Omit<ModalProviderProps, "children">,
     ProviderContextProps {
   children: React.ReactNode;
@@ -19,7 +19,7 @@ export interface NextUIProviderProps
    * This property is automatically enabled (`true`) when the `disableAnimation` prop is set to `true`,
    * effectively skipping all `framer-motion` animations. To retain `framer-motion` animations while
    * using the `disableAnimation` prop for other purposes, set this to `false`. However, note that
-   * animations in NextUI Components are still omitted if the `disableAnimation` prop is `true`.
+   * animations in HeroUI Components are still omitted if the `disableAnimation` prop is `true`.
    */
   skipFramerMotionAnimations?: boolean;
   /**
@@ -48,7 +48,7 @@ export interface NextUIProviderProps
   useHref?: (href: Href) => string;
 }
 
-export const NextUIProvider: React.FC<NextUIProviderProps> = ({
+export const HeroUIProvider: React.FC<HeroUIProviderProps> = ({
   children,
   navigate,
   disableAnimation,

@@ -3,17 +3,12 @@ import type {
   InputOtpSlots,
   InputOtpVariantProps,
   SlotsToClasses,
-} from "@nextui-org/theme";
+} from "@heroui/theme";
 
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {inputOtp} from "@nextui-org/theme";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps, isPatternNumeric} from "@nextui-org/shared-utils";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {inputOtp} from "@heroui/theme";
+import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
+import {clsx, dataAttr, objectToDeps, isPatternNumeric} from "@heroui/shared-utils";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps, useFormReset} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
@@ -22,9 +17,9 @@ import {useFormValidationState} from "@react-stately/form";
 import {useFormValidation} from "@react-aria/form";
 import {useFocusRing} from "@react-aria/focus";
 import {OTPInputProps} from "input-otp";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */

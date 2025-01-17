@@ -2,7 +2,7 @@ import type {MappedDateValue} from "@react-types/datepicker";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput, button} from "@nextui-org/theme";
+import {dateInput, button} from "@heroui/theme";
 import {
   DateValue,
   getLocalTimeZone,
@@ -16,12 +16,12 @@ import {
   today,
 } from "@internationalized/date";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup, RadioProps} from "@nextui-org/radio";
-import {cn} from "@nextui-org/theme";
-import {MoonIcon, SunIcon} from "@nextui-org/shared-icons";
+import {Button, ButtonGroup} from "@heroui/button";
+import {Radio, RadioGroup, RadioProps} from "@heroui/radio";
+import {cn} from "@heroui/theme";
+import {MoonIcon, SunIcon} from "@heroui/shared-icons";
 import {ValidationResult} from "@react-types/shared";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {DatePicker, DatePickerProps} from "../src";
 

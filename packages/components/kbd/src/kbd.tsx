@@ -1,5 +1,5 @@
 import {useMemo} from "react";
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@heroui/system-rsc";
 
 import {UseKbdProps, useKbd} from "./use-kbd";
 import {kbdKeysLabelMap, kbdKeysMap} from "./utils";
@@ -31,6 +31,6 @@ const Kbd = forwardRef<"kbd", KbdProps>((props, ref) => {
   );
 });
 
-Kbd.displayName = "NextUI.Kbd";
+Kbd.displayName = "HeroUI.Kbd";
 
 export default Kbd;

@@ -20,18 +20,18 @@ A responsive navigation header positioned on top side of your page that includes
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add navbar",
-    npm: "npm install @nextui-org/navbar",
-    yarn: "yarn add @nextui-org/navbar",
-    pnpm: "pnpm add @nextui-org/navbar",
-    bun: "bun add @nextui-org/navbar"
+    cli: "npx heroui-cli@latest add navbar",
+    npm: "npm install @heroui/navbar",
+    yarn: "yarn add @heroui/navbar",
+    pnpm: "pnpm add @heroui/navbar",
+    bun: "bun add @heroui/navbar"
   }}
 />
 
 
 ## Import
 
-NextUI exports 7 navbar-related components:
+HeroUI exports 7 navbar-related components:
 
 - **Navbar**: The main component of navbar.
 - **NavbarBrand**: The component for branding.
@@ -51,7 +51,7 @@ NextUI exports 7 navbar-related components:
     NavbarMenuToggle,
     NavbarMenu,
     NavbarMenuItem
-} from "@nextui-org/react";`,
+} from "@heroui/react";`,
     individual: `import {
     Navbar, 
     NavbarBrand, 
@@ -60,7 +60,7 @@ NextUI exports 7 navbar-related components:
     NavbarMenuToggle,
     NavbarMenu,
     NavbarMenuItem
-} from "@nextui-org/navbar";`,
+} from "@heroui/navbar";`,
   }}
 />
 
@@ -412,7 +412,7 @@ When the `NavbarItem` is active, it will have a `data-active` attribute. You can
   data={[
     {
       attribute: "icon",
-      type: "ReactNode | ((isOpen: boolean | undefined) => ReactNode | null)",
+      type: "ReactNode | ((isOpen: boolean | undefined) => ReactNode)",
       description: "The icon to render as the navbar menu toggle.",
       default: "-"
     },

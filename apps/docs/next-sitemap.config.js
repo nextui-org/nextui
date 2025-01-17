@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://nextui.org",
+  siteUrl: "https://heroui.com",
   generateRobotsTxt: true,
   exclude: ["/examples/*"],
 };

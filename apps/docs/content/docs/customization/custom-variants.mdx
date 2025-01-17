@@ -1,26 +1,19 @@
 ---
 title: Custom Variants
-description: Learn how to create new variants for the NextUI components.
+description: Learn how to create new variants for the HeroUI components.
 ---
 
 # Custom Variants
 
-NextUI allows you to create new variants for components that better suit your project's needs.
-This can be done by extending the component and its properties, and customizing the styles.
+HeroUI allows you to create new variants for components by extending and customizing their styles. You can override the component's `variants`, `defaultVariants` and `compoundVariants`.
 
 <CarbonAd/>
-
-You can create or override the component `variants`, `defaultVariants` and `compoundVariants`.
 
 > **Note**: For one-off customizations, refer to the [Override Styles](/docs/customization/override-styles) documentation.
 
 ## Creating new variants for non-slots components
 
-The [Button](/docs/components/button) component is a non-slots component, meaning that it does not
-have any slots that can be customized.
-
-For this example, we will be using the `Button` component's styles source code as a
-reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/core/theme/src/components/button.ts) to view the styles source code.
+Let's use the [Button](/docs/components/button) component as an example. It's a non-slots component, and you can view its source styles [here](https://github.com/heroui/heroui/blob/feat/v2/packages/core/theme/src/components/button.ts).
 
 > **Note**: If you are not familiar with the variants concept, please refer to the [Tailwind Variants](https://www.tailwind-variants.org/docs/variants) documentation.
 
@@ -28,12 +21,11 @@ reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/
 
 ### Extend the original component variants
 
-To create or override variants you need to use the `extendVariants` function. This function
-allows you to create a new component based on the original component, and customize its variants.
+Use the `extendVariants` function to create a new component with customized variants based on an existing component.
 
 ```tsx
 // MyButton.tsx
-import {extendVariants, Button} from "@nextui-org/react";
+import {extendVariants, Button} from "@heroui/react";
 
 export const MyButton = extendVariants(Button, {
   variants: {
@@ -99,14 +91,7 @@ import customVariantsNoSlots from "@/content/customization/custom-variants/no-sl
 
 ## Creating new variants for slots components
 
-It is also possible to use the `extendVariants` function to add or override variants for
-components that have slots.
-
-The [Input](/docs/components/input) component is a slots component, meaning that it has slots that can be
-customized.
-
-For this example, we will be using the `Input` component's styles source code as a
-reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/core/theme/src/components/input.ts) to view the styles source code.
+The `extendVariants` function can also be used with slot-based components like [Input](/docs/components/input) to add or override variants. You can view the Input component's source styles [here](https://github.com/heroui/heroui/blob/feat/v2/packages/core/theme/src/components/input.ts).
 
 > **Note**: If you are not familiar with the variants/slots concept, please refer to the [Tailwind Variants](https://www.tailwind-variants.org/docs/slots#slots-with-variants) documentation.
 
@@ -114,12 +99,11 @@ reference. Go [here](https://github.com/nextui-org/nextui/blob/feat/v2/packages/
 
 ### Extend the original component variants
 
-To create or override variants you need to use the `extendVariants` function. This function
-allows you to create a new component based on the original component, and customize its variants.
+Use the `extendVariants` function to create a new component with custom variants based on the original component.
 
 ```tsx
 // MyInput.tsx
-import {extendVariants, Input} from "@nextui-org/react";
+import {extendVariants, Input} from "@heroui/react";
 
 const MyInput = extendVariants(Input, {
   variants: { // <- modify/add variants
@@ -228,9 +212,7 @@ import customVariantsSlots from "@/content/customization/custom-variants/slots-c
 </Steps>
 
 <Blockquote>
-  All NextUI components have the `Styles source` link on top of the page. This link will take you to
-  the styles source code of the component. You can use this as a reference when creating your own
-  custom component.
+  Use the `Styles source` link at the top of each component page to view its source code as a reference for customization.
 </Blockquote>
 
 ### Types
@@ -241,7 +223,7 @@ import customVariantsSlots from "@/content/customization/custom-variants/slots-c
 const Component = extendVariants(BaseComponent, options, config);
 
 /**
- * BaseComponent -> NextUI component to extend
+ * BaseComponent -> HeroUI component to extend
  * options -> the variants to add/modify
  * config -> config to extend the component
  */

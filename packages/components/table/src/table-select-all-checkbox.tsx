@@ -1,17 +1,17 @@
 import type {GridNode} from "@react-types/grid";
 
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {useTableColumnHeader, useTableSelectAllCheckbox} from "@react-aria/table";
 import {mergeProps} from "@react-aria/utils";
 import {useFocusRing} from "@react-aria/focus";
-import {Checkbox} from "@nextui-org/checkbox";
+import {Checkbox} from "@heroui/checkbox";
 import {VisuallyHidden} from "@react-aria/visually-hidden";
 
 import {ValuesType} from "./use-table";
 
-export interface TableSelectAllCheckboxProps<T = object> extends HTMLNextUIProps<"th"> {
+export interface TableSelectAllCheckboxProps<T = object> extends HTMLHeroUIProps<"th"> {
   /**
    * The table column.
    */
@@ -86,6 +86,6 @@ const TableSelectAllCheckbox = forwardRef<"th", TableSelectAllCheckboxProps>((pr
   );
 });
 
-TableSelectAllCheckbox.displayName = "NextUI.TableSelectAllCheckbox";
+TableSelectAllCheckbox.displayName = "HeroUI.TableSelectAllCheckbox";
 
 export default TableSelectAllCheckbox;

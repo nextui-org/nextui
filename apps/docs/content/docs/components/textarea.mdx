@@ -20,11 +20,11 @@ Textarea component is a multi-line Input which allows you to write large texts.
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add input",
-    npm: "npm install @nextui-org/input",
-    yarn: "yarn add @nextui-org/input",
-    pnpm: "pnpm add @nextui-org/input",
-    bun: "bun add @nextui-org/input",
+    cli: "npx heroui-cli@latest add input",
+    npm: "npm install @heroui/input",
+    yarn: "yarn add @heroui/input",
+    pnpm: "pnpm add @heroui/input",
+    bun: "bun add @heroui/input",
   }}
 />
 
@@ -32,8 +32,8 @@ Textarea component is a multi-line Input which allows you to write large texts.
 
 <ImportTabs
   commands={{
-    main: 'import {Textarea} from "@nextui-org/react";',
-    individual: 'import {Textarea} from "@nextui-org/input";',
+    main: 'import {Textarea} from "@heroui/react";',
+    individual: 'import {Textarea} from "@heroui/input";',
   }}
 />
 
@@ -96,7 +96,7 @@ You can use the `value` and `onValueChange` properties to control the input valu
 
 <CodeDemo title="Controlled" files={textareaContent.controlled} />
 
-> **Note**: NextUI `Textarea` also supports native events like `onChange`, useful for form libraries
+> **Note**: HeroUI `Textarea` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
 

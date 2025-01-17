@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import {Autocomplete, AutocompleteItem, MenuTriggerAction} from "@nextui-org/react";
+import {Autocomplete, AutocompleteItem, MenuTriggerAction} from "@heroui/react";
 import {useFilter} from "@react-aria/i18n";
 
 const animals = [

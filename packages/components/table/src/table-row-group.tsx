@@ -1,12 +1,12 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
+import {clsx} from "@heroui/shared-utils";
 import {useTableRowGroup} from "@react-aria/table";
 import {mergeProps} from "@react-aria/utils";
 
 import {ValuesType} from "./use-table";
 
-export interface TableRowGroupProps extends HTMLNextUIProps<"thead"> {
+export interface TableRowGroupProps extends HTMLHeroUIProps<"thead"> {
   slots: ValuesType["slots"];
   classNames?: ValuesType["classNames"];
 }
@@ -32,6 +32,6 @@ const TableRowGroup = forwardRef<"thead", TableRowGroupProps>((props, ref) => {
   );
 });
 
-TableRowGroup.displayName = "NextUI.TableRowGroup";
+TableRowGroup.displayName = "HeroUI.TableRowGroup";
 
 export default TableRowGroup;

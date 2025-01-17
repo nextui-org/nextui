@@ -1,21 +1,16 @@
-import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {SnippetVariantProps, SnippetSlots, SlotsToClasses} from "@heroui/theme";
 
-import {snippet} from "@nextui-org/theme";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ReactRef} from "@nextui-org/react-utils";
-import {useClipboard} from "@nextui-org/use-clipboard";
+import {snippet} from "@heroui/theme";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ReactRef} from "@heroui/react-utils";
+import {useClipboard} from "@heroui/use-clipboard";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback, ReactElement, useRef} from "react";
-import {TooltipProps} from "@nextui-org/tooltip";
-import {ButtonProps} from "@nextui-org/button";
-export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, SnippetVariantProps {
+import {TooltipProps} from "@heroui/tooltip";
+import {ButtonProps} from "@heroui/button";
+export interface UseSnippetProps extends Omit<HTMLHeroUIProps, "onCopy">, SnippetVariantProps {
   /**
    * Ref to the DOM node.
    */
@@ -24,7 +19,7 @@ export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, Snippe
    * The content of the snippet.
    * if `string[]` is passed, it will be rendered as a multi-line snippet.
    */
-  children?: React.ReactNode | string | string[];
+  children?: React.ReactNode | string[];
   /**
    * The symbol to show before the snippet.
    * @default "$"
@@ -92,7 +87,7 @@ export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, Snippe
   hideSymbol?: boolean;
   /**
    * Tooltip props.
-   * @see [Tooltip](https://nextui.org/components/tooltip) for more details.
+   * @see [Tooltip](https://heroui.com/components/tooltip) for more details.
    * @default {
    *  offset: 15,
    *  delay: 1000,
@@ -104,7 +99,7 @@ export interface UseSnippetProps extends Omit<HTMLNextUIProps, "onCopy">, Snippe
   tooltipProps?: Partial<TooltipProps>;
   /**
    * Copy button props.
-   * @see [Button](https://nextui.org/components/button) for more details.
+   * @see [Button](https://heroui.com/components/button) for more details.
    * @default {
    *   isDisabled: disableCopy,
    *   onPress: onCopy

@@ -1,5 +1,5 @@
 import React from "react";
-import {Code} from "@nextui-org/react";
+import {Code} from "@heroui/react";
 
 import {
   MoonIcon,
@@ -31,13 +31,13 @@ export default {
     {
       title: "Light & Dark UI",
       description:
-        "Automatic dark mode recognition, NextUI automatically changes the theme when detects HTML theme prop changes.",
+        "Automatic dark mode recognition, HeroUI automatically changes the theme when detects HTML theme prop changes.",
       icon: <MoonIcon className="text-pink-500" />,
     },
     {
       title: "Unique DX",
       description:
-        "NextUI is fully-typed to minimize the learning curve, and provide the best possible developer experience.",
+        "HeroUI is fully-typed to minimize the learning curve, and provide the best possible developer experience.",
       icon: <DevicesIcon className="text-pink-500" />,
     },
   ],
@@ -46,7 +46,7 @@ export default {
       title: "React server components",
       description: (
         <>
-          All NextUI components already include the <Code>&quot;use client&quot;</Code> directive,
+          All HeroUI components already include the <Code>&quot;use client&quot;</Code> directive,
           which means you can import and use them directly in your RSC.
         </>
       ),
@@ -55,7 +55,7 @@ export default {
     {
       title: "Accessible components",
       description:
-        "NextUI components follow the WAI-ARIA guidelines, provide keyboard support and sensible focus management.",
+        "HeroUI components follow the WAI-ARIA guidelines, provide keyboard support and sensible focus management.",
       icon: <TagUserLinearIcon className="text-pink-500" />,
     },
     {
@@ -67,39 +67,39 @@ export default {
     {
       title: "Multiple packages",
       description:
-        "NextUI is divided into multiple packages, so you can install only the components you need.",
+        "HeroUI is divided into multiple packages, so you can install only the components you need.",
       icon: <CubesLinearIcon className="text-pink-500" />,
     },
     {
       title: "TypeScript based",
       description:
-        "Build type safe applications, NextUI has a fully-typed API to minimize the learning curve, and help you build applications.",
+        "Build type safe applications, HeroUI has a fully-typed API to minimize the learning curve, and help you build applications.",
       icon: <CodeDocumentLinearIcon className="text-pink-500" />,
     },
     {
       title: "Override components tags",
-      description: "A polymorphic `as` prop is included in all NextUI components.",
+      description: "A polymorphic `as` prop is included in all HeroUI components.",
       icon: <HtmlLogoLinearIcon className="text-pink-500" />,
     },
     {
       title: "No runtime styles",
       description:
-        "NextUI is based on Tailwind CSS, it means that there are no runtime styles, and no unnecessary classes in your bundle.",
+        "HeroUI is based on Tailwind CSS, it means that there are no runtime styles, and no unnecessary classes in your bundle.",
       icon: <FlashIcon className="text-pink-500" />,
     },
     {
       title: "Beautifully designed",
       description:
-        "NextUI components are unique and are not tied to any visual trend or design rule, which makes us unique and of course your projects as well.",
+        "HeroUI components are unique and are not tied to any visual trend or design rule, which makes us unique and of course your projects as well.",
       icon: <MagicIcon className="text-pink-500" />,
     },
   ],
-  themingCode: `const { nextui } = require("@nextui-org/react");
+  themingCode: `const { heroui } = require("@heroui/react");
 
 module.exports = {
   // ...
   plugins: [
-    nextui({
+    heroui({
       themes: {
         light: {
           colors: {
@@ -119,7 +119,7 @@ module.exports = {
 module.exports = {
   // ...
   plugins: [
-    nextui({
+    heroui({
       themes: {
         light: {
           colors: {
@@ -139,7 +139,7 @@ module.exports = {
 module.exports = {
   // ...
   plugins: [
-    nextui({
+    heroui({
       themes: {
         light: {
           colors: {
@@ -159,7 +159,7 @@ module.exports = {
 module.exports = {
   // ...
   plugins: [
-    nextui({
+    heroui({
       themes: {
         light: {
           colors: {
@@ -182,22 +182,22 @@ module.exports = {
 `,
 
   darkModeCode: `import React from "react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 const Application = ({Component, pageProps}) => {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <main className={isDark ? "dark" : "light"}>
         <Component {...pageProps} />
       </main>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 };
 
 export default Application;  
 `,
   customizationCode: `import React from 'react';
-import {Button} from '@nextui-org/react';
+import {Button} from '@heroui/react';
 import confetti from 'canvas-confetti';
 
 const CustomButton = () => {
@@ -227,14 +227,14 @@ export default CustomButton;
   DropdownTrigger,
   DropdownMenu,
   DropdownItem,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 import {
   AddNoteBulkIcon,
   CopyDocumentBulkIcon,
   EditDocumentBulkIcon,
   DeleteDocumentBulkIcon,
-} from "@nextui-org/shared-icons";
+} from "@heroui/shared-icons";
 
 const iconClasses = "text-2xl text-default-500 pointer-events-none flex-shrink-0";
 
@@ -299,9 +299,9 @@ export const Example = () => {
   );
 };
 `,
-  darkModeExampleCode: `import {Card, CardBody, Button, Image, Progress, CardProps} from "@nextui-org/react";
+  darkModeExampleCode: `import {Card, CardBody, Button, Image, Progress, CardProps} from "@heroui/react";
 import {useState, FC} from "react";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {
   PauseCircleBoldIcon,
@@ -335,7 +335,7 @@ export const MusicPlayer: FC<MusicPlayerProps> = ({className, ...otherProps}) =>
               }}
               height={200}
               shadow="lg"
-              src="https://nextui.org/images/album-cover.png"
+              src="https://heroui.com/images/album-cover.png"
               width="100%"
             />
           </div>

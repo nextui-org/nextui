@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://nextui.org
+Host: https://heroui.com
 
 # Sitemaps
-Sitemap: https://nextui.org/sitemap.xml
+Sitemap: https://heroui.com/sitemap.xml

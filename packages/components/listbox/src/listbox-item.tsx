@@ -29,7 +29,7 @@ const ListboxItem = (props: ListboxItemProps) => {
     getSelectedIconProps,
   } = useListboxItem(props);
 
-  const selectedContent = useMemo<ReactNode | null>(() => {
+  const selectedContent = useMemo<ReactNode>(() => {
     const defaultIcon = (
       <ListboxSelectedIcon disableAnimation={disableAnimation} isSelected={isSelected} />
     );
@@ -62,6 +62,6 @@ const ListboxItem = (props: ListboxItemProps) => {
   );
 };
 
-ListboxItem.displayName = "NextUI.ListboxItem";
+ListboxItem.displayName = "HeroUI.ListboxItem";
 
 export default ListboxItem;

@@ -20,18 +20,18 @@ Card is a container for text, photos, and actions in the context of a single sub
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add card",
-    npm: "npm install @nextui-org/card",
-    yarn: "yarn add @nextui-org/card",
-    pnpm: "pnpm add @nextui-org/card",
-    bun: "bun add @nextui-org/card"
+    cli: "npx heroui-cli@latest add card",
+    npm: "npm install @heroui/card",
+    yarn: "yarn add @heroui/card",
+    pnpm: "pnpm add @heroui/card",
+    bun: "bun add @heroui/card"
   }}
 />
 
 
 ## Import
 
-NextUI exports 4 card-related components:
+HeroUI exports 4 card-related components:
 
 - **Card**: The main component to display a card.
 - **CardHeader**: Commonly used for the title of a card.
@@ -40,8 +40,8 @@ NextUI exports 4 card-related components:
 
 <ImportTabs
   commands={{
-    main: 'import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/react";',
-    individual: 'import {Card, CardHeader, CardBody, CardFooter} from "@nextui-org/card";',
+    main: 'import {Card, CardHeader, CardBody, CardFooter} from "@heroui/react";',
+    individual: 'import {Card, CardHeader, CardBody, CardFooter} from "@heroui/card";',
   }}
 />
 
@@ -67,7 +67,7 @@ You can pass the `isFooterBlurred` prop to the card to blur the footer.
 
 ### Composition
 
-You can use other NextUI components inside the card to compose a more complex card.
+You can use other HeroUI components inside the card to compose a more complex card.
 
 <CodeDemo isPreviewCentered title="Composition" files={cardContent.composition} />
 

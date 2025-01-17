@@ -1,42 +1,30 @@
 ---
 title: Customize theme
-description: Learn how NextUI enables effortless customization of default themes.
+description: Learn how HeroUI enables effortless customization of default themes.
 ---
 
 # Customize theme
 
-As outlined in preceding sections, NextUI presents two predefined themes, `light` and `dark`. 
-These themes are inherently flexible, allowing you to tailor them to your specific preferences
-or project needs.
-
-Furthermore, you have the option to create your own theme based on the default ones. Each theme 
-incorporates [Layout](/docs/customization/layout) tokens and [Color](/docs/customization/colors) tokens, designed 
-to facilitate your customization process.
+HeroUI provides `light` and `dark` themes that can be customized to match your needs. You can also create custom themes based on these defaults, using [Layout](/docs/customization/layout) and [Color](/docs/customization/colors) tokens.
 
 <CarbonAd/>
 
 ## Customizing Layout
 
-You can modify a variety of layout aspects, including spacing units, font sizes, line heights,
-radius, and more.
-
-Layout tokens can be applied globally across all themes or specifically 
-to a chosen theme.
+Layout tokens let you customize spacing, typography, borders and more - either globally or per theme.
 
 ### Global Layout Customization
 
-Suppose you require a smaller border radius, a thinner border width, and more opaque disabled
-elements across all themes. You can implement these changes by adding the following code to 
-your `tailwind.config.js` file.
+You can customize border radius, border width, and disabled opacity across all themes by modifying your `tailwind.config.js` file:
 
 ```js {9-19}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/react");
+const {heroui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   plugins: [
-    nextui({
+    heroui({
       layout: {
         disabledOpacity: "0.3", // opacity-[0.3]
         radius: {
@@ -59,16 +47,11 @@ module.exports = {
 };
 ```
 
-As NextUI components employ layout tokens, the modifications will be reflected across all 
-components that utilize them. For instance, the [Button](/docs/components/button) component 
-uses the `radius` token to set the border radius and the `borderWidth` token to define the 
-border width when the variant is `bordered`.
-
-So let's see how the [Button](/docs/components/button) component looks like after the changes.
+Layout tokens are used across all HeroUI components. For example, the [Button](/docs/components/button) component uses `radius` and `borderWidth` tokens for its styling. Here's how it looks with the customized values:
 
 
 ```jsx
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export default function App() {
   return (
@@ -99,12 +82,12 @@ be achieved by adding the following code to your `tailwind.config.js` file.
 
 ```js {10-16}
 // tailwind.config.js
-const {nextui} = require("@nextui-org/react");
+const {heroui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   plugins: [
-    nextui({
+    heroui({
       themes: {
         dark: {
           colors: {
@@ -126,7 +109,7 @@ the [Button](/docs/components/button) component uses the `primary` color as back
 variant is `solid` or `ghost`.
 
 ```jsx
-import {Button} from "@nextui-org/react";
+import {Button} from "@heroui/react";
 
 export default function App() {
   return (

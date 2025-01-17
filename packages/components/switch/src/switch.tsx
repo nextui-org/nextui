@@ -1,5 +1,5 @@
 import {cloneElement, ReactElement} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseSwitchProps, useSwitch} from "./use-switch";
 
@@ -45,6 +45,6 @@ const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
   );
 });
 
-Switch.displayName = "NextUI.Switch";
+Switch.displayName = "HeroUI.Switch";
 
 export default Switch;

@@ -1,6 +1,6 @@
-import {Chip} from "@nextui-org/react";
+import {Chip} from "@heroui/react";
 
-export const NextUIProChip = () => (
+export const HeroUIProChip = () => (
   <Chip
     classNames={{
       base: "ml-0.5 transition-colors bg-gradient-to-br from-cyan-600 to-blue-600",

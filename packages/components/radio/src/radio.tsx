@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseRadioProps, useRadio} from "./use-radio";
 
@@ -32,6 +32,6 @@ const Radio = forwardRef<"input", RadioProps>((props, ref) => {
   );
 });
 
-Radio.displayName = "NextUI.Radio";
+Radio.displayName = "HeroUI.Radio";
 
 export default Radio;

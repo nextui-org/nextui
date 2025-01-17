@@ -1,16 +1,16 @@
 import type {InputHTMLAttributes} from "react";
 import type {GroupDOMAttributes} from "@react-types/shared";
-import type {DateInputReturnType, DateInputSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {DateInputReturnType, DateInputSlots, SlotsToClasses} from "@heroui/theme";
 import type {DateFieldState} from "@react-stately/datepicker";
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {HTMLHeroUIProps} from "@heroui/system";
 
 import {forwardRef} from "react";
 
 import {DateInputSegment} from "./date-input-segment";
 
-type NextUIBaseProps = Omit<HTMLNextUIProps<"div">, keyof GroupDOMAttributes | "onChange">;
+type HeroUIBaseProps = Omit<HTMLHeroUIProps<"div">, keyof GroupDOMAttributes | "onChange">;
 
-export interface DateInputFieldProps extends NextUIBaseProps, GroupDOMAttributes {
+export interface DateInputFieldProps extends HeroUIBaseProps, GroupDOMAttributes {
   /** State for the date field. */
   state: DateFieldState;
   /** Props for the hidden input element for HTML form submission. */
@@ -42,4 +42,4 @@ export const DateInputField = forwardRef<"div", DateInputFieldProps>((props, ref
   );
 });
 
-DateInputField.displayName = "NextUI.DateInputField";
+DateInputField.displayName = "HeroUI.DateInputField";

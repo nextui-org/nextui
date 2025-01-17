@@ -3,7 +3,7 @@
 import {useRef, useState, FC, ReactNode, Key, useMemo, useCallback} from "react";
 import {
   link,
-  Navbar as NextUINavbar,
+  Navbar as HeroUINavbar,
   NavbarContent,
   NavbarMenu,
   NavbarMenuToggle,
@@ -18,11 +18,11 @@ import {
   DropdownTrigger,
   Chip,
   Divider,
-} from "@nextui-org/react";
-import {dataFocusVisibleClasses} from "@nextui-org/theme";
-import {ChevronDownIcon, LinkIcon} from "@nextui-org/shared-icons";
+} from "@heroui/react";
+import {dataFocusVisibleClasses} from "@heroui/theme";
+import {ChevronDownIcon, LinkIcon} from "@heroui/shared-icons";
 import {isAppleDevice} from "@react-aria/utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 import NextLink from "next/link";
 import {usePathname} from "next/navigation";
 import {motion, AnimatePresence} from "framer-motion";
@@ -101,7 +101,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
 
   const handleVersionChange = useCallback((key: Key) => {
     if (key === "v1") {
-      const newWindow = window.open("https://v1.nextui.org", "_blank", "noopener,noreferrer");
+      const newWindow = window.open("https://v1.heroui.com", "_blank", "noopener,noreferrer");
 
       if (newWindow) newWindow.opener = null;
     }
@@ -166,7 +166,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           )}
         </AnimatePresence>
         <DropdownMenu
-          aria-label="NextUI versions"
+          aria-label="HeroUI versions"
           defaultSelectedKeys={["v2"]}
           selectionMode="single"
           onAction={handleVersionChange}
@@ -187,7 +187,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
   }
 
   return (
-    <NextUINavbar
+    <HeroUINavbar
       ref={ref}
       className={clsx({
         "z-[100001]": isMenuOpen,
@@ -215,16 +215,16 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
           {versionDropdown}
           <Chip
             as={NextLink}
-            className="hidden sm:flex bg-primary-100/50 border-1 hover:bg-primary-100/80 border-primary-200/50 cursor-pointer"
+            className="hidden sm:flex bg-foreground-100/50 border-1 hover:bg-foreground-100/80 border-foreground-200/50 cursor-pointer"
             classNames={{
-              content: "font-semibold text-primary-500 dark:text-primary-600 text-xs ",
+              content: "font-semibold text-foreground text-xs ",
             }}
             color="primary"
-            href="/blog/v2.6.0"
+            href="/blog/introducing-heroui"
             variant="flat"
-            onClick={() => handlePressNavbarItem("New version v2.6.0", "/blog/v2.6.0")}
+            onClick={() => handlePressNavbarItem("Introducing HeroUI", "/blog/introducing-heroui")}
           >
-            New version v2.6.0&nbsp;
+            Introducing HeroUI&nbsp;
             <span aria-label="emoji" role="img">
               🔥
             </span>
@@ -297,6 +297,30 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Components
             </NextLink>
           </NavbarItem>
+          {/* 
+          // TODO: add playground
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={pathname.includes("playground")}
+              href="/playground"
+              onClick={() => handlePressNavbarItem("playground", "/playground")}
+            >
+              Playground
+            </NextLink>
+          </NavbarItem> */}
+          <NavbarItem>
+            <NextLink
+              className={navLinkClasses}
+              color="foreground"
+              data-active={pathname.includes("/docs/guide/figma")}
+              href="/docs/guide/figma"
+              onClick={() => handlePressNavbarItem("Figma", "/docs/guide/figma")}
+            >
+              Figma
+            </NextLink>
+          </NavbarItem>
           <NavbarItem>
             <NextLink
               className={navLinkClasses}
@@ -308,17 +332,7 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
               Blog
             </NextLink>
           </NavbarItem>
-          <NavbarItem>
-            <NextLink
-              className={navLinkClasses}
-              color="foreground"
-              data-active={pathname.includes("figma")}
-              href="/figma"
-              onClick={() => handlePressNavbarItem("Figma", "/figma")}
-            >
-              Figma
-            </NextLink>
-          </NavbarItem>
+
           <NavbarItem>
             <FbRoadmapLink className={navLinkClasses} />
           </NavbarItem>
@@ -373,6 +387,6 @@ export const Navbar: FC<NavbarProps> = ({children, routes, mobileRoutes = [], sl
         />
         {children}
       </NavbarMenu>
-    </NextUINavbar>
+    </HeroUINavbar>
   );
 };

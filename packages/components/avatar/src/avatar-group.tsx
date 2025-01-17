@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {AvatarGroupProvider} from "./avatar-group-context";
 import {useAvatarGroup, UseAvatarGroupProps} from "./use-avatar-group";
@@ -30,6 +30,6 @@ const AvatarGroup = forwardRef<"div", AvatarGroupProps>((props, ref) => {
   );
 });
 
-AvatarGroup.displayName = "NextUI.AvatarGroup";
+AvatarGroup.displayName = "HeroUI.AvatarGroup";
 
 export default AvatarGroup;

@@ -1,7 +1,7 @@
 import type {DateValue} from "@internationalized/date";
 import type {ForwardedRef, ReactElement} from "react";
 
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseRangeCalendarProps, useRangeCalendar} from "./use-range-calendar";
 import {CalendarProvider} from "./calendar-context";

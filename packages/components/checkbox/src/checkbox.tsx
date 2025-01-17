@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {cloneElement, ReactElement} from "react";
 
 import {UseCheckboxProps, useCheckbox} from "./use-checkbox";
@@ -32,6 +32,6 @@ const Checkbox = forwardRef<"input", CheckboxProps>((props, ref) => {
   );
 });
 
-Checkbox.displayName = "NextUI.Checkbox";
+Checkbox.displayName = "HeroUI.Checkbox";
 
 export default Checkbox;

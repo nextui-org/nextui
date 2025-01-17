@@ -1,7 +1,7 @@
 import React, {Children, cloneElement, useMemo} from "react";
-import {pickChildren} from "@nextui-org/react-utils";
-import {useAriaButton} from "@nextui-org/use-aria-button";
-import {Button} from "@nextui-org/button";
+import {pickChildren} from "@heroui/react-utils";
+import {useAriaButton} from "@heroui/use-aria-button";
+import {Button} from "@heroui/button";
 import {mergeProps} from "@react-aria/utils";
 
 import {usePopoverContext} from "./popover-context";
@@ -38,21 +38,21 @@ const PopoverTrigger = (props: PopoverTriggerProps) => {
     return getTriggerProps(mergeProps(otherProps, child.props), childRef);
   }, [getTriggerProps, child.props, otherProps, childRef]);
 
-  // validates if contains a NextUI Button as a child
+  // validates if contains a HeroUI Button as a child
   const [, triggerChildren] = pickChildren(children, Button);
 
   const {buttonProps} = useAriaButton({onPress, isDisabled}, triggerRef);
 
-  const hasNextUIButton = useMemo<boolean>(() => {
+  const hasHeroUIButton = useMemo<boolean>(() => {
     return triggerChildren?.[0] !== undefined;
   }, [triggerChildren]);
 
   return cloneElement(
     child,
-    mergeProps(restProps, hasNextUIButton ? {onPress, isDisabled} : buttonProps),
+    mergeProps(restProps, hasHeroUIButton ? {onPress, isDisabled} : buttonProps),
   );
 };
 
-PopoverTrigger.displayName = "NextUI.PopoverTrigger";
+PopoverTrigger.displayName = "HeroUI.PopoverTrigger";
 
 export default PopoverTrigger;

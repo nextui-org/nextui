@@ -1,5 +1,5 @@
-import {renderFn} from "@nextui-org/react-utils";
-import {forwardRef} from "@nextui-org/system";
+import {renderFn} from "@heroui/react-utils";
+import {forwardRef} from "@heroui/system";
 
 import Thumb from "./slider-thumb";
 import {UseSliderProps, useSlider} from "./use-slider";
@@ -70,6 +70,6 @@ const Slider = forwardRef<"div", SliderProps>((props, ref) => {
   );
 });
 
-Slider.displayName = "NextUI.Slider";
+Slider.displayName = "HeroUI.Slider";
 
 export default Slider;

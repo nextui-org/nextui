@@ -1,4 +1,4 @@
-import {Tooltip, Button} from "@nextui-org/react";
+import {Tooltip, Button} from "@heroui/react";
 
 export default function App() {
   return (
