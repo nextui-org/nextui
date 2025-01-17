@@ -1,5 +1,20 @@
 # @heroui/react
 
+## 2.6.13
+
+### Patch Changes
+
+- Updated dependencies [[`45b1d82`](https://github.com/frontio-ai/heroui/commit/45b1d82c391dac7f39609d492010164b6c2d6d38)]:
+  - @heroui/input@2.4.9
+  - @heroui/accordion@2.2.7
+  - @heroui/autocomplete@2.3.10
+  - @heroui/drawer@2.2.7
+  - @heroui/modal@2.2.7
+  - @heroui/navbar@2.2.8
+  - @heroui/popover@2.3.9
+  - @heroui/select@2.4.9
+  - @heroui/tabs@2.2.7
+
 ## 2.6.12
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @heroui/input
 
+## 2.4.9
+
+### Patch Changes
+
+- [`45b1d82`](https://github.com/frontio-ai/heroui/commit/45b1d82c391dac7f39609d492010164b6c2d6d38) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Fix input ignoring spaces
+
 ## 2.4.8
 
 ### Patch Changes
