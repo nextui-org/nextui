@@ -149,6 +149,6 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
   return <Component {...getBaseProps()}>{mainWrapper}</Component>;
 });
 
-NumberField.displayName = "NextUI.NumberField";
+NumberField.displayName = "HeroUI.NumberField";
 
 export default NumberField;

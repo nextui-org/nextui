@@ -19,6 +19,6 @@ const NumberFieldVerticalStepper = ({
   );
 };
 
-NumberFieldVerticalStepper.displayName = "NextUI.NumberFieldVerticalStepper";
+NumberFieldVerticalStepper.displayName = "HeroUI.NumberFieldVerticalStepper";
 
 export default NumberFieldVerticalStepper;
