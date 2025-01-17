@@ -2,7 +2,7 @@ import type {NumberFieldVariantProps, SlotsToClasses, NumberFieldSlots} from "@h
 import type {AriaNumberFieldProps} from "@react-types/numberfield";
 import type {NumberFieldStateOptions} from "@react-stately/numberfield";
 
-import {HTMLNextUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {useFocusRing} from "@react-aria/focus";
 import {numberField} from "@heroui/theme";
@@ -16,7 +16,7 @@ import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {FormContext, useSlottedContext} from "@heroui/form";
 
-export interface Props extends Omit<HTMLNextUIProps<"input">, keyof NumberFieldVariantProps> {
+export interface Props extends Omit<HTMLHeroUIProps<"input">, keyof NumberFieldVariantProps> {
   /**
    * Ref to the DOM node.
    */
