@@ -1,5 +1,5 @@
 {
-  "name": "@heroui/number-field",
+  "name": "@heroui/number-input",
   "version": "2.0.0",
   "description": "The numeric input component is designed for users to enter a number, and increase or decrease the value using stepper buttons",
   "keywords": [

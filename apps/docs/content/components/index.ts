@@ -34,4 +34,4 @@ export * from "./table";
 export * from "./autocomplete";
 export * from "./alert";
 export * from "./drawer";
-export * from "./number-field";
+export * from "./number-input";

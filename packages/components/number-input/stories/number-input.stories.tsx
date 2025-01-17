@@ -6,13 +6,13 @@ import React from "react";
 import {Meta} from "@storybook/react";
 import {button} from "@heroui/theme";
 import {Form} from "@heroui/form";
+import {numberField} from "@heroui/theme";
 
-import {numberField} from "../../../core/theme";
-import {NumberField, NumberFieldProps} from "../src";
+import {NumberInput, NumberInputProps} from "../src";
 
 export default {
-  title: "Components/NumberField",
-  component: NumberField,
+  title: "Components/NumberInput",
+  component: NumberInput,
   argTypes: {
     variant: {
       control: {
@@ -57,7 +57,7 @@ export default {
       </div>
     ),
   ],
-} as Meta<typeof NumberField>;
+} as Meta<typeof NumberInput>;
 
 const defaultProps = {
   ...numberField.defaultVariants,
@@ -66,7 +66,7 @@ const defaultProps = {
 
 const Template = (args) => (
   <div className="w-full max-w-[240px]">
-    <NumberField {...args} />
+    <NumberInput {...args} />
   </div>
 );
 
@@ -78,7 +78,7 @@ const FormTemplate = (args) => (
       e.preventDefault();
     }}
   >
-    <NumberField {...args} name="example" />
+    <NumberInput {...args} name="example" />
     <button className={button({color: "primary"})} type="submit">
       Submit
     </button>
@@ -90,13 +90,13 @@ const ControlledTemplate = (args) => {
 
   return (
     <div className="w-full flex flex-col gap-2 max-w-[240px]">
-      <NumberField {...args} value={value} onValueChange={setValue} />
-      <p className="text-default-500 text-sm">NumberField value: {value}</p>
+      <NumberInput {...args} value={value} onValueChange={setValue} />
+      <p className="text-default-500 text-sm">NumberInput value: {value}</p>
     </div>
   );
 };
 
-// const WithReactHookFormTemplate = (args: NumberFieldProps) => {
+// const WithReactHookFormTemplate = (args: NumberInputProps) => {
 //   const {
 //     register,
 //     formState: {errors},
@@ -117,14 +117,14 @@ const ControlledTemplate = (args) => {
 
 //   return (
 //     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-//       <NumberField
+//       <NumberInput
 //         {...args}
 //         isClearable
 //         label="With default value"
 //         {...register("withDefaultValue")}
 //       />
-//       <NumberField {...args} label="Without default value" {...register("withoutDefaultValue")} />
-//       <NumberField {...args} label="Required" {...register("requiredField", {required: true})} />
+//       <NumberInput {...args} label="Without default value" {...register("withoutDefaultValue")} />
+//       <NumberInput {...args} label="Required" {...register("requiredField", {required: true})} />
 //       {errors.requiredField && <span className="text-danger">This field is required</span>}
 //       <button className={button({class: "w-fit"})} type="submit">
 //         Submit
@@ -133,7 +133,7 @@ const ControlledTemplate = (args) => {
 //   );
 // };
 
-const ServerValidationTemplate = (args: NumberFieldProps) => {
+const ServerValidationTemplate = (args: NumberInputProps) => {
   const [serverErrors, setServerErrors] = React.useState({});
   const onSubmit = (e) => {
     e.preventDefault();
@@ -148,7 +148,7 @@ const ServerValidationTemplate = (args: NumberFieldProps) => {
       validationErrors={serverErrors}
       onSubmit={onSubmit}
     >
-      <NumberField {...args} />
+      <NumberInput {...args} />
       <button className={button({color: "primary"})} type="submit">
         Submit
       </button>
@@ -299,7 +299,7 @@ export const Clearable = {
     variant: "bordered",
     placeholder: "Enter a number",
     // eslint-disable-next-line no-console
-    onClear: () => console.log("number field cleared"),
+    onClear: () => console.log("number input cleared"),
     "aria-label": "width",
   },
 };

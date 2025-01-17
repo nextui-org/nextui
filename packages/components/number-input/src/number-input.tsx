@@ -2,13 +2,13 @@ import {CloseFilledIcon} from "@heroui/shared-icons";
 import {useMemo} from "react";
 import {forwardRef} from "@heroui/system";
 
-import {UseNumberFieldProps, useNumberField} from "./use-number-field";
-import NumberFieldVerticalStepper from "./number-field-vertical-stepper";
-import NumberFieldHorizontalStepper from "./number-field-horiztonal-stepper";
+import {UseNumberInputProps, useNumberInput} from "./use-number-input";
+import NumberInputVerticalStepper from "./number-input-vertical-stepper";
+import NumberInputHorizontalStepper from "./number-input-horiztonal-stepper";
 
-export interface NumberFieldProps extends UseNumberFieldProps {}
+export interface NumberInputProps extends UseNumberInputProps {}
 
-const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
+const NumberInput = forwardRef<"input", NumberInputProps>((props, ref) => {
   const {
     Component,
     label,
@@ -24,8 +24,8 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     steps,
     getBaseProps,
     getLabelProps,
-    getNumberFieldProps,
-    getHiddenNumberFieldProps,
+    getNumberInputProps,
+    getHiddenNumberInputProps,
     getInnerWrapperProps,
     getInputWrapperProps,
     getMainWrapperProps,
@@ -37,7 +37,7 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     getStepperIncreaseButtonProps,
     getStepperDecreaseButtonProps,
     getVerticalStepperWrapperProps,
-  } = useNumberField({...props, ref});
+  } = useNumberInput({...props, ref});
 
   const labelContent = label ? <label {...getLabelProps()}>{label}</label> : null;
 
@@ -87,8 +87,8 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
       return (
         <div {...getInnerWrapperProps()}>
           {startContent}
-          <input {...getNumberFieldProps()} />
-          <input {...getHiddenNumberFieldProps()} />
+          <input {...getNumberInputProps()} />
+          <input {...getHiddenNumberInputProps()} />
           {end}
         </div>
       );
@@ -97,12 +97,12 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     if (steps === "horizontal") {
       return (
         <div {...getInnerWrapperProps()}>
-          <NumberFieldHorizontalStepper {...getStepperDecreaseButtonProps()} direction="left" />
+          <NumberInputHorizontalStepper {...getStepperDecreaseButtonProps()} direction="left" />
           {startContent}
-          <input {...getNumberFieldProps()} />
-          <input {...getHiddenNumberFieldProps()} />
+          <input {...getNumberInputProps()} />
+          <input {...getHiddenNumberInputProps()} />
           {end}
-          <NumberFieldHorizontalStepper {...getStepperIncreaseButtonProps()} direction="right" />
+          <NumberInputHorizontalStepper {...getStepperIncreaseButtonProps()} direction="right" />
         </div>
       );
     }
@@ -110,18 +110,18 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
     return (
       <div {...getInnerWrapperProps()}>
         {startContent}
-        <input {...getNumberFieldProps()} />
-        <input {...getHiddenNumberFieldProps()} />
+        <input {...getNumberInputProps()} />
+        <input {...getHiddenNumberInputProps()} />
         {end}
         {!hideStepper && (
           <div {...getVerticalStepperWrapperProps()}>
-            <NumberFieldVerticalStepper {...getStepperIncreaseButtonProps()} direction="up" />
-            <NumberFieldVerticalStepper {...getStepperDecreaseButtonProps()} direction="down" />
+            <NumberInputVerticalStepper {...getStepperIncreaseButtonProps()} direction="up" />
+            <NumberInputVerticalStepper {...getStepperDecreaseButtonProps()} direction="down" />
           </div>
         )}
       </div>
     );
-  }, [startContent, end, getNumberFieldProps, getInnerWrapperProps]);
+  }, [startContent, end, getNumberInputProps, getInnerWrapperProps]);
 
   const mainWrapper = useMemo(() => {
     return (
@@ -149,6 +149,6 @@ const NumberField = forwardRef<"input", NumberFieldProps>((props, ref) => {
   return <Component {...getBaseProps()}>{mainWrapper}</Component>;
 });
 
-NumberField.displayName = "HeroUI.NumberField";
+NumberInput.displayName = "HeroUI.NumberInput";
 
-export default NumberField;
+export default NumberInput;

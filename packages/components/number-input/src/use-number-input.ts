@@ -1,22 +1,22 @@
-import type {NumberFieldVariantProps, SlotsToClasses, NumberFieldSlots} from "@heroui/theme";
+import type {NumberInputVariantProps, SlotsToClasses, NumberInputSlots} from "@heroui/theme";
 import type {AriaNumberFieldProps} from "@react-types/numberfield";
 import type {NumberFieldStateOptions} from "@react-stately/numberfield";
 
 import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {useFocusRing} from "@react-aria/focus";
-import {numberField} from "@heroui/theme";
+import {numberInput} from "@heroui/theme";
 import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
 import {useLocale} from "@react-aria/i18n";
 import {clsx, dataAttr, isEmpty, objectToDeps} from "@heroui/shared-utils";
 import {useNumberFieldState} from "@react-stately/numberfield";
-import {useNumberField as useAriaNumberField} from "@react-aria/numberfield";
+import {useNumberField as useAriaNumberInput} from "@react-aria/numberfield";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {FormContext, useSlottedContext} from "@heroui/form";
 
-export interface Props extends Omit<HTMLHeroUIProps<"input">, keyof NumberFieldVariantProps> {
+export interface Props extends Omit<HTMLHeroUIProps<"input">, keyof NumberInputVariantProps> {
   /**
    * Ref to the DOM node.
    */
@@ -73,7 +73,7 @@ export interface Props extends Omit<HTMLHeroUIProps<"input">, keyof NumberFieldV
    * }} />
    * ```
    */
-  classNames?: SlotsToClasses<NumberFieldSlots>;
+  classNames?: SlotsToClasses<NumberInputSlots>;
   /**
    * Whether the stepper is placed horizontally or vertically
    */
@@ -93,16 +93,16 @@ export interface Props extends Omit<HTMLHeroUIProps<"input">, keyof NumberFieldV
   onValueChange?: AriaNumberFieldProps["onChange"];
 }
 
-export type UseNumberFieldProps = Props &
+export type UseNumberInputProps = Props &
   Omit<NumberFieldStateOptions, "locale"> &
   Omit<AriaNumberFieldProps, "onChange"> &
-  NumberFieldVariantProps;
+  NumberInputVariantProps;
 
-export function useNumberField(originalProps: UseNumberFieldProps) {
+export function useNumberInput(originalProps: UseNumberInputProps) {
   const globalContext = useProviderContext();
   const {validationBehavior: formValidationBehavior} = useSlottedContext(FormContext) || {};
 
-  const [props, variantProps] = mapPropsVariants(originalProps, numberField.variantKeys);
+  const [props, variantProps] = mapPropsVariants(originalProps, numberInput.variantKeys);
 
   const {
     ref,
@@ -161,7 +161,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     isInvalid: isAriaInvalid,
     validationErrors,
     validationDetails,
-  } = useAriaNumberField(originalProps, state, domRef);
+  } = useAriaNumberInput(originalProps, state, domRef);
 
   const inputValue = isNaN(state.numberValue) ? "" : state.numberValue;
   const isFilled = !isEmpty(inputValue);
@@ -226,7 +226,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
 
   const slots = useMemo(
     () =>
-      numberField({
+      numberInput({
         ...variantProps,
         isInvalid,
         isClearable,
@@ -296,7 +296,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     [slots, isLabelHovered, labelProps, classNames?.label],
   );
 
-  const getNumberFieldProps: PropGetter = useCallback(
+  const getNumberInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         "data-slot": "input",
@@ -338,7 +338,7 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     ],
   );
 
-  const getHiddenNumberFieldProps: PropGetter = useCallback(
+  const getHiddenNumberInputProps: PropGetter = useCallback(
     (props = {}) => {
       return {
         name: originalProps.name,
@@ -549,8 +549,8 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
     decrementButtonProps,
     getBaseProps,
     getLabelProps,
-    getNumberFieldProps,
-    getHiddenNumberFieldProps,
+    getNumberInputProps,
+    getHiddenNumberInputProps,
     getMainWrapperProps,
     getInputWrapperProps,
     getInnerWrapperProps,
@@ -565,4 +565,4 @@ export function useNumberField(originalProps: UseNumberFieldProps) {
   };
 }
 
-export type UseNumberFieldReturn = ReturnType<typeof useNumberField>;
+export type UseNumberInputReturn = ReturnType<typeof useNumberInput>;

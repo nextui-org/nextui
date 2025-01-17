@@ -4,11 +4,11 @@ import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
 import {Form} from "@heroui/form";
 
-import {NumberField} from "../src";
+import {NumberInput} from "../src";
 
 describe("Input", () => {
   it("should render correctly", () => {
-    const wrapper = render(<NumberField label="test input" />);
+    const wrapper = render(<NumberInput label="test input" />);
 
     expect(() => wrapper.unmount()).not.toThrow();
   });
@@ -16,31 +16,31 @@ describe("Input", () => {
   it("ref should be forwarded", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    render(<NumberField ref={ref} label="test input" />);
+    render(<NumberInput ref={ref} label="test input" />);
     expect(ref.current).not.toBeNull();
   });
 
   it("should have aria-invalid when invalid", () => {
-    const {container} = render(<NumberField isInvalid={true} label="test input" />);
+    const {container} = render(<NumberInput isInvalid={true} label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-invalid", "true");
   });
 
   it("should have aria-readonly when isReadOnly", () => {
-    const {container} = render(<NumberField isReadOnly label="test input" />);
+    const {container} = render(<NumberInput isReadOnly label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-readonly", "true");
   });
 
   it("should have disabled attribute when isDisabled", () => {
-    const {container} = render(<NumberField isDisabled label="test input" />);
+    const {container} = render(<NumberInput isDisabled label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("disabled");
   });
 
   it("should disable the clear button when isDisabled", () => {
     const {getByRole} = render(
-      <NumberField hideStepper isClearable isDisabled label="test input" />,
+      <NumberInput hideStepper isClearable isDisabled label="test input" />,
     );
 
     const clearButton = getByRole("button");
@@ -49,7 +49,7 @@ describe("Input", () => {
   });
 
   it("should not allow clear button to be focusable", () => {
-    const {getByRole} = render(<NumberField hideStepper isClearable label="test input" />);
+    const {getByRole} = render(<NumberInput hideStepper isClearable label="test input" />);
 
     const clearButton = getByRole("button");
 
@@ -58,7 +58,7 @@ describe("Input", () => {
 
   it("should have required attribute when isRequired with native validationBehavior", () => {
     const {container} = render(
-      <NumberField isRequired label="test input" validationBehavior="native" />,
+      <NumberInput isRequired label="test input" validationBehavior="native" />,
     );
 
     expect(container.querySelector("input")).toHaveAttribute("required");
@@ -67,7 +67,7 @@ describe("Input", () => {
 
   it("should have aria-required attribute when isRequired with aria validationBehavior", () => {
     const {container} = render(
-      <NumberField isRequired label="test input" validationBehavior="aria" />,
+      <NumberInput isRequired label="test input" validationBehavior="aria" />,
     );
 
     expect(container.querySelector("input")).not.toHaveAttribute("required");
@@ -75,21 +75,21 @@ describe("Input", () => {
   });
 
   it("should have aria-describedby when description is provided", () => {
-    const {container} = render(<NumberField description="description" label="test input" />);
+    const {container} = render(<NumberInput description="description" label="test input" />);
 
     expect(container.querySelector("input")).toHaveAttribute("aria-describedby");
   });
 
   it("should have aria-describedby when errorMessage is provided", () => {
     const {container} = render(
-      <NumberField isInvalid errorMessage="error text" label="test input" />,
+      <NumberInput isInvalid errorMessage="error text" label="test input" />,
     );
 
     expect(container.querySelector("input")).toHaveAttribute("aria-describedby");
   });
 
   it("should have the same aria-labelledby as label id", () => {
-    const {container} = render(<NumberField label="test input" />);
+    const {container} = render(<NumberInput label="test input" />);
 
     const labelId = container.querySelector("label")?.id;
     const labelledBy = container.querySelector("input")?.getAttribute("aria-labelledby");
@@ -100,7 +100,7 @@ describe("Input", () => {
   it("should call dom event handlers only once", () => {
     const onFocus = jest.fn();
 
-    const {container} = render(<NumberField label="test input" onFocus={onFocus} />);
+    const {container} = render(<NumberInput label="test input" onFocus={onFocus} />);
 
     container.querySelector("input")?.focus();
     container.querySelector("input")?.blur();
@@ -111,7 +111,7 @@ describe("Input", () => {
   it("ref should update the value", () => {
     const ref = React.createRef<HTMLInputElement>();
 
-    const {container} = render(<NumberField ref={ref} />);
+    const {container} = render(<NumberInput ref={ref} />);
 
     if (!ref.current) {
       throw new Error("ref is null");
@@ -131,12 +131,12 @@ describe("Input", () => {
     const ref = React.createRef<HTMLInputElement>();
 
     const {getByRole} = render(
-      <NumberField
+      <NumberInput
         ref={ref}
         hideStepper
         isClearable
         defaultValue={1234}
-        label="test number-field"
+        label="test number-input"
         onClear={onClear}
       />,
     );
@@ -160,13 +160,13 @@ describe("Input", () => {
     const ref = React.createRef<HTMLInputElement>();
 
     const {getByRole} = render(
-      <NumberField
+      <NumberInput
         ref={ref}
         hideStepper
         isClearable
         isReadOnly
         defaultValue={1234}
-        label="test number-field"
+        label="test number-input"
         onClear={onClear}
       />,
     );
@@ -183,7 +183,7 @@ describe("Input", () => {
   });
 });
 
-describe("NumberField with React Hook Form", () => {
+describe("NumberInput with React Hook Form", () => {
   let input1: HTMLInputElement;
   let input2: HTMLInputElement;
   let input3: HTMLInputElement;
@@ -211,13 +211,13 @@ describe("NumberField with React Hook Form", () => {
 
     render(
       <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
-        <NumberField isClearable label="With default value" {...register("withDefaultValue")} />
-        <NumberField
+        <NumberInput isClearable label="With default value" {...register("withDefaultValue")} />
+        <NumberInput
           data-testid="input-2"
           label="Without default value"
           {...register("withoutDefaultValue")}
         />
-        <NumberField
+        <NumberInput
           data-testid="input-3"
           label="Required"
           {...register("requiredField", {required: true})}
@@ -268,7 +268,7 @@ describe("NumberField with React Hook Form", () => {
       it("supports isRequired", async () => {
         const {getByTestId} = render(
           <Form data-testid="form">
-            <NumberField isRequired data-testid="input" label="Name" validationBehavior="native" />
+            <NumberInput isRequired data-testid="input" label="Name" validationBehavior="native" />
           </Form>,
         );
 
@@ -302,7 +302,7 @@ describe("NumberField with React Hook Form", () => {
       it("supports validate function", async () => {
         const {getByTestId} = render(
           <Form data-testid="form">
-            <NumberField
+            <NumberInput
               data-testid="input"
               defaultValue={1234}
               label="Name"
@@ -350,7 +350,7 @@ describe("NumberField with React Hook Form", () => {
 
           return (
             <Form data-testid="form" validationErrors={serverErrors} onSubmit={onSubmit}>
-              <NumberField
+              <NumberInput
                 data-testid="input"
                 label="Name"
                 name="name"
@@ -406,7 +406,7 @@ describe("NumberField with React Hook Form", () => {
       it("supports validate function", async () => {
         const {getByTestId} = render(
           <Form data-testid="form">
-            <NumberField
+            <NumberInput
               data-testid="input"
               defaultValue={1234}
               label="Width"
@@ -434,7 +434,7 @@ describe("NumberField with React Hook Form", () => {
       it("supports server validation", async () => {
         const {getByTestId} = render(
           <Form validationErrors={{name: "Invalid width"}}>
-            <NumberField data-testid="input" label="Name" name="name" />
+            <NumberInput data-testid="input" label="Name" name="name" />
           </Form>,
         );
 

@@ -103,7 +103,7 @@ export const hiddenInputClasses = [
   "disabled:cursor-default",
 ];
 
-export const numberFieldLabelClasses = [
+export const numberInputLabelClasses = [
   "absolute",
   "pointer-events-none",
   "origin-top-left",

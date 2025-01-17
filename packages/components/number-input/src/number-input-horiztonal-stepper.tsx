@@ -4,14 +4,14 @@ import type {ButtonProps} from "@heroui/button";
 import {Button} from "@heroui/button";
 import {ChevronLeftIcon, ChevronRightIcon} from "@heroui/shared-icons";
 
-interface NumberFieldHorizontalStepperProps extends Omit<ButtonProps, keyof AriaButtonProps> {
+interface NumberInputHorizontalStepperProps extends Omit<ButtonProps, keyof AriaButtonProps> {
   direction: "left" | "right";
 }
 
-const NumberFieldHorizontalStepper = ({
+const NumberInputHorizontalStepper = ({
   direction,
   ...otherProps
-}: NumberFieldHorizontalStepperProps) => {
+}: NumberInputHorizontalStepperProps) => {
   return (
     <Button isIconOnly {...otherProps}>
       {direction === "left" ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -19,6 +19,6 @@ const NumberFieldHorizontalStepper = ({
   );
 };
 
-NumberFieldHorizontalStepper.displayName = "HeroUI.NumberFieldHorizontalStepper";
+NumberInputHorizontalStepper.displayName = "HeroUI.NumberInputHorizontalStepper";
 
-export default NumberFieldHorizontalStepper;
+export default NumberInputHorizontalStepper;

@@ -47,7 +47,7 @@ export * from "@heroui/form";
 export * from "@heroui/alert";
 export * from "@heroui/drawer";
 export * from "@heroui/input-otp";
-export * from "@heroui/number-field";
+export * from "@heroui/number-input";
 
 /**
  * React Aria - Exports

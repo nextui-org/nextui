@@ -295,9 +295,9 @@ importers:
       '@heroui/listbox':
         specifier: workspace:*
         version: link:../../packages/components/listbox
-      '@heroui/number-field':
+      '@heroui/number-input':
         specifier: workspace:*
-        version: link:../../packages/components/number-field
+        version: link:../../packages/components/number-input
       '@heroui/react':
         specifier: workspace:*
         version: link:../../packages/core/react
@@ -2199,7 +2199,7 @@ importers:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
 
-  packages/components/number-field:
+  packages/components/number-input:
     dependencies:
       '@heroui/button':
         specifier: workspace:*
@@ -3257,9 +3257,9 @@ importers:
       '@heroui/navbar':
         specifier: workspace:*
         version: link:../../components/navbar
-      '@heroui/number-field':
+      '@heroui/number-input':
         specifier: workspace:*
-        version: link:../../components/number-field
+        version: link:../../components/number-input
       '@heroui/pagination':
         specifier: workspace:*
         version: link:../../components/pagination

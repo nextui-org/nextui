@@ -1,14 +1,14 @@
 import type {VariantProps} from "tailwind-variants";
 
 import {tv} from "../utils/tv";
-import {numberFieldLabelClasses, groupDataFocusVisibleClasses} from "../utils";
+import {numberInputLabelClasses, groupDataFocusVisibleClasses} from "../utils";
 
 /**
- * NumberField wrapper **Tailwind Variants** component
+ * NumberInput wrapper **Tailwind Variants** component
  *
  * @example
  * ```js
- * const {base, label, inputWrapper, input, clearButton, description, helperText, errorMessage} = numberField({...})
+ * const {base, label, inputWrapper, input, clearButton, description, helperText, errorMessage} = numberInput({...})
  *
  * <div className={base())}>
  *  <label className={label()}>Label</label>
@@ -22,10 +22,10 @@ import {numberFieldLabelClasses, groupDataFocusVisibleClasses} from "../utils";
  * </div>
  * ```
  */
-const numberField = tv({
+const numberInput = tv({
   slots: {
     base: "group flex flex-col data-[hidden=true]:hidden relative justify-end",
-    label: numberFieldLabelClasses,
+    label: numberInputLabelClasses,
     mainWrapper: "h-full flex flex-col",
     inputWrapper:
       "relative w-full inline-flex tap-highlight-transparent flex-row items-center shadow-sm px-3 py-2 h-8 gap-3",
@@ -52,7 +52,7 @@ const numberField = tv({
     stepperButton: ["bg-transparent", "min-w-5", "w-5", "h-4", "rounded-none"],
     verticalStepperWrapper: ["flex", "flex-col", "ps-1"],
     helperWrapper: "hidden group-data-[has-helper=true]:flex py-2 relative flex-col gap-1.5",
-    description: [...numberFieldLabelClasses, "text-tiny", "text-default-400"],
+    description: [...numberInputLabelClasses, "text-tiny", "text-default-400"],
     helperText: "text-tiny text-foreground-400",
     errorMessage: "text-tiny text-danger",
   },
@@ -563,7 +563,7 @@ const numberField = tv({
   ],
 });
 
-export type NumberFieldVariantProps = VariantProps<typeof numberField>;
-export type NumberFieldSlots = keyof ReturnType<typeof numberField>;
+export type NumberInputVariantProps = VariantProps<typeof numberInput>;
+export type NumberInputSlots = keyof ReturnType<typeof numberInput>;
 
-export {numberField};
+export {numberInput};

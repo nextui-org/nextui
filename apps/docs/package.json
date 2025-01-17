@@ -35,7 +35,7 @@
     "@heroui/use-clipboard": "workspace:*",
     "@heroui/use-infinite-scroll": "workspace:*",
     "@heroui/use-is-mobile": "workspace:*",
-    "@heroui/number-field": "workspace:*",
+    "@heroui/number-input": "workspace:*",
     "@iconify/icons-solar": "1.2.3",
     "@iconify/react": "5.0.2",
     "@internationalized/date": "3.6.0",

@@ -339,10 +339,10 @@
           "path": "/docs/components/navbar.mdx"
         },
         {
-          "key": "number-field",
+          "key": "number-input",
           "title": "Number Field",
           "keywords": "input, numeric input, number field",
-          "path": "/docs/components/number-field.mdx",
+          "path": "/docs/components/number-input.mdx",
           "newPost": true
         },
         {
