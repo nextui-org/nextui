@@ -61,7 +61,7 @@ Upgrade today by running one of the following commands:
 
 ## NextUI CLI
 
-We are thrilled to introduce the [NextUI CLI](https://github.com/frontio-ai/heroui-cli), a command-line interface, It offers a comprehensive suite
+We are thrilled to introduce the [NextUI CLI](https://github.com/heroui-inc/heroui-cli), a command-line interface, It offers a comprehensive suite
 of commands to initialize, manage, and improve your NextUI projects. It enables you to `add`, `remove`, or
 `upgrade` individual components, assess the health of your project, and more.
 
@@ -144,7 +144,7 @@ nextui add --all
 
 <Spacer y={4} />
 
-> The CLI is currentl in `Alpha` stage, we're working on adding more features and improvements. If you find any issues or have any suggestions, please let us know by [opening an issue](https://github.com/frontio-ai/heroui-cli/issues/new).
+> The CLI is currentl in `Alpha` stage, we're working on adding more features and improvements. If you find any issues or have any suggestions, please let us know by [opening an issue](https://github.com/heroui-inc/heroui-cli/issues/new).
 
 To learn more about the CLI and its commands, please refer to the [CLI documentation](/docs/guide/cli) and the [CLI API reference](/docs/api-references/cli-api).
 
@@ -367,38 +367,38 @@ That's it! Your project should now be using the latest version of TailwindCSS an
 
 **Bug Fixes**:
 
-- Fixed an HSL color rounding issue in the theme settings to ensure accurate color representation. [PR](https://github.com/frontio-ai/heroui/pull/2702) - [@wingkwong](https://github.com/wingkwong)
-- Removed conflicting transition definitions affecting CSS classes. [PR](https://github.com/frontio-ai/heroui/pull/2677) - [@u3u](https://github.com/u3u)
-- Patched the "@heroui/autocomplete" package to fix an issue where empty items with `allowCustomValue` would not render properly due to a null node problem. [PR](https://github.com/frontio-ai/heroui/pull/2674) - [@wingkwong](https://github.com/wingkwong)
-- Implemented a fix in modal components to prevent carryover of IME (Input Method Editor) input when switching fields using the Tab key. [PR](https://github.com/frontio-ai/heroui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
-- Enhanced accessibility by handling Tab key press event in the `ModalContent` component. [PR](https://github.com/frontio-ai/heroui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
-- Fixed an issue where disabled select components could still be changed using blur and keyboard shortcuts. [PR](https://github.com/frontio-ai/heroui/pull/2649) - [@wingkwong](https://github.com/wingkwong)
-- Patched issues in "@heroui/use-aria-multiselect" and "@heroui/stories-utils" packages to fix a warning about `SELECT defaultSelectedKeys`. [PR](https://github.com/frontio-ai/heroui/pull/2648) - [@wingkwong](https://github.com/wingkwong)
-- Fixed an issue with incorrect `onChange` typing in Checkbox Group, ensuring it now correctly handles an array of strings as values. [PR](https://github.com/frontio-ai/heroui/pull/2595) - [@wingkwong](https://github.com/wingkwong)
-- Fixed the `label` placement issue in `Select` component if a `description` prop is used [PR](https://github.com/frontio-ai/heroui/pull/2553) - [@novsource](https://github.com/novsource)
-- Fixed the `originalProps` spread issue in the `Dropdown` component. [PR](https://github.com/frontio-ai/heroui/pull/2450) - [@wingkwong](https://github.com/wingkwong)
+- Fixed an HSL color rounding issue in the theme settings to ensure accurate color representation. [PR](https://github.com/heroui-inc/heroui/pull/2702) - [@wingkwong](https://github.com/wingkwong)
+- Removed conflicting transition definitions affecting CSS classes. [PR](https://github.com/heroui-inc/heroui/pull/2677) - [@u3u](https://github.com/u3u)
+- Patched the "@heroui/autocomplete" package to fix an issue where empty items with `allowCustomValue` would not render properly due to a null node problem. [PR](https://github.com/heroui-inc/heroui/pull/2674) - [@wingkwong](https://github.com/wingkwong)
+- Implemented a fix in modal components to prevent carryover of IME (Input Method Editor) input when switching fields using the Tab key. [PR](https://github.com/heroui-inc/heroui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
+- Enhanced accessibility by handling Tab key press event in the `ModalContent` component. [PR](https://github.com/heroui-inc/heroui/pull/2709) - [@ryo-manba](https://github.com/ryo-manba)
+- Fixed an issue where disabled select components could still be changed using blur and keyboard shortcuts. [PR](https://github.com/heroui-inc/heroui/pull/2649) - [@wingkwong](https://github.com/wingkwong)
+- Patched issues in "@heroui/use-aria-multiselect" and "@heroui/stories-utils" packages to fix a warning about `SELECT defaultSelectedKeys`. [PR](https://github.com/heroui-inc/heroui/pull/2648) - [@wingkwong](https://github.com/wingkwong)
+- Fixed an issue with incorrect `onChange` typing in Checkbox Group, ensuring it now correctly handles an array of strings as values. [PR](https://github.com/heroui-inc/heroui/pull/2595) - [@wingkwong](https://github.com/wingkwong)
+- Fixed the `label` placement issue in `Select` component if a `description` prop is used [PR](https://github.com/heroui-inc/heroui/pull/2553) - [@novsource](https://github.com/novsource)
+- Fixed the `originalProps` spread issue in the `Dropdown` component. [PR](https://github.com/heroui-inc/heroui/pull/2450) - [@wingkwong](https://github.com/wingkwong)
 
 **Improvements**
-- Framer Motion was updated to the latest version, improving performance and reducing bundle size. [Docs](https://www.framer.com/motion/guide-reduce-bundle-size/) [PR](https://github.com/frontio-ai/heroui/pull/2464) - [@mezotv](https://github.com/mezotv)
+- Framer Motion was updated to the latest version, improving performance and reducing bundle size. [Docs](https://www.framer.com/motion/guide-reduce-bundle-size/) [PR](https://github.com/heroui-inc/heroui/pull/2464) - [@mezotv](https://github.com/mezotv)
 - `LazyMotion` was added to all components that use Framer Motion, improving performance by only loading the required motion components.
-- We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above. [PR](https://github.com/frontio-ai/heroui/pull/2713) - [@jrgarciadev](https://github.com/jrgarciadev)
-- Updated `framer-motion` package across various components and utilities to version `11.0.22` for enhanced performance and consistency. [PR](https://github.com/frontio-ai/heroui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
-- Ensured compatibility with `react@18.2.0` and `react-dom@18.2.0` across the board. [PR](https://github.com/frontio-ai/heroui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
-- Introduced patches for NextUI components to improve animations, including support for keyframes with spring and inertia animations. [PR](https://github.com/frontio-ai/heroui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
-- Improved handling of numeric keys in the multi-select component to ensure consistent behavior. [PR](https://github.com/frontio-ai/heroui/pull/2589) - [@wingkwong](https://github.com/wingkwong)
-- Updated the version of react-aria to include the latest changes as detailed in the [2024-02-13 release](https://react-spectrum.adobe.com/releases/2024-02-13.html). [PR](https://github.com/frontio-ai/heroui/pull/2561) - [@ryo-manba](https://github.com/ryo-manba)
-- Added support for custom class names in the `AvatarGroup` component, enhancing flexibility in styling. [PR](https://github.com/frontio-ai/heroui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
-- Introduced a `count` slot to the `AvatarGroup` for more customized rendering. [PR](https://github.com/frontio-ai/heroui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
-- Improved the `AvatarGroup` component's count rendering logic for better performance and flexibility. [PR](https://github.com/frontio-ai/heroui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
-- Add RTL support to the kbd component. [PR](https://github.com/frontio-ai/heroui/pull/2482) - [@mrbadri](https://github.com/mrbadri)
-- Add RTL support to the Select component. [PR](https://github.com/frontio-ai/heroui/pull/2485) - [@mrbadri](https://github.com/mrbadri)
-- Add RTL support to the avatar group componen. [PR](https://github.com/frontio-ai/heroui/pull/2498) - [@mrbadri](https://github.com/mrbadri)
-- Add RTL support to the Table component. [PR](https://github.com/frontio-ai/heroui/pull/2472) - [@mrbadri](https://github.com/mrbadri)
+- We removed the custom `units` creation from the `nextui` plugin, it is no longer needed with TailwindCSS v3.4 and above. [PR](https://github.com/heroui-inc/heroui/pull/2713) - [@jrgarciadev](https://github.com/jrgarciadev)
+- Updated `framer-motion` package across various components and utilities to version `11.0.22` for enhanced performance and consistency. [PR](https://github.com/heroui-inc/heroui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
+- Ensured compatibility with `react@18.2.0` and `react-dom@18.2.0` across the board. [PR](https://github.com/heroui-inc/heroui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
+- Introduced patches for NextUI components to improve animations, including support for keyframes with spring and inertia animations. [PR](https://github.com/heroui-inc/heroui/pull/2596) - [@wingkwong](https://github.com/wingkwong)
+- Improved handling of numeric keys in the multi-select component to ensure consistent behavior. [PR](https://github.com/heroui-inc/heroui/pull/2589) - [@wingkwong](https://github.com/wingkwong)
+- Updated the version of react-aria to include the latest changes as detailed in the [2024-02-13 release](https://react-spectrum.adobe.com/releases/2024-02-13.html). [PR](https://github.com/heroui-inc/heroui/pull/2561) - [@ryo-manba](https://github.com/ryo-manba)
+- Added support for custom class names in the `AvatarGroup` component, enhancing flexibility in styling. [PR](https://github.com/heroui-inc/heroui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
+- Introduced a `count` slot to the `AvatarGroup` for more customized rendering. [PR](https://github.com/heroui-inc/heroui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
+- Improved the `AvatarGroup` component's count rendering logic for better performance and flexibility. [PR](https://github.com/heroui-inc/heroui/pull/2669) - [@wingkwong](https://github.com/wingkwong)
+- Add RTL support to the kbd component. [PR](https://github.com/heroui-inc/heroui/pull/2482) - [@mrbadri](https://github.com/mrbadri)
+- Add RTL support to the Select component. [PR](https://github.com/heroui-inc/heroui/pull/2485) - [@mrbadri](https://github.com/mrbadri)
+- Add RTL support to the avatar group componen. [PR](https://github.com/heroui-inc/heroui/pull/2498) - [@mrbadri](https://github.com/mrbadri)
+- Add RTL support to the Table component. [PR](https://github.com/heroui-inc/heroui/pull/2472) - [@mrbadri](https://github.com/mrbadri)
 
 **Documentation**:
 - Updated documentation to reflect the new features and changes in the `AvatarGroup` component.
-- Added support for the "bun" package manager across documentation and components. [PR](https://github.com/frontio-ai/heroui/pull/2625) - [@sudongyuer](https://github.com/sudongyuer)
-- [Kapa.ai](https://www.kapa.ai/) widget was added to the documentation to provide AI support for users. [PR](https://github.com/frontio-ai/heroui/pull/2428) - [@wingkwong](https://github.com/sudongyuer)
+- Added support for the "bun" package manager across documentation and components. [PR](https://github.com/heroui-inc/heroui/pull/2625) - [@sudongyuer](https://github.com/sudongyuer)
+- [Kapa.ai](https://www.kapa.ai/) widget was added to the documentation to provide AI support for users. [PR](https://github.com/heroui-inc/heroui/pull/2428) - [@wingkwong](https://github.com/sudongyuer)
 - Layout docs updated to remove the `units` configuration from the `tailwind.config.(js|ts)` file.
 
 
@@ -406,7 +406,7 @@ Special thanks to NextUI Team members [@kuri-sun](https://github.com/kuri-sun), 
 [@sudongyuer](https://github.com/sudongyuer), [@winchesHe](https://github.com/winchesHe), [@wingkwong](https://github.com/wingkwong),
 [@tianenpang](https://github.com/tianenpang), [@smultar](https://github.com/smultar) and contributors for their contributions to this release.
 
-For a full list of changes, please refer to the [release notes](https://github.com/frontio-ai/heroui/releases/tag/%40nextui-org%2Freact%402.3.0).
+For a full list of changes, please refer to the [release notes](https://github.com/heroui-inc/heroui/releases/tag/%40nextui-org%2Freact%402.3.0).
 
 <Spacer y={6} />
 
@@ -425,4 +425,4 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 ## Contributing
 
-PR's on HeroUI are always welcome, please see our [contribution guidelines](https://github.com/frontio-ai/heroui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
+PR's on HeroUI are always welcome, please see our [contribution guidelines](https://github.com/heroui-inc/heroui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
