@@ -1,6 +1,6 @@
 {
   "name": "@heroui/react",
-  "version": "2.6.13",
+  "version": "2.6.14",
   "description": "🚀 Beautiful and modern React UI library.",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
   "homepage": "https://heroui.com",
@@ -23,11 +23,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/core/react"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup --dts",

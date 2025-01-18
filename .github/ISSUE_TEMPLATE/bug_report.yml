@@ -8,17 +8,17 @@ body:
       value: |
         Thank you for reporting an issue :pray:.
 
-        This issue tracker is for reporting bugs found in [HeroUI github repository](https://github.com/frontio-ai/heroui/)
+        This issue tracker is for reporting bugs found in [HeroUI github repository](https://github.com/heroui-inc/heroui/)
         If you have a question about how to achieve something and are struggling, please post a question
         inside of either of the following places:
-          - HeroUI's [Discussion's tab](https://github.com/frontio-ai/heroui/discussions)
+          - HeroUI's [Discussion's tab](https://github.com/heroui-inc/heroui/discussions)
           - HeroUI's [Discord channel](https://discord.gg/9b6yyZKmH4)
 
 
         Before submitting a new bug/issue, please check the links below to see if there is a solution or question posted there already:
-         - HeroUI's [Issue's tab](https://github.com/frontio-ai/heroui/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
-         - HeroUI's [closed issues tab](https://github.com/frontio-ai/heroui/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
-         - HeroUI's [Discussions tab](https://github.com/frontio-ai/heroui/discussions)
+         - HeroUI's [Issue's tab](https://github.com/heroui-inc/heroui/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
+         - HeroUI's [closed issues tab](https://github.com/heroui-inc/heroui/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
+         - HeroUI's [Discussions tab](https://github.com/heroui-inc/heroui/discussions)
 
         The more information you fill in, the better the community can help you.
   - type: input

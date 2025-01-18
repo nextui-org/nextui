@@ -430,7 +430,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
     } as ButtonProps);
 
   // prevent use-input's useFormValidation hook from overwriting use-autocomplete's useFormValidation hook when there are uncommitted validation errors
-  // see https://github.com/frontio-ai/heroui/pull/4452
+  // see https://github.com/heroui-inc/heroui/pull/4452
   const hasUncommittedValidation =
     validationBehavior === "native" &&
     state.displayValidation.isInvalid === false &&

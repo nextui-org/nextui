@@ -22,7 +22,7 @@ export default function App() {
       </CardBody>
       <Divider />
       <CardFooter>
-        <Link isExternal showAnchorIcon href="https://github.com/frontio-ai/heroui">
+        <Link isExternal showAnchorIcon href="https://github.com/heroui-inc/heroui">
           Visit source code on GitHub.
         </Link>
       </CardFooter>

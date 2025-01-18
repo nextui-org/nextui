@@ -1,6 +1,6 @@
 {
   "name": "@heroui/shared-icons",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Internal icons set, commonly used in the components stories",
   "keywords": [
     "icons-utils"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/utilities/icons-utils"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

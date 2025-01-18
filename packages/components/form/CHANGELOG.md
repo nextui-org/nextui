@@ -1,5 +1,17 @@
 # @heroui/form
 
+## 2.1.9
+
+### Patch Changes
+
+- [#4594](https://github.com/heroui-inc/heroui/pull/4594) [`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Org name changed
+
+- Updated dependencies [[`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e), [`f7e5d20`](https://github.com/heroui-inc/heroui/commit/f7e5d205b156060d2d06aa17af31007dbb9fc13c)]:
+  - @heroui/shared-utils@2.1.3
+  - @heroui/react-utils@2.1.4
+  - @heroui/system@2.4.7
+  - @heroui/theme@2.4.6
+
 ## 2.1.8
 
 ### Patch Changes

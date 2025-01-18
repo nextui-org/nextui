@@ -33,7 +33,7 @@ export function useReactAriaAccordion<T>(
     ref,
   });
 
-  // Fix: https://github.com/frontio-ai/heroui/issues/1608 & https://github.com/frontio-ai/heroui/issues/1405
+  // Fix: https://github.com/heroui-inc/heroui/issues/1608 & https://github.com/heroui-inc/heroui/issues/1405
   // Remove onKeyDownCapture from listProps to prevent it from removing spacebar support for
   // inner elements as the Input, this event provides typeahead support for the list, but we
   // don't need it for the accordion.

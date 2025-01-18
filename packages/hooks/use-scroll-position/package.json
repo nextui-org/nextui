@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-scroll-position",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Provides the logic to control the scroll over an element",
   "keywords": [
     "use-scroll-position"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/hooks/use-scroll-position"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
