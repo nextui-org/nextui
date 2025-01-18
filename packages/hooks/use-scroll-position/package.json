@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-scroll-position",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Provides the logic to control the scroll over an element",
   "keywords": [
     "use-scroll-position"

@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-resize",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Hook that adds an event listener to the resize window event",
   "keywords": [
     "use-resize"

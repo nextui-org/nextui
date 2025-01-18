@@ -1,5 +1,11 @@
 # @heroui/use-safe-layout-effect
 
+## 2.1.2
+
+### Patch Changes
+
+- [#4594](https://github.com/heroui-inc/heroui/pull/4594) [`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Org name changed
+
 ## 2.1.1
 
 ### Patch Changes
