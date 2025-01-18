@@ -132,6 +132,9 @@ const popover = tv({
       full: {content: "rounded-full"},
     },
     shadow: {
+      none: {
+        content: "shadow-none",
+      },
       sm: {
         content: "shadow-small",
       },
