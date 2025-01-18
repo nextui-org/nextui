@@ -130,6 +130,9 @@ const modal = tv({
       },
     },
     shadow: {
+      none: {
+        base: "shadow-none",
+      },
       sm: {
         base: "shadow-small",
       },
