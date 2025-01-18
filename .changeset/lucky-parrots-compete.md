@@ -1,6 +1,6 @@
 ---
-"@nextui-org/popover": patch
-"@nextui-org/modal": patch
+"@heroui/popover": patch
+"@heroui/modal": patch
 ---
 
 Correctly dismissable default value
