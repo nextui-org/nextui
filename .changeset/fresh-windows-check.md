@@ -1,5 +1,5 @@
 ---
-"@nextui-org/table": patch
+"@heroui/table": patch
 ---
 
 Virtualization support added to Table component
