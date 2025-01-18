@@ -8,7 +8,7 @@ const frameworks = [
     description:
       "A Next.js 13 with app directory template pre-configured with HeroUI (v2) and Tailwind CSS.",
     icon: <NewNextJSIcon height={40} width={40} />,
-    href: "https://github.com/frontio-ai/next-app-template",
+    href: "https://github.com/heroui-inc/next-app-template",
   },
   {
     title: "Next.js 13 (Pages) Template",
@@ -16,7 +16,7 @@ const frameworks = [
     description:
       "A Next.js 13 with pages directory template pre-configured with HeroUI (v2) and Tailwind CSS.",
     icon: <NewNextJSIcon height={40} width={40} />,
-    href: "https://github.com/frontio-ai/next-pages-template",
+    href: "https://github.com/heroui-inc/next-pages-template",
   },
 ];
 
