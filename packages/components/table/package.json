@@ -1,6 +1,6 @@
 {
   "name": "@heroui/table",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"

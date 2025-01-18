@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-theme",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "React hook to switch between light and dark themes",
   "keywords": [
     "use-theme"

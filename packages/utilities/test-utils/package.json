@@ -1,6 +1,6 @@
 {
   "name": "@heroui/test-utils",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "A set of utilities for react testing",
   "keywords": [
     "test-utils"

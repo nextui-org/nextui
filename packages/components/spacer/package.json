@@ -1,6 +1,6 @@
 {
   "name": "@heroui/spacer",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "A flexible spacer component designed to create consistent spacing and maintain alignment in your layout.",
   "keywords": [
     "spacer"

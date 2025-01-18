@@ -1,6 +1,6 @@
 {
   "name": "@heroui/shared-icons",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Internal icons set, commonly used in the components stories",
   "keywords": [
     "icons-utils"

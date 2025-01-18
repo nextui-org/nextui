@@ -1,5 +1,25 @@
 # @heroui/select
 
+## 2.4.10
+
+### Patch Changes
+
+- [#4594](https://github.com/heroui-inc/heroui/pull/4594) [`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Org name changed
+
+- Updated dependencies [[`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e)]:
+  - @heroui/use-safe-layout-effect@2.1.2
+  - @heroui/use-aria-multiselect@2.4.4
+  - @heroui/scroll-shadow@2.3.6
+  - @heroui/shared-icons@2.1.2
+  - @heroui/shared-utils@2.1.3
+  - @heroui/use-aria-button@2.2.5
+  - @heroui/react-utils@2.1.4
+  - @heroui/aria-utils@2.2.8
+  - @heroui/listbox@2.3.10
+  - @heroui/popover@2.3.10
+  - @heroui/spinner@2.2.7
+  - @heroui/form@2.1.9
+
 ## 2.4.9
 
 ### Patch Changes
