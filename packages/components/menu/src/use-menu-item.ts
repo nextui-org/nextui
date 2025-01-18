@@ -79,7 +79,7 @@ export function useMenuItem<T extends object>(originalProps: UseMenuItemProps<T>
 
   if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
     warn(
-      "onClick is deprecated, please use onPress instead. See: https://github.com/frontio-ai/heroui/issues/4292",
+      "onClick is deprecated, please use onPress instead. See: https://github.com/heroui-inc/heroui/issues/4292",
       "MenuItem",
     );
   }

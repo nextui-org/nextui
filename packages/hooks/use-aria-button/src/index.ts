@@ -106,7 +106,7 @@ export function useAriaButton(
 
   if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
     warn(
-      "onClick is deprecated, please use onPress instead. See: https://github.com/frontio-ai/heroui/issues/4292",
+      "onClick is deprecated, please use onPress instead. See: https://github.com/heroui-inc/heroui/issues/4292",
       "useButton",
     );
   }
@@ -115,7 +115,7 @@ export function useAriaButton(
     // On mobile devices, we need to call onClick directly since react-aria's usePress hook
     // only supports onPress events as of https://github.com/adobe/react-spectrum/commit/1d5def8a
     // This ensures backwards compatibility for onClick handlers on mobile
-    // See: https://github.com/frontio-ai/heroui/issues/4292
+    // See: https://github.com/heroui-inc/heroui/issues/4292
     if (isMobile) {
       deprecatedOnClick?.(e as unknown as React.MouseEvent<HTMLButtonElement>);
     }

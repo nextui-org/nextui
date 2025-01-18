@@ -118,7 +118,7 @@ const WithFooterTemplate = (args: CardProps) => (
       <p>Make beautiful websites regardless of your design experience.</p>
     </CardBody>
     <CardFooter>
-      <Link isExternal showAnchorIcon href="https://github.com/frontio-ai/heroui">
+      <Link isExternal showAnchorIcon href="https://github.com/heroui-inc/heroui">
         Visit source code on GitHub.
       </Link>
     </CardFooter>

@@ -1,5 +1,22 @@
 # @heroui/date-picker
 
+## 2.3.10
+
+### Patch Changes
+
+- [#4594](https://github.com/heroui-inc/heroui/pull/4594) [`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Org name changed
+
+- Updated dependencies [[`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e)]:
+  - @heroui/shared-icons@2.1.2
+  - @heroui/shared-utils@2.1.3
+  - @heroui/date-input@2.3.9
+  - @heroui/react-utils@2.1.4
+  - @heroui/aria-utils@2.2.8
+  - @heroui/calendar@2.2.10
+  - @heroui/popover@2.3.10
+  - @heroui/button@2.2.10
+  - @heroui/form@2.1.9
+
 ## 2.3.9
 
 ### Patch Changes

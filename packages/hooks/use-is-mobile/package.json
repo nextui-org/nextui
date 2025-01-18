@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-is-mobile",
-  "version": "2.2.2",
+  "version": "2.2.3",
   "description": "A hook that returns whether the device is mobile or not",
   "keywords": [
     "use-is-mobile"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/hooks/use-is-mobile"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

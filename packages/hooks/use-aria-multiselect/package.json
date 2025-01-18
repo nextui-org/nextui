@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-aria-multiselect",
-  "version": "2.4.3",
+  "version": "2.4.4",
   "description": "Provides the behavior and accessibility implementation for a multi-select component.",
   "keywords": [
     "use-aria-multiselect"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/hooks/use-aria-multiselect"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

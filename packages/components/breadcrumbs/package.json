@@ -1,6 +1,6 @@
 {
   "name": "@heroui/breadcrumbs",
-  "version": "2.2.6",
+  "version": "2.2.7",
   "description": "Breadcrumbs display a hierarchy of links to the current page or resource in an application.",
   "keywords": [
     "breadcrumbs"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/breadcrumbs"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

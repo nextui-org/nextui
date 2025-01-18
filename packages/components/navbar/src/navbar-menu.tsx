@@ -32,25 +32,28 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
 
   const styles = clsx(classNames?.menu, className);
 
-  // only apply overlay when menu is open
-  const OverlayComponent = isMenuOpen ? Overlay : React.Fragment;
+  if (disableAnimation) {
+    if (!isMenuOpen) return null;
 
-  const contents = disableAnimation ? (
-    <OverlayComponent portalContainer={portalContainer}>
-      <ul
-        ref={domRef}
-        className={slots.menu?.({class: styles})}
-        data-open={dataAttr(isMenuOpen)}
-        style={{
-          // @ts-expect-error
-          "--navbar-height": typeof height === "number" ? `${height}px` : height,
-        }}
-        {...otherProps}
-      >
-        {children}
-      </ul>
-    </OverlayComponent>
-  ) : (
+    return (
+      <Overlay portalContainer={portalContainer}>
+        <ul
+          ref={domRef}
+          className={slots.menu?.({class: styles})}
+          data-open={dataAttr(isMenuOpen)}
+          style={{
+            // @ts-expect-error
+            "--navbar-height": typeof height === "number" ? `${height}px` : height,
+          }}
+          {...otherProps}
+        >
+          {children}
+        </ul>
+      </Overlay>
+    );
+  }
+
+  return (
     <AnimatePresence mode="wait">
       {isMenuOpen ? (
         <Overlay portalContainer={portalContainer}>
@@ -78,8 +81,6 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
       ) : null}
     </AnimatePresence>
   );
-
-  return contents;
 });
 
 NavbarMenu.displayName = "HeroUI.NavbarMenu";

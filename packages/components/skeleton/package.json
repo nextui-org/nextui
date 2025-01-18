@@ -1,6 +1,6 @@
 {
   "name": "@heroui/skeleton",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "Skeleton is used to display the loading state of some component.",
   "keywords": [
     "skeleton"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/skeleton"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

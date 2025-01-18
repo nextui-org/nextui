@@ -1,6 +1,6 @@
 {
   "name": "@heroui/table",
-  "version": "2.2.8",
+  "version": "2.2.9",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/table"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

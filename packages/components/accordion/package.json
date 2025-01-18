@@ -1,6 +1,6 @@
 {
   "name": "@heroui/accordion",
-  "version": "2.2.7",
+  "version": "2.2.8",
   "description": "Collapse display a list of high-level options that can expand/collapse to reveal more information.",
   "keywords": [
     "react",
@@ -24,11 +24,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/accordion"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

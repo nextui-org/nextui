@@ -29,7 +29,7 @@ export default function App() {
       isExternal
       showAnchorIcon
       anchorIcon={<AnchorIcon />}
-      href="https://github.com/frontio-ai/heroui"
+      href="https://github.com/heroui-inc/heroui"
     >
       Custom Icon
     </Link>

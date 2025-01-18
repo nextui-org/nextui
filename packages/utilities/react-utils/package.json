@@ -1,6 +1,6 @@
 {
   "name": "@heroui/react-utils",
-  "version": "2.1.3",
+  "version": "2.1.4",
   "description": "A set of utilities for react on client side",
   "keywords": [
     "react-utils"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/utilities/react-utils"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

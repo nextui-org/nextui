@@ -1,5 +1,60 @@
 # @heroui/react
 
+## 2.6.14
+
+### Patch Changes
+
+- [#4594](https://github.com/heroui-inc/heroui/pull/4594) [`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Org name changed
+
+- Updated dependencies [[`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e), [`61ad020`](https://github.com/heroui-inc/heroui/commit/61ad0205c5b4b5c3ccba3acc05cef88914b53a7e), [`f7e5d20`](https://github.com/heroui-inc/heroui/commit/f7e5d205b156060d2d06aa17af31007dbb9fc13c)]:
+  - @heroui/scroll-shadow@2.3.6
+  - @heroui/autocomplete@2.3.11
+  - @heroui/breadcrumbs@2.2.7
+  - @heroui/date-picker@2.3.10
+  - @heroui/framer-utils@2.1.7
+  - @heroui/date-input@2.3.9
+  - @heroui/pagination@2.2.9
+  - @heroui/accordion@2.2.8
+  - @heroui/input-otp@2.1.9
+  - @heroui/calendar@2.2.10
+  - @heroui/checkbox@2.3.9
+  - @heroui/dropdown@2.3.10
+  - @heroui/progress@2.2.7
+  - @heroui/skeleton@2.2.6
+  - @heroui/divider@2.2.6
+  - @heroui/listbox@2.3.10
+  - @heroui/popover@2.3.10
+  - @heroui/snippet@2.2.11
+  - @heroui/spinner@2.2.7
+  - @heroui/tooltip@2.2.8
+  - @heroui/avatar@2.2.7
+  - @heroui/button@2.2.10
+  - @heroui/drawer@2.2.8
+  - @heroui/navbar@2.2.9
+  - @heroui/ripple@2.2.8
+  - @heroui/select@2.4.10
+  - @heroui/slider@2.4.8
+  - @heroui/spacer@2.2.7
+  - @heroui/switch@2.2.9
+  - @heroui/alert@2.2.10
+  - @heroui/badge@2.2.6
+  - @heroui/image@2.2.6
+  - @heroui/input@2.4.10
+  - @heroui/modal@2.2.8
+  - @heroui/radio@2.3.9
+  - @heroui/table@2.2.9
+  - @heroui/card@2.2.10
+  - @heroui/chip@2.2.7
+  - @heroui/code@2.2.7
+  - @heroui/form@2.1.9
+  - @heroui/link@2.2.8
+  - @heroui/menu@2.2.10
+  - @heroui/tabs@2.2.8
+  - @heroui/user@2.2.7
+  - @heroui/kbd@2.2.7
+  - @heroui/system@2.4.7
+  - @heroui/theme@2.4.6
+
 ## 2.6.13
 
 ### Patch Changes
