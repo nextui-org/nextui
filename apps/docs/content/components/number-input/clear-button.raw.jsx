@@ -6,8 +6,8 @@ export default function App() {
       isClearable
       className="max-w-xs"
       defaultValue={1024}
-      label="Width"
-      placeholder="Enter the width"
+      label="Amount"
+      placeholder="Enter the amount"
       variant="bordered"
       // eslint-disable-next-line no-console
       onClear={() => console.log("number input cleared")}

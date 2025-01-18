@@ -306,7 +306,7 @@ describe("NumberInput with React Hook Form", () => {
               data-testid="input"
               defaultValue={1234}
               label="Name"
-              validate={(v) => (v === 1234 ? "Invalid width" : null)}
+              validate={(v) => (v === 1234 ? "Invalid amount" : null)}
               validationBehavior="native"
             />
           </Form>,
@@ -324,7 +324,7 @@ describe("NumberInput with React Hook Form", () => {
         expect(document.activeElement).toBe(input);
         expect(input).toHaveAttribute("aria-describedby");
         expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid width",
+          "Invalid amount",
         );
 
         await user.keyboard("4321");
@@ -344,7 +344,7 @@ describe("NumberInput with React Hook Form", () => {
           let onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
             e.preventDefault();
             setServerErrors({
-              name: "Invalid width.",
+              name: "Invalid amount.",
             });
           };
 
@@ -377,7 +377,7 @@ describe("NumberInput with React Hook Form", () => {
 
         expect(input).toHaveAttribute("aria-describedby");
         expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid width.",
+          "Invalid amount.",
         );
         expect(input.validity.valid).toBe(false);
 
@@ -390,7 +390,7 @@ describe("NumberInput with React Hook Form", () => {
         expect(document.activeElement).toBe(input);
         expect(input).toHaveAttribute("aria-describedby");
         expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid width.",
+          "Invalid amount.",
         );
         expect(input.validity.valid).toBe(false);
 
@@ -409,8 +409,8 @@ describe("NumberInput with React Hook Form", () => {
             <NumberInput
               data-testid="input"
               defaultValue={1234}
-              label="Width"
-              validate={(v) => (v === 1234 ? "Invalid width" : null)}
+              label="Amount"
+              validate={(v) => (v === 1234 ? "Invalid amount" : null)}
             />
           </Form>,
         );
@@ -420,7 +420,7 @@ describe("NumberInput with React Hook Form", () => {
         expect(input).toHaveAttribute("aria-describedby");
         expect(input).toHaveAttribute("aria-invalid", "true");
         expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid width",
+          "Invalid amount",
         );
         expect(input.validity.valid).toBe(true);
 
@@ -433,7 +433,7 @@ describe("NumberInput with React Hook Form", () => {
 
       it("supports server validation", async () => {
         const {getByTestId} = render(
-          <Form validationErrors={{name: "Invalid width"}}>
+          <Form validationErrors={{name: "Invalid amount"}}>
             <NumberInput data-testid="input" label="Name" name="name" />
           </Form>,
         );
@@ -443,7 +443,7 @@ describe("NumberInput with React Hook Form", () => {
         expect(input).toHaveAttribute("aria-describedby");
         expect(input).toHaveAttribute("aria-invalid", "true");
         expect(document.getElementById(input.getAttribute("aria-describedby")!)).toHaveTextContent(
-          "Invalid width",
+          "Invalid amount",
         );
 
         await user.tab();

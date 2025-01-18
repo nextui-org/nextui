@@ -2,7 +2,7 @@ import {Button, Form, NumberInput} from "@heroui/react";
 
 export default function App() {
   const [submitted, setSubmitted] = React.useState(null);
-  const [width, setWidth] = React.useState(null);
+  const [amount, setAmount] = React.useState(null);
   const errors = [];
 
   const onSubmit = (e) => {
@@ -12,15 +12,15 @@ export default function App() {
     setSubmitted(data);
   };
 
-  if (!width) {
+  if (!amount) {
     errors.push("The value must not be empty");
   }
 
-  if (width < 100) {
+  if (amount < 100) {
     errors.push("The value must be greater than 100");
   }
 
-  if (width > 1000) {
+  if (amount > 1000) {
     errors.push("The value must be less than 1000");
   }
 
@@ -35,11 +35,11 @@ export default function App() {
           </ul>
         )}
         isInvalid={errors.length > 0}
-        label="Width"
-        name="width"
+        label="Amount"
+        name="amount"
         placeholder="Enter a number"
-        value={width}
-        onValueChange={setWidth}
+        value={amount}
+        onValueChange={setAmount}
       />
       <Button color="primary" type="submit">
         Submit

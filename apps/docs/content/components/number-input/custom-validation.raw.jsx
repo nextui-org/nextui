@@ -14,8 +14,8 @@ export default function App() {
     <Form className="w-full max-w-xs" validationBehavior="native" onSubmit={onSubmit}>
       <NumberInput
         isRequired
-        label="Width"
-        name="width"
+        label="Amount"
+        name="amount"
         placeholder="Enter a number"
         validate={(value) => {
           if (value < 100) {

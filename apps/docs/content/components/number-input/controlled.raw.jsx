@@ -6,8 +6,8 @@ export default function App() {
   return (
     <div className="w-full flex flex-col gap-2 max-w-[240px]">
       <NumberInput
-        label="Width"
-        placeholder="Enter the width"
+        label="Amount"
+        placeholder="Enter the amount"
         value={value}
         onValueChange={setValue}
       />

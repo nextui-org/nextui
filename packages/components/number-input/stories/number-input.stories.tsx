@@ -138,7 +138,7 @@ const ServerValidationTemplate = (args: NumberInputProps) => {
   const onSubmit = (e) => {
     e.preventDefault();
     setServerErrors({
-      width: "Please provide a valid number.",
+      amount: "Please provide a valid number.",
     });
   };
 
@@ -161,7 +161,7 @@ export const Default = {
 
   args: {
     ...defaultProps,
-    "aria-label": "Width",
+    "aria-label": "Amount",
   },
 };
 
@@ -170,7 +170,7 @@ export const WithLabel = {
 
   args: {
     ...defaultProps,
-    label: "Width",
+    label: "Amount",
   },
 };
 
@@ -179,8 +179,8 @@ export const WithDescription = {
 
   args: {
     ...defaultProps,
-    label: "Width",
-    description: "Specify the width in meters.",
+    label: "Amount",
+    description: "Specify the amount",
   },
 };
 
@@ -189,9 +189,9 @@ export const WithHelperText = {
 
   args: {
     ...defaultProps,
-    label: "Width",
-    description: "Specify the width in meters.",
-    helperText: "Width should be between 5 and 50 meters",
+    label: "Amount",
+    description: "Specify the amount",
+    helperText: "Amount should be between 5 and 50",
     minValue: 5,
     maxValue: 50,
   },
@@ -202,7 +202,7 @@ export const WithStepValue = {
 
   args: {
     ...defaultProps,
-    label: "Width",
+    label: "Amount",
     step: 10,
     helperText: "Set `step` to `10` to increment / decrement the value by 10.",
   },
@@ -213,7 +213,7 @@ export const WithWheelDisabled = {
 
   args: {
     ...defaultProps,
-    label: "Width",
+    label: "Amount",
     step: 10,
     helperText: "Set `isWheelDisabled` to `true` to disable the wheel.",
     isWheelDisabled: true,
@@ -262,7 +262,7 @@ export const Required = {
 
   args: {
     ...defaultProps,
-    label: "Width",
+    label: "Amount",
     isRequired: true,
     defaultValue: undefined,
     placeholder: "Enter a number",
@@ -276,7 +276,7 @@ export const Disabled = {
     ...defaultProps,
     variant: "faded",
     isDisabled: true,
-    "aria-label": "width",
+    "aria-label": "amount",
   },
 };
 
@@ -287,7 +287,7 @@ export const ReadOnly = {
     ...defaultProps,
     variant: "bordered",
     isReadOnly: true,
-    "aria-label": "width",
+    "aria-label": "amount",
   },
 };
 
@@ -300,7 +300,7 @@ export const Clearable = {
     placeholder: "Enter a number",
     // eslint-disable-next-line no-console
     onClear: () => console.log("number input cleared"),
-    "aria-label": "width",
+    "aria-label": "amount",
   },
 };
 
@@ -375,7 +375,7 @@ export const WithErrorMessage = {
     ...defaultProps,
     isInvalid: true,
     errorMessage: "Please enter a valid number",
-    "aria-label": "width",
+    "aria-label": "amount",
   },
 };
 
@@ -426,8 +426,8 @@ export const WithServerValidation = {
 
   args: {
     ...defaultProps,
-    label: "width",
-    name: "width",
+    label: "amount",
+    name: "amount",
   },
 };
 
@@ -440,7 +440,7 @@ export const IsInvalid = {
     isInvalid: true,
     placeholder: "Enter a number",
     errorMessage: "Please enter a valid range of numbers",
-    "aria-label": "width",
+    "aria-label": "amount",
   },
 };
 
@@ -451,7 +451,7 @@ export const Controlled = {
     ...defaultProps,
     variant: "bordered",
     placeholder: "Enter a number",
-    "aria-label": "width",
+    "aria-label": "amount",
   },
 };
 

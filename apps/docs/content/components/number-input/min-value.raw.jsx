@@ -7,7 +7,7 @@ export default function App() {
       className="max-w-xs"
       helperText="The value of the element should be greater than 100"
       minValue={100}
-      placeholder="Enter the width"
+      placeholder="Enter the amount"
     />
   );
 }

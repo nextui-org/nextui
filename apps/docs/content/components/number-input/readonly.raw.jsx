@@ -6,7 +6,7 @@ export default function App() {
       isReadOnly
       className="max-w-xs"
       defaultValue={1024}
-      placeholder="Enter the width"
+      placeholder="Enter the amount"
       variant="bordered"
     />
   );

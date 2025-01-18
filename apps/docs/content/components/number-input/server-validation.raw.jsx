@@ -25,8 +25,8 @@ export default function App() {
       <NumberInput
         isRequired
         isDisabled={isLoading}
-        label="Width"
-        name="width"
+        label="Amount"
+        name="amount"
         placeholder="Enter a number"
       />
       <Button color="primary" isLoading={isLoading} type="submit">
@@ -42,7 +42,7 @@ async function callServer(_) {
 
   return {
     errors: {
-      width: "Sorry, this width is not valid.",
+      amount: "Sorry, this amount is not valid.",
     },
   };
 }

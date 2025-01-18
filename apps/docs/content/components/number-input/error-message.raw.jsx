@@ -7,8 +7,8 @@ export default function App() {
       defaultValue={1024}
       errorMessage="Please enter a valid number"
       isInvalid={true}
-      label="Width"
-      placeholder="Enter the width"
+      label="Amount"
+      placeholder="Enter the amount"
       variant="bordered"
     />
   );

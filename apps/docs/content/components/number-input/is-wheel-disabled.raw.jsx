@@ -6,7 +6,7 @@ export default function App() {
       isWheelDisabled
       className="max-w-xs"
       defaultValue={1024}
-      placeholder="Enter the width"
+      placeholder="Enter the amount"
     />
   );
 }

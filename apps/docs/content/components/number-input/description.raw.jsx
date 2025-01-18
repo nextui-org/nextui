@@ -5,8 +5,8 @@ export default function App() {
     <NumberInput
       className="max-w-xs"
       defaultValue={1024}
-      description="Enter the width of the element"
-      label="Width"
+      description="Enter the amount of the element"
+      label="Amount"
     />
   );
 }

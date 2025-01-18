@@ -25,6 +25,7 @@ export default function App() {
             "dark:group-data-[focus=true]:bg-default/60",
             "!cursor-text",
           ],
+          helperText: "text-black/50 dark:text-white/90",
         }}
         description="The number of apples that Marcus bought"
         helperText="Must be equal or greater than 1"

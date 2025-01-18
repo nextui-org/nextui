@@ -10,7 +10,7 @@ export default function App() {
           key={r}
           className="max-w-[220px]"
           defaultValue={1024}
-          placeholder="Enter the width"
+          placeholder="Enter the amount"
           radius={r}
         />
       ))}

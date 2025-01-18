@@ -11,8 +11,8 @@ export default function App() {
           className="max-w-[220px]"
           color={color}
           defaultValue={1024}
-          label="Width"
-          placeholder="Enter the width"
+          label="Amount"
+          placeholder="Enter the amount"
         />
       ))}
     </div>
