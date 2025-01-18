@@ -1,5 +1,5 @@
 ---
-"@nextui-org/tabs": major
+"@heroui/tabs": major
 ---
 
 Added ellipsis to tabs
