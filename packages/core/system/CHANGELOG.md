@@ -1,5 +1,13 @@
 # @heroui/system
 
+## 2.4.8
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @heroui/system-rsc@2.3.6
+  - @heroui/react-utils@2.1.5
+
 ## 2.4.7
 
 ### Patch Changes
