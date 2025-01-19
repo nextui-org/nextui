@@ -1,5 +1,14 @@
 # @heroui/radio
 
+## 2.3.10
+
+### Patch Changes
+
+- Updated dependencies [[`66efa0a`](https://github.com/heroui-inc/heroui/commit/66efa0a08efa96c884829bb38325ec4c799c6e22)]:
+  - @heroui/shared-utils@2.1.4
+  - @heroui/form@2.1.10
+  - @heroui/react-utils@2.1.5
+
 ## 2.3.9
 
 ### Patch Changes

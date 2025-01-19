@@ -1,5 +1,14 @@
 # @heroui/code
 
+## 2.2.8
+
+### Patch Changes
+
+- Updated dependencies [[`66efa0a`](https://github.com/heroui-inc/heroui/commit/66efa0a08efa96c884829bb38325ec4c799c6e22)]:
+  - @heroui/shared-utils@2.1.4
+  - @heroui/system-rsc@2.3.6
+  - @heroui/react-utils@2.1.5
+
 ## 2.2.7
 
 ### Patch Changes
