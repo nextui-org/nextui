@@ -316,7 +316,7 @@ const CustomStylesTemplate = (args: DrawerProps) => {
                     alt="Event image"
                     className="aspect-square w-full hover:scale-110"
                     height={300}
-                    src="https://herouipro.nyc3.cdn.digitaloceanspaces.com/components-images/places/san-francisco.png"
+                    src="https://nextuipro.nyc3.cdn.digitaloceanspaces.com/components-images/places/san-francisco.png"
                   />
                 </div>
                 <div className="flex flex-col gap-2 py-4">
