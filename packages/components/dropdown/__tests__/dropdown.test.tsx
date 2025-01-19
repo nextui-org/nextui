@@ -466,7 +466,7 @@ describe("Dropdown", () => {
       );
     };
 
-    // Non Next UI Element in DropdownTrigger
+    // Non Hero UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -480,7 +480,7 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // Next UI Element in DropdownTrigger
+    // Hero UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
