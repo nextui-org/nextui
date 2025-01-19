@@ -171,8 +171,22 @@ After migration, verify that:
   The functionality and API of all components remain the same - only the package names and imports have changed.
 </Blockquote>
 
+## Troubleshooting
+
+If you encounter issues during migration, try these steps:
+
+### NPM Users
+If you're using `npm`, you may need to:
+1. Delete your `node_modules` folder
+2. Delete your `package-lock.json` file
+3. Reinstall all packages with `npm install`
+
+### Package.json Check
+Ensure that no `@nextui-org` packages remain in your `package.json` dependencies or devDependencies.
+
+### Need Help?
+Join our Discord community in the **#nextui-to-heroui** channel [https://discord.gg/9b6yyZKmH4](https://discord.gg/9b6yyZKmH4) - our team is happy to help!
+
 ---
 
-If you encounter any issues during migration, please [open an issue](https://github.com/nextui-inc/heroui/issues) on our GitHub repository.
-
-<Spacer y={4}/>
+If you encounter any issues during migration, please [open an issue](https://github.com/heroui-inc/heroui/issues) on our GitHub repository.

@@ -12,7 +12,7 @@ body:
     attributes:
       value: |
         This issue form is for requesting features only! For example, requesting a new component, behavior ... etc
-        If you want to report a bug, please use the [bug report form](https://github.com/frontio-ai/heroui/issues/new?assignees=&labels=&template=bug_report.yml).
+        If you want to report a bug, please use the [bug report form](https://github.com/heroui-inc/heroui/issues/new?assignees=&labels=&template=bug_report.yml).
   - type: textarea
     validations:
       required: true

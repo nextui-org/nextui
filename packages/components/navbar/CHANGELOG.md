@@ -1,5 +1,20 @@
 # @heroui/navbar
 
+## 2.2.9
+
+### Patch Changes
+
+- [#4594](https://github.com/heroui-inc/heroui/pull/4594) [`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e) Thanks [@jrgarciadev](https://github.com/jrgarciadev)! - Org name changed
+
+- [#4506](https://github.com/heroui-inc/heroui/pull/4506) [`61ad020`](https://github.com/heroui-inc/heroui/commit/61ad0205c5b4b5c3ccba3acc05cef88914b53a7e) Thanks [@Peterl561](https://github.com/Peterl561)! - fixed NavbarMenu React.Fragment prop error when animation is disabled (#4501)
+
+- Updated dependencies [[`7ebe0e6`](https://github.com/heroui-inc/heroui/commit/7ebe0e664feb777fe0cad311312d0e02b899319e)]:
+  - @heroui/use-scroll-position@2.1.2
+  - @heroui/dom-animation@2.1.2
+  - @heroui/framer-utils@2.1.7
+  - @heroui/shared-utils@2.1.3
+  - @heroui/react-utils@2.1.4
+
 ## 2.2.8
 
 ### Patch Changes

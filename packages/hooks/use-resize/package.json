@@ -1,6 +1,6 @@
 {
   "name": "@heroui/use-resize",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Hook that adds an event listener to the resize window event",
   "keywords": [
     "use-resize"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/hooks/use-resize"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

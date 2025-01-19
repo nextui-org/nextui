@@ -1,6 +1,6 @@
 {
   "name": "@heroui/shared-utils",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "description": "A set of HeroUI utilities",
   "keywords": [
     "system"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/core/system"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

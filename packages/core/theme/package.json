@@ -1,6 +1,6 @@
 {
   "name": "@heroui/theme",
-  "version": "2.4.5",
+  "version": "2.4.6",
   "description": "The default theme for HeroUI components",
   "keywords": [
     "theme",
@@ -30,11 +30,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/core/theme"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",

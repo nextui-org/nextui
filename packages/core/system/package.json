@@ -1,6 +1,6 @@
 {
   "name": "@heroui/system",
-  "version": "2.4.6",
+  "version": "2.4.7",
   "description": "HeroUI system primitives",
   "keywords": [
     "system"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/core/system"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src !src/extend-variants.d.ts --dts",

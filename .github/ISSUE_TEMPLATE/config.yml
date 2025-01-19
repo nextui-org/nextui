@@ -1,7 +1,7 @@
 blank_issues_enabled: true
 contact_links:
   - name: 🤔 Long question or ideas?
-    url: https://github.com/frontio-ai/heroui/discussions
+    url: https://github.com/heroui-inc/heroui/discussions
     about: Ask long-form questions and discuss ideas.
   - name: 💬 Discord Community Chat
     url: https://discord.gg/9b6yyZKmH4

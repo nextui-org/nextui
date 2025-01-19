@@ -24,6 +24,9 @@ const ProviderWrapper = ({children}: {children: React.ReactElement}) => {
         api_host: "/ingest",
         person_profiles: "identified_only",
         ui_host: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+        capture_pageview: false,
+        capture_pageleave: false,
+        capture_heatmaps: false,
       });
     }
   }, []);

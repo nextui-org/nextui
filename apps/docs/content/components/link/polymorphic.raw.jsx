@@ -6,7 +6,7 @@ export default function App() {
       showAnchorIcon
       as={Link}
       color="primary"
-      href="https://github.com/frontio-ai/heroui"
+      href="https://github.com/heroui-inc/heroui"
       variant="solid"
     >
       Button Link

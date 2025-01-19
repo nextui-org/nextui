@@ -65,7 +65,7 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
     warn(
-      "onClick is deprecated, please use onPress instead. See: https://github.com/frontio-ai/heroui/issues/4292",
+      "onClick is deprecated, please use onPress instead. See: https://github.com/heroui-inc/heroui/issues/4292",
       "ListboxItem",
     );
   }

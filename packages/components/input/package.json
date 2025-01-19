@@ -1,6 +1,6 @@
 {
   "name": "@heroui/input",
-  "version": "2.4.9",
+  "version": "2.4.10",
   "description": "The input component is designed for capturing user input within a text field.",
   "keywords": [
     "input"
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/frontio-ai/heroui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/input"
   },
   "bugs": {
-    "url": "https://github.com/frontio-ai/heroui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
