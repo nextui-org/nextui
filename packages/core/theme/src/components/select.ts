@@ -22,7 +22,7 @@ const select = tv({
     trigger:
       "relative px-3 gap-3 w-full inline-flex flex-row items-center shadow-sm outline-none tap-highlight-transparent",
     innerWrapper:
-      "inline-flex h-full w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
+      "inline-flex h-fit w-[calc(100%_-_theme(spacing.6))] min-h-4 items-center gap-1.5 box-border",
     selectorIcon: "absolute end-3 w-4 h-4",
     spinner: "absolute end-3",
     value: ["text-foreground-500", "font-normal", "w-full", "text-start"],
