@@ -61,7 +61,7 @@ export const CalendarCellHeader = ({children}: CalendarCellHeaderProps) => {
         data-today={dataAttr(isToday)}
         data-unavailable={dataAttr(isUnavailable)}
       >
-        {children ? children : date.day}
+        {children || date.day}
       </span>
     </div>
   );
