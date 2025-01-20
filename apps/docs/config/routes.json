@@ -339,6 +339,13 @@
           "path": "/docs/components/navbar.mdx"
         },
         {
+          "key": "number-input",
+          "title": "Number Input",
+          "keywords": "input, numeric input, number input",
+          "path": "/docs/components/number-input.mdx",
+          "newPost": true
+        },
+        {
           "key": "pagination",
           "title": "Pagination",
           "keywords": "pagination, page navigation, content division, browsing control",

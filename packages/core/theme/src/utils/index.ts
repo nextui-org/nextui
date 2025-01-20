@@ -8,6 +8,7 @@ export {
   absoluteFullClasses,
   collapseAdjacentVariantBorders,
   hiddenInputClasses,
+  numberInputLabelClasses,
 } from "./classes";
 export type {SlotsToClasses} from "./types";
 export {colorVariants} from "./variants";

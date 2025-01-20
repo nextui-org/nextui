@@ -81,7 +81,7 @@ Update your `tailwind.config.js`:
 
 ```js
 // Before
-const {nextui} = require("@nextui-org/react");
+const {nextui} = require("@heroui/react");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -109,7 +109,7 @@ Replace the NextUI provider with HeroUI's provider:
 
 ```jsx
 // Before
-import {NextUIProvider} from "@nextui-org/react";
+import {NextUIProvider} from "@heroui/react";
 
 // After
 import {HeroUIProvider} from "@heroui/react";
@@ -121,7 +121,7 @@ Update all component imports to use the new package name:
 
 ```jsx
 // Before
-import {Button, Input} from "@nextui-org/react";
+import {Button, Input} from "@heroui/react";
 
 // After
 import {Button, Input} from "@heroui/react";
@@ -136,7 +136,7 @@ If you're using individual packages, update each package name:
 import {Button} from "@nextui-org/button";
 import {Input} from "@nextui-org/input";
 import {nextui} from "@nextui-org/theme";
-import {NextUIProvider} from "@nextui-org/react";
+import {NextUIProvider} from "@heroui/react";
 
 // After
 import {Button} from "@heroui/button";

@@ -89,6 +89,7 @@
     "@heroui/drawer": "workspace:*",
     "@heroui/form": "workspace:*",
     "@heroui/alert": "workspace:*",
+    "@heroui/number-input": "workspace:*",
     "@react-aria/visually-hidden": "3.8.18"
   },
   "peerDependencies": {
