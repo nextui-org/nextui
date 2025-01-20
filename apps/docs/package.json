@@ -37,7 +37,7 @@
     "@heroui/use-is-mobile": "workspace:*",
     "@iconify/icons-solar": "1.2.3",
     "@iconify/react": "5.0.2",
-    "@internationalized/date": "3.6.0",
+    "@internationalized/date": "3.7.0",
     "@mapbox/rehype-prism": "^0.6.0",
     "@radix-ui/react-scroll-area": "^1.0.5",
     "@react-aria/focus": "3.19.0",

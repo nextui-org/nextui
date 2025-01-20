@@ -332,8 +332,8 @@ importers:
         specifier: 5.0.2
         version: 5.0.2(react@18.2.0)
       '@internationalized/date':
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.7.0
+        version: 3.7.0
       '@mapbox/rehype-prism':
         specifier: ^0.6.0
         version: 0.6.0
@@ -1063,8 +1063,8 @@ importers:
         specifier: workspace:*
         version: link:../../hooks/use-aria-button
       '@internationalized/date':
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.7.0
+        version: 3.7.0
       '@react-aria/calendar':
         specifier: 3.7.0
         version: 3.7.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1350,8 +1350,8 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@internationalized/date':
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.7.0
+        version: 3.7.0
       '@react-aria/datepicker':
         specifier: 3.13.0
         version: 3.13.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1423,8 +1423,8 @@ importers:
         specifier: workspace:*
         version: link:../../utilities/shared-utils
       '@internationalized/date':
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.7.0
+        version: 3.7.0
       '@react-aria/datepicker':
         specifier: 3.13.0
         version: 3.13.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -3267,8 +3267,8 @@ importers:
         specifier: workspace:*
         version: link:../system-rsc
       '@internationalized/date':
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 3.7.0
+        version: 3.7.0
       '@react-aria/i18n':
         specifier: 3.12.5
         version: 3.12.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -5631,9 +5631,6 @@ packages:
     engines: {node: ^18.17.0 || ^20.3.0 || >=21.0.0}
     cpu: [x64]
     os: [win32]
-
-  '@internationalized/date@3.6.0':
-    resolution: {integrity: sha512-+z6ti+CcJnRlLHok/emGEsWQhe7kfSmEW+/6qCzvKY67YPh7YOBfvc7+/+NXq+zJlbArg30tYpqLjNgcAYv2YQ==}
 
   '@internationalized/date@3.7.0':
     resolution: {integrity: sha512-VJ5WS3fcVx0bejE/YHfbDKR/yawZgKqn/if+oEeLqNwBtPzVB06olkfcnojTmEMX+gTpH+FlQ69SHNitJ8/erQ==}
@@ -17429,10 +17426,6 @@ snapshots:
   '@img/sharp-win32-x64@0.33.5':
     optional: true
 
-  '@internationalized/date@3.6.0':
-    dependencies:
-      '@swc/helpers': 0.5.15
-
   '@internationalized/date@3.7.0':
     dependencies:
       '@swc/helpers': 0.5.15
@@ -19044,7 +19037,7 @@ snapshots:
 
   '@react-aria/i18n@3.12.4(react@18.2.0)':
     dependencies:
-      '@internationalized/date': 3.6.0
+      '@internationalized/date': 3.7.0
       '@internationalized/message': 3.1.6
       '@internationalized/number': 3.6.0
       '@internationalized/string': 3.2.5
@@ -19685,7 +19678,7 @@ snapshots:
 
   '@react-types/calendar@3.5.0(react@18.2.0)':
     dependencies:
-      '@internationalized/date': 3.6.0
+      '@internationalized/date': 3.7.0
       '@react-types/shared': 3.26.0(react@18.2.0)
       react: 18.2.0
 
@@ -19715,7 +19708,7 @@ snapshots:
 
   '@react-types/datepicker@3.9.0(react@18.2.0)':
     dependencies:
-      '@internationalized/date': 3.6.0
+      '@internationalized/date': 3.7.0
       '@react-types/calendar': 3.5.0(react@18.2.0)
       '@react-types/overlays': 3.8.11(react@18.2.0)
       '@react-types/shared': 3.26.0(react@18.2.0)

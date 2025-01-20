@@ -41,7 +41,7 @@
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@internationalized/date": "3.6.0",
+    "@internationalized/date": "3.7.0",
     "@heroui/aria-utils": "workspace:*",
     "@heroui/button": "workspace:*",
     "@heroui/calendar": "workspace:*",

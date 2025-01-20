@@ -48,7 +48,7 @@
     "@heroui/use-aria-button": "workspace:*",
     "@heroui/button": "workspace:*",
     "@heroui/dom-animation": "workspace:*",
-    "@internationalized/date": "3.6.0",
+    "@internationalized/date": "3.7.0",
     "@react-aria/calendar": "3.7.0",
     "@react-aria/focus": "3.19.1",
     "@react-aria/i18n": "3.12.5",
