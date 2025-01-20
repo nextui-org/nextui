@@ -2997,6 +2997,61 @@ importers:
         specifier: 0.13.0
         version: 0.13.0(react@18.2.0)
 
+  packages/components/toast:
+    dependencies:
+      '@heroui/dom-animation':
+        specifier: workspace:*
+        version: link:../../utilities/dom-animation
+      '@heroui/react-utils':
+        specifier: workspace:*
+        version: link:../../utilities/react-utils
+      '@heroui/shared-icons':
+        specifier: workspace:*
+        version: link:../../utilities/shared-icons
+      '@heroui/shared-utils':
+        specifier: workspace:*
+        version: link:../../utilities/shared-utils
+      '@heroui/spinner':
+        specifier: workspace:*
+        version: link:../spinner
+      '@react-aria/interactions':
+        specifier: 3.22.5
+        version: 3.22.5(react@18.2.0)
+      '@react-aria/toast':
+        specifier: 3.0.0-beta.15
+        version: 3.0.0-beta.15(react@18.2.0)
+      '@react-aria/utils':
+        specifier: 3.26.0
+        version: 3.26.0(react@18.2.0)
+      '@react-stately/toast':
+        specifier: 3.0.0-beta.5
+        version: 3.0.0-beta.5(react@18.2.0)
+      '@react-stately/utils':
+        specifier: 3.10.5
+        version: 3.10.5(react@18.2.0)
+      framer-motion:
+        specifier: '>=11.5.6 || >=12.0.0-alpha.1'
+        version: 11.11.13(@emotion/is-prop-valid@1.3.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+    devDependencies:
+      '@heroui/button':
+        specifier: workspace:*
+        version: link:../button
+      '@heroui/system':
+        specifier: workspace:*
+        version: link:../../core/system
+      '@heroui/theme':
+        specifier: workspace:*
+        version: link:../../core/theme
+      clean-package:
+        specifier: 2.2.0
+        version: 2.2.0
+      react:
+        specifier: 18.2.0
+        version: 18.2.0
+      react-dom:
+        specifier: 18.2.0
+        version: 18.2.0(react@18.2.0)
+
   packages/components/tooltip:
     dependencies:
       '@heroui/aria-utils':
@@ -3235,6 +3290,9 @@ importers:
       '@heroui/theme':
         specifier: workspace:*
         version: link:../theme
+      '@heroui/toast':
+        specifier: workspace:*
+        version: link:../../components/toast
       '@heroui/tooltip':
         specifier: workspace:*
         version: link:../../components/tooltip
@@ -6741,6 +6799,11 @@ packages:
     peerDependencies:
       react: 18.2.0
 
+  '@react-aria/landmark@3.0.0-beta.15':
+    resolution: {integrity: sha512-EEABy0IFzqoS7r11HoD2YwiGR5LFw4kWDFTFUFwJkRP5tHEzsrEgkKPSPJXScQr5m7tenV6j0/Zzl1+w1ki3lA==}
+    peerDependencies:
+      react: 18.2.0
+
   '@react-aria/link@3.7.7':
     resolution: {integrity: sha512-eVBRcHKhNSsATYWv5wRnZXRqPVcKAWWakyvfrYePIKpC3s4BaHZyTGYdefk8ZwZdEOuQZBqLMnjW80q1uhtkuA==}
     peerDependencies:
@@ -6819,6 +6882,11 @@ packages:
 
   '@react-aria/textfield@3.15.0':
     resolution: {integrity: sha512-V5mg7y1OR6WXYHdhhm4FC7QyGc9TideVRDFij1SdOJrIo5IFB7lvwpOS0GmgwkVbtr71PTRMjZnNbrJUFU6VNA==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-aria/toast@3.0.0-beta.15':
+    resolution: {integrity: sha512-bg6ZXq4B5JYVt3GXVlf075tQOakcfumbDLnUMaijez4BhacuxF01+IvBPzAVEsARVNXfELoXa7Frb2K54Wgvtw==}
     peerDependencies:
       react: 18.2.0
 
@@ -6956,6 +7024,11 @@ packages:
 
   '@react-stately/tabs@3.7.0':
     resolution: {integrity: sha512-ox4hTkfZCoR4Oyr3Op3rBlWNq2Wxie04vhEYpTZQ2hobR3l4fYaOkd7CPClILktJ3TC104j8wcb0knWxIBRx9w==}
+    peerDependencies:
+      react: 18.2.0
+
+  '@react-stately/toast@3.0.0-beta.5':
+    resolution: {integrity: sha512-MEdQwcKsexlcJ4YQZ9cN5QSIqTlGGdgC5auzSKXXoq15DHuo4mtHfLzXPgcMDYOhOdmyphMto8Vt+21UL2FOrw==}
     peerDependencies:
       react: 18.2.0
 
@@ -18928,6 +19001,14 @@ snapshots:
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
+  '@react-aria/landmark@3.0.0-beta.15(react@18.2.0)':
+    dependencies:
+      '@react-aria/utils': 3.26.0(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+      use-sync-external-store: 1.4.0(react@18.2.0)
+
   '@react-aria/link@3.7.7(react@18.2.0)':
     dependencies:
       '@react-aria/focus': 3.19.0(react@18.2.0)
@@ -19108,6 +19189,18 @@ snapshots:
       '@react-stately/utils': 3.10.5(react@18.2.0)
       '@react-types/shared': 3.26.0(react@18.2.0)
       '@react-types/textfield': 3.10.0(react@18.2.0)
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+
+  '@react-aria/toast@3.0.0-beta.15(react@18.2.0)':
+    dependencies:
+      '@react-aria/i18n': 3.12.4(react@18.2.0)
+      '@react-aria/interactions': 3.22.5(react@18.2.0)
+      '@react-aria/landmark': 3.0.0-beta.15(react@18.2.0)
+      '@react-aria/utils': 3.26.0(react@18.2.0)
+      '@react-stately/toast': 3.0.0-beta.5(react@18.2.0)
+      '@react-types/button': 3.10.1(react@18.2.0)
+      '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
 
@@ -19362,6 +19455,12 @@ snapshots:
       '@react-types/tabs': 3.3.11(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
+
+  '@react-stately/toast@3.0.0-beta.5(react@18.2.0)':
+    dependencies:
+      '@swc/helpers': 0.5.15
+      react: 18.2.0
+      use-sync-external-store: 1.4.0(react@18.2.0)
 
   '@react-stately/toggle@3.8.0(react@18.2.0)':
     dependencies:

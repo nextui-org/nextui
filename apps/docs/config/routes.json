@@ -436,7 +436,7 @@
           "title": "Toast",
           "keywords": "toast, notification, message",
           "path": "/docs/components/toast.mdx",
-          "comingSoon": true
+          "newPost": true
         },
         {
           "key": "textarea",
