@@ -1,11 +1,11 @@
-import type {HTMLNextUIProps} from "@nextui-org/system";
+import type {HTMLHeroUIProps} from "@heroui/system";
 
-import {dataAttr} from "@nextui-org/shared-utils";
+import {dataAttr} from "@heroui/shared-utils";
 
 import {useCalendarCell} from "./calendar-cell-context";
 import {useCalendarContext} from "./calendar-context";
 
-export interface CalendarCellHeaderProps extends HTMLNextUIProps<"div"> {
+export interface CalendarCellHeaderProps extends HTMLHeroUIProps<"div"> {
   children?: React.ReactNode;
 }
 
