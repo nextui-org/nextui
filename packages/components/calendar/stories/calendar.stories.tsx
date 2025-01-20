@@ -8,6 +8,7 @@ import {
   isWeekend,
   startOfWeek,
   startOfMonth,
+  getDayOfWeek,
 } from "@internationalized/date";
 import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@heroui/button";
@@ -15,7 +16,14 @@ import {Radio, RadioGroup} from "@heroui/radio";
 import {cn} from "@heroui/theme";
 import {HeroUIProvider} from "@heroui/system";
 
-import {Calendar, CalendarProps, DateValue} from "../src";
+import {
+  Calendar,
+  CalendarProps,
+  DateValue,
+  CalendarCellContent,
+  CalendarCellHeader,
+  CalendarCellBody,
+} from "../src";
 
 export default {
   title: "Components/Calendar",
@@ -262,6 +270,72 @@ const CalendarWidthTemplate = (args: CalendarProps) => {
   );
 };
 
+const CustomCellTemplate = (args: CalendarProps) => {
+  const {locale} = useLocale();
+
+  return (
+    <div className="flex gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <Calendar {...args} calendarWidth={340}>
+          {(date) => (
+            <CalendarCellContent>
+              <CalendarCellHeader />
+              <CalendarCellBody>
+                <div className="flex flex-col w-full text-tiny gap-0.5 px-0.5">
+                  {date.day % 7 === 0 && (
+                    <span
+                      aria-label="calendar event"
+                      className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1"
+                      role="status"
+                    >
+                      MTG
+                    </span>
+                  )}
+                  {date.day % 5 === 0 && (
+                    <span
+                      aria-label="calendar event"
+                      className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1"
+                      role="status"
+                    >
+                      MTG
+                    </span>
+                  )}
+                  {date.day % 3 === 0 && (
+                    <span
+                      aria-label="calendar event"
+                      className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1"
+                      role="status"
+                    >
+                      MTG
+                    </span>
+                  )}
+                </div>
+              </CalendarCellBody>
+            </CalendarCellContent>
+          )}
+        </Calendar>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <Calendar {...args}>
+          {(date) => {
+            const dayOfWeek = getDayOfWeek(date, locale);
+            const style =
+              dayOfWeek === 0 ? "text-red-500" : dayOfWeek === 6 ? "text-blue-500" : "inherit";
+
+            return (
+              <CalendarCellContent>
+                <CalendarCellHeader>
+                  <span className={style}>{date.day}</span>
+                </CalendarCellHeader>
+              </CalendarCellContent>
+            );
+          }}
+        </Calendar>
+      </div>
+    </div>
+  );
+};
+
 const ReducedMotionTemplate = (args: CalendarProps) => {
   return (
     <div className="flex gap-4">
@@ -401,6 +475,13 @@ export const Presets = {
 
 export const CalendarWidth = {
   render: CalendarWidthTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomCellContent = {
+  render: CustomCellTemplate,
   args: {
     ...defaultProps,
   },

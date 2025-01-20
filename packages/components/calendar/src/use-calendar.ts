@@ -18,12 +18,12 @@ export type UseCalendarProps<T extends DateValue> = UseCalendarBaseProps & AriaC
 export function useCalendar<T extends DateValue>({
   buttonPickerProps: buttonPickerPropsProp,
   className,
+  cellContent,
   ...originalProps
 }: UseCalendarProps<T>) {
   const {
     Component,
     slots,
-    children,
     domRef,
     locale,
     minValue,
@@ -107,6 +107,7 @@ export function useCalendar<T extends DateValue>({
       classNames,
       showMonthAndYearPickers,
       disableAnimation,
+      cellContent,
     }),
     [
       state,
@@ -118,12 +119,12 @@ export function useCalendar<T extends DateValue>({
       visibleMonths,
       disableAnimation,
       showMonthAndYearPickers,
+      cellContent,
     ],
   );
 
   return {
     Component,
-    children,
     domRef,
     context,
     state,

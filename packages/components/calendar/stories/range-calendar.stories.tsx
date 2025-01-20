@@ -12,13 +12,20 @@ import {
   startOfWeek,
   endOfMonth,
   endOfWeek,
+  getDayOfWeek,
 } from "@internationalized/date";
 import {I18nProvider, useLocale} from "@react-aria/i18n";
 import {Button, ButtonGroup} from "@heroui/button";
 import {Radio, RadioGroup} from "@heroui/radio";
 import {cn} from "@heroui/theme";
 
-import {RangeCalendar, RangeCalendarProps} from "../src";
+import {
+  RangeCalendar,
+  RangeCalendarProps,
+  CalendarCellContent,
+  CalendarCellHeader,
+  CalendarCellBody,
+} from "../src";
 
 export default {
   title: "Components/RangeCalendar",
@@ -75,7 +82,11 @@ const ControlledTemplate = (args: RangeCalendarProps) => {
         <RangeCalendar
           aria-label="Date range (controlled)"
           value={value}
-          onChange={setValue}
+          onChange={(newValue) => {
+            if (newValue) {
+              setValue(newValue);
+            }
+          }}
           {...args}
           color="secondary"
         />
@@ -156,7 +167,11 @@ const InvalidDatesTemplate = (args: RangeCalendarProps) => {
       errorMessage={isInvalid ? "Stay dates cannot fall on weekends" : undefined}
       isInvalid={isInvalid}
       value={date}
-      onChange={setDate}
+      onChange={(newValue) => {
+        if (newValue) {
+          setDate(newValue);
+        }
+      }}
     />
   );
 };
@@ -278,10 +293,80 @@ const PresetsTemplate = (args: RangeCalendarProps) => {
           </ButtonGroup>
         }
         value={value}
-        onChange={setValue}
+        onChange={(newValue) => {
+          if (newValue) {
+            setValue(newValue);
+          }
+        }}
         onFocusChange={setFocusedValue}
         {...args}
       />
+    </div>
+  );
+};
+
+const CustomCellTemplate = (args: RangeCalendarProps) => {
+  const {locale} = useLocale();
+
+  return (
+    <div className="flex gap-4">
+      <div className="flex flex-col items-center gap-4">
+        <RangeCalendar {...args} calendarWidth={340}>
+          {(date) => (
+            <CalendarCellContent>
+              <CalendarCellHeader />
+              <CalendarCellBody>
+                <div className="flex flex-col w-full text-tiny gap-0.5 px-0.5">
+                  {date.day % 7 === 0 && (
+                    <span
+                      aria-label="calendar event"
+                      className="bg-red-500/20 w-full rounded-md px-1 text-red-400 line-clamp-1"
+                      role="status"
+                    >
+                      MTG
+                    </span>
+                  )}
+                  {date.day % 5 === 0 && (
+                    <span
+                      aria-label="calendar event"
+                      className="bg-green-500/20 w-full rounded-md px-1 text-green-400 line-clamp-1"
+                      role="status"
+                    >
+                      MTG
+                    </span>
+                  )}
+                  {date.day % 3 === 0 && (
+                    <span
+                      aria-label="calendar event"
+                      className="bg-yellow-500/20 w-full rounded-md px-1 text-yellow-400 line-clamp-1"
+                      role="status"
+                    >
+                      MTG
+                    </span>
+                  )}
+                </div>
+              </CalendarCellBody>
+            </CalendarCellContent>
+          )}
+        </RangeCalendar>
+      </div>
+      <div className="flex flex-col items-center gap-4">
+        <RangeCalendar {...args}>
+          {(date) => {
+            const dayOfWeek = getDayOfWeek(date, locale);
+            const style =
+              dayOfWeek === 0 ? "text-red-500" : dayOfWeek === 6 ? "text-blue-500" : "inherit";
+
+            return (
+              <CalendarCellContent>
+                <CalendarCellHeader>
+                  <span className={style}>{date.day}</span>
+                </CalendarCellHeader>
+              </CalendarCellContent>
+            );
+          }}
+        </RangeCalendar>
+      </div>
     </div>
   );
 };
@@ -410,6 +495,13 @@ export const PageBehavior = {
 
 export const Presets = {
   render: PresetsTemplate,
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const CustomCellContent = {
+  render: CustomCellTemplate,
   args: {
     ...defaultProps,
   },

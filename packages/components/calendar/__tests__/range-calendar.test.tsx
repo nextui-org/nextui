@@ -16,11 +16,9 @@ let cellFormatter = new Intl.DateTimeFormat("en-US", {
 /**
  * Custom range-calendar to disable animations and avoid issues with react-motion and jest
  */
-const RangeCalendar = React.forwardRef(
-  (props: RangeCalendarProps, ref: React.Ref<HTMLDivElement>) => {
-    return <RangeCalendarCalendarBase {...props} ref={ref} disableAnimation />;
-  },
-);
+const RangeCalendar = React.forwardRef<HTMLDivElement, RangeCalendarProps>((props, ref) => {
+  return <RangeCalendarCalendarBase {...props} ref={ref} disableAnimation />;
+});
 
 RangeCalendar.displayName = "RangeCalendar";
 
@@ -746,6 +744,32 @@ describe("RangeCalendar", () => {
 
       expect(start).toEqual(new CalendarDate(2019, 6, 22));
       expect(end).toEqual(new CalendarDate(2019, 6, 25));
+    });
+  });
+
+  describe("Custom cell content", () => {
+    it("should render custom content in the range calendar cells", () => {
+      const wrapper = render(
+        <RangeCalendar
+          defaultValue={{start: new CalendarDate(2024, 6, 25), end: new CalendarDate(2024, 6, 26)}}
+        >
+          {(date) => (
+            <div>
+              {date.day}
+              <span>*</span>
+            </div>
+          )}
+        </RangeCalendar>,
+      );
+
+      const gridCells = wrapper.getAllByRole("gridcell");
+      const customContentCellA = gridCells.find((cell) => cell.textContent === "25*");
+      const customContentCellB = gridCells.find((cell) => cell.textContent === "26*");
+
+      expect(customContentCellA).not.toBeNull();
+      expect(customContentCellA).toHaveTextContent("25*");
+      expect(customContentCellB).not.toBeNull();
+      expect(customContentCellB).toHaveTextContent("26*");
     });
   });
 });
