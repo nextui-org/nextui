@@ -45,11 +45,11 @@
     "@heroui/react-utils": "workspace:*",
     "@heroui/use-aria-button": "workspace:*",
     "@heroui/ripple": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/button": "3.11.0",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/button": "3.11.1",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",

@@ -49,14 +49,14 @@
     "@heroui/use-aria-button": "workspace:*",
     "@heroui/use-safe-layout-effect": "workspace:*",
     "@heroui/dom-animation": "workspace:*",
-    "@react-aria/dialog": "3.5.20",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/overlays": "3.24.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/overlays": "3.6.12",
-    "@react-types/button": "3.10.1",
-    "@react-types/overlays": "3.8.11"
+    "@react-aria/dialog": "3.5.21",
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/overlays": "3.25.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/overlays": "3.6.13",
+    "@react-types/button": "3.10.2",
+    "@react-types/overlays": "3.8.12"
   },
   "devDependencies": {
     "@heroui/card": "workspace:*",

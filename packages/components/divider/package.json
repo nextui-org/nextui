@@ -42,7 +42,7 @@
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-rsc-utils": "workspace:*",
     "@heroui/system-rsc": "workspace:*",
-    "@react-types/shared": "3.26.0"
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",

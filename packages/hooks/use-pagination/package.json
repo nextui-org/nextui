@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
-    "@react-aria/i18n": "3.12.4"
+    "@react-aria/i18n": "3.12.5"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"
