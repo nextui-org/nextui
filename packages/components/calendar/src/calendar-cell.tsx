@@ -1,9 +1,9 @@
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
-import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@nextui-org/theme";
+import type {CalendarSlots, SlotsToClasses, CalendarReturnType} from "@heroui/theme";
 
 import {CalendarDate, getDayOfWeek, isSameDay, isSameMonth, isToday} from "@internationalized/date";
 import {AriaCalendarCellProps, useCalendarCell} from "@react-aria/calendar";
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
 import {useLocale} from "@react-aria/i18n";
 import {useFocusRing} from "@react-aria/focus";
@@ -14,7 +14,7 @@ import {CalendarCellContextType, CalendarCellProvider} from "./calendar-cell-con
 import {CalendarCellContentDefault} from "./calendar-cell-content-default";
 import {useCalendarContext} from "./calendar-context";
 
-export interface CalendarCellProps extends HTMLNextUIProps<"td">, AriaCalendarCellProps {
+export interface CalendarCellProps extends HTMLHeroUIProps<"td">, AriaCalendarCellProps {
   state: CalendarState | RangeCalendarState;
   isPickerVisible?: boolean;
   slots?: CalendarReturnType;
