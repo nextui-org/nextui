@@ -1,4 +1,4 @@
-# @nextui-org/use-aria-multiselect
+# @heroui/use-aria-multiselect
 
 A Quick description of the component
 
@@ -7,18 +7,18 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-aria-multiselect
+yarn add @heroui/use-aria-multiselect
 # or
-npm i @nextui-org/use-aria-multiselect
+npm i @heroui/use-aria-multiselect
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

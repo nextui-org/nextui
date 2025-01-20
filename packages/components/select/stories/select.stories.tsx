@@ -4,22 +4,15 @@ import type {ValidationResult} from "@react-types/shared";
 import React, {ChangeEvent} from "react";
 import {useForm} from "react-hook-form";
 import {Meta} from "@storybook/react";
-import {select, button} from "@nextui-org/theme";
-import {PetBoldIcon, SelectorIcon} from "@nextui-org/shared-icons";
-import {Avatar} from "@nextui-org/avatar";
-import {Chip} from "@nextui-org/chip";
-import {Button} from "@nextui-org/button";
+import {select, button} from "@heroui/theme";
+import {PetBoldIcon, SelectorIcon} from "@heroui/shared-icons";
+import {Avatar} from "@heroui/avatar";
+import {Chip} from "@heroui/chip";
+import {Button} from "@heroui/button";
 import {Selection} from "@react-types/shared";
-import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
-import {
-  Pokemon,
-  usePokemonList,
-  animalsData,
-  usersData,
-  Animal,
-  User,
-} from "@nextui-org/stories-utils";
-import {Form} from "@nextui-org/form";
+import {useInfiniteScroll} from "@heroui/use-infinite-scroll";
+import {Pokemon, usePokemonList, animalsData, usersData, Animal, User} from "@heroui/stories-utils";
+import {Form} from "@heroui/form";
 
 import {Select, SelectedItems, SelectItem, SelectProps, SelectSection} from "../src";
 
@@ -1391,9 +1384,127 @@ export const CustomItemHeight = {
   },
 };
 
+const AVATAR_DECORATIONS: {[key: string]: string[]} = {
+  arcane: ["jinx", "atlas-gauntlets", "flame-chompers", "fishbones", "hexcore", "shimmer"],
+  anime: ["cat-ears", "heart-bloom", "in-love", "in-tears", "soul-leaving-body", "starry-eyed"],
+  "lofi-vibes": ["chromawave", "cozy-cat", "cozy-headphones", "doodling", "rainy-mood"],
+  valorant: [
+    "a-hint-of-clove",
+    "blade-storm",
+    "cypher",
+    "frag-out",
+    "omen-cowl",
+    "reyna-leer",
+    "vct-supernova",
+    "viper",
+    "yoru",
+    "carnalito2",
+    "a-hint-of-clove2",
+    "blade-storm2",
+    "cypher2",
+    "frag-out2",
+    "omen-cowl2",
+    "reyna-leer2",
+    "vct-supernova2",
+    "viper2",
+    "yoru2",
+    "carnalito3",
+    "a-hint-of-clove3",
+    "blade-storm3",
+    "cypher3",
+    "frag-out3",
+    "omen-cowl3",
+    "reyna-leer3",
+    "vct-supernova3",
+    "viper3",
+    "yoru3",
+    "carnalito4",
+    "a-hint-of-clove4",
+    "blade-storm4",
+    "cypher4",
+    "frag-out4",
+    "omen-cowl4",
+    "reyna-leer4",
+    "vct-supernova4",
+    "viper4",
+    "yoru4",
+  ],
+  spongebob: [
+    "flower-clouds",
+    "gary-the-snail",
+    "imagination",
+    "musclebob",
+    "sandy-cheeks",
+    "spongebob",
+  ],
+  arcade: ["clyde-invaders", "hot-shot", "joystick", "mallow-jump", "pipedream", "snake"],
+  "street-fighter": ["akuma", "cammy", "chun-li", "guile", "juri", "ken", "m.bison", "ryu"],
+};
+
+export const NonVirtualizedVsVirtualizedWithSections = {
+  render: () => {
+    const SelectComponent = ({isVirtualized}: {isVirtualized: boolean}) => (
+      <Select
+        disallowEmptySelection
+        className="max-w-xs"
+        color="secondary"
+        defaultSelectedKeys={["jinx"]}
+        isVirtualized={isVirtualized}
+        label={`Avatar Decoration ${isVirtualized ? "(Virtualized)" : "(Non-virtualized)"}`}
+        selectedKeys={["jinx"]}
+        selectionMode="single"
+        variant="bordered"
+      >
+        {Object.keys(AVATAR_DECORATIONS).map((key) => (
+          <SelectSection
+            key={key}
+            classNames={{
+              heading: "uppercase text-secondary",
+            }}
+            title={key}
+          >
+            {AVATAR_DECORATIONS[key].map((item) => (
+              <SelectItem key={item} className="capitalize" color="secondary" variant="bordered">
+                {item.replace(/-/g, " ")}
+              </SelectItem>
+            ))}
+          </SelectSection>
+        ))}
+      </Select>
+    );
+
+    return (
+      <div className="flex gap-4 w-full">
+        <SelectComponent isVirtualized={false} />
+        <SelectComponent isVirtualized={true} />
+      </div>
+    );
+  },
+};
+
 export const ValidationBehaviorAria = {
   render: ValidationBehaviorAriaTemplate,
   args: {
     ...defaultProps,
   },
+};
+
+export const PopoverTopOrBottom = {
+  args: {
+    ...defaultProps,
+  },
+  render: (args) => (
+    <div className="relative h-screen w-screen">
+      <div className="absolute top-0 p-8">
+        <div className="w-48">
+          <Template {...args} />
+        </div>
+      </div>
+      <div className="absolute top-1/2 p-8">
+        <div className="w-48">
+          <Template {...args} />
+        </div>
+      </div>
+    </div>
+  ),
 };

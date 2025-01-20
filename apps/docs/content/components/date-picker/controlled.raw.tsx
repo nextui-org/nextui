@@ -1,10 +1,10 @@
 import React from "react";
-import {DatePicker} from "@nextui-org/react";
+import {DatePicker} from "@heroui/react";
 import {DateValue, parseDate, getLocalTimeZone} from "@internationalized/date";
 import {useDateFormatter} from "@react-aria/i18n";
 
 export default function App() {
-  const [value, setValue] = React.useState<DateValue>(parseDate("2024-04-04"));
+  const [value, setValue] = React.useState<DateValue | null>(parseDate("2024-04-04"));
 
   let formatter = useDateFormatter({dateStyle: "full"});
 

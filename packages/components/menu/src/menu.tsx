@@ -1,6 +1,6 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {ForwardedRef, ReactElement} from "react";
-import {mergeClasses} from "@nextui-org/theme";
+import {mergeClasses} from "@heroui/theme";
 
 import {UseMenuProps, useMenu} from "./use-menu";
 import MenuSection from "./menu-section";
@@ -24,7 +24,6 @@ const Menu = forwardRef(function Menu<T extends object>(
     hideEmptyContent,
     variant,
     onClose,
-    onAction,
     topContent,
     bottomContent,
     itemClasses,
@@ -49,7 +48,6 @@ const Menu = forwardRef(function Menu<T extends object>(
           state,
           variant,
           onClose,
-          onAction,
           hideSelectedIcon,
           ...item.props,
         };

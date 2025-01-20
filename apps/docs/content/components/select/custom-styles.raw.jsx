@@ -1,4 +1,4 @@
-import {Select, SelectItem, Avatar} from "@nextui-org/react";
+import {Select, SelectItem, Avatar} from "@heroui/react";
 
 export const users = [
   {

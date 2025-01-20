@@ -1,15 +1,15 @@
-import type {ToggleVariantProps, ToggleSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ToggleVariantProps, ToggleSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaSwitchProps} from "@react-aria/switch";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
 import {ReactNode, Ref, useCallback, useId, useRef} from "react";
-import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
-import {mergeRefs} from "@nextui-org/react-utils";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {mapPropsVariants, useProviderContext} from "@heroui/system";
+import {mergeRefs} from "@heroui/react-utils";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {useHover} from "@react-aria/interactions";
-import {toggle} from "@nextui-org/theme";
+import {toggle} from "@heroui/theme";
 import {chain, mergeProps} from "@react-aria/utils";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {useSwitch as useReactAriaSwitch} from "@react-aria/switch";
 import {useMemo} from "react";
 import {useToggleState} from "@react-stately/toggle";
@@ -23,7 +23,7 @@ export type SwitchThumbIconProps = {
   className: string;
 };
 
-interface Props extends HTMLNextUIProps<"input"> {
+interface Props extends HTMLHeroUIProps<"input"> {
   /**
    * Ref to the DOM node.
    */
@@ -162,6 +162,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
   });
 
   const isInteractionDisabled = ariaSwitchProps.isDisabled || isReadOnly;
+
   const pressed = isInteractionDisabled ? false : isPressed;
 
   const isSelected = inputProps.checked;
@@ -209,6 +210,7 @@ export function useSwitch(originalProps: UseSwitchProps = {}) {
       ...mergeProps(inputProps, focusProps, props),
       ref: mergeRefs(inputRef, ref),
       id: inputProps.id,
+      className: slots.hiddenInput({class: classNames?.hiddenInput}),
       onChange: chain(onChange, inputProps.onChange),
     };
   };

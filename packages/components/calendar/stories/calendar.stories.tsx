@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {calendar} from "@nextui-org/theme";
+import {calendar} from "@heroui/theme";
 import {
   today,
   parseDate,
@@ -11,10 +11,10 @@ import {
   getDayOfWeek,
 } from "@internationalized/date";
 import {I18nProvider, useLocale} from "@react-aria/i18n";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/theme";
-import {NextUIProvider} from "@nextui-org/system";
+import {Button, ButtonGroup} from "@heroui/button";
+import {Radio, RadioGroup} from "@heroui/radio";
+import {cn} from "@heroui/theme";
+import {HeroUIProvider} from "@heroui/system";
 
 import {
   Calendar,
@@ -63,7 +63,7 @@ const defaultProps = {
 const Template = (args: CalendarProps) => <Calendar {...args} />;
 
 const ControlledTemplate = (args: CalendarProps) => {
-  let [value, setValue] = React.useState<DateValue>(parseDate("2024-03-07"));
+  let [value, setValue] = React.useState<DateValue | null>(parseDate("2024-03-07"));
 
   return (
     <div className="flex flex-wrap gap-4">
@@ -118,7 +118,7 @@ const UnavailableDatesTemplate = (args: CalendarProps) => {
 
 const ControlledFocusedValueTemplate = (args: CalendarProps) => {
   let defaultDate = today(getLocalTimeZone());
-  let [focusedDate, setFocusedDate] = React.useState<DateValue>(defaultDate);
+  let [focusedDate, setFocusedDate] = React.useState<DateValue | null>(defaultDate);
 
   return (
     <div className="flex flex-col gap-4">
@@ -141,7 +141,7 @@ const ControlledFocusedValueTemplate = (args: CalendarProps) => {
 };
 
 const InvalidDateTemplate = (args: CalendarProps) => {
-  let [date, setDate] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [date, setDate] = React.useState<DateValue | null>(today(getLocalTimeZone()));
   let {locale} = useLocale();
   let isInvalid = isWeekend(date, locale);
 
@@ -169,7 +169,7 @@ const InternationalCalendarsTemplate = (args: CalendarProps) => {
 
 const PresetsTemplate = (args: CalendarProps) => {
   let defaultDate = today(getLocalTimeZone());
-  let [value, setValue] = React.useState<DateValue>(defaultDate);
+  let [value, setValue] = React.useState<DateValue | null>(defaultDate);
   let {locale} = useLocale();
 
   let now = today(getLocalTimeZone());
@@ -341,21 +341,21 @@ const ReducedMotionTemplate = (args: CalendarProps) => {
     <div className="flex gap-4">
       <div className="flex flex-col items-center gap-4">
         <p className="text-small text-default-600">reducedMotion: never</p>
-        <NextUIProvider reducedMotion="never">
+        <HeroUIProvider reducedMotion="never">
           <Calendar {...args} />
-        </NextUIProvider>
+        </HeroUIProvider>
       </div>
       <div className="flex flex-col items-center gap-4">
         <p className="text-small text-default-600">reducedMotion: always</p>
-        <NextUIProvider reducedMotion="always">
+        <HeroUIProvider reducedMotion="always">
           <Calendar {...args} />
-        </NextUIProvider>
+        </HeroUIProvider>
       </div>
       <div className="flex flex-col items-center gap-4">
         <p className="text-small text-default-600">reducedMotion: user</p>
-        <NextUIProvider reducedMotion="user">
+        <HeroUIProvider reducedMotion="user">
           <Calendar {...args} />
-        </NextUIProvider>
+        </HeroUIProvider>
       </div>
     </div>
   );

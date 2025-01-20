@@ -1,15 +1,15 @@
-import type {ButtonProps} from "@nextui-org/button";
+import type {ButtonProps} from "@heroui/button";
 
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {
   CloseIcon,
   DangerIcon,
   InfoCircleIcon,
   SuccessIcon,
   WarningIcon,
-} from "@nextui-org/shared-icons";
-import {isEmpty} from "@nextui-org/shared-utils";
-import {Button} from "@nextui-org/button";
+} from "@heroui/shared-icons";
+import {isEmpty} from "@heroui/shared-utils";
+import {Button} from "@heroui/button";
 import {cloneElement, isValidElement} from "react";
 
 import {useAlert, UseAlertProps} from "./use-alert";
@@ -24,7 +24,7 @@ const iconMap = {
 
 export type AlertColor = keyof typeof iconMap;
 
-export interface AlertProps extends Omit<UseAlertProps, "hasDescription"> {}
+export interface AlertProps extends Omit<UseAlertProps, "hasContent"> {}
 
 const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   const {
@@ -62,7 +62,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
         {customIcon || <IconComponent {...getAlertIconProps()} />}
       </div>
       <div {...getMainWrapperProps()}>
-        {title && <div {...getTitleProps()}>{title}</div>}
+        {!isEmpty(title) && <div {...getTitleProps()}>{title}</div>}
         {!isEmpty(description) && <div {...getDescriptionProps()}>{description}</div>}
         {children}
       </div>
@@ -73,7 +73,7 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
           aria-label="Close"
           radius="full"
           variant="light"
-          onClick={handleClose}
+          onPress={handleClose}
           {...(getCloseButtonProps() as ButtonProps)}
         >
           <CloseIcon height={20} width={20} />
@@ -83,6 +83,6 @@ const Alert = forwardRef<"div", AlertProps>((props, ref) => {
   );
 });
 
-Alert.displayName = "NextUI.Alert";
+Alert.displayName = "HeroUI.Alert";
 
 export default Alert;

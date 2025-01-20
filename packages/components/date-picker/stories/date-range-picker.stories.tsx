@@ -2,7 +2,7 @@ import type {MappedDateValue} from "@react-types/datepicker";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput, button} from "@nextui-org/theme";
+import {dateInput, button} from "@heroui/theme";
 import {
   endOfMonth,
   endOfWeek,
@@ -18,11 +18,11 @@ import {
 import {RangeValue, ValidationResult} from "@react-types/shared";
 import {DateValue} from "@react-types/datepicker";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup, RadioProps} from "@nextui-org/radio";
-import {cn} from "@nextui-org/theme";
-import {Form} from "@nextui-org/form";
-import {MoonIcon, SunIcon} from "@nextui-org/shared-icons";
+import {Button, ButtonGroup} from "@heroui/button";
+import {Radio, RadioGroup, RadioProps} from "@heroui/radio";
+import {cn} from "@heroui/theme";
+import {Form} from "@heroui/form";
+import {MoonIcon, SunIcon} from "@heroui/shared-icons";
 
 import {DateRangePicker, DateRangePickerProps} from "../src";
 
@@ -114,7 +114,7 @@ const LabelPlacementTemplate = (args: DateRangePickerProps) => (
 );
 
 const ControlledTemplate = (args: DateRangePickerProps) => {
-  const [value, setValue] = React.useState<RangeValue<DateValue>>({
+  const [value, setValue] = React.useState<RangeValue<DateValue> | null>({
     start: parseDate("2024-04-01"),
     end: parseDate("2024-04-08"),
   });
@@ -177,7 +177,7 @@ const TimeZonesTemplate = (args: DateRangePickerProps) => (
 );
 
 const GranularityTemplate = (args: DateRangePickerProps) => {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: parseAbsoluteToLocal("2024-04-01T18:45:22Z"),
     end: parseAbsoluteToLocal("2024-04-08T19:15:22Z"),
   });
@@ -205,7 +205,7 @@ const GranularityTemplate = (args: DateRangePickerProps) => {
 };
 
 const InternationalCalendarsTemplate = (args: DateRangePickerProps) => {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: parseAbsoluteToLocal("2021-04-01T18:45:22Z"),
     end: parseAbsoluteToLocal("2021-04-14T19:15:22Z"),
   });
@@ -271,7 +271,7 @@ const PresetsTemplate = (args: DateRangePickerProps) => {
     end: today(getLocalTimeZone()).add({days: 7}),
   };
 
-  const [value, setValue] = React.useState<RangeValue<DateValue>>(defaultDate);
+  const [value, setValue] = React.useState<RangeValue<DateValue> | null>(defaultDate);
 
   let {locale} = useLocale();
   let formatter = useDateFormatter({dateStyle: "full"});

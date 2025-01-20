@@ -1,24 +1,24 @@
-# @nextui-org/popover
+# @heroui/popover
 
 Popover is a non-modal dialog that floats around its disclosure. It's commonly used for displaying additional rich content on top of something.
 
-Please refer to the [documentation](https://nextui.org/docs/components/popover) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/popover) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/popover
+yarn add @heroui/popover
 # or
-npm i @nextui-org/popover
+npm i @heroui/popover
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

@@ -1,11 +1,11 @@
 blank_issues_enabled: true
 contact_links:
   - name: 🤔 Long question or ideas?
-    url: https://github.com/nextui-org/nextui/discussions
+    url: https://github.com/heroui-inc/heroui/discussions
     about: Ask long-form questions and discuss ideas.
   - name: 💬 Discord Community Chat
     url: https://discord.gg/9b6yyZKmH4
-    about: Ask quick questions or simply chat on the `NextUI` community Discord server.
+    about: Ask quick questions or simply chat on the `HeroUI` community Discord server.
   - name: 💬 New Updates (X)
-    url: https://x.com/getnextui
-    about: Link to our X account if you want to follow us and stay up to date with NextUI news
+    url: https://x.com/hero_ui
+    about: Link to our X account if you want to follow us and stay up to date with HeroUI news

@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/table",
-  "version": "2.2.2",
+  "name": "@heroui/table",
+  "version": "2.2.9",
   "description": "Tables are used to display tabular data using rows and columns. ",
   "keywords": [
     "table"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/table"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -36,36 +36,36 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/checkbox": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/spacer": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/table": "3.15.5",
+    "@heroui/checkbox": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/spacer": "workspace:*",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/table": "3.16.0",
     "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.17",
-    "@react-stately/table": "3.12.3",
-    "@react-stately/virtualizer": "4.1.0",
-    "@react-types/grid": "3.2.9",
-    "@react-types/table": "3.10.2"
+    "@react-aria/visually-hidden": "3.8.18",
+    "@react-stately/table": "3.13.0",
+    "@react-stately/virtualizer": "4.2.0",
+    "@react-types/grid": "3.2.10",
+    "@react-types/table": "3.10.3"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/chip": "workspace:*",
-    "@nextui-org/pagination": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
-    "@nextui-org/tooltip": "workspace:*",
-    "@nextui-org/use-infinite-scroll": "workspace:*",
-    "@nextui-org/user": "workspace:*",
-    "@react-stately/data": "3.11.7",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/chip": "workspace:*",
+    "@heroui/pagination": "workspace:*",
+    "@heroui/spinner": "workspace:*",
+    "@heroui/tooltip": "workspace:*",
+    "@heroui/use-infinite-scroll": "workspace:*",
+    "@heroui/user": "workspace:*",
+    "@react-stately/data": "3.12.0",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

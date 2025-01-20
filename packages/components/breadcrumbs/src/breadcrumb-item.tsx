@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseBreadcrumbItemProps, useBreadcrumbItem} from "./use-breadcrumb-item";
 
@@ -34,6 +34,6 @@ const Breadcrumbs = forwardRef<"li", BreadcrumbItemProps>((props, ref) => {
   );
 });
 
-Breadcrumbs.displayName = "NextUI.Breadcrumbs";
+Breadcrumbs.displayName = "HeroUI.Breadcrumbs";
 
 export default Breadcrumbs;

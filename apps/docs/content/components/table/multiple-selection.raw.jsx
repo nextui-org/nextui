@@ -7,12 +7,12 @@ import {
   TableCell,
   RadioGroup,
   Radio,
-} from "@nextui-org/react";
-
-const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
+} from "@heroui/react";
 
 export default function App() {
   const [selectedColor, setSelectedColor] = React.useState("default");
+
+  const colors = ["default", "primary", "secondary", "success", "warning", "danger"];
 
   return (
     <div className="flex flex-col gap-3">

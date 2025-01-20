@@ -1,6 +1,6 @@
 import React from "react";
 import {themes} from "@storybook/theming";
-import {NextUIProvider} from "@nextui-org/system/src/provider";
+import {HeroUIProvider} from "@heroui/system/src/provider";
 import type {Preview} from "@storybook/react";
 
 import "./style.css";
@@ -13,19 +13,19 @@ const decorators: Preview["decorators"] = [
       locale && new Intl.Locale(locale)?.textInfo?.direction === "rtl" ? "rtl" : undefined;
 
     return (
-      <NextUIProvider locale={locale} disableAnimation={disableAnimation}>
+      <HeroUIProvider locale={locale} disableAnimation={disableAnimation}>
         <div className="bg-dark" lang={locale} dir={direction}>
           <Story />
         </div>
-      </NextUIProvider>
+      </HeroUIProvider>
     );
   },
   ...(process.env.NODE_ENV !== "production" ? [withStrictModeSwitcher] : []),
 ];
 
 const commonTheme = {
-  brandTitle: "NextUI",
-  brandUrl: "https://nextui.org",
+  brandTitle: "HeroUI",
+  brandUrl: "https://heroui.com",
   brandTarget: "_self",
 };
 

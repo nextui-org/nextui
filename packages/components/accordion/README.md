@@ -1,24 +1,24 @@
-# @nextui-org/accordion
+# @heroui-org/accordion
 
 Accordion display a list of high-level options that can expand/collapse to reveal more information.
 
-Please refer to the [documentation](https://nextui.org//docs/components/accordion) for more information.
+Please refer to the [documentation](https://heroui.com//docs/components/accordion) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/accordion
+yarn add @heroui/accordion
 # or
-npm i @nextui-org/accordion
+npm i @heroui/accordion
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

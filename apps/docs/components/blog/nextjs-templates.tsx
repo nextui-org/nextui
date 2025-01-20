@@ -6,17 +6,17 @@ const frameworks = [
     title: "Next.js 13 (App) Template",
     isExternal: true,
     description:
-      "A Next.js 13 with app directory template pre-configured with NextUI (v2) and Tailwind CSS.",
+      "A Next.js 13 with app directory template pre-configured with HeroUI (v2) and Tailwind CSS.",
     icon: <NewNextJSIcon height={40} width={40} />,
-    href: "https://github.com/nextui-org/next-app-template",
+    href: "https://github.com/heroui-inc/next-app-template",
   },
   {
     title: "Next.js 13 (Pages) Template",
     isExternal: true,
     description:
-      "A Next.js 13 with pages directory template pre-configured with NextUI (v2) and Tailwind CSS.",
+      "A Next.js 13 with pages directory template pre-configured with HeroUI (v2) and Tailwind CSS.",
     icon: <NewNextJSIcon height={40} width={40} />,
-    href: "https://github.com/nextui-org/next-pages-template",
+    href: "https://github.com/heroui-inc/next-pages-template",
   },
 ];
 

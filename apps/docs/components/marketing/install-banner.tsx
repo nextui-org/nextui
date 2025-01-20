@@ -1,10 +1,10 @@
 "use client";
 
-import {Button, Link} from "@nextui-org/react";
-import {ArrowRightIcon} from "@nextui-org/shared-icons";
-import {clsx} from "@nextui-org/shared-utils";
+import {Button, Link} from "@heroui/react";
+import {ArrowRightIcon} from "@heroui/shared-icons";
+import {clsx} from "@heroui/shared-utils";
 import NextLink from "next/link";
-import {Code} from "@nextui-org/react";
+import {Code} from "@heroui/react";
 import {usePostHog} from "posthog-js/react";
 
 import {FeaturesGrid} from "./features-grid";
@@ -12,6 +12,7 @@ import {FeaturesGrid} from "./features-grid";
 import {sectionWrapper, subtitle, title} from "@/components/primitives";
 import {GithubIcon, NoteLinearIcon, NextJsIcon} from "@/components/icons";
 import {useIsMounted} from "@/hooks/use-is-mounted";
+import {siteConfig} from "@/config/site";
 
 const bannerSuggestions = [
   {
@@ -22,10 +23,10 @@ const bannerSuggestions = [
     href: "/docs/guide/installation",
   },
   {
-    title: "NextUI + Next.js",
+    title: "HeroUI + Next.js",
     description: (
       <>
-        NextUI is fully compatible with the new Next.js <Code>app/</Code> directory structure.
+        HeroUI is fully compatible with the new Next.js <Code>app/</Code> directory structure.
       </>
     ),
     icon: <NextJsIcon className="text-pink-500" />,
@@ -72,7 +73,7 @@ export const InstallBanner = () => {
               href="/docs/guide/installation"
               radius="full"
               size="md"
-              onClick={() => {
+              onPress={() => {
                 posthog.capture("InstallBanner - Get Started", {
                   action: "press",
                   category: "landing-page",
@@ -86,16 +87,16 @@ export const InstallBanner = () => {
               isExternal
               as={Link}
               className="text-sm"
-              href="https://github.com/nextui-org/nextui"
+              href={siteConfig.links.github}
               radius="full"
               size="md"
               startContent={<GithubIcon />}
               variant="bordered"
-              onClick={() => {
+              onPress={() => {
                 posthog.capture("InstallBanner - Github", {
                   action: "press",
                   category: "landing-page",
-                  data: "https://github.com/nextui-org/nextui",
+                  data: siteConfig.links.github,
                 });
               }}
             >

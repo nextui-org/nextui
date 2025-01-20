@@ -1,22 +1,17 @@
 import type {ListboxItemBaseProps} from "./base/listbox-item-base";
-import type {MenuItemVariantProps} from "@nextui-org/theme";
+import type {MenuItemVariantProps} from "@heroui/theme";
 
-import {useMemo, useRef, useCallback, Fragment} from "react";
-import {listboxItem} from "@nextui-org/theme";
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
+import {useMemo, useRef, useCallback} from "react";
+import {listboxItem} from "@heroui/theme";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
 import {useFocusRing} from "@react-aria/focus";
 import {Node} from "@react-types/shared";
-import {filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps, removeEvents} from "@nextui-org/shared-utils";
+import {filterDOMProps} from "@heroui/react-utils";
+import {clsx, dataAttr, objectToDeps, removeEvents, warn} from "@heroui/shared-utils";
 import {useOption} from "@react-aria/listbox";
 import {mergeProps} from "@react-aria/utils";
 import {useHover, usePress} from "@react-aria/interactions";
-import {useIsMobile} from "@nextui-org/use-is-mobile";
+import {useIsMobile} from "@heroui/use-is-mobile";
 import {ListState} from "@react-stately/list";
 
 interface Props<T extends object> extends ListboxItemBaseProps<T> {
@@ -25,7 +20,7 @@ interface Props<T extends object> extends ListboxItemBaseProps<T> {
 }
 
 export type UseListboxItemProps<T extends object> = Props<T> &
-  Omit<HTMLNextUIProps<"li">, keyof Props<T>> &
+  Omit<HTMLHeroUIProps<"li">, keyof Props<T>> &
   MenuItemVariantProps;
 
 export function useListboxItem<T extends object>(originalProps: UseListboxItemProps<T>) {
@@ -46,11 +41,10 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     classNames,
     autoFocus,
     onPress,
-    onClick,
+    onClick: deprecatedOnClick,
     shouldHighlightOnFocus,
     hideSelectedIcon = false,
     isReadOnly = false,
-    href,
     ...otherProps
   } = props;
 
@@ -59,11 +53,8 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   const domRef = useRef<HTMLLIElement>(null);
 
-  const Component = as || "li";
+  const Component = as || (originalProps.href ? "a" : "li");
   const shouldFilterDOMProps = typeof Component === "string";
-
-  const FragmentWrapper = href ? "a" : Fragment;
-  const fragmentWrapperProps = href ? {href} : {};
 
   const {rendered, key} = item;
 
@@ -71,6 +62,13 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   const isSelectable = state.selectionManager.selectionMode !== "none";
 
   const isMobile = useIsMobile();
+
+  if (deprecatedOnClick && typeof deprecatedOnClick === "function") {
+    warn(
+      "onClick is deprecated, please use onPress instead. See: https://github.com/heroui-inc/heroui/issues/4292",
+      "ListboxItem",
+    );
+  }
 
   const {pressProps, isPressed} = usePress({
     ref: domRef,
@@ -124,7 +122,9 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
   const getItemProps: PropGetter = (props = {}) => ({
     ref: domRef,
     ...mergeProps(
-      {onClick},
+      {
+        onClick: deprecatedOnClick,
+      },
       itemProps,
       isReadOnly ? {} : mergeProps(focusProps, pressProps),
       hoverProps,
@@ -173,7 +173,6 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
 
   return {
     Component,
-    FragmentWrapper,
     domRef,
     slots,
     classNames,
@@ -187,7 +186,6 @@ export function useListboxItem<T extends object>(originalProps: UseListboxItemPr
     selectedIcon,
     hideSelectedIcon,
     disableAnimation,
-    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getWrapperProps,

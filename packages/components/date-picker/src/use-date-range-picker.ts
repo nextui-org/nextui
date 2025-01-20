@@ -1,28 +1,28 @@
 import type {DateValue} from "@internationalized/date";
-import type {DateInputVariantProps} from "@nextui-org/theme";
-import type {TimeInputProps} from "@nextui-org/date-input";
-import type {ButtonProps} from "@nextui-org/button";
-import type {RangeCalendarProps} from "@nextui-org/calendar";
-import type {PopoverProps} from "@nextui-org/popover";
+import type {DateInputVariantProps} from "@heroui/theme";
+import type {TimeInputProps} from "@heroui/date-input";
+import type {ButtonProps} from "@heroui/button";
+import type {RangeCalendarProps} from "@heroui/calendar";
+import type {PopoverProps} from "@heroui/popover";
 import type {DOMAttributes, GroupDOMAttributes} from "@react-types/shared";
 import type {AriaDateRangePickerProps} from "@react-types/datepicker";
 import type {DateRangePickerState} from "@react-stately/datepicker";
 import type {UseDatePickerBaseProps} from "./use-date-picker-base";
-import type {PropGetter} from "@nextui-org/system";
+import type {PropGetter} from "@heroui/system";
 import type {DateRangePickerFieldProps} from "./date-range-picker-field";
-import type {DateInputGroupProps} from "@nextui-org/date-input";
-import type {DateRangePickerSlots, SlotsToClasses} from "@nextui-org/theme";
-import type {DateInputProps} from "@nextui-org/date-input";
+import type {DateInputGroupProps} from "@heroui/date-input";
+import type {DateRangePickerSlots, SlotsToClasses} from "@heroui/theme";
+import type {DateInputProps} from "@heroui/date-input";
 
-import {useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@heroui/system";
 import {useMemo, useRef} from "react";
 import {useDateRangePickerState} from "@react-stately/datepicker";
 import {useDateRangePicker as useAriaDateRangePicker} from "@react-aria/datepicker";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {mergeProps} from "@react-aria/utils";
-import {dateRangePicker, dateInput, cn} from "@nextui-org/theme";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+import {dateRangePicker, dateInput, cn} from "@heroui/theme";
+import {FormContext, useSlottedContext} from "@heroui/form";
+import {ariaShouldCloseOnInteractOutside} from "@heroui/aria-utils";
 
 import {useDatePickerBase} from "./use-date-picker-base";
 interface Props<T extends DateValue>

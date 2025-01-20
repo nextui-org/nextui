@@ -1,7 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {alert, cn} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
+import {alert, cn} from "@heroui/theme";
+import {Button} from "@heroui/button";
 
 import {Alert, AlertProps} from "../src";
 
@@ -189,7 +189,7 @@ const CustomStylesTemplate = (args) => {
           color={color}
           title="The documents you requested are ready to be viewed"
         >
-          <div className="flex items-center gap-1 mt-3">
+          <div className="flex items-center gap-1">
             <Button
               className="bg-background text-default-700 font-medium border-1 shadow-small"
               size="sm"
@@ -223,6 +223,14 @@ export const WithDescription = {
   args: {
     ...defaultProps,
     description: "This is an alert with a description",
+  },
+};
+
+export const WithoutIconWrapper = {
+  render: Template,
+  args: {
+    ...defaultProps,
+    hideIconWrapper: true,
   },
 };
 

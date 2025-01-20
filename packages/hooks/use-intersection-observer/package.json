@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/use-intersection-observer",
-  "version": "2.2.1",
+  "name": "@heroui/use-intersection-observer",
+  "version": "2.2.3",
   "description": "Tracks the intersection of a DOM element and its containing element or the viewport.",
   "keywords": [
     "use-intersection-observer"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/hooks/use-intersection-observer"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -35,9 +35,9 @@
   },
   "dependencies": {
     "@react-aria/utils": "3.26.0",
-    "@react-aria/ssr": "3.9.6",
-    "@react-types/shared": "3.25.0",
-    "@react-aria/interactions": "3.22.4"
+    "@react-aria/ssr": "3.9.7",
+    "@react-types/shared": "3.26.0",
+    "@react-aria/interactions": "3.22.5"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"

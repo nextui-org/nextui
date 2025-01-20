@@ -1,10 +1,10 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {button, inputOtp} from "@nextui-org/theme";
-import {useForm} from "react-hook-form";
+import {button, inputOtp} from "@heroui/theme";
+import {Controller, useForm} from "react-hook-form";
 import {ValidationResult} from "@react-types/shared";
-import {Button} from "@nextui-org/button";
-import {Form} from "@nextui-org/form";
+import {Button} from "@heroui/button";
+import {Form} from "@heroui/form";
 
 import {InputOtp} from "../src";
 
@@ -177,6 +177,49 @@ const WithReactHookFormTemplate = (args) => {
   );
 };
 
+const WithReactHookFormControllerTemplate = (args) => {
+  const {
+    handleSubmit,
+    control,
+    formState: {errors},
+  } = useForm({
+    defaultValues: {
+      otp: "",
+    },
+  });
+
+  const onSubmit = (data) => {
+    alert(JSON.stringify(data));
+  };
+
+  return (
+    <form className="flex flex-col gap-4 w-full max-w-[300px]" onSubmit={handleSubmit(onSubmit)}>
+      <Controller
+        control={control}
+        name="otp"
+        render={({field}) => (
+          <InputOtp
+            {...field}
+            errorMessage={errors.otp && errors.otp.message}
+            isInvalid={!!errors.otp}
+            {...args}
+          />
+        )}
+        rules={{
+          required: "OTP is required",
+          minLength: {
+            value: 4,
+            message: "Please enter a valid OTP",
+          },
+        }}
+      />
+      <Button className="max-w-fit" type="submit" variant="flat">
+        Verify OTP
+      </Button>
+    </form>
+  );
+};
+
 const ServerValidationTemplate = (args) => {
   const [serverErrors, setServerErrors] = React.useState({});
 
@@ -331,6 +374,14 @@ export const AllowedKeys = {
 
 export const WithReactHookForm = {
   render: WithReactHookFormTemplate,
+  args: {
+    ...defaultProps,
+    length: 4,
+  },
+};
+
+export const WithReactHookFormController = {
+  render: WithReactHookFormControllerTemplate,
   args: {
     ...defaultProps,
     length: 4,

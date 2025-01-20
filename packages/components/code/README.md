@@ -1,24 +1,24 @@
-# @nextui-org/code
+# @heroui/code
 
 Code is a component used to display inline code.
 
-Please refer to the [documentation](https://nextui.org/docs/components/code) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/code) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/code
+yarn add @heroui/code
 # or
-npm i @nextui-org/code
+npm i @heroui/code
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

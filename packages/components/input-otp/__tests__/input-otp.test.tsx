@@ -2,8 +2,9 @@ import "@testing-library/jest-dom";
 
 import * as React from "react";
 import {render, renderHook, screen} from "@testing-library/react";
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import userEvent, {UserEvent} from "@testing-library/user-event";
+import {Form} from "@heroui/form";
 
 import {InputOtp} from "../src";
 
@@ -168,6 +169,60 @@ describe("InputOtp Component", () => {
     expect(onComplete).toHaveBeenCalledTimes(2);
     expect(onComplete).toHaveBeenCalledWith("1234");
   });
+
+  it("should autofocus when autofocus prop is passed.", () => {
+    // eslint-disable-next-line jsx-a11y/no-autofocus
+    render(<InputOtp autoFocus length={4} />);
+    const segments = screen.getAllByRole("presentation");
+
+    expect(segments[0]).toHaveAttribute("data-focus", "true");
+  });
+
+  it("should not autofocus when autofocus prop is not passed.", () => {
+    render(<InputOtp length={4} />);
+    const segments = screen.getAllByRole("presentation");
+
+    expect(segments[0]).not.toHaveAttribute("data-focus", "true");
+  });
+});
+
+describe("Validation", () => {
+  let user: UserEvent;
+
+  beforeAll(() => {
+    user = userEvent.setup();
+  });
+
+  it("supports isRequired when validationBehavior=native", async () => {
+    const {getByTestId} = render(
+      <Form validationBehavior="native">
+        <InputOtp isRequired data-testid="base" length={4} />
+        <button data-testid="submit" type="submit" />
+        <button data-testid="reset" type="reset" />
+      </Form>,
+    );
+
+    const inputOtpBase = getByTestId("base");
+
+    expect(inputOtpBase).toHaveAttribute("aria-required", "true");
+    expect(inputOtpBase).not.toHaveAttribute("data-invalid");
+
+    const submitButton = getByTestId("submit");
+
+    await user.click(submitButton);
+
+    expect(inputOtpBase).toHaveAttribute("data-invalid", "true");
+    const errorMessage = document.querySelector("[data-slot='error-message']");
+
+    expect(errorMessage).toBeInTheDocument();
+
+    const resetButton = getByTestId("reset");
+
+    await user.click(resetButton);
+
+    expect(inputOtpBase).not.toHaveAttribute("data-invalid");
+    expect(errorMessage).not.toBeInTheDocument();
+  });
 });
 
 describe("InputOtp with react-hook-form", () => {
@@ -234,5 +289,39 @@ describe("InputOtp with react-hook-form", () => {
     await user.click(button);
 
     expect(onSubmit).toHaveBeenCalledTimes(1);
+  });
+
+  it("should work correctly wiht react-hook-form controller", async () => {
+    const {result} = renderHook(() =>
+      useForm({
+        defaultValues: {
+          withController: "",
+        },
+      }),
+    );
+
+    const {control} = result.current;
+
+    render(
+      <form>
+        <Controller
+          control={control}
+          name="withController"
+          render={({field}) => <InputOtp length={4} {...field} data-testid="input-otp" />}
+        />
+      </form>,
+    );
+
+    const inputOtp = screen.getByTestId("input-otp");
+    const input = inputOtp.querySelector("input");
+
+    if (!input) {
+      throw new Error("Input not found");
+    }
+
+    await user.click(input);
+    await user.type(input, "1nj23aa4");
+
+    expect(input).toHaveAttribute("value", "1234");
   });
 });

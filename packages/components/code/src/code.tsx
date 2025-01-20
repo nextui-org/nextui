@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system-rsc";
+import {forwardRef} from "@heroui/system-rsc";
 
 import {useCode, UseCodeProps} from "./use-code";
 
@@ -14,6 +14,6 @@ const Code = forwardRef<"div", CodeProps>((props, ref) => {
   );
 });
 
-Code.displayName = "NextUI.Code";
+Code.displayName = "HeroUI.Code";
 
 export default Code;

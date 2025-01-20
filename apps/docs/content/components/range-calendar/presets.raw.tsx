@@ -2,7 +2,7 @@ import type {DateValue} from "@react-types/calendar";
 import type {RangeValue} from "@react-types/shared";
 
 import React from "react";
-import {RangeCalendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@nextui-org/react";
+import {RangeCalendar, Radio, RadioGroup, Button, ButtonGroup, cn} from "@heroui/react";
 import {
   today,
   getLocalTimeZone,
@@ -19,7 +19,7 @@ export default function App() {
     end: today(getLocalTimeZone()).add({weeks: 1, days: 3}),
   });
 
-  let [focusedValue, setFocusedValue] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [focusedValue, setFocusedValue] = React.useState<DateValue | null>(today(getLocalTimeZone()));
 
   let {locale} = useLocale();
 

@@ -1,13 +1,13 @@
-# @nextui-org/use-theme
+# @heroui/use-theme
 
 React hook to switch between light and dark themes
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/use-theme
+yarn add @heroui/use-theme
 # or
-npm i @nextui-org/use-theme
+npm i @heroui/use-theme
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ npm i @nextui-org/use-theme
 Import `useTheme`
 
 ```tsx
-import {useTheme} from "@nextui-org/use-theme";
+import {useTheme} from "@heroui/use-theme";
 ```
 
 ### theme
@@ -30,7 +30,7 @@ const {theme} = useTheme();
 ### setTheme
 
 You can use any theme name you want, but make sure it exists in your 
-`tailwind.config.js` file. See [Create Theme](https://nextui.org/docs/customization/create-theme) for more details.
+`tailwind.config.js` file. See [Create Theme](https://heroui.com/docs/customization/create-theme) for more details.
 
 ```tsx
 // set `theme` by using `setTheme`
@@ -46,10 +46,10 @@ setTheme('purple-dark')
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

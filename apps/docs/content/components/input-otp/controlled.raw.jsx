@@ -1,4 +1,4 @@
-import {InputOtp} from "@nextui-org/react";
+import {InputOtp} from "@heroui/react";
 import React from "react";
 
 export default function App() {

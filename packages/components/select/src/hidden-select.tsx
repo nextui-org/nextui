@@ -5,9 +5,8 @@
 import {FocusableElement} from "@react-types/shared";
 import React, {ReactNode, RefObject} from "react";
 import {useFormReset} from "@react-aria/utils";
-import {useInteractionModality} from "@react-aria/interactions";
 import {useVisuallyHidden} from "@react-aria/visually-hidden";
-import {MultiSelectProps, MultiSelectState} from "@nextui-org/use-aria-multiselect";
+import {MultiSelectProps, MultiSelectState} from "@heroui/use-aria-multiselect";
 import {useFormValidation} from "@react-aria/form";
 
 import {selectData} from "./use-select";
@@ -71,7 +70,6 @@ export function useHiddenSelect<T>(
     onChange,
   } = props;
   let {validationBehavior, isRequired, isInvalid} = data;
-  let modality = useInteractionModality();
   let {visuallyHiddenProps} = useVisuallyHidden();
 
   useFormReset(props.selectRef!, state.selectedKeys, state.setSelectedKeys);
@@ -84,14 +82,6 @@ export function useHiddenSelect<T>(
     props.selectRef,
   );
 
-  const commonProps = {
-    autoComplete,
-    disabled: isDisabled,
-    "aria-invalid": isInvalid || undefined,
-    "aria-required": (isRequired && validationBehavior === "aria") || undefined,
-    required: isRequired && validationBehavior === "native",
-  };
-
   return {
     containerProps: {
       ...visuallyHiddenProps,
@@ -99,19 +89,16 @@ export function useHiddenSelect<T>(
       ["data-a11y-ignore"]: "aria-hidden-focus",
     },
     inputProps: {
-      ...commonProps,
-      type: "text",
-      tabIndex: modality == null || state.isFocused || state.isOpen ? -1 : 0,
-      value: [...state.selectedKeys].join(",") ?? "",
-      style: {fontSize: 16},
-      onFocus: () => triggerRef.current?.focus(),
-      onChange: () => {}, // The onChange is handled by the `select` element
+      style: {display: "none"},
     },
     selectProps: {
-      ...commonProps,
+      autoComplete,
+      disabled: isDisabled,
+      "aria-invalid": isInvalid || undefined,
+      "aria-required": (isRequired && validationBehavior === "aria") || undefined,
+      required: isRequired && validationBehavior === "native",
       name,
       tabIndex: -1,
-      size: state.collection.size,
       value:
         selectionMode === "multiple"
           ? [...state.selectedKeys].map((k) => String(k))
@@ -132,11 +119,7 @@ export function useHiddenSelect<T>(
 export function HiddenSelect<T>(props: HiddenSelectProps<T>) {
   let {state, triggerRef, selectRef, label, name, isDisabled} = props;
 
-  let {containerProps, inputProps, selectProps} = useHiddenSelect(
-    {...props, selectRef},
-    state,
-    triggerRef,
-  );
+  let {containerProps, selectProps} = useHiddenSelect({...props, selectRef}, state, triggerRef);
 
   // If used in a <form>, use a hidden input so the value can be submitted to a server.
   // If the collection isn't too big, use a hidden <select> element for this so that browser
@@ -144,7 +127,6 @@ export function HiddenSelect<T>(props: HiddenSelectProps<T>) {
   if (state.collection.size <= 300) {
     return (
       <div {...containerProps} data-testid="hidden-select-container">
-        <input {...inputProps} />
         <label>
           {label}
           <select {...selectProps} ref={selectRef}>

@@ -21,7 +21,7 @@ interface GithubInfo {
 
 async function getGithubInfo() {
   try {
-    const response = await fetch('https://api.github.com/repos/nextui-org/nextui');
+    const response = await fetch('https://api.github.com/repos/heroui-inc/heroui');
     const data = await response.json() as any;
 
     const githubInfo: GithubInfo = {
@@ -52,7 +52,7 @@ async function getGithubInfo() {
 
     fs.writeFileSync(outPath, formattedJson);
 
-    console.log("[NextUI] GitHub info updated successfully ✅");
+    console.log("[HeroUI] GitHub info updated successfully ✅");
   } catch (error) {
     console.error("[ERROR 🔥]:", error);
   }

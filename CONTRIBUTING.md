@@ -1,8 +1,8 @@
-# Next UI Contributing Guide
+# HeroUI Contributing Guide
 
-Hello!, I am very excited that you are interested in contributing with Next UI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
+Hello!, I am very excited that you are interested in contributing with HeroUI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
 
-- [Code of Conduct](https://github.com/jrgarciadev/nextui/blob/main/CODE_OF_CONDUCT.md)
+- [Code of Conduct](https://github.com/heroui-inc/heroui/blob/canary/CODE_OF_CONDUCT.md)
 - [Extraction request guidelines](#pull-request-guidelines)
 - [Development Setup](#development-setup)
 - [Tests](#tests)
@@ -71,7 +71,7 @@ https://www.conventionalcommits.org/ or check out the
 
 ### Steps to PR
 
-1. Fork of the nextui repository and clone your fork
+1. Fork of the heroui repository and clone your fork
 
 2. Create a new branch out of the `canary` branch. We follow the convention
    `[type/scope]`. For example `fix/dropdown-hook` or `docs/menu-typo`. `type`
@@ -79,7 +79,7 @@ https://www.conventionalcommits.org/ or check out the
    commit type. `scope` is just a short id that describes the scope of work.
 
 3. Make and commit your changes following the
-   [commit convention](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md#commit-convention).
+   [commit convention](https://github.com/heroui-inc/heroui/blob/main/CONTRIBUTING.md#commit-convention).
    As you canary, you can run `pnpm build --filter=<module>` and
    `pnpm test packages/<module>/<pkg>` e.g. `pnpm build --filter=avatar & pnpm test packages/components/avatar` to make sure everything works as expected.
 
@@ -117,7 +117,7 @@ We use [Turbo Repo](https://turborepo.org/) for the project management.
 2. If you will be working on the components source code, you can use the following command to start the webpack dev server:
 
 ```bash
-## Start the dev babel server of NextUI core components
+## Start the dev babel server of HeroUI core components
 pnpm dev
 
 ## optional
@@ -128,10 +128,10 @@ pnpm dev:docs ## this will start the documentation next.js server and it will au
 ```
 
 - If you will be working just on the documentation source code / mdx, you can use the following commands to build
-  NextUI components and then start the next.js dev server:
+  HeroUI components and then start the next.js dev server:
 
 ```bash
-## Build NextUI source components
+## Build HeroUI source components
 pnpm build
 
 ## Start the next.js documentation dev server
@@ -210,13 +210,13 @@ When making a visual change, please provide screenshots
 and/or screencasts of the proposed change. This will help us to understand the
 desired change easier.
 
-Until NextUI has a stable release new components will be created only for the core team.
+Until HeroUI has a stable release new components will be created only for the core team.
 
 ## Documentation
 
 Please update the docs with any API changes, the code and docs should always be in sync.
 
-The main documentation lives in the `apps/docs/content` folder, the project uses MDX and all `NextUI` are already imported.
+The main documentation lives in the `apps/docs/content` folder, the project uses MDX and all `HeroUI` are already imported.
 
 ## Breaking changes
 
@@ -224,7 +224,7 @@ Breaking changes should be accompanied with deprecations of removed functionalit
 
 ## Becoming a maintainer
 
-If you are interested in becoming a NextUI maintainer, start by
+If you are interested in becoming a HeroUI maintainer, start by
 reviewing issues and pull requests. Answer questions for those in need of
 troubleshooting. Join us in the
 [Discord Community](https://discord.gg/9b6yyZKmH4) chat room.
@@ -235,7 +235,7 @@ best to be proactive in reaching out to those that are already helping out.
 GitHub by default does not publicly state that you are a member of the
 organization. Please feel free to change that setting for yourself so others
 will know who's helping out. That can be configured on the [organization
-list](https://github.com/orgs/nextui-org/people) page.
+list](https://github.com/orgs/heroui-inc/people) page.
 
 Being a maintainer is not an obligation. You can help when you have time and be
 less active when you don't. If you get a new job and get busy, that's alright.

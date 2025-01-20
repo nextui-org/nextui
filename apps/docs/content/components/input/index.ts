@@ -14,6 +14,10 @@ import startEndContent from "./start-end-content";
 import errorMessage from "./error-message";
 import regexValidation from "./regex-validation";
 import controlled from "./controlled";
+import builtInValidation from "./built-in-validation";
+import customValidation from "./custom-validation";
+import realTimeValidation from "./real-time-validation";
+import serverValidation from "./server-validation";
 import customStyles from "./custom-styles";
 import customImpl from "./custom-impl";
 
@@ -34,6 +38,10 @@ export const inputContent = {
   errorMessage,
   regexValidation,
   controlled,
+  builtInValidation,
+  customValidation,
+  realTimeValidation,
+  serverValidation,
   customStyles,
   customImpl,
 };

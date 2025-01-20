@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/no-autofocus */
 import React from "react";
 import {Meta} from "@storybook/react";
-import {popover, ButtonVariantProps} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Input} from "@nextui-org/input";
-import {Card, CardHeader, CardFooter} from "@nextui-org/card";
+import {popover, ButtonVariantProps} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Input} from "@heroui/input";
+import {Card, CardHeader, CardFooter} from "@heroui/card";
 
 import {Popover, PopoverTrigger, PopoverContent, PopoverProps} from "../src";
 
@@ -96,6 +96,11 @@ export default {
         disable: true,
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -122,11 +127,11 @@ const content = (
   </PopoverContent>
 );
 
-const Template = (args: PopoverProps) => {
+const Template = ({label = "Open Popover", ...args}: PopoverProps & {label: string}) => {
   return (
     <Popover {...args}>
       <PopoverTrigger>
-        <Button>Open Popover</Button>
+        <Button>{label}</Button>
       </PopoverTrigger>
       {content}
     </Popover>
@@ -401,14 +406,14 @@ const WithBackdropTemplate = (args: PopoverProps) => (
     <img
       alt="Relaxing app background"
       className="w-full h-full object-cover"
-      src="https://nextui.org/images/card-example-5.jpeg"
+      src="https://heroui.com/images/card-example-5.jpeg"
     />
     <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-default-600 dark:border-default-100">
       <div className="flex flex-grow gap-2 items-center">
         <img
           alt="Breathing app icon"
           className="rounded-full w-10 h-11 bg-black"
-          src="https://nextui.org/images/breathing-app-icon.jpeg"
+          src="https://heroui.com/images/breathing-app-icon.jpeg"
         />
         <div className="flex flex-col">
           <p className="text-xs text-white/60">Breathing App</p>
@@ -573,5 +578,46 @@ export const CustomMotion = {
         },
       },
     },
+  },
+};
+
+export const WithFallbackPlacements = {
+  args: {
+    ...defaultProps,
+  },
+  render: (args) => (
+    <div className="relative h-screen w-screen">
+      <div className="absolute top-0 left-0 p-8 flex gap-4">
+        <Template {...args} label="placement: top" placement="top" />
+        <Template {...args} label="placement: bottom" placement="bottom" />
+      </div>
+      <div className="absolute bottom-0 left-0 p-8 flex gap-4">
+        <Template {...args} label="placement: bottom" placement="bottom" />
+        <Template {...args} label="placement: top" placement="top" />
+      </div>
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 p-8 flex flex-col gap-4">
+        <Template {...args} label="placement: left" placement="left" />
+        <Template {...args} label="placement: right" placement="right" />
+      </div>
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 p-8 flex flex-col gap-4">
+        <Template {...args} label="placement: right" placement="right" />
+        <Template {...args} label="placement: left" placement="left" />
+      </div>
+    </div>
+  ),
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8">
+        <Template {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <Template {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
+
+  args: {
+    ...defaultProps,
   },
 };

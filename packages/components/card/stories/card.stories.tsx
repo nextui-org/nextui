@@ -1,10 +1,10 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {card} from "@nextui-org/theme";
-import {Link} from "@nextui-org/link";
-import {Button} from "@nextui-org/button";
-import {Code} from "@nextui-org/code";
-import {Image} from "@nextui-org/image";
+import {card} from "@heroui/theme";
+import {Link} from "@heroui/link";
+import {Button} from "@heroui/button";
+import {Code} from "@heroui/code";
+import {Image} from "@heroui/image";
 
 import {Card, CardBody, CardHeader, CardFooter, CardProps} from "../src";
 
@@ -103,22 +103,22 @@ const WithFooterTemplate = (args: CardProps) => (
   <Card {...args} className="p-4 max-w-md">
     <CardHeader className="flex gap-3">
       <Image
-        alt="nextui logo"
+        alt="heroui logo"
         height={34}
         radius="lg"
         src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
         width={34}
       />
       <div className="flex flex-col">
-        <b className="text-lg">NextUI</b>
-        <p className="text-default-500">nextui.org</p>
+        <b className="text-lg">HeroUI</b>
+        <p className="text-default-500">heroui.com</p>
       </div>
     </CardHeader>
     <CardBody className="py-2">
       <p>Make beautiful websites regardless of your design experience.</p>
     </CardBody>
     <CardFooter>
-      <Link isExternal showAnchorIcon href="https://github.com/nextui-org/nextui">
+      <Link isExternal showAnchorIcon href="https://github.com/heroui-inc/heroui">
         Visit source code on GitHub.
       </Link>
     </CardFooter>
@@ -184,7 +184,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-4.jpeg"
+        src="https://heroui.com/images/card-example-4.jpeg"
       />
     </Card>
     <Card {...args} className="col-span-12 sm:col-span-4">
@@ -195,7 +195,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-3.jpeg"
+        src="https://heroui.com/images/card-example-3.jpeg"
       />
     </Card>
     <Card {...args} className="col-span-12 sm:col-span-4">
@@ -206,7 +206,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-2.jpeg"
+        src="https://heroui.com/images/card-example-2.jpeg"
       />
     </Card>
     <Card {...args} isFooterBlurred className="w-full h-[400px] col-span-12 sm:col-span-5">
@@ -217,7 +217,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Card example background"
         className="w-full h-full scale-125 -translate-y-10 object-cover"
-        src="https://nextui.org/images/card-example-6.jpeg"
+        src="https://heroui.com/images/card-example-6.jpeg"
       />
       <CardFooter className="absolute bg-white/30 bottom-0 border-t border-slate-300 z-10 justify-between">
         <div>
@@ -237,7 +237,7 @@ const CoverImgTemplate = (args: CardProps) => (
       <img
         alt="Relaxing app background"
         className="w-full h-full object-cover"
-        src="https://nextui.org/images/card-example-5.jpeg"
+        src="https://heroui.com/images/card-example-5.jpeg"
       />
       <CardFooter className="absolute bg-black/40 bottom-0 z-10 border-t border-default-600 dark:border-default-100">
         <div className="flex flex-grow gap-2 items-center">
@@ -335,7 +335,7 @@ const PrimaryActionTemplate = (args: CardProps) => {
             <img
               alt={item.title}
               className="w-full h-[140px] object-cover"
-              src={"https://nextui.org" + item.img}
+              src={"https://heroui.com" + item.img}
             />
           </CardBody>
           <CardFooter className="justify-between">
@@ -345,6 +345,28 @@ const PrimaryActionTemplate = (args: CardProps) => {
         </Card>
       ))}
     </div>
+  );
+};
+
+const PressableTemplate = (args: CardProps) => {
+  // Both events should be fired when clicking on the card
+
+  const handlePress = () => {
+    // eslint-disable-next-line no-console
+    alert("card pressed");
+  };
+
+  const onClick = () => {
+    // eslint-disable-next-line no-console
+    alert("card clicked");
+  };
+
+  return (
+    <Card {...args} isPressable onClick={onClick} onPress={handlePress}>
+      <CardBody>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </CardBody>
+    </Card>
   );
 };
 
@@ -408,6 +430,14 @@ const CenterImgWithHeaderTemplate = (args: CardProps) => {
 
 export const Default = {
   render: Template,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Pressable = {
+  render: PressableTemplate,
 
   args: {
     ...defaultProps,

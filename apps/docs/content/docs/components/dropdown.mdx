@@ -20,18 +20,18 @@ Displays a list of actions or options that a user can choose.
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add dropdown",
-    npm: "npm install @nextui-org/dropdown",
-    yarn: "yarn add @nextui-org/dropdown",
-    pnpm: "pnpm add @nextui-org/dropdown",
-    bun: "bun add @nextui-org/dropdown"
+    cli: "npx heroui-cli@latest add dropdown",
+    npm: "npm install @heroui/dropdown",
+    yarn: "yarn add @heroui/dropdown",
+    pnpm: "pnpm add @heroui/dropdown",
+    bun: "bun add @heroui/dropdown"
   }}
 />
 
 
 ## Import
 
-NextUI exports 5 dropdown-related components:
+HeroUI exports 5 dropdown-related components:
 
 - **Dropdown**: The main component, which is a wrapper for the other components. This component is an extension of the [Popover](/docs/components/popover) component, so it accepts all the props of the Popover component.
 - **DropdownTrigger**: The component that triggers the dropdown menu to open.
@@ -47,14 +47,14 @@ NextUI exports 5 dropdown-related components:
     DropdownMenu,
     DropdownSection,
     DropdownItem
-} from "@nextui-org/react";`,
+} from "@heroui/react";`,
     individual: `import {
     Dropdown,
     DropdownTrigger,
     DropdownMenu,
     DropdownSection,
     DropdownItem
-} from "@nextui-org/dropdown";`,
+} from "@heroui/dropdown";`,
   }}
 />
 
@@ -163,7 +163,7 @@ The `<DropdownItem>` component works with frameworks and client side routers lik
 [React Router](https://reactrouter.com/en/main). See the [Routing](/docs/guide/routing) guide to learn how to set this up.
 
 ```jsx
-import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button} from "@nextui-org/react";
+import {Dropdown, DropdownMenu, DropdownTrigger, DropdownItem, Button} from "@heroui/react";
 
 function App() {
   return (
@@ -772,6 +772,7 @@ you to customize each item individually.
     },
     {
       attribute: "onClick",
+      deprecated: true,
       type: "MouseEventHandler",
       description: "The native button click event handler (**Deprecated**) use **onPress** instead.",
       default: "-"

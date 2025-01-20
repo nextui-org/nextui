@@ -2,7 +2,7 @@ import type {MappedDateValue} from "@react-types/datepicker";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput, button} from "@nextui-org/theme";
+import {dateInput, button} from "@heroui/theme";
 import {
   DateValue,
   getLocalTimeZone,
@@ -16,12 +16,12 @@ import {
   today,
 } from "@internationalized/date";
 import {I18nProvider, useDateFormatter, useLocale} from "@react-aria/i18n";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup, RadioProps} from "@nextui-org/radio";
-import {cn} from "@nextui-org/theme";
-import {MoonIcon, SunIcon} from "@nextui-org/shared-icons";
+import {Button, ButtonGroup} from "@heroui/button";
+import {Radio, RadioGroup, RadioProps} from "@heroui/radio";
+import {cn} from "@heroui/theme";
+import {MoonIcon, SunIcon} from "@heroui/shared-icons";
 import {ValidationResult} from "@react-types/shared";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {DatePicker, DatePickerProps} from "../src";
 
@@ -114,7 +114,7 @@ const LabelPlacementTemplate = (args: DatePickerProps) => (
 );
 
 const ControlledTemplate = (args: DatePickerProps) => {
-  const [value, setValue] = React.useState<DateValue>(parseDate("2024-04-04"));
+  const [value, setValue] = React.useState<DateValue | null>(parseDate("2024-04-04"));
 
   let formatter = useDateFormatter({dateStyle: "full"});
 
@@ -149,7 +149,9 @@ const TimeZonesTemplate = (args: DatePickerProps) => (
 );
 
 const GranularityTemplate = (args: DatePickerProps) => {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(
+    parseAbsoluteToLocal("2021-04-07T18:45:22Z"),
+  );
 
   return (
     <div className="w-full max-w-xl flex flex-col items-start gap-4">
@@ -182,7 +184,9 @@ const GranularityTemplate = (args: DatePickerProps) => {
 };
 
 const InternationalCalendarsTemplate = (args: DatePickerProps) => {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(
+    parseAbsoluteToLocal("2021-04-07T18:45:22Z"),
+  );
 
   return (
     <div className="flex flex-col gap-4">
@@ -202,7 +206,7 @@ const InternationalCalendarsTemplate = (args: DatePickerProps) => {
 const PresetsTemplate = (args: DatePickerProps) => {
   let defaultDate = today(getLocalTimeZone());
 
-  const [value, setValue] = React.useState<DateValue>(defaultDate);
+  const [value, setValue] = React.useState<DateValue | null>(defaultDate);
 
   let {locale} = useLocale();
   let formatter = useDateFormatter({dateStyle: "full"});

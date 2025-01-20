@@ -1,13 +1,13 @@
 ---
 title: Forms
-description: Learn how to handle forms in NextUI.
+description: Learn how to handle forms in HeroUI.
 ---
 
 import {formContent} from "@/content/components/form";
 
 # Forms
 
-NextUI provides form components with built-in validation and styling to help users input and submit data effectively.
+HeroUI provides form components with built-in validation and styling to help users input and submit data effectively.
 
 <CarbonAd />
 
@@ -15,15 +15,15 @@ NextUI provides form components with built-in validation and styling to help use
 
 ## Labels and help text
 
-Accessible forms start with clear, descriptive labels for each field. All NextUI form components support labeling using
+Accessible forms start with clear, descriptive labels for each field. All HeroUI form components support labeling using
 the Label component, which is automatically associated with the field via the id and for attributes on your behalf.
 
-In addition, NextUI components support help text, which associates additional context with a field such as a **description**
+In addition, HeroUI components support help text, which associates additional context with a field such as a **description**
 or **error message**. The label and help text are announced by assistive technology such as screen readers when the user focuses
 the field.
 
 ```tsx {5,6}
-import {Input} from "@nextui-org/react";
+import {Input} from "@heroui/react";
 
 <Input
   type="password"
@@ -36,7 +36,7 @@ Most fields should have a visible label. In rare exceptions, the `aria-label` or
 
 ## Submitting data
 
-How you submit form data depends on your framework, application, and server. By default,**HTML** forms are submitted via a full-page refresh in the browser.
+How you submit form data depends on your framework, application, and server. By default, **HTML** forms are submitted via a full-page refresh in the browser.
 You can call `preventDefault` in the `onSubmit` event to handle form data submission via an API.
 
 Frameworks like [Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/server-actions-and-mutations#forms), [Remix](https://remix.run/docs/en/main/guides/forms), and [React Router](https://reactrouter.com/en/main/route/form-submission) provide their own ways to handle form submission.
@@ -48,7 +48,7 @@ Each field should have a `name` prop to identify it, and the values will be seri
 
 ```tsx {12,15}
 import * as React from "react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const [submitted, setSubmitted] = React.useState(null);
@@ -92,11 +92,11 @@ function Example() {
 
 #### Controlled forms
 
-NextUI form components are uncontrolled by default, but if you need to manage state in real-time, you can use the `useState` hook to make the component controlled.
+HeroUI form components are uncontrolled by default, but if you need to manage state in real-time, you can use the `useState` hook to make the component controlled.
 
 ```tsx {5,26-27}
 import * as React from "react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const [email, setEmail] = React.useState("");
@@ -147,7 +147,7 @@ By default, error messages are provided by the browser.
 You can customize these messages by providing a function to the `errorMessage` prop.
 
 ```tsx {12-16}
-import {Form, Input, Button} from "@nextui-org/react";
+import {Form, Input, Button} from "@heroui/react";
 
 export default function App() {
   const onSubmit = (e) => {
@@ -185,22 +185,22 @@ export default function App() {
   files={formContent.customErrorMessages}
 />
 
-> **Note**: The default error messages are localized by the browser based on the browser/operating system language settings. The [locale setting in NextUI Provider](/docs/api-references/nextui-provider#props) does not affect validation errors.
+> **Note**: The default error messages are localized by the browser based on the browser/operating system language settings. The [locale setting in HeroUI Provider](/docs/api-references/heroui-provider#props) does not affect validation errors.
 
 
 ## Validation
 
 Form validation is crucial for ensuring that users enter the correct data.
-NextUI supports native HTML constraint validation and allows for custom validation and real-time validation.
+HeroUI supports native HTML constraint validation and allows for custom validation and real-time validation.
 
 #### Built-in validation
 
-NextUI form components support [native HTML validation](https://developer.mozilla.org/docs/Web/HTML/Constraint_validation) attributes like `isRequired` and `minLength`.
-These constraints are checked by the browser when the user commits changes (e.g., onBlur) or submits the form.
+HeroUI form components support [native HTML validation](https://developer.mozilla.org/docs/Web/HTML/Constraint_validation) attributes like `isRequired` and `minLength`.
+These constraints are checked by the browser when the user commits changes (e.g., on blur) or submits the form.
 You can display validation errors with custom styles instead of the browser's default UI.
 
 ```tsx {10}
-import {Form, Input, Button} from "@nextui-org/react";
+import {Form, Input, Button} from "@heroui/react";
 
 export default function App() {
   const onSubmit = (e) => {
@@ -227,7 +227,7 @@ export default function App() {
 
 To enable native validation, set `validationBehavior="native"`.
 By default, `validationBehavior="aria"` is set, which only marks the field as required or invalid for assistive technologies, without preventing form submission.
-You can change the form defaults for your entire app using [NextUI Provider](/docs/api-references/nextui-provider).
+You can change the form defaults for your entire app using [HeroUI Provider](/docs/api-references/heroui-provider).
 
 Supported constraints include:
 
@@ -235,7 +235,7 @@ Supported constraints include:
 - `minValue` and `maxValue` specify the minimum and maximum value in a date picker or number field.
 - `minLength` and `maxLength` specify the minimum and length of text input.
 - `pattern` provides a custom regular expression that a text input must conform to.
-- `type="email"` and `type="url"` provide builtin validation for email addresses and URLs.
+- `type="email"` and `type="url"` provide built-in validation for email addresses and URLs.
 
 See each component's documentation for more details on the supported validation props.
 
@@ -248,7 +248,7 @@ See each component's documentation for more details on the supported validation 
 In addition to built-in constraints, you can provide a function to the `validate` prop to support custom validation.
 
 ```tsx {17-23}
-import {Form, Input, Button} from "@nextui-org/react";
+import {Form, Input, Button} from "@heroui/react";
 
 export default function App() {
   const onSubmit = (e) => {
@@ -289,7 +289,7 @@ export default function App() {
 If you want to display validation errors while the user is typing, you can control the field value and use the `isInvalid` prop along with the `errorMessage` prop.
 
 ```tsx {19-26,30,32}
-import {Input} from "@nextui-org/react";
+import {Input} from "@heroui/react";
 
 export function Example() {
   const [password, setPassword] = React.useState("");
@@ -335,11 +335,11 @@ Use `validationBehavior="aria"` to allow form submission even when fields are in
 #### Server validation
 
 Client-side validation provides immediate feedback, but you should also validate data on the server to ensure accuracy and security.
-NextUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
+HeroUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
 This prop should be an object where each key is the field `name` and the value is the error message.
 
 ```tsx {4,17,25-26}
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 function Example() {
   const [errors, setErrors] = React.useState({});
@@ -395,7 +395,7 @@ function callServer(data) {
 
 #### Schema validation
 
-NextUI supports errors from schema validation libraries like [Zod](https://zod.dev/).
+HeroUI supports errors from schema validation libraries like [Zod](https://zod.dev/).
 You can use Zod's `flatten` method to get error messages for each field and return them as part of the server response.
 
 ```tsx {14}
@@ -434,7 +434,7 @@ The [useActionState](https://react.dev/reference/react/useActionState) hook can 
 "use client";
 
 import {useActionState} from "react";
-import {Button, Input, Label} from "@nextui-org/react";
+import {Button, Input, Label} from "@heroui/react";
 import {createTodo} from "@/app/actions";
 
 export function AddForm() {
@@ -479,7 +479,7 @@ You can use the [useSubmit](https://remix.run/docs/en/main/hooks/use-submit) hoo
 // app/routes/signup.tsx
 import type {ActionFunctionArgs} from "@remix-run/node";
 import {useActionData, useSubmit} from "@remix-run/react";
-import {Button, Form, Input} from "@nextui-org/react";
+import {Button, Form, Input} from "@heroui/react";
 
 export default function SignupForm() {
   let submit = useSubmit();
@@ -520,16 +520,16 @@ export async function action({request}: ActionFunctionArgs) {
 
 ## Form libraries
 
-In most cases, the built-in validation features of NextUI are sufficient. However, if you're building more complex forms or integrating NextUI components into an existing form, you can use a form library like [React Hook Form](https://react-hook-form.com/) or [Formik](https://formik.org/).
+In most cases, the built-in validation features of HeroUI are sufficient. However, if you're building more complex forms or integrating HeroUI components into an existing form, you can use a form library like [React Hook Form](https://react-hook-form.com/) or [Formik](https://formik.org/).
 
 #### React Hook Form
 
-You can integrate NextUI components using [Controller](https://react-hook-form.com/docs/usecontroller/controller).
-Controller allows you to manage field values and validation errors, and reflect the validation result in NextUI components.
+You can integrate HeroUI components using [Controller](https://react-hook-form.com/docs/usecontroller/controller).
+Controller allows you to manage field values and validation errors, and reflect the validation result in HeroUI components.
 
 ```tsx
 import {Controller, useForm} from "react-hook-form";
-import {Button, Input, Label} from "@nextui-org/react";
+import {Button, Input, Label} from "@heroui/react";
 
 function App() {
   const {handleSubmit, control} = useForm({
@@ -570,4 +570,4 @@ function App() {
 }
 ```
 
-> For more information about forms in NextUI, visit the [React Aria Forms Guide](https://react-spectrum.adobe.com/react-aria/forms.html).
+> For more information about forms in HeroUI, visit the [React Aria Forms Guide](https://react-spectrum.adobe.com/react-aria/forms.html).

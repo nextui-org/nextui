@@ -9,16 +9,16 @@
 
 import * as React from "react";
 import {DismissButton, Overlay} from "@react-aria/overlays";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
-import {getTransformOrigins} from "@nextui-org/aria-utils";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
+import {getTransformOrigins} from "@heroui/aria-utils";
+import {TRANSITION_VARIANTS} from "@heroui/framer-utils";
 import {useDialog} from "@react-aria/dialog";
 
 import {usePopover, UsePopoverProps, UsePopoverReturn} from "./use-popover";
 
-const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);
 
 export interface FreeSoloPopoverProps extends Omit<UsePopoverProps, "children"> {
   children: React.ReactNode | ((titleProps: React.DOMAttributes<HTMLElement>) => React.ReactNode);
@@ -58,7 +58,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
         // @ts-ignore
         transformOrigin,
       };
-    } else {
+    } else if (placement) {
       style = {
         ...style,
         ...getTransformOrigins(placement === "center" ? "top" : placement),
@@ -87,7 +87,7 @@ const FreeSoloPopoverWrapper = forwardRef<"div", FreeSoloPopoverWrapperProps>(
   },
 );
 
-FreeSoloPopoverWrapper.displayName = "NextUI.FreeSoloPopoverWrapper";
+FreeSoloPopoverWrapper.displayName = "HeroUI.FreeSoloPopoverWrapper";
 
 const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
   ({children, transformOrigin, disableDialogFocus = false, ...props}, ref) => {
@@ -165,6 +165,6 @@ const FreeSoloPopover = forwardRef<"div", FreeSoloPopoverProps>(
   },
 );
 
-FreeSoloPopover.displayName = "NextUI.FreeSoloPopover";
+FreeSoloPopover.displayName = "HeroUI.FreeSoloPopover";
 
 export default FreeSoloPopover;

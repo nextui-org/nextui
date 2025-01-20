@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/system",
-  "version": "2.4.2",
-  "description": "NextUI system primitives",
+  "name": "@heroui/system",
+  "version": "2.4.7",
+  "description": "HeroUI system primitives",
   "keywords": [
     "system"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/core/system"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src !src/extend-variants.d.ts --dts",
@@ -54,13 +54,13 @@
     ]
   },
   "dependencies": {
-    "@internationalized/date": "3.5.6",
-    "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/i18n": "3.12.3",
-    "@nextui-org/system-rsc": "workspace:*",
-    "@react-aria/overlays": "3.23.4",
+    "@internationalized/date": "3.6.0",
+    "@heroui/react-utils": "workspace:*",
+    "@react-aria/i18n": "3.12.4",
+    "@heroui/system-rsc": "workspace:*",
+    "@react-aria/overlays": "3.24.0",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/utils": "3.10.4",
-    "@react-types/datepicker": "3.8.3"
+    "@react-stately/utils": "3.10.5",
+    "@react-types/datepicker": "3.9.0"
   }
 }

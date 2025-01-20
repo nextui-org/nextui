@@ -18,7 +18,7 @@ import {
   Selection,
   ChipProps,
   SortDescriptor,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 export type IconSvgProps = SVGProps<SVGSVGElement> & {
   size?: number;
@@ -461,9 +461,9 @@ export default function App() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem>View</DropdownItem>
-                <DropdownItem>Edit</DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
+                <DropdownItem key="view">View</DropdownItem>
+                <DropdownItem key="edit">Edit</DropdownItem>
+                <DropdownItem key="delete">Delete</DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>

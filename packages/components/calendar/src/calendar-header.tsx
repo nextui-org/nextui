@@ -1,17 +1,17 @@
-import type {ButtonProps} from "@nextui-org/button";
+import type {ButtonProps} from "@heroui/button";
 import type {CalendarDate} from "@internationalized/date";
 
-import {HTMLNextUIProps} from "@nextui-org/system";
+import {HTMLHeroUIProps} from "@heroui/system";
 import {useDateFormatter} from "@react-aria/i18n";
 import {m} from "framer-motion";
-import {Button} from "@nextui-org/button";
+import {Button} from "@heroui/button";
 import {useCallback} from "react";
 
 import {slideVariants} from "./calendar-transitions";
 import {ChevronDownIcon} from "./chevron-down";
 import {useCalendarContext} from "./calendar-context";
 
-export interface CalendarHeaderProps extends HTMLNextUIProps<"header"> {
+export interface CalendarHeaderProps extends HTMLHeroUIProps<"header"> {
   direction: number;
   date: CalendarDate;
   currentMonth: CalendarDate;

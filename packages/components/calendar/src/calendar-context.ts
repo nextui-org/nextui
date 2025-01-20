@@ -1,7 +1,7 @@
 import type {ContextType} from "./use-calendar-base";
 import type {CalendarState, RangeCalendarState} from "@react-stately/calendar";
 
-import {createContext} from "@nextui-org/react-utils";
+import {createContext} from "@heroui/react-utils";
 
 export const [CalendarProvider, useCalendarContext] = createContext<
   ContextType<CalendarState | RangeCalendarState>

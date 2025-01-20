@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/dropdown",
-  "version": "2.3.2",
+  "name": "@heroui/dropdown",
+  "version": "2.3.10",
   "description": "A dropdown displays a list of actions or options that a user can choose.",
   "keywords": [
     "dropdown"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/dropdown"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -34,33 +34,33 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.3.0",
-    "@nextui-org/theme": ">=2.3.0",
+    "@heroui/system": ">=2.4.0",
+    "@heroui/theme": ">=2.4.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0"
   },
   "dependencies": {
-    "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/menu": "workspace:*",
-    "@nextui-org/popover": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/menu": "3.15.5",
+    "@heroui/aria-utils": "workspace:*",
+    "@heroui/menu": "workspace:*",
+    "@heroui/popover": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/menu": "3.16.0",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/menu": "3.8.3",
-    "@react-types/menu": "3.9.12"
+    "@react-stately/menu": "3.9.0",
+    "@react-types/menu": "3.9.13"
   },
   "devDependencies": {
-    "@nextui-org/avatar": "workspace:*",
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/image": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/test-utils": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/user": "workspace:*",
+    "@heroui/avatar": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/image": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/user": "workspace:*",
     "clean-package": "2.2.0",
     "framer-motion": "11.9.0",
     "react": "^18.0.0",

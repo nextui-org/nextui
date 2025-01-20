@@ -1,13 +1,13 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {menuItem} from "@nextui-org/theme";
+import {menuItem} from "@heroui/theme";
 import {
   AddNoteBulkIcon,
   CopyDocumentBulkIcon,
   EditDocumentBulkIcon,
   DeleteDocumentBulkIcon,
-} from "@nextui-org/shared-icons";
-import {clsx} from "@nextui-org/shared-utils";
+} from "@heroui/shared-icons";
+import {clsx} from "@heroui/shared-utils";
 
 import {Menu, MenuItem, MenuSection, MenuProps} from "../src";
 
@@ -45,7 +45,9 @@ const defaultProps = {
 
 const Template = ({color, variant, ...args}: MenuProps) => (
   <Menu aria-label="Actions" color={color} variant={variant} onAction={alert} {...args}>
-    <MenuItem key="new">New file</MenuItem>
+    <MenuItem key="new" onPress={() => alert("[onPress] New file")}>
+      New file
+    </MenuItem>
     <MenuItem key="copy">Copy link</MenuItem>
     <MenuItem key="edit">Edit file</MenuItem>
     <MenuItem key="delete" className="text-danger" color="danger">

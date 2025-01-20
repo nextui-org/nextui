@@ -1,9 +1,9 @@
-import type {MenuItemVariantProps, MenuItemSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {MenuItemVariantProps, MenuItemSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaMenuItemProps} from "@react-aria/menu";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
-import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
-import {ReactNode} from "react";
+import {BaseItem, ItemProps} from "@heroui/aria-utils";
+import {MouseEventHandler, ReactNode} from "react";
 
 export type MenuItemSelectedIconProps = {
   /**
@@ -25,19 +25,19 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   /**
    * The content of the component.
    */
-  children?: ReactNode | null;
+  children?: ReactNode;
   /**
    * The menu item title.
    */
-  title?: ReactNode | string;
+  title?: ReactNode;
   /**
    * The menu item subtitle.
    */
-  description?: ReactNode | string;
+  description?: ReactNode;
   /**
    * The menu item keyboard shortcut.
    */
-  shortcut?: ReactNode | string;
+  shortcut?: ReactNode;
   /**
    * The menu item start content.
    */
@@ -58,7 +58,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   hideSelectedIcon?: boolean;
   /**
    * The menu item `selected` icon, it's usually an checkmark icon.
-   * If you pass a function, NextUI will expose the current selected icon and the selected status,
+   * If you pass a function, HeroUI will expose the current selected icon and the selected status,
    * In case you want to use a custom indicator or modify the current one.
    *
    * Important: The selected icon will be rendered only if the menu selection mode is different than `none`.
@@ -88,11 +88,18 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   classNames?: SlotsToClasses<MenuItemSlots>;
 }
 
-export type MenuItemBaseProps<T extends object = {}> = Props<T> &
+export type MenuItemBaseProps<T extends object = {}> = Omit<Props<T>, "onClick"> &
   Omit<MenuItemVariantProps, "hasDescriptionTextChild" | "hasTitleTextChild"> &
   AriaMenuItemProps &
   FocusableProps &
-  PressEvents;
+  PressEvents & {
+    /**
+     * The native click event handler.
+     * use `onPress` instead.
+     * @deprecated
+     */
+    onClick?: MouseEventHandler<HTMLLIElement | HTMLAnchorElement>;
+  };
 
 const MenuItemBase = BaseItem as <T extends object>(props: MenuItemBaseProps<T>) => JSX.Element;
 

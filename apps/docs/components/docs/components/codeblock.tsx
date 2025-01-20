@@ -4,10 +4,10 @@ import type {Language, PrismTheme} from "prism-react-renderer";
 
 import {useIntersectionObserver} from "usehooks-ts";
 import React, {forwardRef, useEffect} from "react";
-import {clsx, dataAttr, getUniqueID} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, getUniqueID} from "@heroui/shared-utils";
 import BaseHighlight, {defaultProps} from "prism-react-renderer";
-import {debounce, omit} from "@nextui-org/shared-utils";
-import {cn} from "@nextui-org/react";
+import {debounce, omit} from "@heroui/shared-utils";
+import {cn} from "@heroui/react";
 
 import defaultTheme from "@/libs/prism-theme";
 
@@ -25,17 +25,17 @@ interface CodeblockProps {
 
 type HighlightStyle = "inserted" | "deleted" | undefined;
 
-const nextuiCliCommand = [
-  /^init$/,
-  /^add$/,
-  /^upgrade$/,
-  /^remove$/,
-  /^list$/,
-  /^env$/,
-  /^doctor$/,
-];
+const cliCommands = [/^init$/, /^add$/, /^upgrade$/, /^remove$/, /^list$/, /^env$/, /^doctor$/];
 
-const highlightStyleToken = ["bun", /nextui\s\w+(?=\s?)/, /^nextui$/, "Usage", ...nextuiCliCommand];
+const highlightStyleToken = [
+  "bun",
+  /nextui\s\w+(?=\s?)/,
+  /^nextui$/,
+  /heroui\s\w+(?=\s?)/,
+  /^heroui$/,
+  "Usage",
+  ...cliCommands,
+];
 const RE = /{([\d,-]+)}/;
 
 const calculateLinesToHighlight = (meta?: string) => {
@@ -99,6 +99,10 @@ const CodeBlockHighlight = ({
       ref={intersectionRef}
       style={{
         height: isVisible ? "auto" : `${height}px`,
+        // due to display: contents on the scrollable child element, this div will also scroll
+        // this causes the intersection observer to trigger if scrolled far enough horizontally
+        // set the width to fit-content to prevent this div from going off screen
+        width: "fit-content",
       }}
     >
       {isVisible ? (

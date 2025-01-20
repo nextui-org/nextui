@@ -4,7 +4,7 @@ import * as React from "react";
 import {act, render, renderHook, waitFor} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {Select, SelectItem, SelectSection} from "../src";
 import {Modal, ModalContent, ModalHeader, ModalBody, ModalFooter} from "../../modal/src";
@@ -1180,30 +1180,136 @@ describe("validation", () => {
   });
 
   describe("validationBehavior=aria", () => {
-    it("supports isRequired", async () => {
+    it("supports validate function", async () => {
+      const onSubmit = jest.fn((e) => e.preventDefault());
+
+      const {getByTestId} = render(
+        <Form data-testid="form" validationBehavior="aria" onSubmit={onSubmit}>
+          <Select
+            aria-label="Favorite Animal"
+            data-testid="trigger"
+            defaultSelectedKeys={["penguin"]}
+            label="Favorite Animal"
+            validate={(v) => (v.includes("penguin") ? "Invalid value" : null)}
+          >
+            <SelectItem key="penguin">Penguin</SelectItem>
+            <SelectItem key="zebra">Zebra</SelectItem>
+            <SelectItem key="shark">Shark</SelectItem>
+          </Select>
+          <button data-testid="submit-button" type="submit">
+            Submit
+          </button>
+        </Form>,
+      );
+
+      const trigger = getByTestId("trigger") as HTMLButtonElement;
+      const select = document.querySelector("select");
+      const submit = getByTestId("submit-button");
+
+      // aria validation is always valid
+      expect(select?.validity.valid).toBe(true);
+      // aria validation validates on initial render
+      expect(trigger).toHaveAttribute("aria-describedby");
+      expect(select).toHaveAttribute("aria-invalid", "true");
+      expect(document.getElementById(trigger.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "Invalid value",
+      );
+
+      await user.click(trigger);
+
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[1]); // zebra
+
+      await user.click(submit);
+
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).not.toHaveAttribute("aria-describedby");
+      expect(select).not.toHaveAttribute("aria-invalid");
+    });
+
+    it("supports server validation", async () => {
       function FormRender() {
-        const [serverErrors, setServerErrors] = React.useState({});
+        const [serverErrors, setServerErrors] = React.useState({animal: "initial error"});
 
         const onSubmit = (e) => {
           e.preventDefault();
-          const formData = new FormData(e.target as HTMLFormElement);
-          const value = formData.get("animal");
 
-          if (!value || (value !== "cat" && value !== "dog")) {
-            setServerErrors({
-              animal: "Please select a cat or dog",
-            });
-          } else {
-            setServerErrors({});
-          }
+          setServerErrors({
+            animal: "new error",
+          });
         };
 
         return (
-          <Form data-testid="form" validationErrors={serverErrors} onSubmit={onSubmit}>
+          <Form
+            data-testid="form"
+            validationBehavior="aria"
+            validationErrors={serverErrors}
+            onSubmit={onSubmit}
+          >
+            <Select
+              aria-label="Favorite Animal"
+              data-testid="trigger"
+              label="Favorite Animal"
+              name="animal"
+            >
+              <SelectItem key="penguin">Penguin</SelectItem>
+              <SelectItem key="zebra">Zebra</SelectItem>
+              <SelectItem key="shark">Shark</SelectItem>
+            </Select>
+            <button data-testid="submit-button" type="submit">
+              Submit
+            </button>
+          </Form>
+        );
+      }
+
+      const {getByTestId} = render(<FormRender />);
+
+      const trigger = getByTestId("trigger") as HTMLButtonElement;
+      const select = document.querySelector("select");
+      const submit = getByTestId("submit-button");
+
+      // aria validation is always valid
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).toHaveAttribute("aria-describedby");
+      expect(select).toHaveAttribute("aria-invalid", "true");
+      expect(document.getElementById(trigger.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "initial error",
+      );
+
+      await user.click(trigger);
+
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[1]); // zebra
+
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).not.toHaveAttribute("aria-describedby");
+      expect(select).not.toHaveAttribute("aria-invalid");
+
+      await user.click(submit);
+
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).toHaveAttribute("aria-describedby");
+      expect(select).toHaveAttribute("aria-invalid");
+      expect(document.getElementById(trigger.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "new error",
+      );
+    });
+  });
+
+  describe("validationBehavior=native", () => {
+    it("supports isRequired", async () => {
+      function FormRender() {
+        const onSubmit = jest.fn((e) => e.preventDefault());
+
+        return (
+          <Form data-testid="form" validationBehavior="native" onSubmit={onSubmit}>
             <Select
               isRequired
               aria-label="Favorite Animal"
-              data-testid="select"
+              data-testid="trigger"
               label="Favorite Animal"
               name="animal"
             >
@@ -1213,7 +1319,7 @@ describe("validation", () => {
               <SelectItem key="zebra">Zebra</SelectItem>
               <SelectItem key="shark">Shark</SelectItem>
             </Select>
-            <button data-testid="button" type="submit">
+            <button data-testid="submit-button" type="submit">
               Submit
             </button>
           </Form>
@@ -1222,75 +1328,158 @@ describe("validation", () => {
 
       const {getByTestId} = render(<FormRender />);
 
-      const select = getByTestId("select");
-      const input = document.querySelector("input");
+      const trigger = getByTestId("trigger") as HTMLButtonElement;
+      const select = document.querySelector("select");
+      const submit = getByTestId("submit-button");
 
-      expect(select).not.toHaveAttribute("aria-describedby");
-      const button = getByTestId("button");
+      expect(select?.validity.valid).toBe(false);
+      expect(select?.validity.valueMissing).toBe(true);
+      // native validation does not validate until submit
+      expect(select).toHaveAttribute("required");
+      expect(trigger).not.toHaveAttribute("aria-describedby");
 
-      await user.click(button);
+      await user.click(submit);
 
-      expect(select).toHaveAttribute("aria-describedby");
-      expect(input).toHaveAttribute("aria-required");
+      expect(select?.validity.valid).toBe(false);
+      expect(select?.validity.valueMissing).toBe(true);
+      expect(trigger).toHaveAttribute("aria-describedby");
 
-      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
-        "Please select a cat or dog",
-      );
+      await user.click(trigger);
 
-      await user.click(select);
       let listboxItems = document.querySelectorAll("[role='option']");
 
       await user.click(listboxItems[0]);
 
-      await user.click(button);
+      await user.click(submit);
 
-      expect(select).not.toHaveAttribute("aria-describedby");
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).not.toHaveAttribute("aria-describedby");
     });
 
     it("supports validate function", async () => {
+      const onSubmit = jest.fn((e) => e.preventDefault());
+
       const {getByTestId} = render(
-        <Form data-testid="form">
+        <Form data-testid="form" validationBehavior="native" onSubmit={onSubmit}>
           <Select
             aria-label="Favorite Animal"
-            data-testid="select"
+            data-testid="trigger"
             defaultSelectedKeys={["penguin"]}
             label="Favorite Animal"
             validate={(v) => (v.includes("penguin") ? "Invalid value" : null)}
-            validationBehavior="aria"
           >
             <SelectItem key="penguin">Penguin</SelectItem>
             <SelectItem key="zebra">Zebra</SelectItem>
             <SelectItem key="shark">Shark</SelectItem>
           </Select>
-          <button data-testid="button" type="submit">
+          <button data-testid="submit-button" type="submit">
             Submit
           </button>
         </Form>,
       );
 
-      const select = getByTestId("select");
-      const input = document.querySelector("input");
-      const button = getByTestId("button");
+      const trigger = getByTestId("trigger") as HTMLButtonElement;
+      const select = document.querySelector("select");
+      const submit = getByTestId("submit-button");
 
-      expect(select).toHaveAttribute("aria-describedby");
-      expect(input).toHaveAttribute("aria-invalid", "true");
+      expect(select?.validity.valid).toBe(false);
+      expect(select?.validity.customError).toBe(true);
+      // native validation does not validate until submit
+      expect(trigger).not.toHaveAttribute("aria-describedby");
+      expect(select).not.toHaveAttribute("aria-invalid", "true");
 
-      expect(document.getElementById(select.getAttribute("aria-describedby")!)).toHaveTextContent(
+      await user.click(submit);
+
+      expect(select?.validity.valid).toBe(false);
+      expect(select?.validity.customError).toBe(true);
+      expect(trigger).toHaveAttribute("aria-describedby");
+      expect(select).toHaveAttribute("aria-invalid", "true");
+      expect(document.getElementById(trigger.getAttribute("aria-describedby")!)).toHaveTextContent(
         "Invalid value",
       );
 
-      expect(input?.validity.valid).toBe(true);
-
-      await user.click(select);
+      await user.click(trigger);
 
       let listboxItems = document.querySelectorAll("[role='option']");
 
-      await user.click(listboxItems[1]); // Select "Zebra"
+      await user.click(listboxItems[1]); // zebra
 
-      await user.click(button);
+      await user.click(submit);
 
-      expect(select).not.toHaveAttribute("aria-describedby");
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).not.toHaveAttribute("aria-describedby");
       expect(select).not.toHaveAttribute("aria-invalid");
+    });
+
+    it("supports server validation", async () => {
+      function FormRender() {
+        const [serverErrors, setServerErrors] = React.useState({animal: "initial error"});
+
+        const onSubmit = (e) => {
+          e.preventDefault();
+
+          setServerErrors({
+            animal: "new error",
+          });
+        };
+
+        return (
+          <Form
+            data-testid="form"
+            validationBehavior="native"
+            validationErrors={serverErrors}
+            onSubmit={onSubmit}
+          >
+            <Select
+              aria-label="Favorite Animal"
+              data-testid="trigger"
+              label="Favorite Animal"
+              name="animal"
+            >
+              <SelectItem key="penguin">Penguin</SelectItem>
+              <SelectItem key="zebra">Zebra</SelectItem>
+              <SelectItem key="shark">Shark</SelectItem>
+            </Select>
+            <button data-testid="submit-button" type="submit">
+              Submit
+            </button>
+          </Form>
+        );
+      }
+
+      const {getByTestId} = render(<FormRender />);
+
+      const trigger = getByTestId("trigger") as HTMLButtonElement;
+      const select = document.querySelector("select");
+      const submit = getByTestId("submit-button");
+
+      expect(select?.validity.valid).toBe(false);
+      expect(select?.validity.customError).toBe(true);
+      expect(trigger).toHaveAttribute("aria-describedby");
+      expect(select).toHaveAttribute("aria-invalid", "true");
+      expect(document.getElementById(trigger.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "initial error",
+      );
+
+      await user.click(trigger);
+
+      let listboxItems = document.querySelectorAll("[role='option']");
+
+      await user.click(listboxItems[1]); // zebra
+
+      expect(select?.validity.valid).toBe(true);
+      expect(trigger).not.toHaveAttribute("aria-describedby");
+      expect(select).not.toHaveAttribute("aria-invalid");
+
+      await user.click(submit);
+
+      expect(select?.validity.valid).toBe(false);
+      expect(select?.validity.customError).toBe(true);
+      expect(trigger).toHaveAttribute("aria-describedby");
+      expect(select).toHaveAttribute("aria-invalid");
+      expect(document.getElementById(trigger.getAttribute("aria-describedby")!)).toHaveTextContent(
+        "new error",
+      );
     });
   });
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {button} from "@nextui-org/theme";
-import {Camera, HeadphonesIcon, Notification} from "@nextui-org/shared-icons";
+import {button} from "@heroui/theme";
+import {Camera, HeadphonesIcon, Notification} from "@heroui/shared-icons";
 
 import {Button, ButtonProps} from "../src";
 
@@ -71,14 +71,19 @@ const defaultProps = {
 const StateTemplate = (args: ButtonProps) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const handlePress = () => {
+  const handlePress = (e: any) => {
     // eslint-disable-next-line no-console
-    console.log("Pressed");
+    console.log("Pressed", e);
     setIsOpen((prev) => !prev);
   };
 
   return (
-    <Button {...args} aria-label="Open" aria-pressed={isOpen} onPress={handlePress}>
+    <Button
+      {...args}
+      aria-label={isOpen ? "Close" : "Open"}
+      aria-pressed={isOpen}
+      onPress={handlePress}
+    >
       {isOpen ? "Close" : "Open"}
     </Button>
   );

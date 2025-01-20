@@ -1,16 +1,16 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dropdown, popover} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
-import {Avatar} from "@nextui-org/avatar";
-import {User} from "@nextui-org/user";
+import {dropdown, popover} from "@heroui/theme";
+import {Button} from "@heroui/button";
+import {Avatar} from "@heroui/avatar";
+import {User} from "@heroui/user";
 import {
   AddNoteBulkIcon,
   CopyDocumentBulkIcon,
   EditDocumentBulkIcon,
   DeleteDocumentBulkIcon,
-} from "@nextui-org/shared-icons";
-import {clsx} from "@nextui-org/shared-utils";
+} from "@heroui/shared-icons";
+import {clsx} from "@heroui/shared-utils";
 
 import {
   Dropdown,
@@ -99,6 +99,11 @@ export default {
         disable: true,
       },
     },
+    shouldBlockScroll: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
   decorators: [
     (Story) => (
@@ -137,13 +142,20 @@ const items = [
   },
 ];
 
-const Template = ({color, variant, ...args}: DropdownProps & DropdownMenuProps) => (
+const Template = ({
+  color,
+  variant,
+  label = "Trigger",
+  ...args
+}: DropdownProps & DropdownMenuProps & {label: string}) => (
   <Dropdown {...args}>
     <DropdownTrigger>
-      <Button>Trigger</Button>
+      <Button>{label}</Button>
     </DropdownTrigger>
     <DropdownMenu aria-label="Actions" color={color} variant={variant}>
-      <DropdownItem key="new">New file</DropdownItem>
+      <DropdownItem key="new" onPress={() => alert("New file")}>
+        New file
+      </DropdownItem>
       <DropdownItem key="copy">Copy link</DropdownItem>
       <DropdownItem key="edit">Edit file</DropdownItem>
       <DropdownItem key="delete" className="text-danger" color="danger">
@@ -781,4 +793,70 @@ export const ItemCloseOnSelect = {
   args: {
     ...defaultProps,
   },
+};
+
+export const WithFallbackPlacements = {
+  args: {
+    ...defaultProps,
+  },
+  render: (args) => (
+    <div className="relative h-screen w-screen">
+      <div className="absolute top-0 left-0 p-8 flex gap-4">
+        <Template {...args} label="placement: top" placement="top" />
+        <Template {...args} label="placement: bottom" placement="bottom" />
+      </div>
+      <div className="absolute bottom-0 left-0 p-8 flex gap-4">
+        <Template {...args} label="placement: bottom" placement="bottom" />
+        <Template {...args} label="placement: top" placement="top" />
+      </div>
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 p-8 flex flex-col gap-4">
+        <Template {...args} label="placement: left" placement="left" />
+        <Template {...args} label="placement: right" placement="right" />
+      </div>
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 p-8 flex flex-col gap-4">
+        <Template {...args} label="placement: right" placement="right" />
+        <Template {...args} label="placement: left" placement="left" />
+      </div>
+    </div>
+  ),
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8">
+        <Template {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <Template {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const Placements = {
+  args: {
+    ...defaultProps,
+  },
+  render: (args) => (
+    <div className="inline-grid grid-cols-3 gap-4">
+      <Template {...args} label="Top Start" placement="top-start" />
+      <Template {...args} label="Top" placement="top" />
+      <Template {...args} label="Top End" placement="top-end" />
+
+      <Template {...args} label="Bottom Start" placement="bottom-start" />
+      <Template {...args} label="Bottom" placement="bottom" />
+      <Template {...args} label="Bottom End" placement="bottom-end" />
+
+      <Template {...args} label="Right Start" placement="right-start" />
+      <Template {...args} label="Right" placement="right" />
+      <Template {...args} label="Right End" placement="right-end" />
+
+      <Template {...args} label="Left Start" placement="left-start" />
+      <Template {...args} label="Left" placement="left" />
+      <Template {...args} label="Left End" placement="left-end" />
+    </div>
+  ),
 };

@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/slider",
-  "version": "2.4.2",
+  "name": "@heroui/slider",
+  "version": "2.4.8",
   "description": "A slider allows a user to select one or more values within a range.",
   "keywords": [
     "slider"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/slider"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -36,26 +36,26 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/tooltip": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/i18n": "3.12.3",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/slider": "3.7.13",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/tooltip": "workspace:*",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/i18n": "3.12.4",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/slider": "3.7.14",
     "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.17",
-    "@react-stately/slider": "3.5.8"
+    "@react-aria/visually-hidden": "3.8.18",
+    "@react-stately/slider": "3.6.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/test-utils": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/test-utils": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

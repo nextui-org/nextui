@@ -1,24 +1,24 @@
-import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {CheckboxVariantProps, CheckboxSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaCheckboxProps} from "@react-types/checkbox";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
-import {useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@heroui/system";
 import {ReactNode, Ref, useCallback, useId} from "react";
 import {useMemo, useRef} from "react";
 import {useToggleState} from "@react-stately/toggle";
-import {checkbox} from "@nextui-org/theme";
-import {useCallbackRef} from "@nextui-org/use-callback-ref";
+import {checkbox} from "@heroui/theme";
+import {useCallbackRef} from "@heroui/use-callback-ref";
 import {useHover} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 import {mergeProps, chain} from "@react-aria/utils";
-import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@nextui-org/shared-utils";
+import {__DEV__, warn, clsx, dataAttr, safeAriaLabel} from "@heroui/shared-utils";
 import {
   useCheckbox as useReactAriaCheckbox,
   useCheckboxGroupItem as useReactAriaCheckboxGroupItem,
 } from "@react-aria/checkbox";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {mergeRefs} from "@nextui-org/react-utils";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
+import {mergeRefs} from "@heroui/react-utils";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 import {useCheckboxGroupContext} from "./checkbox-group-context";
 
@@ -30,7 +30,7 @@ export type CheckboxIconProps = {
   className: string;
 };
 
-interface Props extends Omit<HTMLNextUIProps<"input">, keyof CheckboxVariantProps> {
+interface Props extends Omit<HTMLHeroUIProps<"input">, keyof CheckboxVariantProps> {
   /**
    * Ref to the DOM node.
    */
@@ -310,9 +310,10 @@ export function useCheckbox(props: UseCheckboxProps = {}) {
     return {
       ref: mergeRefs(inputRef, ref),
       ...mergeProps(inputProps, focusProps),
+      className: slots.hiddenInput({class: classNames?.hiddenInput}),
       onChange: chain(inputProps.onChange, handleCheckboxChange),
     };
-  }, [inputProps, focusProps, handleCheckboxChange]);
+  }, [inputProps, focusProps, handleCheckboxChange, classNames?.hiddenInput]);
 
   const getLabelProps: PropGetter = useCallback(
     () => ({

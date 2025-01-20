@@ -1,10 +1,10 @@
-import {listboxSection} from "@nextui-org/theme";
+import {listboxSection} from "@heroui/theme";
 import {Node} from "@react-types/shared";
 import {useMemo} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
-import {clsx} from "@nextui-org/shared-utils";
-import {Divider} from "@nextui-org/divider";
+import {clsx} from "@heroui/shared-utils";
+import {Divider} from "@heroui/divider";
 import {ListState} from "@react-stately/list";
 import {useListBoxSection} from "@react-aria/listbox";
 
@@ -51,6 +51,9 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
       // the title props is already inside the rendered prop
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       title,
+      // removed items from props to avoid show in html element
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      items,
       ...otherProps
     },
     _,
@@ -127,6 +130,6 @@ const ListboxSection = forwardRef<"li", ListboxSectionProps>(
   },
 );
 
-ListboxSection.displayName = "NextUI.ListboxSection";
+ListboxSection.displayName = "HeroUI.ListboxSection";
 
 export default ListboxSection;

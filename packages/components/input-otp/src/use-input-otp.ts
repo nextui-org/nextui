@@ -3,17 +3,12 @@ import type {
   InputOtpSlots,
   InputOtpVariantProps,
   SlotsToClasses,
-} from "@nextui-org/theme";
+} from "@heroui/theme";
 
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {inputOtp} from "@nextui-org/theme";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {inputOtp} from "@heroui/theme";
+import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
+import {clsx, dataAttr, objectToDeps, isPatternNumeric} from "@heroui/shared-utils";
 import {useCallback, useMemo} from "react";
 import {chain, mergeProps, useFormReset} from "@react-aria/utils";
 import {AriaTextFieldProps} from "@react-types/textfield";
@@ -22,9 +17,9 @@ import {useFormValidationState} from "@react-stately/form";
 import {useFormValidation} from "@react-aria/form";
 import {useFocusRing} from "@react-aria/focus";
 import {OTPInputProps} from "input-otp";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
-interface Props extends HTMLNextUIProps<"div"> {
+interface Props extends HTMLHeroUIProps<"div"> {
   /**
    * Ref to the DOM node.
    */
@@ -119,6 +114,8 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
     pasteTransformer,
     containerClassName,
     noScriptCSSFallback,
+    onChange,
+    inputMode,
     ...otherProps
   } = props;
 
@@ -157,7 +154,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
   });
 
   useFormReset(inputRef, value, setValue);
-  useFormValidation(props, validationState, inputRef);
+  useFormValidation({...props, validationBehavior}, validationState, inputRef);
 
   const {
     isInvalid: isAriaInvalid,
@@ -209,6 +206,14 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
           }),
           filterDOMProps(props),
         ),
+        onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+          const val = e.target?.value;
+          const regex = new RegExp(allowedKeys);
+
+          if (regex.test(val)) {
+            onChange?.(e);
+          }
+        },
       };
     },
     [baseDomRef, slots, baseStyles, isDisabled, isInvalid, isRequired, isReadOnly, value, length],
@@ -228,14 +233,16 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
         minLength: minLength ?? length,
         textAlign,
         ref: inputRef,
-        name: name,
-        value: value,
+        name,
+        value,
+        autoFocus,
         onChange: setValue,
         onBlur: chain(focusProps.onBlur, props?.onBlur),
-        onComplete: onComplete,
+        onComplete,
         pushPasswordManagerStrategy,
         pasteTransformer,
         noScriptCSSFallback,
+        inputMode: inputMode ?? (isPatternNumeric(allowedKeys) ? "numeric" : "text"),
         containerClassName: slots.wrapper?.({class: clsx(classNames?.wrapper, containerClassName)}),
         ...props,
       };
@@ -243,6 +250,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       return otpProps;
     },
     [
+      inputMode,
       isRequired,
       isDisabled,
       isReadOnly,
@@ -254,6 +262,7 @@ export function useInputOtp(originalProps: UseInputOtpProps) {
       setValue,
       props.onBlur,
       onComplete,
+      autoFocus,
     ],
   );
 

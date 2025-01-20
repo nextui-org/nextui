@@ -1,6 +1,6 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {dateInput, button} from "@nextui-org/theme";
+import {dateInput, button} from "@heroui/theme";
 import {
   CalendarDate,
   DateValue,
@@ -11,7 +11,7 @@ import {
   parseZonedDateTime,
   today,
 } from "@internationalized/date";
-import {CalendarBoldIcon} from "@nextui-org/shared-icons";
+import {CalendarBoldIcon} from "@heroui/shared-icons";
 import {useDateFormatter, I18nProvider} from "@react-aria/i18n";
 import {ValidationResult} from "@react-types/shared";
 
@@ -98,7 +98,7 @@ const LabelPlacementTemplate = (args: DateInputProps) => (
 );
 
 const ControlledTemplate = (args: DateInputProps) => {
-  const [value, setValue] = React.useState<DateValue>(parseDate("2024-04-04"));
+  const [value, setValue] = React.useState<DateValue | null>(parseDate("2024-04-04"));
 
   let formatter = useDateFormatter({dateStyle: "full"});
 
@@ -131,7 +131,9 @@ const TimeZonesTemplate = (args: DateInputProps) => (
 );
 
 const GranularityTemplate = (args: DateInputProps) => {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(
+    parseAbsoluteToLocal("2021-04-07T18:45:22Z"),
+  );
 
   return (
     <div className="w-full max-w-xl flex flex-col items-start gap-4">
@@ -155,7 +157,9 @@ const GranularityTemplate = (args: DateInputProps) => {
 };
 
 const InternationalCalendarsTemplate = (args: DateInputProps) => {
-  let [date, setDate] = React.useState<DateValue>(parseAbsoluteToLocal("2021-04-07T18:45:22Z"));
+  let [date, setDate] = React.useState<DateValue | null>(
+    parseAbsoluteToLocal("2021-04-07T18:45:22Z"),
+  );
 
   return (
     <div className="flex flex-col gap-4">

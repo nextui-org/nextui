@@ -125,46 +125,6 @@ describe("Menu", () => {
     expect(() => wrapper.unmount()).not.toThrow();
   });
 
-  it("should not have anchor tag when href prop is not passed", () => {
-    render(
-      <Menu disallowEmptySelection aria-label="Actions" selectionMode="multiple">
-        <MenuItem key="new">New file</MenuItem>
-        <MenuItem key="copy">Copy link</MenuItem>
-        <MenuItem key="edit">Edit file</MenuItem>
-        <MenuItem key="delete" color="danger">
-          Delete file
-        </MenuItem>
-      </Menu>,
-    );
-
-    let anchorTag = document.getElementsByTagName("a")[0];
-
-    expect(anchorTag).toBeFalsy();
-  });
-
-  it("should have anchor tag when href prop is passed", () => {
-    const href = "http://www.nextui.org/";
-
-    render(
-      <Menu disallowEmptySelection aria-label="Actions" selectionMode="multiple">
-        <MenuItem key="new" href={href}>
-          New file
-        </MenuItem>
-        <MenuItem key="copy">Copy link</MenuItem>
-        <MenuItem key="edit">Edit file</MenuItem>
-        <MenuItem key="delete" color="danger">
-          Delete file
-        </MenuItem>
-      </Menu>,
-    );
-
-    let anchorTag = document.getElementsByTagName("a")[0];
-
-    expect(anchorTag).toBeTruthy();
-
-    expect(anchorTag).toHaveProperty("href", href);
-  });
-
   it("should work with single selection (controlled)", async () => {
     let onSelectionChange = jest.fn();
 
@@ -387,7 +347,9 @@ describe("Menu", () => {
   it("should menuItem classNames work", () => {
     const wrapper = render(
       <Menu>
-        <MenuItem classNames={{title: "test"}}>New file</MenuItem>
+        <MenuItem key="new" classNames={{title: "test"}}>
+          New file
+        </MenuItem>
       </Menu>,
     );
     const menuItem = wrapper.getByText("New file");
@@ -398,7 +360,9 @@ describe("Menu", () => {
   it("should menuItem classNames override menu itemClasses", () => {
     const wrapper = render(
       <Menu itemClasses={{title: "test"}}>
-        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
+        <MenuItem key="new" classNames={{title: "test2"}}>
+          New file
+        </MenuItem>
       </Menu>,
     );
     const menuItem = wrapper.getByText("New file");
@@ -408,8 +372,10 @@ describe("Menu", () => {
   it("should merge menu item classNames with itemClasses", () => {
     const wrapper = render(
       <Menu itemClasses={{title: "test"}}>
-        <MenuItem classNames={{title: "test2"}}>New file</MenuItem>
-        <MenuItem>Delete file</MenuItem>
+        <MenuItem key="new" classNames={{title: "test2"}}>
+          New file
+        </MenuItem>
+        <MenuItem key="delete">Delete file</MenuItem>
       </Menu>,
     );
 

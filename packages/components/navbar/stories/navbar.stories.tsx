@@ -1,12 +1,12 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {navbar} from "@nextui-org/theme";
-import {Link} from "@nextui-org/link";
-import {Button} from "@nextui-org/button";
-import {Avatar} from "@nextui-org/avatar";
-import {Input} from "@nextui-org/input";
+import {navbar} from "@heroui/theme";
+import {Link} from "@heroui/link";
+import {Button} from "@heroui/button";
+import {Avatar} from "@heroui/avatar";
+import {Input} from "@heroui/input";
 import Lorem from "react-lorem-component";
-import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@nextui-org/dropdown";
+import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem} from "@heroui/dropdown";
 import {
   ChevronDown,
   Lock,
@@ -16,7 +16,7 @@ import {
   TagUser,
   Scale,
   SearchIcon,
-} from "@nextui-org/shared-icons";
+} from "@heroui/shared-icons";
 
 import {
   Navbar,
@@ -46,6 +46,11 @@ export default {
       options: ["sm", "md", "lg", "xl", "2xl", "full"],
     },
     isBlurred: {
+      control: {
+        type: "boolean",
+      },
+    },
+    shouldBlockScroll: {
       control: {
         type: "boolean",
       },
@@ -610,6 +615,21 @@ export const WithAvatarUser = {
 
 export const WithSearchInput = {
   render: WithSearchInputTemplate,
+
+  args: {
+    ...defaultProps,
+  },
+};
+
+export const WithShouldBlockScroll = {
+  render: (args) => {
+    return (
+      <div className="flex gap-8 w-[1024px]">
+        <WithMenuTemplate {...args} label="shouldBlockScroll: false" shouldBlockScroll={false} />
+        <WithMenuTemplate {...args} label="shouldBlockScroll: true" shouldBlockScroll={true} />
+      </div>
+    );
+  },
 
   args: {
     ...defaultProps,

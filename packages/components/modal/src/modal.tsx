@@ -1,7 +1,7 @@
 import {ReactNode} from "react";
 import {AnimatePresence} from "framer-motion";
 import {Overlay} from "@react-aria/overlays";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseModalProps, useModal} from "./use-modal";
 import {ModalProvider} from "./modal-context";
@@ -30,6 +30,6 @@ const Modal = forwardRef<"div", ModalProps>((props, ref) => {
   );
 });
 
-Modal.displayName = "NextUI.Modal";
+Modal.displayName = "HeroUI.Modal";
 
 export default Modal;

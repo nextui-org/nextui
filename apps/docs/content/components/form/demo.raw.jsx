@@ -1,4 +1,4 @@
-import {Form, Input, Select, SelectItem, Checkbox, Button} from "@nextui-org/react";
+import {Form, Input, Select, SelectItem, Checkbox, Button} from "@heroui/react";
 
 export default function App() {
   const [password, setPassword] = React.useState("");
@@ -58,7 +58,7 @@ export default function App() {
 
   return (
     <Form
-      className="w-full justify-center items-center w-full space-y-4"
+      className="w-full justify-center items-center space-y-4"
       validationBehavior="native"
       validationErrors={errors}
       onReset={() => setSubmitted(null)}

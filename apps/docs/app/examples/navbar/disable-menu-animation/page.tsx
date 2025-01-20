@@ -6,15 +6,12 @@ import {
   NavbarContent,
   NavbarItem,
   Button,
-  Link as NextUiLink,
-  LinkProps,
+  Link,
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import React from "react";
-
-const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
 
 const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">

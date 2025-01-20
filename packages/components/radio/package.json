@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/radio",
-  "version": "2.3.2",
+  "name": "@heroui/radio",
+  "version": "2.3.9",
   "description": "Radios allow users to select a single option from a list of mutually exclusive options.",
   "keywords": [
     "radio"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/radio"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -36,26 +36,26 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@heroui/theme": ">=2.4.3",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/form": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/radio": "3.10.9",
+    "@heroui/form": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/radio": "3.10.10",
     "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.17",
-    "@react-stately/radio": "3.10.8",
-    "@react-types/radio": "3.8.4",
-    "@react-types/shared": "3.25.0"
+    "@react-aria/visually-hidden": "3.8.18",
+    "@react-stately/radio": "3.10.9",
+    "@react-types/radio": "3.8.5",
+    "@react-types/shared": "3.26.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/button": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

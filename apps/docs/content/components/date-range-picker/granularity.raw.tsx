@@ -2,11 +2,11 @@ import type {RangeValue} from "@react-types/shared";
 import type {DateValue} from "@react-types/datepicker";
 
 import React from "react";
-import {DateRangePicker} from "@nextui-org/react";
+import {DateRangePicker} from "@heroui/react";
 import {parseAbsoluteToLocal} from "@internationalized/date";
 
 export default function App() {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: parseAbsoluteToLocal("2024-04-01T18:45:22Z"),
     end: parseAbsoluteToLocal("2024-04-08T19:15:22Z"),
   });

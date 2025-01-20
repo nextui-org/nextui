@@ -1,5 +1,5 @@
 import React from "react";
-import {InputOtp} from "@nextui-org/react";
+import {InputOtp} from "@heroui/react";
 
 export default function App() {
   const [value, setValue] = React.useState("");

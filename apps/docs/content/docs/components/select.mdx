@@ -20,17 +20,17 @@ A select displays a collapsible list of options and allows a user to select one 
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add select",
-    npm: "npm install @nextui-org/select",
-    yarn: "yarn add @nextui-org/select",
-    pnpm: "pnpm add @nextui-org/select",
-    bun: "bun add @nextui-org/select"
+    cli: "npx heroui-cli@latest add select",
+    npm: "npm install @heroui/select",
+    yarn: "yarn add @heroui/select",
+    pnpm: "pnpm add @heroui/select",
+    bun: "bun add @heroui/select"
   }}
 />
 
 ## Import
 
-NextUI exports 3 select-related components:
+HeroUI exports 3 select-related components:
 
 - **Select**: The main component, which is a wrapper for the other components.
 - **SelectSection**: The component that contains a group of select items.
@@ -38,8 +38,8 @@ NextUI exports 3 select-related components:
 
 <ImportTabs
   commands={{
-    main: 'import {Select, SelectSection, SelectItem} from "@nextui-org/react";',
-    individual: 'import {Select, SelectSection, SelectItem} from "@nextui-org/select";',
+    main: 'import {Select, SelectSection, SelectItem} from "@heroui/react";',
+    individual: 'import {Select, SelectSection, SelectItem} from "@heroui/select";',
   }}
 />
 
@@ -189,14 +189,14 @@ The `isLoading` prop is used to show a loading indicator instead of the selector
 
 <PackageManagers
   commands={{
-    npm: "npm install @nextui-org/use-infinite-scroll",
-    yarn: "yarn add @nextui-org/use-infinite-scroll",
-    pnpm: "pnpm add @nextui-org/use-infinite-scroll",
+    npm: "npm install @heroui/use-infinite-scroll",
+    yarn: "yarn add @heroui/use-infinite-scroll",
+    pnpm: "pnpm add @heroui/use-infinite-scroll",
   }}
 />
 
 ```jsx
-import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
+import {useInfiniteScroll} from "@heroui/use-infinite-scroll";
 ```
 
 <Spacer y={2} />
@@ -376,7 +376,6 @@ the popover and listbox components.
 - Keyboard support for opening the listbox using the arrow keys, including automatically focusing the first or last item accordingly.
 - Typeahead to allow selecting options by typing text, even without opening the listbox.
 - Browser autofill integration via a hidden native `<select>` element.
-- Support for mobile form navigation via software keyboard.
 - Mobile screen reader listbox dismissal support.
 
 <Spacer y={4} />

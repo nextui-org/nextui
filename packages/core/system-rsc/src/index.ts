@@ -10,7 +10,7 @@ export type {
   InternalForwardRefRenderFunction,
   PropsOf,
   Merge,
-  HTMLNextUIProps,
+  HTMLHeroUIProps,
   PropGetter,
   SharedSelection,
 } from "./types";
@@ -20,7 +20,7 @@ export {
   toIterator,
   mapPropsVariants,
   mapPropsVariantsWithCommon,
-  isNextUIEl,
+  isHeroUIEl,
 } from "./utils";
 
 export {extendVariants} from "./extend-variants";

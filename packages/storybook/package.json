@@ -1,13 +1,13 @@
 {
-  "name": "@nextui-org/storybook",
+  "name": "@heroui/storybook",
   "version": "2.0.0",
-  "description": "The NextUI react components storybook ",
+  "description": "The HeroUI react components storybook ",
   "keywords": [
     "storybook"
   ],
   "type": "module",
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": true,
@@ -19,11 +19,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/storybook"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "dev": "pnpm storybook dev -p 6006",
@@ -31,28 +31,28 @@
     "start": "pnpm dlx http-server storybook-static"
   },
   "dependencies": {
-    "@nextui-org/react": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
+    "@heroui/react": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^8.4.5",
-    "@storybook/addon-actions": "^8.4.5",
-    "@storybook/addon-docs": "^8.4.5",
-    "@storybook/addon-essentials": "^8.4.5",
-    "@storybook/addon-links": "^8.4.5",
-    "@storybook/cli": "^8.4.5",
-    "@storybook/manager-api": "^8.4.5",
-    "@storybook/preview-api": "^8.4.5",
-    "@storybook/react": "^8.4.5",
-    "@storybook/react-vite": "^8.4.5",
-    "@storybook/theming": "^8.4.5",
+    "@storybook/addon-a11y": "^8.5.0",
+    "@storybook/addon-actions": "^8.5.0",
+    "@storybook/addon-docs": "^8.5.0",
+    "@storybook/addon-essentials": "^8.5.0",
+    "@storybook/addon-links": "^8.5.0",
+    "@storybook/cli": "^8.5.0",
+    "@storybook/manager-api": "^8.5.0",
+    "@storybook/preview-api": "^8.5.0",
+    "@storybook/react": "^8.5.0",
+    "@storybook/react-vite": "^8.5.0",
+    "@storybook/theming": "^8.5.0",
     "@vitejs/plugin-react": "^4.3.3",
     "autoprefixer": "^10.4.13",
     "remark-gfm": "^4.0.0",
-    "storybook": "^8.4.5",
+    "storybook": "^8.5.0",
     "storybook-dark-mode": "^4.0.2",
     "tailwindcss": "^3.3.5",
     "vite": "^5.4.11"

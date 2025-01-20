@@ -1,16 +1,16 @@
 import type {Ref} from "react";
-import type {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import type {LinkDOMProps, PressEvent} from "@react-types/shared";
 
-import {Fragment, useMemo} from "react";
-import {PaginationItemValue} from "@nextui-org/use-pagination";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {useMemo} from "react";
+import {PaginationItemValue} from "@heroui/use-pagination";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {chain, mergeProps, shouldClientNavigate, useRouter} from "@react-aria/utils";
-import {filterDOMProps, useDOMRef} from "@nextui-org/react-utils";
+import {filterDOMProps, useDOMRef} from "@heroui/react-utils";
 import {useHover, usePress} from "@react-aria/interactions";
 import {useFocusRing} from "@react-aria/focus";
 
-interface Props extends Omit<HTMLNextUIProps<"li">, "onClick"> {
+interface Props extends Omit<HTMLHeroUIProps<"li">, "onClick"> {
   /**
    * Ref to the DOM node.
    */
@@ -34,7 +34,7 @@ interface Props extends Omit<HTMLNextUIProps<"li">, "onClick"> {
    * @param e MouseEvent
    * @deprecated Use `onPress` instead.
    */
-  onClick?: HTMLNextUIProps<"li">["onClick"];
+  onClick?: HTMLHeroUIProps<"li">["onClick"];
   /**
    * Callback fired when the item is clicked.
    * @param e PressEvent
@@ -64,13 +64,10 @@ export function usePaginationItem(props: UsePaginationItemProps) {
   } = props;
 
   const isLink = !!props?.href;
-  const Component = as || "li";
+  const Component = as || isLink ? "a" : "li";
   const shouldFilterDOMProps = typeof Component === "string";
-
-  const FragmentWrapper = isLink ? "a" : Fragment;
-  const fragmentWrapperProps = isLink ? {href: props.href} : {};
-
   const domRef = useDOMRef(ref);
+
   const router = useRouter();
 
   const ariaLabel = useMemo(
@@ -132,8 +129,6 @@ export function usePaginationItem(props: UsePaginationItemProps) {
 
   return {
     Component,
-    FragmentWrapper,
-    fragmentWrapperProps,
     children,
     ariaLabel,
     isFocused,

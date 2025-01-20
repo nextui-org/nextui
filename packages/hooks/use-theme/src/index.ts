@@ -3,7 +3,7 @@ import {useCallback, useEffect, useState} from "react";
 // constant properties for Theme
 export const ThemeProps = {
   // localStorage key for storing the current theme
-  KEY: "nextui-theme",
+  KEY: "heroui-theme",
   // light theme
   LIGHT: "light",
   // dark theme

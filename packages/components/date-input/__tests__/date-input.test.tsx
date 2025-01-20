@@ -2,7 +2,7 @@
 import * as React from "react";
 import {fireEvent, render} from "@testing-library/react";
 import {CalendarDate, CalendarDateTime, DateValue, ZonedDateTime} from "@internationalized/date";
-import {pointerMap, triggerPress} from "@nextui-org/test-utils";
+import {pointerMap, triggerPress} from "@heroui/test-utils";
 import userEvent from "@testing-library/user-event";
 
 import {DateInput as DateInputBase, DateInputProps} from "../src";
@@ -294,7 +294,7 @@ describe("DateInput", () => {
 
     it("supports form reset", async () => {
       function Test() {
-        let [value, setValue] = React.useState<DateValue>(new CalendarDate(2020, 2, 3));
+        let [value, setValue] = React.useState<DateValue | null>(new CalendarDate(2020, 2, 3));
 
         return (
           <form>

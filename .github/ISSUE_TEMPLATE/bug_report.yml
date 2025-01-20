@@ -8,28 +8,28 @@ body:
       value: |
         Thank you for reporting an issue :pray:.
 
-        This issue tracker is for reporting bugs found in [NextUI github repository](https://github.com/nextui-org/nextui/)
+        This issue tracker is for reporting bugs found in [HeroUI github repository](https://github.com/heroui-inc/heroui/)
         If you have a question about how to achieve something and are struggling, please post a question
         inside of either of the following places:
-          - NextUI's [Discussion's tab](https://github.com/nextui-org/nextui/discussions)
-          - NextUI's [Discord channel](https://discord.gg/9b6yyZKmH4)
+          - HeroUI's [Discussion's tab](https://github.com/heroui-inc/heroui/discussions)
+          - HeroUI's [Discord channel](https://discord.gg/9b6yyZKmH4)
 
 
         Before submitting a new bug/issue, please check the links below to see if there is a solution or question posted there already:
-         - NextUI's [Issue's tab](https://github.com/nextui-org/nextui/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
-         - NextUI's [closed issues tab](https://github.com/nextui-org/nextui/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
-         - NextUI's [Discussions tab](https://github.com/nextui-org/nextui/discussions)
+         - HeroUI's [Issue's tab](https://github.com/heroui-inc/heroui/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
+         - HeroUI's [closed issues tab](https://github.com/heroui-inc/heroui/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
+         - HeroUI's [Discussions tab](https://github.com/heroui-inc/heroui/discussions)
 
         The more information you fill in, the better the community can help you.
   - type: input
     id: version
     attributes:
-      label: NextUI Version
+      label: HeroUI Version
       description: |
-        Please provide the version of NextUI you are using.
+        Please provide the version of HeroUI you are using.
         You can find the version number in the package.json file.
         For global installation, please state the version only. (e.g. 2.4.2)
-        For individual installation, please state the package name as well. (e.g. @nextui-org/button@2.0.34)
+        For individual installation, please state the package name as well. (e.g. @heroui/button@2.0.34)
       placeholder: ex. 2.4.2
     validations:
       required: true
@@ -47,7 +47,7 @@ body:
       description: |
         Which website or app were you using when the bug happened?
         Note:
-        - Your bug will may get fixed much faster if we can run your code and it doesn't have dependencies other than the `@nextui-org/react` npm package.
+        - Your bug will may get fixed much faster if we can run your code and it doesn't have dependencies other than the `@heroui/react` npm package.
         - To create a shareable code example you can use Stackblitz (https://stackblitz.com/). Please no localhost URLs.
         - Please read these tips for providing a minimal example: https://stackoverflow.com/help/mcve.
       placeholder: |

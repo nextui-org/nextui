@@ -2,7 +2,7 @@
   "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
   "changelog": [
     "@changesets/changelog-github",
-    { "repo": "nextui-org/nextui" }
+    { "repo": "heroui-inc/heroui" }
   ],
   "commit": false,
   "fixed": [],
@@ -14,7 +14,7 @@
     "onlyUpdatePeerDependentsWhenOutOfRange": true
   },
   "ignore": [
-    "@nextui-org/docs",
-    "@nextui-org/storybook"
+    "@heroui/docs",
+    "@heroui/storybook"
   ]
 }

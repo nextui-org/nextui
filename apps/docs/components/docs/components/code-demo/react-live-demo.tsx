@@ -1,7 +1,7 @@
 import React from "react";
 import {LivePreview, LiveProvider, LiveError} from "react-live";
-import {clsx} from "@nextui-org/shared-utils";
-import * as NextUI from "@nextui-org/react";
+import {clsx} from "@heroui/shared-utils";
+import * as HeroUI from "@heroui/react";
 import * as intlDateUtils from "@internationalized/date";
 import * as reactAriaI18n from "@react-aria/i18n";
 import * as reactHookFormBase from "react-hook-form";
@@ -10,6 +10,8 @@ import {SandpackFiles} from "@codesandbox/sandpack-react/types";
 import {BgGridContainer} from "@/components/bg-grid-container";
 import {GradientBox, GradientBoxProps} from "@/components/gradient-box";
 import {CopyButton} from "@/components/copy-button";
+import {StackblitzButton} from "@/components/stackblitz-button";
+import {PreviewButton} from "@/components/preview-button";
 
 export interface ReactLiveDemoProps {
   code: string;
@@ -21,10 +23,11 @@ export interface ReactLiveDemoProps {
   className?: string;
   gradientColor?: GradientBoxProps["color"];
   overflow?: "auto" | "visible" | "hidden";
+  typescriptStrict?: boolean;
 }
 
 // 🚨 Do not pass react-hook-form to scope, it will break the live preview since
-// it also has a "Form" component that will override the one from @nextui-org/react
+// it also has a "Form" component that will override the one from @heroui/react
 const reactHookForm = {
   useForm: reactHookFormBase.useForm,
   Controller: reactHookFormBase.Controller,
@@ -32,7 +35,7 @@ const reactHookForm = {
 
 export const scope = {
   React,
-  ...NextUI,
+  ...HeroUI,
   ...intlDateUtils,
   ...reactAriaI18n,
   ...reactHookForm,
@@ -49,11 +52,18 @@ export const ReactLiveDemo: React.FC<ReactLiveDemoProps> = ({
   height,
   className,
   noInline,
+  typescriptStrict = false,
 }) => {
   const content = (
     <>
       {files?.[DEFAULT_FILE] && (
-        <div className="absolute top-[-28px] right-[-8px] z-50">
+        <div className="absolute top-[-26px] right-[3px] z-50 flex items-center">
+          <StackblitzButton
+            button={<PreviewButton icon={undefined} />}
+            className="before:hidden opacity-0 group-hover/code-demo:opacity-100 transition-opacity text-zinc-400"
+            files={files}
+            typescriptStrict={typescriptStrict}
+          />
           <CopyButton
             className="before:hidden opacity-0 group-hover/code-demo:opacity-100 transition-opacity text-zinc-400"
             value={files?.[DEFAULT_FILE] as string}

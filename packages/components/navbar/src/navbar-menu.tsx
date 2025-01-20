@@ -1,14 +1,15 @@
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
+import {clsx, dataAttr} from "@heroui/shared-utils";
 import {AnimatePresence, HTMLMotionProps, LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 import {Overlay} from "@react-aria/overlays";
+import React from "react";
 
 import {menuVariants} from "./navbar-menu-transitions";
 import {useNavbarContext} from "./navbar-context";
 
-export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
+export interface NavbarMenuProps extends HTMLHeroUIProps<"ul"> {
   children?: React.ReactNode;
   /**
    * The container element in which the navbar menu overlay portal will be placed.
@@ -21,7 +22,7 @@ export interface NavbarMenuProps extends HTMLNextUIProps<"ul"> {
   motionProps?: HTMLMotionProps<"ul">;
 }
 
-const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);
 
 const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
   const {className, children, portalContainer, motionProps, style, ...otherProps} = props;
@@ -31,49 +32,57 @@ const NavbarMenu = forwardRef<"ul", NavbarMenuProps>((props, ref) => {
 
   const styles = clsx(classNames?.menu, className);
 
-  const contents = disableAnimation ? (
-    <ul
-      ref={domRef}
-      className={slots.menu?.({class: styles})}
-      data-open={dataAttr(isMenuOpen)}
-      style={{
-        // @ts-expect-error
-        "--navbar-height": typeof height === "number" ? `${height}px` : height,
-      }}
-      {...otherProps}
-    >
-      {children}
-    </ul>
-  ) : (
+  if (disableAnimation) {
+    if (!isMenuOpen) return null;
+
+    return (
+      <Overlay portalContainer={portalContainer}>
+        <ul
+          ref={domRef}
+          className={slots.menu?.({class: styles})}
+          data-open={dataAttr(isMenuOpen)}
+          style={{
+            // @ts-expect-error
+            "--navbar-height": typeof height === "number" ? `${height}px` : height,
+          }}
+          {...otherProps}
+        >
+          {children}
+        </ul>
+      </Overlay>
+    );
+  }
+
+  return (
     <AnimatePresence mode="wait">
       {isMenuOpen ? (
-        <LazyMotion features={domAnimation}>
-          <m.ul
-            ref={domRef}
-            layoutScroll
-            animate="enter"
-            className={slots.menu?.({class: styles})}
-            data-open={dataAttr(isMenuOpen)}
-            exit="exit"
-            initial="exit"
-            style={{
-              // @ts-expect-error
-              "--navbar-height": typeof height === "number" ? `${height}px` : height,
-              ...style,
-            }}
-            variants={menuVariants}
-            {...mergeProps(motionProps, otherProps)}
-          >
-            {children}
-          </m.ul>
-        </LazyMotion>
+        <Overlay portalContainer={portalContainer}>
+          <LazyMotion features={domAnimation}>
+            <m.ul
+              ref={domRef}
+              layoutScroll
+              animate="enter"
+              className={slots.menu?.({class: styles})}
+              data-open={dataAttr(isMenuOpen)}
+              exit="exit"
+              initial="exit"
+              style={{
+                // @ts-expect-error
+                "--navbar-height": typeof height === "number" ? `${height}px` : height,
+                ...style,
+              }}
+              variants={menuVariants}
+              {...mergeProps(motionProps, otherProps)}
+            >
+              {children}
+            </m.ul>
+          </LazyMotion>
+        </Overlay>
       ) : null}
     </AnimatePresence>
   );
-
-  return <Overlay portalContainer={portalContainer}>{contents}</Overlay>;
 });
 
-NavbarMenu.displayName = "NextUI.NavbarMenu";
+NavbarMenu.displayName = "HeroUI.NavbarMenu";
 
 export default NavbarMenu;

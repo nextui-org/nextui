@@ -1,11 +1,11 @@
 import {useEffect} from "react";
-import {forwardRef, HTMLNextUIProps} from "@nextui-org/system";
-import {useDOMRef} from "@nextui-org/react-utils";
-import {clsx} from "@nextui-org/shared-utils";
+import {forwardRef, HTMLHeroUIProps} from "@heroui/system";
+import {useDOMRef} from "@heroui/react-utils";
+import {clsx} from "@heroui/shared-utils";
 
 import {useModalContext} from "./modal-context";
 
-export interface ModalBodyProps extends HTMLNextUIProps<"div"> {}
+export interface ModalBodyProps extends HTMLHeroUIProps<"div"> {}
 
 const ModalBody = forwardRef<"div", ModalBodyProps>((props, ref) => {
   const {as, children, className, ...otherProps} = props;
@@ -38,6 +38,6 @@ const ModalBody = forwardRef<"div", ModalBodyProps>((props, ref) => {
   );
 });
 
-ModalBody.displayName = "NextUI.ModalBody";
+ModalBody.displayName = "HeroUI.ModalBody";
 
 export default ModalBody;

@@ -2,7 +2,7 @@ import type {RangeValue, DateValue} from "../src";
 
 import React from "react";
 import {Meta} from "@storybook/react";
-import {calendar} from "@nextui-org/theme";
+import {calendar} from "@heroui/theme";
 import {
   today,
   getLocalTimeZone,
@@ -15,9 +15,9 @@ import {
   getDayOfWeek,
 } from "@internationalized/date";
 import {I18nProvider, useLocale} from "@react-aria/i18n";
-import {Button, ButtonGroup} from "@nextui-org/button";
-import {Radio, RadioGroup} from "@nextui-org/radio";
-import {cn} from "@nextui-org/theme";
+import {Button, ButtonGroup} from "@heroui/button";
+import {Radio, RadioGroup} from "@heroui/radio";
+import {cn} from "@heroui/theme";
 
 import {
   RangeCalendar,
@@ -152,7 +152,7 @@ const ControlledFocusedValueTemplate = (args: RangeCalendarProps) => {
 };
 
 const InvalidDatesTemplate = (args: RangeCalendarProps) => {
-  let [date, setDate] = React.useState<RangeValue<DateValue>>({
+  let [date, setDate] = React.useState<RangeValue<DateValue> | null>({
     start: today(getLocalTimeZone()),
     end: today(getLocalTimeZone()).add({weeks: 1}),
   });
@@ -187,12 +187,12 @@ const InternationalCalendarsTemplate = (args: RangeCalendarProps) => {
 };
 
 const PresetsTemplate = (args: RangeCalendarProps) => {
-  let [value, setValue] = React.useState<RangeValue<DateValue>>({
+  let [value, setValue] = React.useState<RangeValue<DateValue> | null>({
     start: today(getLocalTimeZone()),
     end: today(getLocalTimeZone()).add({weeks: 1, days: 3}),
   });
 
-  let [focusedValue, setFocusedValue] = React.useState<DateValue>(today(getLocalTimeZone()));
+  let [focusedValue, setFocusedValue] = React.useState<DateValue | null>(today(getLocalTimeZone()));
 
   let {locale} = useLocale();
 

@@ -12,7 +12,6 @@ export interface MenuItemProps<T extends object = object>
 const MenuItem = (props: MenuItemProps) => {
   const {
     Component,
-    FragmentWrapper,
     slots,
     classNames,
     rendered,
@@ -26,7 +25,6 @@ const MenuItem = (props: MenuItemProps) => {
     endContent,
     disableAnimation,
     hideSelectedIcon,
-    fragmentWrapperProps,
     getItemProps,
     getLabelProps,
     getDescriptionProps,
@@ -34,7 +32,7 @@ const MenuItem = (props: MenuItemProps) => {
     getSelectedIconProps,
   } = useMenuItem(props);
 
-  const selectedContent = useMemo<ReactNode | null>(() => {
+  const selectedContent = useMemo<ReactNode>(() => {
     const defaultIcon = (
       <MenuSelectedIcon disableAnimation={disableAnimation} isSelected={isSelected} />
     );
@@ -50,26 +48,24 @@ const MenuItem = (props: MenuItemProps) => {
 
   return (
     <Component {...getItemProps()}>
-      <FragmentWrapper {...fragmentWrapperProps}>
-        {startContent}
-        {description ? (
-          <div className={slots.wrapper({class: classNames?.wrapper})}>
-            <span {...getLabelProps()}>{rendered}</span>
-            <span {...getDescriptionProps()}>{description}</span>
-          </div>
-        ) : (
+      {startContent}
+      {description ? (
+        <div className={slots.wrapper({class: classNames?.wrapper})}>
           <span {...getLabelProps()}>{rendered}</span>
-        )}
-        {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
-        {isSelectable && !hideSelectedIcon && (
-          <span {...getSelectedIconProps()}>{selectedContent}</span>
-        )}
-        {endContent}
-      </FragmentWrapper>
+          <span {...getDescriptionProps()}>{description}</span>
+        </div>
+      ) : (
+        <span {...getLabelProps()}>{rendered}</span>
+      )}
+      {shortcut && <kbd {...getKeyboardShortcutProps()}>{shortcut}</kbd>}
+      {isSelectable && !hideSelectedIcon && (
+        <span {...getSelectedIconProps()}>{selectedContent}</span>
+      )}
+      {endContent}
     </Component>
   );
 };
 
-MenuItem.displayName = "NextUI.MenuItem";
+MenuItem.displayName = "HeroUI.MenuItem";
 
 export default MenuItem;

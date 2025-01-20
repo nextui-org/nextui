@@ -2,26 +2,26 @@
   "routes": [
     {
       "key": "guide",
-      "title": "Guide",
+      "title": "Getting Started",
       "defaultOpen": true,
-      "keywords": "guide, getting started, start, nextui",
+      "keywords": "guide, getting started, start, heroui",
       "routes": [
         {
           "key": "introduction",
           "title": "Introduction",
-          "keywords": "introduction, nextui",
+          "keywords": "introduction, heroui",
           "path": "/docs/guide/introduction.mdx"
         },
         {
           "key": "design-principles",
           "title": "Design Principles",
-          "keywords": "design principles, nextui",
+          "keywords": "design principles, heroui",
           "path": "/docs/guide/design-principles.mdx"
         },
         {
           "key": "installation",
           "title": "Installation",
-          "keywords": "getting started, installation, start, nextui",
+          "keywords": "getting started, installation, start, heroui",
           "path": "/docs/guide/installation.mdx"
         },
         {
@@ -33,22 +33,28 @@
         {
           "key": "routing",
           "title": "Routing",
-          "keywords": "client side routing, routing, browser routing, nextui, next.js router, react router, remix router",
-          "path": "/docs/guide/routing.mdx",
-          "updated": true
+          "keywords": "client side routing, routing, browser routing, heroui, next.js router, react router, remix router",
+          "path": "/docs/guide/routing.mdx"
         },
         {
           "key": "forms",
           "title": "Forms",
-          "keywords": "forms, form validation, nextui",
-          "path": "/docs/guide/forms.mdx",
-          "newPost": true
+          "keywords": "forms, form validation, heroui",
+          "path": "/docs/guide/forms.mdx"
         },
         {
-          "key": "upgrade-to-v2",
-          "title": "Upgrade to v2",
-          "keywords": "upgrade, v2, nextui",
-          "path": "/docs/guide/upgrade-to-v2.mdx"
+          "key": "nextui-to-heroui",
+          "title": "NextUI to HeroUI",
+          "keywords": "migrate, nextui, hero, heroui",
+          "path": "/docs/guide/nextui-to-heroui.mdx",
+          "newPost": true
+        },
+         {
+          "key": "figma",
+          "title": "Figma",
+          "keywords": "figma, design, ui kit",
+          "path": "/docs/guide/figma.mdx",
+          "newPost": true
         }
       ]
     },
@@ -56,38 +62,45 @@
       "key": "frameworks",
       "title": "Frameworks",
       "defaultOpen": true,
-      "keywords": "frameworks, nextjs + nextui, vite + nextui, remix + nextui, astro + nextui",
+      "keywords": "frameworks, nextjs + heroui, vite + heroui, remix + heroui, astro + heroui",
       "routes": [
         {
           "key": "nextjs",
           "title": "Next.js",
-          "keywords": "nextjs, nextui, next.js",
+          "keywords": "nextjs, heroui, next.js",
           "path": "/docs/frameworks/nextjs.mdx"
         },
         {
           "key": "vite",
           "title": "Vite",
-          "keywords": "vite, nextui",
+          "keywords": "vite, heroui",
           "path": "/docs/frameworks/vite.mdx"
         },
         {
           "key": "remix",
           "title": "Remix",
-          "keywords": "remix, nextui",
+          "keywords": "remix, heroui",
           "path": "/docs/frameworks/remix.mdx"
         },
         {
           "key": "astro",
           "title": "Astro",
-          "keywords": "astro, nextui",
+          "keywords": "astro, heroui",
           "path": "/docs/frameworks/astro.mdx"
+        },
+        {
+          "key": "laravel",
+          "title": "Laravel",
+          "keywords": "laravel, nextui",
+          "path": "/docs/frameworks/laravel.mdx",
+          "newPost": true
         }
       ]
     },
     {
       "key": "customization",
       "title": "Customization",
-      "keywords": "customization, nextui, themes, colors, dark mode, override styles",
+      "keywords": "customization, heroui, themes, colors, dark mode, override styles",
       "defaultOpen": true,
       "routes": [
         {
@@ -269,7 +282,7 @@
         {
           "key": "form",
           "title": "Form",
-          "keywords": "forms, form validation, nextui",
+          "keywords": "forms, form validation, heroui",
           "path": "/docs/components/form.mdx",
           "newPost": true
         },
@@ -456,20 +469,20 @@
       "key": "api-references",
       "title": "API References",
       "defaultOpen": true,
-      "keywords": "api references, nextui, api",
+      "keywords": "api references, heroui, api",
       "routes": [
         {
           "key": "cli-api",
-          "title": "NextUI CLI",
-          "keywords": "api references, nextui, api, cli",
+          "title": "HeroUI CLI",
+          "keywords": "api references, heroui, api, cli",
           "path": "/docs/api-references/cli-api.mdx",
           "updated": true
         },
         {
-          "key": "nextui-provider",
-          "title": "NextUI Provider",
-          "keywords": "api references, nextui, api, nextui provider",
-          "path": "/docs/api-references/nextui-provider.mdx",
+          "key": "heroui-provider",
+          "title": "HeroUIProvider",
+          "keywords": "api references, heroui, api, heroui provider",
+          "path": "/docs/api-references/heroui-provider.mdx",
           "updated": true
         }
       ]
@@ -480,36 +493,37 @@
       "key": "getting-started",
       "title": "Getting Started",
       "defaultOpen": true,
-      "keywords": "getting started, main routes, blog, docs, components, nextui",
+      "keywords": "getting started, main routes, blog, docs, components, heroui",
       "routes": [
         {
           "key": "docs",
           "title": "Documentation",
-          "keywords": "documentation, guide, nextui",
+          "keywords": "documentation, guide, heroui",
           "path": "/docs/guide/introduction.mdx"
         },
         {
           "key": "components",
           "title": "Components",
-          "keywords": "components, nextui",
+          "keywords": "components, heroui",
           "path": "/docs/components/avatar"
         },
         {
           "key": "blog",
           "title": "Blog",
-          "keywords": "blog, nextui, news, updates",
+          "keywords": "blog, heroui, news, updates",
           "path": "/blog"
         },
         {
           "key": "figma",
           "title": "Figma",
-          "keywords": "figma, nextui, design, ui kit",
-          "path": "/figma"
+          "keywords": "figma, heroui, design, ui kit",
+          "path": "/docs/guide/figma.mdx",
+          "newPost": true
         },
         {
           "key": "roadmap",
           "title": "Roadmap",
-          "keywords": "roadmap, nextui",
+          "keywords": "roadmap, heroui",
           "path": "#"
         }
       ]

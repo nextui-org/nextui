@@ -46,7 +46,7 @@ NextUI now natively supports client-side routing in components such as [Link](/d
 the flexibility to be rendered as HTML links, allowing you to seamlessly incorporate client-side routers. See the [Routing](/docs/guide/routing) guide to
 learn how it set it up in your app.
 
-The `NextUIProvider` component configures all NextUI components within it to navigate using the
+The `HeroUIProvider` component configures all NextUI components within it to navigate using the
 client side router you provide.
 
 > **Note**: Client side routing is based on [React Aria Routing](https://react-spectrum.adobe.com/react-aria/routing.html).
@@ -62,12 +62,12 @@ client side router you provide.
   // app/providers.tsx
   "use client";
 
-  import {NextUIProvider} from "@nextui-org/react";
+  import {HeroUIProvider} from "@heroui/react";
 
   export function Providers({children}: {children: React.ReactNode}) {
     const router = useRouter();
 
-    return <NextUIProvider navigate={router.push}>{children}</NextUIProvider>;
+    return <HeroUIProvider navigate={router.push}>{children}</HeroUIProvider>;
   }
   ```
 
@@ -80,15 +80,15 @@ client side router you provide.
   // pages/_app.tsx
   import type {AppProps} from "next/app";
   import {useRouter} from "next/router";
-  import {NextUIProvider} from "@nextui-org/react";
+  import {HeroUIProvider} from "@heroui/react";
 
   function MyApp({Component, pageProps}: AppProps) {
     const router = useRouter();
 
     return (
-      <NextUIProvider navigate={router.push}>
+      <HeroUIProvider navigate={router.push}>
         <Component {...pageProps} />
-      </NextUIProvider>
+      </HeroUIProvider>
     );
   }
 
@@ -97,11 +97,11 @@ client side router you provide.
 
 - Usage
 
-  Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`,
+  Now that you have set up the `HeroUIProvider` in your app, you can use the `href` prop in the `Tabs`,
   `Listbox` and `Dropdown` items to navigate between pages.
 
   The [Link](/docs/components/link) component will also use the `navigate` function from the
-  `NextUIProvider` to navigate between pages.
+  `HeroUIProvider` to navigate between pages.
 
   ```jsx
   import {
@@ -115,7 +115,7 @@ client side router you provide.
     DropdownItem,
     Button,
     Link,
-  } from "@nextui-org/react";
+  } from "@heroui/react";
 
   function App() {
     return (
@@ -440,4 +440,4 @@ Whether it's a feature request, bug report, or a project to showcase, please get
 
 ## Contributing
 
-PR's on NextUI are always welcome, please see our [contribution guidelines](https://github.com/nextui-org/nextui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.
+PR's on HeroUI are always welcome, please see our [contribution guidelines](https://github.com/heroui-inc/heroui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.

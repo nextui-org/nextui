@@ -1,4 +1,4 @@
-import {Tabs, Tab} from "@nextui-org/react";
+import {Tabs, Tab} from "@heroui/react";
 
 export default function App() {
   const colors = ["default", "primary", "secondary", "success", "warning", "danger"];

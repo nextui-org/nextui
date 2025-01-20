@@ -11,7 +11,7 @@ import {
   RadioGroup,
   Radio,
   ModalProps,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {useState} from "react";
 
 export default function Page() {
@@ -58,7 +58,7 @@ export default function Page() {
                 </p>
               </ModalBody>
               <ModalFooter>
-                <Button color="danger" variant="light" onClick={onClose}>
+                <Button color="danger" variant="light" onPress={onClose}>
                   Close
                 </Button>
                 <Button color="primary" onPress={onClose}>

@@ -1,5 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
-import {VisuallyHidden} from "@react-aria/visually-hidden";
+import {forwardRef} from "@heroui/system";
 
 import {UseRadioProps, useRadio} from "./use-radio";
 
@@ -21,9 +20,7 @@ const Radio = forwardRef<"input", RadioProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden elementType="span">
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} />
       <span {...getWrapperProps()}>
         <span {...getControlProps()} />
       </span>
@@ -35,6 +32,6 @@ const Radio = forwardRef<"input", RadioProps>((props, ref) => {
   );
 });
 
-Radio.displayName = "NextUI.Radio";
+Radio.displayName = "HeroUI.Radio";
 
 export default Radio;

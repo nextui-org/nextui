@@ -1,24 +1,24 @@
-# @nextui-org/select
+# @heroui/select
 
 A select displays a collapsible list of options and allows a user to select one of them.
 
-Please refer to the [documentation](https://nextui.org/docs/components/select) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/select) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/select
+yarn add @heroui/select
 # or
-npm i @nextui-org/select
+npm i @heroui/select
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

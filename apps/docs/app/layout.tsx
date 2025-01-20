@@ -1,7 +1,8 @@
 import "@/styles/globals.css";
 import "@/styles/sandpack.css";
 import {Metadata, Viewport} from "next";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
+import {Analytics} from "@vercel/analytics/next";
 
 import {Providers} from "./providers";
 
@@ -22,8 +23,9 @@ export const metadata: Metadata = {
   keywords: [
     "React",
     "Next.js",
-    "Tailwind CSS",
     "NextUI",
+    "Tailwind CSS",
+    "HeroUI",
     "React Aria",
     "Server Components",
     "React Components",
@@ -43,15 +45,15 @@ export const metadata: Metadata = {
   openGraph: siteConfig.openGraph,
   authors: [
     {
-      name: "getnextui",
-      url: "https://x.com/getnextui",
+      name: "hero_ui",
+      url: "https://x.com/hero_ui",
     },
   ],
-  creator: "getnextui",
+  creator: "heroui-inc",
   alternates: {
-    canonical: "https://nextui.org",
+    canonical: "https://heroui.com",
     types: {
-      "application/rss+xml": [{url: "https://nextui.org/feed.xml", title: "NextUI RSS Feed"}],
+      "application/rss+xml": [{url: "https://heroui.com/feed.xml", title: "HeroUI RSS Feed"}],
     },
   },
 };
@@ -83,6 +85,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             <ProBanner />
             <Navbar mobileRoutes={manifest.mobileRoutes} routes={manifest.routes} />
             {children}
+            <Analytics mode="production" />
             <Footer />
           </div>
           <Cmdk />

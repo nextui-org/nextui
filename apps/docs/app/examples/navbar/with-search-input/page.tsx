@@ -5,17 +5,14 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link as NextUiLink,
-  LinkProps,
+  Link,
   Input,
   DropdownItem,
   DropdownTrigger,
   Dropdown,
   DropdownMenu,
   Avatar,
-} from "@nextui-org/react";
-
-const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
+} from "@heroui/react";
 
 import {SearchLinearIcon} from "@/components/icons";
 

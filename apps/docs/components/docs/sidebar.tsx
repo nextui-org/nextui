@@ -1,25 +1,23 @@
 "use client";
 
-import {FC, useEffect, useState} from "react";
+import {FC, useEffect, useState, useRef, useMemo, useLayoutEffect} from "react";
 import {usePostHog} from "posthog-js/react";
-import {ChevronIcon} from "@nextui-org/shared-icons";
+import {ChevronIcon} from "@heroui/shared-icons";
 import {CollectionBase, Expandable, MultipleSelection, Node, ItemProps} from "@react-types/shared";
-import {BaseItem} from "@nextui-org/aria-utils";
-import React, {useRef, useMemo} from "react";
+import {BaseItem} from "@heroui/aria-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {TreeState, useTreeState} from "@react-stately/tree";
 import {useSelectableCollection} from "@react-aria/selection";
 import {usePress} from "@react-aria/interactions";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, debounce, isEmpty} from "@heroui/shared-utils";
 import {
   SpacerProps,
   Spacer,
-  Link as NextUILink,
+  Link as HeroUILink,
   Chip,
   dataFocusVisibleClasses,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import Link from "next/link";
-import {isEmpty} from "@nextui-org/shared-utils";
 import {usePathname, useRouter} from "next/navigation";
 
 import {ScrollArea} from "../scroll-area";
@@ -132,7 +130,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
     }
 
     return (
-      <NextUILink
+      <HeroUILink
         as={item.props?.comingSoon ? "div" : Link}
         className={clsx(cn, {
           "pointer-events-none": item.props?.comingSoon,
@@ -183,7 +181,7 @@ function TreeItem<T>(props: TreeItemProps<T>) {
             Coming soon
           </Chip>
         )}
-      </NextUILink>
+      </HeroUILink>
     );
   };
 
@@ -243,6 +241,8 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
 
   let ref = useRef<HTMLDivElement>(null);
 
+  const scrollViewPortRef = useRef<HTMLDivElement>(null);
+
   let keyboardDelegate = useMemo(
     // @ts-expect-error
     () => new TreeKeyboardDelegate(state.collection, state.disabledKeys),
@@ -255,12 +255,36 @@ function Tree<T extends object>(props: CollectionBase<T> & Expandable & Multiple
     keyboardDelegate,
   });
 
+  /*  Handle scroll preservation */
+  useLayoutEffect(() => {
+    if (typeof window !== "undefined") {
+      const savedPosition = sessionStorage.getItem("docsSidebarScrollPosition");
+
+      if (savedPosition && scrollViewPortRef.current) {
+        scrollViewPortRef.current.scrollTop = Number(savedPosition);
+      }
+    }
+  }, []);
+
+  const handleScroll = () => {
+    if (typeof window !== "undefined" && scrollViewPortRef.current) {
+      sessionStorage.setItem(
+        "docsSidebarScrollPosition",
+        scrollViewPortRef.current.scrollTop.toString(),
+      );
+    }
+  };
+
+  const debouncedHandleScroll = debounce(handleScroll, 200);
+
   return (
     <ScrollArea
       ref={ref}
       className="h-full max-w-[90%] lg:max-h-[calc(100vh_-_64px)]"
       role="tree"
       {...collectionProps}
+      scrollViewPortRef={scrollViewPortRef}
+      onScroll={debouncedHandleScroll}
     >
       {[...state.collection].map((item) => {
         if (item.type === "section") {
@@ -317,7 +341,7 @@ export const DocsSidebar: FC<DocsSidebarProps> = ({routes, slug, tag, className}
         )}
       </Tree>
     );
-  }, [routes]);
+  }, [routes, slug, tag]);
 
   return (
     <div

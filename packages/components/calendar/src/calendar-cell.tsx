@@ -9,7 +9,6 @@ import {useLocale} from "@react-aria/i18n";
 import {useFocusRing} from "@react-aria/focus";
 import {useHover} from "@react-aria/interactions";
 import {useRef} from "react";
-
 import {CalendarCellContextType, CalendarCellProvider} from "./calendar-cell-context";
 import {CalendarCellContentDefault} from "./calendar-cell-content-default";
 import {useCalendarContext} from "./calendar-context";

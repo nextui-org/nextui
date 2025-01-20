@@ -17,7 +17,7 @@ const docsComponentsDir = path.resolve(rootDir, 'apps/docs/content/docs/componen
 
 const themeDir = path.resolve(packagesDir, 'core/theme'); // Theme directory path
 
-const baseDocs = 'https://nextui.org/docs/components';
+const baseDocs = 'https://heroui.com/docs/components';
 const filePath = './src/index.ts'; // Updated file path
 const backupFilePath = filePath + '.backup.ts'; // Backup file
 
@@ -34,6 +34,13 @@ function generateComponents() {
 
     for (const component of components) {
         if (EXCLUDE_LIST.includes(component)) continue;
+        
+        // Find the route for this component
+        const routeComponent = routes.find(route => route.key === component) || {};
+        
+        // Skip if component is marked as comingSoon
+        if (routeComponent.comingSoon) continue;
+
         const componentPath = path.resolve(componentsDir, component);
 
         const componentPkg = require(path.resolve(componentPath, 'package.json'));
@@ -41,8 +48,6 @@ function generateComponents() {
         const componentVersion = componentPkg.version;
         const componentDocs = `${baseDocs}/${component}`;
         const componentDesc = componentPkg.description;
-
-        const routeComponent = routes.find(route => route.key === component) || {};
 
         // Add style alias for the component
         const mdxComponentPath = path.resolve(docsComponentsDir, `${component}.mdx`);

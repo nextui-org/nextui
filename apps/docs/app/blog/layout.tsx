@@ -1,4 +1,4 @@
-import {Image} from "@nextui-org/react";
+import {Image} from "@heroui/react";
 
 import {ScriptProviders} from "@/components/scripts/script-providers";
 
@@ -16,16 +16,24 @@ export default function DocsLayout({children}: DocsLayoutProps) {
         aria-hidden="true"
         className="fixed hidden dark:md:block dark:opacity-70 -bottom-[40%] -left-[20%] z-0"
       >
-        <Image removeWrapper alt="docs left background" src="/gradients/docs-left.png" />
+        <Image
+          removeWrapper
+          alt="docs left background"
+          src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/docs-left.png"
+        />
       </div>
       <div
         aria-hidden="true"
         className="fixed hidden dark:md:block dark:opacity-70 -top-[80%] -right-[60%] 2xl:-top-[60%] 2xl:-right-[45%] z-0 rotate-12"
       >
-        <Image removeWrapper alt="docs right background" src="/gradients/docs-right.png" />
+        <Image
+          removeWrapper
+          alt="docs right background"
+          src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/images/docs-right.png"
+        />
       </div>
 
-      <ScriptProviders />
+      <ScriptProviders isKapaEnabled={false} />
     </>
   );
 }

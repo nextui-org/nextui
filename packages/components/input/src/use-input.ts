@@ -1,27 +1,22 @@
-import type {InputVariantProps, SlotsToClasses, InputSlots} from "@nextui-org/theme";
+import type {InputVariantProps, SlotsToClasses, InputSlots} from "@heroui/theme";
 import type {AriaTextFieldOptions} from "@react-aria/textfield";
 
-import {
-  HTMLNextUIProps,
-  mapPropsVariants,
-  PropGetter,
-  useProviderContext,
-} from "@nextui-org/system";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
+import {HTMLHeroUIProps, mapPropsVariants, PropGetter, useProviderContext} from "@heroui/system";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
 import {AriaTextFieldProps} from "@react-types/textfield";
 import {useFocusRing} from "@react-aria/focus";
-import {input} from "@nextui-org/theme";
-import {useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
+import {input} from "@heroui/theme";
+import {useDOMRef, filterDOMProps} from "@heroui/react-utils";
 import {useFocusWithin, useHover, usePress} from "@react-aria/interactions";
-import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel, warn} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps, safeAriaLabel} from "@heroui/shared-utils";
 import {useControlledState} from "@react-stately/utils";
 import {useMemo, Ref, useCallback, useState} from "react";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useTextField} from "@react-aria/textfield";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
+import {FormContext, useSlottedContext} from "@heroui/form";
 
 export interface Props<T extends HTMLInputElement | HTMLTextAreaElement = HTMLInputElement>
-  extends Omit<HTMLNextUIProps<"input">, keyof InputVariantProps> {
+  extends Omit<HTMLHeroUIProps<"input">, keyof InputVariantProps> {
   /**
    * Ref to the DOM node.
    */
@@ -178,7 +173,7 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
     validationDetails,
     descriptionProps,
     errorMessageProps,
-  } = useTextField(
+  } = useTextField<any>(
     {
       ...originalProps,
       validationBehavior,
@@ -228,19 +223,6 @@ export function useInput<T extends HTMLInputElement | HTMLTextAreaElement = HTML
   const isInvalid = validationState === "invalid" || isAriaInvalid;
 
   const labelPlacement = useMemo<InputVariantProps["labelPlacement"]>(() => {
-    if (isFileTypeInput) {
-      // if `labelPlacement` is not defined, choose `outside` instead
-      // since the default value `inside` is not supported in file input
-      if (!originalProps.labelPlacement) return "outside";
-
-      // throw a warning if `labelPlacement` is `inside`
-      // and change it to `outside`
-      if (originalProps.labelPlacement === "inside") {
-        warn("Input with file type doesn't support inside label. Converting to outside ...");
-
-        return "outside";
-      }
-    }
     if ((!originalProps.labelPlacement || originalProps.labelPlacement === "inside") && !label) {
       return "outside";
     }

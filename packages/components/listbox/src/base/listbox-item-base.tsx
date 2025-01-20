@@ -1,8 +1,8 @@
-import type {ListboxItemVariantProps, ListboxItemSlots, SlotsToClasses} from "@nextui-org/theme";
+import type {ListboxItemVariantProps, ListboxItemSlots, SlotsToClasses} from "@heroui/theme";
 import type {AriaOptionProps} from "@react-aria/listbox";
 import type {FocusableProps, PressEvents} from "@react-types/shared";
 
-import {BaseItem, ItemProps} from "@nextui-org/aria-utils";
+import {BaseItem, ItemProps} from "@heroui/aria-utils";
 import {ReactNode} from "react";
 
 export type ListboxItemSelectedIconProps = {
@@ -25,15 +25,15 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   /**
    * The content of the component.
    */
-  children?: ReactNode | null;
+  children?: ReactNode;
   /**
    * The listbox item title.
    */
-  title?: ReactNode | string;
+  title?: ReactNode;
   /**
    * The listbox item subtitle.
    */
-  description?: ReactNode | string;
+  description?: ReactNode;
   /**
    * The listbox item start content.
    */
@@ -54,7 +54,7 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   hideSelectedIcon?: boolean;
   /**
    * The listbox item `selected` icon, it's usually an checkmark icon.
-   * If you pass a function, NextUI will expose the current selected icon and the selected status,
+   * If you pass a function, HeroUI will expose the current selected icon and the selected status,
    * In case you want to use a custom indicator or modify the current one.
    *
    * Important: The selected icon will be rendered only if the listbox selection mode is different than `none`.
@@ -89,11 +89,18 @@ interface Props<T extends object = {}> extends Omit<ItemProps<"li", T>, "childre
   classNames?: SlotsToClasses<ListboxItemSlots>;
 }
 
-export type ListboxItemBaseProps<T extends object = {}> = Props<T> &
+export type ListboxItemBaseProps<T extends object = {}> = Omit<Props<T>, "onClick"> &
   Omit<ListboxItemVariantProps, "hasDescriptionTextChild" | "hasTitleTextChild"> &
   Omit<AriaOptionProps, "key"> &
   FocusableProps &
-  PressEvents;
+  PressEvents & {
+    /**
+     * The native click event handler.
+     * use `onPress` instead.
+     * @deprecated
+     */
+    onClick?: (e: React.MouseEvent<HTMLLIElement | HTMLAnchorElement>) => void;
+  };
 
 const ListboxItemBase = BaseItem as <T extends object>(
   props: ListboxItemBaseProps<T>,

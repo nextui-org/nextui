@@ -1,6 +1,6 @@
 ---
 title: Remix
-description: How to use NextUI with Remix
+description: How to use HeroUI with Remix
 ---
 
 # Remix
@@ -15,40 +15,140 @@ Requirements:
 
 <CarbonAd/>
 
-To use NextUI in your Remix project, you need to follow the following steps:
+To use HeroUI in your Remix project, you need to follow the following steps:
 
-<Steps>
+### Using HeroUI + Remix template
 
-### Installation
-
-In your Remix project, run one of the following command to install NextUI:
+If you are starting a new project, you can run one of the following commands to create a Remix project pre-configured with HeroUI:
 
 <PackageManagers
   commands={{
-    npm: 'npm i @nextui-org/react framer-motion',
-    yarn: 'yarn add @nextui-org/react framer-motion',
-    pnpm: 'pnpm add @nextui-org/react framer-motion',
-    bun: "bun add @nextui-org/react framer-motion"
+    npm: 'npx create-remix@latest --template https://github.com/heroui-inc/remix-template',
+    yarn: 'yarn create remix --template https://github.com/heroui-inc/remix-template',
+    pnpm: 'pnpm create remix --template https://github.com/heroui-inc/remix-template',
+    bun: 'bunx create-remix@latest --template https://github.com/heroui-inc/remix-template',
+  }}
+/>
+
+### Automatic Installation
+
+You can add individual components using the CLI. For example, to add a button component:
+
+```codeBlock bash
+npx heroui-cli@latest add button
+```
+
+This command adds the Button component to your project and manages all related dependencies.
+
+You can also add multiple components at once:
+
+```codeBlock bash
+npx heroui-cli@latest add button input
+```
+
+Or you can add the main library `@heroui/react` by running the following command:
+
+```codeBlock bash
+npx heroui-cli@latest add --all
+```
+
+If you leave out the component name, the CLI will prompt you to select the components you want to add.
+
+```codeBlock bash
+? Which components would you like to add? › - Space to select. Return to submit
+Instructions:
+    ↑/↓: Highlight option
+    ←/→/[space]: Toggle selection
+    [a,b,c]/delete: Filter choices
+    enter/return: Complete answer
+
+Filtered results for: Enter something to filter
+
+◯  accordion
+◯  autocomplete
+◯  avatar
+◯  badge
+◯  breadcrumbs
+◉  button
+◯  card
+◯  checkbox
+◯  chip
+◯  code
+```
+
+You still need to add the provider to your app manually (we are working on automating this step).
+
+```jsx {3,7,9}
+// app/providers.tsx
+
+import {HeroUIProvider} from '@heroui/react'
+
+export function Providers({children}: { children: React.ReactNode }) {
+  return (
+    <HeroUIProvider>
+      {children}
+    </HeroUIProvider>
+  )
+}
+```
+
+<Spacer y={4} />
+
+```jsx {6,10,12,14}
+// app/layout.tsx
+
+// globals.css includes @tailwind directives
+// adjust the path if necessary
+import "@/styles/globals.css";
+import {Providers} from "./providers";
+
+export default function RootLayout({children}: { children: React.ReactNode }) {
+  return (
+    <html lang="en" className='dark'>
+      <body>
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
+```
+
+### Manual Installation
+
+<Steps>
+
+### Add dependencies
+
+In your Remix project, run one of the following command to install HeroUI:
+
+<PackageManagers
+  commands={{
+    npm: 'npm i @heroui/react framer-motion',
+    yarn: 'yarn add @heroui/react framer-motion',
+    pnpm: 'pnpm add @heroui/react framer-motion',
+    bun: "bun add @heroui/react framer-motion"
   }}
 />
 
 ### Hoisted Dependencies Setup
 
 <Blockquote color="primary">
-**Note**: This step is only for those who use `pnpm` to install. If you install NextUI using other package managers, you may skip this step.
+**Note**: This step is only for those who use `pnpm` to install. If you install HeroUI using other package managers, you may skip this step.
 </Blockquote>
 
 If you are using pnpm, you need to add the following line to your `.npmrc` file to hoist our packages to the root `node_modules`.
 
 ```bash
-public-hoist-pattern[]=*@nextui-org/*
+public-hoist-pattern[]=*@heroui/*
 ```
 
 After modifying the `.npmrc` file, you need to run `pnpm install` again to ensure that the dependencies are installed correctly.
 
 ### Tailwind CSS Setup
 
-NextUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
+HeroUI is built on top of Tailwind CSS, so you need to install Tailwind CSS first. You can follow the official
 [installation guide](https://tailwindcss.com/docs/guides/remix) to install Tailwind CSS. Then you need to add 
 the following code to your `tailwind.config.js` file:
 
@@ -58,7 +158,7 @@ the following code to your `tailwind.config.js` file:
 
 ```ts {2,10,15-16}
 // tailwind.config.ts
-const { nextui } = require("@nextui-org/react");
+const { heroui } = require("@heroui/react");
 
 import type { Config } from 'tailwindcss'
 
@@ -66,21 +166,21 @@ export default {
   content: [
     // ...
     // make sure it's pointing to the ROOT node_module
-    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+    "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {},
   },
   darkMode: "class",
-  plugins: [nextui()]
+  plugins: [heroui()]
 } satisfies Config
 ```
 
 ### Provider Setup
 
-After installing NextUI, you need to set up the `NextUIProvider` at the `root` of your application.
+After installing HeroUI, you need to set up the `HeroUIProvider` at the `root` of your application.
 
-Go to the src directory and inside `root.tsx`, wrap `NextUIProvider` around App:
+Go to the src directory and inside `root.tsx`, wrap `HeroUIProvider` around App:
 
 ```tsx {9,19,24}
 import {
@@ -91,7 +191,7 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export default function App() {
   return (
@@ -101,12 +201,12 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <NextUIProvider>
+        <HeroUIProvider>
           <Outlet />
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
-        </NextUIProvider>
+        </HeroUIProvider>
       </body>
     </html>
   );
@@ -114,10 +214,3 @@ export default function App() {
 ```
 
 </Steps>
-
-<Blockquote
- color="warning"
->
-  Version 2 is only compatible with React 18 or later. If you are using React 17 or earlier, please use <Link href="https://v1.nextui.org/docs/getting-started" isExternal>version 1 of NextUI</Link>.
-</Blockquote>
-

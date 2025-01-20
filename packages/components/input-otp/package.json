@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/input-otp",
-  "version": "2.1.2",
+  "name": "@heroui/input-otp",
+  "version": "2.1.9",
   "description": "",
   "keywords": [
     "input-otp"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/input-otp"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -36,25 +36,25 @@
   "peerDependencies": {
     "react": ">=18",
     "react-dom": ">=18",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/form": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@react-aria/utils": "3.24.1",
-    "@react-aria/form": "3.0.8",
-    "@react-stately/utils": "3.10.1",
-    "@react-stately/form": "3.0.5",
-    "@react-types/textfield": "3.9.3",
+    "@heroui/form": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@react-aria/utils": "3.26.0",
+    "@react-aria/form": "3.0.11",
+    "@react-stately/utils": "3.10.5",
+    "@react-stately/form": "3.1.0",
+    "@react-types/textfield": "3.10.0",
     "input-otp": "1.4.1",
-    "@react-aria/focus": "3.18.4"
+    "@react-aria/focus": "3.19.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/button": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",

@@ -1,4 +1,4 @@
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {CheckboxGroupProvider} from "./checkbox-group-context";
 import {UseCheckboxGroupProps, useCheckboxGroup} from "./use-checkbox-group";
@@ -35,6 +35,6 @@ const CheckboxGroup = forwardRef<"div", CheckboxGroupProps>((props, ref) => {
   );
 });
 
-CheckboxGroup.displayName = "NextUI.CheckboxGroup";
+CheckboxGroup.displayName = "HeroUI.CheckboxGroup";
 
 export default CheckboxGroup;

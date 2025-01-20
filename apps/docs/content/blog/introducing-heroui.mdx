@@ -1,0 +1,106 @@
+---
+title: "Introducing HeroUI"
+description: "HeroUI is the new identity for NextUI, bringing the same beautiful components and features you love under a new name."
+date: "2025-01-16"
+image: "/blog/introducing-heroui.png"
+tags: ["nextui", "select", "listbox", "scroll-shadow", "multi-select"]
+author:
+  name: "Junior Garcia"
+  username: "@jrgarciadev"
+  link: "https://x.com/jrgarciadev"
+  avatar: "/avatars/jrgarciadev.jpeg"
+---
+
+<img
+  src="/blog/introducing-heroui_2x.png"
+  width={700}
+  height={350}
+  alt="Introducing HeroUI"
+  className="w-full border border-transparent dark:border-default-200/50 object-fit rounded-xl shadow-lg"
+/>
+
+We're excited to announce that **HeroUI** is the new identity for NextUI, bringing the same beautiful components and features you love but now under a _new_ name.
+
+<Spacer y={4} />
+
+## Why the change?
+
+When we started NextUI, our mission was to create not only the most beautiful UI library but also one that fully supported all the latest Next.js features. The name "NextUI" aligned perfectly with this initial vision. We played a significant role in enriching the Next.js ecosystem, giving developers more options and high-quality components to build their applications with Next.js and its latest features, including Server Components.
+
+This journey led us to create [tailwind-variants](https://tailwind-variants.org) and migrate our entire [v1 codebase](https://v1.nextui.org) to Tailwind CSS, always pursuing our vision of being the best UI library for Next.js.
+
+However, as we grew, we realized our core mission had expanded: we want to help not just Next.js developers, but the entire React ecosystem build fast and beautiful applications, regardless of their design experience. We've since added support for other React frameworks like [Astro](https://astro.build/), [Remix](https://remix.run/), [Vite](https://vitejs.dev/), and [Laravel](https://laravel.com/). Looking ahead, we aim to expand beyond web development into other ecosystems like [React Native](https://reactnative.dev/).
+
+Additionally, we want to avoid any confusion about our library being created or maintained by the Next.js team. HeroUI better reflects our independent identity and broader mission.
+
+
+## How to Migrate?
+
+We've worked for months to make the migration as seamless as possible. You only need to run one command in your project's root folder:
+
+
+<PackageManagers
+  commands={{
+    npm: "npx @heroui/codemod@latest migrate",
+    pnpm: "pnpm dlx @heroui/codemod@latest migrate",
+    yarn: "yarn dlx @heroui/codemod@latest migrate",
+    bun: "bunx --bun @heroui/codemod@latest migrate"
+  }}
+/>
+
+
+This will automatically update your project to use HeroUI.
+
+> For detailed migration instructions, visit our [migration guide](/docs/guide/nextui-to-heroui).
+
+We've also opened a dedicated migration support channel on our [Discord server](https://discord.gg/9b6yyZKmH4) where our team is ready to assist you.
+
+## Migration Notes
+
+Important changes to note:
+
+- Use `heroui-cli` instead of `nextui-cli`
+- All `@nextui-org` packages are now deprecated and moved to the `@heroui` organization
+  - Example: `@nextui-org/react` → `@heroui/react`
+- No new bug fixes or features will be released to the `@nextui-org` packages
+
+We recommend migrating to the new `@heroui` packages as soon as possible. To ensure a smooth transition, we haven't introduced any breaking changes or new features with this rebranding.
+
+
+## What's Next?
+
+Our 2025 roadmap is packed with exciting new features and components. Upcoming releases will include:
+
+- Toast component
+- New Accordion APIs
+- Number Input component
+- Carousel component
+- Tailwind CSS v4 support
+- New documentation with refreshed styles
+- Complete React 19 support and codebase migration
+- Table APIs improvements
+- HeroUI v3 with refreshed component designs, reduced bundle size, and more personalization options
+- And much more!
+
+As always, we are incredibly grateful for your continued support and contributions. There are many exciting milestones ahead, and we invite you to join us on this journey.
+
+
+Special thanks to our amazing team members who made this rebranding possible after a lot of hard work and dedication [@winchesHe](https://github.com/winchesHe), 
+[@wingkwong](https://github.com/wingkwong), [@Peterl561](https://github.com/Peterl561), [@macci001](https://github.com/macci001), [@vinroger](https://github.com/vinroger), [@ryo-manba](https://github.com/ryo-manba), [@tianenpang](https://github.com/tianenpang),
+[@andressul_](https://x.com/andressul_), [@danieloiteiro](https://dribbble.com/DanielOiteiro/about), [@jrgarciadev](https://x.com/jrgarciadev). 🚀
+
+
+<Spacer y={8} />
+
+---
+
+## Community
+
+We're excited to see the community adopt NextUI, raise issues, and provide feedback.
+Whether it's a feature request, bug report, or a project to showcase, please get involved!
+
+<Community />
+
+## Contributing
+
+PR's on HeroUI are always welcome, please see our [contribution guidelines](https://github.com/heroui-inc/heroui/blob/main/CONTRIBUTING.md) to learn how you can contribute to this project.

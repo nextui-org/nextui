@@ -1,7 +1,10 @@
-import {useRef} from "react";
+import {useMemo, useRef, useState} from "react";
 import {mergeProps} from "@react-aria/utils";
-import {useVirtualizer} from "@tanstack/react-virtual";
-import {isEmpty} from "@nextui-org/shared-utils";
+import {useVirtualizer, VirtualItem} from "@tanstack/react-virtual";
+import {isEmpty} from "@heroui/shared-utils";
+import {Node} from "@react-types/shared";
+import {ScrollShadowProps, useScrollShadow} from "@heroui/scroll-shadow";
+import {filterDOMProps} from "@heroui/react-utils";
 
 import ListboxItem from "./listbox-item";
 import ListboxSection from "./listbox-section";
@@ -11,7 +14,49 @@ import {UseListboxReturn} from "./use-listbox";
 interface Props extends UseListboxReturn {
   isVirtualized?: boolean;
   virtualization?: VirtualizationProps;
+  /* Here in virtualized listbox, scroll shadow needs custom implementation. Hence this is the only way to pass props to scroll shadow */
+  scrollShadowProps?: Partial<ScrollShadowProps>;
 }
+
+const getItemSizesForCollection = (collection: Node<object>[], itemHeight: number) => {
+  const sizes: number[] = [];
+
+  for (const item of collection) {
+    if (item.type === "section") {
+      /* +1 for the section header */
+      sizes.push(([...item.childNodes].length + 1) * itemHeight);
+    } else {
+      sizes.push(itemHeight);
+    }
+  }
+
+  return sizes;
+};
+
+const getScrollState = (element: HTMLDivElement | null) => {
+  if (
+    !element ||
+    element.scrollTop === undefined ||
+    element.clientHeight === undefined ||
+    element.scrollHeight === undefined
+  ) {
+    return {
+      isTop: false,
+      isBottom: false,
+      isMiddle: false,
+    };
+  }
+
+  const isAtTop = element.scrollTop === 0;
+  const isAtBottom = Math.ceil(element.scrollTop + element.clientHeight) >= element.scrollHeight;
+  const isInMiddle = !isAtTop && !isAtBottom;
+
+  return {
+    isTop: isAtTop,
+    isBottom: isAtBottom,
+    isMiddle: isInMiddle,
+  };
+};
 
 const VirtualizedListbox = (props: Props) => {
   const {
@@ -29,6 +74,7 @@ const VirtualizedListbox = (props: Props) => {
     disableAnimation,
     getEmptyContentProps,
     getListProps,
+    scrollShadowProps,
   } = props;
 
   const {virtualization} = props;
@@ -45,24 +91,29 @@ const VirtualizedListbox = (props: Props) => {
 
   const listHeight = Math.min(maxListboxHeight, itemHeight * state.collection.size);
 
-  const parentRef = useRef(null);
+  const parentRef = useRef<HTMLDivElement>(null);
+  const itemSizes = useMemo(
+    () => getItemSizesForCollection([...state.collection], itemHeight),
+    [state.collection, itemHeight],
+  );
 
   const rowVirtualizer = useVirtualizer({
-    count: state.collection.size,
+    count: [...state.collection].length,
     getScrollElement: () => parentRef.current,
-    estimateSize: () => itemHeight,
+    estimateSize: (i) => itemSizes[i],
   });
 
   const virtualItems = rowVirtualizer.getVirtualItems();
 
-  const renderRow = ({
-    index,
-    style: virtualizerStyle,
-  }: {
-    index: number;
-    style: React.CSSProperties;
-  }) => {
-    const item = [...state.collection][index];
+  /* Here we need the base props for scroll shadow, contains the className (scrollbar-hide and scrollshadow config based on the user inputs on select props) */
+  const {getBaseProps: getBasePropsScrollShadow} = useScrollShadow({...scrollShadowProps});
+
+  const renderRow = (virtualItem: VirtualItem) => {
+    const item = [...state.collection][virtualItem.index];
+
+    if (!item) {
+      return null;
+    }
 
     const itemProps = {
       color,
@@ -72,6 +123,15 @@ const VirtualizedListbox = (props: Props) => {
       disableAnimation,
       hideSelectedIcon,
       ...item.props,
+    };
+
+    const virtualizerStyle = {
+      position: "absolute" as const,
+      top: 0,
+      left: 0,
+      width: "100%",
+      height: `${virtualItem.size}px`,
+      transform: `translateY(${virtualItem.start}px)`,
     };
 
     if (item.type === "section") {
@@ -102,6 +162,12 @@ const VirtualizedListbox = (props: Props) => {
     return listboxItem;
   };
 
+  const [scrollState, setScrollState] = useState({
+    isTop: false,
+    isBottom: true,
+    isMiddle: false,
+  });
+
   const content = (
     <Component {...getListProps()}>
       {!state.collection.size && !hideEmptyContent && (
@@ -110,10 +176,17 @@ const VirtualizedListbox = (props: Props) => {
         </li>
       )}
       <div
+        {...filterDOMProps(getBasePropsScrollShadow())}
         ref={parentRef}
+        data-bottom-scroll={scrollState.isTop}
+        data-top-bottom-scroll={scrollState.isMiddle}
+        data-top-scroll={scrollState.isBottom}
         style={{
           height: maxListboxHeight,
           overflow: "auto",
+        }}
+        onScroll={(e) => {
+          setScrollState(getScrollState(e.target as HTMLDivElement));
         }}
       >
         {listHeight > 0 && itemHeight > 0 && (
@@ -124,19 +197,7 @@ const VirtualizedListbox = (props: Props) => {
               position: "relative",
             }}
           >
-            {virtualItems.map((virtualItem) =>
-              renderRow({
-                index: virtualItem.index,
-                style: {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: `${virtualItem.size}px`,
-                  transform: `translateY(${virtualItem.start}px)`,
-                },
-              }),
-            )}
+            {virtualItems.map((virtualItem) => renderRow(virtualItem))}
           </div>
         )}
       </div>

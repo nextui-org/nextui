@@ -1,6 +1,5 @@
-import {VisuallyHidden} from "@react-aria/visually-hidden";
 import {cloneElement, ReactElement} from "react";
-import {forwardRef} from "@nextui-org/system";
+import {forwardRef} from "@heroui/system";
 
 import {UseSwitchProps, useSwitch} from "./use-switch";
 
@@ -35,9 +34,7 @@ const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
 
   return (
     <Component {...getBaseProps()}>
-      <VisuallyHidden elementType="span">
-        <input {...getInputProps()} />
-      </VisuallyHidden>
+      <input {...getInputProps()} />
       <span {...getWrapperProps()}>
         {startContent && clonedStartContent}
         <span {...getThumbProps()}>{thumbIcon && clonedThumbIcon}</span>
@@ -48,6 +45,6 @@ const Switch = forwardRef<"input", SwitchProps>((props, ref) => {
   );
 });
 
-Switch.displayName = "NextUI.Switch";
+Switch.displayName = "HeroUI.Switch";
 
 export default Switch;

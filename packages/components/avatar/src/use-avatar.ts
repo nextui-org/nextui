@@ -1,19 +1,19 @@
-import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@nextui-org/theme";
-import type {DOMElement, DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {AvatarSlots, AvatarVariantProps, SlotsToClasses} from "@heroui/theme";
+import type {DOMElement, DOMAttributes, HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
-import {avatar} from "@nextui-org/theme";
-import {useProviderContext} from "@nextui-org/system";
+import {avatar} from "@heroui/theme";
+import {useProviderContext} from "@heroui/system";
 import {mergeProps} from "@react-aria/utils";
-import {ReactRef, useDOMRef, filterDOMProps} from "@nextui-org/react-utils";
-import {clsx, safeText, dataAttr} from "@nextui-org/shared-utils";
+import {ReactRef, useDOMRef, filterDOMProps} from "@heroui/react-utils";
+import {clsx, safeText, dataAttr} from "@heroui/shared-utils";
 import {useFocusRing} from "@react-aria/focus";
 import {useMemo, useCallback} from "react";
-import {useImage} from "@nextui-org/use-image";
+import {useImage} from "@heroui/use-image";
 import {useHover} from "@react-aria/interactions";
 
 import {useAvatarGroupContext} from "./avatar-group-context";
 
-interface Props extends HTMLNextUIProps<"span"> {
+interface Props extends HTMLHeroUIProps<"span"> {
   /**
    * Ref to the DOM node.
    */

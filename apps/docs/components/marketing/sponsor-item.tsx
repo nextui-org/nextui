@@ -1,6 +1,6 @@
 "use client";
 
-import {Link} from "@nextui-org/react";
+import {Link} from "@heroui/react";
 import {usePostHog} from "posthog-js/react";
 
 export type Sponsor = {
@@ -17,7 +17,7 @@ export const SponsorItem = ({name, href, logo}: Sponsor) => {
       isExternal
       className="flex flex-col items-center justify-center"
       href={href}
-      onClick={() => {
+      onPress={() => {
         posthog.capture("Hero - Sponsors", {
           name,
           action: "click",

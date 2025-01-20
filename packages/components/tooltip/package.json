@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/tooltip",
-  "version": "2.2.2",
+  "name": "@heroui/tooltip",
+  "version": "2.2.8",
   "description": "A React Component for rendering dynamically positioned Tooltips",
   "keywords": [
     "tooltip"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/components/tooltip"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -37,28 +37,28 @@
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
     "framer-motion": ">=11.5.6 || >=12.0.0-alpha.1",
-    "@nextui-org/theme": ">=2.3.0",
-    "@nextui-org/system": ">=2.3.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/aria-utils": "workspace:*",
-    "@nextui-org/framer-utils": "workspace:*",
-    "@nextui-org/use-safe-layout-effect": "workspace:*",
-    "@nextui-org/dom-animation": "workspace:*",
-    "@react-aria/interactions": "3.22.4",
-    "@react-aria/overlays": "3.23.4",
-    "@react-aria/tooltip": "3.7.9",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/aria-utils": "workspace:*",
+    "@heroui/framer-utils": "workspace:*",
+    "@heroui/use-safe-layout-effect": "workspace:*",
+    "@heroui/dom-animation": "workspace:*",
+    "@react-aria/interactions": "3.22.5",
+    "@react-aria/overlays": "3.24.0",
+    "@react-aria/tooltip": "3.7.10",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/tooltip": "3.4.13",
-    "@react-types/overlays": "3.8.10",
-    "@react-types/tooltip": "3.4.12"
+    "@react-stately/tooltip": "3.5.0",
+    "@react-types/overlays": "3.8.11",
+    "@react-types/tooltip": "3.4.13"
   },
   "devDependencies": {
-    "@nextui-org/button": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
+    "@heroui/button": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
     "clean-package": "2.2.0",
     "framer-motion": "11.9.0"
   },

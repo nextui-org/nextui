@@ -20,11 +20,11 @@ Input is a component that allows users to enter text. It can be used to get user
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add input",
-    npm: "npm install @nextui-org/input",
-    yarn: "yarn add @nextui-org/input",
-    pnpm: "pnpm add @nextui-org/input",
-    bun: "bun add @nextui-org/input"
+    cli: "npx heroui-cli@latest add input",
+    npm: "npm install @heroui/input",
+    yarn: "yarn add @heroui/input",
+    pnpm: "pnpm add @heroui/input",
+    bun: "bun add @heroui/input"
   }}
 />
 
@@ -33,8 +33,8 @@ Input is a component that allows users to enter text. It can be used to get user
 
 <ImportTabs
   commands={{
-    main: 'import {Input} from "@nextui-org/react";',
-    individual: 'import {Input} from "@nextui-org/input";',
+    main: 'import {Input} from "@heroui/react";',
+    individual: 'import {Input} from "@heroui/input";',
   }}
 />
 
@@ -122,8 +122,45 @@ You can use the `value` and `onValueChange` properties to control the input valu
 
 <CodeDemo title="Controlled" files={inputContent.controlled} />
 
-> **Note**: NextUI `Input` also supports native events like `onChange`, useful for form libraries
+> **Note**: HeroUI `Input` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
+
+### With Form
+
+`Input` can be used with a `Form` component to leverage form state management. By default, `Form` components use `validationBehavior="aria"`, which will not block form submission if any inputs are invalid. For more on form and validation behaviors, see the [Forms](/docs/guide/forms) guide.
+
+#### Built-in Validation
+
+`Input` supports the following [native HTML constraints](https://developer.mozilla.org/docs/Web/HTML/Constraint_validation):
+
+- `isRequired` indicates that a field must have a value before the form can be submitted.
+- `minLength` and `maxLength` specify the minimum and length of text input.
+- `pattern` provides a custom regular expression that a text input must conform to.
+- `type="email"` and `type="url"` provide built-in validation for email addresses and URLs.
+
+When using native validation, error messages can be customized by passing a function to `errorMessage` and checking the [ValidityState](https://developer.mozilla.org/docs/Web/API/ValidityState) of `validationDetails`.
+
+<CodeDemo title="Built-in Validation" files={inputContent.builtInValidation} />
+
+#### Custom Validation
+
+In addition to built-in constraints, you can provide a function to the `validate` property for custom validation.
+
+<CodeDemo title="Custom Validation" files={inputContent.customValidation} />
+
+#### Realtime Validation
+
+If you want to display validation errors while the user is typing, you can control the field value and use the `isInvalid` prop along with the `errorMessage` prop.
+
+<CodeDemo title="Realtime Validation" files={inputContent.realTimeValidation} />
+
+#### Server Validation
+
+Client-side validation provides immediate feedback, but you should also validate data on the server to ensure accuracy and security.
+HeroUI allows you to display server-side validation errors by using the `validationErrors` prop in the `Form` component.
+This prop should be an object where each key is the field `name` and the value is the error message.
+
+<CodeDemo title="Server Validation" files={inputContent.serverValidation} />
 
 ## Slots
 
@@ -273,6 +310,30 @@ In case you need to customize the input even further, you can use the `useInput`
       type: "native | aria",
       description: "Whether to use native HTML form validation or ARIA validation. When wrapped in a Form component, the default is `aria`. Otherwise, the default is `native`.",
       default: "native"
+    },
+    {
+      attribute: "minLength",
+      type: "number",
+      description: "The minimum length of the text input.",
+      default: "-"
+    },
+    {
+      attribute: "maxLength",
+      type: "number",
+      description: "The maximum length of the text input.",
+      default: "-"
+    },
+    {
+      attribute: "pattern",
+      type: "string",
+      description: "A regular expression that the input value is checked against.",
+      default: "-"
+    },
+    {
+      attribute: "type",
+      type: "text | email | url | password | tel | search | file",
+      description: "The type of the input.",
+      default: "text"
     },
     {
       attribute: "startContent",

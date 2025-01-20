@@ -20,11 +20,11 @@ Radio Group allow users to select a single option from a list of mutually exclus
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add radio",
-    npm: "npm install @nextui-org/radio",
-    yarn: "yarn add @nextui-org/radio",
-    pnpm: "pnpm add @nextui-org/radio",
-    bun: "bun add @nextui-org/radio"
+    cli: "npx heroui-cli@latest add radio",
+    npm: "npm install @heroui/radio",
+    yarn: "yarn add @heroui/radio",
+    pnpm: "pnpm add @heroui/radio",
+    bun: "bun add @heroui/radio"
   }}
 />
 
@@ -32,8 +32,8 @@ Radio Group allow users to select a single option from a list of mutually exclus
 
 <ImportTabs
   commands={{
-    main: 'import {RadioGroup, Radio} from "@nextui-org/react";',
-    individual: 'import {RadioGroup, Radio} from "@nextui-org/radio";',
+    main: 'import {RadioGroup, Radio} from "@heroui/react";',
+    individual: 'import {RadioGroup, Radio} from "@heroui/radio";',
   }}
 />
 
@@ -63,7 +63,7 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 
 <CodeDemo title="Controlled" files={radioGroupContent.controlled} />
 
-> **Note**: NextUI `Radio` also supports native events like `onChange`, useful for form libraries
+> **Note**: HeroUI `Radio` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
 ### Invalid
@@ -83,6 +83,7 @@ You can use the `value` and `onValueChange` properties to control the radio inpu
 - Radio Slots
   - **base**: Radio root wrapper, it wraps all elements.
   - **wrapper**: Radio wrapper, it wraps the control element.
+  - **hiddenInput**: The hidden input element that is used to handle the radio state.
   - **labelWrapper**: Label and description wrapper.
   - **label**: Label slot for the radio.
   - **control**: Control element, it is the circle element.

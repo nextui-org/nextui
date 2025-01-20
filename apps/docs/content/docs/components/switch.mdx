@@ -20,11 +20,11 @@ The Switch component is used as an alternative between checked and not checked s
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add switch",
-    npm: "npm install @nextui-org/switch",
-    yarn: "yarn add @nextui-org/switch",
-    pnpm: "pnpm add @nextui-org/switch",
-    bun: "bun add @nextui-org/switch"
+    cli: "npx heroui-cli@latest add switch",
+    npm: "npm install @heroui/switch",
+    yarn: "yarn add @heroui/switch",
+    pnpm: "pnpm add @heroui/switch",
+    bun: "bun add @heroui/switch"
   }}
 />
 
@@ -33,8 +33,8 @@ The Switch component is used as an alternative between checked and not checked s
 
 <ImportTabs
   commands={{
-    main: 'import {Switch} from "@nextui-org/react";',
-    individual: 'import {Switch} from "@nextui-org/switch";',
+    main: 'import {Switch} from "@heroui/react";',
+    individual: 'import {Switch} from "@heroui/switch";',
   }}
 />
 
@@ -72,13 +72,14 @@ You can also add icons to start and end of the switch by using `startContent` an
 
 <CodeDemo title="Controlled" files={switchContent.controlled} />
 
-> **Note**: NextUI `Switch` also supports native events like `onChange`, useful for form libraries
+> **Note**: HeroUI `Switch` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
 ## Slots
 
 - **base**: Base slot for the switch. It is the main wrapper.
 - **wrapper**: The wrapper of the start icon, end icon and thumb.
+- **hiddenInput**: The hidden input element that is used to handle the switch state.
 - **thumb**: The thumb element of the switch. It is the circle element.
 - **label**: The label slot of the switch.
 - **startContent**: The icon slot at the start of the switch.

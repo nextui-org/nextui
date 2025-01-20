@@ -1,7 +1,7 @@
 import React from "react";
 import {useSandpack} from "@codesandbox/sandpack-react";
-import {Tooltip, Button} from "@nextui-org/react";
-import {useClipboard} from "@nextui-org/use-clipboard";
+import {Tooltip, Button} from "@heroui/react";
+import {useClipboard} from "@heroui/use-clipboard";
 
 import {CopyLinearIcon} from "@/components/icons";
 
@@ -23,7 +23,7 @@ export const CopyButton = ({code: codeProp}: {code?: string}) => {
       content={copied ? "Copied!" : "Copy"}
       radius="md"
     >
-      <Button isIconOnly size="sm" title="Copy Code" variant="light" onClick={copyHandler}>
+      <Button isIconOnly size="sm" title="Copy Code" variant="light" onPress={copyHandler}>
         <CopyLinearIcon className="text-white dark:text-zinc-500" height={16} width={16} />
       </Button>
     </Tooltip>

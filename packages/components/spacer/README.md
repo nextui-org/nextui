@@ -1,24 +1,24 @@
-# @nextui-org/spacer
+# @heroui/spacer
 
 Spacer is a component used to add space between components.
 
-Please refer to the [documentation](https://nextui.org/docs/components/spacer) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/spacer) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/spacer
+yarn add @heroui/spacer
 # or
-npm i @nextui-org/spacer
+npm i @heroui/spacer
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

@@ -1,9 +1,9 @@
-import type {VariantProps} from "@nextui-org/theme";
+import type {VariantProps} from "@heroui/theme";
 
 import {Meta} from "@storybook/react";
-import React from "react";
-import {tv} from "@nextui-org/theme";
-import {link} from "@nextui-org/theme";
+import React, {useState} from "react";
+import {tv} from "@heroui/theme";
+import {link} from "@heroui/theme";
 
 import {Link, LinkProps} from "../src";
 
@@ -48,8 +48,35 @@ const defaultProps = {
 
 const Template = (args: LinkProps) => <Link {...args} href="#" />;
 
+const PressableTemplate = (args: LinkProps) => {
+  const [isOpen, setIsOpen] = useState(false);
+  const handlePress = (e: any) => {
+    // eslint-disable-next-line no-console
+    console.log("Pressed", e);
+
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <Link {...args} onPress={handlePress}>
+      {isOpen ? "Open" : "Close"}
+    </Link>
+  );
+};
+
 export const Default = {
   render: Template,
+
+  args: {
+    ...defaultProps,
+    isDisabled: false,
+    color: "foreground",
+    size: "md",
+  },
+};
+
+export const Pressable = {
+  render: PressableTemplate,
 
   args: {
     ...defaultProps,

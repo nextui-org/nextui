@@ -1,12 +1,12 @@
 {
-  "name": "@nextui-org/use-aria-accordion",
-  "version": "2.2.1",
+  "name": "@heroui/use-aria-accordion",
+  "version": "2.2.3",
   "description": "React-aria useAccordion hooks with custom implementations",
   "keywords": [
     "use-aria-accordion"
   ],
   "author": "Junior Garcia <jrgarciadev@gmail.com>",
-  "homepage": "https://nextui.org",
+  "homepage": "https://heroui.com",
   "license": "MIT",
   "main": "src/index.ts",
   "sideEffects": false,
@@ -18,11 +18,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nextui-org/nextui.git",
+    "url": "git+https://github.com/heroui-inc/heroui.git",
     "directory": "packages/hooks/use-aria-accordion"
   },
   "bugs": {
-    "url": "https://github.com/nextui-org/nextui/issues"
+    "url": "https://github.com/heroui-inc/heroui/issues"
   },
   "scripts": {
     "build": "tsup src --dts",
@@ -34,13 +34,13 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/button": "3.10.1",
-    "@react-aria/focus": "3.18.4",
-    "@react-aria/selection": "3.20.1",
+    "@react-aria/button": "3.11.0",
+    "@react-aria/focus": "3.19.0",
+    "@react-aria/selection": "3.21.0",
     "@react-aria/utils": "3.26.0",
-    "@react-stately/tree": "3.8.5",
-    "@react-types/accordion": "3.0.0-alpha.24",
-    "@react-types/shared": "3.25.0"
+    "@react-stately/tree": "3.8.6",
+    "@react-types/accordion": "3.0.0-alpha.25",
+    "@react-types/shared": "3.26.0"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"

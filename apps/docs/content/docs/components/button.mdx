@@ -20,25 +20,25 @@ Buttons allow users to perform actions and choose with a single tap.
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add button",
-    npm: "npm install @nextui-org/button",
-    yarn: "yarn add @nextui-org/button",
-    pnpm: "pnpm add @nextui-org/button",
-    bun: "bun add @nextui-org/button",
+    cli: "npx heroui-cli@latest add button",
+    npm: "npm install @heroui/button",
+    yarn: "yarn add @heroui/button",
+    pnpm: "pnpm add @heroui/button",
+    bun: "bun add @heroui/button",
   }}
 />
 
 ## Import
 
-NextUI exports 2 button-related components:
+HeroUI exports 2 button-related components:
 
 - **Button**: The main component to display a button.
 - **ButtonGroup**: A wrapper component to display a group of buttons.
 
 <ImportTabs
   commands={{
-    main: 'import {Button, ButtonGroup} from "@nextui-org/react";',
-    individual: 'import {Button, ButtonGroup} from "@nextui-org/button";',
+    main: 'import {Button, ButtonGroup} from "@heroui/react";',
+    individual: 'import {Button, ButtonGroup} from "@heroui/button";',
   }}
 />
 
@@ -306,6 +306,7 @@ building buttons that work well across devices and interaction methods.
     },
     {
       attribute: "onClick",
+      deprecated: true,
       type: "MouseEventHandler",
       description: "The native button click event handler (Deprecated) use onPress instead.",
       default: "-"

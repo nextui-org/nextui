@@ -1,4 +1,4 @@
-import {Pagination, PaginationItemType} from "@nextui-org/react";
+import {Pagination, PaginationItemType} from "@heroui/react";
 
 export const ChevronIcon = (props) => {
   return (

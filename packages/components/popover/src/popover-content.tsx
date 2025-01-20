@@ -3,21 +3,21 @@ import type {HTMLMotionProps} from "framer-motion";
 
 import {DOMAttributes, ReactNode, useMemo, useRef} from "react";
 import {DismissButton} from "@react-aria/overlays";
-import {TRANSITION_VARIANTS} from "@nextui-org/framer-utils";
+import {TRANSITION_VARIANTS} from "@heroui/framer-utils";
 import {m, LazyMotion} from "framer-motion";
-import {HTMLNextUIProps} from "@nextui-org/system";
-import {getTransformOrigins} from "@nextui-org/aria-utils";
+import {HTMLHeroUIProps} from "@heroui/system";
+import {getTransformOrigins} from "@heroui/aria-utils";
 import {useDialog} from "@react-aria/dialog";
 
 import {usePopoverContext} from "./popover-context";
 
 export interface PopoverContentProps
   extends AriaDialogProps,
-    Omit<HTMLNextUIProps, "children" | "role"> {
+    Omit<HTMLHeroUIProps, "children" | "role"> {
   children: ReactNode | ((titleProps: DOMAttributes<HTMLElement>) => ReactNode);
 }
 
-const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);
 
 const PopoverContent = (props: PopoverContentProps) => {
   const {as, children, className, ...otherProps} = props;
@@ -80,6 +80,9 @@ const PopoverContent = (props: PopoverContentProps) => {
     );
   }, [backdrop, disableAnimation, getBackdropProps]);
 
+  const style = placement
+    ? getTransformOrigins(placement === "center" ? "top" : placement)
+    : undefined;
   const contents = (
     <>
       {disableAnimation ? (
@@ -90,9 +93,7 @@ const PopoverContent = (props: PopoverContentProps) => {
             animate="enter"
             exit="exit"
             initial="initial"
-            style={{
-              ...getTransformOrigins(placement === "center" ? "top" : placement),
-            }}
+            style={style}
             variants={TRANSITION_VARIANTS.scaleSpringOpacity}
             {...motionProps}
           >
@@ -111,6 +112,6 @@ const PopoverContent = (props: PopoverContentProps) => {
   );
 };
 
-PopoverContent.displayName = "NextUI.PopoverContent";
+PopoverContent.displayName = "HeroUI.PopoverContent";
 
 export default PopoverContent;

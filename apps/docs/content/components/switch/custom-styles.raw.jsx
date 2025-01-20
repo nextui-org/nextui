@@ -1,4 +1,4 @@
-import {Switch, cn} from "@nextui-org/react";
+import {Switch, cn} from "@heroui/react";
 
 export default function App() {
   return (
@@ -14,10 +14,10 @@ export default function App() {
           "w-6 h-6 border-2 shadow-lg",
           "group-data-[hover=true]:border-primary",
           //selected
-          "group-data-[selected=true]:ml-6",
+          "group-data-[selected=true]:ms-6",
           // pressed
           "group-data-[pressed=true]:w-7",
-          "group-data-[selected]:group-data-[pressed]:ml-4",
+          "group-data-[selected]:group-data-[pressed]:ms-4",
         ),
       }}
     >

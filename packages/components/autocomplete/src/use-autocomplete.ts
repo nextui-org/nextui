@@ -1,27 +1,27 @@
-import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@nextui-org/theme";
-import type {DOMAttributes, HTMLNextUIProps, PropGetter} from "@nextui-org/system";
+import type {AutocompleteVariantProps, SlotsToClasses, AutocompleteSlots} from "@heroui/theme";
+import type {DOMAttributes, HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
-import {mapPropsVariants, useProviderContext} from "@nextui-org/system";
-import {useSafeLayoutEffect} from "@nextui-org/use-safe-layout-effect";
-import {autocomplete} from "@nextui-org/theme";
+import {mapPropsVariants, useProviderContext} from "@heroui/system";
+import {useSafeLayoutEffect} from "@heroui/use-safe-layout-effect";
+import {autocomplete} from "@heroui/theme";
 import {useFilter} from "@react-aria/i18n";
 import {FilterFn, useComboBoxState} from "@react-stately/combobox";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {ReactNode, useEffect, useMemo, useRef} from "react";
 import {ComboBoxProps} from "@react-types/combobox";
-import {PopoverProps} from "@nextui-org/popover";
-import {ListboxProps} from "@nextui-org/listbox";
-import {InputProps} from "@nextui-org/input";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
-import {ScrollShadowProps} from "@nextui-org/scroll-shadow";
+import {PopoverProps} from "@heroui/popover";
+import {ListboxProps} from "@heroui/listbox";
+import {InputProps} from "@heroui/input";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
+import {ScrollShadowProps} from "@heroui/scroll-shadow";
 import {chain, mergeProps} from "@react-aria/utils";
-import {ButtonProps} from "@nextui-org/button";
+import {ButtonProps} from "@heroui/button";
 import {AsyncLoadable, PressEvent} from "@react-types/shared";
 import {useComboBox} from "@react-aria/combobox";
-import {FormContext, useSlottedContext} from "@nextui-org/form";
-import {ariaShouldCloseOnInteractOutside} from "@nextui-org/aria-utils";
+import {FormContext, useSlottedContext} from "@heroui/form";
+import {ariaShouldCloseOnInteractOutside} from "@heroui/aria-utils";
 
-interface Props<T> extends Omit<HTMLNextUIProps<"input">, keyof ComboBoxProps<T>> {
+interface Props<T> extends Omit<HTMLHeroUIProps<"input">, keyof ComboBoxProps<T>> {
   /**
    * Ref to the DOM node.
    */
@@ -418,13 +418,9 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       onPress: (e: PressEvent) => {
         slotsProps.clearButtonProps?.onPress?.(e);
         if (state.selectedItem) {
-          state.setInputValue("");
           state.setSelectedKey(null);
-        } else {
-          if (allowsCustomValue) {
-            state.setInputValue("");
-          }
         }
+        state.setInputValue("");
         state.open();
       },
       "data-visible": !!state.selectedItem || state.inputValue?.length > 0,
@@ -433,12 +429,19 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       }),
     } as ButtonProps);
 
+  // prevent use-input's useFormValidation hook from overwriting use-autocomplete's useFormValidation hook when there are uncommitted validation errors
+  // see https://github.com/heroui-inc/heroui/pull/4452
+  const hasUncommittedValidation =
+    validationBehavior === "native" &&
+    state.displayValidation.isInvalid === false &&
+    state.realtimeValidation.isInvalid === true;
+
   const getInputProps = () =>
     ({
       ...otherProps,
       ...inputProps,
       ...slotsProps.inputProps,
-      isInvalid,
+      isInvalid: hasUncommittedValidation ? undefined : isInvalid,
       validationBehavior,
       errorMessage:
         typeof errorMessage === "function"
@@ -461,6 +464,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
             itemHeight,
           }
         : undefined,
+      scrollShadowProps: slotsProps.scrollShadowProps,
       ...mergeProps(slotsProps.listboxProps, listBoxProps, {
         shouldHighlightOnFocus: true,
       }),
@@ -478,6 +482,7 @@ export function useAutocomplete<T extends object>(originalProps: UseAutocomplete
       triggerType: "listbox",
       ...popoverProps,
       classNames: {
+        ...slotsProps.popoverProps?.classNames,
         content: slots.popoverContent({
           class: clsx(
             classNames?.popoverContent,

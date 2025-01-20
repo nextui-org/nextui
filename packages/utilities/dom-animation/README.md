@@ -1,4 +1,4 @@
-# @nextui-org/dom-animation
+# @heroui/dom-animation
 
 A Quick description of the component
 
@@ -6,18 +6,18 @@ A Quick description of the component
 ## Installation
 
 ```sh
-yarn add @nextui-org/dom-animation
+yarn add @heroui/dom-animation
 # or
-npm i @nextui-org/dom-animation
+npm i @heroui/dom-animation
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

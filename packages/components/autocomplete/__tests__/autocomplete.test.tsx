@@ -3,7 +3,7 @@ import * as React from "react";
 import {within, render, renderHook, act} from "@testing-library/react";
 import userEvent, {UserEvent} from "@testing-library/user-event";
 import {useForm} from "react-hook-form";
-import {Form} from "@nextui-org/form";
+import {Form} from "@heroui/form";
 
 import {Autocomplete, AutocompleteItem, AutocompleteProps, AutocompleteSection} from "../src";
 import {Modal, ModalContent, ModalBody, ModalHeader, ModalFooter} from "../../modal/src";
@@ -216,6 +216,49 @@ describe("Autocomplete", () => {
 
     // select the target item
     await user.click(options[0]);
+
+    const {container} = wrapper;
+
+    const clearButton = container.querySelector(
+      "[data-slot='inner-wrapper'] button:nth-of-type(1)",
+    )!;
+
+    expect(clearButton).not.toBeNull();
+
+    // click the clear button
+    await user.click(clearButton);
+
+    // assert that the input has empty value
+    expect(autocomplete).toHaveValue("");
+
+    // assert that input is focused
+    expect(autocomplete).toHaveFocus();
+  });
+
+  it("should clear arbitrary value after clicking clear button", async () => {
+    const wrapper = render(
+      <Autocomplete aria-label="Favorite Animal" data-testid="autocomplete" label="Favorite Animal">
+        <AutocompleteItem key="penguin" value="penguin">
+          Penguin
+        </AutocompleteItem>
+        <AutocompleteItem key="zebra" value="zebra">
+          Zebra
+        </AutocompleteItem>
+        <AutocompleteItem key="shark" value="shark">
+          Shark
+        </AutocompleteItem>
+      </Autocomplete>,
+    );
+
+    const autocomplete = wrapper.getByTestId("autocomplete");
+
+    // open the select listbox
+    await user.click(autocomplete);
+
+    // assert that the autocomplete listbox is open
+    expect(autocomplete).toHaveAttribute("aria-expanded", "true");
+
+    await user.keyboard("pe");
 
     const {container} = wrapper;
 
@@ -738,6 +781,60 @@ describe("Autocomplete", () => {
 
         expect(input).not.toHaveAttribute("aria-describedby");
         expect(input.validity.valid).toBe(true);
+      });
+
+      // this test is to cover a case where hovering over the combobox causes the validation from use-input to overwrite the validation from use-autocomplete if not handled properly
+      // this causes the first form submit after initial render to always succeed even if the validate function returns an error
+      it("should work with validate after hovering", async () => {
+        const onSubmit = jest.fn((e) => {
+          e.preventDefault();
+        });
+
+        const {getByTestId, findByRole} = render(
+          <Form validationBehavior="native" onSubmit={onSubmit}>
+            <AutocompleteExample
+              data-testid="combobox"
+              name="animal"
+              validate={(value) => {
+                if (!value?.selectedKey) {
+                  return "Please select an animal";
+                }
+              }}
+              validationBehavior="native"
+            />
+            <button data-testid="submit" type="submit">
+              Submit
+            </button>
+          </Form>,
+        );
+
+        const combobox = getByTestId("combobox") as HTMLInputElement;
+        const submit = getByTestId("submit");
+
+        expect(combobox).not.toHaveAttribute("aria-describedby");
+        expect(combobox.validity.valid).toBe(false);
+
+        await user.hover(combobox);
+        await user.click(submit);
+
+        expect(onSubmit).toHaveBeenCalledTimes(0);
+        expect(combobox).toHaveAttribute("aria-describedby");
+        expect(
+          document.getElementById(combobox.getAttribute("aria-describedby")!),
+        ).toHaveTextContent("Please select an animal");
+
+        await user.click(combobox);
+        await user.keyboard("pe");
+
+        const listbox = await findByRole("listbox");
+        const items = within(listbox).getAllByRole("option");
+
+        await user.click(items[0]);
+        expect(combobox).toHaveAttribute("aria-describedby");
+
+        await user.click(submit);
+        expect(onSubmit).toHaveBeenCalledTimes(1);
+        expect(combobox).not.toHaveAttribute("aria-describedby");
       });
     });
 

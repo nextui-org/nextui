@@ -1,4 +1,4 @@
-import {Link} from "@nextui-org/react";
+import {Link} from "@heroui/react";
 
 export const AnchorIcon = (props) => {
   return (
@@ -29,7 +29,7 @@ export default function App() {
       isExternal
       showAnchorIcon
       anchorIcon={<AnchorIcon />}
-      href="https://github.com/nextui-org/nextui"
+      href="https://github.com/heroui-inc/heroui"
     >
       Custom Icon
     </Link>

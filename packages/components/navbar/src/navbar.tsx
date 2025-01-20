@@ -1,5 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
-import {pickChildren} from "@nextui-org/react-utils";
+import {forwardRef} from "@heroui/system";
+import {pickChildren} from "@heroui/react-utils";
 import {LazyMotion, m} from "framer-motion";
 import {mergeProps} from "@react-aria/utils";
 
@@ -12,7 +12,7 @@ export interface NavbarProps extends Omit<UseNavbarProps, "hideOnScroll"> {
   children?: React.ReactNode | React.ReactNode[];
 }
 
-const domAnimation = () => import("@nextui-org/dom-animation").then((res) => res.default);
+const domAnimation = () => import("@heroui/dom-animation").then((res) => res.default);
 
 const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   const {children, ...otherProps} = props;
@@ -50,6 +50,6 @@ const Navbar = forwardRef<"div", NavbarProps>((props, ref) => {
   );
 });
 
-Navbar.displayName = "NextUI.Navbar";
+Navbar.displayName = "HeroUI.Navbar";
 
 export default Navbar;

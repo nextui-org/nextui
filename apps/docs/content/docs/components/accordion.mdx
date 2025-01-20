@@ -20,25 +20,25 @@ Accordion display a list of high-level options that can expand/collapse to revea
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add accordion",
-    npm: "npm install @nextui-org/accordion",
-    yarn: "yarn add @nextui-org/accordion",
-    pnpm: "pnpm add @nextui-org/accordion",
-    bun: "bun add @nextui-org/accordion"
+    cli: "npx heroui-cli@latest add accordion",
+    npm: "npm install @heroui/accordion",
+    yarn: "yarn add @heroui/accordion",
+    pnpm: "pnpm add @heroui/accordion",
+    bun: "bun add @heroui/accordion"
   }}
 />
 
 ## Import
 
-NextUI exports 2 accordion-related components:
+HeroUI exports 2 accordion-related components:
 
 - **Accordion**: The main component to display a list of accordion items.
 - **AccordionItem**: The item component to display a single accordion item.
 
 <ImportTabs
   commands={{
-    main: 'import {Accordion, AccordionItem} from "@nextui-org/react";',
-    individual: 'import {Accordion, AccordionItem} from "@nextui-org/accordion";',
+    main: 'import {Accordion, AccordionItem} from "@heroui/react";',
+    individual: 'import {Accordion, AccordionItem} from "@heroui/accordion";',
   }}
 />
 
@@ -327,19 +327,19 @@ Here's an example of how to customize the accordion styles:
   data={[
     {
       attribute: "children",
-      type: "ReactNode | string",
+      type: "ReactNode",
       description: "The content of the component.",
       default: "-"
     },
     {
       attribute: "title",
-      type: "ReactNode | string",
+      type: "ReactNode",
       description: "The accordion item title.",
       default: "-"
     },
     {
       attribute: "subtitle",
-      type: "ReactNode | string",
+      type: "ReactNode",
       description: "The accordion item subtitle.",
       default: "-"
     },

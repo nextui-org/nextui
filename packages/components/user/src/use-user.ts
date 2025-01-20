@@ -1,13 +1,13 @@
-import type {SlotsToClasses, UserSlots} from "@nextui-org/theme";
-import type {AvatarProps} from "@nextui-org/avatar";
+import type {SlotsToClasses, UserSlots} from "@heroui/theme";
+import type {AvatarProps} from "@heroui/avatar";
 
 import {ReactNode, useMemo, useCallback} from "react";
 import {useFocusRing} from "@react-aria/focus";
-import {HTMLNextUIProps, PropGetter} from "@nextui-org/system";
-import {user} from "@nextui-org/theme";
-import {clsx, dataAttr} from "@nextui-org/shared-utils";
-import {filterDOMProps, ReactRef} from "@nextui-org/react-utils";
-import {useDOMRef} from "@nextui-org/react-utils";
+import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
+import {user} from "@heroui/theme";
+import {clsx, dataAttr} from "@heroui/shared-utils";
+import {filterDOMProps, ReactRef} from "@heroui/react-utils";
+import {useDOMRef} from "@heroui/react-utils";
 import {mergeProps} from "@react-aria/utils";
 interface Props {
   /**
@@ -17,11 +17,11 @@ interface Props {
   /**
    * The user name.
    */
-  name: ReactNode | string;
+  name: ReactNode;
   /**
    * The user information, like email, phone, etc.
    */
-  description?: ReactNode | string;
+  description?: ReactNode;
   /**
    * Whether the user can be focused.
    * @default false
@@ -29,7 +29,7 @@ interface Props {
   isFocusable?: boolean;
   /**
    * The user avatar props
-   * @see https://nextui.org/docs/components/avatar
+   * @see https://heroui.com/docs/components/avatar
    */
   avatarProps?: Partial<AvatarProps>;
   /**
@@ -49,7 +49,7 @@ interface Props {
   classNames?: SlotsToClasses<UserSlots>;
 }
 
-export type UseUserProps = Props & Omit<HTMLNextUIProps<"div">, "children">;
+export type UseUserProps = Props & Omit<HTMLHeroUIProps<"div">, "children">;
 
 export function useUser(props: UseUserProps) {
   const {

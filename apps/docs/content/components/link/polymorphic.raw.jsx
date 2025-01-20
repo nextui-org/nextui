@@ -1,4 +1,4 @@
-import {Link, Button} from "@nextui-org/react";
+import {Link, Button} from "@heroui/react";
 
 export default function App() {
   return (
@@ -6,7 +6,7 @@ export default function App() {
       showAnchorIcon
       as={Link}
       color="primary"
-      href="https://github.com/nextui-org/nextui"
+      href="https://github.com/heroui-inc/heroui"
       variant="solid"
     >
       Button Link

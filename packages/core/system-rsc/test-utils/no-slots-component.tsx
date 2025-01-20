@@ -1,10 +1,10 @@
-import type {HTMLNextUIProps} from "../src/types";
-import type {VariantProps} from "@nextui-org/theme";
+import type {HTMLHeroUIProps} from "../src/types";
+import type {VariantProps} from "@heroui/theme";
 
 import React, {useMemo} from "react";
-import {tv} from "@nextui-org/theme";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {objectToDeps} from "@nextui-org/shared-utils";
+import {tv} from "@heroui/theme";
+import {filterDOMProps, ReactRef, useDOMRef} from "@heroui/react-utils";
+import {objectToDeps} from "@heroui/shared-utils";
 
 import {mapPropsVariants} from "../src/utils";
 import {forwardRef} from "../src/utils";
@@ -55,7 +55,7 @@ const button = tv({
   ],
 });
 
-interface ButtonProps extends HTMLNextUIProps<"button">, VariantProps<typeof button> {
+interface ButtonProps extends HTMLHeroUIProps<"button">, VariantProps<typeof button> {
   children: React.ReactNode;
   disableRipple?: boolean;
   ref?: ReactRef<HTMLButtonElement | null>;

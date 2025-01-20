@@ -20,11 +20,11 @@ Alerts are temporary notifications that provide concise feedback about an action
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add alert",
-    npm: "npm install @nextui-org/alert",
-    yarn: "yarn add @nextui-org/alert",
-    pnpm: "pnpm add @nextui-org/alert",
-    bun: "bun add @nextui-org/alert",
+    cli: "npx heroui-cli@latest add alert",
+    npm: "npm install @heroui/alert",
+    yarn: "yarn add @heroui/alert",
+    pnpm: "pnpm add @heroui/alert",
+    bun: "bun add @heroui/alert",
   }}
 />
 
@@ -32,8 +32,8 @@ Alerts are temporary notifications that provide concise feedback about an action
 
 <ImportTabs
   commands={{
-    main: 'import {Alert} from "@nextui-org/react";',
-    individual: 'import {Alert} from "@nextui-org/alert";',
+    main: 'import {Alert} from "@heroui/react";',
+    individual: 'import {Alert} from "@heroui/alert";',
   }}
 />
 
@@ -138,7 +138,7 @@ Alert has the following slots:
   data={[
     {
       attribute: "title",
-      type: "string",
+      type: "ReactNode",
       description: "The alert title",
       default: "-"
     },

@@ -1,44 +1,38 @@
 ---
 title: Dark mode
-description: NextUI comes with two palette modes light (the default) and dark.
+description: HeroUI comes with two palette modes light (the default) and dark.
 ---
 
 # Dark mode
 
-As we mentioned before in the [Theme](/docs/customization/theme) section NextUI comes with two default
-themes `light`and `dark`. So using the `dark` theme is as simple as adding it to the `className` of the
-`html` / `body` or `main` element.
+HeroUI supports both `light` and `dark` themes. To enable dark mode, simply add the `dark` class to your root element (`html`, `body`, or `main`).
 
 ```jsx {11}
 // main.tsx or main.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import App from "./App";
 import "./index.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <NextUIProvider>
+    <HeroUIProvider>
       <main className="dark text-foreground bg-background">
         <App />
       </main>
-    </NextUIProvider>
+    </HeroUIProvider>
   </React.StrictMode>,
 );
 ```
 
-This will enable the dark mode for the whole application. However, many applications require 
-the capability to switch between different themes. For this purpose, we recommend using a 
-theme switch library or creating your own implementation.
+This enables dark mode application-wide. For theme switching functionality, you can use a theme library or create a custom implementation.
 
 <CarbonAd/>
 
 ## Using next-themes
 
-For applications using [Next.js](/docs/frameworks/nextjs), the [next-themes](https://github.com/pacocoursey/next-themes)
-library is an excellent choice. It comes packed with features that enhance the user experience
-when transitioning between themes.
+For [Next.js](/docs/frameworks/nextjs) applications, [next-themes](https://github.com/pacocoursey/next-themes) provides seamless theme switching functionality.
 
 > For more information, refer to the [next-themes](https://github.com/pacocoursey/next-themes) documentation.
 
@@ -64,28 +58,28 @@ Install `next-themes` in your project.
 Wrap your app with the `ThemeProvider` component from `next-themes`.
 
 Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't exist) and wrap the 
-Component with the `NextUIProvider` and the `next-themes` provider components.
+Component with the `HeroUIProvider` and the `next-themes` provider components.
 
 
 ```jsx
 // app/providers.tsx
 "use client";
 
-import {NextUIProvider} from '@nextui-org/react'
+import {HeroUIProvider} from '@heroui/react'
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 
 export function Providers({children}: { children: React.ReactNode }) {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark">
         {children}
       </NextThemesProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
   )
 }
 ```
 
-> Note: We're using the `class` attribute to switch between themes, this is because NextUI uses the `className` attribute.
+> Note: We're using the `class` attribute to switch between themes, this is because HeroUI uses the `className` attribute.
 
 ### Add the theme switcher
 
@@ -142,27 +136,27 @@ Install `next-themes` in your project.
 ### Add next-themes provider
 
 Go to pages`/_app.js` or `pages/_app.tsx` (create it if it doesn't exist) and  wrap the
-Component with the `NextUIProvider` and the `next-themes` provider components.
+Component with the `HeroUIProvider` and the `next-themes` provider components.
 
 ```jsx
 // pages/_app.js
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import {ThemeProvider as NextThemesProvider} from "next-themes";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <NextUIProvider>
+    <HeroUIProvider>
       <NextThemesProvider attribute="class" defaultTheme="dark">
         <Component {...pageProps} />
       </NextThemesProvider>
-    </NextUIProvider>
+    </HeroUIProvider>
   )
 }
 
 export default MyApp;
 ```
 
-> Note: We're using the `class` attribute to switch between themes, this is because NextUI uses the `className` attribute.
+> Note: We're using the `class` attribute to switch between themes, this is because HeroUI uses the `className` attribute.
 
 ### Add the theme switcher
 
@@ -194,19 +188,19 @@ export const ThemeSwitcher = () => {
 ## Using use-theme hook
 
 In case you're using plain React with [Vite](/docs/frameworks/vite) or [Create React App](https://create-react-app.dev/) 
-you can use the [@nextui-org/use-theme](https://github.com/nextui-org/nextui/tree/canary/packages/hooks/use-theme) hook to switch between themes.
+you can use the [@heroui/use-theme](https://github.com/heroui-inc/heroui/tree/canary/packages/hooks/use-theme) hook to switch between themes.
 
 <Steps> 
 
-### Install @nextui-org/use-theme
+### Install @heroui/use-theme
 
-Install `@nextui-org/use-theme` in your project.
+Install `@heroui/use-theme` in your project.
 
 <PackageManagers
   commands={{
-    npm: 'npm install @nextui-org/use-theme',
-    yarn: 'yarn add @nextui-org/use-theme',
-    pnpm: 'pnpm add @nextui-org/use-theme',
+    npm: 'npm install @heroui/use-theme',
+    yarn: 'yarn add @heroui/use-theme',
+    pnpm: 'pnpm add @heroui/use-theme',
   }}
 /> 
 
@@ -215,7 +209,7 @@ Install `@nextui-org/use-theme` in your project.
 ```jsx
 // App.tsx or App.jsx
 import React from "react";
-import {useTheme} from "@nextui-org/use-theme";
+import {useTheme} from "@heroui/use-theme";
 
 export default function App() {
   const {theme} = useTheme();
@@ -236,7 +230,7 @@ Add the theme switcher to your app.
 // 'use client'; // uncomment this line if you're using Next.js App Directory Setup
 
 // components/ThemeSwitcher.tsx
-import {useTheme} from "@nextui-org/use-theme";
+import {useTheme} from "@heroui/use-theme";
 
 export const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme()

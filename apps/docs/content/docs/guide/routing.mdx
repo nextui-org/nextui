@@ -1,11 +1,11 @@
 ---
 title: Routing
-description: Learn how to integrate client side routing into your NextUI application.
+description: Learn how to integrate client side routing into your HeroUI application.
 ---
 
 # Routing
 
-NextUI Components such as [Tabs](/docs/components/tabs), [Listbox](/docs/components/listbox), [Dropdown](/docs/components/dropdown) and many others offer
+HeroUI Components such as [Tabs](/docs/components/tabs), [Listbox](/docs/components/listbox), [Dropdown](/docs/components/dropdown) and many others offer
 the flexibility to be rendered as **HTML links**.
 
 <CarbonAd />
@@ -15,30 +15,30 @@ the flexibility to be rendered as **HTML links**.
 By default, links perform native browser navigation when they are interacted with. However, many apps and
 frameworks use client side routers to avoid a full page reload when navigating between pages.
 
-The `NextUIProvider` component configures all NextUI components within it to navigate using the client side
+The `HeroUIProvider` component configures all HeroUI components within it to navigate using the client side
 router you provide.
 
-Set this up once in the `root` of your app, and any NextUI component with the `href` prop will automatically navigate
+Set this up once in the `root` of your app, and any HeroUI component with the `href` prop will automatically navigate
 using your router.
 
-## NextUIProvider Setup
+## HeroUIProvider Setup
 
-The `NextUIProvider` component accepts `navigate` and `useHref` props. `navigate` is a router function for client-side
+The `HeroUIProvider` component accepts `navigate` and `useHref` props. `navigate` is a router function for client-side
 navigation, while `useHref` optionally converts router hrefs to native HTML hrefs. Here's the pattern:
 
 ```jsx
 import * as React from "react";
 
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import {useNavigate, useHref} from "your-router";
 
 function App() {
   const navigate = useNavigate();
 
   return (
-    <NextUIProvider navigate={navigate} useHref={useHref}>
+    <HeroUIProvider navigate={navigate} useHref={useHref}>
       <YourApplication />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
@@ -49,7 +49,7 @@ function App() {
 
 ### Router Options
 
-All `NextUI` link components accept a `routerOptions` prop that passes options to the router's navigate function for
+All `HeroUI` link components accept a `routerOptions` prop that passes options to the router's navigate function for
 controlling behavior like scrolling and history navigation.
 
 ```jsx
@@ -86,12 +86,12 @@ Go to your `app/providers.tsx` or `app/providers.jsx` (create it if it doesn't e
 
 #### Add the `useRouter`
 
-```tsx {16}
+```tsx {15}
 // app/providers.tsx
 "use client";
 
 import {useRouter} from "next/navigation";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 // Only if using TypeScript
 declare module "@react-types/shared" {
@@ -103,13 +103,13 @@ declare module "@react-types/shared" {
 export function Providers({children}: {children: React.ReactNode}) {
   const router = useRouter();
 
-  return <NextUIProvider navigate={router.push}>{children}</NextUIProvider>;
+  return <HeroUIProvider navigate={router.push}>{children}</HeroUIProvider>;
 }
 ```
 
 #### Add Provider to Root
 
-Now, Go to your `root` layout page and wrap it with the `NextUIProvider`:
+Now, Go to your `root` layout page and wrap it with the `HeroUIProvider`:
 
 ```tsx {8}
 // app/layout.tsx
@@ -126,7 +126,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
 }
 ```
 
-> **Note**: Skip this step if you already set up the `NextUIProvider` in your app.
+> **Note**: Skip this step if you already set up the `HeroUIProvider` in your app.
 
 #### Next.js Base Path (Optional)
 
@@ -151,16 +151,16 @@ Then, provide a custom `useHref` function to prepend it to the href for all link
 "use client";
 
 import {useRouter} from "next/navigation";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 export function Providers({children}: {children: React.ReactNode}) {
   const router = useRouter();
   const useHref = (href: string) => process.env.BASE_PATH + href;
 
   return (
-    <NextUIProvider navigate={router.push} useHref={useHref}>
+    <HeroUIProvider navigate={router.push} useHref={useHref}>
       {children}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
@@ -176,7 +176,7 @@ from `next/router`, it returns a router object that can be used to perform navig
 // pages/_app.tsx
 import type {AppProps} from "next/app";
 import {type NextRouter, useRouter} from "next/router";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 declare module "@react-types/shared" {
   interface RouterConfig {
@@ -190,9 +190,9 @@ function MyApp({Component, pageProps}: AppProps) {
   const router = useRouter();
 
   return (
-    <NextUIProvider navigate={router.push}>
+    <HeroUIProvider navigate={router.push}>
       <Component {...pageProps} />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -205,7 +205,7 @@ provide a `useHref` option to the router passed to Provider to prepend it to lin
 ```tsx {8}
 // pages/_app.tsx
 import type {AppProps} from "next/app";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 import {useRouter} from "next/router";
 
 function MyApp({Component, pageProps}: AppProps) {
@@ -213,9 +213,9 @@ function MyApp({Component, pageProps}: AppProps) {
   const useHref = (href: string) => router.basePath + href;
 
   return (
-    <NextUIProvider navigate={router.push} useHref={useHref}>
+    <HeroUIProvider navigate={router.push} useHref={useHref}>
       <Component {...pageProps} />
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -226,14 +226,14 @@ export default MyApp;
 
 Use the `useNavigate` hook from `react-router-dom` to get the `navigate` function for routing. The `useHref` hook can be used with React Router's `basename` option.
 
-Make sure to place the component using these hooks inside `BrowserRouter` and keep `<Routes>` within `NextUIProvider`. Here's how to set it up in your App component:
+Make sure to place the component using these hooks inside `BrowserRouter` and keep `<Routes>` within `HeroUIProvider`. Here's how to set it up in your App component:
 
 ```tsx
 // App.tsx or App.jsx
 import type {NavigateOptions} from "react-router-dom";
 
 import {BrowserRouter, useNavigate, useHref} from "react-router-dom";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 declare module "@react-types/shared" {
   interface RouterConfig {
@@ -245,13 +245,13 @@ function App() {
   const navigate = useNavigate();
 
   return (
-    <NextUIProvider navigate={navigate} useHref={useHref}>
+    <HeroUIProvider navigate={navigate} useHref={useHref}>
       {/* Your app here... */}
       <Routes>
         <Route path="/" element={<HomePage />} />
         {/* ... */}
       </Routes>
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 
@@ -265,15 +265,15 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 );
 ```
 
-Ensure that the component that calls `useNavigate` and renders `NextUIProvider` is inside the router
+Ensure that the component that calls `useNavigate` and renders `HeroUIProvider` is inside the router
 component (e.g. `BrowserRouter`) so that it has access to React Router's internal context. The React Router `<Routes>`
-element should also be defined inside `NextUIProvider` so that links inside the rendered routes have access
+element should also be defined inside `HeroUIProvider` so that links inside the rendered routes have access
 to the router.
 
 ## Remix
 
 Remix uses React Router under the hood, so the same `useNavigate` and `useHref` hook described above also works in Remix
-apps. `NextUIProvider` should be rendered at the `root` of each page that includes NextUI components, or in
+apps. `HeroUIProvider` should be rendered at the `root` of each page that includes HeroUI components, or in
 `app/root.tsx` to add it to all pages. See the [Remix docs](https://remix.run/docs/en/main/file-conventions/root)
 for more details.
 
@@ -282,7 +282,7 @@ for more details.
 import type {NavigateOptions} from 'react-router-dom';
 
 import {useNavigate, useHref, Outlet} from "@remix-run/react";
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 declare module "@react-types/shared" {
   interface RouterConfig {
@@ -297,9 +297,9 @@ export default function App() {
     <html lang="en">
       <head>{/* ... */}</head>
       <body>
-        <NextUIProvider navigate={navigate} useHref={useHref}>
+        <HeroUIProvider navigate={navigate} useHref={useHref}>
           <Outlet />
-        </NextUIProvider>
+        </HeroUIProvider>
         {/* ... */}
       </body>
     </html>
@@ -309,7 +309,7 @@ export default function App() {
 
 ## TanStack
 
-To use [TanStack Router](https://tanstack.com/router/latest) with NextUI, render NextUI's RouterProvider inside your root route. 
+To use [TanStack Router](https://tanstack.com/router/latest) with HeroUI, render HeroUI's RouterProvider inside your root route. 
 Use `router.navigate` in the `navigate` prop, and `router.buildLocation` in the `useHref` prop.
 
 ```tsx
@@ -317,7 +317,7 @@ Use `router.navigate` in the `navigate` prop, and `router.buildLocation` in the 
 import type {NavigateOptions, ToOptions} from '@tanstack/react-router';
 
 import {useRouter} from '@tanstack/react-router';
-import {NextUIProvider} from "@nextui-org/react";
+import {HeroUIProvider} from "@heroui/react";
 
 
 declare module "@react-types/shared" {
@@ -331,23 +331,23 @@ function RootRoute() {
   let router = useRouter();
 
   return (
-    <NextUIProvider
+    <HeroUIProvider
       navigate={(to, options) => router.navigate({to, ...options})}
       useHref={(to) => router.buildLocation({to}).href}
     >
       {/* You app here... */}
-    </NextUIProvider>
+    </HeroUIProvider>
   );
 }
 ```
 
 ## Usage examples
 
-Now that you have set up the `NextUIProvider` in your app, you can use the `href` prop in the `Tabs`,
+Now that you have set up the `HeroUIProvider` in your app, you can use the `href` prop in the `Tabs`,
 `Listbox` and `Dropdown` items to navigate between pages.
 
 The [Link](/docs/components/link) component will also use the `navigate` function from the
-`NextUIProvider` to navigate between pages.
+`HeroUIProvider` to navigate between pages.
 
 ```jsx
 import {
@@ -361,7 +361,7 @@ import {
   DropdownItem,
   Button,
   Link,
-} from "@nextui-org/react";
+} from "@heroui/react";
 
 function App() {
   return (

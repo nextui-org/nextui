@@ -91,7 +91,7 @@ z-index: 0;
   }
 
   .step:before {
-    @apply absolute w-7 h-7 bg-default-100 rounded-full font-medium text-center text-base inline-flex items-center justify-center -indent-px;
+    @apply absolute w-7 h-7 border-1 border-default-200 bg-default-100 rounded-full font-semibold text-center text-base inline-flex items-center justify-center -indent-px;
     @apply ml-[-41px];
     content: counter(step);
   }

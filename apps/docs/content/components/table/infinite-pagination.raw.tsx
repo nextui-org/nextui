@@ -8,8 +8,8 @@ import {
   TableCell,
   Spinner,
   getKeyValue,
-} from "@nextui-org/react";
-import {useInfiniteScroll} from "@nextui-org/use-infinite-scroll";
+} from "@heroui/react";
+import {useInfiniteScroll} from "@heroui/use-infinite-scroll";
 import {useAsyncList} from "@react-stately/data";
 
 interface SWCharacter {

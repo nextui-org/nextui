@@ -4,21 +4,21 @@
 import {
   Button,
   Image,
-  Link as NextUILink,
+  Link as HeroUILink,
   Dropdown,
   DropdownSection,
   DropdownMenu,
   DropdownItem,
   Tooltip,
-} from "@nextui-org/react";
+} from "@heroui/react";
 import {useInView} from "framer-motion";
-import {clsx} from "@nextui-org/shared-utils";
+import {clsx} from "@heroui/shared-utils";
 import {
   AddNoteBulkIcon,
   CopyDocumentBulkIcon,
   EditDocumentBulkIcon,
   DeleteDocumentBulkIcon,
-} from "@nextui-org/shared-icons";
+} from "@heroui/shared-icons";
 import Link from "next/link";
 import dynamic from "next/dynamic";
 import {Fragment, useEffect, useRef, useState} from "react";
@@ -102,15 +102,15 @@ export const A11yOtb = () => {
             </div>
           </div>
           <p className={subtitle()}>
-            NextUI components are built on top of&nbsp;
-            <NextUILink
+            HeroUI components are built on top of&nbsp;
+            <HeroUILink
               isExternal
               className="text-xl text-default-500 font-light [&>svg]:ml-1"
               href="https://react-spectrum.adobe.com/react-aria/"
               underline="always"
             >
               React Aria
-            </NextUILink>
+            </HeroUILink>
             &nbsp;ensuring exceptional accessibility support as a top priority.
           </p>
         </div>
@@ -169,6 +169,7 @@ export const A11yOtb = () => {
               <Dropdown
                 className="shadow-xl"
                 closeOnSelect={true}
+                isDismissable={false}
                 isOpen={isDropdownOpen}
                 placement="bottom"
                 portalContainer={ref.current}

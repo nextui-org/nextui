@@ -1,11 +1,11 @@
 import * as React from "react";
 import {act, render, fireEvent} from "@testing-library/react";
-import {Button} from "@nextui-org/button";
+import {Button} from "@heroui/button";
 import userEvent, {UserEvent} from "@testing-library/user-event";
-import {keyCodes} from "@nextui-org/test-utils";
-import {User} from "@nextui-org/user";
-import {Image} from "@nextui-org/image";
-import {Avatar} from "@nextui-org/avatar";
+import {keyCodes} from "@heroui/test-utils";
+import {User} from "@heroui/user";
+import {Image} from "@heroui/image";
+import {Avatar} from "@heroui/avatar";
 
 import {Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, DropdownSection} from "../src";
 
@@ -466,7 +466,7 @@ describe("Dropdown", () => {
       );
     };
 
-    // Non Next UI Element in DropdownTrigger
+    // Non Hero UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -480,7 +480,7 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // Next UI Element in DropdownTrigger
+    // Hero UI Element in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -494,7 +494,7 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // NextUI Element that supports isDisabled prop in DropdownTrigger
+    // HeroUI Element that supports isDisabled prop in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
@@ -508,13 +508,13 @@ describe("Dropdown", () => {
 
     spy.mockRestore();
 
-    // NextUI Element that doesn't support isDisabled prop in DropdownTrigger
+    // HeroUI Element that doesn't support isDisabled prop in DropdownTrigger
     render(
       <Dropdown isDisabled>
         <DropdownTrigger>
           <Image
-            alt="NextUI hero Image"
-            src="https://nextui.org/images/hero-card-complete.jpeg"
+            alt="HeroUI hero Image"
+            src="https://heroui.com/images/hero-card-complete.jpeg"
             width={300}
           />
         </DropdownTrigger>

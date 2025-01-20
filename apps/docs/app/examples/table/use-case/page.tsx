@@ -20,10 +20,10 @@ import {
   ChipProps,
   Pagination,
   SortDescriptor,
-} from "@nextui-org/react";
-import {ChevronDownIcon, SearchIcon} from "@nextui-org/shared-icons";
+} from "@heroui/react";
+import {ChevronDownIcon, SearchIcon} from "@heroui/shared-icons";
 import {useCallback, useMemo, useState} from "react";
-import {capitalize} from "@nextui-org/shared-utils";
+import {capitalize} from "@heroui/shared-utils";
 
 import {PlusLinearIcon} from "@/components/icons";
 import {VerticalDotsIcon} from "@/components/icons/vertical-dots";
@@ -352,9 +352,9 @@ export default function Page() {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem>View</DropdownItem>
-                <DropdownItem>Edit</DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
+                <DropdownItem key="view">View</DropdownItem>
+                <DropdownItem key="edit">Edit</DropdownItem>
+                <DropdownItem key="delete">Delete</DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>

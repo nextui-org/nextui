@@ -1,24 +1,24 @@
-# @nextui-org/badge
+# @heroui/badge
 
 Badges are used as a small numerical value or status descriptor for UI elements.
 
-Please refer to the [documentation](https://nextui.org/docs/components/badge) for more information.
+Please refer to the [documentation](https://heroui.com/docs/components/badge) for more information.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/badge
+yarn add @heroui/badge
 # or
-npm i @nextui-org/badge
+npm i @heroui/badge
 ```
 
 ## Contribution
 
 Yes please! See the
-[contributing guidelines](https://github.com/nextui-org/nextui/blob/master/CONTRIBUTING.md)
+[contributing guidelines](https://github.com/heroui-inc/heroui/blob/master/CONTRIBUTING.md)
 for details.
 
 ## License
 
 This project is licensed under the terms of the
-[MIT license](https://github.com/nextui-org/nextui/blob/master/LICENSE).
+[MIT license](https://github.com/heroui-inc/heroui/blob/master/LICENSE).

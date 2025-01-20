@@ -20,11 +20,11 @@ Checkboxes allow users to select multiple items from a list of individual items,
 <PackageManagers
   showGlobalInstallWarning
   commands={{
-    cli: "npx nextui-cli@latest add checkbox",
-    npm: "npm install @nextui-org/checkbox",
-    yarn: "yarn add @nextui-org/checkbox",
-    pnpm: "pnpm add @nextui-org/checkbox",
-    bun: "bun add @nextui-org/checkbox"
+    cli: "npx heroui-cli@latest add checkbox",
+    npm: "npm install @heroui/checkbox",
+    yarn: "yarn add @heroui/checkbox",
+    pnpm: "pnpm add @heroui/checkbox",
+    bun: "bun add @heroui/checkbox"
   }}
 />
 
@@ -33,8 +33,8 @@ Checkboxes allow users to select multiple items from a list of individual items,
 
 <ImportTabs
   commands={{
-    main: 'import {Checkbox} from "@nextui-org/react";',
-    individual: 'import {Checkbox} from "@nextui-org/checkbox";',
+    main: 'import {Checkbox} from "@heroui/react";',
+    individual: 'import {Checkbox} from "@heroui/checkbox";',
   }}
 />
 
@@ -78,13 +78,14 @@ The `isIndeterminate` prop sets a `Checkbox` to an indeterminate state, overridi
 
 <CodeDemo title="Controlled Checkbox" files={checkboxContent.controlled} />
 
-> **Note**: NextUI `Checkbox` also supports native events like `onChange`, useful for form libraries
+> **Note**: HeroUI `Checkbox` also supports native events like `onChange`, useful for form libraries
 > such as [Formik](https://formik.org/) and [React Hook Form](https://react-hook-form.com/).
 
 ## Slots
 
 - **base**: Checkbox wrapper, it handles alignment, placement, and general appearance.
 - **wrapper**: An inner container that includes styles for relative positioning, flex properties, overflow handling and managing hover and selected states.
+- **hiddenInput**: The hidden input element that is used to handle the checkbox state.
 - **icon**: Icon within the checkbox, controlling size, visibility, and changes when checked.
 - **label**: The text associated with the checkbox.
 

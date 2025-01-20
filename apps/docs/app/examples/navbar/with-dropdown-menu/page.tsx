@@ -5,17 +5,14 @@ import {
   NavbarBrand,
   NavbarContent,
   NavbarItem,
-  Link as NextUiLink,
-  LinkProps,
+  Link,
   Button,
   DropdownItem,
   DropdownTrigger,
   Dropdown,
   DropdownMenu,
-} from "@nextui-org/react";
-import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "@nextui-org/shared-icons";
-
-const Link = (props: LinkProps) => <NextUiLink {...props} onClick={(e) => e.preventDefault()} />;
+} from "@heroui/react";
+import {ChevronDown, Lock, Activity, Flash, Server, TagUser, Scale} from "@heroui/shared-icons";
 
 const AcmeLogo = () => (
   <svg fill="none" height="36" viewBox="0 0 32 32" width="36">

@@ -1,7 +1,7 @@
-import type {Selection} from "@nextui-org/react";
+import type {Selection} from "@heroui/react";
 
 import React from "react";
-import {Accordion, AccordionItem} from "@nextui-org/react";
+import {Accordion, AccordionItem} from "@heroui/react";
 
 export default function App() {
   const [selectedKeys, setSelectedKeys] = React.useState<Selection>(new Set(["1"]));
