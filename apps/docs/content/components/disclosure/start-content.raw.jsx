@@ -1,4 +1,4 @@
-import {Disclosure, Avatar} from "@nextui-org/react";
+import {Disclosure, Avatar} from "@heroui/react";
 
 export default function App() {
   const defaultContent =

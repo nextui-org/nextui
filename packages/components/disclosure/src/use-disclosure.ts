@@ -1,12 +1,12 @@
-import type {DisclosureSlots, DisclosureVariantProps, SlotsToClasses} from "@nextui-org/theme";
+import type {DisclosureSlots, DisclosureVariantProps, SlotsToClasses} from "@heroui/theme";
 
-import {disclosure} from "@nextui-org/theme";
-import {As, HTMLNextUIProps, mapPropsVariants, PropGetter} from "@nextui-org/system";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
+import {disclosure} from "@heroui/theme";
+import {As, HTMLHeroUIProps, mapPropsVariants, PropGetter} from "@heroui/system";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
 import {useDisclosure as useAriaDisclosure} from "@react-aria/disclosure";
 import {DisclosureProps, useDisclosureState} from "@react-stately/disclosure";
 import {ReactNode, useCallback, useMemo, useRef} from "react";
-import {clsx, dataAttr, objectToDeps} from "@nextui-org/shared-utils";
+import {clsx, dataAttr, objectToDeps} from "@heroui/shared-utils";
 import {chain, mergeProps} from "@react-aria/utils";
 import {useButton} from "@react-aria/button";
 import {useFocusRing} from "@react-aria/focus";
@@ -29,7 +29,7 @@ export type DisclosureIndicatorProps = {
   isDisabled?: boolean;
 };
 
-interface Props extends Omit<HTMLNextUIProps<"div">, "title"> {
+interface Props extends Omit<HTMLHeroUIProps<"div">, "title"> {
   /**
    * Ref to the DOM node.
    */

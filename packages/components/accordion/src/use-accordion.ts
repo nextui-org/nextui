@@ -1,25 +1,15 @@
 import type {AriaAccordionProps} from "@react-types/accordion";
-import type {AccordionGroupVariantProps} from "@heroui/theme";
 import type {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 
+import {AccordionGroupVariantProps, accordion} from "@heroui/theme";
 import {useProviderContext} from "@heroui/system";
 import {ReactRef, filterDOMProps} from "@heroui/react-utils";
-import {Key, useCallback} from "react";
+import {Children, isValidElement, Key, useCallback} from "react";
 import {mergeProps} from "@react-aria/utils";
-import {accordion} from "@heroui/theme";
 import {useDOMRef} from "@heroui/react-utils";
 import {useMemo} from "react";
 import {DividerProps} from "@heroui/divider";
-import type {AccordionGroupVariantProps} from "@nextui-org/theme";
-
-import {accordion} from "@nextui-org/theme";
-import {PropGetter, useProviderContext} from "@nextui-org/system";
-import {filterDOMProps, ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {Children, isValidElement, Key, useCallback, useMemo} from "react";
-import {DividerProps} from "@nextui-org/divider";
 import {useDisclosureGroupState} from "@react-stately/disclosure";
-
-import {mergeProps} from "@react-aria/utils";
 import {clsx} from "@heroui/shared-utils";
 
 import {AccordionItemProps} from "./accordion-item";

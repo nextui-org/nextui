@@ -1,5 +1,5 @@
-import {forwardRef} from "@nextui-org/system";
-import {ChevronIcon} from "@nextui-org/shared-icons";
+import {forwardRef} from "@heroui/system";
+import {ChevronIcon} from "@heroui/shared-icons";
 import {ReactNode, useMemo} from "react";
 
 import {UseDisclosureProps, useDisclosure} from "./use-disclosure";

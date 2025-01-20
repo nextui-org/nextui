@@ -1,4 +1,4 @@
-import {Disclosure} from "@nextui-org/react";
+import {Disclosure} from "@heroui/react";
 
 const MoonIcon = (props) => {
   return (

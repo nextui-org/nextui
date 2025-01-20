@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/disclosure",
+  "name": "@heroui/disclosure",
   "version": "2.0.0",
   "description": "A disclosure is a collapsible section of content.",
   "keywords": [
@@ -36,13 +36,13 @@
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0",
     "react-dom": ">=18 || >=19.0.0-rc.0",
-    "@nextui-org/theme": ">=2.4.0",
-    "@nextui-org/system": ">=2.4.0"
+    "@heroui/theme": ">=2.4.0",
+    "@heroui/system": ">=2.4.0"
   },
   "dependencies": {
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
     "@react-aria/disclosure": "^3.0.0",
     "@react-aria/button": "^3.11.0",
     "@react-stately/disclosure": "^3.0.0",
@@ -50,11 +50,11 @@
     "@react-aria/focus": "3.19.0"
   },
   "devDependencies": {
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/avatar": "workspace:*",
-    "@nextui-org/input": "workspace:*",
-    "@nextui-org/button": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/avatar": "workspace:*",
+    "@heroui/input": "workspace:*",
+    "@heroui/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

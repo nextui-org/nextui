@@ -1,4 +1,4 @@
-import {Disclosure} from "@nextui-org/disclosure";
+import {Disclosure} from "@heroui/disclosure";
 
 const MonitorMobileIcon = (props) => {
   return (

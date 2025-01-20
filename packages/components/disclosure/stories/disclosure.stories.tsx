@@ -1,10 +1,10 @@
 import React from "react";
 import {Meta} from "@storybook/react";
-import {button, disclosure} from "@nextui-org/theme";
-import {Avatar} from "@nextui-org/avatar";
-import {Button} from "@nextui-org/button";
-import {Input, Textarea} from "@nextui-org/input";
-import {MonitorMobileIcon, MoonIcon} from "@nextui-org/shared-icons";
+import {button, disclosure} from "@heroui/theme";
+import {Avatar} from "@heroui/avatar";
+import {Button} from "@heroui/button";
+import {Input, Textarea} from "@heroui/input";
+import {MonitorMobileIcon, MoonIcon} from "@heroui/shared-icons";
 
 import {Disclosure, DisclosureProps} from "../src";
 

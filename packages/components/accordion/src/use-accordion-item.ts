@@ -1,18 +1,11 @@
+import type {DisclosureSlots, DisclosureVariantProps} from "@heroui/theme";
+
 import {HTMLHeroUIProps, PropGetter} from "@heroui/system";
 import {ReactRef} from "@heroui/react-utils";
 import {DisclosureProps} from "@heroui/disclosure";
-import {¯SlotsToClasses} from "@heroui/theme";
-import {PropGetter} from "@heroui/system";
-import {DisclosureProps} from "@heroui/disclosure";
-import {Key, useCallback¯} from "react";
-import type {DisclosureVariantProps} from "@nextui-org/theme";
-
-import {DisclosureSlots, SlotsToClasses} from "@nextui-org/theme";
-import {PropGetter} from "@nextui-org/system";
-import {ReactRef} from "@nextui-org/react-utils";
-import {DisclosureProps} from "@nextui-org/disclosure";
+import {SlotsToClasses} from "@heroui/theme";
 import {Key, useCallback} from "react";
-import {callAllHandlers} from "@nextui-org/shared-utils";
+import {callAllHandlers} from "@heroui/shared-utils";
 
 import {useAccordianContext} from "./accordian-context";
 import {AccordionItemBaseProps} from "./base/accordion-item-base";

@@ -1,5 +1,5 @@
 import React from "react";
-import {Disclosure, Button} from "@nextui-org/react";
+import {Disclosure, Button} from "@heroui/react";
 
 export default function App() {
   const defaultContent =

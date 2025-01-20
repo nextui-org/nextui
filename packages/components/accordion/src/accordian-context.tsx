@@ -1,4 +1,4 @@
-import {createContext} from "@nextui-org/react-utils";
+import {createContext} from "@heroui/react-utils";
 import {DisclosureGroupState} from "@react-stately/disclosure";
 
 import {ValuesType} from "./use-accordion";

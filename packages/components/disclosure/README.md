@@ -1,13 +1,13 @@
-# @nextui-org/disclosure
+# @heroui/disclosure
 
 Disclosure displays hidden content that can be revealed or concealed.
 
 ## Installation
 
 ```sh
-yarn add @nextui-org/disclosure
+yarn add @heroui/disclosure
 # or
-npm i @nextui-org/disclosure
+npm i @heroui/disclosure
 ```
 
 ## Contribution
