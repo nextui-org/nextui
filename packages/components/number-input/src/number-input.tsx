@@ -4,7 +4,6 @@ import {forwardRef} from "@heroui/system";
 
 import {UseNumberInputProps, useNumberInput} from "./use-number-input";
 import NumberInputVerticalStepper from "./number-input-vertical-stepper";
-import NumberInputHorizontalStepper from "./number-input-horiztonal-stepper";
 
 export interface NumberInputProps extends UseNumberInputProps {}
 
@@ -21,7 +20,6 @@ const NumberInput = forwardRef<"input", NumberInputProps>((props, ref) => {
     errorMessage,
     isInvalid,
     hideStepper,
-    steps,
     getBaseProps,
     getLabelProps,
     getNumberInputProps,
@@ -83,30 +81,6 @@ const NumberInput = forwardRef<"input", NumberInputProps>((props, ref) => {
   ]);
 
   const innerWrapper = useMemo(() => {
-    if (hideStepper) {
-      return (
-        <div {...getInnerWrapperProps()}>
-          {startContent}
-          <input {...getNumberInputProps()} />
-          <input {...getHiddenNumberInputProps()} />
-          {end}
-        </div>
-      );
-    }
-
-    if (steps === "horizontal") {
-      return (
-        <div {...getInnerWrapperProps()}>
-          <NumberInputHorizontalStepper {...getStepperDecreaseButtonProps()} direction="left" />
-          {startContent}
-          <input {...getNumberInputProps()} />
-          <input {...getHiddenNumberInputProps()} />
-          {end}
-          <NumberInputHorizontalStepper {...getStepperIncreaseButtonProps()} direction="right" />
-        </div>
-      );
-    }
-
     return (
       <div {...getInnerWrapperProps()}>
         {startContent}

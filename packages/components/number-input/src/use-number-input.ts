@@ -75,10 +75,6 @@ export interface Props extends Omit<HTMLHeroUIProps<"input">, keyof NumberInputV
    */
   classNames?: SlotsToClasses<NumberInputSlots>;
   /**
-   * Whether the stepper is placed horizontally or vertically
-   */
-  steps?: "horizontal" | "vertical";
-  /**
    * Whether to hide the increment and decrement buttons.
    */
   hideStepper?: boolean;
@@ -124,7 +120,6 @@ export function useNumberInput(originalProps: UseNumberInputProps) {
     innerWrapperRef: innerWrapperRefProp,
     onValueChange,
     hideStepper,
-    steps = "vertical",
     ...otherProps
   } = props;
 
@@ -303,7 +298,6 @@ export function useNumberInput(originalProps: UseNumberInputProps) {
         "data-filled": dataAttr(isFilled),
         "data-has-start-content": dataAttr(hasStartContent),
         "data-has-end-content": dataAttr(!!endContent),
-        "data-direction": steps,
         className: slots.input({
           class: clsx(classNames?.input, isFilled ? "is-filled" : ""),
         }),
@@ -544,7 +538,6 @@ export function useNumberInput(originalProps: UseNumberInputProps) {
     isInvalid,
     errorMessage,
     hideStepper,
-    steps,
     incrementButtonProps,
     decrementButtonProps,
     getBaseProps,
