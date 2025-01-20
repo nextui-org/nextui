@@ -1,4 +1,4 @@
-import {ToastProvider} from "@nextui-org/react";
+import {ToastProvider} from "@heroui/react";
 
 import Promise from "./promise.raw.jsx?raw";
 

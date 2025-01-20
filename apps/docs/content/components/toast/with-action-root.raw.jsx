@@ -1,4 +1,4 @@
-import {ToastProvider} from "@nextui-org/react";
+import {ToastProvider} from "@heroui/react";
 
 import WithAction from "./with-action.raw.jsx?raw";
 

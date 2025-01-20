@@ -1,5 +1,5 @@
 "use client";
-import {addToast, Button, ToastProvider} from "@nextui-org/react";
+import {addToast, Button, ToastProvider} from "@heroui/react";
 
 export default function App() {
   return (

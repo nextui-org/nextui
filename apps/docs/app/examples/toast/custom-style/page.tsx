@@ -1,6 +1,6 @@
 "use client";
 
-import {addToast, Button, cn, ToastProvider} from "@nextui-org/react";
+import {addToast, Button, cn, ToastProvider} from "@heroui/react";
 
 const CustomToastComponent = () => {
   return (

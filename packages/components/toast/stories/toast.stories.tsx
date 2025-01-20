@@ -1,7 +1,7 @@
 import React, {useEffect} from "react";
 import {Meta} from "@storybook/react";
-import {cn, toast} from "@nextui-org/theme";
-import {Button} from "@nextui-org/button";
+import {cn, toast} from "@heroui/theme";
+import {Button} from "@heroui/button";
 
 import {Toast, ToastProps, ToastProvider, addToast, closeAll} from "../src";
 
