@@ -38,11 +38,11 @@
   },
   "dependencies": {
     "@heroui/shared-utils": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/utils": "3.26.0",
-    "@react-types/button": "3.10.1",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-types/button": "3.10.2",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "clean-package": "2.2.0",

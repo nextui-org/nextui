@@ -34,10 +34,10 @@
     "postpack": "clean-package restore"
   },
   "dependencies": {
-    "@react-aria/utils": "3.26.0",
+    "@react-aria/utils": "3.27.0",
     "@react-aria/ssr": "3.9.7",
-    "@react-types/shared": "3.26.0",
-    "@react-aria/interactions": "3.22.5"
+    "@react-types/shared": "3.27.0",
+    "@react-aria/interactions": "3.23.0"
   },
   "peerDependencies": {
     "react": ">=18 || >=19.0.0-rc.0"

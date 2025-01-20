@@ -43,10 +43,10 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/utils": "3.26.0",
-    "@react-types/checkbox": "3.9.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-types/checkbox": "3.9.1"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",

@@ -47,8 +47,8 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/use-clipboard": "workspace:*",
     "@heroui/tooltip": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/utils": "3.26.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/utils": "3.27.0"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",

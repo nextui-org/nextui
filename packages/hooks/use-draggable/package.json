@@ -50,6 +50,6 @@
     ]
   },
   "dependencies": {
-    "@react-aria/interactions": "3.22.5"
+    "@react-aria/interactions": "3.23.0"
   }
 }

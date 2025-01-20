@@ -45,14 +45,14 @@
     "@heroui/use-is-mobile": "workspace:*",
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/menu": "3.16.0",
-    "@react-aria/utils": "3.26.0",
-    "@react-stately/menu": "3.9.0",
-    "@react-stately/tree": "3.8.6",
-    "@react-types/menu": "3.9.13",
-    "@react-types/shared": "3.26.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/menu": "3.17.0",
+    "@react-aria/utils": "3.27.0",
+    "@react-stately/menu": "3.9.1",
+    "@react-stately/tree": "3.8.7",
+    "@react-types/menu": "3.9.14",
+    "@react-types/shared": "3.27.0"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",

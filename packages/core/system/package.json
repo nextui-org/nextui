@@ -54,13 +54,13 @@
     ]
   },
   "dependencies": {
-    "@internationalized/date": "3.6.0",
+    "@internationalized/date": "3.7.0",
     "@heroui/react-utils": "workspace:*",
-    "@react-aria/i18n": "3.12.4",
+    "@react-aria/i18n": "3.12.5",
     "@heroui/system-rsc": "workspace:*",
-    "@react-aria/overlays": "3.24.0",
-    "@react-aria/utils": "3.26.0",
+    "@react-aria/overlays": "3.25.0",
+    "@react-aria/utils": "3.27.0",
     "@react-stately/utils": "3.10.5",
-    "@react-types/datepicker": "3.9.0"
+    "@react-types/datepicker": "3.10.0"
   }
 }

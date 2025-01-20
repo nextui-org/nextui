@@ -44,10 +44,10 @@
     "@heroui/shared-icons": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/use-aria-link": "workspace:*",
-    "@react-aria/link": "3.7.7",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/focus": "3.19.0",
-    "@react-types/link": "3.5.9"
+    "@react-aria/link": "3.7.8",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/focus": "3.19.1",
+    "@react-types/link": "3.5.10"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",

@@ -43,13 +43,13 @@
     "@heroui/shared-utils": "workspace:*",
     "@heroui/react-utils": "workspace:*",
     "@heroui/tooltip": "workspace:*",
-    "@react-aria/focus": "3.19.0",
-    "@react-aria/i18n": "3.12.4",
-    "@react-aria/interactions": "3.22.5",
-    "@react-aria/slider": "3.7.14",
-    "@react-aria/utils": "3.26.0",
-    "@react-aria/visually-hidden": "3.8.18",
-    "@react-stately/slider": "3.6.0"
+    "@react-aria/focus": "3.19.1",
+    "@react-aria/i18n": "3.12.5",
+    "@react-aria/interactions": "3.23.0",
+    "@react-aria/slider": "3.7.15",
+    "@react-aria/utils": "3.27.0",
+    "@react-aria/visually-hidden": "3.8.19",
+    "@react-stately/slider": "3.6.1"
   },
   "devDependencies": {
     "@heroui/theme": "workspace:*",
