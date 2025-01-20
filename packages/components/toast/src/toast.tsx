@@ -1,15 +1,15 @@
-import {forwardRef} from "@nextui-org/system";
-import {Button, ButtonProps} from "@nextui-org/button";
+import {forwardRef} from "@heroui/system";
+import {Button, ButtonProps} from "@heroui/button";
 import {
   CloseIcon,
   DangerIcon,
   InfoFilledIcon,
   SuccessIcon,
   WarningIcon,
-} from "@nextui-org/shared-icons";
+} from "@heroui/shared-icons";
 import {AnimatePresence, motion, LazyMotion, domAnimation} from "framer-motion";
 import {cloneElement, isValidElement} from "react";
-import {Spinner} from "@nextui-org/spinner";
+import {Spinner} from "@heroui/spinner";
 
 import {UseToastProps, useToast} from "./use-toast";
 

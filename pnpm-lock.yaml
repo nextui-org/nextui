@@ -2999,19 +2999,19 @@ importers:
 
   packages/components/toast:
     dependencies:
-      '@nextui-org/dom-animation':
+      '@heroui/dom-animation':
         specifier: workspace:*
         version: link:../../utilities/dom-animation
-      '@nextui-org/react-utils':
+      '@heroui/react-utils':
         specifier: workspace:*
         version: link:../../utilities/react-utils
-      '@nextui-org/shared-icons':
+      '@heroui/shared-icons':
         specifier: workspace:*
         version: link:../../utilities/shared-icons
-      '@nextui-org/shared-utils':
+      '@heroui/shared-utils':
         specifier: workspace:*
         version: link:../../utilities/shared-utils
-      '@nextui-org/spinner':
+      '@heroui/spinner':
         specifier: workspace:*
         version: link:../spinner
       '@react-aria/interactions':
@@ -3030,13 +3030,13 @@ importers:
         specifier: 3.10.5
         version: 3.10.5(react@18.2.0)
     devDependencies:
-      '@nextui-org/button':
+      '@heroui/button':
         specifier: workspace:*
         version: link:../button
-      '@nextui-org/system':
+      '@heroui/system':
         specifier: workspace:*
         version: link:../../core/system
-      '@nextui-org/theme':
+      '@heroui/theme':
         specifier: workspace:*
         version: link:../../core/theme
       clean-package:
@@ -19009,7 +19009,7 @@ snapshots:
       '@react-types/shared': 3.26.0(react@18.2.0)
       '@swc/helpers': 0.5.15
       react: 18.2.0
-      use-sync-external-store: 1.2.2(react@18.2.0)
+      use-sync-external-store: 1.4.0(react@18.2.0)
 
   '@react-aria/link@3.7.7(react@18.2.0)':
     dependencies:
@@ -19471,7 +19471,7 @@ snapshots:
     dependencies:
       '@swc/helpers': 0.5.15
       react: 18.2.0
-      use-sync-external-store: 1.2.2(react@18.2.0)
+      use-sync-external-store: 1.4.0(react@18.2.0)
 
   '@react-stately/toggle@3.8.0(react@18.2.0)':
     dependencies:

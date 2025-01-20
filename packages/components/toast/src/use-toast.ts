@@ -1,9 +1,9 @@
-import type {SlotsToClasses, ToastSlots, ToastVariantProps} from "@nextui-org/theme";
+import type {SlotsToClasses, ToastSlots, ToastVariantProps} from "@heroui/theme";
 
-import {HTMLNextUIProps, PropGetter, mapPropsVariants} from "@nextui-org/system";
-import {toast as toastTheme} from "@nextui-org/theme";
-import {ReactRef, useDOMRef} from "@nextui-org/react-utils";
-import {clsx, dataAttr, isEmpty, objectToDeps} from "@nextui-org/shared-utils";
+import {HTMLHeroUIProps, PropGetter, mapPropsVariants} from "@heroui/system";
+import {toast as toastTheme} from "@heroui/theme";
+import {ReactRef, useDOMRef} from "@heroui/react-utils";
+import {clsx, dataAttr, isEmpty, objectToDeps} from "@heroui/shared-utils";
 import {ReactNode, useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState} from "react";
 import {useToast as useToastAria, AriaToastProps} from "@react-aria/toast";
 import {mergeProps} from "@react-aria/utils";
@@ -78,7 +78,7 @@ export interface ToastProps extends ToastVariantProps {
   onClose?: () => void;
 }
 
-interface Props<T> extends HTMLNextUIProps<"div">, ToastProps {
+interface Props<T> extends HTMLHeroUIProps<"div">, ToastProps {
   toast: QueuedToast<T>;
   index: number;
   total: number;

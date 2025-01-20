@@ -1,5 +1,5 @@
 {
-  "name": "@nextui-org/toast",
+  "name": "@heroui/toast",
   "version": "2.0.0",
   "description": "adding toast",
   "keywords": [
@@ -34,17 +34,17 @@
     "postpack": "clean-package restore"
   },
   "peerDependencies": {
-    "@nextui-org/system": ">=2.0.0",
-    "@nextui-org/theme": ">=2.0.0",
+    "@heroui/system": ">=2.0.0",
+    "@heroui/theme": ">=2.0.0",
     "react": ">=18",
     "react-dom": ">=18"
   },
   "dependencies": {
-    "@nextui-org/react-utils": "workspace:*",
-    "@nextui-org/shared-utils": "workspace:*",
-    "@nextui-org/shared-icons": "workspace:*",
-    "@nextui-org/dom-animation": "workspace:*",
-    "@nextui-org/spinner": "workspace:*",
+    "@heroui/react-utils": "workspace:*",
+    "@heroui/shared-utils": "workspace:*",
+    "@heroui/shared-icons": "workspace:*",
+    "@heroui/dom-animation": "workspace:*",
+    "@heroui/spinner": "workspace:*",
     "@react-aria/toast": "3.0.0-beta.15",
     "@react-aria/utils": "3.24.1",
     "@react-aria/interactions": "3.22.5",
@@ -52,9 +52,9 @@
     "@react-stately/utils": "3.10.5"
   },
   "devDependencies": {
-    "@nextui-org/system": "workspace:*",
-    "@nextui-org/theme": "workspace:*",
-    "@nextui-org/button": "workspace:*",
+    "@heroui/system": "workspace:*",
+    "@heroui/theme": "workspace:*",
+    "@heroui/button": "workspace:*",
     "clean-package": "2.2.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0"

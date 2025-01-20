@@ -1,5 +1,5 @@
 import {ToastOptions, ToastQueue, useToastQueue} from "@react-stately/toast";
-import {useProviderContext} from "@nextui-org/system";
+import {useProviderContext} from "@heroui/system";
 
 import {ToastRegion} from "./toast-region";
 import {ToastProps} from "./use-toast";
