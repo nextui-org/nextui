@@ -278,9 +278,8 @@ export function useDateRangePicker<T extends DateValue>({
       dateInput({
         ...variantProps,
         labelPlacement,
-        className,
       }),
-    [objectToDeps(variantProps), className],
+    [objectToDeps(variantProps)],
   );
 
   const getStartDateInputProps = (props: DOMAttributes = {}) => {

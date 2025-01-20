@@ -152,9 +152,8 @@ export function useTimeInput<T extends TimeValue>(originalProps: UseTimeInputPro
         ...variantProps,
         disableAnimation,
         labelPlacement,
-        className,
       }),
-    [objectToDeps(variantProps), labelPlacement, disableAnimation, className],
+    [objectToDeps(variantProps), labelPlacement, disableAnimation],
   );
 
   const getLabelProps: PropGetter = (props) => {

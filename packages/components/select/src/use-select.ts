@@ -381,9 +381,8 @@ export function useSelect<T extends object>(originalProps: UseSelectProps<T>) {
         isInvalid,
         labelPlacement,
         disableAnimation,
-        className,
       }),
-    [objectToDeps(variantProps), isInvalid, labelPlacement, disableAnimation, className],
+    [objectToDeps(variantProps), isInvalid, labelPlacement, disableAnimation],
   );
 
   // scroll the listbox to the selected item
