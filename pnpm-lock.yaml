@@ -59,11 +59,11 @@ importers:
         specifier: ^2.1.0
         version: 2.2.0
       '@react-types/link':
-        specifier: 3.5.9
-        version: 3.5.9(react@18.2.0)
+        specifier: 3.5.10
+        version: 3.5.10(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.26.0
-        version: 3.26.0(react@18.2.0)
+        specifier: 3.27.0
+        version: 3.27.0(react@18.2.0)
       '@storybook/react':
         specifier: ^8.4.5
         version: 8.4.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.5.0(prettier@2.8.8))(typescript@4.9.5)
@@ -537,14 +537,14 @@ importers:
         specifier: 14.3.0-canary.43
         version: 14.3.0-canary.43
       '@react-types/calendar':
-        specifier: 3.5.0
-        version: 3.5.0(react@18.2.0)
+        specifier: 3.6.0
+        version: 3.6.0(react@18.2.0)
       '@react-types/datepicker':
-        specifier: 3.9.0
-        version: 3.9.0(react@18.2.0)
+        specifier: 3.10.0
+        version: 3.10.0(react@18.2.0)
       '@react-types/shared':
-        specifier: 3.26.0
-        version: 3.26.0(react@18.2.0)
+        specifier: 3.27.0
+        version: 3.27.0(react@18.2.0)
       '@tailwindcss/typography':
         specifier: ^0.5.9
         version: 0.5.16(tailwindcss@3.4.14(ts-node@10.9.2(@swc/core@1.10.6(@swc/helpers@0.5.15))(@types/node@20.2.5)(typescript@5.7.2)))
@@ -7018,11 +7018,6 @@ packages:
     peerDependencies:
       react: 18.2.0
 
-  '@react-types/calendar@3.5.0':
-    resolution: {integrity: sha512-O3IRE7AGwAWYnvJIJ80cOy7WwoJ0m8GtX/qSmvXQAjC4qx00n+b5aFNBYAQtcyc3RM5QpW6obs9BfwGetFiI8w==}
-    peerDependencies:
-      react: 18.2.0
-
   '@react-types/calendar@3.6.0':
     resolution: {integrity: sha512-BtFh4BFwvsYlsaSqUOVxlqXZSlJ6u4aozgO3PwHykhpemwidlzNwm9qDZhcMWPioNF/w2cU/6EqhvEKUHDnFZg==}
     peerDependencies:
@@ -7040,11 +7035,6 @@ packages:
 
   '@react-types/datepicker@3.10.0':
     resolution: {integrity: sha512-Att7y4NedNH1CogMDIX9URXgMLxGbZgnFCZ8oxgFAVndWzbh3TBcc4s7uoJDPvgRMAalq+z+SrlFFeoBeJmvvg==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-types/datepicker@3.9.0':
-    resolution: {integrity: sha512-dbKL5Qsm2MQwOTtVQdOcKrrphcXAqDD80WLlSQrBLg+waDuuQ7H+TrvOT0thLKloNBlFUGnZZfXGRHINpih/0g==}
     peerDependencies:
       react: 18.2.0
 
@@ -7068,11 +7058,6 @@ packages:
     peerDependencies:
       react: 18.2.0
 
-  '@react-types/link@3.5.9':
-    resolution: {integrity: sha512-JcKDiDMqrq/5Vpn+BdWQEuXit4KN4HR/EgIi3yKnNbYkLzxBoeQZpQgvTaC7NEQeZnSqkyXQo3/vMUeX/ZNIKw==}
-    peerDependencies:
-      react: 18.2.0
-
   '@react-types/listbox@3.5.4':
     resolution: {integrity: sha512-5otTes0zOwRZwNtqysPD/aW4qFJSxd5znjwoWTLnzDXXOBHXPyR83IJf8ITgvIE5C0y+EFadsWR/BBO3k9Pj7g==}
     peerDependencies:
@@ -7080,11 +7065,6 @@ packages:
 
   '@react-types/menu@3.9.14':
     resolution: {integrity: sha512-RJW/S8IPwbRuohJ/A9HJ7W8QaAY816tm7Nv6+H/TLXG76zu2AS5vEgq+0TcCAWvJJwUdLDpJWJMlo0iIoIBtcg==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-types/overlays@3.8.11':
-    resolution: {integrity: sha512-aw7T0rwVI3EuyG5AOaEIk8j7dZJQ9m34XAztXJVZ/W2+4pDDkLDbJ/EAPnuo2xGYRGhowuNDn4tDju01eHYi+w==}
     peerDependencies:
       react: 18.2.0
 
@@ -7105,11 +7085,6 @@ packages:
 
   '@react-types/select@3.9.9':
     resolution: {integrity: sha512-/hCd0o+ztn29FKCmVec+v7t4JpOzz56o+KrG7NDq2pcRWqUR9kNwCjrPhSbJIIEDm4ubtrfPu41ysIuDvRd2Bg==}
-    peerDependencies:
-      react: 18.2.0
-
-  '@react-types/shared@3.26.0':
-    resolution: {integrity: sha512-6FuPqvhmjjlpEDLTiYx29IJCbCNWPlsyO+ZUmCUXzhUv2ttShOXfw8CmeHWHftT/b2KweAWuzqSlfeXPR76jpw==}
     peerDependencies:
       react: 18.2.0
 
@@ -19482,12 +19457,6 @@ snapshots:
       '@react-types/shared': 3.27.0(react@18.2.0)
       react: 18.2.0
 
-  '@react-types/calendar@3.5.0(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.7.0
-      '@react-types/shared': 3.26.0(react@18.2.0)
-      react: 18.2.0
-
   '@react-types/calendar@3.6.0(react@18.2.0)':
     dependencies:
       '@internationalized/date': 3.7.0
@@ -19512,14 +19481,6 @@ snapshots:
       '@react-types/shared': 3.27.0(react@18.2.0)
       react: 18.2.0
 
-  '@react-types/datepicker@3.9.0(react@18.2.0)':
-    dependencies:
-      '@internationalized/date': 3.7.0
-      '@react-types/calendar': 3.5.0(react@18.2.0)
-      '@react-types/overlays': 3.8.11(react@18.2.0)
-      '@react-types/shared': 3.26.0(react@18.2.0)
-      react: 18.2.0
-
   '@react-types/dialog@3.5.15(react@18.2.0)':
     dependencies:
       '@react-types/overlays': 3.8.12(react@18.2.0)
@@ -19541,11 +19502,6 @@ snapshots:
       '@react-types/shared': 3.27.0(react@18.2.0)
       react: 18.2.0
 
-  '@react-types/link@3.5.9(react@18.2.0)':
-    dependencies:
-      '@react-types/shared': 3.27.0(react@18.2.0)
-      react: 18.2.0
-
   '@react-types/listbox@3.5.4(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.27.0(react@18.2.0)
@@ -19554,11 +19510,6 @@ snapshots:
   '@react-types/menu@3.9.14(react@18.2.0)':
     dependencies:
       '@react-types/overlays': 3.8.12(react@18.2.0)
-      '@react-types/shared': 3.27.0(react@18.2.0)
-      react: 18.2.0
-
-  '@react-types/overlays@3.8.11(react@18.2.0)':
-    dependencies:
       '@react-types/shared': 3.27.0(react@18.2.0)
       react: 18.2.0
 
@@ -19580,10 +19531,6 @@ snapshots:
   '@react-types/select@3.9.9(react@18.2.0)':
     dependencies:
       '@react-types/shared': 3.27.0(react@18.2.0)
-      react: 18.2.0
-
-  '@react-types/shared@3.26.0(react@18.2.0)':
-    dependencies:
       react: 18.2.0
 
   '@react-types/shared@3.27.0(react@18.2.0)':
