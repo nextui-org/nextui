@@ -20,7 +20,7 @@ import {
 } from "react-aria-components/Table";
 import {cx} from "tailwind-variants";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronUp} from "../icons";
 
@@ -110,7 +110,7 @@ function TableContent({
 
   return (
     <TablePrimitive
-      className={composeTwRenderProps(className, slots?.content())}
+      className={useResolvedClassName(className, slots?.content())}
       data-slot="table-content"
       keyboardNavigationBehavior={keyboardNavigationBehavior}
       {...props}
@@ -132,7 +132,7 @@ function TableHeader<T extends object>({className, ...props}: TableHeaderProps<T
 
   return (
     <TableHeaderPrimitive
-      className={composeTwRenderProps(className, slots?.header())}
+      className={useResolvedClassName(className, slots?.header())}
       data-slot="table-header"
       {...props}
     />
@@ -152,7 +152,7 @@ const TableColumn = ({className, ref, ...props}: TableColumnProps) => {
   return (
     <ColumnPrimitive
       ref={ref}
-      className={composeTwRenderProps(className, slots?.column())}
+      className={useResolvedClassName(className, slots?.column())}
       data-slot="table-column"
       {...props}
     />
@@ -173,7 +173,7 @@ function TableBody<T extends object>({className, ...props}: TableBodyProps<T>) {
 
   return (
     <TableBodyPrimitive
-      className={composeTwRenderProps(className, slots?.body())}
+      className={useResolvedClassName(className, slots?.body())}
       data-slot="table-body"
       {...props}
     />
@@ -192,7 +192,7 @@ function TableRow<T extends object>({className, ...props}: TableRowProps<T>) {
 
   return (
     <RowPrimitive
-      className={composeTwRenderProps(className, slots?.row())}
+      className={useResolvedClassName(className, slots?.row())}
       data-slot="table-row"
       {...props}
     />
@@ -212,7 +212,7 @@ const TableCell = ({className, ref, ...props}: TableCellProps) => {
   return (
     <CellPrimitive
       ref={ref}
-      className={composeTwRenderProps(className, slots?.cell())}
+      className={useResolvedClassName(className, slots?.cell())}
       data-slot="table-cell"
       {...props}
     />
@@ -279,7 +279,7 @@ const TableColumnResizer = ({className, ref, ...props}: TableColumnResizerProps)
   return (
     <ColumnResizerPrimitive
       ref={ref}
-      className={composeTwRenderProps(className, slots?.columnResizer())}
+      className={useResolvedClassName(className, slots?.columnResizer())}
       data-slot="table-column-resizer"
       {...props}
     />

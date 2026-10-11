@@ -19,7 +19,7 @@ import {
 } from "react-aria-components/Select";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
@@ -105,10 +105,10 @@ const SelectRoot = <T extends object = object, M extends "single" | "multiple" =
         <SelectPrimitive
           data-slot="select"
           {...props}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
           isDisabled={isDisabled}
         >
-          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+          {children}
         </SelectPrimitive>
       </SelectContext>
     </FieldSlotsGate>
@@ -149,7 +149,7 @@ const SelectTrigger = ({children, className, onKeyDown, ...props}: SelectTrigger
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="select-trigger"
       {...props}
       onKeyDown={handleKeyDown}
@@ -175,7 +175,7 @@ const SelectValue = ({children, className, ...props}: SelectValueProps) => {
 
   return (
     <SelectValuePrimitive
-      className={composeTwRenderProps(className, slots?.value())}
+      className={useResolvedClassName(className, slots?.value())}
       data-slot="select-value"
       {...props}
     >
@@ -337,7 +337,7 @@ const SelectPopover = ({
       <PopoverPrimitive
         {...props}
         ref={overlayRef}
-        className={composeTwRenderProps(className, slots?.popover())}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="select-popover"
         defaultOpen={defaultOpen}
         isExiting={isExiting || isExitingProp}

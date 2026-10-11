@@ -22,7 +22,7 @@ import {
 } from "react-aria-components/Select";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
@@ -83,10 +83,10 @@ const AutocompleteRoot = <T extends object = object, M extends "single" | "multi
         <SelectPrimitive
           data-slot="autocomplete"
           {...props}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
           isDisabled={isDisabled}
         >
-          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+          {children}
         </SelectPrimitive>
       </AutocompleteContext>
     </FieldSlotsGate>
@@ -126,6 +126,7 @@ const AutocompleteTrigger = ({
     () => mergeRefs(contextRefCallback, ref),
     [contextRefCallback, ref],
   );
+  const resolvedClassName = useResolvedClassName(className, slots?.trigger());
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // Don't toggle if clicking the clear button
@@ -143,13 +144,13 @@ const AutocompleteTrigger = ({
   return (
     <GroupPrimitive
       ref={mergedRef}
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={resolvedClassName}
       data-slot="autocomplete-trigger"
       isDisabled={isDisabled}
       onClick={handleClick}
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </GroupPrimitive>
   );
 };
@@ -166,7 +167,7 @@ const AutocompleteValue = ({children, className, ...props}: AutocompleteValuePro
 
   return (
     <SelectValuePrimitive
-      className={composeTwRenderProps(className, slots?.value())}
+      className={useResolvedClassName(className, slots?.value())}
       data-slot="autocomplete-value"
       {...props}
     >
@@ -271,7 +272,7 @@ const AutocompletePopover = ({
       <PopoverPrimitive
         {...props}
         ref={overlayRef}
-        className={composeTwRenderProps(className, slots?.popover())}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="autocomplete-popover"
         defaultOpen={defaultOpen}
         isExiting={isExiting || isExitingProp}
