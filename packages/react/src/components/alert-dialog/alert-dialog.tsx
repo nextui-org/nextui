@@ -12,6 +12,7 @@ import {
   DialogTrigger as AlertDialogTriggerPrimitive,
   Dialog as DialogPrimitive,
   Heading as HeadingPrimitive,
+  OverlayTriggerStateContext,
 } from "react-aria-components/Dialog";
 import {
   ModalOverlay as ModalOverlayPrimitive,
@@ -21,6 +22,7 @@ import {
 
 import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {CloseButton} from "../close-button";
 import {DangerIcon, InfoIcon, SuccessIcon, WarningIcon} from "../icons";
 
@@ -106,13 +108,22 @@ interface AlertDialogBackdropProps extends ComponentPropsWithRef<typeof ModalOve
 const AlertDialogBackdrop = ({
   children,
   className,
+  defaultOpen,
   isDismissable = false,
+  isExiting: isExitingProp,
   isKeyboardDismissDisabled = true,
+  isOpen,
   onClick,
+  ref,
   variant,
   ...props
 }: AlertDialogBackdropProps) => {
   const {slots: contextSlots} = use(AlertDialogContext);
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   const updatedSlots = useMemo(() => alertDialogVariants({variant}), [variant]);
 
@@ -123,10 +134,14 @@ const AlertDialogBackdrop = ({
 
   return (
     <ModalOverlayPrimitive
+      ref={overlayRef}
       className={composeTwRenderProps(className, updatedSlots?.backdrop())}
       data-slot="alert-dialog-backdrop"
+      defaultOpen={defaultOpen}
       isDismissable={isDismissable}
+      isExiting={isExiting || isExitingProp}
       isKeyboardDismissDisabled={isKeyboardDismissDisabled}
+      isOpen={isOpen}
       onClick={(e) => {
         e.stopPropagation();
         onClick?.(e);

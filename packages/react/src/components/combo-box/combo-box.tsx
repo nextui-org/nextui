@@ -17,6 +17,7 @@ import {
   ComboBoxValue as ComboBoxValuePrimitive,
   Popover as PopoverPrimitive,
 } from "react-aria-components/ComboBox";
+import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {Group as GroupPrimitive} from "react-aria-components/Group";
 
 import {dataAttr} from "../../utils/assertion";
@@ -24,6 +25,7 @@ import {createCollectionSlot} from "../../utils/collection-prop-injection";
 import {composeTwRenderProps} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -251,10 +253,19 @@ interface ComboBoxPopoverProps extends Omit<
 const ComboBoxPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom",
+  ref,
   ...props
 }: ComboBoxPopoverProps) => {
   const {slots} = use(ComboBoxContext);
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   return (
     <SurfaceContext
@@ -264,8 +275,12 @@ const ComboBoxPopover = ({
     >
       <PopoverPrimitive
         {...props}
+        ref={overlayRef}
         className={composeTwRenderProps(className, slots?.popover())}
         data-slot="combo-box-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
       >
         {children}

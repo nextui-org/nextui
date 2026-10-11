@@ -9,12 +9,14 @@ import {colorPickerVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
 import {ColorPicker as ColorPickerPrimitive} from "react-aria-components/ColorPicker";
+import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {
   DialogTrigger as DialogTriggerPrimitive,
   Popover as PopoverPrimitive,
 } from "react-aria-components/Popover";
 
 import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {SurfaceContext} from "../surface";
 
 /* -------------------------------------------------------------------------------------------------
@@ -90,10 +92,19 @@ interface ColorPickerPopoverProps extends Omit<
 const ColorPickerPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom left",
+  ref,
   ...props
 }: ColorPickerPopoverProps) => {
   const {slots} = use(ColorPickerContext);
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   return (
     <SurfaceContext
@@ -103,8 +114,12 @@ const ColorPickerPopover = ({
     >
       <PopoverPrimitive
         {...props}
+        ref={overlayRef}
         className={composeTwRenderProps(className, slots?.popover())}
         data-slot="color-picker-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
       >
         {children}

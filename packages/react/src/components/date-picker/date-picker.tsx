@@ -14,10 +14,12 @@ import {
   DatePicker as DatePickerPrimitive,
   Popover as PopoverPrimitive,
 } from "react-aria-components/DatePicker";
+import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 
 import {dataAttr} from "../../utils/assertion";
 import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {IconCalendar} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -176,10 +178,19 @@ interface DatePickerPopoverProps extends Omit<
 const DatePickerPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom",
+  ref,
   ...props
 }: DatePickerPopoverProps) => {
   const {slots} = use(DatePickerContext);
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   return (
     <SurfaceContext
@@ -189,8 +200,12 @@ const DatePickerPopover = ({
     >
       <PopoverPrimitive
         {...props}
+        ref={overlayRef}
         className={composeTwRenderProps(className, slots?.popover())}
         data-slot="date-picker-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
       >
         {children}
