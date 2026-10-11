@@ -5,17 +5,18 @@ import type {DropdownVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef} from "react";
 
 import {dropdownVariants} from "@heroui/styles";
-import React, {createContext, use, useLayoutEffect, useRef, useState} from "react";
+import React, {createContext, use} from "react";
 import {Button} from "react-aria-components/Button";
+import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {
   Menu as MenuPrimitive,
   MenuTrigger as MenuTriggerPrimitive,
   Popover as PopoverPrimitive,
   SubmenuTrigger as SubmenuTriggerPrimitive,
 } from "react-aria-components/Menu";
-import {flushSync} from "react-dom";
 
 import {composeTwRenderProps} from "../../utils/compose";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {MenuItemIndicator, MenuItemRoot, MenuItemSubmenuIndicator} from "../menu-item";
 import {MenuSectionRoot} from "../menu-section";
 import {SurfaceContext} from "../surface";
@@ -25,33 +26,16 @@ import {SurfaceContext} from "../surface";
  * -----------------------------------------------------------------------------------------------*/
 type DropdownContext = {
   slots?: ReturnType<typeof dropdownVariants>;
-  /** True while the root menu should stay mounted for its close animation. */
-  isExiting: boolean;
-  endExit: () => void;
 };
 
-const DropdownContext = createContext<DropdownContext>({
-  isExiting: false,
-  endExit: () => {},
-});
+const DropdownContext = createContext<DropdownContext>({});
 
-/** Submenu popovers have their own open state and must not inherit the root exit hold. */
-const DropdownSubmenuContext = createContext(false);
-
-/** Longest CSS animation duration on `element`, in milliseconds. */
-const animationDurationMs = (element: HTMLElement) => {
-  const durations = getComputedStyle(element)
-    .animationDuration.split(",")
-    .map((part) => {
-      const value = part.trim();
-      const amount = Number.parseFloat(value);
-
-      if (Number.isNaN(amount)) return 0;
-
-      return value.endsWith("ms") ? amount : amount * 1000;
-    });
-
-  return Math.max(0, ...durations);
+// The open path clips the popover until a keyboard check finishes. Closing
+// before that check returns would play the exit inside an empty clip.
+const revealPopoverForExit = (popover: HTMLElement) => {
+  popover.style.clip = "auto";
+  popover.style.clipPath = "none";
+  popover.style.maskImage = "none";
 };
 
 /* -------------------------------------------------------------------------------------------------
@@ -62,29 +46,13 @@ interface DropdownRootProps
   className?: string;
 }
 
-const DropdownRoot = ({children, onOpenChange, ...props}: DropdownRootProps) => {
-  const [isExiting, setIsExiting] = useState(false);
+const DropdownRoot = ({children, ...props}: DropdownRootProps) => {
   const slots = React.useMemo(() => dropdownVariants(), []);
-  const endExit = React.useCallback(() => setIsExiting(false), []);
-  const contextValue = React.useMemo(
-    () => ({slots, isExiting, endExit}),
-    [slots, isExiting, endExit],
-  );
+  const contextValue = React.useMemo(() => ({slots}), [slots]);
 
   return (
     <DropdownContext value={contextValue}>
-      <MenuTriggerPrimitive
-        {...props}
-        onOpenChange={(isOpen) => {
-          // WebKit reports the exit animation as pending in the same layout effect where
-          // React Aria looks for a running one, then unmounts. Hold `isExiting` so the
-          // close animation can paint. Batched with the trigger's own close update.
-          setIsExiting(!isOpen);
-          onOpenChange?.(isOpen);
-        }}
-      >
-        {children}
-      </MenuTriggerPrimitive>
+      <MenuTriggerPrimitive {...props}>{children}</MenuTriggerPrimitive>
     </DropdownContext>
   );
 };
@@ -123,115 +91,21 @@ interface DropdownPopoverProps
 const DropdownPopover = ({
   children,
   className,
+  defaultOpen,
   isExiting: isExitingProp,
+  isOpen,
   placement,
   ref,
   ...props
 }: DropdownPopoverProps) => {
-  const {endExit, isExiting, slots} = use(DropdownContext);
-  const isSubmenu = use(DropdownSubmenuContext);
-  const holdExit = !isSubmenu && isExiting;
-  const popoverRef = useRef<HTMLElement | null>(null);
-
-  useLayoutEffect(() => {
-    const popover = popoverRef.current;
-
-    if (!holdExit || !popover) return;
-
-    // The open path clips the popover until a keyboard check finishes. Closing
-    // before that check returns would play the exit inside an empty clip.
-    popover.style.clip = "auto";
-    popover.style.clipPath = "none";
-    popover.style.maskImage = "none";
-
-    let settled = false;
-    // Inside the layout effect, setState is already flushed before paint.
-    const finish = () => {
-      if (settled) return;
-      settled = true;
-      endExit();
-    };
-    // After the animation ends the fill is `none`, so computed opacity is already 1.
-    // Pin it and unmount before that frame is painted. A normal setState paints the
-    // fully visible menu once, which is the mobile flash.
-    const finishBeforePaint = () => {
-      if (settled) return;
-      settled = true;
-      popover.style.opacity = "0";
-      flushSync(endExit);
-    };
-    const exitAnimations = () =>
-      popover.getAnimations().filter((animation): animation is CSSAnimation => {
-        return (
-          animation instanceof CSSAnimation &&
-          (animation.playState === "running" || String(animation.playState) === "pending")
-        );
-      });
-    const waitForAnimations = (animations: CSSAnimation[]) => {
-      if (animations.length === 0) {
-        finish();
-
-        return;
-      }
-
-      void Promise.all(animations.map((animation) => animation.finished)).then(
-        finishBeforePaint,
-        finishBeforePaint,
-      );
-    };
-
-    const current = exitAnimations();
-
-    if (current.length > 0) {
-      waitForAnimations(current);
-
-      return () => {
-        settled = true;
-      };
-    }
-
-    // No stylesheet animation (jsdom). Release in this layout pass so the menu does not stick.
-    const hasAnimation = getComputedStyle(popover)
-      .animationName.split(",")
-      .some((name) => {
-        const value = name.trim().replaceAll('"', "");
-
-        return value !== "" && value !== "none";
-      });
-
-    if (!hasAnimation) {
-      finish();
-
-      return;
-    }
-
-    // WebKit has already applied the animation name, but getAnimations() still
-    // reports nothing until the next frame. Hold until it is running, or until
-    // its duration elapses if it never starts.
-    const onAnimationDone = (event: AnimationEvent) => {
-      if (event.target === popover) finishBeforePaint();
-    };
-
-    popover.addEventListener("animationend", onAnimationDone);
-    popover.addEventListener("animationcancel", onAnimationDone);
-    const timeout = window.setTimeout(finishBeforePaint, animationDurationMs(popover) + 50);
-    const frame = window.requestAnimationFrame(() => {
-      const next = exitAnimations();
-
-      if (next.length === 0) return;
-
-      window.clearTimeout(timeout);
-      waitForAnimations(next);
-    });
-
-    return () => {
-      settled = true;
-      popover.removeEventListener("animationend", onAnimationDone);
-      popover.removeEventListener("animationcancel", onAnimationDone);
-      window.clearTimeout(timeout);
-      window.cancelAnimationFrame(frame);
-    };
-  }, [holdExit, endExit]);
+  const {slots} = use(DropdownContext);
+  // Root menu and each submenu provide their own trigger state. The nearest one
+  // is the popover that is closing, so a submenu holds its own exit.
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {prepare: revealPopoverForExit, ref},
+  );
 
   // React Aria reveals the popover only after `runAfterKeyboard`. On a touch
   // device that waits up to ~800ms when focus looks like a text field, which
@@ -250,14 +124,12 @@ const DropdownPopover = ({
     >
       <PopoverPrimitive
         {...props}
-        ref={(node) => {
-          popoverRef.current = node;
-          if (typeof ref === "function") ref(node);
-          else if (ref) ref.current = node;
-        }}
+        ref={overlayRef}
         className={composeTwRenderProps(className, slots?.popover())}
         data-slot="dropdown-popover"
-        isExiting={holdExit || isExitingProp}
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
         shouldSkipAnimation={skipEnterAnimation || props.shouldSkipAnimation}
       >
@@ -325,11 +197,9 @@ interface DropdownSubmenuTriggerProps extends ComponentPropsWithRef<
 
 const DropdownSubmenuTrigger = ({children, ...props}: DropdownSubmenuTriggerProps) => {
   return (
-    <DropdownSubmenuContext value>
-      <SubmenuTriggerPrimitive data-slot="dropdown-submenu-trigger" {...props}>
-        {children}
-      </SubmenuTriggerPrimitive>
-    </DropdownSubmenuContext>
+    <SubmenuTriggerPrimitive data-slot="dropdown-submenu-trigger" {...props}>
+      {children}
+    </SubmenuTriggerPrimitive>
   );
 };
 
