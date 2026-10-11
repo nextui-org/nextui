@@ -2,6 +2,8 @@ import {render} from "@heroui/testing/browser";
 import {isDocumentScrollLocked} from "@heroui/testing/helpers";
 import {page, userEvent} from "vitest/browser";
 
+import {animatedProperties, stretchAnimation} from "../../helpers/overlay-motion";
+
 import {ModalFixture} from "./fixtures";
 
 import "@/styles.css";
@@ -49,6 +51,25 @@ describe("Modal (browser)", () => {
     await expect.element(trigger).toHaveFocus();
   });
 
+  it("opens with an opacity and transform only animation", async () => {
+    stretchAnimation(
+      '.modal__container[data-entering="true"], .modal__backdrop[data-entering="true"]',
+    );
+    await renderModal();
+    await page.getByRole("button", {name: "Open modal"}).click();
+    await expect.element(page.getByRole("dialog")).toBeInTheDocument();
+
+    const container = document.querySelector<HTMLElement>(".modal__container")!;
+    const backdrop = document.querySelector<HTMLElement>(".modal__backdrop")!;
+    const containerMotion = animatedProperties(container);
+    const backdropMotion = animatedProperties(backdrop);
+
+    expect(containerMotion.animation?.animationName).toMatch(/^heroui-overlay-enter-105/);
+    expect(containerMotion.properties).toEqual(["opacity", "transform"]);
+    expect(backdropMotion.animation?.animationName).toBe("heroui-overlay-fade-in");
+    expect(backdropMotion.properties).toEqual(["opacity"]);
+  });
+
   /**
    * React Aria only accepts `isExiting` on the backdrop, so the hold there has to wait
    * for the container's own exit animation, not just the shorter backdrop fade.
@@ -84,5 +105,6 @@ describe("Modal (browser)", () => {
 
     expect(animation?.animationName).toBe("heroui-overlay-exit");
     expect(getComputedStyle(container!).animationFillMode).toBe("none");
+    expect(animatedProperties(container!).properties).toEqual(["opacity", "transform"]);
   });
 });
