@@ -15,7 +15,7 @@ import {
 } from "react-aria-components/Tabs";
 
 import {createCollectionSlot} from "../../utils";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronDown, IconChevronLeft, IconChevronRight, IconChevronUp} from "../icons";
 import {ScrollShadow} from "../scroll-shadow";
@@ -63,7 +63,7 @@ const TabsRoot = ({
     <TabsContext value={contextValue}>
       <TabsPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
         data-slot="tabs"
         orientation={orientation}
       >
@@ -117,6 +117,7 @@ const TabList = ({children, className, ...props}: TabListProps) => {
   const isVertical = orientation === "vertical";
 
   const [listContainerProps, restProps] = listContainerSlot.useSlot(props);
+  const resolvedClassName = useResolvedClassName(className, slots?.tabList());
 
   const scrollBy = useCallback(
     (direction: 1 | -1) => {
@@ -155,11 +156,7 @@ const TabList = ({children, className, ...props}: TabListProps) => {
   // Without ListContainer, stay a thin RAC TabList
   if (!listContainerProps) {
     return (
-      <TabListPrimitive
-        {...restProps}
-        className={composeTwRenderProps(className, slots?.tabList())}
-        data-slot="tabs-list"
-      >
+      <TabListPrimitive {...restProps} className={resolvedClassName} data-slot="tabs-list">
         {children}
       </TabListPrimitive>
     );
@@ -174,7 +171,7 @@ const TabList = ({children, className, ...props}: TabListProps) => {
   return (
     <TabListPrimitive
       {...restProps}
-      className={composeTwRenderProps(className, slots?.tabList())}
+      className={resolvedClassName}
       data-slot="tabs-list"
       render={(renderProps) => {
         const {
@@ -248,7 +245,7 @@ const Tab = ({children, className, ...props}: TabProps) => {
   return (
     <TabPrimitive
       {...props}
-      className={composeTwRenderProps(className, slots?.tab())}
+      className={useResolvedClassName(className, slots?.tab())}
       data-slot="tabs-tab"
     >
       {children}
@@ -293,7 +290,7 @@ const TabPanel = ({children, className, ...props}: TabPanelProps) => {
   return (
     <TabPanelPrimitive
       {...props}
-      className={composeTwRenderProps(className, slots?.tabPanel())}
+      className={useResolvedClassName(className, slots?.tabPanel())}
       data-slot="tabs-panel"
     >
       {children}

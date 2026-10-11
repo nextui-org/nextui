@@ -17,7 +17,7 @@ import {
 import {DisclosureGroup} from "react-aria-components/DisclosureGroup";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
@@ -48,11 +48,11 @@ const AccordionRoot = ({
 
   const content = (
     <DisclosureGroup
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
       data-slot="accordion"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </DisclosureGroup>
   );
   const contextValue = React.useMemo(() => ({slots, hideSeparator}), [slots, hideSeparator]);
@@ -81,7 +81,7 @@ const AccordionItem = ({className, ...props}: AccordionItemProps) => {
 
   return (
     <Disclosure
-      className={composeTwRenderProps(className, slots?.item())}
+      className={useResolvedClassName(className, slots?.item())}
       data-hide-separator={hideSeparator ? "true" : undefined}
       data-slot="accordion-item"
       {...props}
@@ -171,7 +171,7 @@ const AccordionTrigger = ({className, ...props}: AccordionTriggerProps) => {
 
   return (
     <Button
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="accordion-trigger"
       slot="trigger"
       {...props}
@@ -222,7 +222,7 @@ const AccordionPanel = ({children, className, ...props}: AccordionPanelProps) =>
 
   return (
     <DisclosurePanel
-      className={composeTwRenderProps(className, slots?.panel())}
+      className={useResolvedClassName(className, slots?.panel())}
       data-expanded={dataAttr(isExpanded)}
       data-slot="accordion-panel"
       {...props}
