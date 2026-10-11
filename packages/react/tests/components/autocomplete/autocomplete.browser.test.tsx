@@ -1,5 +1,13 @@
 import {render} from "@heroui/testing/browser";
-import {page} from "vitest/browser";
+import {useFilter} from "react-aria-components/Autocomplete";
+import {page, userEvent} from "vitest/browser";
+
+import {Autocomplete} from "@/components/autocomplete";
+import {Label} from "@/components/label";
+import {ListBox} from "@/components/list-box";
+import {SearchField} from "@/components/search-field";
+
+import {animatedProperties, stretchAnimation} from "../../helpers/overlay-motion";
 
 import {AutocompleteMultipleFixture} from "./fixtures";
 
@@ -20,7 +28,80 @@ const indicatorOverlapOf = (name: string) => {
   return contentEnd - indicator.getBoundingClientRect().left;
 };
 
+const animals = [
+  {id: "cat", name: "Cat"},
+  {id: "dog", name: "Dog"},
+];
+
+const AutocompleteOpenFixture = () => {
+  const {contains} = useFilter({sensitivity: "base"});
+
+  return (
+    <Autocomplete data-testid="autocomplete" placeholder="Select an animal" selectionMode="single">
+      <Label>Favorite Animal</Label>
+      <Autocomplete.Trigger>
+        <Autocomplete.Value />
+        <Autocomplete.Indicator />
+      </Autocomplete.Trigger>
+      <Autocomplete.Popover>
+        <Autocomplete.Filter filter={contains}>
+          <SearchField autoFocus aria-label="Search animals" name="search" variant="secondary">
+            <SearchField.Group>
+              <SearchField.SearchIcon />
+              <SearchField.Input placeholder="Search animals..." />
+            </SearchField.Group>
+          </SearchField>
+          <ListBox>
+            {animals.map((item) => (
+              <ListBox.Item key={item.id} id={item.id} textValue={item.name}>
+                {item.name}
+              </ListBox.Item>
+            ))}
+          </ListBox>
+        </Autocomplete.Filter>
+      </Autocomplete.Popover>
+    </Autocomplete>
+  );
+};
+
 describe("Autocomplete (browser)", () => {
+  describe("overlay motion", () => {
+    it("opens with an opacity and transform only animation", async () => {
+      stretchAnimation('.autocomplete__popover[data-entering="true"]');
+      await render(<AutocompleteOpenFixture />);
+      await page.getByTestId("autocomplete").getByText("Select an animal").click();
+      await expect.element(page.getByRole("listbox")).toBeInTheDocument();
+
+      const popover = document.querySelector<HTMLElement>(".autocomplete__popover")!;
+      const {animation, properties} = animatedProperties(popover);
+
+      expect(animation?.animationName).toMatch(/^heroui-overlay-enter-95/);
+      expect(properties).toEqual(["opacity", "transform"]);
+    });
+
+    it("closes with an opacity and transform animation", async () => {
+      stretchAnimation('.autocomplete__popover[data-exiting="true"]');
+      await render(<AutocompleteOpenFixture />);
+      await page.getByTestId("autocomplete").getByText("Select an animal").click();
+      await expect.element(page.getByRole("listbox")).toBeInTheDocument();
+
+      const openPopover = document.querySelector<HTMLElement>(".autocomplete__popover")!;
+
+      await expect.poll(() => openPopover.getAnimations().length).toBe(0);
+      await userEvent.keyboard("{Escape}");
+
+      const popover = document.querySelector<HTMLElement>(".autocomplete__popover")!;
+
+      expect(popover).toHaveAttribute("data-exiting", "true");
+
+      const {animation, properties} = animatedProperties(popover);
+
+      expect(animation?.animationName).toBe("heroui-overlay-exit");
+      expect(getComputedStyle(popover).animationFillMode).toBe("none");
+      expect(properties).toEqual(["opacity", "transform"]);
+    });
+  });
+
   describe("multiple selection with tags", () => {
     it("removes the tag on the first press landing off the glyph", async () => {
       const screen = await render(<AutocompleteMultipleFixture />);

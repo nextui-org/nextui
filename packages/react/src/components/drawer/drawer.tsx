@@ -176,7 +176,10 @@ function useDrawerDrag(placement: DrawerPlacement | undefined, isDismissable: bo
 
       if (shouldDismiss && overlayState) {
         // Keep the inline transform — it compounds with the content exit animation
-        // so the drawer continues sliding from the dragged position
+        // so the drawer continues sliding from the dragged position.
+        // Drop the inline `transition: none` set while dragging, otherwise the exit
+        // `translate` transition never runs and the drawer disappears without sliding out.
+        el.style.transition = "";
         overlayState.close();
       } else {
         // Snap back with a spring-like ease

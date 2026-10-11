@@ -69,6 +69,89 @@ describe("Dropdown (browser)", () => {
   });
 
   /**
+   * Mobile open jank: tw-animate-css keyframes always animate `filter`, a GPU pass that outlasts
+   * the animation on mid-range phones. Overlay motion must stay on opacity and transform.
+   */
+  it("opens with an opacity and transform only animation", async () => {
+    const style = document.createElement("style");
+
+    // Stretch the enter so the running animation can be inspected; only the duration changes.
+    style.textContent =
+      '.dropdown__popover[data-entering="true"] { animation-duration: 10s !important; }';
+    document.head.append(style);
+    onTestFinished(() => style.remove());
+
+    await renderDropdown();
+    await page.getByRole("button", {name: "Menu"}).click();
+    await expect.element(page.getByRole("menu")).toBeInTheDocument();
+
+    const popover = getDropdownPopover();
+    const animation = popover
+      .getAnimations()
+      .find((item): item is CSSAnimation => item instanceof CSSAnimation);
+
+    expect(animation?.animationName).toMatch(/^heroui-overlay-enter-90/);
+
+    const animatedProperties = new Set(
+      (animation?.effect as KeyframeEffect)
+        .getKeyframes()
+        .flatMap((keyframe) =>
+          Object.keys(keyframe).filter(
+            (property) => !["composite", "computedOffset", "easing", "offset"].includes(property),
+          ),
+        ),
+    );
+
+    expect([...animatedProperties].sort()).toEqual(["opacity", "transform"]);
+  });
+
+  /**
+   * WebKit reports this animation as pending in the same frame React Aria checks
+   * `getAnimations()`, then unmounts. The menu has to stay through the exit.
+   */
+  it("closes with an opacity and transform animation", async () => {
+    const style = document.createElement("style");
+
+    style.textContent =
+      '.dropdown__popover[data-exiting="true"] { animation-duration: 10s !important; }';
+    document.head.append(style);
+    onTestFinished(() => style.remove());
+
+    await renderDropdown();
+    await page.getByRole("button", {name: "Menu"}).click();
+    await expect.element(page.getByRole("menu")).toBeInTheDocument();
+
+    const openPopover = getDropdownPopover();
+
+    await expect.poll(() => openPopover.getAnimations().length).toBe(0);
+    await userEvent.keyboard("{Escape}");
+
+    const popover = getDropdownPopover();
+
+    expect(popover).toHaveAttribute("data-exiting", "true");
+
+    const animation = popover
+      .getAnimations()
+      .find((item): item is CSSAnimation => item instanceof CSSAnimation);
+
+    expect(animation?.animationName).toBe("heroui-overlay-exit");
+    // `forwards` / `both` make WebKit skip the close animation.
+    expect(getComputedStyle(popover).animationFillMode).toBe("none");
+
+    const animatedProperties = new Set(
+      (animation?.effect as KeyframeEffect)
+        .getKeyframes()
+        .flatMap((keyframe) =>
+          Object.keys(keyframe).filter(
+            (property) => !["composite", "computedOffset", "easing", "offset"].includes(property),
+          ),
+        ),
+    );
+
+    expect([...animatedProperties].sort()).toEqual(["opacity", "transform"]);
+  });
+
+  /**
    * Stacking half of the leftover overlay reported in #6344 and #6361. These assertions need the
    * compiled design-system CSS, which is why they live here rather than in the jsdom suite.
    * `.modal__backdrop`, `.alert-dialog__backdrop` and `.drawer__backdrop` share one z-index token,

@@ -61,36 +61,52 @@
 
   /* Entering animations */
   &[data-entering="true"] {
-    @apply animate-in duration-150 ease-smooth fade-in-0 zoom-in-90;
+    animation: heroui-overlay-enter-90 150ms var(--ease-smooth);
 
     /* Placement-specific translations */
     &[data-placement="top"] {
-      @apply slide-in-from-bottom-1;
+      animation-name: heroui-overlay-enter-90-y;
     }
 
     &[data-placement="bottom"] {
-      @apply slide-in-from-top-1;
+      animation-name: heroui-overlay-enter-90-ny;
     }
 
     &[data-placement="left"] {
-      @apply slide-in-from-right-1;
+      animation-name: heroui-overlay-enter-90-x;
     }
 
     &[data-placement="right"] {
-      @apply slide-in-from-left-1;
+      animation-name: heroui-overlay-enter-90-nx;
     }
   }
 
-  /* Exiting animations */
-  &[data-exiting="true"] {
-    @apply animate-out duration-100 ease-smooth zoom-out-95 fade-out;
+  /* Exiting animations.
+     The placement `animation-name` above is more specific than this shorthand, so repeat
+     the name for an exiting popover that still has `data-placement`.
+     Leave the fill mode at `none`. `forwards` / `both` make WebKit skip this animation
+     and jump to the last keyframe, so the menu disappears instead of closing. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement] {
+    animation: heroui-overlay-exit 100ms var(--ease-smooth);
     /* Stays non-interactive while closing, even if the exit animation is interrupted. */
     @apply pointer-events-none;
   }
 
-  &[data-exiting="true"],
-  &[data-entering="true"] {
-    @apply transition-[opacity,transform] will-change-[opacity,transform];
+  /*
+   * Touch devices hide this popover (inline opacity, clip, clip-path, mask) until
+   * React Aria decides a software keyboard is not opening. That wait is ~800ms, so
+   * a second tap closes the menu before it is ever shown. Once it has a placement,
+   * show it. The enter animation is skipped on these devices so the late callback
+   * cannot hide it again. The close animation still owns opacity while exiting.
+   */
+  @media (hover: none) and (pointer: coarse) {
+    &[data-placement]:not([data-exiting="true"]) {
+      opacity: 1 !important;
+      clip: auto !important;
+      clip-path: none !important;
+      mask-image: none !important;
+    }
   }
 
   /* Arrow styling */

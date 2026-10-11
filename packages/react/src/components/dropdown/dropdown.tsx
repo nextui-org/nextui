@@ -7,6 +7,7 @@ import type {ComponentPropsWithRef} from "react";
 import {dropdownVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {Button} from "react-aria-components/Button";
+import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {
   Menu as MenuPrimitive,
   MenuTrigger as MenuTriggerPrimitive,
@@ -15,6 +16,7 @@ import {
 } from "react-aria-components/Menu";
 
 import {composeTwRenderProps} from "../../utils/compose";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {MenuItemIndicator, MenuItemRoot, MenuItemSubmenuIndicator} from "../menu-item";
 import {MenuSectionRoot} from "../menu-section";
 import {SurfaceContext} from "../surface";
@@ -27,6 +29,14 @@ type DropdownContext = {
 };
 
 const DropdownContext = createContext<DropdownContext>({});
+
+// The open path clips the popover until a keyboard check finishes. Closing
+// before that check returns would play the exit inside an empty clip.
+const revealPopoverForExit = (popover: HTMLElement) => {
+  popover.style.clip = "auto";
+  popover.style.clipPath = "none";
+  popover.style.maskImage = "none";
+};
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Root (MenuTrigger wrapper)
@@ -78,8 +88,33 @@ interface DropdownPopoverProps
   children: React.ReactNode;
 }
 
-const DropdownPopover = ({children, className, placement, ...props}: DropdownPopoverProps) => {
+const DropdownPopover = ({
+  children,
+  className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
+  placement,
+  ref,
+  ...props
+}: DropdownPopoverProps) => {
   const {slots} = use(DropdownContext);
+  // Root menu and each submenu provide their own trigger state. The nearest one
+  // is the popover that is closing, so a submenu holds its own exit.
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {prepare: revealPopoverForExit, ref},
+  );
+
+  // React Aria reveals the popover only after `runAfterKeyboard`. On a touch
+  // device that waits up to ~800ms when focus looks like a text field, which
+  // the docs page hits and the Storybook iframe does not. Skip the enter
+  // animation so that late reveal cannot play the menu in from opacity 0.
+  const skipEnterAnimation =
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
   return (
     <SurfaceContext
@@ -89,9 +124,14 @@ const DropdownPopover = ({children, className, placement, ...props}: DropdownPop
     >
       <PopoverPrimitive
         {...props}
+        ref={overlayRef}
         className={composeTwRenderProps(className, slots?.popover())}
         data-slot="dropdown-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
+        shouldSkipAnimation={skipEnterAnimation || props.shouldSkipAnimation}
       >
         {children}
       </PopoverPrimitive>

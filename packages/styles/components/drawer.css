@@ -86,6 +86,15 @@
  */
 .drawer__backdrop--blur {
   @apply bg-backdrop backdrop-blur-md;
+
+  /*
+   * A full-viewport backdrop-filter stalls mid-range mobile GPUs long enough
+   * that the open animation is skipped. Keep the dim scrim.
+   */
+  @media (hover: none) and (pointer: coarse) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 /**

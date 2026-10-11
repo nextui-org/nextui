@@ -10,6 +10,7 @@ import React, {createContext, use} from "react";
 import {
   Dialog as DialogPrimitive,
   Heading as HeadingPrimitive,
+  OverlayTriggerStateContext,
   DialogTrigger as PopoverTriggerPrimitive,
 } from "react-aria-components/Dialog";
 import {
@@ -20,6 +21,7 @@ import {
 
 import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {SurfaceContext} from "../surface";
 
 /* -------------------------------------------------------------------------------------------------
@@ -64,14 +66,34 @@ interface PopoverContentProps
   children: React.ReactNode;
 }
 
-const PopoverContent = ({children, className, ...props}: PopoverContentProps) => {
+const PopoverContent = ({
+  children,
+  className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
+  ref,
+  ...props
+}: PopoverContentProps) => {
   const {slots} = use(PopoverContext);
   const contextValue = React.useMemo(() => ({slots}), [slots]);
+  const overlayState = use(OverlayTriggerStateContext);
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   return (
     <PopoverContext value={contextValue}>
       <SurfaceContext value={DEFAULT_SURFACE_CONTEXT}>
-        <PopoverPrimitive {...props} className={composeTwRenderProps(className, slots?.base())}>
+        <PopoverPrimitive
+          {...props}
+          ref={overlayRef}
+          className={composeTwRenderProps(className, slots?.base())}
+          defaultOpen={defaultOpen}
+          isExiting={isExiting || isExitingProp}
+          isOpen={isOpen}
+        >
           {children}
         </PopoverPrimitive>
       </SurfaceContext>

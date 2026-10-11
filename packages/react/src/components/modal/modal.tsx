@@ -15,6 +15,7 @@ import {
   Dialog as DialogPrimitive,
   Heading as HeadingPrimitive,
   DialogTrigger as ModalTriggerPrimitive,
+  OverlayTriggerStateContext,
 } from "react-aria-components/Dialog";
 import {
   ModalOverlay as ModalOverlayPrimitive,
@@ -24,6 +25,7 @@ import {
 
 import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {CloseButton} from "../close-button";
 import {SurfaceContext} from "../surface";
 
@@ -118,12 +120,23 @@ interface ModalBackdropProps extends ComponentPropsWithRef<typeof ModalOverlayPr
 const ModalBackdrop = ({
   children,
   className,
+  defaultOpen,
   isDismissable = true,
+  isExiting: isExitingProp,
+  isOpen,
   onClick,
+  ref,
   variant,
   ...props
 }: ModalBackdropProps) => {
   const {slots: contextSlots} = use(ModalContext);
+  const overlayState = use(OverlayTriggerStateContext);
+  // React Aria only accepts `isExiting` on the overlay. The hold also waits for the
+  // container's exit animation inside it.
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   const updatedSlots = useMemo(() => modalVariants({variant}), [variant]);
 
@@ -134,9 +147,13 @@ const ModalBackdrop = ({
 
   return (
     <ModalOverlayPrimitive
+      ref={overlayRef}
       className={composeTwRenderProps(className, updatedSlots?.backdrop())}
       data-slot="modal-backdrop"
+      defaultOpen={defaultOpen}
       isDismissable={isDismissable}
+      isExiting={isExiting || isExitingProp}
+      isOpen={isOpen}
       onClick={(e) => {
         e.stopPropagation();
         onClick?.(e);

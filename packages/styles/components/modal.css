@@ -48,12 +48,12 @@
 
   /* Entering animation */
   &[data-entering="true"] {
-    @apply animate-in duration-150 ease-out fade-in-0;
+    animation: heroui-overlay-fade-in 150ms var(--ease-out);
   }
 
   /* Exiting animation */
   &[data-exiting="true"] {
-    @apply animate-out duration-100 ease-out fade-out-0;
+    animation: heroui-overlay-fade-out 100ms var(--ease-out);
   }
 
   /**
@@ -62,7 +62,6 @@
    */
   &[data-exiting="true"],
   &[data-entering="true"] {
-    @apply will-change-[opacity];
     @apply motion-reduce:animate-none;
   }
 }
@@ -86,6 +85,15 @@
  */
 .modal__backdrop--blur {
   @apply bg-backdrop backdrop-blur-md;
+
+  /*
+   * A full-viewport backdrop-filter stalls mid-range mobile GPUs long enough
+   * that the open animation is skipped. Keep the dim scrim.
+   */
+  @media (hover: none) and (pointer: coarse) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 /**
@@ -100,29 +108,33 @@
 
   /* Entering animation */
   &[data-entering="true"] {
-    @apply animate-in duration-250 ease-out-quad fade-in-0 zoom-in-105;
+    animation: heroui-overlay-enter-105 250ms var(--ease-out-quad);
 
     &[data-placement="auto"] {
-      @apply slide-in-from-bottom-1;
-      @apply sm:slide-in-from-bottom-0;
+      animation-name: heroui-overlay-enter-105-y;
+
+      @variant sm {
+        animation-name: heroui-overlay-enter-105;
+      }
     }
 
     &[data-placement="top"] {
-      @apply slide-in-from-top-1;
+      animation-name: heroui-overlay-enter-105-ny;
     }
 
     &[data-placement="center"] {
-      @apply slide-in-from-top-0;
+      animation-name: heroui-overlay-enter-105;
     }
 
     &[data-placement="bottom"] {
-      @apply slide-in-from-bottom-1;
+      animation-name: heroui-overlay-enter-105-y;
     }
   }
 
-  /* Exiting animation */
-  &[data-exiting="true"] {
-    @apply animate-out duration-100 ease-out-quad fade-out-0 zoom-out-95;
+  /* Exit must outrank the placement `animation-name` above. Fill stays `none` so WebKit plays it. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement] {
+    animation: heroui-overlay-exit 100ms var(--ease-out-quad);
   }
 
   /**
@@ -130,8 +142,9 @@
    * CRITICAL: motion-reduce must be AFTER animate for correct override specificity
    */
   &[data-exiting="true"],
-  &[data-entering="true"] {
-    @apply will-change-[opacity,transform];
+  &[data-exiting="true"][data-placement],
+  &[data-entering="true"],
+  &[data-entering="true"][data-placement] {
     @apply motion-reduce:animate-none;
   }
 }
@@ -160,13 +173,42 @@
 
   /* Entering animation */
   &[data-entering="true"] {
-    @apply slide-in-from-bottom-0 zoom-in-100;
-    @apply sm:slide-in-from-bottom-0;
+    animation-name: heroui-overlay-enter-100;
+
+    /* Same placement offsets as the base container, with no scale. */
+    &[data-placement="auto"] {
+      animation-name: heroui-overlay-enter-100-y;
+
+      @variant sm {
+        animation-name: heroui-overlay-enter-100;
+      }
+    }
+
+    &[data-placement="top"] {
+      animation-name: heroui-overlay-enter-100-ny;
+    }
+
+    &[data-placement="center"] {
+      animation-name: heroui-overlay-enter-100;
+    }
+
+    &[data-placement="bottom"] {
+      animation-name: heroui-overlay-enter-100-y;
+    }
   }
 
-  /* Exiting animation */
-  &[data-exiting="true"] {
-    @apply zoom-out-100;
+  /* Same specificity as the base exit, so the fade still replaces the scale. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement] {
+    animation-name: heroui-overlay-fade-out;
+  }
+
+  /* The name overrides above outrank the base reduced-motion rule, so repeat it. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement],
+  &[data-entering="true"],
+  &[data-entering="true"][data-placement] {
+    @apply motion-reduce:animate-none;
   }
 }
 
