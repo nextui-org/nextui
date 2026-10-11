@@ -4,10 +4,10 @@ import type {InputVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef} from "react";
 
 import {inputVariants} from "@heroui/styles";
-import React, {use} from "react";
+import React, {use, useMemo} from "react";
 import {Input as InputPrimitive} from "react-aria-components/Input";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 import {ComboBoxContext} from "../combo-box";
 import {TextFieldContext} from "../textfield";
 
@@ -22,14 +22,10 @@ const InputRoot = ({className, fullWidth, variant: variantProp, ...rest}: InputR
 
   // Use variant from context if not explicitly provided
   const variant = variantProp ?? textFieldContext.variant ?? comboBoxContext.variant;
+  const styles = useMemo(() => inputVariants({fullWidth, variant}), [fullWidth, variant]);
+  const resolvedClassName = useResolvedClassName(className, styles);
 
-  return (
-    <InputPrimitive
-      className={composeTwRenderProps(className, inputVariants({fullWidth, variant}))}
-      data-slot="input"
-      {...rest}
-    />
-  );
+  return <InputPrimitive className={resolvedClassName} data-slot="input" {...rest} />;
 };
 
 InputRoot.displayName = "HeroUI.Input";
