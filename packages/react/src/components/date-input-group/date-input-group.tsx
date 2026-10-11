@@ -18,7 +18,7 @@ import {
 } from "react-aria-components/DateField";
 import {Group as GroupPrimitive} from "react-aria-components/Group";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -52,11 +52,11 @@ const DateInputGroupRoot = ({
   return (
     <DateInputGroupContext value={contextValue}>
       <GroupPrimitive
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
         data-slot="date-input-group"
         {...props}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </GroupPrimitive>
     </DateInputGroupContext>
   );
@@ -111,7 +111,7 @@ const DateInputGroupInput = ({className, ...props}: DateInputGroupInputProps) =>
   // We use DateInputPrimitive as the default, but it will work with TimeField context
   return (
     <DateInputPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="date-input-group-input"
       {...(props as DateInputPrimitiveProps)}
     />
