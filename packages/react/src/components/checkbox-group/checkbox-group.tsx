@@ -8,7 +8,7 @@ import {checkboxGroupVariants} from "@heroui/styles";
 import React, {createContext} from "react";
 import {CheckboxGroup as CheckboxGroupPrimitive} from "react-aria-components/CheckboxGroup";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * CheckboxGroup Context
@@ -28,11 +28,11 @@ const CheckboxGroup = ({children, className, variant, ...props}: CheckboxGroupPr
   return (
     <CheckboxGroupContext.Provider value={{variant}}>
       <CheckboxGroupPrimitive
-        className={composeTwRenderProps(className, styles)}
+        className={useResolvedClassName(className, styles)}
         data-slot="checkbox-group"
         {...props}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </CheckboxGroupPrimitive>
     </CheckboxGroupContext.Provider>
   );

@@ -12,7 +12,7 @@ import {
   RadioField as RadioFieldPrimitive,
 } from "react-aria-components/RadioGroup";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 const LABEL_SPAN_CONTEXT = {elementType: "span" as const};
@@ -39,7 +39,7 @@ const RadioRoot = ({children, className, ...props}: RadioRootProps) => {
     <RadioFieldPrimitive
       data-slot="radio"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(state) => (
         <RadioContext value={{slots, state}}>
@@ -65,7 +65,7 @@ const RadioContent = ({children, className, ...props}: RadioContentProps) => {
     <RadioButtonPrimitive
       data-slot="radio-content"
       {...props}
-      className={composeTwRenderProps(className, slots?.content())}
+      className={useResolvedClassName(className, slots?.content())}
     >
       {(state) => (
         <LabelContext value={LABEL_SPAN_CONTEXT}>
