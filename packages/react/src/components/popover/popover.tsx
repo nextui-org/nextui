@@ -19,7 +19,7 @@ import {
   Pressable as PressablePrimitive,
 } from "react-aria-components/Popover";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {SurfaceContext} from "../surface";
@@ -89,7 +89,7 @@ const PopoverContent = ({
         <PopoverPrimitive
           {...props}
           ref={overlayRef}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
           defaultOpen={defaultOpen}
           isExiting={isExiting || isExitingProp}
           isOpen={isOpen}

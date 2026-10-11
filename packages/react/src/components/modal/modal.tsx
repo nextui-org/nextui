@@ -23,7 +23,7 @@ import {
   Pressable as PressablePrimitive,
 } from "react-aria-components/Modal";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {CloseButton} from "../close-button";
@@ -148,7 +148,7 @@ const ModalBackdrop = ({
   return (
     <ModalOverlayPrimitive
       ref={overlayRef}
-      className={composeTwRenderProps(className, updatedSlots?.backdrop())}
+      className={useResolvedClassName(className, updatedSlots?.backdrop())}
       data-slot="modal-backdrop"
       defaultOpen={defaultOpen}
       isDismissable={isDismissable}
@@ -202,7 +202,7 @@ const ModalContainer = ({
 
   return (
     <ModalPrimitive
-      className={composeTwRenderProps(className, updatedSlots?.container())}
+      className={useResolvedClassName(className, updatedSlots?.container())}
       data-placement={placement}
       data-slot="modal-container"
       {...props}
@@ -397,7 +397,7 @@ const ModalCloseTrigger = ({className, ...rest}: ModalCloseTriggerProps) => {
 
   return (
     <CloseButton
-      className={composeTwRenderProps(className, slots?.closeTrigger())}
+      className={useResolvedClassName(className, slots?.closeTrigger())}
       data-slot="modal-close-trigger"
       slot="close"
       {...rest}

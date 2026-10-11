@@ -16,7 +16,7 @@ import {
 } from "react-aria-components/Tooltip";
 
 import {useCSSVariable} from "../../hooks/use-css-variable";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {parseCSSTime} from "../../utils/css";
 import {dom} from "../../utils/dom";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
@@ -134,7 +134,7 @@ const TooltipContent = ({
     <TooltipPrimitive
       {...props}
       ref={overlayRef}
-      className={composeTwRenderProps(className, slots?.base())}
+      className={useResolvedClassName(className, slots?.base())}
       defaultOpen={defaultOpen}
       isExiting={isExiting || isExitingProp}
       isOpen={isOpen}

@@ -20,7 +20,7 @@ import {
   Pressable as PressablePrimitive,
 } from "react-aria-components/Modal";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {CloseButton} from "../close-button";
@@ -135,7 +135,7 @@ const AlertDialogBackdrop = ({
   return (
     <ModalOverlayPrimitive
       ref={overlayRef}
-      className={composeTwRenderProps(className, updatedSlots?.backdrop())}
+      className={useResolvedClassName(className, updatedSlots?.backdrop())}
       data-slot="alert-dialog-backdrop"
       defaultOpen={defaultOpen}
       isDismissable={isDismissable}
@@ -192,7 +192,7 @@ const AlertDialogContainer = ({
 
   return (
     <ModalPrimitive
-      className={composeTwRenderProps(className, updatedSlots?.container())}
+      className={useResolvedClassName(className, updatedSlots?.container())}
       data-placement={placement}
       data-slot="alert-dialog-container"
       {...props}
@@ -376,7 +376,7 @@ const AlertDialogCloseTrigger = ({className, ...rest}: AlertDialogCloseTriggerPr
 
   return (
     <CloseButton
-      className={composeTwRenderProps(className, slots?.closeTrigger())}
+      className={useResolvedClassName(className, slots?.closeTrigger())}
       data-slot="alert-dialog-close-trigger"
       slot="close"
       {...rest}
