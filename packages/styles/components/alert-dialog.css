@@ -132,8 +132,9 @@
     }
   }
 
-  /* Exiting animation */
-  &[data-exiting="true"] {
+  /* Exit must outrank the placement `animation-name` above. Fill stays `none` so WebKit plays it. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement] {
     animation: heroui-overlay-exit 100ms var(--ease-out-quad);
   }
 
@@ -142,6 +143,7 @@
    * CRITICAL: motion-reduce must be AFTER animate for correct override specificity
    */
   &[data-exiting="true"],
+  &[data-exiting="true"][data-placement],
   &[data-entering="true"],
   &[data-entering="true"][data-placement] {
     @apply motion-reduce:animate-none;

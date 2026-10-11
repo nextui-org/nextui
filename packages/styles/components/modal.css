@@ -131,8 +131,9 @@
     }
   }
 
-  /* Exiting animation */
-  &[data-exiting="true"] {
+  /* Exit must outrank the placement `animation-name` above. Fill stays `none` so WebKit plays it. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement] {
     animation: heroui-overlay-exit 100ms var(--ease-out-quad);
   }
 
@@ -141,6 +142,7 @@
    * CRITICAL: motion-reduce must be AFTER animate for correct override specificity
    */
   &[data-exiting="true"],
+  &[data-exiting="true"][data-placement],
   &[data-entering="true"],
   &[data-entering="true"][data-placement] {
     @apply motion-reduce:animate-none;
@@ -195,13 +197,15 @@
     }
   }
 
-  /* Exiting animation */
-  &[data-exiting="true"] {
+  /* Same specificity as the base exit, so the fade still replaces the scale. */
+  &[data-exiting="true"],
+  &[data-exiting="true"][data-placement] {
     animation-name: heroui-overlay-fade-out;
   }
 
   /* The name overrides above outrank the base reduced-motion rule, so repeat it. */
   &[data-exiting="true"],
+  &[data-exiting="true"][data-placement],
   &[data-entering="true"],
   &[data-entering="true"][data-placement] {
     @apply motion-reduce:animate-none;
