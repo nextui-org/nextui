@@ -9,7 +9,7 @@ import {progressCircleVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {ProgressBar as ProgressBarPrimitive} from "react-aria-components/ProgressBar";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -49,7 +49,7 @@ const ProgressCircleRoot = ({
     <ProgressBarPrimitive
       data-slot="progress-circle"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(values) => (
         <ProgressCircleContext value={{slots, state: values}}>

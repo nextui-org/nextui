@@ -5,7 +5,7 @@ import type {SpinnerVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef} from "react";
 
 import {spinnerVariants} from "@heroui/styles";
-import React, {useId} from "react";
+import React, {useId, useMemo} from "react";
 
 import {dom} from "../../utils/dom";
 
@@ -79,17 +79,23 @@ const SpinnerRoot = <E extends keyof React.JSX.IntrinsicElements = "span">({
   size,
   ...props
 }: SpinnerRootProps<E> & Omit<React.JSX.IntrinsicElements[E], keyof SpinnerRootProps<E>>) => {
+  const resolvedClassName = useMemo(
+    () =>
+      spinnerVariants({
+        className,
+        color,
+        size,
+      }),
+    [className, color, size],
+  );
+
   return (
     <dom.span
       aria-label="Loading"
       data-slot="spinner"
       role="status"
       {...(props as any)}
-      className={spinnerVariants({
-        className,
-        color,
-        size,
-      })}
+      className={resolvedClassName}
     >
       <SpinnerPrimitive aria-hidden />
     </dom.span>
