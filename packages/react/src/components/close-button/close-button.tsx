@@ -8,7 +8,7 @@ import {useMemo} from "react";
 import {ButtonContext, Button as ButtonPrimitive} from "react-aria-components/Button";
 import {useSlottedContext} from "react-aria-components/slots";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 import {CloseIcon} from "../icons";
 
 /* -------------------------------------------------------------------------------------------------
@@ -38,18 +38,16 @@ const CloseButtonRoot = ({
   return (
     <ButtonPrimitive
       aria-label={resolvedAriaLabel}
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
       data-slot="close-button"
       slot={slot}
       style={style}
       type="button"
       {...rest}
     >
-      {(renderProps) =>
-        typeof children === "function"
-          ? children(renderProps)
-          : (children ?? <CloseIcon data-slot="close-button-icon" />)
-      }
+      {typeof children === "function"
+        ? children
+        : (children ?? <CloseIcon data-slot="close-button-icon" />)}
     </ButtonPrimitive>
   );
 };
