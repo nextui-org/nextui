@@ -40,7 +40,7 @@ HeroUI (previously NextUI) is a production-ready React component library that co
 Visit [heroui.com/docs/react/getting-started/quick-start](https://heroui.com/docs/react/getting-started/quick-start) to get started with HeroUI.
 
 ```bash
-npm install @heroui/react
+npm install @heroui/styles @heroui/react
 ```
 
 ## Who Is This For?

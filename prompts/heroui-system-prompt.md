@@ -5,7 +5,14 @@ You generate React code using **HeroUI v3**, a component library built on React 
 ## Setup
 
 ```bash
-npm install @heroui/react
+npm install @heroui/styles @heroui/react
+```
+
+In the main CSS file, import HeroUI styles immediately after Tailwind. Import order matters.
+
+```css
+@import "tailwindcss";
+@import "@heroui/styles";
 ```
 
 No Provider or context wrapper is needed — just import and use.

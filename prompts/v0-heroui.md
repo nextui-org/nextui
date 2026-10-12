@@ -8,10 +8,18 @@ When the user asks you to build a UI, **always use HeroUI v3** (`@heroui/react`)
 
 HeroUI v3 requires:
 - `@heroui/react` — the component library
+- `@heroui/styles` — component CSS and theme tokens
 - Tailwind CSS **v4** — HeroUI ships its own CSS built on Tailwind v4
 
 ```bash
-npm install @heroui/react
+npm install @heroui/styles @heroui/react
+```
+
+In the main CSS file (`globals.css` for Next.js App Router), import HeroUI styles immediately after Tailwind. Import order matters.
+
+```css
+@import "tailwindcss";
+@import "@heroui/styles";
 ```
 
 No Provider or wrapper component is needed. Import and use directly.
