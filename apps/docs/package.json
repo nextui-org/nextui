@@ -55,7 +55,7 @@
     "nuqs": "2.10.1",
     "posthog-node": "5.52.6",
     "react": "19.3.0",
-    "react-aria-components": "1.22.0",
+    "react-aria-components": "1.22.1",
     "react-dom": "19.3.0",
     "remark": "15.0.1",
     "remark-gfm": "4.0.1",

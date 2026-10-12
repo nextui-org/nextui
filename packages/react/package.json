@@ -87,8 +87,8 @@
     "fs-extra": "11.4.0",
     "jsdom": "30.0.1",
     "react": "19.3.0",
-    "react-aria": "3.53.0",
-    "react-aria-components": "1.22.0",
+    "react-aria": "3.53.1",
+    "react-aria-components": "1.22.1",
     "react-dom": "19.3.0",
     "tailwindcss": "4.3.3",
     "typescript": "5.9.3",
@@ -99,8 +99,8 @@
     "@react-aria/ssr": "^3.10.1",
     "@react-aria/utils": "^3.34.1",
     "react": ">=19.0.0",
-    "react-aria": "^3.53.0",
-    "react-aria-components": "^1.22.0",
+    "react-aria": "^3.53.1",
+    "react-aria-components": "^1.22.1",
     "react-dom": ">=19.0.0",
     "tailwindcss": ">=4.0.0"
   }
