@@ -18,6 +18,11 @@
   @apply grid h-9 items-center overflow-hidden rounded-field border bg-field text-sm text-field-foreground shadow-field outline-none;
   border-width: var(--border-width-field);
   border-color: var(--field-border);
+
+  /* Current fill. States reassign `--number-field-group-bg`; variants override the three tokens. */
+  --number-field-group-bg: var(--color-field);
+  --number-field-group-bg-hover: var(--color-field-hover);
+  --number-field-group-bg-focus: var(--field-focus);
   grid-template-columns: 1fr;
 
   &:has([slot="decrement"]) {
@@ -47,6 +52,7 @@
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
       @apply bg-field-hover;
+      --number-field-group-bg: var(--number-field-group-bg-hover);
       border-color: var(--field-border-hover);
     }
   }
@@ -56,13 +62,15 @@
   &:focus-within {
     @apply status-focused-field;
     border-color: var(--field-border-focus);
-    background-color: var(--field-focus);
+    --number-field-group-bg: var(--number-field-group-bg-focus);
+    background-color: var(--number-field-group-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
-    background-color: var(--field-focus);
+    --number-field-group-bg: var(--number-field-group-bg-focus);
+    background-color: var(--number-field-group-bg);
     border-color: var(--color-field-border-invalid);
   }
 
@@ -70,21 +78,6 @@
   &[data-disabled="true"],
   &[aria-disabled="true"] {
     @apply status-disabled;
-  }
-
-  /**
-   * Browser autofill state.
-   * The user-agent paints `:-webkit-autofill`/`:autofill` on the inner <input>
-   * only. Because the input has its border-radius stripped on whichever side
-   * touches the increment/decrement buttons, the autofill highlight ends up
-   * as a sharp-cornered rectangle and the buttons receive no highlight.
-   * Lift the highlight onto the group so the rounded shell + buttons all
-   * share it. (Affects autofilled numeric fields, e.g. OTP/year inputs.)
-   */
-  &:has([data-slot="number-field-input"]:-webkit-autofill),
-  &:has([data-slot="number-field-input"]:autofill) {
-    background-color: var(--field-focus);
-    border-color: var(--field-border-focus);
   }
 }
 
@@ -108,22 +101,28 @@
   }
 
   /**
-   * Neutralize the browser's per-input autofill paint so the inner <input>
-   * doesn't draw a sharp-cornered yellow rectangle. The unified highlight
-   * is applied to `.number-field__group` above. Preserve the autofilled
-   * text and caret colors, and pin the background-color transition so the
-   * inset box-shadow trick doesn't flicker on state changes.
+   * Cover the UA autofill paint with the group's own fill so the stepper
+   * buttons and the input stay one color. `--number-field-group-bg` is
+   * inherited from `.number-field__group` and already tracks the variant.
+   * box-shadow is not transitioned: the 1000px inset must appear at once.
    */
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active,
-  &:autofill {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset;
-    box-shadow: 0 0 0 1000px transparent inset;
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--number-field-group-bg) inset;
+    box-shadow: 0 0 0 1000px var(--number-field-group-bg) inset;
     -webkit-text-fill-color: var(--field-foreground);
     caret-color: var(--field-foreground);
     transition: background-color 9999s ease-in-out 0s;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: background-color 9999s ease-in-out 0s;
+    }
   }
 }
 
@@ -191,20 +190,23 @@
   @media (hover: hover) {
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
-      background-color: var(--number-field-group-bg-hover);
+      --number-field-group-bg: var(--number-field-group-bg-hover);
+      background-color: var(--number-field-group-bg);
     }
   }
 
   &:focus-within,
   &[data-focus-within="true"] {
-    background-color: var(--number-field-group-bg-focus);
+    --number-field-group-bg: var(--number-field-group-bg-focus);
+    background-color: var(--number-field-group-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
     border-color: var(--color-field-border-invalid);
-    background-color: var(--number-field-group-bg-focus);
+    --number-field-group-bg: var(--number-field-group-bg-focus);
+    background-color: var(--number-field-group-bg);
   }
 
   [data-slot="number-field-input"] {

@@ -7,6 +7,16 @@
   border-width: var(--border-width-field);
   border-color: var(--field-border);
 
+  /* Current fill. States reassign `--textarea-bg`; variants override the three tokens. */
+  --textarea-bg: var(--color-field);
+  --textarea-bg-hover: var(--color-field-hover);
+  --textarea-bg-focus: var(--field-focus);
+  /* Inset layer covers the UA autofill paint. The rest keeps shadow-field and the focus ring. */
+  --textarea-autofill-shadow:
+    0 0 0 1000px var(--textarea-bg) inset, var(--tw-inset-shadow, 0 0 #0000),
+    var(--tw-inset-ring-shadow, 0 0 #0000), var(--tw-ring-offset-shadow, 0 0 #0000),
+    var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow, 0 0 #0000);
+
   /**
    * Transitions
    * CRITICAL: motion-reduce must be AFTER transition for correct override specificity
@@ -21,6 +31,7 @@
     &:hover:not(:focus):not(:focus-visible),
     &[data-hovered="true"]:not([data-focused="true"]):not([data-focus-visible="true"]) {
       @apply bg-field-hover;
+      --textarea-bg: var(--textarea-bg-hover);
       border-color: var(--field-border-hover);
     }
   }
@@ -30,12 +41,14 @@
   &[data-focused="true"] {
     @apply status-focused-field;
     border-color: var(--field-border-focus);
-    background-color: var(--field-focus);
+    --textarea-bg: var(--textarea-bg-focus);
+    background-color: var(--textarea-bg);
   }
 
   &[data-invalid="true"] {
     @apply status-invalid-field;
-    background-color: var(--field-focus);
+    --textarea-bg: var(--textarea-bg-focus);
+    background-color: var(--textarea-bg);
   }
 
   /* Disabled state */
@@ -43,6 +56,37 @@
   &[data-disabled="true"],
   &[aria-disabled="true"] {
     @apply status-disabled;
+  }
+
+  /**
+   * Browser autofill (`:-webkit-autofill` in Chromium, `:autofill` in Firefox).
+   * The user agent paints its own background over the author background, which
+   * drops `.textarea--secondary`'s fill. Cover that paint with `--textarea-bg`
+   * (the variant's current fill) and keep the field foreground. Border stays on
+   * the rules above. The long background-color transition stops Chromium's
+   * highlight from fading in. box-shadow is not transitioned: the 1000px inset
+   * must appear at once, or the highlight shows while that cover grows in from 0.
+   */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
+    background-color: var(--textarea-bg);
+    box-shadow: var(--textarea-autofill-shadow);
+    -webkit-box-shadow: var(--textarea-autofill-shadow);
+    -webkit-text-fill-color: var(--field-foreground);
+    caret-color: var(--field-foreground);
+    transition:
+      background-color 9999s ease-in-out 0s,
+      border-color 150ms var(--ease-smooth);
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: background-color 9999s ease-in-out 0s;
+    }
   }
 }
 
@@ -62,19 +106,22 @@
   @media (hover: hover) {
     &:hover:not(:focus):not(:focus-visible),
     &[data-hovered="true"]:not([data-focused="true"]):not([data-focus-visible="true"]) {
-      background-color: var(--textarea-bg-hover);
+      --textarea-bg: var(--textarea-bg-hover);
+      background-color: var(--textarea-bg);
     }
   }
 
   &:focus,
   &[data-focused="true"] {
-    background-color: var(--textarea-bg-focus);
+    --textarea-bg: var(--textarea-bg-focus);
+    background-color: var(--textarea-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
-    background-color: var(--textarea-bg-focus);
+    --textarea-bg: var(--textarea-bg-focus);
+    background-color: var(--textarea-bg);
   }
 }
 

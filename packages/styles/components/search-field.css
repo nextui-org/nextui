@@ -25,6 +25,11 @@
   border-width: var(--border-width-field);
   border-color: var(--field-border);
 
+  /* Current fill. States reassign `--search-field-group-bg`; variants override the three tokens. */
+  --search-field-group-bg: var(--color-field);
+  --search-field-group-bg-hover: var(--color-field-hover);
+  --search-field-group-bg-focus: var(--field-focus);
+
   /**
    * Transitions
    * CRITICAL: motion-reduce must be AFTER transition for correct override specificity
@@ -40,6 +45,7 @@
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
       @apply bg-field-hover;
+      --search-field-group-bg: var(--search-field-group-bg-hover);
       border-color: var(--field-border-hover);
     }
   }
@@ -53,7 +59,8 @@
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
-    background-color: var(--field-focus);
+    --search-field-group-bg: var(--search-field-group-bg-focus);
+    background-color: var(--search-field-group-bg);
     border-color: var(--color-field-border-invalid);
   }
 
@@ -61,21 +68,6 @@
   &[data-disabled="true"],
   &[aria-disabled="true"] {
     @apply status-disabled;
-  }
-
-  /**
-   * Browser autofill state.
-   * The user-agent paints `:-webkit-autofill`/`:autofill` on the inner <input>
-   * only. Because the input has its border-radius stripped on whichever side
-   * touches the search icon or clear button, the autofill highlight ends up
-   * as a sharp-cornered rectangle and the sibling slots receive no highlight.
-   * Lift the highlight onto the group so the rounded shell + icon + clear
-   * button all share it.
-   */
-  &:has([data-slot="search-field-input"]:-webkit-autofill),
-  &:has([data-slot="search-field-input"]:autofill) {
-    background-color: var(--field-focus);
-    border-color: var(--field-border-focus);
   }
 }
 
@@ -106,22 +98,28 @@
   }
 
   /**
-   * Neutralize the browser's per-input autofill paint so the inner <input>
-   * doesn't draw a sharp-cornered yellow rectangle. The unified highlight
-   * is applied to `.search-field__group` above. Preserve the autofilled
-   * text and caret colors, and pin the background-color transition so the
-   * inset box-shadow trick doesn't flicker on state changes.
+   * Cover the UA autofill paint with the group's own fill so the icon, input,
+   * and clear button stay one color. `--search-field-group-bg` is inherited
+   * from `.search-field__group` and already tracks the variant.
+   * box-shadow is not transitioned: the 1000px inset must appear at once.
    */
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active,
-  &:autofill {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset;
-    box-shadow: 0 0 0 1000px transparent inset;
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--search-field-group-bg) inset;
+    box-shadow: 0 0 0 1000px var(--search-field-group-bg) inset;
     -webkit-text-fill-color: var(--field-foreground);
     caret-color: var(--field-foreground);
     transition: background-color 9999s ease-in-out 0s;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: background-color 9999s ease-in-out 0s;
+    }
   }
 }
 
@@ -155,20 +153,23 @@
   @media (hover: hover) {
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
-      background-color: var(--search-field-group-bg-hover);
+      --search-field-group-bg: var(--search-field-group-bg-hover);
+      background-color: var(--search-field-group-bg);
     }
   }
 
   &:focus-within,
   &[data-focus-within="true"] {
-    background-color: var(--search-field-group-bg-focus);
+    --search-field-group-bg: var(--search-field-group-bg-focus);
+    background-color: var(--search-field-group-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
     border-color: var(--color-field-border-invalid);
-    background-color: var(--search-field-group-bg-focus);
+    --search-field-group-bg: var(--search-field-group-bg-focus);
+    background-color: var(--search-field-group-bg);
   }
 
   [data-slot="search-field-input"] {

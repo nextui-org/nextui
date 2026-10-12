@@ -8,6 +8,11 @@
   border-width: var(--border-width-field);
   border-color: var(--field-border);
 
+  /* Current fill. States reassign `--color-input-group-bg`; variants override the three tokens. */
+  --color-input-group-bg: var(--color-field);
+  --color-input-group-bg-hover: var(--color-field-hover);
+  --color-input-group-bg-focus: var(--field-focus);
+
   /**
    * Transitions
    * CRITICAL: motion-reduce must be AFTER transition for correct override specificity
@@ -23,6 +28,7 @@
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
       @apply bg-field-hover;
+      --color-input-group-bg: var(--color-input-group-bg-hover);
       border-color: var(--field-border-hover);
     }
   }
@@ -36,7 +42,8 @@
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
-    background-color: var(--field-focus);
+    --color-input-group-bg: var(--color-input-group-bg-focus);
+    background-color: var(--color-input-group-bg);
     border-color: var(--color-field-border-invalid);
   }
 
@@ -74,6 +81,31 @@
   &:focus-visible {
     @apply outline-none;
   }
+
+  /**
+   * Cover the UA autofill paint with the group's own fill. The inner control
+   * is transparent, so without this the browser background replaces the
+   * secondary fill. `--color-input-group-bg` is inherited and tracks the variant.
+   * box-shadow is not transitioned: the 1000px inset must appear at once.
+   */
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px var(--color-input-group-bg) inset;
+    box-shadow: 0 0 0 1000px var(--color-input-group-bg) inset;
+    -webkit-text-fill-color: var(--field-foreground);
+    caret-color: var(--field-foreground);
+    transition: background-color 9999s ease-in-out 0s;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: background-color 9999s ease-in-out 0s;
+    }
+  }
 }
 
 .color-input-group__prefix {
@@ -105,20 +137,23 @@
   @media (hover: hover) {
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
-      background-color: var(--color-input-group-bg-hover);
+      --color-input-group-bg: var(--color-input-group-bg-hover);
+      background-color: var(--color-input-group-bg);
     }
   }
 
   &:focus-within,
   &[data-focus-within="true"] {
-    background-color: var(--color-input-group-bg-focus);
+    --color-input-group-bg: var(--color-input-group-bg-focus);
+    background-color: var(--color-input-group-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
     border-color: var(--color-field-border-invalid);
-    background-color: var(--color-input-group-bg-focus);
+    --color-input-group-bg: var(--color-input-group-bg-focus);
+    background-color: var(--color-input-group-bg);
   }
 
   [data-slot="color-input-group-input"] {

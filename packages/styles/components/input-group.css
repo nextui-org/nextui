@@ -4,6 +4,11 @@
   border-width: var(--border-width-field);
   border-color: var(--field-border);
 
+  /* Current fill. States reassign `--input-group-bg`; variants override the three tokens. */
+  --input-group-bg: var(--color-field);
+  --input-group-bg-hover: var(--color-field-hover);
+  --input-group-bg-focus: var(--field-focus);
+
   /* When textarea is present, align items to start and allow height to grow */
   &:has([data-slot="input-group-textarea"]) {
     @apply items-start;
@@ -25,6 +30,7 @@
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
       @apply bg-field-hover;
+      --input-group-bg: var(--input-group-bg-hover);
       border-color: var(--field-border-hover);
     }
   }
@@ -34,13 +40,15 @@
   &:has([data-slot="input-group-textarea"]:focus) {
     @apply status-focused-field;
     border-color: var(--field-border-focus);
-    background-color: var(--field-focus);
+    --input-group-bg: var(--input-group-bg-focus);
+    background-color: var(--input-group-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
-    background-color: var(--field-focus);
+    --input-group-bg: var(--input-group-bg-focus);
+    background-color: var(--input-group-bg);
     border-color: var(--color-field-border-invalid);
   }
 
@@ -49,25 +57,12 @@
   &[aria-disabled="true"] {
     @apply status-disabled;
   }
-
-  /**
-   * Browser autofill state.
-   * The user-agent paints `:-webkit-autofill`/`:autofill` on the inner <input>
-   * element only, inside its content box. Because the inner input has its
-   * border-radius stripped on whichever side touches a prefix/suffix, the
-   * autofill highlight ends up as a sharp-cornered rectangle and the
-   * prefix/suffix slots receive no highlight at all. Lift the highlight
-   * onto the group so the rounded shell + prefix + suffix all share it.
-   */
-  &:has([data-slot="input-group-input"]:-webkit-autofill),
-  &:has([data-slot="input-group-input"]:autofill) {
-    background-color: var(--field-focus);
-    border-color: var(--field-border-focus);
-  }
 }
 
 .input-group__input {
-  @apply flex-1 rounded-none border-0 bg-transparent px-3 py-2 text-base shadow-none outline-none placeholder:text-field-placeholder sm:text-sm;
+  /* Rounded on every side, then squared where a prefix or suffix touches it (below). The group
+     does not clip, so a square outer corner would poke past the shell under the autofill cover. */
+  @apply flex-1 rounded-field border-0 bg-transparent px-3 py-2 text-base shadow-none outline-none placeholder:text-field-placeholder sm:text-sm;
 
   /* Remove border radius on left side when prefix is present */
   .input-group:has([data-slot="input-group-prefix"]) & {
@@ -86,22 +81,40 @@
   }
 
   /**
-   * Neutralize the browser's per-input autofill paint so the inner <input>
-   * doesn't draw a sharp-cornered yellow rectangle. The unified highlight
-   * is applied to `.input-group` above. Preserve the autofilled text and
-   * caret colors, and pin the background-color transition so the inset
-   * box-shadow trick doesn't flicker on state changes.
+   * Browser autofill paints only the inner control. A transparent inset shadow
+   * lets that paint through, and a group-level `--field-focus` highlight
+   * replaces the secondary fill with the primary field. Cover the UA paint
+   * with the group's own fill (`--input-group-bg`, inherited) so prefix,
+   * suffix, and input stay one color. The inner control is rounded on its outer
+   * sides to match the shell (see above). Border stays on `.input-group`.
+   * box-shadow is not transitioned: the 1000px inset must appear at once.
+   *
+   * Some browsers (Edge on Windows) paint an autofilled control with a native, square text
+   * field that ignores `border-radius`, covering the shell's rounded corners and focus ring.
+   * `appearance: none` drops the native paint, and `clip-path` keeps whatever is painted
+   * inside the shell's rounded shape. Rounding the inner corners next to a prefix/suffix is
+   * invisible because the cover and the group share one fill.
    */
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus,
   &:-webkit-autofill:active,
-  &:autofill {
-    -webkit-box-shadow: 0 0 0 1000px transparent inset;
-    box-shadow: 0 0 0 1000px transparent inset;
+  &:autofill,
+  &:autofill:hover,
+  &:autofill:focus,
+  &:autofill:active {
+    -webkit-appearance: none;
+    appearance: none;
+    clip-path: inset(0 round var(--radius-field));
+    -webkit-box-shadow: 0 0 0 1000px var(--input-group-bg) inset;
+    box-shadow: 0 0 0 1000px var(--input-group-bg) inset;
     -webkit-text-fill-color: var(--field-foreground);
     caret-color: var(--field-foreground);
     transition: background-color 9999s ease-in-out 0s;
+
+    @media (prefers-reduced-motion: reduce) {
+      transition: background-color 9999s ease-in-out 0s;
+    }
   }
 }
 
@@ -179,20 +192,23 @@
   @media (hover: hover) {
     &:hover:not(:focus-within),
     &[data-hovered="true"]:not([data-focus-within="true"]) {
-      background-color: var(--input-group-bg-hover);
+      --input-group-bg: var(--input-group-bg-hover);
+      background-color: var(--input-group-bg);
     }
   }
 
   &:has([data-slot="input-group-input"]:focus),
   &:has([data-slot="input-group-textarea"]:focus) {
-    background-color: var(--input-group-bg-focus);
+    --input-group-bg: var(--input-group-bg-focus);
+    background-color: var(--input-group-bg);
   }
 
   /* Invalid state */
   &[data-invalid="true"] {
     @apply status-invalid-field;
     border-color: var(--color-field-border-invalid);
-    background-color: var(--input-group-bg-focus);
+    --input-group-bg: var(--input-group-bg-focus);
+    background-color: var(--input-group-bg);
   }
 
   [data-slot="input-group-input"],
