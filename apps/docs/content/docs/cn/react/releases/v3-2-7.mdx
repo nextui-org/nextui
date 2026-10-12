@@ -1,6 +1,6 @@
 ---
 title: v3.2.7
-description: React Aria 升级至 1.22.0（react-aria@3.53.0），并修复 CloseButton 的 aria-label、列表浮层圆角、选择指示器、AvatarGroup 裁切、Checkbox 动画、ScrollShadow 接缝、iOS Safari 上的 Toast、Calendar 星期标题列宽，以及 Dropdown 子菜单内边距。
+description: React Aria 升级至 1.22.1（react-aria@3.53.1），并修复 CloseButton 的 aria-label、列表浮层圆角、选择指示器、AvatarGroup 裁切、Checkbox 动画、ScrollShadow 接缝、iOS Safari 上的 Toast、Calendar 星期标题列宽，以及 Dropdown 子菜单内边距。
 github:
   pull: 6892
 ---
@@ -9,7 +9,7 @@ github:
   <span className="text-sm text-muted">2026 年 10 月 10 日</span>
 </div>
 
-React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.0`（`react-aria@3.53.0`）。[CloseButton](/docs/components/close-button) 不再硬编码 `aria-label="Close"`，因此通过 slot 传入的标签（例如已本地化的 [Toast](/docs/components/toast) 关闭按钮）不会被覆盖。本版本还为 [Select](/docs/components/select)、[Dropdown](/docs/components/dropdown)、[Autocomplete](/docs/components/autocomplete) 与 [ComboBox](/docs/components/combo-box) 的浮层圆角与选项内边距对齐，避免选择指示器压住短标签，修正 [Dropdown](/docs/components/dropdown) 子菜单内边距与分区触发器图标，修复 iOS Safari 上的 [Toast](/docs/components/toast) 布局，让 [Calendar](/docs/components/calendar) 星期标题等宽分列，并包含针对 [AvatarGroup](/docs/components/avatar-group)、[Checkbox](/docs/components/checkbox) 与 [ScrollShadow](/docs/components/scroll-shadow) 的后续修复。
+React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。[CloseButton](/docs/components/close-button) 不再硬编码 `aria-label="Close"`，因此通过 slot 传入的标签（例如已本地化的 [Toast](/docs/components/toast) 关闭按钮）不会被覆盖。本版本还为 [Select](/docs/components/select)、[Dropdown](/docs/components/dropdown)、[Autocomplete](/docs/components/autocomplete) 与 [ComboBox](/docs/components/combo-box) 的浮层圆角与选项内边距对齐，避免选择指示器压住短标签，修正 [Dropdown](/docs/components/dropdown) 子菜单内边距与分区触发器图标，修复 iOS Safari 上的 [Toast](/docs/components/toast) 布局，让 [Calendar](/docs/components/calendar) 星期标题等宽分列，并包含针对 [AvatarGroup](/docs/components/avatar-group)、[Checkbox](/docs/components/checkbox) 与 [ScrollShadow](/docs/components/scroll-shadow) 的后续修复。
 
 ## 安装
 
@@ -39,7 +39,7 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.0`（`rea
 </Tabs>
 
 <Callout type="warning">
-  **对等依赖。** 本版本需要 `react-aria-components@^1.22.0` 与 `react-aria@^3.53.0`。升级时请与应用中已安装的版本对齐。
+  **对等依赖。** 本版本需要 `react-aria-components@^1.22.1` 与 `react-aria@^3.53.1`。升级时请与应用中已安装的版本对齐。
 </Callout>
 
 <Callout type="info">
@@ -48,7 +48,7 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.0`（`rea
 
 ## 依赖
 
-- **React Aria**：升级至 [React Aria 1.22.0](https://react-aria.adobe.com/releases/v1-22-0) — `react-aria-components@1.22.0`、`react-aria@3.53.0`、`react-stately@3.51.0`、`@react-types/shared@3.37.0` 与 `@internationalized/number@3.6.9` ([#6939](https://github.com/heroui-inc/heroui/pull/6939))。
+- **React Aria**：升级至 [React Aria 1.22.1](https://react-aria.adobe.com/releases/v1-22-0) — `react-aria-components@1.22.1`、`react-aria@3.53.1`、`react-stately@3.51.0`、`@react-types/shared@3.37.0` 与 `@internationalized/number@3.6.9` ([#6939](https://github.com/heroui-inc/heroui/pull/6939))。
 - **安全**：修补传递依赖中的 Dependabot 告警 ([#6938](https://github.com/heroui-inc/heroui/pull/6938))。
 
 ## 错误修复
