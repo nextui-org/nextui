@@ -1,14 +1,14 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: 💡 Feature Request
     url: https://github.com/heroui-inc/heroui/discussions/categories/feature-requests
-    about: 💡 Suggest a new component, improve an existing component and etc
+    about: Suggest a new component, improve an existing component and etc
   - name: 🤔 Long question or ideas?
     url: https://github.com/heroui-inc/heroui/discussions
     about: Ask long-form questions and discuss ideas.
   - name: 💬 Discord Community Chat
     url: https://discord.gg/9b6yyZKmH4
     about: Ask quick questions or simply chat on the `HeroUI` community Discord server.
-  - name: 💬 New Updates (X)
+  - name: 🗞️ New Updates (X)
     url: https://x.com/hero_ui
     about: Link to our X account if you want to follow us and stay up to date with HeroUI news
