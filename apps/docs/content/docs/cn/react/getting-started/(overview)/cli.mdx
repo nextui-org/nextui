@@ -4,7 +4,7 @@ description: 使用命令行管理 HeroUI 依赖并初始化项目。
 icon: terminal
 ---
 
-`heroui-cli`是官方命令行工具，提供了一整套命令，用于初始化、管理和优化你的 HeroUI 项目。你可以 `install`、`uninstall` 或 `upgrade` 单个组件，检查项目健康状况，下载用于 AI 编程助手的文档，等等。
+`heroui-cli` 是官方命令行工具，提供一整套命令，用于初始化、管理和优化 HeroUI 项目。你可以 `install`、`uninstall` 或 `upgrade` HeroUI 包、在终端查看组件文档、检查项目健康状况、下载用于 AI 编程助手的文档，等等。
 
 ## 安装
 
@@ -63,22 +63,50 @@ heroui
 Usage: heroui [command]
 
 Options:
-  -v, --version                  Output the current version
-  --no-cache                     Disable cache, by default data will be cached for 30m after the first request
-  -d, --debug                    Debug mode will not install dependencies
-  -h --help                      Display help information for commands
+  -v, --version                 Output the current version
+  --no-cache                    Disable cache, by default data will be cached for 30m after the first request
+  -d, --debug                   Debug mode will not install dependencies
+  --json                        Output the result as JSON
+  -h, --help                    Display help for command
 
 Commands:
-  init [options] [projectName]   Initializes a new project
-  install [options]              Installs @heroui/react and @heroui/styles to your project
-  upgrade [options]              Upgrades @heroui/react and @heroui/styles to the latest versions
-  uninstall [options]            Uninstall @heroui/react and @heroui/styles from the project
-  list [options]                 Lists installed HeroUI packages (@heroui/react, @heroui/styles)
-  env [options]                  Displays debugging information for the local environment
-  doctor [options]               Checks for issues in the project
-  agents-md [options]            Downloads HeroUI documentation for AI coding agents
-  help [command]                 Display help for command
+  init [options] [projectName]  Initializes a new project
+  install [options]             Installs @heroui/react and @heroui/styles in your project
+  upgrade [options]             Upgrades @heroui/react and @heroui/styles to the latest versions
+  uninstall [options]           Uninstalls @heroui/react and @heroui/styles from the project
+  list [options]                Lists installed HeroUI packages (@heroui/react, @heroui/styles)
+  info [options] <component>    Shows the API Reference for a HeroUI React component
+  doc [options] <component>     Shows the documentation for a HeroUI React component
+  env [options]                 Displays debugging information for the local environment
+  doctor [options]              Checks for issues in the project
+  agents-md [options]           Download HeroUI documentation for AI coding agents
+  help [command]                Display help for command
 ```
+
+## JSON 输出
+
+`--json` 会打印一个 JSON 对象并跳过交互式提示。`install`、`upgrade` 和 `uninstall` 会在不询问确认的情况下继续执行。
+
+`init` 和 `agents-md` 仍需要提供原本由提示收集的信息：
+
+```bash
+heroui init my-heroui-app --template app --package pnpm --json
+heroui agents-md --react --output AGENTS.md --json
+```
+
+当项目中同时安装了 `@heroui/react` 与 `heroui-native`，或两者都未安装时，`agents-md --json` 还必须指定 `--react`、`--native` 或 `--migration` 之一。
+
+## 缓存
+
+注册表查询结果会缓存在用户目录中，默认 30 分钟：
+
+| 平台 | 位置 |
+| -------- | -------- |
+| macOS | `~/Library/Caches/heroui-cli` |
+| Linux | `$XDG_CACHE_HOME/heroui-cli` 或 `~/.cache/heroui-cli` |
+| Windows | `%LOCALAPPDATA%\heroui-cli\Cache` |
+
+在所有平台上都会先检查 `XDG_CACHE_HOME`（包括 macOS 和 Windows），再使用上表中的默认路径。可通过 `HEROUI_CACHE_DIR` 自定义缓存目录，或传入 `--no-cache` 禁用缓存。若没有可写的缓存位置，CLI 会继续运行，只是不使用缓存。
 
 ### init
 
@@ -161,7 +189,7 @@ npm run dev
 
 ### Install
 
-将 `@heroui/react` 和 `@heroui/styles` 及其对等依赖安装到你的项目中。若它们已安装，则该命令不会执行任何操作。
+将 `@heroui/react` 和 `@heroui/styles` 安装到你的项目中，并补齐缺失或低于要求版本的对等依赖。若两个包都已安装，命令会打印确认信息后退出。
 
 ```bash
 heroui install [options]
@@ -186,9 +214,9 @@ HeroUI CLI <version>
 ╰─────────────────────────────────────────────────────────────────────────────╯
 
 ╭─────────────── PeerDependencies ────────────────╮
-│  react@18.3.1                      latest       │
-│  react-dom@18.3.1                  latest       │
-│  tailwindcss@4.2.2                 latest       │
+│  react@^19.1.0                     latest       │
+│  react-dom@^19.1.0                 latest       │
+│  tailwindcss@^4.1.11               latest       │
 ╰─────────────────────────────────────────────────╯
 ? Proceed with installation? › - Use arrow-keys. Return to submit.
 ❯   Yes
@@ -200,7 +228,7 @@ HeroUI CLI <version>
 ### upgrade
 
 
-将 `@heroui/react` 和 `@heroui/styles` 及其对等依赖升级到最新版本。
+将 `@heroui/react` 和 `@heroui/styles` 升级到最新版本。仅当已安装的对等依赖低于 HeroUI 包要求的范围时，才会一并升级。若无需升级，命令会输出 `All packages are up to date` 且不会提示确认。
 
 ```bash
 heroui upgrade [options]
@@ -224,7 +252,7 @@ HeroUI CLI <version>
 ❯   Yes
     No
 
-✅ Upgrade complete. All packages are up to date.
+✅ Upgrade complete
 ```
 
 ### uninstall
@@ -275,7 +303,7 @@ heroui list [options]
 ```bash
 HeroUI CLI <version>
 
-Current installed packages:
+Installed HeroUI packages:
 
 ╭──────────────────────────────────────────────────────────────────────────────────────╮
 │   Package          │   Version          │   Status   │   Docs                        │
@@ -284,6 +312,38 @@ Current installed packages:
 │   @heroui/styles   │   3.0.0 🚀latest   │   stable   │   https://heroui.com          │
 ╰──────────────────────────────────────────────────────────────────────────────────────╯
 ```
+
+### info
+
+在终端查看 HeroUI React 组件文档中的 **API Reference** 部分。
+
+```bash
+heroui info <component>
+```
+
+**示例：**
+
+```bash
+heroui info button
+```
+
+支持 `Button`、`button-group` 等写法。组件名不区分大小写；若名称有误，CLI 会提示最接近的组件名。
+
+### doc
+
+在终端查看 HeroUI React 组件的完整文档页面。
+
+```bash
+heroui doc <component>
+```
+
+**示例：**
+
+```bash
+heroui doc button
+```
+
+支持 `Button`、`button-group` 等写法。输出内容与文档站上的组件页一致。
 
 ### doctor
 
@@ -307,7 +367,7 @@ heroui doctor [options]
 ```bash
 HeroUI CLI <version>
 
-HeroUI CLI: ❌ Your project has 1 issue that require attention
+HeroUI CLI: ❌ Your project has 1 issue that requires attention
 
 ❗️Issue 1: missingHeroUIPackages
 
@@ -325,43 +385,45 @@ HeroUI CLI <version>
 ✅ Your project has no detected issues.
 ```
 
+当检测到问题时（包括项目中未安装任何 HeroUI 包），命令会以状态码 `1` 退出。
+
 ### env
 
 显示本地环境的调试信息。
 
 ```bash
-heroui env [options]
+heroui env
 ```
-
-**选项：**
-
-- `-p --packagePath` [string] package.json 文件的路径
 
 **输出：**
 
 ```bash
 HeroUI CLI <version>
 
-Current installed packages:
-
-╭──────────────────────────────────────────────────────────────────────────────────────╮
-│   Package          │   Version          │   Status   │   Docs                        │
-│──────────────────────────────────────────────────────────────────────────────────────│
-│   @heroui/react    │   3.0.0 🚀latest   │   stable   │   https://heroui.com          │
-│   @heroui/styles   │   3.0.0 🚀latest   │   stable   │   https://heroui.com          │
-╰──────────────────────────────────────────────────────────────────────────────────────╯
-
 Environment Info:
   System:
-    OS: darwin
-    CPU: arm64
+    OS: macOS 26.3
+    CPU: (8) arm64 Apple M1 Pro
   Binaries:
-    Node: v25.8.1
+    Node: 26.8.1
+    Yarn: 1.22.22
+    npm: 11.19.0
+    pnpm: 12.5.1
+    bun: 1.3.12
+  Browsers:
+    Safari: 26.3
+  npmPackages:
+    @heroui/react: 3.2.6
+    @heroui/styles: 3.2.6
+    react-aria-components: 1.21.1
+    tailwindcss: 4.1.11
 ```
 
 ### agents-md
 
 下载用于 AI 编程助手（Claude、Cursor 等）的 HeroUI 文档。该命令会从 HeroUI 仓库克隆最新文档，并将一份精简索引注入到 `AGENTS.md` 或 `CLAUDE.md` 中，方便助手参考你项目中的 HeroUI 配置。
+
+未指定文档库标志时，命令会检查项目：仅安装 `@heroui/react` 时选择 React 文档，仅安装 `heroui-native` 时选择 Native 文档；随后会询问输出文件（除非已传入 `--output`）。当两个包都安装或都未安装时，会询问要下载哪类文档。
 
 ```bash
 heroui agents-md [options]
@@ -372,7 +434,7 @@ heroui agents-md [options]
 - `--react` [boolean] 仅包含 React 文档（一次只能选择一个文档库）
 - `--native` [boolean] 仅包含 Native 文档
 - `--migration` [boolean] 仅包含 HeroUI v2 到 v3 的迁移文档
-- `--output <file>` [string] 目标文件路径（例如 `AGENTS.md`、`CLAUDE.md`）
+- `--output <files...>` [string] 目标文件路径。可传入多个路径以同时更新多个文件，例如 `AGENTS.md CLAUDE.md`
 - `--ssh` [boolean] 使用 SSH 而非 HTTPS 进行 git clone
 
 **示例：**
@@ -396,6 +458,12 @@ heroui agents-md --native --output CLAUDE.md
 heroui agents-md --migration --output AGENTS.md
 ```
 
+当 HTTPS 克隆失败时，可使用 SSH：
+
+```bash
+heroui agents-md --react --ssh --output AGENTS.md
+```
+
 **工作原理：**
 
 1. 使用 git sparse-checkout 从 `v3` 分支克隆文档
@@ -408,8 +476,12 @@ heroui agents-md --migration --output AGENTS.md
 更多详情请参阅 [AGENTS.md](/docs/react/getting-started/agents-md)。
 
 <Callout>
-  `agents-md` 命令会收集匿名使用数据（所选项、输出文件名、耗时、成功或错误）。设置 `HEROUI_ANALYTICS_DISABLED=1` 可以选择不参与。
+  `agents-md` 会收集匿名使用数据：所选文档类型（`react`、`native` 或 `migration`）、输出路径、写入文件数量、耗时、成功或失败（失败时包含错误信息）。不会收集项目内容。设置 `HEROUI_ANALYTICS_DISABLED=1` 可以选择不参与。
 </Callout>
+
+### 从 NextUI 迁移
+
+[`@heroui/codemod`](https://github.com/heroui-inc/heroui-cli/tree/main/packages/codemod) 可将 `@nextui-org/*` 包与 API 重命名为 `@heroui/*`，但不会把项目升级到 HeroUI v3。v3 迁移指南请运行 `heroui agents-md --migration`。
 
 ## 问题反馈
 
