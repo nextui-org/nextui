@@ -19,7 +19,7 @@ export const useMeasuredHeight = (ref: RefObject<HTMLDivElement | null>) => {
     const previousHeight = element.style.height;
 
     element.style.height = "auto";
-    const measuredHeight = element.scrollHeight;
+    const measuredHeight = element.offsetHeight;
 
     element.style.height = previousHeight;
 
