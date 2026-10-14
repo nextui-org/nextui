@@ -8,7 +8,7 @@ import {paginationVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 import {composeSlotClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronLeft, IconChevronRight} from "../icons";
@@ -171,7 +171,7 @@ const PaginationLink = ({children, className, isActive, ...props}: PaginationLin
   return (
     <ButtonPrimitive
       aria-current={isActive ? "page" : undefined}
-      className={composeTwRenderProps(className, slots?.link())}
+      className={useResolvedClassName(className, slots?.link())}
       data-active={isActive ? "true" : undefined}
       data-slot="pagination-link"
       {...props}
@@ -197,7 +197,7 @@ const PaginationPrevious = ({children, className, ...props}: PaginationPreviousP
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, baseClass)}
+      className={useResolvedClassName(className, baseClass)}
       data-slot="pagination-previous"
       {...props}
     >
@@ -252,7 +252,7 @@ const PaginationNext = ({children, className, ...props}: PaginationNextProps) =>
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, baseClass)}
+      className={useResolvedClassName(className, baseClass)}
       data-slot="pagination-next"
       {...props}
     >

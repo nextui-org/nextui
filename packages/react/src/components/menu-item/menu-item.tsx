@@ -9,7 +9,7 @@ import {menuItemVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {MenuItem as MenuItemPrimitive} from "react-aria-components/Menu";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils";
+import {composeSlotClassName, useResolvedClassName} from "../../utils";
 import {dom} from "../../utils/dom";
 import {IconChevronRight} from "../icons";
 
@@ -36,7 +36,7 @@ const MenuItemRoot = ({children, className, variant, ...props}: MenuItemRootProp
 
   return (
     <MenuItemPrimitive
-      className={composeTwRenderProps(className, slots.item())}
+      className={useResolvedClassName(className, slots.item())}
       data-slot="menu-item"
       {...props}
     >

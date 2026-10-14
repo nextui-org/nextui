@@ -12,7 +12,7 @@ import {
   ToggleButtonGroup as ToggleButtonGroupPrimitive,
 } from "react-aria-components/ToggleButtonGroup";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils";
+import {composeSlotClassName, useResolvedClassName} from "../../utils";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -62,7 +62,7 @@ const ToggleButtonGroupRoot = ({
   return (
     <ToggleButtonGroupContext value={contextValue}>
       <ToggleButtonGroupPrimitive
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
         data-slot="toggle-button-group"
         isDisabled={isDisabled}
         orientation={orientation}

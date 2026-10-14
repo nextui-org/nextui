@@ -34,8 +34,9 @@ const SkeletonRoot = <E extends keyof React.JSX.IntrinsicElements = "div">({
       }),
     [resolvedAnimationType],
   );
+  const resolvedClassName = React.useMemo(() => slots.base({className}), [className, slots]);
 
-  return <dom.div className={slots.base({className})} {...(props as any)} />;
+  return <dom.div className={resolvedClassName} {...(props as any)} />;
 };
 
 SkeletonRoot.displayName = "HeroUI.Skeleton";

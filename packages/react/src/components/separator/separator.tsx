@@ -4,7 +4,7 @@ import type {SeparatorVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef} from "react";
 
 import {separatorVariants} from "@heroui/styles";
-import React from "react";
+import React, {useMemo} from "react";
 import {SeparatorContext, Separator as SeparatorPrimitive} from "react-aria-components/Separator";
 import {useSlottedContext} from "react-aria-components/slots";
 
@@ -17,17 +17,22 @@ interface SeparatorRootProps
 const SeparatorRoot = ({className, orientation, variant, ...props}: SeparatorRootProps) => {
   const context = useSlottedContext(SeparatorContext);
   const resolvedOrientation = orientation ?? context?.orientation ?? "horizontal";
+  const resolvedClassName = useMemo(
+    () =>
+      separatorVariants({
+        className,
+        orientation: resolvedOrientation,
+        variant,
+      }),
+    [className, resolvedOrientation, variant],
+  );
 
   return (
     <SeparatorPrimitive
+      className={resolvedClassName}
       data-orientation={resolvedOrientation}
       data-slot="separator"
       orientation={resolvedOrientation}
-      className={separatorVariants({
-        orientation: resolvedOrientation,
-        variant,
-        className,
-      })}
       {...props}
     />
   );

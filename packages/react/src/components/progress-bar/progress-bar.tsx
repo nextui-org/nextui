@@ -9,7 +9,7 @@ import {progressBarVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {ProgressBar as ProgressBarPrimitive} from "react-aria-components/ProgressBar";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ const ProgressBarRoot = ({children, className, color, size, ...props}: ProgressB
     <ProgressBarPrimitive
       data-slot="progress-bar"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(values) => (
         <ProgressBarContext value={{slots, state: values}}>

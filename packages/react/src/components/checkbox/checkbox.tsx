@@ -16,7 +16,7 @@ import {
 } from "react-aria-components/Checkbox";
 import {LabelContext} from "react-aria-components/Label";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {CheckboxGroupContext} from "../checkbox-group/checkbox-group";
 
@@ -50,7 +50,7 @@ const CheckboxRoot = ({children, className, variant, ...props}: CheckboxRootProp
     <CheckboxFieldPrimitive
       data-slot="checkbox"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(state) => (
         <CheckboxContext value={{slots, state}}>
@@ -76,7 +76,7 @@ const CheckboxContent = ({children, className, ...props}: CheckboxContentProps) 
     <CheckboxButtonPrimitive
       data-slot="checkbox-content"
       {...props}
-      className={composeTwRenderProps(className, slots?.content())}
+      className={useResolvedClassName(className, slots?.content())}
     >
       {(state) => (
         <LabelContext value={LABEL_SPAN_CONTEXT}>

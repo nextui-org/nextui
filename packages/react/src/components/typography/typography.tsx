@@ -4,6 +4,7 @@ import type {TypographyVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef, ReactNode} from "react";
 
 import {typographyVariants} from "@heroui/styles";
+import {useMemo} from "react";
 import {Text as TextPrimitive} from "react-aria-components/Text";
 
 import {composeSlotClassName} from "../../utils/compose";
@@ -49,11 +50,18 @@ const TypographyRoot = ({
   weight,
   ...props
 }: TypographyRootProps) => {
-  const slots = typographyVariants({align, color, truncate, type, weight});
+  const slots = useMemo(
+    () => typographyVariants({align, color, truncate, type, weight}),
+    [align, color, truncate, type, weight],
+  );
+  const resolvedClassName = useMemo(
+    () => composeSlotClassName(slots.base, className),
+    [className, slots],
+  );
 
   return (
     <TextPrimitive
-      className={composeSlotClassName(slots.base, className)}
+      className={resolvedClassName}
       data-slot="typography"
       data-type={type}
       elementType={defaultElementByType[type]}
@@ -101,10 +109,14 @@ interface ProseProps extends Omit<ComponentPropsWithRef<"div">, "color"> {
 }
 
 const Prose = ({children, className, ...props}: ProseProps) => {
-  const slots = typographyVariants();
+  const slots = useMemo(() => typographyVariants(), []);
+  const resolvedClassName = useMemo(
+    () => composeSlotClassName(slots.prose, className),
+    [className, slots],
+  );
 
   return (
-    <div className={composeSlotClassName(slots.prose, className)} data-slot="prose" {...props}>
+    <div className={resolvedClassName} data-slot="prose" {...props}>
       {children}
     </div>
   );

@@ -15,7 +15,7 @@ import {
 } from "react-aria-components/Slider";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -54,7 +54,7 @@ const SliderRoot = ({
       data-slot="slider"
       orientation={orientation}
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(values) => (
         <SliderContext value={{slots, state: values}}>
@@ -77,12 +77,12 @@ const SliderOutput = ({children, className, ...props}: SliderOutputProps) => {
 
   return (
     <SliderOutputPrimitive
-      className={composeTwRenderProps(className, slots?.output())}
+      className={useResolvedClassName(className, slots?.output())}
       data-slot="slider-output"
       {...props}
     >
       {children
-        ? (values) => <>{typeof children === "function" ? children(values) : children}</>
+        ? children
         : ({state}) => state.values.map((_, i) => state.getThumbValueLabel(i)).join(" – ")}
     </SliderOutputPrimitive>
   );
@@ -111,7 +111,7 @@ const SliderTrack = ({children, className, ...props}: SliderTrackProps) => {
 
   return (
     <SliderTrackPrimitive
-      className={composeTwRenderProps(className, slots?.track())}
+      className={useResolvedClassName(className, slots?.track())}
       data-disabled={dataAttr(state?.isDisabled)}
       data-slot="slider-track"
       {...(singleThumb
@@ -125,7 +125,7 @@ const SliderTrack = ({children, className, ...props}: SliderTrackProps) => {
           })}
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </SliderTrackPrimitive>
   );
 };
@@ -191,11 +191,11 @@ const SliderThumb = ({children, className, ...props}: SliderThumbProps) => {
 
   return (
     <SliderThumbPrimitive
-      className={composeTwRenderProps(className, slots?.thumb())}
+      className={useResolvedClassName(className, slots?.thumb())}
       data-slot="slider-thumb"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </SliderThumbPrimitive>
   );
 };

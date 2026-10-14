@@ -4,10 +4,10 @@ import type {ButtonVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef} from "react";
 
 import {buttonVariants} from "@heroui/styles";
-import {use} from "react";
+import {use, useMemo} from "react";
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 import {BUTTON_GROUP_CHILD, ButtonGroupContext} from "../button-group";
 
 /* -------------------------------------------------------------------------------------------------
@@ -43,23 +43,28 @@ const ButtonRoot = ({
   const finalFullWidth =
     fullWidth ?? (shouldUseContext ? buttonGroupContext?.fullWidth : undefined);
 
-  const styles = buttonVariants({
-    fullWidth: finalFullWidth,
-    isIconOnly,
-    size: finalSize,
-    variant: finalVariant,
-  });
+  const styles = useMemo(
+    () =>
+      buttonVariants({
+        fullWidth: finalFullWidth,
+        isIconOnly,
+        size: finalSize,
+        variant: finalVariant,
+      }),
+    [finalFullWidth, finalSize, finalVariant, isIconOnly],
+  );
+  const resolvedClassName = useResolvedClassName(className, styles);
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, styles)}
+      className={resolvedClassName}
       data-slot="button"
       isDisabled={finalIsDisabled}
       slot={slot}
       style={style}
       {...rest}
     >
-      {(renderProps) => (typeof children === "function" ? children(renderProps) : children)}
+      {children}
     </ButtonPrimitive>
   );
 };

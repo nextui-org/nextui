@@ -17,7 +17,7 @@ import {
 import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {IconCalendar} from "../icons";
@@ -89,10 +89,10 @@ const DatePickerRoot = <T extends DateValue>({
         data-required={dataAttr(props.isRequired)}
         data-slot="date-picker"
         {...props}
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
         onOpenChange={handleOpenChange}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </DatePickerPrimitive>
     </DatePickerContext>
   );
@@ -122,11 +122,11 @@ const DatePickerTrigger = ({children, className, ref, ...props}: DatePickerTrigg
   return (
     <ButtonPrimitive
       ref={mergedRef}
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="date-picker-trigger"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </ButtonPrimitive>
   );
 };
@@ -201,7 +201,7 @@ const DatePickerPopover = ({
       <PopoverPrimitive
         {...props}
         ref={overlayRef}
-        className={composeTwRenderProps(className, slots?.popover())}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="date-picker-popover"
         defaultOpen={defaultOpen}
         isExiting={isExiting || isExitingProp}

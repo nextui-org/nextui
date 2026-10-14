@@ -7,7 +7,7 @@ import {textFieldVariants} from "@heroui/styles";
 import React, {createContext} from "react";
 import {TextField as TextFieldPrimitive} from "react-aria-components/TextField";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* ------------------------------------------------------------------------------------------------
  * TextField Context
@@ -34,18 +34,14 @@ const TextFieldRoot = ({children, className, fullWidth, variant, ...props}: Text
   const styles = React.useMemo(() => textFieldVariants({fullWidth}), [fullWidth]);
   const contextValue = React.useMemo(() => ({variant}), [variant]);
 
+  const resolvedClassName = useResolvedClassName(className, styles);
+
   return (
-    <TextFieldPrimitive
-      data-slot="textfield"
-      {...props}
-      className={composeTwRenderProps(className, styles)}
-    >
-      {(values) => (
-        <TextFieldContext value={contextValue}>
-          <>{typeof children === "function" ? children(values) : children}</>
-        </TextFieldContext>
-      )}
-    </TextFieldPrimitive>
+    <TextFieldContext value={contextValue}>
+      <TextFieldPrimitive data-slot="textfield" {...props} className={resolvedClassName}>
+        {children}
+      </TextFieldPrimitive>
+    </TextFieldContext>
   );
 };
 

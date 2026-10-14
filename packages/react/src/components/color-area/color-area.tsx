@@ -10,7 +10,7 @@ import {
   ColorThumb as ColorThumbPrimitive,
 } from "react-aria-components/ColorArea";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * ColorArea Context
@@ -35,7 +35,7 @@ const ColorAreaRoot = ({children, className, showDots, style, ...props}: ColorAr
     <ColorAreaContext value={contextValue}>
       <ColorAreaPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
         data-slot="color-area"
         style={(renderProps) => {
           const userStyle = typeof style === "function" ? style(renderProps) : style;
@@ -64,7 +64,7 @@ const ColorAreaThumb = ({className, style, ...props}: ColorAreaThumbProps) => {
 
   return (
     <ColorThumbPrimitive
-      className={composeTwRenderProps(className, slots?.thumb())}
+      className={useResolvedClassName(className, slots?.thumb())}
       data-slot="color-area-thumb"
       style={(renderProps) => {
         const userStyle = typeof style === "function" ? style(renderProps) : style;

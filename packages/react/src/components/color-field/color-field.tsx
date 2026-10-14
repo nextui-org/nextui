@@ -9,7 +9,7 @@ import React from "react";
 import {ColorField as ColorFieldPrimitive} from "react-aria-components/ColorField";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * ColorField Root
@@ -25,9 +25,9 @@ function ColorFieldRoot({children, className, fullWidth, ...props}: ColorFieldRo
       data-required={dataAttr(props.isRequired)}
       data-slot="color-field"
       {...props}
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </ColorFieldPrimitive>
   );
 }

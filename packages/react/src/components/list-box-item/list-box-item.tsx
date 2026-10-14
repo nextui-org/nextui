@@ -9,7 +9,7 @@ import {listboxItemVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {ListBoxItem as ListBoxItemPrimitive} from "react-aria-components/ListBox";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils";
+import {composeSlotClassName, useResolvedClassName} from "../../utils";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -35,7 +35,7 @@ const ListBoxItemRoot = ({children, className, variant, ...props}: ListBoxItemRo
 
   return (
     <ListBoxItemPrimitive
-      className={composeTwRenderProps(className, slots.item())}
+      className={useResolvedClassName(className, slots.item())}
       data-slot="list-box-item"
       {...props}
     >

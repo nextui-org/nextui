@@ -22,7 +22,7 @@ import {Group as GroupPrimitive} from "react-aria-components/Group";
 
 import {dataAttr} from "../../utils/assertion";
 import {createCollectionSlot} from "../../utils/collection-prop-injection";
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
@@ -83,9 +83,9 @@ const ComboBoxRoot = <T extends object = object, M extends "single" | "multiple"
           data-slot="combo-box"
           menuTrigger={menuTrigger}
           {...props}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
         >
-          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+          {children}
         </ComboBoxPrimitive>
       </ComboBoxContext>
     </FieldSlotsGate>
@@ -152,7 +152,7 @@ const ComboBoxValue = <T extends object = object>({
 
   return (
     <ComboBoxValuePrimitive
-      className={composeTwRenderProps(className, slots?.value())}
+      className={useResolvedClassName(className, slots?.value())}
       data-slot="combo-box-value"
       {...props}
     >
@@ -176,11 +176,13 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
   const state = use(ComboBoxStateContext);
   const isHidden = useIsHidden();
   const [inputGroupProps, restProps] = inputGroupSlot.useSlot(props);
+  const triggerClassName = useResolvedClassName(className, slots?.trigger());
+  const inputGroupClassName = useResolvedClassName(inputGroupProps?.className, slots?.inputGroup());
 
   if (!inputGroupProps) {
     return (
       <Button
-        className={composeTwRenderProps(className, slots?.trigger())}
+        className={triggerClassName}
         data-open={dataAttr(state?.isOpen)}
         data-slot="combo-box-trigger"
         {...restProps}
@@ -194,17 +196,12 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
     return null;
   }
 
-  const {
-    className: containerClassName,
-    render: containerRender,
-    siblings = EMPTY_SIBLINGS,
-    ...containerRest
-  } = inputGroupProps;
+  const {render: containerRender, siblings = EMPTY_SIBLINGS, ...containerRest} = inputGroupProps;
 
   return (
     <GroupPrimitive
       {...(containerRest as ComponentPropsWithRef<typeof GroupPrimitive>)}
-      className={composeTwRenderProps(containerClassName, slots?.inputGroup())}
+      className={inputGroupClassName}
       data-slot="combo-box-input-group"
       render={(renderProps) => {
         const {
@@ -224,7 +221,7 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
           >
             {siblings}
             <Button
-              className={composeTwRenderProps(className, slots?.trigger())}
+              className={triggerClassName}
               data-open={dataAttr(state?.isOpen)}
               data-slot="combo-box-trigger"
               {...restProps}
@@ -276,7 +273,7 @@ const ComboBoxPopover = ({
       <PopoverPrimitive
         {...props}
         ref={overlayRef}
-        className={composeTwRenderProps(className, slots?.popover())}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="combo-box-popover"
         defaultOpen={defaultOpen}
         isExiting={isExiting || isExitingProp}

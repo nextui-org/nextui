@@ -15,7 +15,7 @@ import {
   SubmenuTrigger as SubmenuTriggerPrimitive,
 } from "react-aria-components/Menu";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {MenuItemIndicator, MenuItemRoot, MenuItemSubmenuIndicator} from "../menu-item";
 import {MenuSectionRoot} from "../menu-section";
@@ -69,11 +69,11 @@ const DropdownTrigger = ({children, className, ...props}: DropdownTriggerProps) 
 
   return (
     <Button
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="dropdown-trigger"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </Button>
   );
 };
@@ -125,7 +125,7 @@ const DropdownPopover = ({
       <PopoverPrimitive
         {...props}
         ref={overlayRef}
-        className={composeTwRenderProps(className, slots?.popover())}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="dropdown-popover"
         defaultOpen={defaultOpen}
         isExiting={isExiting || isExitingProp}
@@ -154,7 +154,7 @@ function DropdownMenu<T extends object>({className, ...props}: DropdownMenuProps
 
   return (
     <MenuPrimitive
-      className={composeTwRenderProps(className, slots?.menu())}
+      className={useResolvedClassName(className, slots?.menu())}
       data-selection-mode={props.selectionMode}
       data-slot="dropdown-menu"
       {...props}

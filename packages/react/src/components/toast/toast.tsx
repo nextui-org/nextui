@@ -32,7 +32,7 @@ import {
 import {useMeasuredHeight} from "../../hooks/use-measured-height";
 import {useSafeLayoutEffect} from "../../hooks/use-safe-layout-effect";
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {Button} from "../button";
 import {CloseButton} from "../close-button";
@@ -321,7 +321,7 @@ const Toast = <T extends object = ToastContentValue>({
     <ToastPrimitive
       {...rest}
       ref={mergedRef}
-      className={composeTwRenderProps(className, slots?.toast({variant}))}
+      className={useResolvedClassName(className, slots?.toast({variant}))}
       data-entering={dataAttr(isEntering)}
       data-exiting={dataAttr(isExiting)}
       data-expanded={dataAttr(isExpanded)}
@@ -476,7 +476,7 @@ const ToastCloseButton = ({className, ...rest}: ToastCloseButtonProps) => {
   return (
     <CloseButton
       {...rest}
-      className={composeTwRenderProps(className, slots?.close())}
+      className={useResolvedClassName(className, slots?.close())}
       data-slot="toast-close"
       slot="close"
     />
@@ -496,7 +496,7 @@ const ToastActionButton = ({children, className, ...rest}: ToastActionButtonProp
   return (
     <Button
       {...rest}
-      className={composeTwRenderProps(className, slots?.action?.())}
+      className={useResolvedClassName(className, slots?.action?.())}
       data-slot="toast-action-button"
     >
       {children}
@@ -917,7 +917,7 @@ const ToastProvider = <T extends object = ToastContentValue>({
     <ToastRegionPrimitive<T>
       {...rest}
       ref={handleRegionRef as ToastRegionPrimitiveProps<T>["ref"]}
-      className={composeTwRenderProps(className, slots?.region())}
+      className={useResolvedClassName(className, slots?.region())}
       data-expanded={dataAttr(isExpanded)}
       data-slot="toast-region"
       queue={toastQueue}

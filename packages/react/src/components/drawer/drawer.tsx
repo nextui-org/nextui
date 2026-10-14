@@ -23,7 +23,7 @@ import {
   Modal as ModalPrimitive,
 } from "react-aria-components/Modal";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {CloseButton} from "../close-button";
 import {SurfaceContext} from "../surface";
@@ -261,7 +261,7 @@ const DrawerTrigger = ({children, className, ...props}: DrawerTriggerProps) => {
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="drawer-trigger"
       {...props}
     >
@@ -302,7 +302,7 @@ const DrawerBackdrop = ({
 
   return (
     <ModalOverlayPrimitive
-      className={composeTwRenderProps(className, updatedSlots?.backdrop())}
+      className={useResolvedClassName(className, updatedSlots?.backdrop())}
       data-slot="drawer-backdrop"
       isDismissable={isDismissable}
       {...props}
@@ -345,7 +345,7 @@ const DrawerContent = ({
 
   return (
     <ModalPrimitive
-      className={composeTwRenderProps(className, updatedSlots?.content())}
+      className={useResolvedClassName(className, updatedSlots?.content())}
       data-placement={placement}
       data-slot="drawer-content"
       {...props}
@@ -545,7 +545,7 @@ const DrawerCloseTrigger = ({className, ...rest}: DrawerCloseTriggerProps) => {
 
   return (
     <CloseButton
-      className={composeTwRenderProps(className, slots?.closeTrigger())}
+      className={useResolvedClassName(className, slots?.closeTrigger())}
       data-slot="drawer-close-trigger"
       slot="close"
       {...rest}

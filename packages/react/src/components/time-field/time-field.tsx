@@ -9,7 +9,7 @@ import React from "react";
 import {TimeField as TimeFieldPrimitive} from "react-aria-components/TimeField";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * TimeField Root
@@ -30,9 +30,9 @@ function TimeFieldRoot<T extends TimeValue>({
       data-required={dataAttr(props.isRequired)}
       data-slot="time-field"
       {...props}
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </TimeFieldPrimitive>
   );
 }

@@ -15,7 +15,7 @@ import {
   Popover as PopoverPrimitive,
 } from "react-aria-components/Popover";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {SurfaceContext} from "../surface";
 
@@ -68,11 +68,11 @@ const ColorPickerTrigger = ({children, className, ...props}: ColorPickerTriggerP
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="color-picker-trigger"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </ButtonPrimitive>
   );
 };
@@ -115,7 +115,7 @@ const ColorPickerPopover = ({
       <PopoverPrimitive
         {...props}
         ref={overlayRef}
-        className={composeTwRenderProps(className, slots?.popover())}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="color-picker-popover"
         defaultOpen={defaultOpen}
         isExiting={isExiting || isExitingProp}

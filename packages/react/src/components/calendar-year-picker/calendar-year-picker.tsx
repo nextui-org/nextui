@@ -11,7 +11,7 @@ import {useCalendarHeading, useCalendarYearPicker} from "react-aria/useCalendar"
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
 
 import {getYearRange} from "../../utils/calendar";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronRight} from "../icons";
 
@@ -129,7 +129,7 @@ const CalendarYearPickerTrigger = ({
       <ButtonPrimitive
         aria-expanded={isYearPickerOpen}
         aria-label={`${monthYear}, year selector`}
-        className={composeTwRenderProps(className, slots.trigger())}
+        className={useResolvedClassName(className, slots.trigger())}
         data-open={isYearPickerOpen || undefined}
         data-slot="calendar-year-picker-trigger"
         slot={null}
@@ -596,7 +596,7 @@ const CalendarYearPickerCell = ({
     <ButtonPrimitive
       aria-label={formattedYear}
       aria-selected={isSelected}
-      className={composeTwRenderProps(className, slots.yearCell())}
+      className={useResolvedClassName(className, slots.yearCell())}
       data-selected={isSelected || undefined}
       data-slot="calendar-year-picker-year-cell"
       data-year={year}
