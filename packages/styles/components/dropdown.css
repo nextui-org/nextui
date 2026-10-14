@@ -49,7 +49,13 @@
 
 /* Similar to select popover styles */
 .dropdown__popover {
-  @apply max-w-[48svw] origin-(--trigger-anchor-point) scroll-py-1 scrollbar overflow-y-auto overscroll-contain bg-overlay p-0 text-sm md:min-w-55;
+  @apply origin-(--trigger-anchor-point) scroll-py-1 scrollbar overflow-y-auto overscroll-contain bg-overlay p-0 text-sm;
+  /*
+   * Same floor as min-w-55 on every viewport, capped to the screen minus a 2rem
+   * inset. 48svw was narrower than that floor on a phone and collapsed row icons.
+   */
+  min-width: min(calc(var(--spacing) * 55), 100%, calc(100svw - 2rem));
+  max-width: min(100%, calc(100svw - 2rem));
   border-radius: min(32px, calc(var(--radius-2xl) + var(--spacing) * 1.5));
   box-shadow: var(--overlay-shadow);
 

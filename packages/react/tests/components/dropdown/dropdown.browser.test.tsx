@@ -1,7 +1,12 @@
 import {render} from "@heroui/testing/browser";
 import {page, userEvent} from "vitest/browser";
 
-import {DropdownFixture, DropdownToModalFixture, ModalWithDropdownFixture} from "./fixtures";
+import {
+  DropdownFixture,
+  DropdownToModalFixture,
+  ModalWithDropdownFixture,
+  NarrowViewportDropdownFixture,
+} from "./fixtures";
 
 import "@/styles.css";
 
@@ -201,5 +206,36 @@ describe("Dropdown (browser)", () => {
 
       expect(popover.contains(topmostElementOver(popover))).toBe(true);
     });
+  });
+
+  /**
+   * A 48svw cap is 187px on a 390px screen, under the 220px floor used from md up,
+   * so a row that wants ~256px collapses its icon.
+   */
+  it("renders the menu wide enough for row icons on a narrow viewport", async () => {
+    await page.viewport(390, 844);
+    onTestFinished(async () => {
+      await page.viewport(1280, 720);
+    });
+
+    try {
+      await render(<NarrowViewportDropdownFixture />);
+
+      await page.getByRole("button", {name: "Menu"}).click();
+      await expect.element(page.getByRole("menuitem", {name: "System theme"})).toBeVisible();
+
+      const popover = getDropdownPopover();
+      const icon = popover.querySelector("svg");
+
+      await Promise.all(popover.getAnimations().map((animation) => animation.finished));
+
+      expect(popover.offsetWidth).toBeGreaterThanOrEqual(256);
+      expect(popover.offsetWidth).toBeLessThanOrEqual(390 - 32);
+      expect(icon).not.toBeNull();
+      expect(icon!.getBoundingClientRect().width).toBeCloseTo(16, 0);
+    } finally {
+      await userEvent.keyboard("{Escape}");
+      await page.viewport(1280, 720);
+    }
   });
 });
