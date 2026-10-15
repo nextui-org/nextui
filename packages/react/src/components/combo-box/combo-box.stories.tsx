@@ -230,7 +230,7 @@ export const WithSections: Story = {
               <ListBox.ItemIndicator />
             </ListBox.Item>
           </ListBox.Section>
-          <Separator />
+          <Separator isDecorative />
           <ListBox.Section>
             <Header>Europe</Header>
             <ListBox.Item id="uk" textValue="United Kingdom">
@@ -254,7 +254,7 @@ export const WithSections: Story = {
               <ListBox.ItemIndicator />
             </ListBox.Item>
           </ListBox.Section>
-          <Separator />
+          <Separator isDecorative />
           <ListBox.Section>
             <Header>Asia</Header>
             <ListBox.Item id="japan" textValue="Japan">

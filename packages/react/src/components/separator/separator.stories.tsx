@@ -11,6 +11,9 @@ const meta: Meta<typeof Separator> = {
     layout: "centered",
   },
   argTypes: {
+    isDecorative: {
+      control: "boolean",
+    },
     orientation: {
       control: {type: "radio"},
       options: ["horizontal", "vertical"],
@@ -48,6 +51,19 @@ export const Vertical: Story = {
       <div>Docs</div>
       <Separator orientation="vertical" />
       <div>Source</div>
+    </div>
+  ),
+};
+
+export const Decorative: Story = {
+  args: {
+    isDecorative: true,
+  },
+  render: (args) => (
+    <div className="flex h-5 items-center gap-4">
+      <span>Blog</span>
+      <Separator {...args} orientation="vertical" />
+      <span>Docs</span>
     </div>
   ),
 };

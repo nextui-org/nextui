@@ -113,7 +113,7 @@ export const WithSections: Story = {
             </Kbd>
           </ListBox.Item>
         </ListBox.Section>
-        <Separator />
+        <Separator isDecorative />
         <ListBox.Section>
           <Header>Danger zone</Header>
           <ListBox.Item id="delete-file" textValue="Delete file" variant="danger">
@@ -175,7 +175,7 @@ export const WithDisabledItems: Story = {
             </Kbd>
           </ListBox.Item>
         </ListBox.Section>
-        <Separator />
+        <Separator isDecorative />
         <ListBox.Section>
           <Header>Danger zone</Header>
           <ListBox.Item id="delete-file" textValue="Delete file" variant="danger">
