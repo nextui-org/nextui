@@ -273,6 +273,16 @@ const CustomStyleTemplate = (args: Story["args"]) => {
             </Tabs.Tab>
           </Tabs.List>
         </Tabs.ListContainer>
+        {[
+          ["daily", "Daily activity"],
+          ["weekly", "Weekly activity"],
+          ["bi-weekly", "Bi-weekly activity"],
+          ["monthly", "Monthly activity"],
+        ].map(([id, label]) => (
+          <Tabs.Panel key={id} className="pt-4" id={id}>
+            {label}
+          </Tabs.Panel>
+        ))}
       </Tabs>
     </div>
   );
@@ -400,7 +410,7 @@ const SecondaryVerticalTemplate = (args: Story["args"]) => {
 };
 
 const Showcase1Template = (args: Story["args"]) => {
-  const DEFAULT_ZOOM = 200;
+  const DEFAULT_ZOOM = "200";
   const [selectedZoom, setSelectedZoom] = React.useState<Key>(DEFAULT_ZOOM);
 
   const zoomLevels = [200, 100, 48, 35, 28, 24, 13, "macro"];
@@ -432,37 +442,42 @@ const Showcase1Template = (args: Story["args"]) => {
 
   return (
     <div className="w-full">
-      <div className="flex flex-col items-center">
-        <div className="relative aspect-[7/5] w-full max-w-[840px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
+      <Tabs
+        {...args}
+        className="flex flex-col items-center gap-0"
+        selectedKey={selectedZoom}
+        onSelectionChange={setSelectedZoom}
+      >
+        <Tabs.ListContainer className="scrollbar-hide my-4 w-fit max-w-full overflow-x-auto bg-transparent sm:my-6">
+          <Tabs.List
+            aria-label="Options"
+            className="w-fit min-w-min rounded-full bg-[#333336] *:h-8 *:w-fit *:px-3 *:text-xs *:font-normal *:text-white *:opacity-80 *:hover:opacity-100 *:data-[selected=true]:text-black sm:*:h-9 sm:*:px-4 sm:*:text-sm"
+          >
+            {zoomLevels.map((zoom) => (
+              <Tabs.Tab
+                key={zoom}
+                className={zoom === "macro" ? "capitalize" : ""}
+                id={zoom.toString()}
+              >
+                {zoom} {zoom === "macro" ? "" : "mm"}
+                <Tabs.Indicator className="rounded-full bg-white shadow-none duration-[320ms]" />
+              </Tabs.Tab>
+            ))}
+          </Tabs.List>
+        </Tabs.ListContainer>
+        <div className="relative order-first aspect-[7/5] w-full max-w-[840px] sm:h-[400px] md:h-[500px] lg:h-[600px]">
           {Object.keys(zoomImgMap).map((key) => (
-            <img
-              key={key}
-              aria-hidden={selectedZoom !== key}
-              className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity delay-200 duration-[800ms] ease-in-out data-[selected=true]:opacity-100 data-[selected=true]:delay-0"
-              data-selected={selectedZoom === key}
-              src={zoomImgMap[key]}
-            />
+            <Tabs.Panel key={key} shouldForceMount className="absolute inset-0" id={key}>
+              <img
+                alt={`Camera sample at ${zoomXMap[key]} zoom`}
+                aria-hidden={selectedZoom !== key}
+                className="absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity delay-200 duration-[800ms] ease-in-out data-[selected=true]:opacity-100 data-[selected=true]:delay-0"
+                data-selected={selectedZoom === key}
+                src={zoomImgMap[key]}
+              />
+            </Tabs.Panel>
           ))}
         </div>
-        <Tabs {...args} defaultSelectedKey={DEFAULT_ZOOM} onSelectionChange={setSelectedZoom}>
-          <Tabs.ListContainer className="scrollbar-hide my-4 w-full max-w-full overflow-x-auto bg-transparent sm:my-6">
-            <Tabs.List
-              aria-label="Options"
-              className="w-fit min-w-min rounded-full bg-[#333336] *:h-8 *:w-fit *:px-3 *:text-xs *:font-normal *:text-white *:opacity-80 *:hover:opacity-100 *:data-[selected=true]:text-black sm:*:h-9 sm:*:px-4 sm:*:text-sm"
-            >
-              {zoomLevels.map((zoom) => (
-                <Tabs.Tab
-                  key={zoom}
-                  className={zoom === "macro" ? "capitalize" : ""}
-                  id={zoom.toString()}
-                >
-                  {zoom} {zoom === "macro" ? "" : "mm"}
-                  <Tabs.Indicator className="rounded-full bg-white shadow-none duration-[320ms]" />
-                </Tabs.Tab>
-              ))}
-            </Tabs.List>
-          </Tabs.ListContainer>
-        </Tabs>
         <div className="relative h-10 w-10">
           {Object.keys(zoomXMap).map((key) => (
             <p
@@ -485,7 +500,7 @@ const Showcase1Template = (args: Story["args"]) => {
             Showcase based on Apple&apos;s iPhone 17 Pro camera zoom showcase
           </a>
         </footer>
-      </div>
+      </Tabs>
     </div>
   );
 };
