@@ -1,15 +1,15 @@
 ---
 title: v3.2.7
-description: React Aria 升级至 1.22.1（react-aria@3.53.1），降低组件渲染开销，加快浮层开关，浏览器自动填充下保留字段变体颜色，并修复 CloseButton 的 aria-label、窄屏 Dropdown 宽度、Toast 与其他组件问题。
+description: React Aria 升级至 1.22.1（react-aria@3.53.1），降低渲染开销，改进分隔线、浮层、日历与分组的无障碍语义，使 Storybook 示例支持响应式布局，并修复 Dropdown、ComboBox、Toast 与字段自动填充问题。
 github:
   pull: 6892
 ---
 
 <div className="flex items-center gap-3 mb-6">
-  <span className="text-sm text-muted">2026 年 10 月 14 日</span>
+  <span className="text-sm text-muted">2026 年 10 月 15 日</span>
 </div>
 
-React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。组件现在会避免不必要的 render prop 类名计算并缓存稳定样式，从而降低按钮、表单、集合、浮层、日历等组件的渲染开销。[CloseButton](/docs/components/close-button) 不再硬编码 `aria-label="Close"`，因此通过 slot 传入的标签（例如已本地化的 [Toast](/docs/components/toast) 关闭按钮）不会被覆盖。浮层在中端手机上打开与关闭更快；[Dropdown](/docs/components/dropdown) 菜单在窄屏上保持可用宽度；浏览器自动填充时，次要 [Input](/docs/components/input) 与分组字段仍保留各自的变体底色；[Toast](/docs/components/toast) 在 iOS Safari 上以及在已展开堆叠内动态新增时布局更稳定。本版本还让列表浮层圆角与选项内边距对齐，避免选择指示器压住短标签，修正 [Dropdown](/docs/components/dropdown) 子菜单内边距与分区触发器图标，让 [Calendar](/docs/components/calendar) 星期标题等宽分列，并包含针对 [AvatarGroup](/docs/components/avatar-group)、[Checkbox](/docs/components/checkbox) 与 [ScrollShadow](/docs/components/scroll-shadow) 的后续修复。
+React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。组件现在会避免不必要的 render prop 类名计算并缓存稳定样式，从而降低按钮、表单、集合、浮层、日历等组件的渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例的语义。[CloseButton](/docs/components/close-button) 保留 slot 传入的标签；浮层在中端手机上开关更快；[Dropdown](/docs/components/dropdown) 菜单在窄屏上保持可用宽度；[ComboBox](/docs/components/combo-box) 可让键盘聚焦的选项保持在可视区域；浏览器自动填充时字段仍保留变体底色；[Toast](/docs/components/toast) 在 iOS Safari 与已展开堆叠内布局更稳定。Storybook 示例也能适配更小的视口。
 
 ## 安装
 
@@ -56,6 +56,7 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`rea
 - **CloseButton**：不再在 React Aria `Button` 上硬编码 `aria-label="Close"`。显式传入的 `aria-label` 与 slot 上下文标签（Toast 的 `close`、SearchField 的 `clear`、Tag 的 `remove`）不再被覆盖 ([#6946](https://github.com/heroui-inc/heroui/pull/6946))。
 - **Toast**：在 iOS Safari 上收起底部区域锚点，使堆叠 Toast 与安全区域对齐 ([#6936](https://github.com/heroui-inc/heroui/pull/6936))。用 CSS Grid 布局替代 `useMediaQuery` 操作区定位 ([#6932](https://github.com/heroui-inc/heroui/pull/6932))。用 `offsetHeight` 代替 `scrollHeight` 测量堆叠高度，在已展开堆叠内动态新增 Toast 时指示器与标题保持对齐 ([#6952](https://github.com/heroui-inc/heroui/pull/6952))。
 - **Dropdown**：子菜单项起始内边距与菜单内边距刻度对齐 ([#6941](https://github.com/heroui-inc/heroui/pull/6941))。居中 with-sections 示例中的触发器图标 ([#6944](https://github.com/heroui-inc/heroui/pull/6944))。在窄屏上让菜单保持足以容纳选项与图标的宽度，同时不超过视口可用宽度 ([#6957](https://github.com/heroui-inc/heroui/pull/6957))。
+- **ComboBox**：将滚动保留在受输入框控制的列表框上，而不是外层浮层，使键盘导航与虚拟焦点能够显示所有选项 ([#6959](https://github.com/heroui-inc/heroui/pull/6959))。
 - **Calendar**：星期标题标签保持等宽列 ([#6925](https://github.com/heroui-inc/heroui/pull/6925))。
 - **浮层**：在中端手机上加快打开与关闭。进入与退出动画仅使用 opacity 与 transform（不再使用 `filter` 关键帧）；触控设备上带模糊的 Modal 与 Drawer 遮罩跳过 `backdrop-filter`；WebKit 在关闭动画真正运行前保持 Popover 挂载；粗指针设备在 [Dropdown](/docs/components/dropdown) 定位完成后立即显示菜单，而不再等待键盘检测；滑走关闭的 [Drawer](/docs/components/drawer) 会清除内联 `transition: none`，使退出过渡正常播放 ([#6934](https://github.com/heroui-inc/heroui/pull/6934))。
 - **列表浮层**：[Select](/docs/components/select)、[Dropdown](/docs/components/dropdown)、[Autocomplete](/docs/components/autocomplete) 与 [ComboBox](/docs/components/combo-box) 的外层圆角与选项内边距对齐 ([#6916](https://github.com/heroui-inc/heroui/pull/6916))。
@@ -74,9 +75,20 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`rea
 
 ## 组件
 
+- **Separator**：新增 `isDecorative`，用于纯视觉分隔线。装饰性分隔线使用呈现性语义并对辅助技术隐藏，同时保留视觉样式与自定义渲染支持 ([#6959](https://github.com/heroui-inc/heroui/pull/6959))。
 - **渲染性能**：静态类名不再经过 render prop 解析，并缓存变体输出与合并后的类名，同时将 children 直接传给 React Aria 原语。这在保留函数形式 `className` 与 children API 的同时，减少了按钮、表单、选择控件、浮层、日期与颜色输入、集合、导航和展示组件中的额外工作 ([#6947](https://github.com/heroui-inc/heroui/pull/6947))。
 - **displayName**：将组件各部分的 `displayName` 设为 `HeroUI.Component.SubPart`，并修正 7 个不一致的名称 ([#6879](https://github.com/heroui-inc/heroui/pull/6879))。
 - **EmptyState**：补上缺失的 `"use client"` 指令 ([#6879](https://github.com/heroui-inc/heroui/pull/6879))。
+
+## 无障碍
+
+- **浮层与日期选择器**：保留自定义渲染行为，同时移除通用浮层容器上失去关联的无障碍名称属性。[DatePicker](/docs/components/date-picker) 与 [DateRangePicker](/docs/components/date-range-picker) 现在会把对话框标签传给 React Aria 自动生成的对话框容器 ([#6959](https://github.com/heroui-inc/heroui/pull/6959))。
+- **日历与分组**：[Calendar](/docs/components/calendar) 与 [RangeCalendar](/docs/components/range-calendar) 的标题区域改用中性容器，避免创建嵌套的 banner 地标。嵌套的 [ToggleButtonGroup](/docs/components/toggle-button-group) 不再为 `group` role 暴露不支持的 `aria-orientation` ([#6959](https://github.com/heroui-inc/heroui/pull/6959))。
+- **示例**：改进 Storybook stories 中的无障碍名称与语义，将纯视觉分隔线标记为装饰性，并把标签页与其内容面板关联起来 ([#6959](https://github.com/heroui-inc/heroui/pull/6959))。
+
+## Storybook
+
+- **响应式示例**：通过响应式尺寸、间距、换行与布局行为，让组件和颜色示例适配更小的视口 ([#6958](https://github.com/heroui-inc/heroui/pull/6958))。
 
 ## 链接
 
