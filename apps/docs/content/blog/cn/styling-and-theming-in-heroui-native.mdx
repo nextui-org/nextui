@@ -1,0 +1,267 @@
+---
+title: "HeroUI Native 的样式与主题机制"
+description: "了解 HeroUI Native 为什么为 React Native 提供真正的 CSS 文件、设计 tokens 如何自动派生各种状态，以及 Pro 主题如何在无需 fork 组件的情况下改变其外观。"
+date: "2026-07-31"
+author: "Volodymyr Serbulenko"
+authorHandle: "@v_serbulenko"
+authorUrl: "https://x.com/v_serbulenko"
+authorAvatar: "https://avatars.githubusercontent.com/u/115154506?v=4"
+tags: ["native", "react-native", "styling", "theming", "css", "design-system"]
+image: "https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/blog/heroui-native-styling.jpg"
+---
+
+大多数 React Native 组件库都在 JavaScript 中定义外观。组件的样式可能写在 `StyleSheet.create` 调用中、styled-components 模板里，或是通过 React context 层层传递的主题对象中。这些方式都能奏效，但有两件事做起来并不顺手：在不 fork 组件库的情况下覆盖其内部样式，以及将一套截然不同的视觉主题打包成可安装的资源。
+
+HeroUI Native 选择了另一条路。组件外观定义在随包发布的真正的 `.css` 文件中，而主题机制则从头到尾都基于 CSS 变量。本文将介绍这一选择背后的原则，以及它们如何实现一种不常见的能力：将完整的视觉风格 —— 甚至包括并非由你编写的组件内部细节 —— 打包成一份可安装的样式表。
+
+## React Native 组件库中的 CSS
+
+HeroUI Native 基于 [Uniwind](https://docs.uniwind.dev) 构建，后者将 Tailwind CSS v4 带到了 React Native。Uniwind 接入 Metro 打包工具，读取 CSS 入口文件，并解析 React Native 视图上的 `className`。样式表不会在设备运行时解析 —— CSS 在应用打包时就已处理完毕。
+
+这带来了真正的 CSS 编写能力。安装组件库只需安装依赖包，再在 CSS 入口文件中添加一条导入语句：
+
+```css
+/* global.css */
+@import "tailwindcss";
+@import "uniwind";
+@import "heroui-native/styles";
+
+@source "./node_modules/heroui-native/lib";
+```
+
+这一条导入语句就会引入整个样式系统：设计 tokens、浅色和深色主题、自定义工具类，以及所有组件的 CSS。此后，`className` 就是主要的样式 API：
+
+```tsx
+import {View, Text} from "react-native";
+
+<View className="bg-background flex-1 px-4">
+  <Text className="text-foreground text-lg">Your app content</Text>
+</View>;
+```
+
+关键不只是 Tailwind 类名能在 React Native 中使用，而是组件库自身的样式也用同样的 CSS 编写，存放在你可以阅读和覆盖的文件里，而非编译成只能通过 props 访问的 JavaScript 对象。
+
+## 三层设计 tokens
+
+主题系统分为三层，将它们分开是降低自定义成本的关键。
+
+**第一层是基础值。** 这些值不会随主题变化：固定颜色、基础边框宽度、基础圆角，以及禁用状态的不透明度。
+
+```css
+@theme {
+  --white: oklch(100% 0 0);
+  --radius: 0.5rem;
+  --border-width: 1px;
+  --opacity-disabled: 0.5;
+}
+```
+
+**第二层是各主题的语义变量。** 这些变量描述的是*用途*，而非具体数值 —— 背景、表面、强调色、危险状态等，每个主题都会重新定义它们：
+
+```css
+@layer theme {
+  :root {
+    @variant light {
+      --background: oklch(0.9702 0 0);
+      --surface: var(--white);
+      --accent: oklch(0.6204 0.195 253.83);
+    }
+
+    @variant dark {
+      --background: oklch(12% 0.005 285.823);
+      --surface: oklch(0.2103 0.0059 285.89);
+      --accent: oklch(0.6204 0.195 253.83);
+    }
+  }
+}
+```
+
+**第三层是派生层。** 这一层最能体现系统的价值。语义变量会映射到 Tailwind 的颜色命名空间，让 `bg-accent` 这样的工具类能够生效；与此同时，每种颜色的各种*状态*也会据此计算出来：
+
+```css
+@theme inline static {
+  --color-accent: var(--accent);
+  --color-accent-hover: color-mix(in oklab, var(--accent) 90%, var(--accent-foreground) 10%);
+  --color-accent-soft: color-mix(in oklab, var(--accent) 15%, transparent);
+  --color-accent-soft-hover: color-mix(in oklab, var(--accent) 20%, transparent);
+}
+```
+
+原则很简单：**只需定义一次颜色，就能自动获得它的整套衍生配色。** 在应用中覆盖 `--accent`，按下状态、柔和背景、柔和前景以及柔和配色的按下状态都会随之变化。组件库无需预先知道你的品牌色。
+
+同样的思路也适用于形状尺寸。圆角尺寸体系由一个基础值派生而来，因此修改一个变量，就能按比例调整整个系统中的所有圆角：
+
+```css
+--radius-lg: calc(var(--radius) * 1);
+--radius-xl: calc(var(--radius) * 1.5);
+--radius-3xl: calc(var(--radius) * 3);
+```
+
+使用 OKLCH 定义颜色、使用 OKLab 混合颜色，是有意为之。基于感知的色彩空间能让派生出的悬停状态保持一致的视觉效果，无论基础色是浅黄色还是高饱和度的蓝色。当基础色由你从未见过的用户提供时，这正是所需的特性。
+
+## 前景色配对规则
+
+一个命名约定就能解决很多问题。不带后缀的变量表示背景色；同名变量加上 `-foreground` 后缀，则表示应当显示在该背景之上的前景色。
+
+例如 `--accent` 与 `--accent-foreground`、`--surface` 与 `--surface-foreground`、`--danger` 与 `--danger-foreground`。
+
+这样，对比度就成了每个主题在设计时只需做一次的决定，无需在每个组件中反复判断。编写自定义主题时，只要提供每组配对的两个值，所有使用该语义角色的组件就会自动获得清晰可读的文本。
+
+## 组件样式写在 CSS 中
+
+每个组件都有一份样式表，其中的类名描述了组件的结构与变体：
+
+```css
+.button__root--variant-primary {
+  background-color: var(--color-accent);
+}
+
+.button__root--size-sm {
+  height: calc(var(--spacing) * 10);
+  padding-inline: calc(var(--spacing) * 3.5);
+  border-radius: var(--radius-3xl);
+}
+```
+
+TypeScript 不负责生成这些样式，而是使用 [tailwind-variants](https://tailwind-variants.org/) 选择要应用的样式：
+
+```ts
+const root = tv({
+  base: "button__root",
+  variants: {
+    variant: {
+      primary: "button__root--variant-primary",
+      secondary: "button__root--variant-secondary",
+    },
+    size: {
+      sm: "button__root--size-sm",
+      md: "button__root--size-md",
+    },
+  },
+});
+```
+
+因此，CSS 是外观的唯一依据，TypeScript 则负责将 props 映射到相应的样式。这带来了两个结果。
+
+首先，重新设计样式可以直接从已有规则入手，无需不断叠加额外的样式机制。组件自身的类就是普通 CSS，调整某个变体只需为它编写 CSS —— 不必与内联样式对象对抗，也不必等待组件库新增某个 prop。
+
+其次，变体映射是公开的。每个组件都会导出自己的 `classNames` 对象，因此你可以构建与组件库外观完全一致的基础组件：
+
+```tsx
+import {buttonClassNames, cn} from "heroui-native";
+import {Pressable, Text} from "react-native";
+
+<Pressable className={cn(buttonClassNames.root({variant: "primary", size: "md"}))}>
+  <Text className={buttonClassNames.label({variant: "primary", size: "md"})}>Continue</Text>
+</Pressable>;
+```
+
+自定义链接、可按压的自定义列表行、第三方控件的封装 —— 都能直接采用完全相同的按钮样式，无需从组件库中复制具体的样式值。
+
+并非所有样式都适合放在 CSS 中，组件库也没有强行这么做。React Native 有些属性没有对应的 CSS 写法，还有一些样式由 Reanimated 驱动。这些样式仍保留在 `StyleSheet` 和组件的动画层中，且优先级高于 `className`。这是刻意安排的顺序，确保动画和平台特有的行为不会被某个工具类悄然覆盖。
+
+## 一个主题就是一个 `@variant` 块
+
+浅色模式和深色模式并没有特殊待遇。它们各自都是一个重新定义语义变量的 `@variant` 块，你也可以按需添加任意数量的主题。在 Metro 配置中向 Uniwind 注册它们即可：
+
+```js
+module.exports = withUniwindConfig(config, {
+  cssEntryFile: "./global.css",
+  dtsFile: "./src/uniwind.d.ts",
+  extraThemes: ["ocean-light", "ocean-dark"],
+});
+```
+
+切换主题只需一次调用：
+
+```tsx
+import {Uniwind} from "uniwind";
+
+Uniwind.setTheme("ocean-dark");
+```
+
+这个过程不经过 React 主题 Provider。变量由 Uniwind 解析，因此主题变化不会触发贯穿整棵组件树的 context 更新。虽然有 `HeroUINativeProvider`，但它负责的是安全区域边距、文本默认设置、Toast 挂载容器以及 RTL 布局 —— 它是应用的基础设施，并非主题引擎。
+
+## Pro 主题的实现模式
+
+由于 tokens 是变量，组件样式是 CSS 类，一套完整的视觉风格就能打包成一份样式表。HeroUI Native Pro 正是这样提供主题的，整个过程分为两步。Brutalism（粗野主义）主题与默认外观差异极大，能清楚地展示这两个步骤。
+
+**第一步，重新调整 tokens。** Brutalism 的整个变量文件只有大约十五行：
+
+```css
+@layer theme {
+  :root {
+    @variant light {
+      --accent: var(--foreground);
+      --accent-foreground: var(--background);
+
+      --radius: 0px;
+      --field-radius: 0px;
+
+      --field-border-width: 1px;
+      --field-border: var(--border);
+
+      --surface-shadow: 0 0 0 0 transparent;
+      --field-shadow: 0 0 0 0 transparent;
+    }
+  }
+}
+```
+
+这就完成了颜色和形状尺寸的全部调整。由于圆角尺寸是派生的，`--radius: 0px` 能一次性将整个组件库的圆角变成直角。表单字段读取各自的 tokens，因此一行就能为所有输入框加上细边框，再通过阴影变量移除柔和的悬浮层次感。`--accent: var(--foreground)` 也值得仔细看一下 —— 主题的强调色*相对于当前调色板*采用单色设计，而非硬编码某个颜色，因此仍能适应底层的浅色、深色或自定义调色板。
+
+**第二步，调整组件内部样式。** 有些风格特征无法用 token 表达。Brutalism 希望标签使用大写的展示字体，并为特定按钮变体添加细边框。由于组件样式就是普通的 CSS 类，主题只需为它们编写规则：
+
+```css
+.button__label {
+  font-family: var(--brutalism-font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.button__root--variant-secondary,
+.button__root--variant-tertiary,
+.button__root--variant-outline {
+  border-width: 1px;
+  border-color: var(--color-border);
+}
+```
+
+这就是该主题对按钮的全部样式覆盖。Switch 只需两行，Widget 只需三行。整个主题由大约三十个这样的小文件组成，同时覆盖基础组件与 Pro 组件，只需在基础样式之后添加一条导入语句即可引入：
+
+```css
+@import "heroui-native/styles";
+@import "heroui-native-pro/styles";
+@import "heroui-native-pro/themes/brutalism";
+```
+
+这种模式的价值在于：主题能够改变并非由它定义的组件内部元素的样式 —— 按钮中的标签、开关中的滑块、Widget 图例中的圆点 —— 无需额外的 prop、主题对象字段，也无需 fork。在样式写在 JavaScript 中的组件库里，要像这样修改组件内部文本的样式，前提是组件库预先考虑到了这个需求，并为该元素提供了专门的自定义接口。而在这里，整棵组件树默认都可以被定位，因为样式使用 CSS 编写，类名也稳定地反映了组件结构。
+
+主题还可以引入自己的变量。上面的 `--brutalism-font-display` 由主题自行定义，再由应用赋值。对于主题无法自行提供的资源，就可以通过这种方式交给应用配置：
+
+```css
+@layer theme {
+  :root {
+    @variant light {
+      --brutalism-font-display: "Anton-Regular";
+    }
+  }
+}
+```
+
+这些操作不依赖任何特权。Pro 主题所做的事，你自己的 `global.css` 完全可以做到：调整一些变量，再覆盖需要修改的类。区别只在于打包方式，而非能力。
+
+## 这套机制带来的价值
+
+将这些原则结合起来，可以得到以下好处：
+
+- **自定义不妨碍升级。** 通过覆盖 tokens 和编写 CSS 来调整外观，无需 fork 组件内部实现，因此可以继续接收组件库更新。
+- **一处修改，全局生效。** 一个强调色或基础圆角的变化，会传递到系统中所有相关的派生状态和尺寸。
+- **主题机制独立于 React。** 主题定义在 CSS 中，通过 Uniwind 切换，不会触发贯穿组件树的 context 更新。
+- **主题可以独立发布。** 完整的视觉风格就是一份样式表，可以像其他依赖一样发布、管理版本和安装。
+- **与 HeroUI 的其他部分保持相同概念。** 语义角色、前景色配对、复合组件，都与你在 Web 端使用的理念一致。
+- **AI 智能体也能读懂。** 用 CSS 变量表达设计 tokens、用 CSS 类表达组件样式，都是 AI 助手擅长处理的格式，因此 [MCP 服务器](/docs/native/getting-started/mcp-server) 和 [llms.txt](/docs/native/getting-started/llms-txt) 端点能够准确描述这套样式系统。
+
+## 下一步
+
+先阅读[快速开始](/docs/native/getting-started/quick-start)，完成 Uniwind 和样式表的配置；再阅读[样式](/docs/native/getting-started/styling)，了解 `className` 与样式优先级规则；通过[主题](/docs/native/getting-started/theming)查阅完整的变量参考和自定义主题指南。如果你打算编写自己的主题，[颜色](/docs/native/getting-started/colors)文档提供了完整的语义调色板。
