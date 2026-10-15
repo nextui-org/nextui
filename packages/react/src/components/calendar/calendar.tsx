@@ -196,13 +196,13 @@ CalendarRoot.displayName = "HeroUI.Calendar";
 | * Calendar Header
 | * -----------------------------------------------------------------------------------------------*/
 interface CalendarHeaderProps<
-  E extends keyof React.JSX.IntrinsicElements = "header",
+  E extends keyof React.JSX.IntrinsicElements = "div",
 > extends DOMRenderProps<E, undefined> {
   children?: ReactNode;
   className?: string;
 }
 
-const CalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "header">({
+const CalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "div">({
   children,
   className,
   ...props
@@ -210,13 +210,13 @@ const CalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "header">(
   const {slots} = use(CalendarContext);
 
   return (
-    <dom.header
+    <dom.div
       className={composeSlotClassName(slots?.header, className)}
       data-slot="calendar-header"
       {...(props as any)}
     >
       {children}
-    </dom.header>
+    </dom.div>
   );
 };
 

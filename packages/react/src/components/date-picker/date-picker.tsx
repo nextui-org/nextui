@@ -14,7 +14,9 @@ import {
   DatePicker as DatePickerPrimitive,
   Popover as PopoverPrimitive,
 } from "react-aria-components/DatePicker";
-import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
+import {DialogContext, OverlayTriggerStateContext} from "react-aria-components/Dialog";
+import {PopoverContext} from "react-aria-components/Popover";
+import {useSlottedContext} from "react-aria-components/slots";
 
 import {dataAttr} from "../../utils/assertion";
 import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
@@ -183,10 +185,14 @@ const DatePickerPopover = ({
   isOpen,
   placement = "bottom",
   ref,
+  render,
   ...props
 }: DatePickerPopoverProps) => {
   const {slots} = use(DatePickerContext);
   const overlayState = use(OverlayTriggerStateContext);
+  const dialogProps = useSlottedContext(DialogContext);
+  const popoverContext = useSlottedContext(PopoverContext, props.slot);
+  const resolvedRender = render ?? popoverContext?.render;
   const {isExiting, ref: overlayRef} = useOverlayExitHold(
     resolveOverlayOpen(isOpen, defaultOpen, overlayState),
     {ref},
@@ -207,6 +213,21 @@ const DatePickerPopover = ({
         isExiting={isExiting || isExitingProp}
         isOpen={isOpen}
         placement={placement}
+        render={(domProps, values) => {
+          // Name RAC's automatic dialog without inserting a layout-changing wrapper.
+          const popoverProps =
+            domProps.role === "dialog"
+              ? {
+                  ...domProps,
+                  id: domProps.id ?? dialogProps?.id,
+                  "aria-labelledby":
+                    domProps["aria-labelledby"] ??
+                    (domProps["aria-label"] ? undefined : dialogProps?.["aria-labelledby"]),
+                }
+              : domProps;
+
+          return resolvedRender ? resolvedRender(popoverProps, values) : <div {...popoverProps} />;
+        }}
       >
         {children}
       </PopoverPrimitive>

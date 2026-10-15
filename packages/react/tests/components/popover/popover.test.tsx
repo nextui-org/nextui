@@ -1,6 +1,10 @@
 import {User, cleanup, render, runAllTimers, screen, setupUser} from "@heroui/testing/helpers";
+import {createRef} from "react";
+import {PopoverContext} from "react-aria-components/Popover";
 
 import {Button} from "@/components/button";
+import {DatePicker} from "@/components/date-picker";
+import {DateRangePicker} from "@/components/date-range-picker";
 import {Popover} from "@/components/popover";
 
 import {PopoverFixture} from "./fixtures";
@@ -72,6 +76,84 @@ describe("Popover", () => {
 
     expect(onOpenChange).toHaveBeenCalledWith(false);
     expect(screen.queryByRole("dialog")).toBeNull();
+  });
+
+  it("preserves accessible names supplied to a custom semantic renderer", () => {
+    render(
+      <Popover defaultOpen>
+        <Button>Open popover</Button>
+        <Popover.Content
+          isNonModal
+          aria-label="Preview"
+          render={(props) => <div {...props} aria-labelledby={undefined} role="region" />}
+        >
+          Preview content
+        </Popover.Content>
+      </Popover>,
+    );
+    runAllTimers();
+
+    expect(screen.getByRole("region", {name: "Preview"})).toBeInTheDocument();
+  });
+
+  it("keeps the automatic dialog name when no child dialog is present", () => {
+    render(
+      <Popover defaultOpen>
+        <Button>Open popover</Button>
+        <Popover.Content aria-labelledby="preview-label">
+          <span id="preview-label">Preview</span>
+        </Popover.Content>
+      </Popover>,
+    );
+    runAllTimers();
+
+    expect(screen.getByRole("dialog", {name: "Preview"})).toBeInTheDocument();
+  });
+
+  it.each([
+    ["Popover.Content", Popover.Content],
+    ["DatePicker.Popover", DatePicker.Popover],
+    ["DateRangePicker.Popover", DateRangePicker.Popover],
+  ] as const)("supports a context renderer for %s", (_, Content) => {
+    const triggerRef = createRef<HTMLButtonElement>();
+
+    render(
+      <>
+        <button ref={triggerRef} type="button">
+          Open
+        </button>
+        <PopoverContext
+          value={{render: (props) => <div {...props} data-testid="context-popover" />}}
+        >
+          <Content isOpen aria-label="Preview" triggerRef={triggerRef}>
+            Preview content
+          </Content>
+        </PopoverContext>
+      </>,
+    );
+    runAllTimers();
+
+    expect(screen.getByRole("dialog", {name: "Preview"})).toBe(
+      screen.getByTestId("context-popover"),
+    );
+  });
+
+  it("keeps naming on the child dialog rather than the generic container", () => {
+    render(
+      <Popover defaultOpen>
+        <Button>Open popover</Button>
+        <Popover.Content aria-label="Preview" data-testid="container">
+          <Popover.Dialog>
+            <Popover.Heading>Preview details</Popover.Heading>
+          </Popover.Dialog>
+        </Popover.Content>
+      </Popover>,
+    );
+    runAllTimers();
+
+    expect(screen.getByRole("dialog", {name: "Preview details"})).toBeInTheDocument();
+    expect(screen.getByTestId("container")).not.toHaveAttribute("aria-label");
+    expect(screen.getByTestId("container")).not.toHaveAttribute("aria-labelledby");
   });
 
   describe("Arrow", () => {
