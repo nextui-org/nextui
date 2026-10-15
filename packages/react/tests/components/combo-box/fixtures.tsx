@@ -7,6 +7,7 @@ import {Label} from "@/components/label";
 import {ListBox} from "@/components/list-box";
 
 export type ComboBoxFixtureProps = {
+  items?: {id: string; name: string}[];
   isDisabled?: boolean;
   isInvalid?: boolean;
   defaultValue?: string;
@@ -28,18 +29,18 @@ export const ComboBoxFixture = (props: ComboBoxFixtureProps = {}) => (
     </ComboBox.InputGroup>
     <ComboBox.Popover>
       <ListBox>
-        <ListBox.Item id="cat" textValue="Cat">
-          Cat
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
-        <ListBox.Item id="dog" textValue="Dog">
-          Dog
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
-        <ListBox.Item id="panda" textValue="Panda">
-          Panda
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
+        {(
+          props.items ?? [
+            {id: "cat", name: "Cat"},
+            {id: "dog", name: "Dog"},
+            {id: "panda", name: "Panda"},
+          ]
+        ).map((item) => (
+          <ListBox.Item key={item.id} id={item.id} textValue={item.name}>
+            {item.name}
+            <ListBox.ItemIndicator />
+          </ListBox.Item>
+        ))}
       </ListBox>
     </ComboBox.Popover>
     {props.isInvalid ? <FieldError>Please choose an animal</FieldError> : null}

@@ -33,7 +33,10 @@ const animals = [
   {id: "dog", name: "Dog"},
 ];
 
-const AutocompleteOpenFixture = () => {
+const AutocompleteOpenFixture = ({scrollable = false}: {scrollable?: boolean}) => {
+  const items = scrollable
+    ? Array.from({length: 40}, (_, index) => ({id: `option-${index}`, name: `Animal ${index}`}))
+    : animals;
   const {contains} = useFilter({sensitivity: "base"});
 
   return (
@@ -51,8 +54,8 @@ const AutocompleteOpenFixture = () => {
               <SearchField.Input placeholder="Search animals..." />
             </SearchField.Group>
           </SearchField>
-          <ListBox>
-            {animals.map((item) => (
+          <ListBox className={scrollable ? "max-h-24" : undefined}>
+            {items.map((item) => (
               <ListBox.Item key={item.id} id={item.id} textValue={item.name}>
                 {item.name}
               </ListBox.Item>
@@ -132,5 +135,25 @@ describe("Autocomplete (browser)", () => {
 
       expect(indicatorOverlapOf("Dog")).toBeLessThanOrEqual(0);
     });
+  });
+  it("supports keyboard scrolling and selection while keeping virtual focus on the input", async () => {
+    await render(<AutocompleteOpenFixture scrollable />);
+    await page.getByTestId("autocomplete").getByText("Select an animal").click();
+    const input = page.getByRole("searchbox");
+    const listbox = page.getByRole("listbox");
+
+    await expect.element(input).toHaveFocus();
+    await expect.element(listbox).not.toHaveAttribute("tabindex");
+    for (let index = 0; index < 15; index++) {
+      await userEvent.keyboard("{ArrowDown}");
+    }
+    await expect.element(input).toHaveFocus();
+    await expect.poll(() => listbox.element().scrollTop).toBeGreaterThan(0);
+    await expect.poll(() => input.element().getAttribute("aria-activedescendant")).toBeTruthy();
+    const activeId = input.element().getAttribute("aria-activedescendant")!;
+
+    expect(document.getElementById(activeId)).toHaveAttribute("role", "option");
+    await userEvent.keyboard("{Enter}");
+    await expect.element(page.getByRole("listbox")).not.toBeInTheDocument();
   });
 });

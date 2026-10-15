@@ -1,6 +1,9 @@
 import {render} from "@heroui/testing/browser";
 import {page, userEvent} from "vitest/browser";
 
+import {Button} from "@/components/button";
+import {Modal} from "@/components/modal";
+
 import {animatedProperties, stretchAnimation} from "../../helpers/overlay-motion";
 
 import {ComboBoxFixture} from "./fixtures";
@@ -66,5 +69,115 @@ describe("ComboBox (browser)", () => {
 
       expect(indicatorOverlapOf("Dog")).toBeLessThanOrEqual(0);
     });
+  });
+  it("preserves sibling Tab handoff, selection and Escape", async () => {
+    const onChange = vi.fn();
+
+    await render(
+      <div className="mx-auto mt-32 w-64">
+        <div data-testid="first">
+          <ComboBoxFixture />
+        </div>
+        <div data-testid="second">
+          <ComboBoxFixture onChange={onChange} />
+        </div>
+        <Button>Submit</Button>
+      </div>,
+    );
+    const first = page.elementLocator(page.getByTestId("first").getByRole("combobox").element());
+    const second = page.elementLocator(page.getByTestId("second").getByRole("combobox").element());
+
+    await first.click();
+    await expect.element(first).toHaveAttribute("aria-expanded", "true");
+    await userEvent.tab();
+    await expect.element(second).toHaveFocus();
+    await expect.element(first).toHaveAttribute("aria-expanded", "false");
+    await expect.element(second).toHaveAttribute("aria-expanded", "true");
+    await expect.poll(() => document.querySelectorAll(".combo-box__popover").length).toBe(1);
+    await expect
+      .poll(() => document.querySelector(".combo-box__popover")?.getAnimations().length)
+      .toBe(0);
+    await userEvent.keyboard("{ArrowDown}");
+    await expect.poll(() => second.element().getAttribute("aria-activedescendant")).toBeTruthy();
+    await userEvent.keyboard("{Enter}");
+    await expect.poll(() => onChange.mock.calls.length).toBeGreaterThan(0);
+    await expect.element(second).toHaveFocus();
+    await userEvent.keyboard("{ArrowDown}{Escape}");
+    await expect.element(second).toHaveAttribute("aria-expanded", "false");
+    await userEvent.tab();
+    await expect.element(page.getByRole("button", {name: "Submit"})).toHaveFocus();
+    expect(document.querySelector('[data-slot="combo-box"][aria-hidden="true"]')).toBeNull();
+  });
+
+  it("preserves an enclosing modal's isolation while the combobox is open", async () => {
+    await render(
+      <>
+        <Button data-testid="background">Background action</Button>
+        <Modal>
+          <Button>Open form</Button>
+          <Modal.Backdrop>
+            <Modal.Container>
+              <Modal.Dialog>
+                <Modal.Heading>Choose an animal</Modal.Heading>
+                <ComboBoxFixture />
+                <Button slot="close">Done</Button>
+              </Modal.Dialog>
+            </Modal.Container>
+          </Modal.Backdrop>
+        </Modal>
+      </>,
+    );
+    await page.getByRole("button", {name: "Open form"}).click();
+    await page.getByRole("combobox").click();
+    await expect.element(page.getByRole("listbox")).toBeInTheDocument();
+    expect(
+      page.getByTestId("background").element().closest('[aria-hidden="true"], [inert]'),
+    ).not.toBeNull();
+    await userEvent.keyboard("{Escape}");
+    await expect.element(page.getByRole("dialog")).toBeInTheDocument();
+    await page.getByRole("button", {name: "Done"}).click();
+    await expect.element(page.getByRole("dialog")).not.toBeInTheDocument();
+    expect(
+      page.getByTestId("background").element().closest('[aria-hidden="true"], [inert]'),
+    ).toBeNull();
+  });
+  it("scrolls the controlled listbox with arrow keys without adding a popup Tab stop", async () => {
+    const items = Array.from({length: 40}, (_, index) => ({
+      id: `animal-${index}`,
+      name: `Animal ${index}`,
+    }));
+
+    await render(
+      <div className="mx-auto mt-32 w-64">
+        <ComboBoxFixture items={items} />
+        <Button>Continue</Button>
+      </div>,
+    );
+    await page.getByRole("button", {name: "Show suggestions"}).click();
+    const input = page.getByRole("combobox");
+    const listbox = page.getByRole("listbox");
+
+    await expect.element(listbox).toBeInTheDocument();
+    expect(input.element().getAttribute("aria-controls")).toBe(listbox.element().id);
+    await expect
+      .poll(() => listbox.element().scrollHeight - listbox.element().clientHeight)
+      .toBeGreaterThan(0);
+    await expect.element(input).toHaveFocus();
+    await expect
+      .poll(() => document.querySelector(".combo-box__popover")?.getAnimations().length)
+      .toBe(0);
+    for (let index = 0; index < 30; index++) {
+      const previousId = input.element().getAttribute("aria-activedescendant");
+
+      await userEvent.keyboard("{ArrowDown}");
+      await expect
+        .poll(() => input.element().getAttribute("aria-activedescendant"))
+        .not.toBe(previousId);
+    }
+    await expect.element(input).toHaveFocus();
+    await expect.poll(() => listbox.element().scrollTop).toBeGreaterThan(0);
+    await userEvent.tab();
+    await expect.element(page.getByRole("button", {name: "Continue"})).toHaveFocus();
+    await expect.element(listbox).not.toBeInTheDocument();
   });
 });
