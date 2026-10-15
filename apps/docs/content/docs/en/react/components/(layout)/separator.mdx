@@ -48,6 +48,14 @@ The Separator component adapts to different surface backgrounds for better visib
   name="separator-with-content"
 />
 
+### Decorative
+
+Use `isDecorative` when the divider is purely visual, such as between listbox sections. It renders an `aria-hidden` div by default with presentational semantics, while preserving its visual styles. Custom render functions receive the decorative props and ref.
+
+```tsx
+<Separator isDecorative />
+```
+
 ### Render Function
 
 <ComponentPreview
@@ -101,6 +109,7 @@ The Separator component uses these CSS classes ([View source styles](https://git
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
+| `isDecorative` | `boolean` | `false` | Hides a purely visual divider from assistive technology and removes separator semantics |
 | `orientation` | `'horizontal' \| 'vertical'` | `'horizontal'` | The orientation of the separator |
 | `variant` | `'default' \| 'secondary' \| 'tertiary'` | `'default'` | The visual variant of the separator |
 | `className` | `string` | - | Additional CSS classes |

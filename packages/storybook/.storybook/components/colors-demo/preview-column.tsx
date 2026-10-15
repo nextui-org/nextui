@@ -60,7 +60,7 @@ export const PreviewColumn = forwardRef<HTMLDivElement, PreviewColumnProps>(func
       </div>
       {/* Preview Content */}
       <div className="min-w-0 flex-1">
-        <ComponentShowcase />
+        <ComponentShowcase theme={theme} />
       </div>
     </div>
   );

@@ -104,14 +104,14 @@ export const FullWidth: Story = {
         </Button>
       </ButtonGroup>
       <ButtonGroup fullWidth>
-        <Button isIconOnly>
+        <Button isIconOnly aria-label="Align left">
           <Icon icon="gravity-ui:text-align-left" />
         </Button>
-        <Button isIconOnly>
+        <Button isIconOnly aria-label="Align center">
           <ButtonGroup.Separator />
           <Icon icon="gravity-ui:text-align-center" />
         </Button>
-        <Button isIconOnly>
+        <Button isIconOnly aria-label="Align right">
           <ButtonGroup.Separator />
           <Icon icon="gravity-ui:text-align-right" />
         </Button>
@@ -271,14 +271,14 @@ export const WithIcons: Story = {
       <div className="flex flex-col gap-2">
         <p className="text-sm text-muted">Icon only buttons</p>
         <ButtonGroup variant="tertiary">
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Search">
             <Icon icon="gravity-ui:globe" />
           </Button>
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Add">
             <ButtonGroup.Separator />
             <Icon icon="gravity-ui:plus" />
           </Button>
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Delete">
             <ButtonGroup.Separator />
             <Icon icon="gravity-ui:trash-bin" />
           </Button>
@@ -362,13 +362,13 @@ export const Examples: Story = {
                 24
               </Chip>
             </Button>
-            <Button isIconOnly>
+            <Button isIconOnly aria-label="More options">
               <ButtonGroup.Separator />
               <Icon icon="gravity-ui:chevron-down" />
             </Button>
           </ButtonGroup>
           <ButtonGroup variant="tertiary">
-            <Button isIconOnly>
+            <Button isIconOnly aria-label="Show QR code">
               <Icon icon="gravity-ui:qr-code" />
             </Button>
             <Button>
@@ -381,7 +381,7 @@ export const Examples: Story = {
               <Icon icon="gravity-ui:thumbs-up" />
               <span className="text-xs font-semibold">2.4K</span>
             </Button>
-            <Button isIconOnly>
+            <Button isIconOnly aria-label="Dislike">
               <ButtonGroup.Separator />
               <Icon icon="gravity-ui:thumbs-down" />
             </Button>
@@ -403,7 +403,7 @@ export const Examples: Story = {
               <Icon icon="gravity-ui:pin" />
               Pinned
             </Button>
-            <Button isIconOnly>
+            <Button isIconOnly aria-label="More options">
               <ButtonGroup.Separator />
               <Icon icon="gravity-ui:chevron-down" />
             </Button>
@@ -467,18 +467,18 @@ export const Examples: Story = {
       <div className="flex flex-col gap-2">
         <p className="text-sm text-muted">Icon-only alignment</p>
         <ButtonGroup variant="tertiary">
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Align left">
             <Icon icon="gravity-ui:text-align-left" />
           </Button>
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Align center">
             <ButtonGroup.Separator />
             <Icon icon="gravity-ui:text-align-center" />
           </Button>
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Align right">
             <ButtonGroup.Separator />
             <Icon icon="gravity-ui:text-align-right" />
           </Button>
-          <Button isIconOnly>
+          <Button isIconOnly aria-label="Justify text">
             <ButtonGroup.Separator />
             <Icon icon="gravity-ui:text-align-justify" />
           </Button>

@@ -17,7 +17,9 @@ import {
   OverlayArrow,
   Popover as PopoverPrimitive,
   Pressable as PressablePrimitive,
+  PopoverContext as RACPopoverContext,
 } from "react-aria-components/Popover";
+import {useSlottedContext} from "react-aria-components/slots";
 
 import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
@@ -73,9 +75,12 @@ const PopoverContent = ({
   isExiting: isExitingProp,
   isOpen,
   ref,
+  render,
   ...props
 }: PopoverContentProps) => {
   const {slots} = use(PopoverContext);
+  const racContext = useSlottedContext(RACPopoverContext, props.slot);
+  const resolvedRender = render ?? racContext?.render;
   const contextValue = React.useMemo(() => ({slots}), [slots]);
   const overlayState = use(OverlayTriggerStateContext);
   const {isExiting, ref: overlayRef} = useOverlayExitHold(
@@ -93,6 +98,19 @@ const PopoverContent = ({
           defaultOpen={defaultOpen}
           isExiting={isExiting || isExitingProp}
           isOpen={isOpen}
+          render={(domProps, values) => {
+            // Custom renderers may supply their own semantic role.
+            if (resolvedRender) return resolvedRender(domProps, values);
+
+            // When a child Dialog owns the semantics, RAC leaves this container generic.
+            const popoverProps = {
+              ...domProps,
+              "aria-label": domProps.role ? domProps["aria-label"] : undefined,
+              "aria-labelledby": domProps.role ? domProps["aria-labelledby"] : undefined,
+            };
+
+            return <div {...popoverProps} />;
+          }}
         >
           {children}
         </PopoverPrimitive>

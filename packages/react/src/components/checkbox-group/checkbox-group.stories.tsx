@@ -255,7 +255,7 @@ export const Controlled: Story = {
             Writing
           </Checkbox.Content>
         </Checkbox>
-        <Label className="my-4 text-sm text-muted">Selected: {selected.join(", ") || "None"}</Label>
+        <p className="my-4 text-sm text-muted">Selected: {selected.join(", ") || "None"}</p>
       </CheckboxGroup>
     );
   },

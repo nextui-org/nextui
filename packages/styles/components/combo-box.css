@@ -128,7 +128,7 @@
 
 /* Similar to popover content styles */
 .combo-box__popover {
-  @apply min-w-(--trigger-width) origin-(--trigger-anchor-point) scroll-py-1 scrollbar overflow-y-auto overscroll-contain bg-overlay p-0 text-sm;
+  @apply flex min-w-(--trigger-width) origin-(--trigger-anchor-point) flex-col overflow-hidden bg-overlay p-0 text-sm;
   border-radius: min(32px, calc(var(--radius-2xl) + var(--spacing) * 1.5));
   box-shadow: var(--overlay-shadow);
 
@@ -186,9 +186,9 @@
     rotate: 90deg;
   }
 
-  /* Listbox styles */
+  /* Keep scrolling on the input-controlled listbox so virtual focus can reveal options. */
   [data-slot="list-box"] {
-    @apply p-1.5 outline-none;
+    @apply min-h-0 scroll-py-1 scrollbar overflow-y-auto overscroll-contain p-1.5 outline-none;
   }
 
   [data-slot="list-box-item"] {

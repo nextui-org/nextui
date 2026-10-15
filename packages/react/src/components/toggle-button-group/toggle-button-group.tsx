@@ -47,10 +47,12 @@ const ToggleButtonGroupRoot = ({
   isDetached = false,
   isDisabled,
   orientation: orientationProp,
+  render,
   size,
   ...rest
 }: ToggleButtonGroupRootProps) => {
-  const racContext = useSlottedContext(RACToggleButtonGroupContext);
+  const racContext = useSlottedContext(RACToggleButtonGroupContext, rest.slot);
+  const resolvedRender = render ?? racContext?.render;
   const orientation = orientationProp ?? racContext?.orientation ?? "horizontal";
 
   const slots = React.useMemo(
@@ -67,6 +69,19 @@ const ToggleButtonGroupRoot = ({
         isDisabled={isDisabled}
         orientation={orientation}
         {...rest}
+        render={(domProps, values) => {
+          // Custom renderers may supply their own semantic role.
+          if (resolvedRender) return resolvedRender(domProps, values);
+
+          // RAC changes nested toolbars to groups, which do not support aria-orientation.
+          const groupProps = {
+            ...domProps,
+            "aria-orientation":
+              domProps.role === "group" ? undefined : domProps["aria-orientation"],
+          };
+
+          return <div {...groupProps} />;
+        }}
       >
         {children}
       </ToggleButtonGroupPrimitive>

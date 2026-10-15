@@ -12,7 +12,7 @@ export function InputOTPDemo() {
           <Label>Verify account</Label>
           <p className="text-sm text-muted">We&apos;ve sent a code to a****@gmail.com</p>
         </div>
-        <InputOTP maxLength={6} value={value} onChange={setValue}>
+        <InputOTP aria-label="Verification code" maxLength={6} value={value} onChange={setValue}>
           <InputOTP.Group>
             <InputOTP.Slot index={0} />
             <InputOTP.Slot index={1} />

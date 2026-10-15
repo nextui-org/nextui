@@ -193,13 +193,13 @@ RangeCalendarRoot.displayName = "HeroUI.RangeCalendar";
 | * RangeCalendar Header
 | * -----------------------------------------------------------------------------------------------*/
 interface RangeCalendarHeaderProps<
-  E extends keyof React.JSX.IntrinsicElements = "header",
+  E extends keyof React.JSX.IntrinsicElements = "div",
 > extends DOMRenderProps<E, undefined> {
   children?: ReactNode;
   className?: string;
 }
 
-const RangeCalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "header">({
+const RangeCalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "div">({
   children,
   className,
   ...props
@@ -208,13 +208,13 @@ const RangeCalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "head
   const {slots} = use(RangeCalendarContext);
 
   return (
-    <dom.header
+    <dom.div
       className={composeSlotClassName(slots?.header, className)}
       data-slot="range-calendar-header"
       {...(props as any)}
     >
       {children}
-    </dom.header>
+    </dom.div>
   );
 };
 

@@ -31,11 +31,14 @@ import React from "react";
 
 import {HeroUILogo} from "../heroui-logo";
 
-export function ComponentShowcase() {
+export function ComponentShowcase({theme}: {theme: "light" | "dark"}) {
   return (
     <div>
       {/* Navigation */}
-      <nav className="flex flex-wrap items-end gap-4 border-b border-border px-4 pt-4 pb-3 text-sm font-medium @min-[448px]/preview:px-6">
+      <nav
+        aria-label={`${theme} preview navigation`}
+        className="flex flex-wrap items-end gap-4 border-b border-border px-4 pt-4 pb-3 text-sm font-medium @min-[448px]/preview:px-6"
+      >
         <HeroUILogo size={24} />
         <a className="text-foreground hover:text-accent" href="#">
           Pricing
@@ -47,7 +50,7 @@ export function ComponentShowcase() {
           Blog
         </a>
       </nav>
-      <main className="flex min-w-0 flex-col gap-4 p-4 @min-[448px]/preview:p-6">
+      <div className="flex min-w-0 flex-col gap-4 p-4 @min-[448px]/preview:p-6">
         {/* Hero Section */}
         <h1 className="text-2xl leading-tight font-extrabold text-foreground @min-[448px]/preview:text-3xl">
           Beautiful by default.
@@ -84,7 +87,7 @@ export function ComponentShowcase() {
         <Separator />
 
         {/* Chips Section */}
-        <h3 className="text-sm font-semibold text-muted">Status Chips</h3>
+        <h2 className="text-sm font-semibold text-muted">Status Chips</h2>
         <div className="flex flex-wrap gap-2">
           <Chip color="accent" variant="secondary">
             Accent
@@ -121,7 +124,7 @@ export function ComponentShowcase() {
         <div className="grid grid-cols-1 gap-4 @min-[448px]/preview:grid-cols-2">
           {/* Borders */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-semibold text-muted">Borders</h3>
+            <h2 className="text-sm font-semibold text-muted">Borders</h2>
             <div className="flex flex-col gap-2">
               <div className="flex h-12 items-center justify-start rounded-xl border border-border ps-3">
                 <span className="text-sm text-foreground">Border default</span>
@@ -137,7 +140,7 @@ export function ComponentShowcase() {
 
           {/* Surfaces */}
           <div className="flex flex-col gap-3">
-            <h3 className="text-sm font-semibold text-muted">Surfaces</h3>
+            <h2 className="text-sm font-semibold text-muted">Surfaces</h2>
             <div className="flex flex-col gap-2">
               <Surface className="rounded-xl p-3" variant="default">
                 <span className="text-sm text-foreground">Surface default</span>
@@ -154,7 +157,7 @@ export function ComponentShowcase() {
 
         {/* Cards Section */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-muted">Cards</h3>
+          <h2 className="text-sm font-semibold text-muted">Cards</h2>
           <div className="flex w-full items-center justify-center">
             <div className="grid w-full max-w-2xl grid-cols-12 gap-4">
               {/* Row 1: Large Product Card - Available Soon */}
@@ -311,7 +314,7 @@ export function ComponentShowcase() {
 
         {/* Tabs Section */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-muted">Tabs</h3>
+          <h2 className="text-sm font-semibold text-muted">Tabs</h2>
           <Tabs>
             <Tabs.ListContainer>
               <Tabs.List aria-label="Options">
@@ -345,7 +348,7 @@ export function ComponentShowcase() {
         <div className="grid grid-cols-1 gap-4 @min-[448px]/preview:grid-cols-2">
           {/* Checkbox & Switch */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-semibold text-muted">Controls</h3>
+            <h2 className="text-sm font-semibold text-muted">Controls</h2>
 
             <Checkbox defaultSelected name="notifications">
               <Checkbox.Content>
@@ -388,7 +391,7 @@ export function ComponentShowcase() {
 
           {/* Avatars & Spinners */}
           <div className="flex flex-col gap-4">
-            <h3 className="text-sm font-semibold text-muted">Avatars</h3>
+            <h2 className="text-sm font-semibold text-muted">Avatars</h2>
             <div className="flex flex-wrap items-center gap-2">
               <Avatar color="accent">
                 <Avatar.Fallback>AC</Avatar.Fallback>
@@ -411,7 +414,7 @@ export function ComponentShowcase() {
               </Avatar>
             </div>
 
-            <h3 className="text-sm font-semibold text-muted">Spinners</h3>
+            <h2 className="text-sm font-semibold text-muted">Spinners</h2>
             <div className="flex flex-wrap items-center gap-4">
               <Spinner color="accent" size="sm" />
               <Spinner color="current" size="sm" />
@@ -424,7 +427,7 @@ export function ComponentShowcase() {
 
         {/* Slider Section */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-muted">Slider</h3>
+          <h2 className="text-sm font-semibold text-muted">Slider</h2>
           <Slider defaultValue={60}>
             <div className="flex items-center justify-between">
               <Label className="text-sm">Volume</Label>
@@ -439,7 +442,7 @@ export function ComponentShowcase() {
 
         {/* Radio Group Section */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-muted">Radio Group</h3>
+          <h2 className="text-sm font-semibold text-muted">Radio Group</h2>
           <RadioGroup className="flex-wrap" defaultValue="pro" name="plan" orientation="horizontal">
             <Radio value="starter">
               <Radio.Content>
@@ -470,7 +473,7 @@ export function ComponentShowcase() {
 
         {/* Alert Section */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-muted">Alerts</h3>
+          <h2 className="text-sm font-semibold text-muted">Alerts</h2>
           <div className="flex flex-col gap-2">
             <Alert status="accent">
               <Alert.Indicator />
@@ -501,7 +504,7 @@ export function ComponentShowcase() {
 
         {/* Links Section */}
         <div className="flex flex-col gap-3">
-          <h3 className="text-sm font-semibold text-muted">Links</h3>
+          <h2 className="text-sm font-semibold text-muted">Links</h2>
           <div className="flex flex-wrap gap-4">
             <Link href="#">
               Learn more
@@ -584,7 +587,7 @@ export function ComponentShowcase() {
 
         {/* Overlays Section */}
         <div className="flex flex-col justify-center gap-4">
-          <h3 className="text-sm font-semibold text-muted">Overlays</h3>
+          <h2 className="text-sm font-semibold text-muted">Overlays</h2>
           <div className="flex flex-wrap gap-3">
             {/* Modal */}
             <Modal>
@@ -772,7 +775,7 @@ export function ComponentShowcase() {
 
         {/* Modal Variations */}
         <div className="flex flex-col gap-4">
-          <h3 className="text-sm font-semibold text-muted">Modal Variations</h3>
+          <h2 className="text-sm font-semibold text-muted">Modal Variations</h2>
           <div className="flex flex-wrap gap-3">
             {/* Modal with Form */}
             <Modal>
@@ -896,7 +899,7 @@ export function ComponentShowcase() {
             </AlertDialog>
           </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }

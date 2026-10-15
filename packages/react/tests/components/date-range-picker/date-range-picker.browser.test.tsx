@@ -10,7 +10,7 @@ import {animatedProperties, stretchAnimation} from "../../helpers/overlay-motion
 
 import "@/styles.css";
 
-const renderDateRangePicker = () =>
+const renderDateRangePicker = (customLayout = false) =>
   render(
     <DateRangePicker>
       <Label>Trip dates</Label>
@@ -28,7 +28,10 @@ const renderDateRangePicker = () =>
           </DateRangePicker.Trigger>
         </DateField.Suffix>
       </DateField.Group>
-      <DateRangePicker.Popover>
+      <DateRangePicker.Popover
+        aria-label={customLayout ? "Choose a range" : undefined}
+        className={customLayout ? "flex items-start gap-4" : undefined}
+      >
         <RangeCalendar aria-label="Selected range">
           <RangeCalendar.Header>
             <RangeCalendar.YearPickerTrigger>
@@ -47,6 +50,7 @@ const renderDateRangePicker = () =>
             </RangeCalendar.GridBody>
           </RangeCalendar.Grid>
         </RangeCalendar>
+        {customLayout ? <button type="button">Use today</button> : null}
       </DateRangePicker.Popover>
     </DateRangePicker>,
   );
@@ -85,5 +89,41 @@ describe("DateRangePicker (browser)", () => {
     expect(animation?.animationName).toBe("heroui-overlay-exit");
     expect(getComputedStyle(popover).animationFillMode).toBe("none");
     expect(properties).toEqual(["opacity", "transform"]);
+  });
+  it("renders a named dialog and returns focus to its trigger on Escape", async () => {
+    await renderDateRangePicker();
+    const trigger = page.getByRole("button", {name: /Open calendar/});
+
+    await trigger.click();
+    await expect.element(page.getByRole("dialog", {name: /Trip dates/})).toBeInTheDocument();
+    expect(page.getByRole("dialog").element()).toHaveAttribute(
+      "data-slot",
+      "date-range-picker-popover",
+    );
+    expect(document.querySelectorAll('[role="dialog"]')).toHaveLength(1);
+    expect(
+      document.querySelector('[role="banner"], header[data-slot$="calendar-header"]'),
+    ).toBeNull();
+    await userEvent.keyboard("{Escape}");
+    await expect.element(page.getByRole("dialog")).not.toBeInTheDocument();
+    await expect.element(trigger).toHaveFocus();
+  });
+
+  it("supports custom horizontal popup layouts and an explicit dialog name", async () => {
+    await renderDateRangePicker(true);
+    await page.getByRole("button", {name: /Open calendar/}).click();
+    await expect.element(page.getByRole("dialog", {name: "Choose a range"})).toBeInTheDocument();
+
+    const preset = page.getByRole("button", {name: "Use today"});
+    const calendar = document.querySelector('[data-slot="range-calendar"]')!;
+
+    await expect
+      .poll(() => {
+        const calendarRect = calendar.getBoundingClientRect();
+        const presetRect = preset.element().getBoundingClientRect();
+
+        return presetRect.left - calendarRect.right;
+      })
+      .toBeGreaterThan(0);
   });
 });

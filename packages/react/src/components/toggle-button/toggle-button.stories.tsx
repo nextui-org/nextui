@@ -91,13 +91,13 @@ const SizesTemplate = () => (
       </ToggleButton>
     </div>
     <div className="flex items-center gap-3">
-      <ToggleButton isIconOnly size="sm">
+      <ToggleButton isIconOnly aria-label="Like" size="sm">
         <Icon icon="gravity-ui:heart" />
       </ToggleButton>
-      <ToggleButton isIconOnly size="md">
+      <ToggleButton isIconOnly aria-label="Like" size="md">
         <Icon icon="gravity-ui:heart" />
       </ToggleButton>
-      <ToggleButton isIconOnly size="lg">
+      <ToggleButton isIconOnly aria-label="Like" size="lg">
         <Icon icon="gravity-ui:heart" />
       </ToggleButton>
     </div>
@@ -106,10 +106,22 @@ const SizesTemplate = () => (
 
 const IconOnlyTemplate = ({isDisabled, size, variant}: ToggleButton["RootProps"]) => (
   <div className="flex gap-3">
-    <ToggleButton isIconOnly isDisabled={isDisabled} size={size} variant={variant}>
+    <ToggleButton
+      isIconOnly
+      aria-label="Like"
+      isDisabled={isDisabled}
+      size={size}
+      variant={variant}
+    >
       <Icon icon="gravity-ui:heart" />
     </ToggleButton>
-    <ToggleButton isIconOnly isDisabled={isDisabled} size={size} variant={variant ?? "ghost"}>
+    <ToggleButton
+      isIconOnly
+      aria-label="Bookmark"
+      isDisabled={isDisabled}
+      size={size}
+      variant={variant ?? "ghost"}
+    >
       <Icon icon="gravity-ui:bookmark" />
     </ToggleButton>
   </div>
@@ -173,7 +185,14 @@ const RealWorldTemplate = () => {
           </>
         )}
       </ToggleButton>
-      <ToggleButton isIconOnly isSelected={pinned} size="sm" variant="ghost" onChange={setPinned}>
+      <ToggleButton
+        isIconOnly
+        aria-label="Pin"
+        isSelected={pinned}
+        size="sm"
+        variant="ghost"
+        onChange={setPinned}
+      >
         {({isSelected}) => <Icon icon={isSelected ? "gravity-ui:pin-fill" : "gravity-ui:pin"} />}
       </ToggleButton>
     </div>
