@@ -29,7 +29,7 @@ export const PreviewColumn = forwardRef<HTMLDivElement, PreviewColumnProps>(func
   return (
     <div
       ref={ref}
-      className={`flex flex-1 flex-col rounded-2xl border border-border bg-background text-foreground ${theme} ${className}`}
+      className={`@container/preview flex min-w-0 flex-1 flex-col rounded-2xl border border-border bg-background text-foreground ${theme} ${className}`}
       data-theme={theme}
     >
       {/* Header */}
@@ -58,8 +58,8 @@ export const PreviewColumn = forwardRef<HTMLDivElement, PreviewColumnProps>(func
           <Chip.Label>{theme}</Chip.Label>
         </Chip>
       </div>
-      {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto">
+      {/* Preview Content */}
+      <div className="min-w-0 flex-1">
         <ComponentShowcase />
       </div>
     </div>
