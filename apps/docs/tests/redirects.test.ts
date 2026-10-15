@@ -1,6 +1,7 @@
 import {NextRequest} from "next/server";
 import {describe, expect, it} from "vitest";
 
+import {getBlogPost} from "@/lib/blog";
 import {proxy} from "@/proxy";
 
 import {getRedirects} from "../next-redirects";
@@ -108,6 +109,21 @@ describe("Docs redirects", () => {
       "/docs/components/:path*.mdx",
       "/docs/react/components/:path*",
     );
+  });
+});
+
+describe("Blog redirects", () => {
+  it("serves the translated native styling post without redirecting to English", async () => {
+    const slug = "styling-and-theming-in-heroui-native";
+    const url = `https://heroui.com/cn/blog/${slug}`;
+    const redirects = await getRedirects();
+
+    expect(findRedirect(redirects, `/cn/blog/${slug}`)).toBeUndefined();
+    expect(proxy(new NextRequest(url)).headers.get("location")).toBeNull();
+    expect(getBlogPost(slug, "cn")).toMatchObject({
+      locale: "cn",
+      title: "HeroUI Native 的样式与主题机制",
+    });
   });
 });
 

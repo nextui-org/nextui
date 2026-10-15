@@ -212,14 +212,6 @@ export async function getRedirects(): Promise<Redirect[]> {
     },
   );
 
-  // This post has no Chinese translation. Avoid serving English content at a
-  // Chinese URL and point crawlers directly at the published English article.
-  redirects.push({
-    destination: "/en/blog/styling-and-theming-in-heroui-native",
-    source: "/cn/blog/styling-and-theming-in-heroui-native",
-    statusCode: 301,
-  });
-
   // Showcase moved under [lang] for i18n. Redirect legacy /showcase and
   // /showcase/<id> to the default-locale URL so old links keep working.
   redirects.push(
