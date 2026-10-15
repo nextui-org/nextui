@@ -3,7 +3,7 @@ import React from "react";
 
 export function UIComponentsDemo() {
   return (
-    <div className="flex w-full items-center justify-center gap-8">
+    <div className="flex w-full flex-wrap items-center justify-center gap-8">
       {/* Checkbox - Selected State */}
       <Checkbox defaultSelected aria-label="Checkbox Indicator Example">
         <Checkbox.Content>

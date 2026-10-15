@@ -164,7 +164,7 @@ export function ColorsDemo() {
   }, [initialized, readVariables, applyColorChanges]);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex min-w-0 flex-col">
       {/* Top Controls - Fixed at top */}
       <div className="sticky top-0 z-10 shrink-0 bg-background text-foreground">
         <ColorControls
@@ -175,9 +175,9 @@ export function ColorsDemo() {
         />
       </div>
       {/* Main Content */}
-      <div className="flex min-h-0 flex-1">
+      <div className="flex min-h-0 min-w-0 flex-1 flex-col lg:flex-row">
         {/* Left Sidebar - Color Variables */}
-        <div className="w-60 shrink-0 overflow-y-auto">
+        <div className="max-h-64 w-full min-w-0 shrink-0 overflow-y-auto lg:max-h-none lg:w-60">
           <div className="p-4">
             <h2 className="mb-4 text-sm font-semibold">Color Variables</h2>
             <ColorVariablesList variables={variables} />
@@ -185,7 +185,7 @@ export function ColorsDemo() {
         </div>
 
         {/* Preview Columns */}
-        <div className="flex flex-1 gap-3 overflow-x-auto pt-2 pb-24">
+        <div className="grid min-w-0 flex-1 grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] items-start gap-3 px-4 pt-2 pb-24">
           {/* Light Theme Preview */}
           <PreviewColumn ref={lightRef} theme="light" />
           {/* Dark Theme Preview */}

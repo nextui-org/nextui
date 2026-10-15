@@ -272,25 +272,25 @@ export function ColorControls({
   onGrayChromaChange,
 }: ColorControlsProps) {
   return (
-    <div className="flex items-center justify-start gap-8 p-4">
+    <div className="grid grid-cols-1 gap-4 p-4 sm:grid-cols-2 xl:flex xl:gap-8">
       {/* Base Tone Slider */}
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 flex-col items-start gap-3 xl:flex-row xl:items-center">
         <Label className="text-sm font-medium whitespace-nowrap text-foreground">Base tone</Label>
         <HueSlider
           chroma={grayChroma}
-          className="w-[240px]"
+          className="w-full xl:w-[240px]"
           value={baseHue}
           onChange={onBaseHueChange}
         />
       </div>
 
       {/* Gray Chroma Slider */}
-      <div className="flex items-center gap-3">
+      <div className="flex min-w-0 flex-col items-start gap-3 xl:flex-row xl:items-center">
         <Label className="text-sm font-medium whitespace-nowrap text-foreground">
           Amount of color in gray
         </Label>
         <ChromaSlider
-          className="w-[240px]"
+          className="w-full xl:w-[240px]"
           hue={baseHue}
           value={grayChroma}
           onChange={onGrayChromaChange}

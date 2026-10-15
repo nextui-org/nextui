@@ -5,7 +5,7 @@ import {tv} from "tailwind-variants";
 const cardStyles = tv({
   slots: {
     avatar: "size-[56px] rounded-xl",
-    card: "w-full",
+    card: "min-w-0 flex-1 basis-[140px]",
     cardContent: "items-start",
     footer: "items-center gap-2",
     footerAvatar: "size-4",
@@ -16,7 +16,7 @@ export function SubtleCardsDemo() {
   const {avatar, card, cardContent, footer, footerAvatar} = cardStyles();
 
   return (
-    <div className="flex w-full flex-row gap-4">
+    <div className="flex w-full flex-row flex-wrap gap-4">
       <Card className={card()}>
         <Card.Header>
           <Avatar className={avatar()}>
