@@ -127,15 +127,8 @@ export const Horizontal: Story = {
         </Card.Header>
         <Card.Footer className="mt-auto flex w-full flex-row items-center justify-between">
           <div className="flex flex-col">
-            <span
-              aria-label="Price: 36,799 US dollars"
-              className="text-sm font-medium text-foreground"
-            >
-              $36,799
-            </span>
-            <span aria-label="Available stock: 11 units" className="text-xs text-muted">
-              11 available
-            </span>
+            <span className="text-sm font-medium text-foreground">$36,799</span>
+            <span className="text-xs text-muted">11 available</span>
           </div>
           <Button>Buy Now</Button>
         </Card.Footer>
@@ -159,7 +152,7 @@ export const WithAvatar: Story = {
           <Card.Description>148 members</Card.Description>
         </Card.Header>
         <Card.Footer className="flex gap-2">
-          <Avatar aria-label="Martha's profile picture" className="size-5">
+          <Avatar className="size-5">
             <Avatar.Image
               alt="Martha's avatar"
               src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/red.jpg"
@@ -182,7 +175,7 @@ export const WithAvatar: Story = {
           <Card.Description>362 members</Card.Description>
         </Card.Header>
         <Card.Footer className="flex gap-2">
-          <Avatar aria-label="John's profile picture" className="size-5">
+          <Avatar className="size-5">
             <Avatar.Image
               alt="John's avatar - blue themed"
               src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/blue.jpg"

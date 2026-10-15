@@ -100,7 +100,13 @@ const TemplateWithIcon = ({isDisabled, size}: Button["RootProps"]) => (
 
 const TemplateWithIconOnly = ({isDisabled, size, variant}: Button["RootProps"]) => (
   <div className="flex gap-3">
-    <Button isIconOnly isDisabled={isDisabled} size={size} variant={variant ?? "tertiary"}>
+    <Button
+      isIconOnly
+      aria-label="More options"
+      isDisabled={isDisabled}
+      size={size}
+      variant={variant ?? "tertiary"}
+    >
       <Icon icon="gravity-ui:ellipsis" />
     </Button>
   </div>
@@ -159,13 +165,13 @@ const SizesTemplate = () => (
       </Button>
     </div>
     <div className="flex items-center gap-3">
-      <Button isIconOnly size="sm" variant="tertiary">
+      <Button isIconOnly aria-label="More options" size="sm" variant="tertiary">
         <Icon icon="gravity-ui:ellipsis" />
       </Button>
-      <Button isIconOnly size="md" variant="tertiary">
+      <Button isIconOnly aria-label="More options" size="md" variant="tertiary">
         <Icon icon="gravity-ui:ellipsis" />
       </Button>
-      <Button isIconOnly size="lg" variant="tertiary">
+      <Button isIconOnly aria-label="More options" size="lg" variant="tertiary">
         <Icon icon="gravity-ui:ellipsis" />
       </Button>
     </div>

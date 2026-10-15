@@ -777,7 +777,7 @@ export const CustomPortal = () => {
                     <AlertDialog.Icon status="accent" />
                     <AlertDialog.Heading>Custom Portal</AlertDialog.Heading>
                   </AlertDialog.Header>
-                  <AlertDialog.Body>
+                  <AlertDialog.Body tabIndex={0}>
                     <p className="text-sm text-muted">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

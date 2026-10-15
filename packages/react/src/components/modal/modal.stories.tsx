@@ -438,7 +438,7 @@ export const ScrollComparison = () => {
                   outside allows page scrolling
                 </p>
               </Modal.Header>
-              <Modal.Body>
+              <Modal.Body tabIndex={0}>
                 {Array.from({length: 30}).map((_, i) => (
                   <p key={i} className="mb-3">
                     Paragraph {i + 1}: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -799,7 +799,7 @@ export const CustomPortal = () => {
                   <Modal.Header>
                     <Modal.Heading>Custom Portal</Modal.Heading>
                   </Modal.Header>
-                  <Modal.Body>
+                  <Modal.Body tabIndex={0}>
                     <p className="text-sm text-muted">
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
                       incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis

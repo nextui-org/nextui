@@ -472,7 +472,7 @@ export const CustomValue: Story = {
             {users.map((user) => (
               <ListBox.Item key={user.id} id={user.id} textValue={user.name}>
                 <Avatar size="sm">
-                  <AvatarImage src={user.avatarUrl} />
+                  <AvatarImage alt="" src={user.avatarUrl} />
                   <AvatarFallback>{user.fallback}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">

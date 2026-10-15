@@ -30,14 +30,14 @@ export function UIComponentsDemo() {
         name="demo"
         orientation="horizontal"
       >
-        <Radio value="option1">
+        <Radio aria-label="First option" value="option1">
           <Radio.Content>
             <Radio.Control>
               <Radio.Indicator />
             </Radio.Control>
           </Radio.Content>
         </Radio>
-        <Radio value="option2">
+        <Radio aria-label="Second option" value="option2">
           <Radio.Content>
             <Radio.Control>
               <Radio.Indicator />

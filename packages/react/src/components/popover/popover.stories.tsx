@@ -218,11 +218,9 @@ const CardWithHelptextTemplate = (props: Popover["ContentProps"]) => (
       <div className="flex items-center gap-2">
         <Card.Title>Card Title</Card.Title>
         <Popover>
-          <Popover.Trigger aria-label="Help information">
-            <Button isIconOnly aria-label="Help" size="sm" variant="ghost">
-              <Icon className="text-muted" icon="gravity-ui:circle-info" />
-            </Button>
-          </Popover.Trigger>
+          <Button isIconOnly aria-label="Help" size="sm" variant="ghost">
+            <Icon className="text-muted" icon="gravity-ui:circle-info" />
+          </Button>
           <Popover.Content {...props} className="max-w-[200px]" placement="right">
             <Popover.Dialog>
               <Popover.Arrow />

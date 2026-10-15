@@ -74,7 +74,7 @@ const SizesTemplate = (props: PaginationProps) => {
         <React.Fragment key={size}>
           <div className="flex flex-col gap-2">
             <span className="text-sm font-semibold text-muted capitalize">{size}</span>
-            <Pagination {...props} size={size}>
+            <Pagination {...props} aria-label={`${size} pagination`} size={size}>
               <Pagination.Content>
                 <Pagination.Item>
                   <Pagination.Previous>

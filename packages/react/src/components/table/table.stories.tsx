@@ -327,7 +327,7 @@ function DefaultTableTemplate({variant = "primary"}: {variant?: "primary" | "sec
                   <Table.Cell className="font-medium">
                     <div className="flex items-center gap-2">
                       #{user.id.toString()}{" "}
-                      <Button isIconOnly size="sm" variant="ghost">
+                      <Button isIconOnly aria-label="Copy user ID" size="sm" variant="ghost">
                         <Icon className="size-4 text-muted" icon="gravity-ui:copy" />
                       </Button>
                     </div>
@@ -335,7 +335,7 @@ function DefaultTableTemplate({variant = "primary"}: {variant?: "primary" | "sec
                   <Table.Cell>
                     <div className="flex items-center gap-3">
                       <Avatar size="sm">
-                        <Avatar.Image src={user.image_url} />
+                        <Avatar.Image alt="" src={user.image_url} />
                         <Avatar.Fallback>
                           {user.name
                             .split(" ")
@@ -357,13 +357,13 @@ function DefaultTableTemplate({variant = "primary"}: {variant?: "primary" | "sec
                   </Table.Cell>
                   <Table.Cell>
                     <div className="flex items-center gap-1">
-                      <Button isIconOnly size="sm" variant="tertiary">
+                      <Button isIconOnly aria-label="View details" size="sm" variant="tertiary">
                         <Icon className="size-4" icon="gravity-ui:eye" />
                       </Button>
-                      <Button isIconOnly size="sm" variant="tertiary">
+                      <Button isIconOnly aria-label="Edit" size="sm" variant="tertiary">
                         <Icon className="size-4" icon="gravity-ui:pencil" />
                       </Button>
-                      <Button isIconOnly size="sm" variant="danger-soft">
+                      <Button isIconOnly aria-label="Delete" size="sm" variant="danger-soft">
                         <Icon className="size-4" icon="gravity-ui:trash-bin" />
                       </Button>
                     </div>

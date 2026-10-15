@@ -244,7 +244,12 @@ export const PasswordWithToggle: Story = {
 
 export const WithLoadingSuffix: Story = {
   render: () => (
-    <TextField className="w-[280px]" defaultValue="Sending..." name="status">
+    <TextField
+      aria-label="Sending status"
+      className="w-[280px]"
+      defaultValue="Sending..."
+      name="status"
+    >
       <InputGroup>
         <InputGroup.Input className="w-[280px]" />
         <InputGroup.Suffix>
