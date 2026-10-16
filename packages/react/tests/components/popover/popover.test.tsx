@@ -36,6 +36,67 @@ describe("Popover", () => {
     vi.useRealTimers();
   });
 
+  it("calls callback ref cleanup when the overlay closes", () => {
+    const dispose = vi.fn();
+    const ref = vi.fn((node: HTMLElement | null) => (node ? dispose : undefined));
+    const fixture = (isOpen: boolean) => (
+      <Popover isOpen={isOpen}>
+        <Button>Open popover</Button>
+        <Popover.Content ref={ref}>
+          <Popover.Dialog aria-label="Ref cleanup">Content</Popover.Dialog>
+        </Popover.Content>
+      </Popover>
+    );
+    const view = render(fixture(true));
+
+    expect(ref).toHaveBeenCalledWith(expect.any(HTMLElement));
+    view.rerender(fixture(false));
+    runAllTimers();
+
+    expect(dispose).toHaveBeenCalledTimes(1);
+    expect(ref).not.toHaveBeenCalledWith(null);
+  });
+
+  it("calls the previous callback ref cleanup when the ref changes", () => {
+    const firstCleanup = vi.fn();
+    const secondCleanup = vi.fn();
+    const firstRef = vi.fn((node: HTMLElement | null) => (node ? firstCleanup : undefined));
+    const secondRef = vi.fn((node: HTMLElement | null) => (node ? secondCleanup : undefined));
+    const fixture = (ref: typeof firstRef) => (
+      <Popover isOpen>
+        <Button>Open popover</Button>
+        <Popover.Content ref={ref}>
+          <Popover.Dialog aria-label="Ref replacement">Content</Popover.Dialog>
+        </Popover.Content>
+      </Popover>
+    );
+    const view = render(fixture(firstRef));
+
+    view.rerender(fixture(secondRef));
+    expect(firstCleanup).toHaveBeenCalledTimes(1);
+    expect(secondRef).toHaveBeenCalledWith(expect.any(HTMLElement));
+    expect(secondCleanup).not.toHaveBeenCalled();
+
+    view.unmount();
+    expect(secondCleanup).toHaveBeenCalledTimes(1);
+  });
+
+  it("calls legacy callback refs with null on unmount", () => {
+    const ref = vi.fn();
+    const view = render(
+      <Popover isOpen>
+        <Button>Open popover</Button>
+        <Popover.Content ref={ref}>
+          <Popover.Dialog aria-label="Legacy ref">Content</Popover.Dialog>
+        </Popover.Content>
+      </Popover>,
+    );
+
+    expect(ref).toHaveBeenCalledWith(expect.any(HTMLElement));
+    view.unmount();
+    expect(ref).toHaveBeenLastCalledWith(null);
+  });
+
   it("exposes dialog slots via Dialog tester", async () => {
     renderPopover();
 

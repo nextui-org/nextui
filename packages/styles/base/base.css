@@ -1,3 +1,6 @@
+/* Shared by full and selective stylesheet imports. */
+@import "./overlay-motion.css";
+
 /*
  * Scrollbar styles
  *

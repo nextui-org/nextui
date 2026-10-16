@@ -7,7 +7,6 @@ import type {ComponentPropsWithRef} from "react";
 import {dropdownVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {Button} from "react-aria-components/Button";
-import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {
   Menu as MenuPrimitive,
   MenuTrigger as MenuTriggerPrimitive,
@@ -16,7 +15,7 @@ import {
 } from "react-aria-components/Menu";
 
 import {useResolvedClassName} from "../../utils/compose";
-import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {MenuItemIndicator, MenuItemRoot, MenuItemSubmenuIndicator} from "../menu-item";
 import {MenuSectionRoot} from "../menu-section";
 import {SurfaceContext} from "../surface";
@@ -101,9 +100,8 @@ const DropdownPopover = ({
   const {slots} = use(DropdownContext);
   // Root menu and each submenu provide their own trigger state. The nearest one
   // is the popover that is closing, so a submenu holds its own exit.
-  const overlayState = use(OverlayTriggerStateContext);
-  const {isExiting, ref: overlayRef} = useOverlayExitHold(
-    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+  const {isExiting, ref: overlayRef} = usePopoverExitHold(
+    {...props, defaultOpen, isOpen},
     {prepare: revealPopoverForExit, ref},
   );
 

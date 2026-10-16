@@ -1,7 +1,8 @@
 "use client";
 
-import type {Ref} from "react";
+import type {Ref, RefCallback} from "react";
 
+import {mergeRefs} from "@react-aria/utils";
 import {useCallback, useLayoutEffect, useRef, useState} from "react";
 import {flushSync} from "react-dom";
 
@@ -14,14 +15,6 @@ type ExitHoldOptions<T extends HTMLElement> = {
   prepare?: (element: HTMLElement) => void;
   /** The caller's ref, merged into the returned one. */
   ref?: Ref<T>;
-};
-
-const setRef = <T>(ref: Ref<T> | undefined, value: T) => {
-  if (typeof ref === "function") {
-    ref(value);
-  } else if (ref) {
-    ref.current = value;
-  }
 };
 
 const animationDurationMs = (element: Element) => {
@@ -94,7 +87,7 @@ export const useOverlayExitHold = <T extends HTMLElement>(
   isOpen: boolean | undefined,
   {enabled = true, prepare, ref: forwardedRef}: ExitHoldOptions<T> = {},
 ) => {
-  const elementRef = useRef<HTMLElement | null>(null);
+  const elementRef = useRef<T | null>(null);
   const [isExiting, setIsExiting] = useState(false);
   const [prevOpen, setPrevOpen] = useState(isOpen);
 
@@ -109,11 +102,9 @@ export const useOverlayExitHold = <T extends HTMLElement>(
     exiting = false;
   }
 
-  const ref = useCallback(
-    (node: T | null) => {
-      elementRef.current = node;
-      setRef(forwardedRef, node);
-    },
+  const ref = useCallback<RefCallback<T>>(
+    // With multiple refs, mergeRefs always returns a callback, including its cleanup.
+    (node: T | null) => (mergeRefs(elementRef, forwardedRef) as RefCallback<T>)(node),
     [forwardedRef],
   );
 

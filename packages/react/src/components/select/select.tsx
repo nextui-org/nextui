@@ -10,7 +10,6 @@ import type {ComponentPropsWithRef, ReactNode} from "react";
 import {selectVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
-import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {Popover as PopoverPrimitive} from "react-aria-components/Popover";
 import {
   Select as SelectPrimitive,
@@ -22,7 +21,7 @@ import {dataAttr} from "../../utils/assertion";
 import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
-import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {CloseIcon, IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -322,11 +321,7 @@ const SelectPopover = ({
   ...props
 }: SelectPopoverProps) => {
   const {slots} = use(SelectContext);
-  const overlayState = use(OverlayTriggerStateContext);
-  const {isExiting, ref: overlayRef} = useOverlayExitHold(
-    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
-    {ref},
-  );
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <SurfaceContext

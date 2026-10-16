@@ -12,7 +12,6 @@ import React, {createContext, use, useCallback, useRef, useState} from "react";
 import {useIsHidden} from "react-aria/private/collections/Hidden";
 import {Autocomplete as AutocompletePrimitive} from "react-aria-components/Autocomplete";
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
-import {OverlayTriggerStateContext} from "react-aria-components/Dialog";
 import {Group as GroupPrimitive} from "react-aria-components/Group";
 import {Popover as PopoverPrimitive} from "react-aria-components/Popover";
 import {
@@ -25,7 +24,7 @@ import {dataAttr} from "../../utils/assertion";
 import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
-import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {CloseIcon, IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -248,11 +247,7 @@ const AutocompletePopover = ({
   ...props
 }: AutocompletePopoverProps) => {
   const {slots, triggerRef} = use(AutocompleteContext);
-  const overlayState = use(OverlayTriggerStateContext);
-  const {isExiting, ref: overlayRef} = useOverlayExitHold(
-    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
-    {ref},
-  );
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
   const [triggerWidth, setTriggerWidth] = useState<string | null>(null);
 
   const onResize = useCallback(() => {

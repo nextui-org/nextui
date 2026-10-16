@@ -1,0 +1,7 @@
+@layer theme, base, components, utilities;
+
+@import "tailwindcss";
+@import "@heroui/styles/base" layer(base);
+@import "@heroui/styles/themes/default" layer(theme);
+@import "@heroui/styles/components/popover.css" layer(components);
+@import "@heroui/styles/utilities";

@@ -10,7 +10,6 @@ import React, {createContext, use} from "react";
 import {
   Dialog as DialogPrimitive,
   Heading as HeadingPrimitive,
-  OverlayTriggerStateContext,
   DialogTrigger as PopoverTriggerPrimitive,
 } from "react-aria-components/Dialog";
 import {
@@ -23,7 +22,7 @@ import {useSlottedContext} from "react-aria-components/slots";
 
 import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
-import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {SurfaceContext} from "../surface";
 
 /* -------------------------------------------------------------------------------------------------
@@ -82,11 +81,7 @@ const PopoverContent = ({
   const racContext = useSlottedContext(RACPopoverContext, props.slot);
   const resolvedRender = render ?? racContext?.render;
   const contextValue = React.useMemo(() => ({slots}), [slots]);
-  const overlayState = use(OverlayTriggerStateContext);
-  const {isExiting, ref: overlayRef} = useOverlayExitHold(
-    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
-    {ref},
-  );
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <PopoverContext value={contextValue}>

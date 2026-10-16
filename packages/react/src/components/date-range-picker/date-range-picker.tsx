@@ -14,14 +14,14 @@ import {
   DateRangePicker as DateRangePickerPrimitive,
   Popover as PopoverPrimitive,
 } from "react-aria-components/DateRangePicker";
-import {DialogContext, OverlayTriggerStateContext} from "react-aria-components/Dialog";
+import {DialogContext} from "react-aria-components/Dialog";
 import {PopoverContext} from "react-aria-components/Popover";
 import {useSlottedContext} from "react-aria-components/slots";
 
 import {dataAttr} from "../../utils/assertion";
 import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
-import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {IconCalendar} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -226,14 +226,10 @@ const DateRangePickerPopover = ({
   ...props
 }: DateRangePickerPopoverProps) => {
   const {slots} = use(DateRangePickerContext);
-  const overlayState = use(OverlayTriggerStateContext);
   const dialogProps = useSlottedContext(DialogContext);
   const popoverContext = useSlottedContext(PopoverContext, props.slot);
   const resolvedRender = render ?? popoverContext?.render;
-  const {isExiting, ref: overlayRef} = useOverlayExitHold(
-    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
-    {ref},
-  );
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <SurfaceContext
