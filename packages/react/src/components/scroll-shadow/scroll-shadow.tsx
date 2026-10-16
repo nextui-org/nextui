@@ -71,11 +71,11 @@ export const ScrollShadowRoot = ({
     visibility,
   });
 
-  // Handle controlled visibility mode
+  // Apply controlled visibility, or clear stale automatic shadows when disabled.
   useSafeLayoutEffect(() => {
     const el = internalRef.current;
 
-    if (!el || visibility === "auto") return;
+    if (!el || (visibility === "auto" && isEnabled)) return;
 
     // Clear all data attributes
     delete el.dataset["topScroll"];
@@ -85,13 +85,15 @@ export const ScrollShadowRoot = ({
     delete el.dataset["rightScroll"];
     delete el.dataset["leftRightScroll"];
 
+    if (visibility === "auto") return;
+
     // Set controlled visibility
     if (visibility === "both") {
       el.dataset[orientation === "vertical" ? "topBottomScroll" : "leftRightScroll"] = "true";
     } else if (visibility !== "none") {
       el.dataset[`${visibility}Scroll`] = "true";
     }
-  }, [visibility, orientation]);
+  }, [visibility, orientation, isEnabled]);
 
   const slots = useMemo(
     () =>
