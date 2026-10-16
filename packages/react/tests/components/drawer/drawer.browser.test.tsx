@@ -10,6 +10,59 @@ import "@/styles.css";
 const renderDrawer = () => render(<DrawerFixture />);
 
 describe("Drawer (browser)", () => {
+  it.each(["pointercancel", "lostpointercapture"])(
+    "supports recovery after %s interrupts a drag",
+    async (eventType) => {
+      await render(<DrawerFixture placement="bottom" />);
+      await page.getByRole("button", {name: "Open Drawer"}).click();
+
+      const dialog = page.getByRole("dialog");
+      const element = dialog.element() as HTMLElement;
+
+      await expect.poll(() => element.getAnimations().length).toBe(0);
+
+      const rect = element.getBoundingClientRect();
+      const dispatch = (type: string, offset: number) =>
+        element.dispatchEvent(
+          new PointerEvent(type, {
+            bubbles: true,
+            button: 0,
+            clientX: rect.left + rect.width / 2,
+            clientY: rect.top + 8 + offset,
+            isPrimary: true,
+            pointerId: 1,
+            pointerType: "touch",
+          }),
+        );
+
+      // Synthetic cancellation exercises cleanup against real layout, but has no live pointer to capture.
+      element.setPointerCapture = () => {};
+      element.releasePointerCapture = () => {};
+
+      dispatch("pointerdown", 0);
+      dispatch("pointermove", 40);
+      expect(element.getBoundingClientRect().top).toBeCloseTo(rect.top + 40);
+      dispatch(eventType, 40);
+
+      await expect.poll(() => element.getBoundingClientRect().top).toBeCloseTo(rect.top);
+      expect(element.style.transition).toBe("");
+      await expect.element(dialog).toBeInTheDocument();
+
+      // Events from the cancelled gesture cannot move or dismiss the drawer.
+      dispatch("pointermove", rect.height);
+      dispatch("pointerup", rect.height);
+      expect(element.getBoundingClientRect().top).toBeCloseTo(rect.top);
+      await expect.element(dialog).toBeInTheDocument();
+
+      // A fresh gesture still works, and its normal capture release must not cancel dismissal.
+      dispatch("pointerdown", 0);
+      dispatch("pointermove", rect.height);
+      dispatch("pointerup", rect.height);
+      dispatch("lostpointercapture", rect.height);
+      await expect.element(dialog).not.toBeInTheDocument();
+    },
+  );
+
   it("supports focus trap, scroll lock, and Escape focus restore", async () => {
     await renderDrawer();
 

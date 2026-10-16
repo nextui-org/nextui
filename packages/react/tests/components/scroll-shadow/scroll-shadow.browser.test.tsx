@@ -240,6 +240,46 @@ describe("ScrollShadow (browser)", () => {
   });
 
   describe("disabled detection", () => {
+    it.each(["vertical", "horizontal"] as const)(
+      "supports disabling and re-enabling an overflowing %s container",
+      async (orientation) => {
+        const fixture = (isEnabled: boolean, visibility: "auto" | "both" = "auto") => (
+          <ScrollShadow
+            data-testid="scroller"
+            isEnabled={isEnabled}
+            orientation={orientation}
+            style={{height: VIEWPORT, width: VIEWPORT}}
+            visibility={visibility}
+          >
+            <div style={{height: 1200, width: 1200}}>Overflowing content</div>
+          </ScrollShadow>
+        );
+        const screen = await render(fixture(true));
+        const scroller = scrollerOf();
+        const endAttribute =
+          orientation === "vertical" ? "data-bottom-scroll" : "data-right-scroll";
+
+        await expect.poll(() => scroller.getAttribute(endAttribute)).toBe("true");
+        await screen.rerender(fixture(false));
+        await nextFrames();
+        expect(scroller).not.toHaveAttribute(endAttribute);
+        expect(getComputedStyle(scroller).maskImage).toBe("none");
+
+        await screen.rerender(fixture(true));
+        await expect.poll(() => scroller.getAttribute(endAttribute)).toBe("true");
+        await expect.poll(() => getComputedStyle(scroller).maskImage).not.toBe("none");
+
+        // Disabling automatic detection must preserve explicitly controlled shadows.
+        await screen.rerender(fixture(false, "both"));
+        await nextFrames();
+        expect(scroller).toHaveAttribute(
+          orientation === "vertical" ? "data-top-bottom-scroll" : "data-left-right-scroll",
+          "true",
+        );
+        expect(getComputedStyle(scroller).maskImage).not.toBe("none");
+      },
+    );
+
     it("renders no fade when detection is turned off", async () => {
       await render(
         <ScrollShadow

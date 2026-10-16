@@ -199,10 +199,35 @@ function useDrawerDrag(placement: DrawerPlacement | undefined, isDismissable: bo
     [isVertical, overlayState],
   );
 
+  const onPointerCancel = useCallback((e: React.PointerEvent) => {
+    // Normal pointer-up also releases capture; don't undo its exit animation.
+    if (!isDragging.current) return;
+
+    isDragging.current = false;
+    isActive.current = false;
+    currentOffset.current = 0;
+    velocity.current = 0;
+
+    const el = dialogRef.current;
+
+    if (!el) return;
+
+    // A cancelled gesture must restore the resting position without dismissing.
+    el.style.transform = "";
+    el.style.transition = "";
+    try {
+      el.releasePointerCapture(e.pointerId);
+    } catch {
+      // Cancellation or lost capture may have already released the pointer.
+    }
+  }, []);
+
   return {
     dialogRef,
     dragHandlers: isDismissable
       ? {
+          onLostPointerCapture: onPointerCancel,
+          onPointerCancel,
           onPointerDown,
           onPointerMove,
           onPointerUp,

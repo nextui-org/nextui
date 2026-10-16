@@ -7,6 +7,7 @@ import type {SliderRenderProps} from "react-aria-components/Slider";
 
 import {sliderVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
+import {useLocale} from "react-aria-components/I18nProvider";
 import {
   SliderOutput as SliderOutputPrimitive,
   Slider as SliderPrimitive,
@@ -24,7 +25,6 @@ import {dom} from "../../utils/dom";
 
 // TODO: steps support
 // TODO: marks support
-// TODO: rtl support
 
 /* -------------------------------------------------------------------------------------------------
  * Slider Context
@@ -147,6 +147,7 @@ const SliderFill = <E extends keyof React.JSX.IntrinsicElements = "div">({
   ...props
 }: SliderFillProps<E> & Omit<React.JSX.IntrinsicElements[E], keyof SliderFillProps<E>>) => {
   const {slots, state} = use(SliderContext);
+  const {direction} = useLocale();
 
   const {getThumbPercent, orientation, values} = state?.state || {};
 
@@ -164,8 +165,8 @@ const SliderFill = <E extends keyof React.JSX.IntrinsicElements = "div">({
       data-slot="slider-fill"
       style={{
         ...style,
-        // TODO: rtl support
-        [isVertical ? "bottom" : "left"]: `${startOffset! * 100}%`,
+        // Match the locale direction used by React Aria's thumb positioning.
+        [isVertical ? "bottom" : direction === "rtl" ? "right" : "left"]: `${startOffset! * 100}%`,
         ...(isVertical
           ? {
               height: `${(endOffset! - startOffset!) * 100}%`,
