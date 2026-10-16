@@ -2230,6 +2230,28 @@ export const demos: Record<string, DemoItem> = {
     file: "cn/skeleton/custom-styles.tsx",
   },
   // Slider Demo
+  "slider-with-steps": {
+    loader: () => import("./slider/with-steps").then((m) => m.WithSteps),
+    file: "cn/slider/with-steps.tsx",
+  },
+  "slider-with-marks": {
+    loader: () => import("./slider/with-marks").then((m) => m.WithMarks),
+    file: "cn/slider/with-marks.tsx",
+  },
+  "slider-with-steps-and-marks": {
+    loader: () => import("./slider/with-steps-and-marks").then((m) => m.WithStepsAndMarks),
+    file: "cn/slider/with-steps-and-marks.tsx",
+  },
+  "slider-range-with-steps-and-marks": {
+    loader: () =>
+      import("./slider/range-with-steps-and-marks").then((m) => m.RangeWithStepsAndMarks),
+    file: "cn/slider/range-with-steps-and-marks.tsx",
+  },
+  "slider-vertical-with-steps-and-marks": {
+    loader: () =>
+      import("./slider/vertical-with-steps-and-marks").then((m) => m.VerticalWithStepsAndMarks),
+    file: "cn/slider/vertical-with-steps-and-marks.tsx",
+  },
   "slider-default": {
     loader: () => import("./slider/default").then((m) => m.Default),
     file: "cn/slider/default.tsx",
