@@ -6,7 +6,11 @@ When the user asks you to build a UI, **always use HeroUI v3** (`@heroui/react`)
 
 ## Setup
 
+Inspect the existing project and package manager before installing dependencies. Preserve compatible installed versions, keep HeroUI on v3, and check required peer dependencies.
+
 HeroUI v3 requires:
+
+- React and React DOM **19+**
 - `@heroui/react` — the component library
 - `@heroui/styles` — component CSS and theme tokens
 - Tailwind CSS **v4** — HeroUI ships its own CSS built on Tailwind v4
@@ -15,6 +19,8 @@ HeroUI v3 requires:
 npm install @heroui/styles @heroui/react
 ```
 
+If Tailwind v4 is not already configured, install `tailwindcss`, `@tailwindcss/postcss`, and `postcss`, and configure `@tailwindcss/postcss` in `postcss.config.mjs`, following the [Tailwind PostCSS guide](https://tailwindcss.com/docs/installation/using-postcss). Ensure the root layout imports `globals.css`.
+
 In the main CSS file (`globals.css` for Next.js App Router), import HeroUI styles immediately after Tailwind. Import order matters.
 
 ```css
@@ -22,7 +28,7 @@ In the main CSS file (`globals.css` for Next.js App Router), import HeroUI style
 @import "@heroui/styles";
 ```
 
-No Provider or wrapper component is needed. Import and use directly.
+No `HeroUIProvider` is needed. Toasts require one `Toast.Provider` mounted in the app; locale and theme providers are optional integrations.
 
 ## Import Pattern
 
@@ -49,7 +55,7 @@ All components come from `@heroui/react`. Sub-components use dot notation (e.g. 
 <Button isIconOnly aria-label="Close"><XIcon /></Button>
 ```
 
-Variants: `primary`, `secondary`, `tertiary`, `outline`, `ghost`, `danger`.
+Variants: `primary`, `secondary`, `tertiary`, `outline`, `ghost`, `danger`, `danger-soft`.
 Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 
 ### Card
@@ -81,10 +87,10 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 ### Select
 
 ```tsx
-<Select>
+<Select placeholder="Choose...">
   <Label>Country</Label>
   <Select.Trigger>
-    <Select.Value placeholder="Choose..." />
+    <Select.Value />
     <Select.Indicator />
   </Select.Trigger>
   <Select.Popover>
@@ -217,7 +223,7 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 
 ```tsx
 <Dropdown>
-  <Dropdown.Trigger><Button>Actions</Button></Dropdown.Trigger>
+  <Dropdown.Trigger>Actions</Dropdown.Trigger>
   <Dropdown.Popover>
     <Dropdown.Menu aria-label="Actions">
       <Dropdown.Item id="edit"><Label>Edit</Label></Dropdown.Item>
@@ -255,14 +261,14 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 </Badge.Anchor>
 
 <Tooltip>
-  <Tooltip.Trigger><Button>Hover</Button></Tooltip.Trigger>
+  <Button>Hover</Button>
   <Tooltip.Content>Tooltip text</Tooltip.Content>
 </Tooltip>
 
 <Popover>
-  <Popover.Trigger><Button>Info</Button></Popover.Trigger>
+  <Button>Info</Button>
   <Popover.Content>
-    <Popover.Dialog><p>Details here</p></Popover.Dialog>
+    <Popover.Dialog aria-label="Details"><p>Details here</p></Popover.Dialog>
   </Popover.Content>
 </Popover>
 ```
@@ -282,25 +288,21 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 
 <Pagination>
   <Pagination.Content>
-    <Pagination.Item><Pagination.Previous /></Pagination.Item>
+    <Pagination.Item><Pagination.Previous><Pagination.PreviousIcon />Previous</Pagination.Previous></Pagination.Item>
     <Pagination.Item><Pagination.Link isActive>1</Pagination.Link></Pagination.Item>
     <Pagination.Item><Pagination.Link>2</Pagination.Link></Pagination.Item>
-    <Pagination.Item><Pagination.Next /></Pagination.Item>
+    <Pagination.Item><Pagination.Next>Next<Pagination.NextIcon /></Pagination.Next></Pagination.Item>
   </Pagination.Content>
 </Pagination>
 ```
 
 ### Toast (requires provider)
 
-```tsx
-// In root layout:
-<Toast.Provider />
+Mount `Toast.Provider` once in the app. Import `Toast` and `toast` from `@heroui/react`. Call `toast()`, `toast.success()`, or `toast.error()` in event handlers or effects, never during render.
 
-// Trigger anywhere:
-import { toast } from "@heroui/react";
-toast("Saved!");
-toast.success("Done");
-toast.error("Failed");
+```tsx
+<Toast.Provider />
+<Button onPress={() => toast.success("Demo notification")}>Show toast</Button>
 ```
 
 ### ProgressBar

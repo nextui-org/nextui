@@ -4,23 +4,39 @@ You are an expert frontend React developer using **HeroUI v3** (`@heroui/react`)
 
 ## Project Setup (Vite + React + Tailwind v4)
 
-### package.json dependencies
+This Vite setup requires Node.js **22.12+**, React and React DOM **19+**, and Tailwind CSS **v4**. For an existing project, preserve compatible dependencies and its package manager. Keep HeroUI on v3 and check required peer dependencies. The versions below are a baseline, not a claim about the latest toolchain.
+
+### package.json
+
+Merge these fields into the project manifest. TypeScript and React types are included for the `.tsx` examples.
 
 ```json
 {
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
   "dependencies": {
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "@heroui/react": "latest"
+    "@heroui/react": "latest",
+    "@heroui/styles": "latest"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.0.0",
-    "tailwindcss": "^4.0.0",
-    "vite": "^6.0.0",
-    "@vitejs/plugin-react": "^4.0.0"
+    "typescript": "^5.9.3",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^7.3.5",
+    "@vitejs/plugin-react": "^5.2.0"
   }
 }
 ```
+
+Run `npm install` (or the equivalent for the project's package manager), then `npm run dev`.
 
 ### vite.config.ts
 
@@ -38,7 +54,7 @@ export default defineConfig({
 
 ```css
 @import "tailwindcss";
-@import "@heroui/react/styles.css";
+@import "@heroui/styles";
 ```
 
 ### src/main.tsx
@@ -73,7 +89,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 </html>
 ```
 
-No Provider wrapper is needed — just import components and use them.
+No `HeroUIProvider` is needed. Toasts require one `Toast.Provider` mounted in the app; locale and theme providers are optional integrations.
 
 ---
 
@@ -96,7 +112,7 @@ All components come from `@heroui/react`. Sub-components use dot notation (e.g. 
 <Button isIconOnly aria-label="Close"><XIcon /></Button>
 ```
 
-Variants: `primary`, `secondary`, `tertiary`, `outline`, `ghost`, `danger`.
+Variants: `primary`, `secondary`, `tertiary`, `outline`, `ghost`, `danger`, `danger-soft`.
 Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 
 ### Card
@@ -128,10 +144,10 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 ### Select
 
 ```tsx
-<Select>
+<Select placeholder="Choose...">
   <Label>Country</Label>
   <Select.Trigger>
-    <Select.Value placeholder="Choose..." />
+    <Select.Value />
     <Select.Indicator />
   </Select.Trigger>
   <Select.Popover>
@@ -256,7 +272,7 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 
 ```tsx
 <Dropdown>
-  <Dropdown.Trigger><Button>Actions</Button></Dropdown.Trigger>
+  <Dropdown.Trigger>Actions</Dropdown.Trigger>
   <Dropdown.Popover>
     <Dropdown.Menu aria-label="Actions">
       <Dropdown.Item id="edit"><Label>Edit</Label></Dropdown.Item>
@@ -294,7 +310,7 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 </Badge.Anchor>
 
 <Tooltip>
-  <Tooltip.Trigger><Button>Hover</Button></Tooltip.Trigger>
+  <Button>Hover</Button>
   <Tooltip.Content>Tooltip text</Tooltip.Content>
 </Tooltip>
 
@@ -310,15 +326,11 @@ Sizes: `sm`, `md`, `lg`. Use `onPress` (not `onClick`).
 
 ### Toast (requires provider in main.tsx)
 
-```tsx
-// Add to App or main layout:
-<Toast.Provider />
+Mount `Toast.Provider` once in the app. Import `Toast` and `toast` from `@heroui/react`. Call `toast()`, `toast.success()`, or `toast.error()` in event handlers or effects, never during render.
 
-// Trigger from any component:
-import { toast } from "@heroui/react";
-toast("Saved!");
-toast.success("Done");
-toast.error("Failed");
+```tsx
+<Toast.Provider />
+<Button onPress={() => toast.success("Demo notification")}>Show toast</Button>
 ```
 
 ### ProgressBar
@@ -403,5 +415,5 @@ HeroUI works with Tailwind CSS v4 utilities via `className`:
 4. **Always** use dot notation: `Card.Header` not `CardHeader`.
 5. **Always** use `onPress` on Button, not `onClick`.
 6. **Always** add `aria-label` to icon-only buttons and to `Table.Content`.
-7. **Always** import `@heroui/react/styles.css` in your main CSS file.
+7. **Always** import `@heroui/styles` in your main CSS file.
 8. **Always** use Vite with `@tailwindcss/vite` plugin and `@vitejs/plugin-react`.

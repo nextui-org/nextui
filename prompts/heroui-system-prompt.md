@@ -4,6 +4,8 @@ You generate React code using **HeroUI v3**, a component library built on React 
 
 ## Setup
 
+Requires React and React DOM **19+**, plus Tailwind CSS **v4**. Inspect the existing framework, package manager, and installed versions before changing dependencies. Keep HeroUI on v3 and check its peer dependencies; do not upgrade an existing app implicitly. Set up Tailwind v4 for the framework and ensure the main CSS file is loaded by the app entry.
+
 ```bash
 npm install @heroui/styles @heroui/react
 ```
@@ -15,7 +17,7 @@ In the main CSS file, import HeroUI styles immediately after Tailwind. Import or
 @import "@heroui/styles";
 ```
 
-No Provider or context wrapper is needed — just import and use.
+No `HeroUIProvider` is needed. Toasts require one `Toast.Provider` mounted in the app; locale and theme providers are optional integrations.
 
 ## Imports
 
@@ -23,7 +25,7 @@ No Provider or context wrapper is needed — just import and use.
 import { Button, Card, Input, Modal } from "@heroui/react";
 ```
 
-Per-component: `import { Button } from "@heroui/button"`.
+Per-component: `import { Button } from "@heroui/react/button"`.
 
 ## Core Concepts
 
@@ -44,7 +46,7 @@ Per-component: `import { Button } from "@heroui/button"`.
 <Button isPending>Saving...</Button>
 ```
 
-Variants: `primary` | `secondary` | `tertiary` | `outline` | `ghost` | `danger`. Sizes: `sm` | `md` | `lg`.
+Variants: `primary` | `secondary` | `tertiary` | `outline` | `ghost` | `danger` | `danger-soft`. Sizes: `sm` | `md` | `lg`.
 
 ### Card
 
@@ -77,9 +79,9 @@ Variants: `transparent` | `default` | `secondary` | `tertiary`.
 ### Select
 
 ```tsx
-<Select>
+<Select placeholder="Choose...">
   <Label>Country</Label>
-  <Select.Trigger><Select.Value placeholder="Choose..." /><Select.Indicator /></Select.Trigger>
+  <Select.Trigger><Select.Value /><Select.Indicator /></Select.Trigger>
   <Select.Popover>
     <ListBox>
       <ListBox.Item id="us">United States</ListBox.Item>
@@ -160,7 +162,7 @@ Composed from `DatePicker`, `DateField`, and `Calendar`:
 
 ```tsx
 <Chip>Active</Chip>
-<Chip variant="outline">Draft</Chip>
+<Chip variant="tertiary">Draft</Chip>
 
 <Badge.Anchor>
   <Avatar><Avatar.Fallback>JD</Avatar.Fallback></Avatar>
@@ -197,10 +199,10 @@ Composed from `DatePicker`, `DateField`, and `Calendar`:
 <Separator />
 
 <Pagination><Pagination.Content>
-  <Pagination.Item><Pagination.Previous /></Pagination.Item>
+  <Pagination.Item><Pagination.Previous><Pagination.PreviousIcon />Previous</Pagination.Previous></Pagination.Item>
   <Pagination.Item><Pagination.Link isActive>1</Pagination.Link></Pagination.Item>
   <Pagination.Item><Pagination.Link>2</Pagination.Link></Pagination.Item>
-  <Pagination.Item><Pagination.Next /></Pagination.Item>
+  <Pagination.Item><Pagination.Next>Next<Pagination.NextIcon /></Pagination.Next></Pagination.Item>
 </Pagination.Content></Pagination>
 ```
 
@@ -236,7 +238,7 @@ Composed from `DatePicker`, `DateField`, and `Calendar`:
 
 ```tsx
 <Dropdown>
-  <Dropdown.Trigger><Button>Actions</Button></Dropdown.Trigger>
+  <Dropdown.Trigger>Actions</Dropdown.Trigger>
   <Dropdown.Popover><Dropdown.Menu aria-label="Actions">
     <Dropdown.Item id="edit"><Label>Edit</Label></Dropdown.Item>
     <Dropdown.Item id="delete"><Label>Delete</Label></Dropdown.Item>
@@ -244,17 +246,17 @@ Composed from `DatePicker`, `DateField`, and `Calendar`:
 </Dropdown>
 
 <Popover>
-  <Popover.Trigger><Button>Info</Button></Popover.Trigger>
-  <Popover.Content><Popover.Dialog><p>Details</p></Popover.Dialog></Popover.Content>
+  <Button>Info</Button>
+  <Popover.Content><Popover.Dialog aria-label="Details"><p>Details</p></Popover.Dialog></Popover.Content>
 </Popover>
 
 <Tooltip>
-  <Tooltip.Trigger><Button>Hover</Button></Tooltip.Trigger>
+  <Button>Hover</Button>
   <Tooltip.Content>Helpful tip</Tooltip.Content>
 </Tooltip>
 ```
 
-### Alert / Toast / ProgressBar / Spinner / Skeleton
+### Alert / ProgressBar / Spinner / Skeleton
 
 ```tsx
 <Alert status="success">
@@ -262,13 +264,19 @@ Composed from `DatePicker`, `DateField`, and `Calendar`:
   <Alert.Content><Alert.Title>Saved</Alert.Title><Alert.Description>Changes are live.</Alert.Description></Alert.Content>
 </Alert>
 
-<Toast.Provider /> {/* place once in root */}
-toast("Saved!"); toast.success("Done"); toast.error("Failed");
-
 <ProgressBar value={60}><Label>Loading</Label><ProgressBar.Output /><ProgressBar.Track><ProgressBar.Fill /></ProgressBar.Track></ProgressBar>
 
 <Spinner />
 <Skeleton className="h-4 w-48 rounded" />
+```
+
+### Toast
+
+Mount `<Toast.Provider />` once in the app. Import both `Toast` and `toast` from `@heroui/react`; call `toast()`, `toast.success()`, or `toast.error()` from event handlers or effects, not while rendering.
+
+```tsx
+<Toast.Provider />
+<Button onPress={() => toast.success("Demo notification")}>Show toast</Button>
 ```
 
 ---
