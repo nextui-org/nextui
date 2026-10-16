@@ -20,13 +20,6 @@ import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
- * Component Status: Preview
- * -----------------------------------------------------------------------------------------------*/
-
-// TODO: steps support
-// TODO: marks support
-
-/* -------------------------------------------------------------------------------------------------
  * Slider Context
  * -----------------------------------------------------------------------------------------------*/
 interface SliderContext {
@@ -116,12 +109,12 @@ const SliderTrack = ({children, className, ...props}: SliderTrackProps) => {
       data-slot="slider-track"
       {...(singleThumb
         ? {
-            "data-fill-start": dataAttr(fillWidth > 0),
             "data-fill-end": dataAttr(fillWidth == 100),
+            "data-fill-start": dataAttr(fillWidth > 0),
           }
         : {
-            "data-fill-start": dataAttr(startOffset == 0),
             "data-fill-end": dataAttr(startOffset! * 100 + fillWidth == 100),
+            "data-fill-start": dataAttr(startOffset == 0),
           })}
       {...props}
     >
@@ -204,7 +197,113 @@ const SliderThumb = ({children, className, ...props}: SliderThumbProps) => {
 SliderThumb.displayName = "HeroUI.Slider.Thumb";
 
 /* -------------------------------------------------------------------------------------------------
- * TODO: Slider Marks
+ * Slider Indicators
+ * -----------------------------------------------------------------------------------------------*/
+function getIndicatorProps(state: SliderRenderProps["state"], value: number, direction: string) {
+  const minValue = state.getThumbMinValue(0);
+  const maxValue = state.getThumbMaxValue(state.values.length - 1);
+  const startValue = state.values.length > 1 ? state.values[0]! : minValue;
+  const endValue = state.values[state.values.length - 1]!;
+  const percent = minValue === maxValue ? 0 : state.getValuePercent(value);
+
+  return {
+    "data-disabled": dataAttr(state.isDisabled),
+    "data-filled": dataAttr(value >= startValue && value <= endValue),
+    "data-value": value,
+    style: {
+      [state.orientation === "vertical" ? "bottom" : direction === "rtl" ? "right" : "left"]:
+        `${percent * 100}%`,
+    },
+  };
+}
+
+function getDecimalPlaces(value: number) {
+  const [coefficient, exponent = "0"] = value.toString().split("e");
+
+  return Math.max(0, (coefficient!.split(".")[1]?.length ?? 0) - Number(exponent));
+}
+
+/* -------------------------------------------------------------------------------------------------
+ * Slider Steps
+ * -----------------------------------------------------------------------------------------------*/
+interface SliderStepsProps<
+  E extends keyof React.JSX.IntrinsicElements = "div",
+> extends DOMRenderProps<E, undefined> {
+  className?: string;
+}
+
+/**
+ * Decorative dots at each step, composed inside Slider.Track.
+ * Omitted for invalid ranges or more than 1,000 dots to avoid unbounded DOM output.
+ * Exposes slider-steps and slider-step data-slot hooks; dots expose data-value and data-filled.
+ */
+const SliderSteps = <E extends keyof React.JSX.IntrinsicElements = "div">({
+  className,
+  ...props
+}: SliderStepsProps<E> &
+  Omit<React.JSX.IntrinsicElements[E], keyof SliderStepsProps<E> | "children">) => {
+  const {slots, state: renderState} = use(SliderContext);
+  const {direction} = useLocale();
+  const state = renderState?.state;
+
+  if (!state) return null;
+
+  const minValue = state.getThumbMinValue(0);
+  const maxValue = state.getThumbMaxValue(state.values.length - 1);
+  const stepCount = (maxValue - minValue) / state.step;
+  // Account for decimal division such as (0.3 - 0) / 0.1 without adding an off-step endpoint.
+  const count = Math.floor(stepCount + Number.EPSILON * Math.max(1, stepCount) * 4) + 1;
+
+  if (
+    !Number.isFinite(minValue) ||
+    !Number.isFinite(maxValue) ||
+    maxValue < minValue ||
+    !Number.isFinite(state.step) ||
+    state.step <= 0 ||
+    !Number.isFinite(count) ||
+    count <= 0 ||
+    count > 1000
+  ) {
+    return null;
+  }
+
+  const precision = Math.max(getDecimalPlaces(minValue), getDecimalPlaces(state.step));
+
+  return (
+    <dom.div
+      className={composeSlotClassName(slots?.steps, className)}
+      data-direction={direction}
+      data-disabled={dataAttr(state.isDisabled)}
+      data-orientation={state.orientation}
+      data-slot="slider-steps"
+      {...(props as any)}
+      aria-hidden="true"
+    >
+      {Array.from({length: count}, (_, index) => {
+        // Avoid cumulative floating-point drift in decimal steps and data-value hooks.
+        const rawValue = minValue + index * state.step;
+        const value = Math.min(
+          maxValue,
+          precision <= 100 ? Number(rawValue.toFixed(precision)) : rawValue,
+        );
+
+        return (
+          <span
+            key={index}
+            className={slots?.step()}
+            data-slot="slider-step"
+            {...getIndicatorProps(state, value, direction)}
+          />
+        );
+      })}
+    </dom.div>
+  );
+};
+
+SliderSteps.displayName = "HeroUI.Slider.Steps";
+
+/* -------------------------------------------------------------------------------------------------
+ * Slider Marks
  * -----------------------------------------------------------------------------------------------*/
 interface SliderMarksProps<
   E extends keyof React.JSX.IntrinsicElements = "div",
@@ -212,16 +311,22 @@ interface SliderMarksProps<
   className?: string;
 }
 
+/** Composed after Slider.Track. Contains Slider.Mark labels and exposes data-slot="slider-marks". */
 const SliderMarks = <E extends keyof React.JSX.IntrinsicElements = "div">({
   className,
   ...props
 }: SliderMarksProps<E> & Omit<React.JSX.IntrinsicElements[E], keyof SliderMarksProps<E>>) => {
-  const {slots} = use(SliderContext);
+  const {slots, state} = use(SliderContext);
+  const {direction} = useLocale();
 
   return (
     <dom.div
       className={composeSlotClassName(slots?.marks, className)}
+      data-direction={direction}
+      data-disabled={dataAttr(state?.isDisabled)}
+      data-orientation={state?.state.orientation}
       data-slot="slider-marks"
+      dir={direction}
       {...(props as any)}
     />
   );
@@ -230,9 +335,67 @@ const SliderMarks = <E extends keyof React.JSX.IntrinsicElements = "div">({
 SliderMarks.displayName = "HeroUI.Slider.Marks";
 
 /* -------------------------------------------------------------------------------------------------
+ * Slider Mark
+ * -----------------------------------------------------------------------------------------------*/
+interface SliderMarkProps<
+  E extends keyof React.JSX.IntrinsicElements = "div",
+> extends DOMRenderProps<E, undefined> {
+  className?: string;
+  /** Value at which to position the label. Values outside the slider bounds are not rendered. */
+  value: number;
+}
+
+/** Exposes data-slot="slider-mark", data-value, data-filled, and data-disabled. */
+const SliderMark = <E extends keyof React.JSX.IntrinsicElements = "div">({
+  children,
+  className,
+  style,
+  value,
+  ...props
+}: SliderMarkProps<E> & Omit<React.JSX.IntrinsicElements[E], keyof SliderMarkProps<E>>) => {
+  const {slots, state: renderState} = use(SliderContext);
+  const {direction} = useLocale();
+  const state = renderState?.state;
+
+  if (
+    !state ||
+    !Number.isFinite(value) ||
+    value < state.getThumbMinValue(0) ||
+    value > state.getThumbMaxValue(state.values.length - 1)
+  ) {
+    return null;
+  }
+
+  const {style: position, ...indicatorProps} = getIndicatorProps(state, value, direction);
+
+  return (
+    <dom.div
+      className={composeSlotClassName(slots?.mark, className)}
+      data-slot="slider-mark"
+      {...indicatorProps}
+      {...(props as any)}
+      style={{...style, ...position}}
+    >
+      {children ?? state.getFormattedValue(value)}
+    </dom.div>
+  );
+};
+
+SliderMark.displayName = "HeroUI.Slider.Mark";
+
+/* -------------------------------------------------------------------------------------------------
  * Exports
  * -----------------------------------------------------------------------------------------------*/
-export {SliderRoot, SliderOutput, SliderTrack, SliderFill, SliderThumb, SliderMarks};
+export {
+  SliderRoot,
+  SliderOutput,
+  SliderTrack,
+  SliderFill,
+  SliderThumb,
+  SliderSteps,
+  SliderMarks,
+  SliderMark,
+};
 
 export type {
   SliderRootProps,
@@ -240,5 +403,7 @@ export type {
   SliderTrackProps,
   SliderFillProps,
   SliderThumbProps,
+  SliderStepsProps,
   SliderMarksProps,
+  SliderMarkProps,
 };

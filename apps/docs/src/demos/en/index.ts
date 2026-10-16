@@ -2284,6 +2284,28 @@ export const demos: Record<string, DemoItem> = {
   },
 
   // Slider Demo
+  "slider-with-steps": {
+    loader: () => import("./slider/with-steps").then((m) => m.WithSteps),
+    file: "en/slider/with-steps.tsx",
+  },
+  "slider-with-marks": {
+    loader: () => import("./slider/with-marks").then((m) => m.WithMarks),
+    file: "en/slider/with-marks.tsx",
+  },
+  "slider-with-steps-and-marks": {
+    loader: () => import("./slider/with-steps-and-marks").then((m) => m.WithStepsAndMarks),
+    file: "en/slider/with-steps-and-marks.tsx",
+  },
+  "slider-range-with-steps-and-marks": {
+    loader: () =>
+      import("./slider/range-with-steps-and-marks").then((m) => m.RangeWithStepsAndMarks),
+    file: "en/slider/range-with-steps-and-marks.tsx",
+  },
+  "slider-vertical-with-steps-and-marks": {
+    loader: () =>
+      import("./slider/vertical-with-steps-and-marks").then((m) => m.VerticalWithStepsAndMarks),
+    file: "en/slider/vertical-with-steps-and-marks.tsx",
+  },
   "slider-default": {
     loader: () => import("./slider/default").then((m) => m.Default),
     file: "en/slider/default.tsx",

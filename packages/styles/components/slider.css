@@ -30,9 +30,39 @@
     @apply pointer-events-none absolute bg-accent;
   }
 
+  .slider__steps {
+    @apply pointer-events-none absolute inset-0 z-1;
+  }
+
+  .slider__step {
+    @apply absolute size-1 rounded-full bg-muted;
+
+    &[data-filled="true"] {
+      @apply bg-accent-foreground;
+    }
+  }
+
+  .slider__marks {
+    @apply grid;
+
+    grid-area: marks;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .slider__mark {
+    @apply relative w-max text-xs text-muted tabular-nums;
+
+    grid-area: 1 / 1;
+    justify-self: start;
+
+    &[data-filled="true"] {
+      @apply text-foreground;
+    }
+  }
+
   .slider__thumb {
     /* Flex container for centering pseudo-elements */
-    @apply absolute flex cursor-grab items-center justify-center rounded-xl bg-accent no-highlight;
+    @apply absolute z-2 flex cursor-grab items-center justify-center rounded-xl bg-accent no-highlight;
 
     /**
    * Transitions
@@ -90,6 +120,31 @@
   &[data-orientation="horizontal"] {
     flex-direction: column;
 
+    &:has(> .slider__marks) {
+      grid-template-areas:
+        "label output"
+        "track track"
+        "marks marks";
+    }
+
+    .slider__steps .slider__step {
+      @apply top-1/2 -translate-x-1/2 -translate-y-1/2;
+    }
+
+    .slider__marks {
+      /* Match the usable track length inside the transparent thumb borders. */
+      @apply mx-3;
+    }
+
+    .slider__mark {
+      @apply -translate-x-1/2;
+    }
+
+    .slider__steps[data-direction="rtl"] .slider__step,
+    .slider__marks[data-direction="rtl"] .slider__mark {
+      @apply translate-x-1/2;
+    }
+
     .slider__track {
       @apply h-5 w-full;
       /* Add transparent borders to provide space for thumb at edges */
@@ -134,6 +189,32 @@
       "label";
     grid-template-rows: auto 1fr auto;
     grid-template-columns: 1fr;
+
+    &:has(> .slider__marks) {
+      grid-template-areas:
+        "output output"
+        "track marks"
+        "label label";
+      grid-template-columns: auto auto;
+      justify-content: center;
+    }
+
+    .slider__steps .slider__step {
+      @apply left-1/2 -translate-x-1/2 translate-y-1/2;
+    }
+
+    .slider__marks {
+      @apply my-3;
+
+      grid-template-rows: minmax(0, 1fr);
+      grid-template-columns: max-content;
+    }
+
+    .slider__mark {
+      @apply translate-y-1/2;
+
+      align-self: end;
+    }
 
     .slider__output {
       text-align: center;
