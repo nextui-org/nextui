@@ -11,11 +11,13 @@ HeroUI v3 is a modern React UI library built with Tailwind CSS v4, using a pnpm 
 - **Node.js**: v22+ required
 - **pnpm**: v10.26.2 (package manager)
 - **React**: v19+
-- **Tailwind CSS**: v4.1.18
+- **Tailwind CSS**: v4.3.3
 - **TypeScript**: v5.9.3
 - **Turborepo**: Build orchestration
 - **Storybook**: Component development
 - **Vitest**: Testing framework
+
+Use the workspace manifests and lockfile as the source of truth for exact dependency versions.
 
 ## Development Commands
 
@@ -31,11 +33,15 @@ pnpm dev
 # Start documentation site
 pnpm dev:docs
 
-# Build all packages
+# Build libraries (styles + React)
 pnpm build
 
-# Build specific package
-pnpm build --filter=@heroui/react
+# Build React and its dependencies
+pnpm build:react
+
+# Build docs or Storybook
+pnpm build:docs
+pnpm build:storybook
 
 # Run linting
 pnpm lint
@@ -52,8 +58,11 @@ pnpm test:coverage
 # Changed-set (local jsdom only; not a merge gate)
 pnpm --filter @heroui/react test:changed
 
-# Run formatting
+# Check formatting
 pnpm run format
+
+# Apply formatting fixes
+pnpm run format:fix
 
 # Run type checking
 pnpm typecheck
@@ -67,14 +76,14 @@ pnpm typecheck
 - Timers: fake timers per-suite only; wire `advanceTimers` into `setupUser` + `User`
 - Naming: `describe("Component")`; nested concern; `it` as `supports…` / `calls…` / `exposes…` / `renders…`. SSR: `"Component SSR"`; browser: `"Component (browser)"`
 - Intentional skips: internals (`rac`, `icons`), non-exported helpers (`color-input-group`, `date-input-group`), in-progress `calendar-year-picker`, parent-covered parts (`list-box-item`, `menu-item`, …), Toast SSR (client portal — jsdom + browser). Public `input-group` has its own suite. SSR/browser are risk-based
-- Browser setup (once locally): `playwright install chromium` before `pnpm test`. CI: `--with-deps`, then `test:browser` + `test:coverage`
+- Browser setup (once locally): `pnpm --filter @heroui/testing exec playwright install chromium` before `pnpm test`. PR QA uses the same command with `--with-deps`, then `pnpm test:browser` + `pnpm test:coverage`. Release CI installs Chromium and runs `pnpm test`
 - Commands: `pnpm test` (jsdom + browser, needs Chromium); filter with `pnpm --filter @heroui/react exec vitest run <name>`
 - Coverage: jsdom-only floors — green ≠ depth. Browser suites contribute nothing to the coverage number. Floors are a ratchet kept ~1pt under the measured run: raise them as coverage improves, never lower them to go green. `test:changed`: local jsdom shortcut only, not a merge gate
 - SSR/browser suites are risk-based — see "When a component needs an SSR or browser suite" in `AGENTS.md`. Add a browser suite when correctness depends on real layout, pointer capture, portal focus containment, or transitions; do not fake geometry in jsdom to chase coverage
 
 ### Package-Specific Commands
 
-- Use `--filter` flag with package name: `pnpm build --filter=@heroui/react`
+- For a specific package and its build dependencies, run `pnpm exec turbo build --filter=<package-name>` from the root. The root `pnpm build` script already filters to styles and React; use `build:docs` / `build:storybook` for those apps.
 - Main packages: `@heroui/react`, `@heroui/styles`, `@heroui/docs`, `@heroui/storybook`
 
 ## Git Commit Convention
@@ -90,6 +99,8 @@ pnpm typecheck
 - `feat` / `feature`: New features
 - `fix`: Bug fixes
 - `refactor`: Code refactoring
+- `style`: Code style changes
+- `revert`: Revert previous changes
 - `docs`: Documentation changes
 - `build`: Build system changes
 - `test`: Test changes
@@ -395,7 +406,7 @@ export {ComponentRoot as Root, ComponentItem as Item, ...};
 
 ### Current Components
 
-**Completed**: accordion, alert, alert-dialog, autocomplete, avatar, badge, breadcrumbs, button, button-group, calendar, card, checkbox, checkbox-group, chip, close-button, color-area, color-field, color-picker, color-slider, color-swatch, color-swatch-picker, combo-box, date-field, date-picker, date-range-picker, description, disclosure, disclosure-group, drawer, dropdown, empty-state, error-message, field-error, fieldset, form, header, input, input-group, input-otp, kbd, label, link, list-box, list-box-item, list-box-section, menu, menu-item, menu-section, meter, modal, number-field, pagination, popover, progress-bar, progress-circle, radio, radio-group, range-calendar, scroll-shadow, search-field, select, separator, skeleton, slider, spinner, surface, switch, switch-group, table, tabs, tag, tag-group, textarea, textfield, time-field, toast, toggle-button, toggle-button-group, toolbar, tooltip, typography
+**Completed**: accordion, alert, alert-dialog, autocomplete, avatar, avatar-group, badge, breadcrumbs, button, button-group, calendar, card, checkbox, checkbox-group, chip, close-button, color-area, color-field, color-picker, color-slider, color-swatch, color-swatch-picker, combo-box, date-field, date-picker, date-range-picker, description, disclosure, disclosure-group, drawer, dropdown, empty-state, error-message, field-error, fieldset, form, header, input, input-group, input-otp, kbd, label, link, list-box, list-box-item, list-box-section, menu, menu-item, menu-section, meter, modal, number-field, pagination, popover, progress-bar, progress-circle, radio, radio-group, range-calendar, scroll-shadow, search-field, select, separator, skeleton, slider, spinner, surface, switch, switch-group, table, tabs, tag, tag-group, textarea, textfield, time-field, toast, toggle-button, toggle-button-group, toolbar, tooltip, typography
 
 **In Progress**: calendar-year-picker
 
@@ -589,6 +600,7 @@ This workflow ensures thorough understanding, proper planning, and high-quality 
 
 **CRITICAL**: Tailwind CSS scans files as plain text and requires complete class names to be statically detectable.
 
+   - Read [apps/docs/AGENTS.md](apps/docs/AGENTS.md) and applicable nested guidance before editing the docs app. Consult the relevant bundled Next.js guide under `apps/docs/node_modules/next/dist/docs/` before writing code.
 ### Key Rules:
 
 1. **Never construct class names dynamically**
@@ -678,7 +690,7 @@ This workflow ensures thorough understanding, proper planning, and high-quality 
 
 ## Library Documentation with Context7 MCP
 
-**IMPORTANT**: We have the Context7 MCP server available (https://github.com/upstash/context7) for accessing up-to-date library documentation.
+Context7 MCP availability depends on the environment. Discover the installed tools and their schemas before invoking them. If unavailable, use installed types/source and official documentation for the repository's dependency versions.
 
 ### When to Use Context7
 
@@ -691,9 +703,9 @@ Use Context7 MCP when working with external libraries, especially:
 
 ### How to Use Context7
 
-1. First, resolve the library ID using `mcp__context7__resolve-library-id`
-2. Then fetch documentation using `mcp__context7__get-library-docs` with the resolved ID
-3. This ensures you're always working with the latest documentation rather than outdated information
+1. If Context7 is available, resolve the library ID using its exposed lookup tool
+2. Fetch or query documentation using the exposed documentation tool and resolved ID; tool names can vary by installation
+3. Check examples against the installed dependency versions before applying them
 
 ### Example Usage Areas
 
@@ -705,11 +717,11 @@ Use Context7 MCP when working with external libraries, especially:
 
 ## GitHub Repository Search with Grep MCP
 
-**IMPORTANT**: We have the Grep MCP server available for searching over a million public GitHub repositories to find real-world code examples and patterns.
+Grep MCP is optional. If available, inspect its current search tool schema before using it. Otherwise use local `rg` searches, installed dependency source, and official examples; do not assume a specific MCP server is configured.
 
 ### When to Use Grep MCP
 
-Use the Grep MCP (`mcp__grep__searchGitHub`) when tackling complex problems that require:
+When available, use Grep MCP's GitHub search tool for complex problems that require:
 
 - **Real-world implementation examples**: Finding how other developers solve similar problems
 - **Best practices and patterns**: Discovering production-ready code patterns

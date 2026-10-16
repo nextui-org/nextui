@@ -21,6 +21,8 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 | React Aria Components | Latest | Accessibility primitives |
 | tailwind-variants | Latest | Variant-based styling (includes twMerge) |
 
+Use the workspace manifests and lockfile as the source of truth for exact dependency versions.
+
 ### Monorepo Structure
 
 ```
@@ -48,8 +50,10 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 | Action | Command |
 |---|---|
 | Install dependencies | `pnpm i --hoist` |
-| Build all packages | `pnpm build` |
-| Build specific package | `pnpm build --filter=@heroui/react` |
+| Build libraries (styles + React) | `pnpm build` |
+| Build React and its dependencies | `pnpm build:react` |
+| Build docs | `pnpm build:docs` |
+| Build Storybook | `pnpm build:storybook` |
 | Dev (Storybook, port 6006) | `pnpm dev` |
 | Dev (Docs site, port 3000) | `pnpm dev:docs` |
 | Lint | `pnpm lint` |
@@ -58,7 +62,8 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 | Test one file (filter) | `pnpm --filter @heroui/react exec vitest run button` |
 | Test with coverage | `pnpm test:coverage` (jsdom floors only — not “done”) |
 | Test changed files (local) | `pnpm --filter @heroui/react test:changed` (jsdom only; not a gate) |
-| Format | `pnpm run format` |
+| Check formatting | `pnpm run format` |
+| Fix formatting | `pnpm run format:fix` |
 | Bump version | `pnpm version:bump` |
 | Scaffold a new component | `cd packages/react && pnpm add:component ComponentName` |
 
@@ -76,7 +81,7 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 - Pattern testers for groups / overlays / collections; skip for Button / Checkbox / Switch / TextField.
 - Naming: `describe("Component")`; nested concern; `it` as `supports…` / `calls…` / `exposes…` / `renders…`. SSR: `"Component SSR"`; browser: `"Component (browser)"`.
 - Intentional skips (no dedicated suite required): internals (`rac`, `icons`), non-exported helpers (`color-input-group`, `date-input-group`), in-progress `calendar-year-picker`, parent-covered parts (`list-box-item`, `menu-item`, `menu-section`, `list-box-section`), Toast SSR (client portal only — covered by jsdom + browser). Public `input-group` has its own suite. SSR and browser are risk-based, not universal.
-- Browser setup (once locally): `pnpm --filter @heroui/testing exec playwright install chromium` before `pnpm test`. CI uses `playwright install --with-deps chromium`, then `test:browser` + `test:coverage` (not a single `pnpm test`).
+- Browser setup (once locally): `pnpm --filter @heroui/testing exec playwright install chromium` before `pnpm test`. PR QA installs Chromium with `pnpm --filter @heroui/testing exec playwright install --with-deps chromium`, then runs `pnpm test:browser` + `pnpm test:coverage`. Release CI installs Chromium and runs `pnpm test`.
 - Commands: `pnpm test` (jsdom + browser, needs Chromium); filter with `pnpm --filter @heroui/react exec vitest run <name>`.
 - Coverage (`pnpm test:coverage`): jsdom only; `src/components/**` minus barrels. Thresholds are **CI floors** (statements/lines can pass with thin smoke). Green coverage ≠ sufficient depth — still require role/callback/focus (and browser for high-risk portals). Browser suites contribute **nothing** to the coverage number, so a component can be well covered by Playwright and still read as a gap in the report.
 - Floors are a **ratchet**: they sit ~1pt under the current measured run. Raise them when coverage improves; never lower them to make a red build pass.
@@ -107,7 +112,7 @@ All commits must follow [Conventional Commits](https://www.conventionalcommits.o
 <type>(<scope>): <message>
 ```
 
-**Allowed types:** `feat`, `feature`, `fix`, `refactor`, `docs`, `build`, `test`, `ci`, `chore`
+**Allowed types:** `feat`, `feature`, `fix`, `refactor`, `style`, `docs`, `build`, `test`, `ci`, `chore`, `revert`
 
 Examples:
 
@@ -319,7 +324,7 @@ HeroUI uses **Iconify** with **gravity-ui** as the default icon set.
 
 ### Completed
 
-accordion, alert, alert-dialog, autocomplete, avatar, badge, breadcrumbs, button, button-group, calendar, card, checkbox, checkbox-group, chip, close-button, color-area, color-field, color-picker, color-slider, color-swatch, color-swatch-picker, combo-box, date-field, date-picker, date-range-picker, description, disclosure, disclosure-group, drawer, dropdown, empty-state, error-message, field-error, fieldset, form, header, input, input-group, input-otp, kbd, label, link, list-box, list-box-item, list-box-section, menu, menu-item, menu-section, meter, modal, number-field, pagination, popover, progress-bar, progress-circle, radio, radio-group, range-calendar, scroll-shadow, search-field, select, separator, skeleton, slider, spinner, surface, switch, switch-group, table, tabs, tag, tag-group, textarea, textfield, time-field, toast, toggle-button, toggle-button-group, toolbar, tooltip, typography
+accordion, alert, alert-dialog, autocomplete, avatar, avatar-group, badge, breadcrumbs, button, button-group, calendar, card, checkbox, checkbox-group, chip, close-button, color-area, color-field, color-picker, color-slider, color-swatch, color-swatch-picker, combo-box, date-field, date-picker, date-range-picker, description, disclosure, disclosure-group, drawer, dropdown, empty-state, error-message, field-error, fieldset, form, header, input, input-group, input-otp, kbd, label, link, list-box, list-box-item, list-box-section, menu, menu-item, menu-section, meter, modal, number-field, pagination, popover, progress-bar, progress-circle, radio, radio-group, range-calendar, scroll-shadow, search-field, select, separator, skeleton, slider, spinner, surface, switch, switch-group, table, tabs, tag, tag-group, textarea, textfield, time-field, toast, toggle-button, toggle-button-group, toolbar, tooltip, typography
 
 ### In Progress
 
@@ -333,6 +338,11 @@ calendar-year-picker
 
 3. **Native addons allowlist** — `onlyBuiltDependencies` in root `pnpm-workspace.yaml` allows native compilation for `esbuild`, `@swc/core`, `@parcel/watcher`, etc. If this list is missing, you'll see "Ignored build scripts" warnings.
 
+## Documentation and External References
+
+- Before editing `apps/docs/`, read [apps/docs/AGENTS.md](apps/docs/AGENTS.md) and applicable nested guidance. It requires consulting the relevant bundled Next.js guide under `apps/docs/node_modules/next/dist/docs/` before writing code.
+- MCP documentation/search tools are optional and depend on the current environment. Discover available tools before invoking them; fall back to installed types/source and official documentation when unavailable.
+
 4. **Behavioral tests** — see [Behavioral tests](#behavioral-tests-herouireact) above. Harness lives in `@heroui/testing`; suites in `packages/react/tests/`.
 
 5. **Commit hooks** — Husky runs `lint-staged` on pre-commit and `commitlint` on commit-msg. Non-conforming commits are rejected.
@@ -343,4 +353,6 @@ calendar-year-picker
 
 - **Node.js v22+** is installed via binary tarball to `/usr/local/`.
 - **pnpm** is activated via `corepack` — the `packageManager` field in root `package.json` declares `pnpm@10.26.2`.
+Source of truth: `packages/react/src/components/index.ts`. Keep this inventory and the corresponding list in `CLAUDE.md` synchronized when adding components.
+
 - Full command reference and component architecture details are also in `CLAUDE.md`.
