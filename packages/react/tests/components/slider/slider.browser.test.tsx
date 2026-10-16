@@ -4,6 +4,8 @@ import {page, userEvent} from "vitest/browser";
 import {I18nProvider} from "@/components/rac";
 import {Slider} from "@/components/slider";
 
+import {SliderIndicatorsFixture} from "./fixtures";
+
 import "@/styles.css";
 
 describe("Slider (browser)", () => {
@@ -14,8 +16,13 @@ describe("Slider (browser)", () => {
           <Slider aria-label="Volume" defaultValue={14}>
             <Slider.Track>
               <Slider.Fill />
+              <Slider.Steps />
               <Slider.Thumb />
             </Slider.Track>
+            <Slider.Marks>
+              <Slider.Mark value={0} />
+              <Slider.Mark value={100} />
+            </Slider.Marks>
           </Slider>
         </div>
       </I18nProvider>
@@ -45,6 +52,14 @@ describe("Slider (browser)", () => {
       );
       expect(rtl ? css.borderLeftColor : css.borderRightColor).toBe("rgba(0, 0, 0, 0)");
 
+      for (const slot of ["step", "mark"]) {
+        const bounds = document
+          .querySelector(`[data-slot="slider-${slot}"][data-value="0"]`)!
+          .getBoundingClientRect();
+
+        expect(Math.abs(bounds.left + bounds.width / 2 - start)).toBeLessThan(1);
+      }
+
       const input = page.getByRole("slider", {name: "Volume"});
 
       (input.element() as HTMLElement).focus();
@@ -57,11 +72,78 @@ describe("Slider (browser)", () => {
     {direction: "ltr", locale: "en-US"},
     {direction: "rtl", locale: "ar-AE"},
   ] as const)("$direction", ({direction, locale}) => {
+    it.each(["horizontal", "vertical"] as const)(
+      "renders %s step dots and marks aligned with the track and thumbs",
+      async (orientation) => {
+        await render(
+          <I18nProvider locale={locale}>
+            <div dir={direction} style={{height: 300, width: 400}}>
+              <SliderIndicatorsFixture defaultValue={[25, 75]} orientation={orientation} />
+            </div>
+          </I18nProvider>,
+        );
+
+        const vertical = orientation === "vertical";
+        const track = document.querySelector<HTMLElement>('[data-slot="slider-track"]')!;
+        const rect = track.getBoundingClientRect();
+        const css = getComputedStyle(track);
+        const length = vertical
+          ? rect.height - parseFloat(css.borderTopWidth) - parseFloat(css.borderBottomWidth)
+          : rect.width - parseFloat(css.borderLeftWidth) - parseFloat(css.borderRightWidth);
+        const start = vertical
+          ? rect.bottom - parseFloat(css.borderBottomWidth)
+          : direction === "rtl"
+            ? rect.right - parseFloat(css.borderRightWidth)
+            : rect.left + parseFloat(css.borderLeftWidth);
+        const center = (element: Element) => {
+          const bounds = element.getBoundingClientRect();
+
+          return vertical ? bounds.top + bounds.height / 2 : bounds.left + bounds.width / 2;
+        };
+
+        for (const value of [0, 25, 50, 75, 100]) {
+          const expected =
+            start + ((vertical || direction === "rtl" ? -1 : 1) * length * value) / 100;
+          const dot = document.querySelector(`[data-slot="slider-step"][data-value="${value}"]`)!;
+          const mark = document.querySelector(`[data-slot="slider-mark"][data-value="${value}"]`)!;
+
+          expect(Math.abs(center(dot) - expected)).toBeLessThan(1);
+          expect(Math.abs(center(mark) - expected)).toBeLessThan(1);
+          expect(dot.getBoundingClientRect().width).toBeGreaterThan(0);
+          expect(dot.getBoundingClientRect().height).toBeGreaterThan(0);
+          // Dots stay visible above the fill even when composed before it.
+          const dotRect = dot.getBoundingClientRect();
+          const dotStyle = getComputedStyle(dot);
+
+          expect(dotStyle.pointerEvents).toBe("none");
+          expect(dotRect.left).toBeGreaterThanOrEqual(rect.left);
+          expect(dotRect.right).toBeLessThanOrEqual(rect.right);
+          if (vertical) {
+            expect(
+              direction === "rtl"
+                ? mark.getBoundingClientRect().right <= rect.left
+                : mark.getBoundingClientRect().left >= rect.right,
+            ).toBe(true);
+          } else {
+            expect(mark.getBoundingClientRect().top).toBeGreaterThanOrEqual(rect.bottom);
+          }
+        }
+
+        const thumbs = document.querySelectorAll('[data-slot="slider-thumb"]');
+
+        for (const [index, value] of [25, 75].entries()) {
+          const dot = document.querySelector(`[data-slot="slider-step"][data-value="${value}"]`)!;
+
+          expect(Math.abs(center(thumbs[index]!) - center(dot))).toBeLessThan(1);
+        }
+      },
+    );
+
     it.each([
-      {orientation: "horizontal", kind: "single", value: [25]},
-      {orientation: "horizontal", kind: "range", value: [20, 60]},
-      {orientation: "vertical", kind: "single", value: [25]},
-      {orientation: "vertical", kind: "range", value: [20, 60]},
+      {kind: "single", orientation: "horizontal", value: [25]},
+      {kind: "range", orientation: "horizontal", value: [20, 60]},
+      {kind: "single", orientation: "vertical", value: [25]},
+      {kind: "range", orientation: "vertical", value: [20, 60]},
     ] as const)(
       "renders the $orientation $kind fill aligned with its thumbs",
       async ({orientation, value}) => {
@@ -115,5 +197,31 @@ describe("Slider (browser)", () => {
         ).toBeLessThan(1);
       },
     );
+  });
+
+  it("supports pointer interaction through dots and updates their filled state", async () => {
+    const onChange = vi.fn();
+    const onChangeEnd = vi.fn();
+
+    await render(
+      <div style={{width: 400}}>
+        <SliderIndicatorsFixture defaultValue={0} onChange={onChange} onChangeEnd={onChangeEnd} />
+      </div>,
+    );
+
+    const track = document.querySelector<HTMLElement>('[data-slot="slider-track"]')!;
+    const dot = document.querySelector('[data-slot="slider-step"][data-value="75"]')!;
+    const trackRect = track.getBoundingClientRect();
+    const dotRect = dot.getBoundingClientRect();
+
+    await userEvent.click(track, {
+      position: {x: dotRect.left + dotRect.width / 2 - trackRect.left, y: trackRect.height / 2},
+    });
+
+    await expect.element(page.getByRole("slider", {name: "Volume"})).toHaveValue("75");
+    expect(onChange).toHaveBeenLastCalledWith(75);
+    expect(onChangeEnd).toHaveBeenLastCalledWith(75);
+    expect(dot).toHaveAttribute("data-filled", "true");
+    await expect.element(page.getByRole("slider", {name: "Volume"})).toHaveFocus();
   });
 });
