@@ -1,5 +1,9 @@
+import type {CSSProperties} from "react";
+
 import {User, cleanup, render, runAllTimers, screen, setupUser} from "@heroui/testing/helpers";
 
+import {Button} from "@/components/button";
+import {Drawer} from "@/components/drawer";
 import {isDrawerDragTargetOwnedBy} from "@/components/drawer/drawer.utils";
 
 import {DrawerFixture, StackedDrawerFixture} from "./fixtures";
@@ -139,6 +143,44 @@ describe("Drawer", () => {
     expect(onOpenChange).toHaveBeenCalledWith(false);
     // Controlled: stays open until `isOpen` changes.
     expect(screen.getByRole("dialog")).toBeInTheDocument();
+  });
+
+  it("supports a Dialog style without dropping touch-action", () => {
+    const renderDialog = (style: CSSProperties | undefined, isDismissable = true) => {
+      cleanup();
+
+      render(
+        <Drawer defaultOpen>
+          <Button>Open Drawer</Button>
+          <Drawer.Backdrop isDismissable={isDismissable}>
+            <Drawer.Content>
+              <Drawer.Dialog style={style}>
+                <Drawer.Header>
+                  <Drawer.Heading>Drawer Title</Drawer.Heading>
+                </Drawer.Header>
+              </Drawer.Dialog>
+            </Drawer.Content>
+          </Drawer.Backdrop>
+        </Drawer>,
+      );
+      runAllTimers();
+
+      return screen.getByRole("dialog");
+    };
+
+    const styled = renderDialog({maxHeight: "100%"});
+
+    expect(styled.style.touchAction).toBe("none");
+    expect(styled.style.maxHeight).toBe("100%");
+
+    const cleared = renderDialog(undefined);
+
+    expect(cleared.style.touchAction).toBe("none");
+
+    const fixed = renderDialog({maxHeight: "100%"}, false);
+
+    expect(fixed.style.touchAction).toBe("");
+    expect(fixed.style.maxHeight).toBe("100%");
   });
 
   it("supports handle ownership across stacked drawers", () => {
