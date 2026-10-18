@@ -9,7 +9,42 @@ import "@/styles.css";
 
 const renderDrawer = () => render(<DrawerFixture />);
 
+const runningAnimations = (dialog: HTMLElement) => {
+  const content = dialog.closest("[data-slot='drawer-content']");
+
+  return dialog.getAnimations().length + (content?.getAnimations().length ?? 0);
+};
+
 describe("Drawer (browser)", () => {
+  it("runs the enter animation when the drawer opens", async () => {
+    await render(<DrawerFixture placement="bottom" />);
+
+    const names: string[] = [];
+    const start = performance.now();
+    const tick = () => {
+      const content = document.querySelector("[data-slot='drawer-content']");
+
+      if (content) {
+        for (const animation of content.getAnimations()) {
+          const name = (animation as CSSAnimation).animationName;
+
+          if (name) names.push(name);
+        }
+      }
+      if (performance.now() - start < 500) requestAnimationFrame(tick);
+    };
+
+    requestAnimationFrame(tick);
+    await page.getByRole("button", {name: "Open Drawer"}).click();
+    await new Promise((resolve) => setTimeout(resolve, 300));
+
+    expect(names).toContain("heroui-drawer-enter-bottom");
+
+    const dialog = page.getByRole("dialog").element() as HTMLElement;
+
+    await expect.poll(() => getComputedStyle(dialog).translate).toBe("0px");
+  });
+
   it.each(["pointercancel", "lostpointercapture"])(
     "supports recovery after %s interrupts a drag",
     async (eventType) => {
@@ -19,7 +54,7 @@ describe("Drawer (browser)", () => {
       const dialog = page.getByRole("dialog");
       const element = dialog.element() as HTMLElement;
 
-      await expect.poll(() => element.getAnimations().length).toBe(0);
+      await expect.poll(() => runningAnimations(element)).toBe(0);
 
       const rect = element.getBoundingClientRect();
       const dispatch = (type: string, offset: number) =>
@@ -45,7 +80,7 @@ describe("Drawer (browser)", () => {
       dispatch(eventType, 40);
 
       await expect.poll(() => element.getBoundingClientRect().top).toBeCloseTo(rect.top);
-      expect(element.style.transition).toBe("");
+      await expect.poll(() => element.style.transition).toBe("");
       await expect.element(dialog).toBeInTheDocument();
 
       // Events from the cancelled gesture cannot move or dismiss the drawer.
@@ -62,6 +97,52 @@ describe("Drawer (browser)", () => {
       await expect.element(dialog).not.toBeInTheDocument();
     },
   );
+
+  it("supports an in-progress drag when a child loses pointer capture", async () => {
+    await render(<DrawerFixture placement="bottom" />);
+    await page.getByRole("button", {name: "Open Drawer"}).click();
+
+    const dialog = page.getByRole("dialog");
+    const element = dialog.element() as HTMLElement;
+
+    await expect.poll(() => runningAnimations(element)).toBe(0);
+
+    const rect = element.getBoundingClientRect();
+    const header = element.querySelector("[data-slot='drawer-header']");
+
+    expect(header).not.toBeNull();
+
+    const dispatch = (target: EventTarget, type: string, offset: number) =>
+      target.dispatchEvent(
+        new PointerEvent(type, {
+          bubbles: true,
+          button: 0,
+          clientX: rect.left + rect.width / 2,
+          clientY: rect.top + 8 + offset,
+          isPrimary: true,
+          pointerId: 1,
+          pointerType: "touch",
+        }),
+      );
+
+    // Synthetic pointer events have no live pointer to capture.
+    element.setPointerCapture = () => {};
+    element.releasePointerCapture = () => {};
+
+    dispatch(element, "pointerdown", 0);
+    dispatch(element, "pointermove", 40);
+    expect(element.getBoundingClientRect().top).toBeCloseTo(rect.top + 40);
+
+    // Taking capture fires lostpointercapture on the hit child first. That must not abort the drag.
+    dispatch(header as HTMLElement, "lostpointercapture", 40);
+
+    expect(element.getBoundingClientRect().top).toBeCloseTo(rect.top + 40);
+    expect(element.style.transform).toBe("translateY(40px)");
+
+    dispatch(element, "pointermove", 80);
+    expect(element.getBoundingClientRect().top).toBeCloseTo(rect.top + 80);
+    await expect.element(dialog).toBeInTheDocument();
+  });
 
   it("supports focus trap, scroll lock, and Escape focus restore", async () => {
     await renderDrawer();
@@ -98,7 +179,7 @@ describe("Drawer (browser)", () => {
     const element = dialog.element() as HTMLElement;
 
     // Let the enter transition settle so the drag starts from a resting drawer.
-    await expect.poll(() => element.getAnimations().length).toBe(0);
+    await expect.poll(() => runningAnimations(element)).toBe(0);
 
     const rect = element.getBoundingClientRect();
     const x = rect.left + rect.width / 2;

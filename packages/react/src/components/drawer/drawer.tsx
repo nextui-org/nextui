@@ -146,6 +146,17 @@ function useDrawerDrag(placement: DrawerPlacement | undefined, isDismissable: bo
     [getPos, clamp, isVertical],
   );
 
+  const snapBack = useCallback((el: HTMLDivElement) => {
+    el.style.transition = "transform 300ms cubic-bezier(0.32, 0.72, 0, 1)";
+    el.style.transform = "";
+
+    const cleanup = () => {
+      el.style.transition = "";
+    };
+
+    el.addEventListener("transitionend", cleanup, {once: true});
+  }, []);
+
   const onPointerUp = useCallback(
     (e: React.PointerEvent) => {
       if (!isDragging.current) return;
@@ -183,50 +194,61 @@ function useDrawerDrag(placement: DrawerPlacement | undefined, isDismissable: bo
         overlayState.close();
       } else {
         // Snap back with a spring-like ease
-        el.style.transition = "transform 300ms cubic-bezier(0.32, 0.72, 0, 1)";
-        el.style.transform = "";
-
-        const cleanup = () => {
-          el.style.transition = "";
-        };
-
-        el.addEventListener("transitionend", cleanup, {once: true});
+        snapBack(el);
       }
 
       currentOffset.current = 0;
       velocity.current = 0;
     },
-    [isVertical, overlayState],
+    [isVertical, overlayState, snapBack],
   );
 
-  const onPointerCancel = useCallback((e: React.PointerEvent) => {
-    // Normal pointer-up also releases capture; don't undo its exit animation.
-    if (!isDragging.current) return;
+  const onPointerCancel = useCallback(
+    (e: React.PointerEvent) => {
+      // Normal pointer-up also releases capture; don't undo its exit animation.
+      if (!isDragging.current) return;
 
-    isDragging.current = false;
-    isActive.current = false;
-    currentOffset.current = 0;
-    velocity.current = 0;
+      const wasActive = isActive.current;
 
-    const el = dialogRef.current;
+      isDragging.current = false;
+      isActive.current = false;
+      currentOffset.current = 0;
+      velocity.current = 0;
 
-    if (!el) return;
+      const el = dialogRef.current;
 
-    // A cancelled gesture must restore the resting position without dismissing.
-    el.style.transform = "";
-    el.style.transition = "";
-    try {
-      el.releasePointerCapture(e.pointerId);
-    } catch {
-      // Cancellation or lost capture may have already released the pointer.
-    }
-  }, []);
+      if (!el) return;
+
+      try {
+        el.releasePointerCapture(e.pointerId);
+      } catch {
+        // Cancellation or lost capture may have already released the pointer.
+      }
+
+      if (!wasActive) return;
+
+      // A cancelled gesture must restore the resting position without dismissing.
+      snapBack(el);
+    },
+    [snapBack],
+  );
+
+  const onLostPointerCapture = useCallback(
+    (e: React.PointerEvent) => {
+      // setPointerCapture moves capture off the hit child, and that child fires
+      // lostpointercapture first. Only the dialog losing its own capture aborts the drag.
+      if (e.target !== e.currentTarget) return;
+
+      onPointerCancel(e);
+    },
+    [onPointerCancel],
+  );
 
   return {
     dialogRef,
     dragHandlers: isDismissable
       ? {
-          onLostPointerCapture: onPointerCancel,
+          onLostPointerCapture,
           onPointerCancel,
           onPointerDown,
           onPointerMove,
@@ -391,7 +413,7 @@ DrawerContent.displayName = "HeroUI.Drawer.Content";
  * -----------------------------------------------------------------------------------------------*/
 interface DrawerDialogProps extends DialogPrimitiveProps {}
 
-const DrawerDialog = ({children, className, ...props}: DrawerDialogProps) => {
+const DrawerDialog = ({children, className, style, ...props}: DrawerDialogProps) => {
   const {isDismissable = true, placement, slots} = use(DrawerContext);
   const {dialogRef, dragHandlers} = useDrawerDrag(placement, isDismissable);
 
@@ -402,9 +424,9 @@ const DrawerDialog = ({children, className, ...props}: DrawerDialogProps) => {
         className={composeSlotClassName(slots?.dialog, className)}
         data-placement={placement}
         data-slot="drawer-dialog"
-        style={isDismissable ? {touchAction: "none"} : undefined}
         {...dragHandlers}
         {...props}
+        style={isDismissable ? {touchAction: "none", ...style} : style}
       >
         {children}
       </DialogPrimitive>
