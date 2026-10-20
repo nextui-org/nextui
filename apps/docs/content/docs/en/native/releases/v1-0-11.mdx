@@ -1,0 +1,163 @@
+---
+title: v1.0.11
+description:
+  Component CSS moves to the components cascade layer, Expo SDK 58 and React Native 0.88 are supported, Gesture Handler 3 peer dependency is accepted, Slider drops floating point noise, ScrollShadow stays scroll-driven with Reduce Motion, and BottomSheet controlled reopen is fixed
+---
+
+<div className="flex items-center gap-3 mb-6">
+  <span className="text-sm text-muted">October 20, 2026</span>
+</div>
+
+HeroUI Native v1.0.11 wraps component CSS in Tailwind's `components` cascade layer so user utilities can override component defaults, adds Expo SDK 58 / React Native 0.88 / Gesture Handler 3 support, fixes Slider floating point noise with decimal steps, keeps ScrollShadow scroll-driven when Reduce Motion is enabled, and resolves several overlay and input bugs on Android.
+
+## Installation
+
+Update to the latest version:
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+<Tab value="npm">
+  ```bash
+  npm i heroui-native
+  ```
+</Tab>
+<Tab value="pnpm">
+  ``` bash
+  pnpm add heroui-native
+  ```
+</Tab>
+<Tab value="yarn">
+  ```bash
+  yarn add heroui-native
+  ```
+</Tab>
+<Tab value="bun">
+  ```bash
+  bun add heroui-native
+  ```
+</Tab>
+</Tabs>
+
+<Callout type="info">
+  **Using AI assistants?** Simply prompt "Hey Cursor, update HeroUI Native to the latest version" and your AI assistant will automatically compare versions and apply the necessary changes. Learn more about the [HeroUI Native MCP Server](/docs/native/getting-started/mcp-server).
+</Callout>
+
+## Try It on Your Device
+
+<NativeTryOnDevice />
+
+## ⚠️ Breaking Changes
+
+### Uniwind 1.13.0 Required
+
+Component CSS is now wrapped in `@layer components`, which requires **Uniwind 1.13.0** for cascade layers to be applied correctly. Apps on older Uniwind versions may see component styles applied at the wrong priority.
+
+**Before:**
+
+```json title="package.json"
+"uniwind": "1.12.x"
+```
+
+**After:**
+
+```json title="package.json"
+"uniwind": "1.13.0"
+```
+
+**Migration:** Update Uniwind to 1.13.0 in your project. This is the only required action — component styles are otherwise unchanged.
+
+**Related PR:** [#529](https://github.com/heroui-inc/heroui-native/pull/529)
+
+### Color Customization Requires `:root` Wrapper
+
+Custom color overrides in `@layer theme` must now be nested inside `:root` for Tailwind CSS v4 to pick them up correctly. Existing overrides written without `:root` may silently stop applying.
+
+**Before:**
+
+```css
+@layer theme {
+  @variant light {
+    --accent: oklch(0.65 0.25 270);
+  }
+}
+```
+
+**After:**
+
+```css
+@layer theme {
+  :root {
+    @variant light {
+      --accent: oklch(0.65 0.25 270);
+    }
+  }
+}
+```
+
+**Migration:** Wrap your `@variant light` and `@variant dark` blocks inside `:root` within `@layer theme`. See the updated [Colors documentation](/docs/native/getting-started/colors#customizing-colors).
+
+**Related PR:** [#503](https://github.com/heroui-inc/heroui-native/pull/503)
+
+## What's New
+
+### Expo SDK 58 and React Native 0.88 Support
+
+The library now supports **Expo SDK 58**, **React Native 0.88**, **React 19.3**, and **Reanimated 4.7**. Component refs use `ComponentRef` interfaces compatible with React Native's strict TypeScript API. The `react-native-gesture-handler` peer dependency has been widened to accept both v2 (`^2.28.0`) and v3 (`^3.0.0`), so existing apps on Gesture Handler 2 do not need to upgrade. ([#528](https://github.com/heroui-inc/heroui-native/pull/528))
+
+### Component CSS in the `components` Layer
+
+All component styles are now placed inside Tailwind's `@layer components`, and the default `HeroText` font moves to a `@layer base` class. This means user utility classes (e.g. `font-medium`, color overrides) now correctly override component defaults, matching Tailwind's standard layer order. ([#529](https://github.com/heroui-inc/heroui-native/pull/529))
+
+## Bug Fixes
+
+This release includes fixes for the following issues:
+
+- **[Issue #525](https://github.com/heroui-inc/heroui-native/issues/525)**: Slider values with decimal steps (e.g. `step={0.1}`) produced floating point noise such as `0.30000000000000004`. The `snapToStep` utility now rounds to the precision of `step` and `minValue`, so `onChange` and `Slider.Output` receive clean values like `0.3`. ([#526](https://github.com/heroui-inc/heroui-native/pull/526))
+- **[Issue #521](https://github.com/heroui-inc/heroui-native/issues/521)**: ScrollShadow showed both shadows permanently when Reduce Motion was enabled (iOS) or `animation="disable-all"` was set. Shadows now always follow scroll position through `interpolate`; only the exit transition is affected by the animation-disabled state. ([#522](https://github.com/heroui-inc/heroui-native/pull/522))
+- **[Issue #509](https://github.com/heroui-inc/heroui-native/issues/509)**: A controlled BottomSheet could render with `opacity: 0` after reopening because `isDismissed` stayed `true`. The dismissed container style now only applies when the sheet is also closed (`!isOpen`). ([#511](https://github.com/heroui-inc/heroui-native/pull/511))
+- **[Issue #488](https://github.com/heroui-inc/heroui-native/issues/488)**: The primary Input variant did not display its drop shadow on Android. Android now uses `elevation: 1` instead of `shadow-sm` to restore the expected shadow. ([#515](https://github.com/heroui-inc/heroui-native/pull/515))
+- **[Issue #520](https://github.com/heroui-inc/heroui-native/issues/520)**: A `ScrollView` inside Popover, Menu, or Select content did not scroll on Android because the animated wrapper had no size. The wrapper now uses `absoluteFill` with `pointerEvents="box-none"` so Android dispatches native touches to scrollable content. A follow-up commit adds a `contentWrapper` style with `transformOrigin: 'top'` so custom keyframe animations pivot correctly. ([#530](https://github.com/heroui-inc/heroui-native/pull/530))
+- **[Issue #497](https://github.com/heroui-inc/heroui-native/issues/497)**: Input, TextArea, SearchField, and InputGroup refs still failed typechecking with published 1.0.10 declarations on React Native 0.87+. A shared `TextInputComponent` type now preserves the native ref alias across all four components. ([#504](https://github.com/heroui-inc/heroui-native/pull/504))
+- **InputGroup** inside a disabled `TextField` did not inherit the disabled state. The root now reads `isDisabled` from the surrounding form field context when no explicit prop is provided. ([#508](https://github.com/heroui-inc/heroui-native/pull/508))
+- **[Issue #502](https://github.com/heroui-inc/heroui-native/issues/502)**: The customizing-colors documentation example was missing the required `:root` wrapper inside `@layer theme`, which could cause overrides to not apply. ([#503](https://github.com/heroui-inc/heroui-native/pull/503))
+
+**Related PRs:**
+
+- [#529](https://github.com/heroui-inc/heroui-native/pull/529)
+- [#528](https://github.com/heroui-inc/heroui-native/pull/528)
+- [#530](https://github.com/heroui-inc/heroui-native/pull/530)
+- [#526](https://github.com/heroui-inc/heroui-native/pull/526)
+- [#522](https://github.com/heroui-inc/heroui-native/pull/522)
+- [#515](https://github.com/heroui-inc/heroui-native/pull/515)
+- [#511](https://github.com/heroui-inc/heroui-native/pull/511)
+- [#508](https://github.com/heroui-inc/heroui-native/pull/508)
+- [#504](https://github.com/heroui-inc/heroui-native/pull/504)
+- [#503](https://github.com/heroui-inc/heroui-native/pull/503)
+
+## Dependencies
+
+- **Uniwind** is upgraded to `1.13.0` (previously `1.12.0`). This version adds cascade layer support, which is required for the `@layer components` change. The Uniwind 1.12.2 Yarn patch is removed. ([#529](https://github.com/heroui-inc/heroui-native/pull/529))
+- **react-native-gesture-handler** peer dependency now accepts `^2.28.0 || ^3.0.0` (previously `^2.28.0`). ([#528](https://github.com/heroui-inc/heroui-native/pull/528))
+
+## Updated Documentation
+
+The following documentation pages have been updated to reflect the changes in this release:
+
+- [Colors](/docs/native/getting-started/colors) — Customizing-colors examples now include the required `:root` wrapper
+- [Quick Start](/docs/native/getting-started/quick-start) — Peer dependency for `react-native-gesture-handler` updated to `^2.28.0 || ^3.0.0`
+- [Slider](/docs/native/components/slider) — Fixed: decimal step values are now clean
+- [ScrollShadow](/docs/native/components/scroll-shadow) — Fixed: shadows stay scroll-driven with Reduce Motion
+- [BottomSheet](/docs/native/components/bottom-sheet) — Fixed: controlled reopen content visibility
+- [Input](/docs/native/components/input) — Fixed: Android shadow restored, ref types preserved
+- [InputGroup](/docs/native/components/input-group) — Fixed: inherits disabled state from parent TextField
+- [Popover](/docs/native/components/popover) — Fixed: Android native scrolling in content
+- [Menu](/docs/native/components/menu) — Fixed: Android native scrolling in content
+- [Select](/docs/native/components/select) — Fixed: Android native scrolling in content
+
+## Links
+
+- [Component Documentation](../components)
+- [GitHub Repository](https://github.com/heroui-inc/heroui-native)
+
+## Contributors
+
+Thanks to everyone who contributed to this release!
