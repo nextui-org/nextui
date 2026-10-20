@@ -165,8 +165,13 @@
 
 /* Switch thumb */
 .switch__thumb {
-  /* Default size (medium) with margin-based positioning */
+  /**
+   * Default size (medium). The thumb rests at ms-0.5 and slides with `translate`,
+   * which is composited, so it does not jitter the way an animated margin does.
+   * Offset = track width - thumb width - 2 * 0.125rem gap.
+   */
   @apply ms-0.5 flex origin-center rounded-lg bg-white text-black shadow-field;
+  --switch-thumb-offset: 0.875rem;
   height: 1rem; /* ~14px on desktop, ~16px on mobile */
   width: 1.375rem; /* ~19px on desktop, ~22px on mobile */
 
@@ -175,18 +180,25 @@
    * CRITICAL: motion-reduce must be AFTER transition for correct override specificity
    */
   transition:
-    margin 300ms var(--ease-out-fluid),
+    translate 300ms var(--ease-out-fluid),
     background-color 200ms var(--ease-out);
   @apply motion-reduce:transition-none;
 
-  /* Selected/checked state - use margin instead of translate */
+  /* Selected/checked state - slide to the end of the track */
   .switch[aria-checked="true"] &,
   .switch[data-selected="true"] & {
-    @apply ms-[calc(100%-1.5rem)] bg-accent-foreground text-accent;
+    @apply bg-accent-foreground text-accent;
+    translate: var(--switch-thumb-offset) 0;
     box-shadow:
       0px 0px 5px 0px rgb(0 0 0 / 0.02),
       0px 2px 10px 0px rgb(0 0 0 / 0.06),
       0px 0px 1px 0px rgb(0 0 0 / 0.3);
+  }
+
+  /* RTL - slide the other way */
+  .switch[aria-checked="true"]:dir(rtl) &,
+  .switch[data-selected="true"]:dir(rtl) & {
+    translate: calc(var(--switch-thumb-offset) * -1) 0;
   }
 
   .switch:active &,
@@ -199,24 +211,14 @@
   @apply rounded-md;
   height: 0.75rem; /* ~10.5px on desktop, ~12px on mobile */
   width: 1.03125rem; /* ~14.4px on desktop, ~16.5px on mobile - maintains 1.375:1 ratio */
-
-  /* Small selected state positioning */
-  .switch[aria-checked="true"] &,
-  .switch[data-selected="true"] & {
-    @apply ms-[calc(100%-1.15625rem)];
-  }
+  --switch-thumb-offset: 0.71875rem; /* 2rem - 1.03125rem - 0.25rem */
 }
 
 .switch--lg .switch__thumb {
   @apply rounded-xl;
   height: 1.25rem; /* ~17.5px on desktop, ~20px on mobile */
   width: 1.71875rem; /* ~24px on desktop, ~27.5px on mobile - maintains 1.375:1 ratio */
-
-  /* Large selected state positioning */
-  .switch[aria-checked="true"] &,
-  .switch[data-selected="true"] & {
-    @apply ms-[calc(100%-1.84375rem)];
-  }
+  --switch-thumb-offset: 1.03125rem; /* 3rem - 1.71875rem - 0.25rem */
 }
 
 /* Switch thumb content container */
