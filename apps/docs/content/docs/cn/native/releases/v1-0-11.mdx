@@ -1,0 +1,163 @@
+---
+title: v1.0.11
+description:
+  组件 CSS 迁移至 components 层叠层，支持 Expo SDK 58 与 React Native 0.88，对等依赖兼容 Gesture Handler 3，Slider 消除浮点精度误差，ScrollShadow 在启用「减弱动态效果」时仍随滚动变化，并修复 BottomSheet 受控模式下重新打开的显示问题
+---
+
+<div className="flex items-center gap-3 mb-6">
+  <span className="text-sm text-muted">2026 年 10 月 20 日</span>
+</div>
+
+HeroUI Native v1.0.11 将组件 CSS 包裹在 Tailwind 的 `components` 层叠层中，使用户的工具类可以覆盖组件默认样式；新增 Expo SDK 58 / React Native 0.88 / Gesture Handler 3 支持；修复 Slider 使用小数步长时的浮点精度误差；让 ScrollShadow 在启用「减弱动态效果」时仍随滚动位置变化；并解决了 Android 上的多个浮层与输入组件问题。
+
+## 安装
+
+升级到最新版本：
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+<Tab value="npm">
+  ```bash
+  npm i heroui-native
+  ```
+</Tab>
+<Tab value="pnpm">
+  ``` bash
+  pnpm add heroui-native
+  ```
+</Tab>
+<Tab value="yarn">
+  ```bash
+  yarn add heroui-native
+  ```
+</Tab>
+<Tab value="bun">
+  ```bash
+  bun add heroui-native
+  ```
+</Tab>
+</Tabs>
+
+<Callout type="info">
+  **使用 AI 助手？** 直接提示「Hey Cursor，把 HeroUI Native 升级到最新版本」，助手会自动比对版本并完成必要修改。了解更多请参见 [HeroUI Native MCP 服务器](/docs/native/getting-started/mcp-server)。
+</Callout>
+
+## 真机体验
+
+<NativeTryOnDevice />
+
+## ⚠️ 破坏性变更
+
+### 要求使用 Uniwind 1.13.0
+
+组件 CSS 现在包裹在 `@layer components` 中，需要 **Uniwind 1.13.0** 才能正确应用层叠层。使用旧版 Uniwind 的应用可能会遇到组件样式优先级不正确的问题。
+
+**变更前：**
+
+```json title="package.json"
+"uniwind": "1.12.x"
+```
+
+**变更后：**
+
+```json title="package.json"
+"uniwind": "1.13.0"
+```
+
+**迁移方式：** 将项目中的 Uniwind 升级至 1.13.0。这是此项变更唯一需要执行的操作，组件样式本身保持不变。
+
+**相关 PR：** [#529](https://github.com/heroui-inc/heroui-native/pull/529)
+
+### 自定义颜色需要 `:root` 包裹
+
+`@layer theme` 中的自定义颜色覆盖现在必须嵌套在 `:root` 内，Tailwind CSS v4 才能正确识别。已有未使用 `:root` 包裹的覆盖规则可能会静默失效。
+
+**变更前：**
+
+```css
+@layer theme {
+  @variant light {
+    --accent: oklch(0.65 0.25 270);
+  }
+}
+```
+
+**变更后：**
+
+```css
+@layer theme {
+  :root {
+    @variant light {
+      --accent: oklch(0.65 0.25 270);
+    }
+  }
+}
+```
+
+**迁移方式：** 在 `@layer theme` 内，使用 `:root` 包裹 `@variant light` 和 `@variant dark` 代码块。参见更新后的[颜色文档](/docs/native/getting-started/colors#自定义颜色)。
+
+**相关 PR：** [#503](https://github.com/heroui-inc/heroui-native/pull/503)
+
+## 新增功能
+
+### 支持 Expo SDK 58 与 React Native 0.88
+
+组件库现在支持 **Expo SDK 58**、**React Native 0.88**、**React 19.3** 与 **Reanimated 4.7**。组件 ref 使用兼容 React Native Strict TypeScript API 的 `ComponentRef` 接口。`react-native-gesture-handler` 的对等依赖范围已放宽，同时接受 v2（`^2.28.0`）与 v3（`^3.0.0`），因此使用 Gesture Handler 2 的现有应用无需升级。（[#528](https://github.com/heroui-inc/heroui-native/pull/528)）
+
+### 组件 CSS 迁移至 `components` 层
+
+所有组件样式现在都位于 Tailwind 的 `@layer components` 中，`HeroText` 的默认字体也迁移至 `@layer base` 中的类。这意味着用户的工具类（例如 `font-medium`、颜色覆盖）现在可以正确覆盖组件默认样式，与 Tailwind 的标准层叠顺序一致。（[#529](https://github.com/heroui-inc/heroui-native/pull/529)）
+
+## 问题修复
+
+本版本包含以下问题的修复：
+
+- **[Issue #525](https://github.com/heroui-inc/heroui-native/issues/525)**：Slider 使用小数步长（例如 `step={0.1}`）时会产生 `0.30000000000000004` 之类的浮点精度误差。`snapToStep` 工具函数现在会根据 `step` 和 `minValue` 的精度进行舍入，使 `onChange` 与 `Slider.Output` 接收到 `0.3` 这样的准确值。（[#526](https://github.com/heroui-inc/heroui-native/pull/526)）
+- **[Issue #521](https://github.com/heroui-inc/heroui-native/issues/521)**：启用「减弱动态效果」（iOS）或设置 `animation="disable-all"` 时，ScrollShadow 的两侧阴影会始终显示。阴影现在始终通过 `interpolate` 随滚动位置变化，禁用动画的状态仅影响退出过渡。（[#522](https://github.com/heroui-inc/heroui-native/pull/522)）
+- **[Issue #509](https://github.com/heroui-inc/heroui-native/issues/509)**：受控 BottomSheet 重新打开后，可能因 `isDismissed` 仍为 `true` 而以 `opacity: 0` 渲染。关闭后的容器样式现在仅在底部弹层也处于关闭状态（`!isOpen`）时应用。（[#511](https://github.com/heroui-inc/heroui-native/pull/511)）
+- **[Issue #488](https://github.com/heroui-inc/heroui-native/issues/488)**：Input 的 primary 变体在 Android 上未显示投影。Android 现在使用 `elevation: 1` 替代 `shadow-sm`，恢复预期的阴影效果。（[#515](https://github.com/heroui-inc/heroui-native/pull/515)）
+- **[Issue #520](https://github.com/heroui-inc/heroui-native/issues/520)**：Popover、Menu 或 Select 内容中的 `ScrollView` 在 Android 上无法滚动，因为动画包装层没有尺寸。包装层现在使用 `absoluteFill` 与 `pointerEvents="box-none"`，使 Android 能将原生触摸事件分发给可滚动内容。后续提交还为 `contentWrapper` 样式添加了 `transformOrigin: 'top'`，使自定义关键帧动画以正确的原点变换。（[#530](https://github.com/heroui-inc/heroui-native/pull/530)）
+- **[Issue #497](https://github.com/heroui-inc/heroui-native/issues/497)**：在 React Native 0.87+ 上，已发布的 1.0.10 类型声明中的 Input、TextArea、SearchField 与 InputGroup ref 仍无法通过类型检查。共享的 `TextInputComponent` 类型现在会在这四个组件中保留原生 ref 别名。（[#504](https://github.com/heroui-inc/heroui-native/pull/504)）
+- **InputGroup** 在禁用的 `TextField` 内未继承禁用状态。未显式传入属性时，根组件现在会从外层表单字段上下文读取 `isDisabled`。（[#508](https://github.com/heroui-inc/heroui-native/pull/508)）
+- **[Issue #502](https://github.com/heroui-inc/heroui-native/issues/502)**：自定义颜色的文档示例在 `@layer theme` 内缺少必需的 `:root` 包裹，可能导致覆盖规则不生效。（[#503](https://github.com/heroui-inc/heroui-native/pull/503)）
+
+**相关 PR：**
+
+- [#529](https://github.com/heroui-inc/heroui-native/pull/529)
+- [#528](https://github.com/heroui-inc/heroui-native/pull/528)
+- [#530](https://github.com/heroui-inc/heroui-native/pull/530)
+- [#526](https://github.com/heroui-inc/heroui-native/pull/526)
+- [#522](https://github.com/heroui-inc/heroui-native/pull/522)
+- [#515](https://github.com/heroui-inc/heroui-native/pull/515)
+- [#511](https://github.com/heroui-inc/heroui-native/pull/511)
+- [#508](https://github.com/heroui-inc/heroui-native/pull/508)
+- [#504](https://github.com/heroui-inc/heroui-native/pull/504)
+- [#503](https://github.com/heroui-inc/heroui-native/pull/503)
+
+## 依赖
+
+- **Uniwind** 升级至 `1.13.0`（此前为 `1.12.0`）。此版本新增层叠层支持，是 `@layer components` 变更的必要依赖。同时移除了 Uniwind 1.12.2 的 Yarn 补丁。（[#529](https://github.com/heroui-inc/heroui-native/pull/529)）
+- **react-native-gesture-handler** 对等依赖现在接受 `^2.28.0 || ^3.0.0`（此前为 `^2.28.0`）。（[#528](https://github.com/heroui-inc/heroui-native/pull/528)）
+
+## 更新的文档
+
+以下文档页面已更新，以反映本版本的变更：
+
+- [颜色](/docs/native/getting-started/colors) — 自定义颜色示例现在包含必需的 `:root` 包裹
+- [快速开始](/docs/native/getting-started/quick-start) — `react-native-gesture-handler` 的对等依赖更新为 `^2.28.0 || ^3.0.0`
+- [Slider](/docs/native/components/slider) — 修复：小数步长的值不再出现浮点精度误差
+- [ScrollShadow](/docs/native/components/scroll-shadow) — 修复：启用「减弱动态效果」时阴影仍随滚动变化
+- [BottomSheet](/docs/native/components/bottom-sheet) — 修复：受控模式下重新打开时内容不可见的问题
+- [Input](/docs/native/components/input) — 修复：恢复 Android 阴影，并保留 ref 类型
+- [InputGroup](/docs/native/components/input-group) — 修复：继承父级 TextField 的禁用状态
+- [Popover](/docs/native/components/popover) — 修复：Android 上内容区域的原生滚动
+- [Menu](/docs/native/components/menu) — 修复：Android 上内容区域的原生滚动
+- [Select](/docs/native/components/select) — 修复：Android 上内容区域的原生滚动
+
+## 链接
+
+- [组件文档](../components)
+- [GitHub 仓库](https://github.com/heroui-inc/heroui-native)
+
+## 贡献者
+
+感谢所有为本版本做出贡献的朋友！
