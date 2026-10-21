@@ -5,6 +5,7 @@ Please read the following before submitting:
 - PRs that adds new external dependencies might take a while to review.
 - Keep your PR as small as possible.
 - Limit your PR to one type (docs, feature, refactoring, ci, repo, or bugfix)
+- Disclose meaningful AI assistance in your PR description and explain how you reviewed generated changes.
 -->
 
 Closes # <!-- Github issue # here -->

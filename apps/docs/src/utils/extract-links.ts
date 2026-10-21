@@ -1,5 +1,3 @@
-import matter from "gray-matter";
-
 import {siteConfig} from "@/config/site";
 import {
   COMPONENT_PATH,
@@ -9,6 +7,7 @@ import {
   STORYBOOK_URL,
   THEMES_PATH,
 } from "@/utils/constants";
+import {readFrontmatter} from "@/utils/frontmatter";
 
 export interface ComponentLinksType {
   rac?: string;
@@ -35,7 +34,7 @@ export interface GithubInfoType {
  */
 export function extractLinksFromMDX(content: string): ComponentLinksType | null {
   try {
-    const {data} = matter(content);
+    const {data} = readFrontmatter(content);
 
     if (data["links"] && typeof data["links"] === "object") {
       return data["links"] as ComponentLinksType;
@@ -56,7 +55,7 @@ export function extractLinksFromMDX(content: string): ComponentLinksType | null 
  */
 export function extractGithubFromMDX(content: string): GithubInfoType | null {
   try {
-    const {data} = matter(content);
+    const {data} = readFrontmatter(content);
 
     if (data["github"] && typeof data["github"] === "object") {
       return data["github"] as GithubInfoType;
@@ -77,7 +76,7 @@ export function extractGithubFromMDX(content: string): GithubInfoType | null {
  */
 export function extractImageFromMDX(content: string): string | null {
   try {
-    const {data} = matter(content);
+    const {data} = readFrontmatter(content);
 
     if (data["image"] && typeof data["image"] === "string") {
       return data["image"];

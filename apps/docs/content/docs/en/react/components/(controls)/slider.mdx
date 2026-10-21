@@ -79,6 +79,30 @@ export default () => (
   name="slider-range"
 />
 
+### Controlled Value
+
+Control the value with `value` and `onChange`.
+
+<ComponentPreview
+  name="slider-controlled"
+/>
+
+### Custom Value Formatting
+
+Use `formatOptions` to format the displayed value. This example formats it as USD.
+
+<ComponentPreview
+  name="slider-custom-value-formatting"
+/>
+
+### Custom Output
+
+Customize `Slider.Output` to control how the selected values are shown.
+
+<ComponentPreview
+  name="slider-custom-output"
+/>
+
 ### Render Function
 
 <ComponentPreview
@@ -220,133 +244,6 @@ When using render functions with Slider.Output or Slider.Track, these values are
 | `getThumbValueLabel` | `(index: number) => string` | Returns the string label for the specified thumb's value |
 | `orientation` | `"horizontal" \| "vertical"` | The orientation of the slider |
 | `isDisabled` | `boolean` | Whether the slider is disabled |
-
-## Examples
-
-### Basic Usage
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider defaultValue={30}>
-  <Label>Volume</Label>
-  <Slider.Output />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
-</Slider>
-```
-
-### Range Slider
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider
-  defaultValue={[100, 500]}
-  formatOptions={{style: "currency", currency: "USD"}}
-  maxValue={1000}
-  minValue={0}
-  step={50}
->
-  <Label>Price Range</Label>
-  <Slider.Output />
-  <Slider.Track>
-    {({state}) => (
-      <>
-        <Slider.Fill />
-        {state.values.map((_, i) => (
-          <Slider.Thumb key={i} index={i} />
-        ))}
-      </>
-    )}
-  </Slider.Track>
-</Slider>
-```
-
-### Controlled Value
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-import { useState } from 'react';
-
-function ControlledSlider() {
-  const [value, setValue] = useState(25);
-
-  return (
-    <>
-      <Slider value={value} onChange={setValue}>
-        <Label>Volume</Label>
-        <Slider.Output />
-        <Slider.Track>
-          <Slider.Fill />
-          <Slider.Thumb />
-        </Slider.Track>
-      </Slider>
-      <p>Current value: {value}</p>
-    </>
-  );
-}
-```
-
-### Custom Value Formatting
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider
-  defaultValue={60}
-  formatOptions={{style: "currency", currency: "USD"}}
->
-  <Label>Price</Label>
-  <Slider.Output />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
-</Slider>
-```
-
-### Vertical Orientation
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider defaultValue={30} orientation="vertical" aria-label="Volume">
-  <Label>Volume</Label>
-  <Slider.Output />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
-</Slider>
-```
-
-### Custom Output Display
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider defaultValue={[25, 75]}>
-  <Label>Range</Label>
-  <Slider.Output>
-    {({state}) =>
-      state.values.map((_, i) => state.getThumbValueLabel(i)).join(' – ')
-    }
-  </Slider.Output>
-  <Slider.Track>
-    {({state}) => (
-      <>
-        <Slider.Fill />
-        {state.values.map((_, i) => (
-          <Slider.Thumb key={i} index={i} />
-        ))}
-      </>
-    )}
-  </Slider.Track>
-</Slider>
-```
 
 ## Accessibility
 

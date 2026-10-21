@@ -21,6 +21,8 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 | React Aria Components | Latest | Accessibility primitives |
 | tailwind-variants | Latest | Variant-based styling (includes twMerge) |
 
+Use the workspace manifests and lockfile as the source of truth for exact dependency versions.
+
 ### Monorepo Structure
 
 ```
@@ -48,8 +50,10 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 | Action | Command |
 |---|---|
 | Install dependencies | `pnpm i --hoist` |
-| Build all packages | `pnpm build` |
-| Build specific package | `pnpm build --filter=@heroui/react` |
+| Build libraries (styles + React) | `pnpm build` |
+| Build React and its dependencies | `pnpm build:react` |
+| Build docs | `pnpm build:docs` |
+| Build Storybook | `pnpm build:storybook` |
 | Dev (Storybook, port 6006) | `pnpm dev` |
 | Dev (Docs site, port 3000) | `pnpm dev:docs` |
 | Lint | `pnpm lint` |
@@ -58,7 +62,8 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 | Test one file (filter) | `pnpm --filter @heroui/react exec vitest run button` |
 | Test with coverage | `pnpm test:coverage` (jsdom floors only — not “done”) |
 | Test changed files (local) | `pnpm --filter @heroui/react test:changed` (jsdom only; not a gate) |
-| Format | `pnpm run format` |
+| Check formatting | `pnpm run format` |
+| Fix formatting | `pnpm run format:fix` |
 | Bump version | `pnpm version:bump` |
 | Scaffold a new component | `cd packages/react && pnpm add:component ComponentName` |
 
@@ -76,7 +81,7 @@ HeroUI v3 is a modern React UI library built with **Tailwind CSS v4**, organized
 - Pattern testers for groups / overlays / collections; skip for Button / Checkbox / Switch / TextField.
 - Naming: `describe("Component")`; nested concern; `it` as `supports…` / `calls…` / `exposes…` / `renders…`. SSR: `"Component SSR"`; browser: `"Component (browser)"`.
 - Intentional skips (no dedicated suite required): internals (`rac`, `icons`), non-exported helpers (`color-input-group`, `date-input-group`), in-progress `calendar-year-picker`, parent-covered parts (`list-box-item`, `menu-item`, `menu-section`, `list-box-section`), Toast SSR (client portal only — covered by jsdom + browser). Public `input-group` has its own suite. SSR and browser are risk-based, not universal.
-- Browser setup (once locally): `pnpm --filter @heroui/testing exec playwright install chromium` before `pnpm test`. CI uses `playwright install --with-deps chromium`, then `test:browser` + `test:coverage` (not a single `pnpm test`).
+- Browser setup (once locally): `pnpm --filter @heroui/testing exec playwright install chromium` before `pnpm test`. PR QA installs Chromium with `pnpm --filter @heroui/testing exec playwright install --with-deps chromium`, then runs `pnpm test:browser` + `pnpm test:coverage`. Release CI installs Chromium and runs `pnpm test`.
 - Commands: `pnpm test` (jsdom + browser, needs Chromium); filter with `pnpm --filter @heroui/react exec vitest run <name>`.
 - Coverage (`pnpm test:coverage`): jsdom only; `src/components/**` minus barrels. Thresholds are **CI floors** (statements/lines can pass with thin smoke). Green coverage ≠ sufficient depth — still require role/callback/focus (and browser for high-risk portals). Browser suites contribute **nothing** to the coverage number, so a component can be well covered by Playwright and still read as a gap in the report.
 - Floors are a **ratchet**: they sit ~1pt under the current measured run. Raise them when coverage improves; never lower them to make a red build pass.
@@ -107,7 +112,7 @@ All commits must follow [Conventional Commits](https://www.conventionalcommits.o
 <type>(<scope>): <message>
 ```
 
-**Allowed types:** `feat`, `feature`, `fix`, `refactor`, `docs`, `build`, `test`, `ci`, `chore`
+**Allowed types:** `feat`, `feature`, `fix`, `refactor`, `style`, `docs`, `build`, `test`, `ci`, `chore`, `revert`
 
 Examples:
 
@@ -148,13 +153,24 @@ cd packages/react
 pnpm add:component ComponentName
 ```
 
-Then build to update package.json exports:
+The scaffold is a starting point and still emits legacy patterns. Before using the generated component:
+
+1. Move `<component-name>.styles.ts` to `packages/styles/src/components/<component-name>/`, replace utility-based variants with BEM class mappings, and use the existing `componentNameVariants` / `ComponentNameVariants` naming convention.
+2. Add that directory's `index.ts` and export it from `packages/styles/src/components/index.ts`.
+3. Create `packages/styles/components/<component-name>.css` and import it in `packages/styles/components/index.css`. Import shared primitives before components that override them.
+4. Update the component and React barrel to import/re-export variants from `@heroui/styles` instead of the generated local styles path.
+5. Replace generated `forwardRef` with React 19 ref-as-prop handling, use the appropriate React Aria primitive, and forward remaining DOM/ARIA/event props. Add documented `data-slot` hooks and follow the named compound export pattern below.
+6. Update Storybook examples and add behavioral tests, including SSR/browser coverage when the risk criteria above apply.
+
+Build from the repository root after wiring these files:
 
 ```bash
+# From packages/react after scaffolding
+cd ../..
 pnpm build
 ```
 
-The scaffold still emits a `<component-name>.styles.ts` into `packages/react/src/components/<component-name>/`, which no longer matches the layout above. Move it to `packages/styles/src/components/<component-name>/` and add the matching `packages/styles/components/<component-name>.css`.
+Development package exports point to source. Building produces `dist/`; it does not rewrite package exports. React's `prepack` hook runs `clean-package` and `scripts/update-exports.mjs` to generate published exports during `pnpm pack`. The `postpack` hook restores the development manifest.
 
 ### Compound Component Pattern
 
@@ -170,7 +186,7 @@ const ComponentRoot = ({children, className, ref, ...props}: ComponentPropsWithR
   const contextValue = useMemo(() => ({slots}), [slots]);
   return (
     <ComponentContext value={contextValue}>
-      <ReactAriaPrimitive ref={ref} className={composeTwRenderProps(className, slots.base())}>
+      <ReactAriaPrimitive {...props} ref={ref} className={composeTwRenderProps(className, slots.base())}>
         {children}
       </ReactAriaPrimitive>
     </ComponentContext>
@@ -181,39 +197,44 @@ const ComponentRoot = ({children, className, ref, ...props}: ComponentPropsWithR
 const ComponentItem = ({className, ref, ...props}: ComponentPropsWithRef<"div">) => {
   const {slots} = useContext(ComponentContext);
   return (
-    <ReactAriaPrimitive ref={ref} className={composeTwRenderProps(className, slots?.item())}>
+    <ReactAriaPrimitive {...props} ref={ref} className={composeTwRenderProps(className, slots?.item())}>
       {props.children}
     </ReactAriaPrimitive>
   );
 };
 ```
 
-Compound components are exported via `Object.assign` as the default export:
+Compound components use named `Object.assign` exports in their component barrel, including a `.Root` alias:
 
 ```tsx
-const CompoundComponent = Object.assign(ComponentRoot, {
+export const Component = Object.assign(ComponentRoot, {
+  Root: ComponentRoot,
   Item: ComponentItem,
   Trigger: ComponentTrigger,
 });
-export default CompoundComponent;
+
+export {ComponentRoot, ComponentItem, ComponentTrigger};
+export type {ComponentRootProps, ComponentItemProps, ComponentTriggerProps} from "./component";
 ```
+
+Also expose the compound props type namespace (for example, `Accordion.Props` and `Accordion.ItemProps`) and root props alias (`AccordionProps`). Use `packages/react/src/components/accordion/index.ts` as the complete reference.
 
 ### Export Strategy
 
 ```tsx
-// Named exports for compound components
-export * as ComponentName from "./component-name";
+// Package-wide barrel: preserve named component and type exports
+export * from "./component-name";
 
 // Direct exports for simple components
 export {Component, type ComponentProps} from "./component";
 
 // Always export variants
-export {componentVariants, type ComponentVariants} from "./component.styles";
+export {componentVariants, type ComponentVariants} from "@heroui/styles";
 ```
 
 ### Styling Rules
 
-1. **Styles go in `.styles.ts` files**, never in `.tsx` files. Use `tv()` from `tailwind-variants`.
+1. **Variant mappings go in `.styles.ts` files** under `packages/styles/src/components/` using `tv()` from `tailwind-variants`; BEM declarations go in `packages/styles/components/*.css`. Keep component styling out of implementation `.tsx` files.
 2. **Import from `tailwind-variants`**, never from `@heroui/standard`.
 3. **Never use `twMerge` manually** — `tailwind-variants` already includes it.
 4. **Add `"use client"` directive** at the top of every component `.tsx` file.
@@ -229,7 +250,7 @@ Components use BEM-style CSS class names:
 
 ### Default Size Pattern (Critical)
 
-All components must include default sizes in base classes so they work without explicit size props:
+Components with size variants must include default dimensions in base classes so they work without explicit size props. Medium modifiers should avoid duplicating those dimensions, but may define supporting custom properties such as Avatar's `--avatar-size`:
 
 ```css
 .avatar {
@@ -237,9 +258,9 @@ All components must include default sizes in base classes so they work without e
   /* size-10 is the default (equivalent to --md) */
 }
 
-.avatar--sm { @apply size-8; }
-.avatar--md { /* empty — this IS the default */ }
-.avatar--lg { @apply size-12; }
+.avatar--sm { --avatar-size: 2rem; @apply size-8; }
+.avatar--md { --avatar-size: 2.5rem; /* no duplicate layout styles */ }
+.avatar--lg { --avatar-size: 3rem; @apply size-12; }
 ```
 
 ### Interactive State Pattern
@@ -254,13 +275,15 @@ All interactive components must support both pseudo-classes and data attributes:
   &:active,
   &[data-pressed="true"] { @apply ...; }
 
-  &:focus-visible,
+  &:focus-visible:not([data-focused]),
   &[data-focus-visible="true"] {
     outline: 2px solid var(--focus);
     outline-offset: 2px;
   }
 }
 ```
+
+For RAC-managed controls, use the `data-focus-visible` state as the authority and guard the native fallback with `:not([data-focused])`, as in `button.css`. Do not add `:focus:not(:focus-visible)` to a keyboard focus-ring rule. Follow each primitive's state hooks; text-field focus styling can intentionally differ.
 
 ### React Aria className Patterns
 
@@ -269,7 +292,7 @@ React Aria components differ in how they accept `className`:
 - **Render-prop components** (Button, Checkbox, Switch, Popover, Tooltip, Tabs, Link, Menu, Input, TextArea, Label, Text, OverlayArrow, etc.) — use `composeTwRenderProps(className, slots.foo())`.
 - **String-only components** (Heading, Dialog) — pass `className` directly: `slots?.heading({className})`.
 
-Verify against the installed `react-aria-components` types rather than this list: a component accepts render props when its `className` is typed `ClassNameOrFunction<…>`, or when its props extend `StyleRenderProps` / `DOMRenderProps`. Upstream has been widening render-prop support over time, so treat this list as a snapshot of RAC 1.21.1.
+Verify against the installed `react-aria-components` types rather than this list: a component accepts render props when its resolved `className` type accepts a function (for example, `ClassNameOrFunction<…>`). Check for explicit string-only overrides even when props extend `StyleRenderProps` / `DOMRenderProps`. Upstream has been widening render-prop support over time, so treat this list as a snapshot of RAC 1.21.1.
 
 ### Composition Over Duplication
 
@@ -315,15 +338,22 @@ Storybook is the primary dev workflow — run with `pnpm dev` (port 6006).
 
 HeroUI uses **Iconify** with **gravity-ui** as the default icon set.
 
+## Documentation and External References
+
+- Before editing `apps/docs/`, read [apps/docs/AGENTS.md](apps/docs/AGENTS.md) and applicable nested guidance. It requires consulting the relevant bundled Next.js guide under `apps/docs/node_modules/next/dist/docs/` before writing code.
+- MCP documentation/search tools are optional and depend on the current environment. Discover available tools before invoking them; fall back to installed types/source and official documentation when unavailable.
+
 ## Current Components
 
 ### Completed
 
-accordion, alert, alert-dialog, autocomplete, avatar, badge, breadcrumbs, button, button-group, calendar, card, checkbox, checkbox-group, chip, close-button, color-area, color-field, color-picker, color-slider, color-swatch, color-swatch-picker, combo-box, date-field, date-picker, date-range-picker, description, disclosure, disclosure-group, drawer, dropdown, empty-state, error-message, field-error, fieldset, form, header, input, input-group, input-otp, kbd, label, link, list-box, list-box-item, list-box-section, menu, menu-item, menu-section, meter, modal, number-field, pagination, popover, progress-bar, progress-circle, radio, radio-group, range-calendar, scroll-shadow, search-field, select, separator, skeleton, slider, spinner, surface, switch, switch-group, table, tabs, tag, tag-group, textarea, textfield, time-field, toast, toggle-button, toggle-button-group, toolbar, tooltip, typography
+accordion, alert, alert-dialog, autocomplete, avatar, avatar-group, badge, breadcrumbs, button, button-group, calendar, card, checkbox, checkbox-group, chip, close-button, color-area, color-field, color-picker, color-slider, color-swatch, color-swatch-picker, combo-box, date-field, date-picker, date-range-picker, description, disclosure, disclosure-group, drawer, dropdown, empty-state, error-message, field-error, fieldset, form, header, input, input-group, input-otp, kbd, label, link, list-box, list-box-item, list-box-section, menu, menu-item, menu-section, meter, modal, number-field, pagination, popover, progress-bar, progress-circle, radio, radio-group, range-calendar, scroll-shadow, search-field, select, separator, skeleton, slider, spinner, surface, switch, switch-group, table, tabs, tag, tag-group, textarea, textfield, time-field, toast, toggle-button, toggle-button-group, toolbar, tooltip, typography
 
 ### In Progress
 
 calendar-year-picker
+
+Source of truth: `packages/react/src/components/index.ts`. Keep this inventory and the corresponding list in `CLAUDE.md` synchronized when adding components.
 
 ## Non-obvious Gotchas
 

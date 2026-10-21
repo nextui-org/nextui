@@ -5,7 +5,7 @@ import {VerifiedBadgeIcon} from "./components/icons";
 
 export function XProfileDemo() {
   return (
-    <Card className="w-[400px] items-start justify-center">
+    <Card className="w-full max-w-[400px] items-start justify-center">
       <Card.Header className="items-top w-full flex-row justify-between">
         <div className="flex items-center gap-3">
           <Avatar size="sm">

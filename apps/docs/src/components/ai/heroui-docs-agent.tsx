@@ -11,7 +11,13 @@ import {useTheme} from "next-themes";
 import {useEffect, useMemo, useState} from "react";
 
 import {HEROUI_DOCS_AGENT_ID} from "@/lib/heroui-agent";
-import {DESIGN_THEME_CHANGE_EVENT, getStoredDesignTheme} from "@/utils/design-theme";
+import {
+  DESIGN_THEME_CHANGE_EVENT,
+  VIBRANT_STORAGE_KEY,
+  getStoredDesignTheme,
+  setStoredDesignTheme,
+  setStoredVibrantPalette,
+} from "@/utils/design-theme";
 
 import {getAgentThemeOptions} from "./docs-agent-theme";
 import {docsAgentTools, getDocsPageContext} from "./docs-agent-tools";
@@ -45,7 +51,11 @@ export function HeroUIDocsAgent() {
       page: getDocsPageContext,
       theme: {
         getMode: () => colorScheme,
+        getPreset: getStoredDesignTheme,
+        getVibrantPalette: () => localStorage.getItem(VIBRANT_STORAGE_KEY) === "true",
         setMode: setTheme,
+        setPreset: setStoredDesignTheme,
+        setVibrantPalette: setStoredVibrantPalette,
       },
     }),
     [colorScheme, router, setTheme],

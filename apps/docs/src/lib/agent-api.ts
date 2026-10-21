@@ -48,6 +48,25 @@ function normalizeSearchText(value: string): string {
   return value.trim().toLowerCase();
 }
 
+function searchTerms(value: string): string[] {
+  return [...new Set(normalizeSearchText(value).match(/[\p{L}\p{N}]+/gu) ?? [])];
+}
+
+function searchScore(page: Page, terms: string[]): number {
+  const title = page.data.title.toLowerCase();
+  const url = page.url.toLowerCase();
+  const description = (page.data.description ?? "").toLowerCase();
+
+  return terms.reduce(
+    (score, term) =>
+      score +
+      (title === term ? 20 : title.includes(term) ? 8 : 0) +
+      (url.includes(term) ? 6 : 0) +
+      (description.includes(term) ? 2 : 0),
+    0,
+  );
+}
+
 function pageToSearchResult(page: Page): AgentSearchResult {
   return {
     description: page.data.description ?? "",
@@ -67,23 +86,15 @@ export function searchAgentDocs(
 
   if (!normalizedQuery) return [];
 
+  const terms = searchTerms(normalizedQuery);
   const pages = filterPagesByPlatform(filterExcludedPages(source.getPages(locale)), platform);
 
   return pages
-    .filter((page) => {
-      const haystack = [
-        page.data.title,
-        page.data.description ?? "",
-        page.url,
-        page.slugs.join(" "),
-      ]
-        .join(" ")
-        .toLowerCase();
-
-      return haystack.includes(normalizedQuery);
-    })
+    .map((page) => ({page, score: searchScore(page, terms)}))
+    .filter(({score}) => score > 0)
+    .sort((left, right) => right.score - left.score)
     .slice(0, limit)
-    .map(pageToSearchResult);
+    .map(({page}) => pageToSearchResult(page));
 }
 
 export function listAgentComponents(

@@ -1,9 +1,8 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import matter from "gray-matter";
-
 import {i18n} from "@/lib/i18n";
+import {readFrontmatter} from "@/utils/frontmatter";
 
 export interface BlogPost {
   slug: string;
@@ -33,7 +32,7 @@ function getLocaleDir(locale: string): string {
 }
 
 function parsePost(slug: string, locale: string, rawContent: string): BlogPost {
-  const {content, data} = matter(rawContent);
+  const {content, data} = readFrontmatter(rawContent);
 
   return {
     author: data["author"] || "HeroUI Team",

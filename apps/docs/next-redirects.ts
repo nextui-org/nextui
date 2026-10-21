@@ -212,14 +212,6 @@ export async function getRedirects(): Promise<Redirect[]> {
     },
   );
 
-  // This post has no Chinese translation. Avoid serving English content at a
-  // Chinese URL and point crawlers directly at the published English article.
-  redirects.push({
-    destination: "/en/blog/styling-and-theming-in-heroui-native",
-    source: "/cn/blog/styling-and-theming-in-heroui-native",
-    statusCode: 301,
-  });
-
   // Showcase moved under [lang] for i18n. Redirect legacy /showcase and
   // /showcase/<id> to the default-locale URL so old links keep working.
   redirects.push(
@@ -489,9 +481,19 @@ export async function getRedirects(): Promise<Redirect[]> {
     ...localizedDocsRedirect("/docs/guide/:path*", "/docs/react/migration"),
   );
 
-  // Handbook migration: redirect old handbook paths to new getting-started paths
-  // Handbook pages are now under getting-started/(handbook)/
+  // Handbook migration: redirect old handbook paths to new getting-started paths.
+  // Also catch route-group names that leaked into URLs: route groups organize
+  // source files but are never part of the public route.
   const handbookPages = ["colors", "theming", "styling", "animation", "composition", "dark-mode"];
+  const nativeHandbookPages = [
+    "provider",
+    "portal",
+    "colors",
+    "theming",
+    "styling",
+    "animation",
+    "composition",
+  ];
 
   redirects.push(
     ...handbookPages.flatMap((page) => [
@@ -501,6 +503,17 @@ export async function getRedirects(): Promise<Redirect[]> {
       ),
       ...localizedDocsRedirect(`/docs/handbook/${page}`, `/docs/react/getting-started/${page}`),
     ]),
+    ...[
+      {pages: handbookPages, platform: "react"},
+      {pages: nativeHandbookPages, platform: "native"},
+    ].flatMap(({pages, platform}) =>
+      pages.flatMap((page) =>
+        localizedDocsRedirect(
+          `/docs/${platform}/getting-started/handbook/${page}`,
+          `/docs/${platform}/getting-started/${page}`,
+        ),
+      ),
+    ),
   );
 
   // UI for Agents migration: redirect old ui-for-agents paths to new getting-started paths

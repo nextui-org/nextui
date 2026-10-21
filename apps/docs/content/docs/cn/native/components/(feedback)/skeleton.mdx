@@ -58,6 +58,10 @@ Skeleton 为简单包装器，在内容加载时渲染占位，无子部件 API�
 <Skeleton variant="none" className="h-20 w-full rounded-lg" />
 ```
 
+<Callout type="info">
+  `variant="none"` 会跳过默认的 `FadeIn`/`FadeOut` 布局动画。若要为 `none` 骨架屏恢复进入/退出动画，请显式传入 `animation.entering` 与 `animation.exiting`。
+</Callout>
+
 ### 自定义微光
 
 自定义时长、速度与高光色。

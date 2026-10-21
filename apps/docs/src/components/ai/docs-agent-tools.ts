@@ -16,7 +16,11 @@ export type DocsAgentContext = {
   page: () => DocsPageContext;
   theme: {
     getMode: () => string | undefined;
+    getPreset: () => (typeof themeIds)[number];
+    getVibrantPalette: () => boolean;
     setMode: (mode: ThemeMode) => void;
+    setPreset: (preset: (typeof themeIds)[number]) => void;
+    setVibrantPalette: (enabled: boolean) => void;
   };
 };
 
@@ -63,6 +67,9 @@ type DocsToolDefinition = Omit<ClientTool<DocsToolInput, DocsAgentContext>, "exe
 
 const DEFAULT_PAGE_CHARACTERS = 40_000;
 const MAX_PAGE_CHARACTERS = 40_000;
+const MAX_SEARCH_CONTENT_RESULTS = 3;
+const MAX_SEARCH_CONTENT_CHARACTERS = 9_000;
+const TRUNCATION_NOTICE = "\n\n[Content truncated. Request this page for more detail.]";
 const THEME_BUILDER_PATH = "/en/themes";
 const themeModes = ["light", "dark", "system"] as const;
 
@@ -252,6 +259,131 @@ export function resolveSameOriginPath(value: string, origin: string): string | n
   }
 }
 
+type SearchResultWithContent = {
+  contentError?: string;
+  excerpt?: string;
+  truncated?: boolean;
+  url: string;
+};
+
+type SearchResponse = {
+  results?: SearchResultWithContent[];
+};
+
+function searchTerms(query: string): string[] {
+  return [...new Set(query.toLowerCase().match(/[\p{L}\p{N}]+/gu) ?? [])];
+}
+
+function mergeLineRanges(ranges: Array<{end: number; start: number}>) {
+  return [...ranges]
+    .sort((left, right) => left.start - right.start || left.end - right.end)
+    .reduce<Array<{end: number; start: number}>>((merged, range) => {
+      const previous = merged.at(-1);
+
+      if (previous && range.start <= previous.end) previous.end = Math.max(previous.end, range.end);
+      else merged.push({...range});
+
+      return merged;
+    }, []);
+}
+
+/** Return bounded matching Markdown windows so deep API details survive search. */
+export function excerptSearchMarkdown(markdown: string, query: string, maxCharacters: number) {
+  if (markdown.length <= maxCharacters) return {excerpt: markdown, truncated: false};
+
+  const lines = markdown.split("\n");
+  const terms = searchTerms(query);
+  const matches = lines
+    .map((line, index) => ({
+      index,
+      score: terms.reduce((score, term) => score + Number(line.toLowerCase().includes(term)), 0),
+    }))
+    .filter(({score}) => score > 0)
+    .sort((left, right) => right.score - left.score || left.index - right.index);
+  const notice = TRUNCATION_NOTICE.slice(0, maxCharacters);
+  const contentLimit = Math.max(0, maxCharacters - notice.length);
+  let ranges: Array<{end: number; start: number}> = [];
+
+  for (const {index} of matches) {
+    const candidate = {end: Math.min(lines.length, index + 7), start: Math.max(0, index - 5)};
+    const next = mergeLineRanges([...ranges, candidate]);
+    const length = next.reduce(
+      (total, range, rangeIndex) =>
+        total +
+        (rangeIndex ? "\n\n…\n\n".length : 0) +
+        lines.slice(range.start, range.end).join("\n").length,
+      0,
+    );
+
+    if (length <= contentLimit) ranges = next;
+  }
+
+  if (!ranges.length) {
+    const matchingLine = matches[0] ? (lines[matches[0].index] ?? markdown) : markdown;
+
+    return {excerpt: `${matchingLine.slice(0, contentLimit)}${notice}`, truncated: true};
+  }
+
+  return {
+    excerpt: `${ranges.map((range) => lines.slice(range.start, range.end).join("\n")).join("\n\n…\n\n")}${notice}`,
+    truncated: true,
+  };
+}
+
+async function enrichSearchResults(
+  response: unknown,
+  query: string,
+  signal?: AbortSignal,
+): Promise<unknown> {
+  if (!response || typeof response !== "object" || !("results" in response)) return response;
+
+  const results = (response as SearchResponse).results;
+
+  if (!Array.isArray(results) || !results.length) return response;
+
+  const selected = results.slice(0, MAX_SEARCH_CONTENT_RESULTS);
+  const maxCharacters = Math.floor(MAX_SEARCH_CONTENT_CHARACTERS / selected.length);
+  const content = await Promise.all(
+    selected.map(async (result) => {
+      const url = resolveSameOriginPath(result.url, window.location.origin);
+      const pathname = url ? new URL(url, window.location.origin).pathname : null;
+      const unlocalizedUrl = pathname?.replace(/^\/en(?=\/docs(?:\/|$))/, "");
+
+      if (!unlocalizedUrl?.startsWith("/docs/")) {
+        return {contentError: "Documentation content was unavailable."};
+      }
+
+      try {
+        const page = await fetchJson(
+          `/api/agent/page?url=${encodeURIComponent(unlocalizedUrl)}&locale=en`,
+          signal,
+        );
+        const markdown =
+          page &&
+          typeof page === "object" &&
+          "markdown" in page &&
+          typeof page.markdown === "string"
+            ? page.markdown
+            : "";
+
+        return markdown
+          ? excerptSearchMarkdown(markdown, query, maxCharacters)
+          : {contentError: "Documentation content was unavailable."};
+      } catch (error) {
+        return {
+          contentError:
+            error instanceof Error ? error.message : "Documentation content was unavailable.",
+        };
+      }
+    }),
+  );
+
+  return {
+    ...response,
+    results: results.map((result, index) => ({...result, ...(content[index] ?? {})})),
+  };
+}
+
 export function sliceMarkdownResult(
   value: unknown,
   start = 0,
@@ -333,25 +465,29 @@ export function getDocsPageContext(): DocsPageContext {
 export const docsToolDefinitions: DocsToolDefinition[] = [
   {
     description:
-      "Search the official HeroUI React and Native documentation by keyword. Returns at most 20 concise page matches.",
+      "Search the official HeroUI React and Native documentation by keyword. Returns page matches and concise relevant excerpts from up to three pages. Use get_heroui_doc when the exact page is already known or more detail is needed.",
     displayName: "Search HeroUI docs",
-    execute(input, _context, execution) {
+    async execute(input, _context, execution) {
       const query = getString(input, "query").trim();
       const platform = getPlatform(input);
+      const includeContent = input["includeContent"] !== false;
       const limit = Math.min(Math.max(getInteger(input, "limit", 10), 1), 20);
 
       if (!query) throw new Error("query is required");
 
-      return fetchJson(
+      const response = await fetchJson(
         `/api/agent/search?q=${encodeURIComponent(query)}&platform=${platform}&limit=${limit}&locale=en`,
         execution?.signal,
       );
+
+      return includeContent ? enrichSearchResults(response, query, execution?.signal) : response;
     },
     icon: "search",
     name: "search_heroui_docs",
     parameters: {
       additionalProperties: false,
       properties: {
+        includeContent: {default: true, type: "boolean"},
         limit: {default: 10, maximum: 20, minimum: 1, type: "integer"},
         platform: {default: "all", enum: ["all", "react", "native"], type: "string"},
         query: {
@@ -441,7 +577,7 @@ export const docsToolDefinitions: DocsToolDefinition[] = [
   },
   {
     description:
-      "List official HeroUI component documentation pages for React or Native. Returns at most 20 entries.",
+      "Discover official HeroUI component documentation pages when the exact component is unknown. Returns at most 20 entries.",
     displayName: "List HeroUI components",
     execute(input, _context, execution) {
       const platform = getPlatform(input, "react") === "native" ? "native" : "react";
@@ -465,10 +601,23 @@ export const docsToolDefinitions: DocsToolDefinition[] = [
   },
   {
     description:
-      "Read the current HeroUI theme builder values and light, dark, or system color scheme. Use this before changing a theme when the user asks to inspect or edit it.",
+      "Read the current HeroUI docs theme preset, theme-builder values, vibrant-palette setting, and light, dark, or system color scheme. Use this before changing a theme when the user asks to inspect or edit it.",
     displayName: "Read HeroUI theme",
     execute(_input, context) {
-      return getThemeBuilderState(window.location.href, context?.theme.getMode());
+      const state = getThemeBuilderState(window.location.href, context?.theme.getMode());
+
+      if (!context || state.isThemeBuilder) return state;
+
+      const preset = context.theme.getPreset();
+
+      return {
+        ...state,
+        preset,
+        values: {
+          ...themeValuesById[preset],
+          vibrantPalette: context.theme.getVibrantPalette(),
+        },
+      };
     },
     name: "get_heroui_theme",
     parameters: {
@@ -479,37 +628,50 @@ export const docsToolDefinitions: DocsToolDefinition[] = [
   },
   {
     description:
-      "Change the interactive HeroUI theme builder when the user explicitly asks. Apply a preset or any partial combination of accent, neutral tint, font, radius, vibrant palette, and light/dark/system mode. Theme values open the English theme builder and preserve unspecified settings.",
+      "Change the current browser's HeroUI docs appearance when the user asks to switch or change the theme. For named themes, pass only preset to apply it immediately on the current page (default, sky, lavender, mint, netflix, uber, spotify, coinbase, airbnb, discord, or rabbit). For example, 'change the docs theme to Uber' must call this tool with preset='uber'. Never include custom theme values with a named preset. Custom accent, neutral tint, font, or radius values open the English theme builder and preserve unspecified settings.",
     displayName: "Update HeroUI theme",
     execute(input, context) {
       const colorScheme = getOptionalEnum(input, "colorScheme", themeModes);
-      const hasThemeValues = themeValueKeys.some((key) => input[key] !== undefined);
-      const hasPreset = input["preset"] !== undefined;
+      const preset = getOptionalEnum(input, "preset", themeIds);
+      const vibrantPalette = input["vibrantPalette"];
+      const hasBuilderValues =
+        !preset &&
+        themeValueKeys
+          .filter((key) => key !== "vibrantPalette")
+          .some((key) => input[key] !== undefined);
 
-      if (!colorScheme && !hasThemeValues && !hasPreset) {
+      if (!colorScheme && !hasBuilderValues && !preset && vibrantPalette === undefined) {
         throw new Error("Provide a preset, theme value, or colorScheme to update");
       }
 
+      if (!context) throw new Error("Theme controls are unavailable");
+
       if (colorScheme) {
-        if (!context) throw new Error("Theme controls are unavailable");
         context.theme.setMode(colorScheme);
       }
 
-      const url =
-        hasThemeValues || hasPreset ? createThemeBuilderUrl(input, window.location.href) : null;
+      if (preset) context.theme.setPreset(preset);
+      if (typeof vibrantPalette === "boolean") {
+        context.theme.setVibrantPalette(vibrantPalette);
+      }
+
+      const url = hasBuilderValues ? createThemeBuilderUrl(input, window.location.href) : null;
 
       if (url) {
-        if (context) context.navigate(url);
-        else window.location.assign(url);
+        context.navigate(url);
       }
 
       return {
-        colorScheme: colorScheme ?? context?.theme.getMode() ?? "system",
+        colorScheme: colorScheme ?? context.theme.getMode() ?? "system",
         navigating: Boolean(url),
+        preset: preset ?? context.theme.getPreset(),
         url,
+        vibrantPalette:
+          typeof vibrantPalette === "boolean" ? vibrantPalette : context.theme.getVibrantPalette(),
       };
     },
     name: "set_heroui_theme",
+    needsApproval: false,
     parameters: {
       additionalProperties: false,
       properties: {
@@ -540,7 +702,11 @@ export const docsToolDefinitions: DocsToolDefinition[] = [
           minimum: 0,
           type: "number",
         },
-        preset: {enum: themeIds, type: "string"},
+        preset: {
+          description: "Named docs preset to apply immediately to the current page.",
+          enum: themeIds,
+          type: "string",
+        },
         radius: {enum: radiusIds, type: "string"},
         vibrantPalette: {type: "boolean"},
       },

@@ -969,6 +969,10 @@ export const demos: Record<string, DemoItem> = {
     loader: () => import("./combo-box/custom-filtering").then((m) => m.CustomFiltering),
     file: "en/combo-box/custom-filtering.tsx",
   },
+  "combo-box-custom-validation": {
+    loader: () => import("./combo-box/custom-validation").then((m) => m.CustomValidation),
+    file: "en/combo-box/custom-validation.tsx",
+  },
   "combo-box-render-function": {
     loader: () => import("./combo-box/render-function").then((m) => m.RenderFunction),
     file: "en/combo-box/render-function.tsx",
@@ -976,6 +980,18 @@ export const demos: Record<string, DemoItem> = {
   "combo-box-menu-trigger": {
     loader: () => import("./combo-box/menu-trigger").then((m) => m.MenuTrigger),
     file: "en/combo-box/menu-trigger.tsx",
+  },
+  "combo-box-form-value": {
+    loader: () => import("./combo-box/form-value").then((m) => m.FormValue),
+    file: "en/combo-box/form-value.tsx",
+  },
+  "combo-box-validation-behavior": {
+    loader: () => import("./combo-box/validation-behavior").then((m) => m.ValidationBehavior),
+    file: "en/combo-box/validation-behavior.tsx",
+  },
+  "combo-box-read-only": {
+    loader: () => import("./combo-box/read-only").then((m) => m.ReadOnly),
+    file: "en/combo-box/read-only.tsx",
   },
   "combo-box-multiple-selection": {
     loader: () => import("./combo-box/multiple-selection").then((m) => m.MultipleSelection),
@@ -2283,6 +2299,18 @@ export const demos: Record<string, DemoItem> = {
   "slider-range": {
     loader: () => import("./slider/range").then((m) => m.Range),
     file: "en/slider/range.tsx",
+  },
+  "slider-controlled": {
+    loader: () => import("./slider/controlled").then((m) => m.Controlled),
+    file: "en/slider/controlled.tsx",
+  },
+  "slider-custom-value-formatting": {
+    loader: () => import("./slider/custom-value-formatting").then((m) => m.CustomValueFormatting),
+    file: "en/slider/custom-value-formatting.tsx",
+  },
+  "slider-custom-output": {
+    loader: () => import("./slider/custom-output").then((m) => m.CustomOutput),
+    file: "en/slider/custom-output.tsx",
   },
   "slider-render-function": {
     loader: () => import("./slider/render-function").then((m) => m.RenderFunction),

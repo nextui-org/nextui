@@ -3,9 +3,11 @@
 import {Button, CloseButton, buttonVariants} from "@heroui/react";
 import {Calligraph} from "calligraph";
 import {AnimatePresence, motion} from "motion/react";
-import {useEffect, useState, useSyncExternalStore} from "react";
+import {useCallback, useEffect, useState, useSyncExternalStore} from "react";
 
 import {env} from "~env";
+
+import {useDictionary} from "@/hooks/use-dictionary";
 
 import {FloatingStars} from "./floating-stars";
 import {PRO_URL, SHOW_BANNER} from "./pro-constants";
@@ -25,23 +27,8 @@ const DEFAULT_CAMPAIGN = "pro_default";
 const getProHref = (medium: string, campaign: string) =>
   `${PRO_URL}?utm_source=heroui.com&utm_medium=${medium}&utm_campaign=${campaign}`;
 
-const DEFAULT_PRO_COPY = {
-  cardDescription:
-    "Components, templates, and AI tooling for React and React Native. Made for teams that care about the details.",
-  cardTitle: "Build faster with HeroUI Pro",
-  cta: "Explore Pro",
-  headerDetail: "Components, templates & AI tooling",
-  headerTitle: "HeroUI Pro is live",
-  heroLabel: "Now available",
-};
-
-const DISCOUNT_PRO_COPY = {
-  cardDescription:
-    "More components, charts, advanced MCP & Skills, and a complete theme builder. Get your license now at a discounted price for a limited time.",
-  cardTitle: "HeroUI Pro launch discount is live!",
-  cta: "Get Pro deal",
-  headerTitle: "Launch discount is live!",
-};
+const withPercent = (template: string, percent: number | undefined) =>
+  template.replace("{percent}", String(percent ?? 0));
 
 function useProDiscount() {
   const [discount, setDiscount] = useState<DiscountData | null>(null);
@@ -123,6 +110,7 @@ function useCountdown(endsAt: string | null) {
 }
 
 export function HeaderBanner() {
+  const dict = useDictionary().proBanner;
   const discount = useProDiscount();
   const time = useCountdown(discount?.endsAt ?? null);
 
@@ -144,35 +132,39 @@ export function HeaderBanner() {
       {hasLiveDiscount ? (
         <>
           <span className="hidden text-xs font-medium text-foreground sm:inline">
-            {DISCOUNT_PRO_COPY.headerTitle}
+            {dict.discount.headerTitle}
           </span>
-          <span className="text-xs font-medium text-foreground">
-            <span className="tabular-nums">{discount?.percent}</span>% off
-            <span className="hidden sm:inline"> ends</span> in
+          <span className="text-xs font-medium text-foreground tabular-nums">
+            <span className="hidden sm:inline">
+              {withPercent(dict.discount.headerCountdown, discount?.percent)}
+            </span>
+            <span className="sm:hidden">
+              {withPercent(dict.discount.headerCountdownCompact, discount?.percent)}
+            </span>
           </span>
           <span className="shrink-0 rounded-[5px] border border-accent-soft-hover bg-linear-to-r from-accent/10 to-accent/7 px-1.5 py-0.5 text-xs leading-tight font-medium text-foreground tabular-nums">
             <Calligraph animation="snappy" variant="number">
               {time?.days}
             </Calligraph>
-            d :{" "}
+            {dict.units.days} :{" "}
             <Calligraph animation="snappy" variant="number">
               {time?.hours}
             </Calligraph>
-            h :{" "}
+            {dict.units.hours} :{" "}
             <Calligraph animation="snappy" variant="number">
               {time?.minutes}
             </Calligraph>
-            m :{" "}
+            {dict.units.minutes} :{" "}
             <Calligraph animation="snappy" variant="number">
               {time?.seconds}
             </Calligraph>
-            s
+            {dict.units.seconds}
           </span>
         </>
       ) : (
         <span className="text-xs font-medium text-foreground">
-          <span className="hidden sm:inline">{DEFAULT_PRO_COPY.headerTitle} - </span>
-          {DEFAULT_PRO_COPY.headerDetail}
+          <span className="hidden sm:inline">{dict.default.headerTitle} - </span>
+          {dict.default.headerDetail}
         </span>
       )}
     </a>
@@ -180,6 +172,8 @@ export function HeaderBanner() {
 }
 
 const PRO_BANNER_DISMISSED_KEY = "heroui-pro-banner-dismissed-session";
+const MOBILE_AGENT_QUERY = "(max-width: 639px)";
+const OPEN_AGENT_SELECTOR = '[data-heroui-agent][data-open="true"]';
 
 const subscribeToDismissed = (callback: () => void) => {
   window.addEventListener("storage", callback);
@@ -190,6 +184,7 @@ const getDismissedSnapshot = () => sessionStorage.getItem(PRO_BANNER_DISMISSED_K
 const getDismissedServerSnapshot = () => true;
 
 export function ProBanner() {
+  const dict = useDictionary().proBanner;
   const wasPreviouslyDismissed = useSyncExternalStore(
     subscribeToDismissed,
     getDismissedSnapshot,
@@ -202,12 +197,36 @@ export function ProBanner() {
   const visible = SHOW_BANNER && !wasPreviouslyDismissed && !dismissed;
   const hasLiveDiscount = Boolean(discount && time);
   const campaign = hasLiveDiscount ? DISCOUNT_CAMPAIGN : DEFAULT_CAMPAIGN;
-  const copy = hasLiveDiscount ? DISCOUNT_PRO_COPY : DEFAULT_PRO_COPY;
+  const copy = hasLiveDiscount ? dict.discount : dict.default;
 
-  const handleDismiss = () => {
+  const handleDismiss = useCallback(() => {
     setDismissed(true);
     sessionStorage.setItem(PRO_BANNER_DISMISSED_KEY, "true");
-  };
+  }, []);
+
+  useEffect(() => {
+    if (!visible) return;
+
+    const mobileQuery = window.matchMedia(MOBILE_AGENT_QUERY);
+    const dismissWhenAgentOverlaps = () => {
+      if (mobileQuery.matches && document.querySelector(OPEN_AGENT_SELECTOR)) handleDismiss();
+    };
+    const observer = new MutationObserver(dismissWhenAgentOverlaps);
+
+    observer.observe(document.documentElement, {
+      attributeFilter: ["data-open"],
+      attributes: true,
+      childList: true,
+      subtree: true,
+    });
+    mobileQuery.addEventListener("change", dismissWhenAgentOverlaps);
+    dismissWhenAgentOverlaps();
+
+    return () => {
+      observer.disconnect();
+      mobileQuery.removeEventListener("change", dismissWhenAgentOverlaps);
+    };
+  }, [handleDismiss, visible]);
 
   return (
     <AnimatePresence>
@@ -341,27 +360,27 @@ export function ProBanner() {
             </div>
             {hasLiveDiscount ? (
               <span className="relative text-xs text-[#4E75A5] tabular-nums">
-                Ends in{" "}
+                {dict.discount.cardCountdown}{" "}
                 <Calligraph animation="snappy" variant="number">
                   {time?.days}
                 </Calligraph>
-                d{" "}
+                {dict.units.days}{" "}
                 <Calligraph animation="snappy" variant="number">
                   {time?.hours}
                 </Calligraph>
-                h{" "}
+                {dict.units.hours}{" "}
                 <Calligraph animation="snappy" variant="number">
                   {time?.minutes}
                 </Calligraph>
-                m{" "}
+                {dict.units.minutes}{" "}
                 <Calligraph animation="snappy" variant="number">
                   {time?.seconds}
                 </Calligraph>
-                s
+                {dict.units.seconds}
               </span>
             ) : (
               <span className="relative text-xs font-medium text-[#4E75A5]">
-                {DEFAULT_PRO_COPY.heroLabel}
+                {dict.default.heroLabel}
               </span>
             )}
           </div>
@@ -379,7 +398,7 @@ export function ProBanner() {
             </div>
             <div className="flex items-center gap-2 pt-1">
               <Button size="md" variant="outline" onPress={handleDismiss}>
-                Close
+                {dict.close}
               </Button>
               <a
                 href={getProHref("pro_banner", campaign)}

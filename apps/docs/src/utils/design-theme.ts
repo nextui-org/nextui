@@ -28,3 +28,32 @@ export function notifyDesignThemeChange(themeId: ThemeId) {
     }),
   );
 }
+
+export function setStoredDesignTheme(themeId: ThemeId) {
+  const root = document.documentElement;
+
+  window.localStorage.setItem(DESIGN_THEME_STORAGE_KEY, themeId);
+
+  if (themeId === DEFAULT_DESIGN_THEME) {
+    root.removeAttribute("data-design-theme");
+  } else {
+    root.setAttribute("data-design-theme", themeId);
+  }
+
+  document.getElementById("design-theme-css-link")?.remove();
+  notifyDesignThemeChange(themeId);
+}
+
+export function setStoredVibrantPalette(enabled: boolean) {
+  const root = document.documentElement;
+
+  window.localStorage.setItem(VIBRANT_STORAGE_KEY, String(enabled));
+
+  if (enabled) {
+    root.setAttribute("data-vibrant-palette", "true");
+  } else {
+    root.removeAttribute("data-vibrant-palette");
+  }
+
+  notifyDesignThemeChange(getStoredDesignTheme());
+}

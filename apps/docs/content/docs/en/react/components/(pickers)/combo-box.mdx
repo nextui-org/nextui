@@ -157,6 +157,41 @@ Use the `menuTrigger` prop to control when the popover opens:
   name="combo-box-menu-trigger"
 />
 
+### Form Value
+
+Use the `formValue` prop to control whether the selected item's key or text is submitted in forms. `key` is the default. When `allowsCustomValue` is true, the text is always submitted.
+
+<ComponentPreview
+  name="combo-box-form-value"
+/>
+
+### Validation Behavior
+
+Use the `validationBehavior` prop to control how validation is displayed:
+
+- `native` (default): blocks form submission when the value is missing or invalid
+- `aria`: shows errors in realtime and does not block submission
+
+<ComponentPreview
+  name="combo-box-validation-behavior"
+/>
+
+### Custom Validation
+
+Use the `validate` prop to return an error message when the value is invalid, or `true` when it is valid.
+
+<ComponentPreview
+  name="combo-box-custom-validation"
+/>
+
+### Read Only
+
+Use the `isReadOnly` prop to make the ComboBox read-only. The selected value can be focused, but it cannot be changed.
+
+<ComponentPreview
+  name="combo-box-read-only"
+/>
+
 ### Multiple Selection
 
 Set `selectionMode="multiple"` to allow selecting more than one option. In multiple selection mode, use `ComboBox.Value` to display the selected items and pass `selectionMode="multiple"` to the inner `ListBox` as well. Selection is controlled with the `value` / `defaultValue` (`Key[]`) props and the `onChange` handler.
@@ -270,6 +305,7 @@ The component supports both CSS pseudo-classes and data attributes for flexibili
 | `menuTrigger` | `"focus" \| "input" \| "manual"` | `"focus"` | The interaction required to display the ComboBox menu |
 | `shouldFocusWrap` | `boolean` | - | Whether keyboard navigation is circular |
 | `fullWidth` | `boolean` | `false` | Whether the ComboBox should take full width of its container |
+| `variant` | `"primary" \| "secondary"` | `"primary"` | Visual variant of the component. `primary` is the default style with shadow. `secondary` is a lower emphasis variant without shadow, suitable for use in surfaces. |
 | `className` | `string` | - | Additional CSS classes |
 | `children` | `ReactNode \| RenderFunction` | - | ComboBox content or render function |
 | `render` | `DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxRenderProps>` | - | Overrides the default DOM element with a custom render function.|
@@ -316,500 +352,6 @@ When using render functions with ComboBox, these values are provided:
 | `inputValue` | `string` | The current input value |
 | `selectedKey` | `Key \| null` | The currently selected key |
 | `selectedItem` | `Node \| null` | The currently selected item |
-
-## Examples
-
-### Basic Usage
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-
-<ComboBox className="w-[256px]">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-      <ListBox.Item id="dog" textValue="Dog">
-        Dog
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
-### With Sections
-
-```tsx
-import { ComboBox, Input, Label, ListBox, Header, Separator } from '@heroui/react';
-
-<ComboBox className="w-[256px]">
-  <Label>Country</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search countries..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Section>
-        <Header>North America</Header>
-        <ListBox.Item id="usa" textValue="United States">
-          United States
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
-      </ListBox.Section>
-      <Separator />
-      <ListBox.Section>
-        <Header>Europe</Header>
-        <ListBox.Item id="uk" textValue="United Kingdom">
-          United Kingdom
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
-      </ListBox.Section>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
-### Controlled Selection
-
-```tsx
-import type { Key } from '@heroui/react';
-
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-import { useState } from 'react';
-
-function ControlledComboBox() {
-  const [selectedKey, setSelectedKey] = useState<Key | null>('cat');
-
-  return (
-    <ComboBox
-      className="w-[256px]"
-      selectedKey={selectedKey}
-      onSelectionChange={setSelectedKey}
-    >
-      <Label>Animal</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Search animals..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox>
-          <ListBox.Item id="cat" textValue="Cat">
-            Cat
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="dog" textValue="Dog">
-            Dog
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </ComboBox.Popover>
-    </ComboBox>
-  );
-}
-```
-
-### Controlled Input Value
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-import { useState } from 'react';
-
-function ControlledInputComboBox() {
-  const [inputValue, setInputValue] = useState('');
-
-  return (
-    <ComboBox
-      className="w-[256px]"
-      inputValue={inputValue}
-      onInputChange={setInputValue}
-    >
-      <Label>Search</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Type to search..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox>
-          <ListBox.Item id="cat" textValue="Cat">
-            Cat
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="dog" textValue="Dog">
-            Dog
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </ComboBox.Popover>
-    </ComboBox>
-  );
-}
-```
-
-### Asynchronous Loading
-
-```tsx
-import { Collection, ComboBox, EmptyState, Input, Label, ListBox, ListBoxLoadMoreItem, Spinner } from '@heroui/react';
-import { useAsyncList } from '@react-stately/data';
-
-interface Character {
-  name: string;
-}
-
-function AsyncComboBox() {
-  const list = useAsyncList<Character>({
-    async load({cursor, filterText, signal}) {
-      const res = await fetch(
-        cursor || `https://swapi.py4e.com/api/people/?search=${filterText}`,
-        { signal }
-      );
-      const json = await res.json();
-
-      return {
-        items: json.results,
-        cursor: json.next,
-      };
-    },
-  });
-
-  return (
-    <ComboBox
-      allowsEmptyCollection
-      className="w-[256px]"
-      inputValue={list.filterText}
-      onInputChange={list.setFilterText}
-    >
-      <Label>Pick a Character</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Star Wars characters..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox renderEmptyState={() => <EmptyState />}>
-          <Collection items={list.items}>
-            {(item) => (
-              <ListBox.Item id={item.name} textValue={item.name}>
-                {item.name}
-                <ListBox.ItemIndicator />
-              </ListBox.Item>
-            )}
-          </Collection>
-          <ListBoxLoadMoreItem
-            isLoading={list.loadingState === "loadingMore"}
-            onLoadMore={list.loadMore}
-          >
-            <div className="flex items-center justify-center gap-2 py-2">
-              <Spinner size="sm" />
-              <span className="text-sm text-muted">Loading more...</span>
-            </div>
-          </ListBoxLoadMoreItem>
-        </ListBox>
-      </ComboBox.Popover>
-    </ComboBox>
-  );
-}
-```
-
-### Custom Filtering
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-
-<ComboBox
-  className="w-[256px]"
-  defaultFilter={(text, inputValue) => {
-    if (!inputValue) return true;
-    return text.toLowerCase().includes(inputValue.toLowerCase());
-  }}
->
-  <Label>Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-      <ListBox.Item id="dog" textValue="Dog">
-        Dog
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
-### Menu Trigger
-
-Control when the popover opens using the `menuTrigger` prop:
-
-```tsx
-import { ComboBox, Description, Input, Label, ListBox } from '@heroui/react';
-
-// Opens on focus (default)
-<ComboBox className="w-[256px]" menuTrigger="focus">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-  <Description>Popover opens when the input is focused</Description>
-</ComboBox>
-
-// Opens when typing
-<ComboBox className="w-[256px]" menuTrigger="input">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-  <Description>Popover opens when the user edits the input text</Description>
-</ComboBox>
-
-// Opens only manually
-<ComboBox className="w-[256px]" menuTrigger="manual">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-  <Description>Popover only opens when the trigger button is pressed or arrow keys are used</Description>
-</ComboBox>
-```
-
-### Form Value
-
-Use the `formValue` prop to control whether the selected item's key or text is submitted in forms:
-
-```tsx
-import { Button, ComboBox, FieldError, Form, Input, Label, ListBox } from '@heroui/react';
-
-function FormValueExample() {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    console.log('Submitted value:', formData.get('animal')); // Will be "cat" (the key)
-  };
-
-  return (
-    <Form onSubmit={onSubmit}>
-      {/* Submits the key (default) */}
-      <ComboBox name="animal" formValue="key" isRequired>
-        <Label>Animal</Label>
-        <ComboBox.InputGroup>
-          <Input placeholder="Select an animal..." />
-          <ComboBox.Trigger />
-        </ComboBox.InputGroup>
-        <ComboBox.Popover>
-          <ListBox>
-            <ListBox.Item id="cat" textValue="Cat">
-              Cat
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-            <ListBox.Item id="dog" textValue="Dog">
-              Dog
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-          </ListBox>
-        </ComboBox.Popover>
-        <FieldError />
-      </ComboBox>
-
-      {/* Submits the text */}
-      <ComboBox name="animal-text" formValue="text" isRequired>
-        <Label>Animal (text)</Label>
-        <ComboBox.InputGroup>
-          <Input placeholder="Select an animal..." />
-          <ComboBox.Trigger />
-        </ComboBox.InputGroup>
-        <ComboBox.Popover>
-          <ListBox>
-            <ListBox.Item id="cat" textValue="Cat">
-              Cat
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-            <ListBox.Item id="dog" textValue="Dog">
-              Dog
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-          </ListBox>
-        </ComboBox.Popover>
-        <FieldError />
-      </ComboBox>
-
-      <Button type="submit">Submit</Button>
-    </Form>
-  );
-}
-```
-
-### Validation Behavior
-
-Control how validation is displayed using the `validationBehavior` prop:
-
-```tsx
-import { Button, ComboBox, FieldError, Form, Input, Label, ListBox } from '@heroui/react';
-
-function ValidationExample() {
-  return (
-    <div className="space-y-8">
-      {/* Native validation (default) - blocks form submission */}
-      <Form>
-        <ComboBox name="animal" isRequired validationBehavior="native">
-          <Label>Animal (native validation)</Label>
-          <ComboBox.InputGroup>
-            <Input placeholder="Select an animal..." />
-            <ComboBox.Trigger />
-          </ComboBox.InputGroup>
-          <ComboBox.Popover>
-            <ListBox>
-              <ListBox.Item id="cat" textValue="Cat">
-                Cat
-                <ListBox.ItemIndicator />
-              </ListBox.Item>
-            </ListBox>
-          </ComboBox.Popover>
-          <FieldError />
-        </ComboBox>
-        <Button type="submit">Submit</Button>
-      </Form>
-
-      {/* ARIA validation - shows errors in realtime, doesn't block submission */}
-      <Form>
-        <ComboBox name="animal-aria" isRequired validationBehavior="aria">
-          <Label>Animal (ARIA validation)</Label>
-          <ComboBox.InputGroup>
-            <Input placeholder="Select an animal..." />
-            <ComboBox.Trigger />
-          </ComboBox.InputGroup>
-          <ComboBox.Popover>
-            <ListBox>
-              <ListBox.Item id="cat" textValue="Cat">
-                Cat
-                <ListBox.ItemIndicator />
-              </ListBox.Item>
-            </ListBox>
-          </ComboBox.Popover>
-          <FieldError />
-        </ComboBox>
-        <Button type="submit">Submit</Button>
-      </Form>
-    </div>
-  );
-}
-```
-
-### Custom Validation
-
-Use the `validate` prop to add custom validation logic:
-
-```tsx
-import { ComboBox, FieldError, Input, Label, ListBox } from '@heroui/react';
-
-function CustomValidationExample() {
-  return (
-    <ComboBox
-      className="w-[256px]"
-      isRequired
-      validate={(value) => {
-        if (!value || value.selectedKey === null) {
-          return 'Please select an animal';
-        }
-        if (value.selectedKey === 'snake') {
-          return 'Snakes are not allowed';
-        }
-        return true;
-      }}
-    >
-      <Label>Favorite Animal</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Search animals..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox>
-          <ListBox.Item id="cat" textValue="Cat">
-            Cat
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="dog" textValue="Dog">
-            Dog
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="snake" textValue="Snake">
-            Snake
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </ComboBox.Popover>
-      <FieldError />
-    </ComboBox>
-  );
-}
-```
-
-### Read Only
-
-Use the `isReadOnly` prop to make the comboBox read-only:
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-
-<ComboBox className="w-[256px]" isReadOnly defaultSelectedKey="cat">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-      <ListBox.Item id="dog" textValue="Dog">
-        Dog
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
 
 ## Accessibility
 

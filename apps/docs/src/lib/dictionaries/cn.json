@@ -7,9 +7,9 @@
         "date": "2026-09-17"
       },
       {
-        "label": "HeroUI Native v1.0.9 — 补丁版本",
-        "href": "/docs/native/releases/v1-0-9",
-        "date": "2026-08-31"
+        "label": "HeroUI Native v1.0.11 — Expo SDK 58 与 CSS 层叠层",
+        "href": "/docs/native/releases/v1-0-11",
+        "date": "2026-10-20"
       }
     ],
     "titleMain": "开箱即用",
@@ -118,6 +118,32 @@
     "playStore": "在 Play Store 下载",
     "androidComingSoonLabel": "Android 版本即将推出",
     "androidComingSoon": "Android · 即将推出"
+  },
+  "proBanner": {
+    "close": "关闭",
+    "default": {
+      "headerTitle": "HeroUI Pro 已上线",
+      "headerDetail": "组件、模板与 AI 工具",
+      "heroLabel": "现已推出",
+      "cardTitle": "使用 HeroUI Pro 更快构建",
+      "cardDescription": "面向 React 与 React Native 的组件、模板与 AI 工具，为注重细节的团队而打造。",
+      "cta": "探索 Pro"
+    },
+    "discount": {
+      "headerTitle": "上线优惠进行中！",
+      "headerCountdown": "{percent}% 优惠倒计时",
+      "headerCountdownCompact": "{percent}% 优惠倒计时",
+      "cardCountdown": "倒计时",
+      "cardTitle": "HeroUI Pro 上线优惠进行中！",
+      "cardDescription": "更多组件、图表、进阶 MCP 与 Skills，以及完整的主题构建器。限时折扣，立即获取你的授权。",
+      "cta": "立即享受优惠"
+    },
+    "units": {
+      "days": "天",
+      "hours": "时",
+      "minutes": "分",
+      "seconds": "秒"
+    }
   },
   "themes": {
     "heading": "主题编辑器",

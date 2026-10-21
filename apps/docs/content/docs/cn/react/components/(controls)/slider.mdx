@@ -78,6 +78,30 @@ export default () => (
   name="slider-range"
 />
 
+### 受控数值
+
+使用 `value` 和 `onChange` 控制数值。
+
+<ComponentPreview
+  name="slider-controlled"
+/>
+
+### 自定义数值格式
+
+使用 `formatOptions` 格式化显示的数值。此示例将数值格式化为美元。
+
+<ComponentPreview
+  name="slider-custom-value-formatting"
+/>
+
+### 自定义输出展示
+
+自定义 `Slider.Output`，控制已选数值的展示方式。
+
+<ComponentPreview
+  name="slider-custom-output"
+/>
+
 ### 渲染函数
 
 <ComponentPreview
@@ -213,133 +237,6 @@ Slider 组件使用以下 CSS 类（[查看源码样式](https://github.com/hero
 | `getThumbValueLabel` | `(index: number) => string` | 返回指定滑块数值的字符串标签。 |
 | `orientation` | `"horizontal" \| "vertical"` | Slider 的方向。 |
 | `isDisabled` | `boolean` | Slider 是否禁用。 |
-
-## 示例
-
-### 基本用法
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider defaultValue={30}>
-  <Label>Volume</Label>
-  <Slider.Output />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
-</Slider>
-```
-
-### 范围滑块
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider
-  defaultValue={[100, 500]}
-  formatOptions={{style: "currency", currency: "USD"}}
-  maxValue={1000}
-  minValue={0}
-  step={50}
->
-  <Label>Price Range</Label>
-  <Slider.Output />
-  <Slider.Track>
-    {({state}) => (
-      <>
-        <Slider.Fill />
-        {state.values.map((_, i) => (
-          <Slider.Thumb key={i} index={i} />
-        ))}
-      </>
-    )}
-  </Slider.Track>
-</Slider>
-```
-
-### 受控数值
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-import { useState } from 'react';
-
-function ControlledSlider() {
-  const [value, setValue] = useState(25);
-
-  return (
-    <>
-      <Slider value={value} onChange={setValue}>
-        <Label>Volume</Label>
-        <Slider.Output />
-        <Slider.Track>
-          <Slider.Fill />
-          <Slider.Thumb />
-        </Slider.Track>
-      </Slider>
-      <p>Current value: {value}</p>
-    </>
-  );
-}
-```
-
-### 自定义数值格式
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider
-  defaultValue={60}
-  formatOptions={{style: "currency", currency: "USD"}}
->
-  <Label>Price</Label>
-  <Slider.Output />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
-</Slider>
-```
-
-### 垂直方向
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider defaultValue={30} orientation="vertical" aria-label="Volume">
-  <Label>Volume</Label>
-  <Slider.Output />
-  <Slider.Track>
-    <Slider.Fill />
-    <Slider.Thumb />
-  </Slider.Track>
-</Slider>
-```
-
-### 自定义输出展示
-
-```tsx
-import { Slider, Label } from '@heroui/react';
-
-<Slider defaultValue={[25, 75]}>
-  <Label>Range</Label>
-  <Slider.Output>
-    {({state}) =>
-      state.values.map((_, i) => state.getThumbValueLabel(i)).join(' – ')
-    }
-  </Slider.Output>
-  <Slider.Track>
-    {({state}) => (
-      <>
-        <Slider.Fill />
-        {state.values.map((_, i) => (
-          <Slider.Thumb key={i} index={i} />
-        ))}
-      </>
-    )}
-  </Slider.Track>
-</Slider>
-```
 
 ## 无障碍
 

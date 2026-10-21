@@ -1,0 +1,103 @@
+---
+title: v1.0.10
+description:
+  Input 与 TextArea 的 ref 解析为原生 TextInput 实例，BottomSheet 在 Android 手柄外露与容器尺寸变化时保持隐藏，Skeleton 的 variant="none" 跳过默认进入/退出动画，Menu、Popover 与 Select 在窗口尺寸变化时刷新锚点
+github:
+  pull: 499
+---
+
+<div className="flex items-center gap-3 mb-6">
+  <span className="text-sm text-muted">2026 年 9 月 21 日</span>
+</div>
+
+HeroUI Native v1.0.10 将 Input、TextArea、SearchField 与 InputGroup 的 ref 类型改为原生 `TextInput` 实例，以适配 React Native 的 Strict TypeScript API；修复了 Android 上 BottomSheet 的两个显示问题；让 Skeleton 的 `variant="none"` 跳过默认布局动画；并在应用窗口尺寸变化时刷新 Menu、Popover 与 Select 的锚点位置。
+
+## 安装
+
+升级到最新版本：
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+<Tab value="npm">
+  ```bash
+  npm i heroui-native
+  ```
+</Tab>
+<Tab value="pnpm">
+  ``` bash
+  pnpm add heroui-native
+  ```
+</Tab>
+<Tab value="yarn">
+  ```bash
+  yarn add heroui-native
+  ```
+</Tab>
+<Tab value="bun">
+  ```bash
+  bun add heroui-native
+  ```
+</Tab>
+</Tabs>
+
+<Callout type="info">
+  **使用 AI 助手？** 直接提示「Hey Cursor，把 HeroUI Native 升级到最新版本」，助手会自动比对版本并完成必要修改。了解更多请参见 [HeroUI Native MCP 服务器](/docs/native/getting-started/mcp-server)。
+</Callout>
+
+## 真机体验
+
+<NativeTryOnDevice />
+
+## 问题修复
+
+本版本包含以下问题的修复：
+
+- **[Issue #485](https://github.com/heroui-inc/heroui-native/issues/485)**：已关闭的底部弹层在容器尺寸变化（设备旋转或 iPad 分屏）时可能闪现，原因是它仍以过期的关闭位移保持挂载。关闭状态的弹层现在会与新的容器尺寸对齐，并在再次打开前不参与绘制。
+- **Android 上的 BottomSheet**：在全面屏（edge-to-edge）设备上，关闭状态的弹层手柄可能露出底部边缘，因为 Gorhom 停靠在 `window.height`，该值小于实际测量的容器高度。现在会在首次布局时修正关闭位置，并在 `isOpen` 仍为 `false` 时忽略 Gorhom 自身的展开动画。
+- **[Issue #490（iOS）](https://github.com/heroui-inc/heroui-native/issues/490)**：在 iOS 上，点击居中且限制了宽度的 Dialog 与 Select 面板两侧的空白区域时，事件会被内部的动画包装层拦截。外层包装现在使用 `pointerEvents="box-none"`，使点击能够传递到遮罩的关闭处理逻辑。#490 的 Android 部分仍未解决。
+- **[Issue #497](https://github.com/heroui-inc/heroui-native/issues/497)**：Input、TextArea、SearchField 与 InputGroup 此前以 `typeof TextInput` 转发 ref，在 React Native 的 Strict TypeScript API（0.87+）下会报错。ref 现在通过 `React.ComponentRef` 解析，并新增导出 `InputRef` 与 `TextAreaRef` 类型。
+- **[Issue #489](https://github.com/heroui-inc/heroui-native/issues/489)**：已打开的 Menu、Popover 或 Select 在 iPad 旋转或应用窗口尺寸变化后可能与触发器脱离。共享的定位 hook 现在使用 `useWindowDimensions`，并在宽高变化时重新测量触发器 ref。
+- **Switch** 现在会保留使用者传入的 `aria-valuetext`，不再因运算符优先级问题被默认的 `'on'`/`'off'` 静默覆盖。
+- **Select** 触发器的 `selectClassNames.trigger()` 现在无需显式传入 `variant` 即可应用文档中记录的 `'default'` 变体样式，与组件自身解构的默认值保持一致。
+- **Input** 样式修复：将 `ios:outline-2` 改为 `ios:outline`，消除 iOS 上多余的轮廓宽度。
+
+**相关 PR：**
+
+- [#499](https://github.com/heroui-inc/heroui-native/pull/499)
+- [#498](https://github.com/heroui-inc/heroui-native/pull/498)
+- [#496](https://github.com/heroui-inc/heroui-native/pull/496)
+- [#495](https://github.com/heroui-inc/heroui-native/pull/495)
+- [#493](https://github.com/heroui-inc/heroui-native/pull/493)
+- [#492](https://github.com/heroui-inc/heroui-native/pull/492)
+- [#486](https://github.com/heroui-inc/heroui-native/pull/486)
+- [#484](https://github.com/heroui-inc/heroui-native/pull/484)
+
+## 组件改进
+
+- **Skeleton** 的 `variant="none"` 现在会跳过默认的 `FadeIn`/`FadeOut` 布局动画，除非显式设置了 `animation.entering` 或 `animation.exiting`。这让静态占位骨架在列表中挂载与复用的成本更低。（[#495](https://github.com/heroui-inc/heroui-native/pull/495)）
+
+## 依赖
+
+- **Uniwind** 固定为 `1.12.0`（此前为 `^1.10.0`），以解决 Android 上全面屏布局的测量问题。（[#498](https://github.com/heroui-inc/heroui-native/pull/498)）
+
+## 更新的文档
+
+以下文档页面已更新，以反映本版本的变更：
+
+- [CloseButton](/docs/native/components/close-button) - 将图标默认尺寸从 `20` 更正为 `18`
+- [Menu](/docs/native/components/menu) - 将 SubMenu 指示图标的默认尺寸从 `14` 更正为 `16`
+- [Skeleton](/docs/native/components/skeleton) - 说明 `variant="none"` 会跳过默认的进入/退出动画
+- GlassView（仅仓库内文档） - 将默认模糊 `intensity` 从 `30` 更正为 `25`
+
+**相关 PR：**
+
+- [#487](https://github.com/heroui-inc/heroui-native/pull/487)
+- [#483](https://github.com/heroui-inc/heroui-native/pull/483)
+
+## 链接
+
+- [组件文档](../components)
+- [GitHub 仓库](https://github.com/heroui-inc/heroui-native)
+
+## 贡献者
+
+感谢所有为本版本做出贡献的朋友！

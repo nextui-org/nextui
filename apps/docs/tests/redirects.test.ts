@@ -1,6 +1,7 @@
 import {NextRequest} from "next/server";
 import {describe, expect, it} from "vitest";
 
+import {getBlogPost} from "@/lib/blog";
 import {proxy} from "@/proxy";
 
 import {getRedirects} from "../next-redirects";
@@ -58,6 +59,15 @@ describe("Docs redirects", () => {
     );
   });
 
+  it.each([
+    ["/docs/native/getting-started/handbook/provider", "/docs/native/getting-started/provider"],
+    ["/docs/react/getting-started/handbook/composition", "/docs/react/getting-started/composition"],
+  ])("redirects leaked route groups from %s to %s", async (source, destination) => {
+    const redirects = await getRedirects();
+
+    expectLegacyDocsRedirect(redirects, source, destination);
+  });
+
   it("redirects leaked component MDX URLs to the current HTML page", async () => {
     const redirects = await getRedirects();
 
@@ -99,6 +109,21 @@ describe("Docs redirects", () => {
       "/docs/components/:path*.mdx",
       "/docs/react/components/:path*",
     );
+  });
+});
+
+describe("Blog redirects", () => {
+  it("serves the translated native styling post without redirecting to English", async () => {
+    const slug = "styling-and-theming-in-heroui-native";
+    const url = `https://heroui.com/cn/blog/${slug}`;
+    const redirects = await getRedirects();
+
+    expect(findRedirect(redirects, `/cn/blog/${slug}`)).toBeUndefined();
+    expect(proxy(new NextRequest(url)).headers.get("location")).toBeNull();
+    expect(getBlogPost(slug, "cn")).toMatchObject({
+      locale: "cn",
+      title: "HeroUI Native 的样式与主题机制",
+    });
   });
 });
 

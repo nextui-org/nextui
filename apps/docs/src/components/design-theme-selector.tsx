@@ -25,11 +25,12 @@ import spotifyTheme from "@/assets/themes/spotify.png";
 import {useDictionary} from "@/hooks/use-dictionary";
 import {cn} from "@/utils/cn";
 import {
-  DESIGN_THEME_STORAGE_KEY,
+  DESIGN_THEME_CHANGE_EVENT,
   VIBRANT_STORAGE_KEY,
   getStoredDesignTheme,
   isDesignThemeId,
-  notifyDesignThemeChange,
+  setStoredDesignTheme,
+  setStoredVibrantPalette,
 } from "@/utils/design-theme";
 
 interface ThemeOption {
@@ -52,23 +53,6 @@ const THEMES: ThemeOption[] = [
   {id: "rabbit", image: rabbitTheme, label: "Rabbit"},
 ];
 
-function removeThemeCssLink() {
-  document.getElementById("design-theme-css-link")?.remove();
-}
-
-function applyTheme(themeId: ThemeId) {
-  const root = document.documentElement;
-  const isDefault = themeId === "default";
-
-  if (isDefault) {
-    root.removeAttribute("data-design-theme");
-  } else {
-    root.setAttribute("data-design-theme", themeId);
-  }
-
-  removeThemeCssLink();
-}
-
 export function DesignThemeSelector({
   triggerVariant = "tertiary",
 }: {
@@ -79,46 +63,39 @@ export function DesignThemeSelector({
   const [mounted, setMounted] = useState(false);
   const [vibrant, setVibrant] = useState(false);
 
-  /* eslint-disable react-hooks/set-state-in-effect */
+  // eslint-disable-next-line react-hooks/set-state-in-effect
   useEffect(() => setMounted(true), []);
 
   useEffect(() => {
     const stored = getStoredDesignTheme();
+    const storedVibrant = localStorage.getItem(VIBRANT_STORAGE_KEY) === "true";
 
     if (stored !== "default") {
-      setActive(stored);
-      applyTheme(stored);
+      setStoredDesignTheme(stored);
     }
 
-    const storedVibrant = localStorage.getItem(VIBRANT_STORAGE_KEY);
+    if (storedVibrant) setStoredVibrantPalette(true);
 
-    if (storedVibrant === "true") {
-      setVibrant(true);
-      document.documentElement.setAttribute("data-vibrant-palette", "true");
-    }
+    const syncAppearance = () => {
+      setActive(getStoredDesignTheme());
+      setVibrant(localStorage.getItem(VIBRANT_STORAGE_KEY) === "true");
+    };
+
+    syncAppearance();
+    window.addEventListener(DESIGN_THEME_CHANGE_EVENT, syncAppearance);
+
+    return () => window.removeEventListener(DESIGN_THEME_CHANGE_EVENT, syncAppearance);
   }, []);
-  /* eslint-enable react-hooks/set-state-in-effect */
-
   const handleSelect = useCallback((keys: "all" | Set<React.Key>) => {
     if (keys === "all") return;
     const selected = [...keys][0];
 
     if (typeof selected !== "string" || !isDesignThemeId(selected)) return;
-    setActive(selected);
-    localStorage.setItem(DESIGN_THEME_STORAGE_KEY, selected);
-    applyTheme(selected);
-    notifyDesignThemeChange(selected);
+    setStoredDesignTheme(selected);
   }, []);
 
   const handleVibrantToggle = useCallback((isSelected: boolean) => {
-    setVibrant(isSelected);
-    localStorage.setItem(VIBRANT_STORAGE_KEY, String(isSelected));
-
-    if (isSelected) {
-      document.documentElement.setAttribute("data-vibrant-palette", "true");
-    } else {
-      document.documentElement.removeAttribute("data-vibrant-palette");
-    }
+    setStoredVibrantPalette(isSelected);
   }, []);
 
   const current = THEMES.find((t) => t.id === active);

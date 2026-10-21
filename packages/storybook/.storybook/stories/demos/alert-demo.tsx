@@ -3,7 +3,7 @@ import React from "react";
 
 export function AlertDemo() {
   return (
-    <Alert className="w-[400px] items-center">
+    <Alert className="w-full max-w-[400px] items-center">
       <Alert.Indicator />
       <Alert.Content>
         <Alert.Title>You have 2 credits left</Alert.Title>

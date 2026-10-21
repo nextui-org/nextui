@@ -157,6 +157,41 @@ export default () => (
   name="combo-box-menu-trigger"
 />
 
+### 表单值
+
+使用 `formValue` 控制提交表单时提交选中项的 key 还是文本。默认值为 `key`。当 `allowsCustomValue` 为 true 时，始终提交文本。
+
+<ComponentPreview
+  name="combo-box-form-value"
+/>
+
+### 校验行为
+
+使用 `validationBehavior` 控制校验信息的展示方式：
+
+- `native`（默认）：值为空或无效时阻止表单提交
+- `aria`：实时显示错误，不阻止提交
+
+<ComponentPreview
+  name="combo-box-validation-behavior"
+/>
+
+### 自定义校验
+
+使用 `validate` 在值无效时返回错误信息，有效时返回 `true`。
+
+<ComponentPreview
+  name="combo-box-custom-validation"
+/>
+
+### 只读
+
+使用 `isReadOnly` 将 ComboBox 设为只读。选中值可以获得焦点，但不能修改。
+
+<ComponentPreview
+  name="combo-box-read-only"
+/>
+
 ### 多选
 
 设置 `selectionMode="multiple"` 以允许选择多个选项。在多选模式下，使用 `ComboBox.Value` 展示已选项，并同时给内部的 `ListBox` 传入 `selectionMode="multiple"`。选择通过 `value` / `defaultValue`（`Key[]`）以及 `onChange` 回调来控制。
@@ -270,6 +305,7 @@ ComboBox 组件使用以下 CSS 类（[查看源码样式](https://github.com/he
 | `menuTrigger` | `"focus" \| "input" \| "manual"` | `"focus"` | 展示 ComboBox 菜单所需的交互 |
 | `shouldFocusWrap` | `boolean` | - | 键盘导航是否循环 |
 | `fullWidth` | `boolean` | `false` | ComboBox 是否占满容器宽度 |
+| `variant` | `"primary" \| "secondary"` | `"primary"` | 视觉变体。`primary` 为默认带阴影样式；`secondary` 为低强调无阴影，适用于 Surface 内 |
 | `className` | `string` | - | 附加 CSS 类 |
 | `children` | `ReactNode \| RenderFunction` | - | ComboBox 内容或 render 函数 |
 | `render` | `DOMRenderFunction<keyof React.JSX.IntrinsicElements, ComboBoxRenderProps>` | - | 使用自定义 render 函数覆盖默认 DOM 元素 |
@@ -316,501 +352,6 @@ ComboBox 组件使用以下 CSS 类（[查看源码样式](https://github.com/he
 | `inputValue` | `string` | 当前输入值 |
 | `selectedKey` | `Key \| null` | 当前选中的 key |
 | `selectedItem` | `Node \| null` | 当前选中的 item |
-
-## 示例
-
-### 基本用法
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-
-<ComboBox className="w-[256px]">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-      <ListBox.Item id="dog" textValue="Dog">
-        Dog
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
-### 代码示例：分组选项
-
-```tsx
-import { ComboBox, Input, Label, ListBox, Header, Separator } from '@heroui/react';
-
-<ComboBox className="w-[256px]">
-  <Label>Country</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search countries..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Section>
-        <Header>North America</Header>
-        <ListBox.Item id="usa" textValue="United States">
-          United States
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
-      </ListBox.Section>
-      <Separator />
-      <ListBox.Section>
-        <Header>Europe</Header>
-        <ListBox.Item id="uk" textValue="United Kingdom">
-          United Kingdom
-          <ListBox.ItemIndicator />
-        </ListBox.Item>
-      </ListBox.Section>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
-### 受控选择
-
-```tsx
-import type { Key } from '@heroui/react';
-
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-import { useState } from 'react';
-
-function ControlledComboBox() {
-  const [selectedKey, setSelectedKey] = useState<Key | null>('cat');
-
-  return (
-    <ComboBox
-      className="w-[256px]"
-      selectedKey={selectedKey}
-      onSelectionChange={setSelectedKey}
-    >
-      <Label>Animal</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Search animals..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox>
-          <ListBox.Item id="cat" textValue="Cat">
-            Cat
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="dog" textValue="Dog">
-            Dog
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </ComboBox.Popover>
-    </ComboBox>
-  );
-}
-```
-
-### 代码示例：受控输入值
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-import { useState } from 'react';
-
-function ControlledInputComboBox() {
-  const [inputValue, setInputValue] = useState('');
-
-  return (
-    <ComboBox
-      className="w-[256px]"
-      inputValue={inputValue}
-      onInputChange={setInputValue}
-    >
-      <Label>Search</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Type to search..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox>
-          <ListBox.Item id="cat" textValue="Cat">
-            Cat
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="dog" textValue="Dog">
-            Dog
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </ComboBox.Popover>
-    </ComboBox>
-  );
-}
-```
-
-### 代码示例：异步加载
-
-```tsx
-import { Collection, ComboBox, EmptyState, Input, Label, ListBox, ListBoxLoadMoreItem, Spinner } from '@heroui/react';
-import { useAsyncList } from '@react-stately/data';
-
-interface Character {
-  name: string;
-}
-
-function AsyncComboBox() {
-  const list = useAsyncList<Character>({
-    async load({cursor, filterText, signal}) {
-      const res = await fetch(
-        cursor || `https://swapi.py4e.com/api/people/?search=${filterText}`,
-        { signal }
-      );
-      const json = await res.json();
-
-      return {
-        items: json.results,
-        cursor: json.next,
-      };
-    },
-  });
-
-  return (
-    <ComboBox
-      allowsEmptyCollection
-      className="w-[256px]"
-      inputValue={list.filterText}
-      onInputChange={list.setFilterText}
-    >
-      <Label>Pick a Character</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Star Wars characters..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox renderEmptyState={() => <EmptyState />}>
-          <Collection items={list.items}>
-            {(item) => (
-              <ListBox.Item id={item.name} textValue={item.name}>
-                {item.name}
-                <ListBox.ItemIndicator />
-              </ListBox.Item>
-            )}
-          </Collection>
-          <ListBoxLoadMoreItem
-            isLoading={list.loadingState === "loadingMore"}
-            onLoadMore={list.loadMore}
-          >
-            <div className="flex items-center justify-center gap-2 py-2">
-              <Spinner size="sm" />
-              <span className="text-sm text-muted">Loading more...</span>
-            </div>
-          </ListBoxLoadMoreItem>
-        </ListBox>
-      </ComboBox.Popover>
-    </ComboBox>
-  );
-}
-```
-
-### 代码示例：自定义过滤
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-
-<ComboBox
-  className="w-[256px]"
-  defaultFilter={(text, inputValue) => {
-    if (!inputValue) return true;
-    return text.toLowerCase().includes(inputValue.toLowerCase());
-  }}
->
-  <Label>Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-      <ListBox.Item id="dog" textValue="Dog">
-        Dog
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
-### 代码示例：菜单触发方式
-
-使用 `menuTrigger` prop 控制 Popover 何时打开：
-
-```tsx
-import { ComboBox, Description, Input, Label, ListBox } from '@heroui/react';
-
-// 在聚焦时打开（默认）
-<ComboBox className="w-[256px]" menuTrigger="focus">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-  <Description>Popover opens when the input is focused</Description>
-</ComboBox>
-
-// 在输入时打开
-<ComboBox className="w-[256px]" menuTrigger="input">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-  <Description>Popover opens when the user edits the input text</Description>
-</ComboBox>
-
-// 仅手动打开
-<ComboBox className="w-[256px]" menuTrigger="manual">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-  <Description>Popover only opens when the trigger button is pressed or arrow keys are used</Description>
-</ComboBox>
-```
-
-### 表单值
-
-使用 `formValue` prop 控制提交表单时提交选中项的 key 还是文本：
-
-```tsx
-import { Button, ComboBox, FieldError, Form, Input, Label, ListBox } from '@heroui/react';
-
-function FormValueExample() {
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    console.log('Submitted value:', formData.get('animal')); // Will be "cat" (the key)
-  };
-
-  return (
-    <Form onSubmit={onSubmit}>
-      {/* Submits the key (default) */}
-      <ComboBox name="animal" formValue="key" isRequired>
-        <Label>Animal</Label>
-        <ComboBox.InputGroup>
-          <Input placeholder="Select an animal..." />
-          <ComboBox.Trigger />
-        </ComboBox.InputGroup>
-        <ComboBox.Popover>
-          <ListBox>
-            <ListBox.Item id="cat" textValue="Cat">
-              Cat
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-            <ListBox.Item id="dog" textValue="Dog">
-              Dog
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-          </ListBox>
-        </ComboBox.Popover>
-        <FieldError />
-      </ComboBox>
-
-      {/* Submits the text */}
-      <ComboBox name="animal-text" formValue="text" isRequired>
-        <Label>Animal (text)</Label>
-        <ComboBox.InputGroup>
-          <Input placeholder="Select an animal..." />
-          <ComboBox.Trigger />
-        </ComboBox.InputGroup>
-        <ComboBox.Popover>
-          <ListBox>
-            <ListBox.Item id="cat" textValue="Cat">
-              Cat
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-            <ListBox.Item id="dog" textValue="Dog">
-              Dog
-              <ListBox.ItemIndicator />
-            </ListBox.Item>
-          </ListBox>
-        </ComboBox.Popover>
-        <FieldError />
-      </ComboBox>
-
-      <Button type="submit">Submit</Button>
-    </Form>
-  );
-}
-```
-
-### 校验行为
-
-使用 `validationBehavior` prop 控制校验信息的展示方式：
-
-```tsx
-import { Button, ComboBox, FieldError, Form, Input, Label, ListBox } from '@heroui/react';
-
-function ValidationExample() {
-  return (
-    <div className="space-y-8">
-      {/* Native validation (default) - blocks form submission */}
-      <Form>
-        <ComboBox name="animal" isRequired validationBehavior="native">
-          <Label>Animal (native validation)</Label>
-          <ComboBox.InputGroup>
-            <Input placeholder="Select an animal..." />
-            <ComboBox.Trigger />
-          </ComboBox.InputGroup>
-          <ComboBox.Popover>
-            <ListBox>
-              <ListBox.Item id="cat" textValue="Cat">
-                Cat
-                <ListBox.ItemIndicator />
-              </ListBox.Item>
-            </ListBox>
-          </ComboBox.Popover>
-          <FieldError />
-        </ComboBox>
-        <Button type="submit">Submit</Button>
-      </Form>
-
-      {/* ARIA validation - shows errors in realtime, doesn't block submission */}
-      <Form>
-        <ComboBox name="animal-aria" isRequired validationBehavior="aria">
-          <Label>Animal (ARIA validation)</Label>
-          <ComboBox.InputGroup>
-            <Input placeholder="Select an animal..." />
-            <ComboBox.Trigger />
-          </ComboBox.InputGroup>
-          <ComboBox.Popover>
-            <ListBox>
-              <ListBox.Item id="cat" textValue="Cat">
-                Cat
-                <ListBox.ItemIndicator />
-              </ListBox.Item>
-            </ListBox>
-          </ComboBox.Popover>
-          <FieldError />
-        </ComboBox>
-        <Button type="submit">Submit</Button>
-      </Form>
-    </div>
-  );
-}
-```
-
-### 自定义校验
-
-使用 `validate` prop 添加自定义校验逻辑：
-
-```tsx
-import { ComboBox, FieldError, Input, Label, ListBox } from '@heroui/react';
-
-function CustomValidationExample() {
-  return (
-    <ComboBox
-      className="w-[256px]"
-      isRequired
-      validate={(value) => {
-        if (!value || value.selectedKey === null) {
-          return 'Please select an animal';
-        }
-        if (value.selectedKey === 'snake') {
-          return 'Snakes are not allowed';
-        }
-        return true;
-      }}
-    >
-      <Label>Favorite Animal</Label>
-      <ComboBox.InputGroup>
-        <Input placeholder="Search animals..." />
-        <ComboBox.Trigger />
-      </ComboBox.InputGroup>
-      <ComboBox.Popover>
-        <ListBox>
-          <ListBox.Item id="cat" textValue="Cat">
-            Cat
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="dog" textValue="Dog">
-            Dog
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-          <ListBox.Item id="snake" textValue="Snake">
-            Snake
-            <ListBox.ItemIndicator />
-          </ListBox.Item>
-        </ListBox>
-      </ComboBox.Popover>
-      <FieldError />
-    </ComboBox>
-  );
-}
-```
-
-### 只读
-
-使用 `isReadOnly` 将 ComboBox 设为只读：
-
-```tsx
-import { ComboBox, Input, Label, ListBox } from '@heroui/react';
-
-<ComboBox className="w-[256px]" isReadOnly defaultSelectedKey="cat">
-  <Label>Favorite Animal</Label>
-  <ComboBox.InputGroup>
-    <Input placeholder="Search animals..." />
-    <ComboBox.Trigger />
-  </ComboBox.InputGroup>
-  <ComboBox.Popover>
-    <ListBox>
-      <ListBox.Item id="cat" textValue="Cat">
-        Cat
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-      <ListBox.Item id="dog" textValue="Dog">
-        Dog
-        <ListBox.ItemIndicator />
-      </ListBox.Item>
-    </ListBox>
-  </ComboBox.Popover>
-</ComboBox>
-```
-
 
 ## 无障碍
 

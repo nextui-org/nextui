@@ -1,3 +1,4 @@
+import type {DocsAgentContext} from "@/components/ai/docs-agent-tools";
 import type {ReactElement, ReactNode} from "react";
 
 import {NextRequest} from "next/server";
@@ -21,15 +22,18 @@ import {
   createDocsPageContext,
   createThemeBuilderUrl,
   docsAgentTools,
+  excerptSearchMarkdown,
   getThemeBuilderState,
   resolveSameOriginPath,
   sliceMarkdownResult,
 } from "@/components/ai/docs-agent-tools";
+import {searchAgentDocs as searchDocs} from "@/lib/agent-api";
 import {HEROUI_DOCS_AGENT_ID} from "@/lib/heroui-agent";
 import {getOrganizationJsonLd} from "@/lib/json-ld";
 import {generateIndexHeader, generatePlatformIndexHeader} from "@/lib/llms-utils";
 
 const createAuthToken = vi.hoisted(() => vi.fn());
+const getPages = vi.hoisted(() => vi.fn(() => []));
 const HeroUIAgentAuthError = vi.hoisted(
   () =>
     class extends Error {
@@ -49,7 +53,7 @@ vi.mock("@/lib/get-llm-text", () => ({
 vi.mock("@/lib/source", () => ({
   source: {
     getPage: vi.fn(),
-    getPages: vi.fn(() => []),
+    getPages,
   },
 }));
 
@@ -173,7 +177,7 @@ describe("HeroUI agent readiness", () => {
     }
   });
 
-  it("exposes bounded docs tools and approval-gates navigation", () => {
+  it("exposes bounded docs tools and only approval-gates explicit navigation", () => {
     expect(docsAgentTools.map((tool) => tool.name)).toEqual([
       "search_heroui_docs",
       "get_heroui_doc",
@@ -185,6 +189,9 @@ describe("HeroUI agent readiness", () => {
     expect(docsAgentTools.find((tool) => tool.name === "navigate_heroui")?.needsApproval).toBe(
       true,
     );
+    expect(docsAgentTools.find((tool) => tool.name === "set_heroui_theme")?.needsApproval).toBe(
+      false,
+    );
     expect(resolveSameOriginPath("/en/docs/react/releases", "https://heroui.com")).toBe(
       "/en/docs/react/releases",
     );
@@ -192,6 +199,98 @@ describe("HeroUI agent readiness", () => {
     expect(
       docsAgentTools.every((tool) => !JSON.stringify(tool.parameters).includes('"locale"')),
     ).toBe(true);
+  });
+
+  it("ranks noncontiguous documentation query terms with exact component titles first", () => {
+    getPages.mockReturnValue([
+      {
+        data: {description: "Disable a control", title: "Button"},
+        slugs: ["react", "components", "button"],
+        url: "/docs/react/components/button",
+      },
+      {
+        data: {description: "Button patterns", title: "Button group"},
+        slugs: ["react", "components", "button-group"],
+        url: "/docs/react/components/button-group",
+      },
+    ] as never[]);
+
+    try {
+      expect(searchDocs("button disabled", "react").map(({title}) => title)).toEqual([
+        "Button",
+        "Button group",
+      ]);
+    } finally {
+      getPages.mockReturnValue([]);
+    }
+  });
+
+  it("returns a deep API match within a bounded search excerpt", () => {
+    const markdown = `${"# Button\n\n"}${"Filler line.\n".repeat(500)}| isDisabled | boolean | Disables the button |`;
+    const excerpt = excerptSearchMarkdown(markdown, "button disabled", 500);
+
+    expect(excerpt.truncated).toBe(true);
+    expect(excerpt.excerpt).toContain("isDisabled");
+    expect(excerpt.excerpt.length).toBeLessThanOrEqual(500);
+  });
+
+  it("enriches only the top three docs search results and leaves authorization failures bounded", async () => {
+    const search = docsAgentTools.find((tool) => tool.name === "search_heroui_docs")!;
+    const previousWindow = globalThis.window;
+    const fetchMock = vi.fn(async (input: string) => {
+      if (input.startsWith("/api/agent/search")) {
+        return Response.json({
+          results: [0, 1, 2, 3].map((index) => ({
+            title: `Button ${index}`,
+            url: `/docs/react/components/button-${index}`,
+          })),
+        });
+      }
+      if (input.includes("button-2")) return Response.json({error: "Forbidden"}, {status: 403});
+
+      return Response.json({markdown: `# Button\n\nUse isDisabled to disable the button.`});
+    });
+
+    vi.stubGlobal("window", {location: {origin: "https://heroui.com"}});
+    vi.stubGlobal("fetch", fetchMock);
+
+    try {
+      const result = (await search.execute(
+        {query: "button disabled"},
+        {} as DocsAgentContext,
+        {} as Parameters<typeof search.execute>[2],
+      )) as {
+        results: Array<{contentError?: string; excerpt?: string}>;
+      };
+
+      expect(fetchMock).toHaveBeenCalledTimes(4);
+      expect(result.results[0]?.excerpt).toContain("isDisabled");
+      expect(result.results[2]).toMatchObject({contentError: "Forbidden"});
+      expect(result.results[3]).not.toHaveProperty("excerpt");
+    } finally {
+      vi.unstubAllGlobals();
+      if (previousWindow) vi.stubGlobal("window", previousWindow);
+    }
+  });
+
+  it("skips page requests when docs search content is disabled", async () => {
+    const search = docsAgentTools.find((tool) => tool.name === "search_heroui_docs")!;
+    const fetchMock = vi.fn(async () =>
+      Response.json({results: [{url: "/docs/react/components/button"}]}),
+    );
+
+    vi.stubGlobal("fetch", fetchMock);
+
+    try {
+      await search.execute(
+        {includeContent: false, query: "button"},
+        {} as DocsAgentContext,
+        {} as Parameters<typeof search.execute>[2],
+      );
+      expect(fetchMock).toHaveBeenCalledTimes(1);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   it("keeps documentation tool results below the Agent receipt limit", () => {

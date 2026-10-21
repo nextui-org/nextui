@@ -13,6 +13,8 @@ import remarkMdx from "remark-mdx";
 import {getRelatedComponents} from "@/components-registry";
 import {siteConfig} from "@/config/site";
 import {getDemo} from "@/demos";
+import {replaceNativeComponentsCategories} from "@/lib/native-components-markdown";
+import {source} from "@/lib/source";
 
 const processor = remark()
   .use(remarkMdx)
@@ -104,7 +106,11 @@ ${header}
   }
 
   // First, process MDX content to replace ComponentPreview, CollapsibleCode, etc.
-  const processedContent = await processMDXContent(rawContent, page.locale);
+  const processedContent = await processMDXContent(
+    rawContent,
+    page.locale,
+    source.getPages(page.locale),
+  );
 
   // Then process with remark to convert MDX to markdown
   const processed = await processor.process({
@@ -271,11 +277,16 @@ function cleanContentForLLM(content: string): string {
   return processed;
 }
 
-async function processMDXContent(content: string, lang?: string): Promise<string> {
+async function processMDXContent(
+  content: string,
+  lang?: string,
+  pages: Page[] = [],
+): Promise<string> {
   let processed = replaceCollapsibleCode(content);
 
   processed = await replaceComponentPreview(processed, lang);
   processed = replaceRelatedComponents(processed);
+  processed = replaceNativeComponentsCategories(processed, pages);
   processed = cleanContentForLLM(processed);
 
   return processed;
@@ -301,7 +312,11 @@ ${header}
 </page>`;
   }
 
-  const processedContent = await processMDXContent(rawContent, page.locale);
+  const processedContent = await processMDXContent(
+    rawContent,
+    page.locale,
+    source.getPages(page.locale),
+  );
 
   if (!processedContent.trim()) {
     return `<page url="${url}">

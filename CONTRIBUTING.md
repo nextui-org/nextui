@@ -3,7 +3,12 @@
 Hello!, I am very excited that you are interested in contributing with HeroUI. However, before submitting your contribution, be sure to take a moment and read the following guidelines.
 
 - [Code of Conduct](https://github.com/heroui-inc/heroui/blob/canary/CODE_OF_CONDUCT.md)
-- [Extraction request guidelines](#pull-request-guidelines)
+- [Reporting issues and feature requests](#reporting-issues-and-feature-requests)
+- [Tooling](#tooling)
+- [Commit Convention](#commit-convention)
+- [Pull Request Guidelines](#pull-request-guidelines)
+- [AI-Assisted Contributions](#ai-assisted-contributions)
+- [Steps to PR](#steps-to-pr)
 - [Development Setup](#development-setup)
 - [Tests](#tests)
 - [Visual Changes](#visual-changes)
@@ -11,7 +16,37 @@ Hello!, I am very excited that you are interested in contributing with HeroUI. H
 - [Breaking Changes](#breaking-changes)
 - [Becoming a maintainer](#becoming-a-maintainer)
 
-### Tooling
+## Reporting issues and feature requests
+
+Before you open a new report, search for an existing answer so we can keep the tracker focused:
+
+- [Open pull requests](https://github.com/heroui-inc/heroui/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
+- [Open issues](https://github.com/heroui-inc/heroui/issues?q=is%3Aissue+is%3Aopen+sort%3Aupdated-desc)
+- [Closed issues](https://github.com/heroui-inc/heroui/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
+- [Discussions](https://github.com/heroui-inc/heroui/discussions)
+
+### Bug reports
+
+Use [GitHub Issues](https://github.com/heroui-inc/heroui/issues/new/choose) and select the **Bug report** template. Include your HeroUI version (not “latest”), clear steps to reproduce, expected vs actual behavior, and environment details (OS, browser). A minimal reproduction on [StackBlitz](https://stackblitz.com/) or a small public repo helps us fix bugs much faster than localhost-only setups.
+
+This repository is for **HeroUI v3** (`@heroui/react` and related packages in this monorepo). Report problems in other products in their own trackers:
+
+| Product | Where to report |
+| --- | --- |
+| HeroUI Pro | Pro Discord or support in the Pro dashboard |
+| HeroUI CLI | [heroui-cli issues](https://github.com/heroui-inc/heroui-cli/issues) |
+| HeroUI Native | [heroui-native issues](https://github.com/heroui-inc/heroui-native/issues) |
+| Tailwind Variants | [tailwind-variants issues](https://github.com/heroui-inc/tailwind-variants/issues) |
+
+### Feature requests
+
+We do not use GitHub Issues for new features or component ideas. Open a thread in [Feature requests](https://github.com/heroui-inc/heroui/discussions/categories/feature-requests) on Discussions instead. Describe the problem you are solving, your proposed API or UX, and any alternatives you considered. Maintainers prefer agreement on the approach in Discussions before large pull requests (see [Pull Request Guidelines](#pull-request-guidelines)).
+
+### Questions and ideas
+
+For troubleshooting, design questions, or open-ended ideas, use [Discussions](https://github.com/heroui-inc/heroui/discussions) or the [Discord community](https://discord.gg/9b6yyZKmH4). Use Issues only for confirmed bugs in this repo.
+
+## Tooling
 
 - [PNPM](https://pnpm.io/) to manage packages and dependencies
 - [Tsup](https://tsup.egoist.dev/) to bundle packages
@@ -22,8 +57,7 @@ Hello!, I am very excited that you are interested in contributing with HeroUI. H
 - [bumpp](https://github.com/antfu/bumpp) for version bumping and release
   management.
 
-
-### Commit Convention
+## Commit Convention
 
 Before you create a Pull Request, please check whether your commits comply with
 the commit conventions used in this repository.
@@ -57,7 +91,7 @@ https://www.conventionalcommits.org/ or check out the
 
 ## Pull Request Guidelines
 
-- The `main` branch is basically a snapshot of the latest production version. All development must be done in dedicated branches and will be merged to `canary` branch.
+- The `v3` branch is basically a snapshot of the latest production version. All development must be done in dedicated branches and will be merged to `v3.x.x` branch.
 - Make sure that Github Actions are green
 - It is good to have multiple small commits while working on the PR. We'll let GitHub squash it automatically before the merge.
 - If you add a new feature:
@@ -68,12 +102,15 @@ https://www.conventionalcommits.org/ or check out the
   - Provide a detailed description of the error in the PR. Favorite live demo.
   - Add the appropriate test coverage, if applicable.
 
+### AI-Assisted Contributions
+
+You may use AI tools to help prepare a contribution. You are responsible for everything you submit, including understanding the changes, reviewing them for correctness, and running the relevant tests. Disclose meaningful AI assistance in your pull request description, and do not submit generated changes that you have not reviewed and can explain.
 
 ### Steps to PR
 
 1. Fork of the heroui repository and clone your fork
 
-2. Create a new branch out of the `canary` branch. We follow the convention
+2. Create a new branch out of the `v3.x.x` branch. We follow the convention
    `[type/scope]`. For example `fix/dropdown-hook` or `docs/menu-typo`. `type`
    can be either `docs`, `fix`, `feat`, `build`, or any other conventional
    commit type. `scope` is just a short id that describes the scope of work.
@@ -149,6 +186,8 @@ git checkout -b fix/something
 
 4. If your code passes all the tests, then push your feature/fix branch:
 
+### Tests
+
 All commits that fix bugs or add features need a behavioral test when they change interactive component contracts.
 See Behavioral tests in [`AGENTS.md`](AGENTS.md): query by role/label, use `setupUser()` from `@heroui/testing/helpers`, assert `data-*` state hooks and callbacks — not CSS pixels.
 
@@ -206,7 +245,7 @@ Please update the docs with any API changes, the code and docs should always be 
 
 The main documentation lives in the `apps/docs/content` folder, the project uses MDX and all `HeroUI` are already imported.
 
-## Breaking changes
+## Breaking Changes
 
 Breaking changes should be accompanied with deprecations of removed functionality. The deprecated APIs themselves should not be removed until the minor release after that.
 

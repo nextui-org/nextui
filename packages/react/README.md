@@ -9,7 +9,7 @@
 </p>
 <p align="center">
   <a href="https://github.com/heroui-inc/heroui/blob/main/LICENSE">
-    <img src="https://img.shields.io/npm/l/@heroui/react?style=flat" alt="License">
+    <img src="https://img.shields.io/badge/license-Apache--2.0-blue?style=flat" alt="License">
   </a>
   <a href="https://www.npmjs.com/package/@heroui/react">
     <img src="https://img.shields.io/npm/dm/@heroui/react.svg?style=flat-round" alt="npm downloads">
@@ -40,7 +40,7 @@ HeroUI (previously NextUI) is a production-ready React component library that co
 Visit [heroui.com/docs/react/getting-started/quick-start](https://heroui.com/docs/react/getting-started/quick-start) to get started with HeroUI.
 
 ```bash
-npm install @heroui/react
+npm install @heroui/styles @heroui/react
 ```
 
 ## Who Is This For?
@@ -110,4 +110,4 @@ Please adhere to this project's [CODE_OF_CONDUCT](https://github.com/heroui-inc/
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[Apache-2.0](https://www.apache.org/licenses/LICENSE-2.0)

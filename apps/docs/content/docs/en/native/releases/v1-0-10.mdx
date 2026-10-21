@@ -1,0 +1,103 @@
+---
+title: v1.0.10
+description:
+  Input and TextArea refs resolve as native TextInput instances, BottomSheet stays hidden during Android handle peek and container resize, Skeleton variant="none" skips default enter/exit animations, and Menu/Popover/Select refresh anchors on window resize
+github:
+  pull: 499
+---
+
+<div className="flex items-center gap-3 mb-6">
+  <span className="text-sm text-muted">September 21, 2026</span>
+</div>
+
+HeroUI Native v1.0.10 types Input, TextArea, SearchField, and InputGroup refs as native `TextInput` instances for React Native's Strict TypeScript API, fixes two BottomSheet visibility bugs on Android, lets Skeleton `variant="none"` skip default layout animations, and refreshes Menu/Popover/Select anchor positions when the app window resizes.
+
+## Installation
+
+Update to the latest version:
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+<Tab value="npm">
+  ```bash
+  npm i heroui-native
+  ```
+</Tab>
+<Tab value="pnpm">
+  ``` bash
+  pnpm add heroui-native
+  ```
+</Tab>
+<Tab value="yarn">
+  ```bash
+  yarn add heroui-native
+  ```
+</Tab>
+<Tab value="bun">
+  ```bash
+  bun add heroui-native
+  ```
+</Tab>
+</Tabs>
+
+<Callout type="info">
+  **Using AI assistants?** Simply prompt "Hey Cursor, update HeroUI Native to the latest version" and your AI assistant will automatically compare versions and apply the necessary changes. Learn more about the [HeroUI Native MCP Server](/docs/native/getting-started/mcp-server).
+</Callout>
+
+## Try It on Your Device
+
+<NativeTryOnDevice />
+
+## Bug Fixes
+
+This release includes fixes for the following issues:
+
+- **[Issue #485](https://github.com/heroui-inc/heroui-native/issues/485)**: Dismissed bottom sheets could flash back into view during container resize (device rotation or iPad split view) because they stayed mounted at a stale closed offset. A closed sheet now stays aligned with the new container and out of the paint until it is opened again.
+- **BottomSheet** on Android: a closed sheet's handle could peek above the bottom edge on edge-to-edge devices because Gorhom parks at `window.height`, which is shorter than the measured container. The closed position is now corrected on first layout and Gorhom's own open animations are ignored while `isOpen` is still `false`.
+- **[Issue #490 (iOS)](https://github.com/heroui-inc/heroui-native/issues/490)**: Dialog and Select outside taps beside a centered, width-constrained panel were intercepted by internal animated wrappers on iOS. Outer wrappers now use `pointerEvents="box-none"` so taps pass through to the overlay dismiss handler. The Android portion of #490 remains open.
+- **[Issue #497](https://github.com/heroui-inc/heroui-native/issues/497)**: Input, TextArea, SearchField, and InputGroup forwarded refs as `typeof TextInput`, which fails under React Native's Strict TypeScript API (0.87+). Refs now resolve via `React.ComponentRef` and new `InputRef` and `TextAreaRef` types are exported.
+- **[Issue #489](https://github.com/heroui-inc/heroui-native/issues/489)**: An open Menu, Popover, or Select could detach from its trigger after iPad rotation or app-window resize. The shared positioning hook now uses `useWindowDimensions` and remeasures the trigger ref when width or height changes.
+- **Switch** now preserves a consumer-provided `aria-valuetext` instead of silently replacing it with the default `'on'`/`'off'` due to an operator-precedence bug.
+- **Select** trigger `selectClassNames.trigger()` now applies the documented `'default'` variant styles without requiring an explicit `variant` prop, matching the component's own destructuring default.
+- **Input** style fix: removed `ios:outline-2` in favour of `ios:outline` to eliminate an extra outline width on iOS.
+
+**Related PRs:**
+
+- [#499](https://github.com/heroui-inc/heroui-native/pull/499)
+- [#498](https://github.com/heroui-inc/heroui-native/pull/498)
+- [#496](https://github.com/heroui-inc/heroui-native/pull/496)
+- [#495](https://github.com/heroui-inc/heroui-native/pull/495)
+- [#493](https://github.com/heroui-inc/heroui-native/pull/493)
+- [#492](https://github.com/heroui-inc/heroui-native/pull/492)
+- [#486](https://github.com/heroui-inc/heroui-native/pull/486)
+- [#484](https://github.com/heroui-inc/heroui-native/pull/484)
+
+## Component Improvements
+
+- **Skeleton** `variant="none"` now skips the default `FadeIn`/`FadeOut` layout animations unless `animation.entering` or `animation.exiting` is set explicitly. This keeps static placeholder bones cheap to mount and recycle in lists. ([#495](https://github.com/heroui-inc/heroui-native/pull/495))
+
+## Dependencies
+
+- **Uniwind** is pinned to `1.12.0` (previously `^1.10.0`) to resolve edge-to-edge layout measurement on Android. ([#498](https://github.com/heroui-inc/heroui-native/pull/498))
+
+## Updated Documentation
+
+The following documentation pages have been updated to reflect the changes in this release:
+
+- [CloseButton](/docs/native/components/close-button) — Corrects the default icon size from `20` to `18`
+- [Menu](/docs/native/components/menu) — Corrects the SubMenu indicator icon size from `14` to `16`
+- [Skeleton](/docs/native/components/skeleton) — Notes that `variant="none"` skips default enter/exit animations
+- GlassView (in-repo docs only) — Corrects the default blur `intensity` from `30` to `25`
+
+**Related PRs:**
+
+- [#487](https://github.com/heroui-inc/heroui-native/pull/487)
+- [#483](https://github.com/heroui-inc/heroui-native/pull/483)
+
+## Links
+
+- [Component Documentation](../components)
+- [GitHub Repository](https://github.com/heroui-inc/heroui-native)
+
+## Contributors
+
+Thanks to everyone who contributed to this release!

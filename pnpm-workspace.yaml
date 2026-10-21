@@ -9,12 +9,21 @@ packages:
 overrides:
   shiki: 3.20.0
   ts-morph: 27.0.2
-  # Security patches for transitive dependencies (GHSA-2883-xcg3-v3hh,
-  # GHSA-w27v-7q3p-w38r, GHSA-4vpr-x523-8j87). Drop once the parents
-  # (gray-matter, eslint, fumadocs-*, postcss-svgo) ship updated ranges.
-  js-yaml@3: "^3.15.2"
+  # Security patches for transitive dependencies. Drop once the parents
+  # (eslint, fumadocs-*, postcss-svgo, next, postcss, css-tree, cssnano,
+  # @tailwindcss/typography) ship updated ranges.
+  # GHSA-2883-xcg3-v3hh, GHSA-w27v-7q3p-w38r, GHSA-4vpr-x523-8j87
   js-yaml@4: "^4.3.2"
   svgo@2: "^2.8.4"
+  # GHSA-wq5f-xc86-pv6w
+  sharp: "^0.35.5"
+  # GHSA-68fv-2mgg-jv7q
+  source-map-js: "^1.2.2"
+  # GHSA-rj75-hqrm-r3gf — 6.x has no release; 7.0.0 only makes walk insertions safe.
+  postcss-selector-parser: "^7.1.6"
+  # GHSA-q2hr-2g5m-vwhr
+  brace-expansion@1: "^1.1.21"
+  brace-expansion@5: "^5.0.12"
 
 onlyBuiltDependencies:
   - "@parcel/watcher"

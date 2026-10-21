@@ -58,6 +58,10 @@ Control the animation style with the `variant` prop.
 <Skeleton variant="none" className="h-20 w-full rounded-lg" />
 ```
 
+<Callout type="info">
+  `variant="none"` skips the default `FadeIn`/`FadeOut` layout animations. To restore enter/exit animations on a `none` skeleton, pass explicit `animation.entering` and `animation.exiting` values.
+</Callout>
+
 ### Custom Shimmer Configuration
 
 Customize the shimmer effect with duration, speed, and highlight color.
