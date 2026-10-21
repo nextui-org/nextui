@@ -349,7 +349,9 @@ heroui doc button
 
 Check for issues in your project.
 - Check whether `@heroui/react` and `@heroui/styles` are installed
-- Check whether `required peer dependencies` are installed and matched minimal requirements in the project
+- Check peer dependencies resolved from the installed HeroUI packages against their full version ranges; missing optional peers are skipped
+- Check whether Node.js meets the CLI's minimum version requirement
+- Check whether Tailwind CSS is installed, with Tailwind CSS v4 installation guidance when missing
 
 
 ```bash
