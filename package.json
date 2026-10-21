@@ -2,7 +2,7 @@
   "name": "heroui",
   "private": true,
   "version": "3.2.6",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "author": {
     "name": "HeroUI",
     "email": "support@heroui.com",
