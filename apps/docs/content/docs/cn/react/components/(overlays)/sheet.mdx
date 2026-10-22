@@ -17,7 +17,7 @@ import {Button, Sheet} from "@heroui/react";
 
 <ComponentPreview name="sheet-basic" />
 
-## 结构
+## 组件结构
 
 ```tsx
 import {Button, Sheet} from "@heroui/react";
@@ -70,17 +70,17 @@ export default () => (
 
 <ComponentPreview name="sheet-snap-points-sequential" />
 
-### 背景渐变吸附点
+### 吸附点（遮罩渐显）
 
 经过部分展开的吸附点时，背景保持透明；越过最后一个吸附点并继续展开时，背景逐渐显现。此行为由 React Aria 管理，不支持 `fadeFromIndex`。
 
 <ComponentPreview name="sheet-snap-points-custom-fade" />
 
-### 背景变体
+### 遮罩变体
 
 <ComponentPreview name="sheet-backdrop-variants" />
 
-### 禁止手势关闭
+### 不可关闭
 
 `isDismissable={false}` 阻止点击外部、Escape 和滑动关闭。显式关闭按钮仍然可用。
 
@@ -92,7 +92,7 @@ export default () => (
 
 <ComponentPreview name="sheet-scrollable-content" />
 
-### 表单
+### 搭配表单
 
 在 `Sheet.Body` 内组合表单字段。在面板表面使用次要样式的输入框。
 
@@ -128,7 +128,7 @@ export default () => (
 
 <ComponentPreview name="sheet-professions-picker" />
 
-## 自定义
+## 自定义样式
 
 通过各部分的 `className` 或 `@layer components` 中的 `sheet__*` BEM 类自定义样式。保留 React Aria 的滚动定位，不要叠加独立的位移动画。
 
@@ -196,7 +196,7 @@ HeroUI 使用 [BEM](https://getbem.com/) 命名规范，使组件样式易于复
 - `.sheet__handle-bar` - 默认手柄指示条
 - `.sheet__close-trigger` - 关闭按钮
 
-#### 背景变体 [!toc]
+#### 遮罩变体 [!toc]
 
 - `.sheet__backdrop--opaque` - 暗色遮罩（默认）
 - `.sheet__backdrop--blur` - 模糊背景遮罩
@@ -249,26 +249,123 @@ DOM 部分提供以下 `data-slot`：`sheet-overlay`、`sheet-backdrop`、`sheet
 
 `Sheet.NestedRoot` 必须在父 Sheet 内使用。根组件的 `isNested` 为内部标记；嵌套时使用 `NestedRoot`。
 
-### 组合部分
+### Sheet.Trigger
 
-| 部分 | 属性与行为 |
-| --- | --- |
-| `Trigger` | 一个可按压的 React 元素。 |
-| `Close` | 一个可按压的 React 元素；保留其 `onPress` 回调。 |
-| `Backdrop` | React Aria SheetOverlay 属性，但排除根组件控制的状态、位置、吸附点和 `style`；提供字符串 `className`、`children`、`variant="opaque" \| "blur" \| "transparent"` 和 `isExiting`。 |
-| `Content` | React Aria Sheet 属性；字符串 `className`；children 可为接收面板状态的函数。HeroUI 提供默认堆叠动画和 overscroll padding。 |
-| `Dialog` | React Aria SheetContent 属性，children 为 ReactNode；转发 ref 和无障碍属性。 |
-| `Heading` | React Aria Heading 属性；默认 `slot="title"`。 |
-| `Header`、`Body`、`Footer`、`Handle` | div 属性和 ref；Handle 无 children 时渲染默认手柄条。 |
-| `CloseTrigger` | CloseButton 属性与字符串 `className`；保留使用者的 `onPress`。 |
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactElement` | — | 一个可按压的子元素，如 Button。直接放在 Sheet 内。 |
 
-`Backdrop.isExiting` 在关闭后保留内容，直到清除此标记。关闭仍会释放模态焦点限制和页面滚动锁定。不再需要保留内容时，请清除此标记。
+### Sheet.Close
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactElement` | — | 一个可按压的子元素；其 onPress 回调与关闭操作组合执行。 |
+
+### Sheet.Backdrop
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 要渲染的内容。 |
+| `className` | `string` | — | CSS 类名。 |
+| `variant` | `"opaque" \| "blur" \| "transparent"` | `"opaque"` | 遮罩外观。 |
+| `isExiting` | `boolean` | — | 关闭后保留内容，直到清除此标记。 |
+
+其他属性继承自 React Aria SheetOverlay，但不包含由根组件控制的状态、位置、吸附点和 `style`。关闭仍会释放模态焦点限制和页面滚动锁定。不再需要保留内容时，请清除 `isExiting`。
+
+### Sheet.Content
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode \| ((values: SheetRenderProps) => ReactNode)` | — | 内容或接收 React Aria 面板状态的函数。 |
+| `className` | `string` | — | CSS 类名。 |
+
+其余属性继承自 React Aria Sheet。HeroUI 管理堆叠动画与过度滚动留白；`stackAnimation` 和 `overscrollPadding` 无法通过此组件覆盖。
+
+### Sheet.Dialog
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 要渲染的内容。 |
+| `className` | `string` | — | CSS 类名。 |
+| `role` | `"dialog" \| "alertdialog"` | `"dialog"` | 对话框无障碍角色。 |
+| `aria-label` | `string` | — | 没有可见标题时的无障碍名称。 |
+| `aria-labelledby` | `string` | — | 为对话框提供名称的元素 ID。 |
+| `aria-describedby` | `string` | — | 描述对话框的元素 ID。 |
+
+其余属性与 ref 继承自 React Aria SheetContent。
+
+### Sheet.Header
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 头部内容。 |
+| `className` | `string` | — | CSS 类名。 |
+
+支持标准 div 属性、事件处理函数和 ref。
+
+### Sheet.Heading
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 对话框标题。 |
+| `className` | `string` | — | CSS 类名。 |
+| `slot` | `string` | `"title"` | 将标题关联到对话框。 |
+
+其余属性与 ref 继承自 React Aria Heading。
+
+### Sheet.Body
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 可滚动的主体内容。 |
+| `className` | `string` | — | CSS 类名。 |
+
+支持标准 div 属性、事件处理函数和 ref。
+
+### Sheet.Footer
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 底部操作。 |
+| `className` | `string` | — | CSS 类名。 |
+
+支持标准 div 属性、事件处理函数和 ref。
+
+### Sheet.Handle
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | 自定义手柄；省略时渲染默认指示条。 |
+| `className` | `string` | — | CSS 类名。 |
+
+支持标准 div 属性、事件处理函数和 ref。
+
+### Sheet.CloseTrigger
+
+| 属性 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `children` | `ReactNode \| ((values: ButtonRenderProps) => ReactNode)` | — | 自定义内容；默认显示关闭图标。 |
+| `className` | `string` | — | CSS 类名。 |
+| `isDisabled` | `boolean` | `false` | 禁用关闭按钮。 |
+| `aria-label` | `string` | `"Close"` | 无障碍名称；按需提供本地化文本。 |
+| `onPress` | `(event: PressEvent) => void` | — | 与面板关闭操作一起调用。 |
+
+其余属性与 ref 继承自 CloseButton。
 
 命名导出包括 `SheetRoot`、`SheetTrigger` 等各部分、对应的属性类型、`SheetProps`、`SheetNestedRootProps`、`sheetVariants` 和 `SheetVariants`。组合属性类型使用索引访问，例如 `Sheet["Props"]` 和 `Sheet["ContentProps"]`。
 
 ## Sheet 与 Drawer
 
 Sheet 使用 React Aria 原生滚动手势，支持部分吸附位置和嵌套堆叠。Drawer 保留原有 API 和行为；新增 Sheet 不会迁移或弃用 Drawer。
+
+## 无障碍
+
+- **无障碍名称**：使用 `Sheet.Heading`、`aria-label` 或 `aria-labelledby` 为对话框提供名称。
+- **焦点管理**：打开时将焦点移入面板并限制在当前模态面板内。关闭后，焦点返回触发器；关闭嵌套面板后返回父面板。
+- **键盘**：使用 `Tab` 和 `Shift+Tab` 在控件间移动；允许关闭时，`Escape` 关闭面板。
+- **关闭控件**：`Sheet.Close` 和 `Sheet.CloseTrigger` 支持键盘操作，即使 `isDismissable={false}` 也可关闭面板。
+- **滚动锁定**：模态面板打开时锁定页面滚动。完全展开后，`Sheet.Body` 可滚动。保留的已关闭内容不会继续锁定页面。
+- **拖动手柄**：手柄对辅助技术隐藏，不可通过键盘拖动。请提供可访问的关闭控件，不要仅依赖滑动手势。
 
 ## 相关组件
 
