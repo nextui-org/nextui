@@ -1,15 +1,15 @@
 ---
 title: v3.2.7
-description: React Aria 1.22.1、Slider 步进指示点与刻度标签、渲染性能与无障碍改进、响应式 Storybook 示例，以及浮层、Slider RTL、Drawer 手势、ScrollShadow、Dropdown、ComboBox、Toast 与字段自动填充修复。
+description: React Aria 1.22.1、全新 Sheet 组件、Slider 步进指示点与刻度标签、渲染性能与无障碍改进、响应式 Storybook 示例，以及浮层与表单控件修复。
 github:
   pull: 6892
 ---
 
 <div className="flex items-center gap-3 mb-6">
-  <span className="text-sm text-muted">2026 年 10 月 18 日</span>
+  <span className="text-sm text-muted">2026 年 10 月 23 日</span>
 </div>
 
-React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。[Slider](/docs/components/slider) 新增可组合的步进指示点与刻度标签，支持水平、垂直、单值与范围控件，同时降低组件渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例语义。浮层现在遵循动画偏好并正确保留转发的 ref；Slider 填充区域在 RTL 下正确对齐；[Drawer](/docs/components/drawer) 在拖拽被取消后仍能正确恢复，不会破坏 `touch-action` 或打开滑入动画；禁用的 [ScrollShadow](/docs/components/scroll-shadow) 会清除残留阴影。本版本还改进了窄屏菜单、自动填充字段、Toast 布局、浮层性能与响应式 Storybook 示例。
+React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。全新 [Sheet](/docs/components/sheet) 组件提供可滑动浮层，支持四种放置方向、吸附点、嵌套 Sheet、受控状态，以及协调拖动与滚动。[Slider](/docs/components/slider) 新增适用于水平、垂直、单值与范围控件的可组合步进指示点和刻度标签，同时降低组件渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例语义。本版本还修复浮层动画行为、Slider RTL 填充、取消的 [Drawer](/docs/components/drawer) 拖动、残留的 [ScrollShadow](/docs/components/scroll-shadow) 边缘阴影、窄屏菜单、自动填充字段与 Toast 布局。
 
 ## 安装
 
@@ -53,6 +53,7 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`rea
 
 ## 新功能
 
+- **Sheet**：新增可滑动的 React Aria 浮层，支持 `bottom`、`top`、`left` 与 `right` 放置方向；像素、CSS 长度和百分比吸附点；连续吸附；多种 backdrop 样式；分离式与不可关闭模式；受控状态；嵌套 Sheet；以及协调面板拖动与内容滚动。复合 API 包含 trigger、backdrop、content、dialog、handle、header、body、footer 与 close 部件 ([#6974](https://github.com/heroui-inc/heroui/pull/6974))。
 - **Slider 步进与刻度**：在 `Slider.Track` 内组合 `Slider.Steps`，即可为每个配置的步进显示装饰性圆点；在轨道后添加 `Slider.Marks` 与 `Slider.Mark`，即可在任意数值位置显示标签。步进与刻度支持小数值、垂直方向、RTL、禁用状态、单值与范围 Slider、本地化默认标签，以及 `data-filled` 样式钩子 ([#6965](https://github.com/heroui-inc/heroui/pull/6965))。
 
 ## 错误修复

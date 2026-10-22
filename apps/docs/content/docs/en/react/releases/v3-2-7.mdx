@@ -1,15 +1,15 @@
 ---
 title: v3.2.7
-description: React Aria 1.22.1, Slider steps and marks, reduced rendering overhead, accessibility improvements, responsive Storybook demos, and fixes for overlays, Slider RTL, Drawer gestures, ScrollShadow, Dropdown, ComboBox, Toast, and field autofill.
+description: React Aria 1.22.1, the new Sheet component, Slider steps and marks, reduced rendering overhead, accessibility improvements, responsive Storybook demos, and fixes across overlays and form controls.
 github:
   pull: 6892
 ---
 
 <div className="flex items-center gap-3 mb-6">
-  <span className="text-sm text-muted">October 18, 2026</span>
+  <span className="text-sm text-muted">October 23, 2026</span>
 </div>
 
-React Aria upgrade: HeroUI bumps `react-aria-components` to `1.22.1` (`react-aria@3.53.1`). [Slider](/docs/components/slider) adds composable step indicators and mark labels for horizontal, vertical, single-value, and range controls, while components reduce rendering overhead. Accessibility improvements add decorative [Separator](/docs/components/separator) support, preserve dialog naming in date-picker popovers, remove invalid landmark and group attributes, and improve Storybook example semantics. Overlays respect animation preferences and forwarded refs, Slider fills align correctly in RTL, [Drawer](/docs/components/drawer) recovers from cancelled drags without breaking `touch-action` or the open slide, and disabled [ScrollShadow](/docs/components/scroll-shadow) instances clear stale shadows. This release also improves narrow-screen menus, autofilled fields, Toast layouts, overlay performance, and responsive Storybook demos.
+React Aria upgrade: HeroUI bumps `react-aria-components` to `1.22.1` (`react-aria@3.53.1`). The new [Sheet](/docs/components/sheet) component provides a swipeable overlay with four placements, snap points, nested sheets, controlled state, and coordinated dragging and scrolling. [Slider](/docs/components/slider) adds composable step indicators and mark labels for horizontal, vertical, single-value, and range controls, while components reduce rendering overhead. Accessibility improvements add decorative [Separator](/docs/components/separator) support, preserve dialog naming in date-picker popovers, remove invalid landmark and group attributes, and improve Storybook example semantics. This release also fixes overlay animation behavior, Slider RTL fills, cancelled [Drawer](/docs/components/drawer) drags, stale [ScrollShadow](/docs/components/scroll-shadow) edges, narrow-screen menus, autofilled fields, and Toast layouts.
 
 ## Installation
 
@@ -53,6 +53,7 @@ Update to the latest version:
 
 ## What's New
 
+- **Sheet**: Add a swipeable React Aria overlay with `bottom`, `top`, `left`, and `right` placements; pixel, CSS-length, and percentage snap points; sequential snapping; backdrop variants; detached and non-dismissable modes; controlled state; nested sheets; and coordinated panel dragging and body scrolling. The compound API includes trigger, backdrop, content, dialog, handle, header, body, footer, and close parts ([#6974](https://github.com/heroui-inc/heroui/pull/6974)).
 - **Slider steps and marks**: Compose `Slider.Steps` inside `Slider.Track` to show decorative dots for each configured increment, then add `Slider.Marks` and `Slider.Mark` after the track for labels at arbitrary values. Steps and marks support fractional values, vertical orientation, RTL, disabled state, single-value and range sliders, localized default labels, and `data-filled` styling hooks ([#6965](https://github.com/heroui-inc/heroui/pull/6965)).
 
 ## Bug Fixes
