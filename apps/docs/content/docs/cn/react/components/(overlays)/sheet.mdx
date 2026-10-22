@@ -25,20 +25,20 @@ import {Button, Sheet} from "@heroui/react";
 export default () => (
   <Sheet>
     <Sheet.Trigger>
-      <Button variant="secondary">打开面板</Button>
+      <Button>打开面板</Button>
     </Sheet.Trigger>
     <Sheet.Backdrop>
       <Sheet.Content>
         <Sheet.Dialog>
           <Sheet.Handle />
-          <Sheet.CloseTrigger aria-label="关闭面板" />
+          <Sheet.CloseTrigger />
           <Sheet.Header>
             <Sheet.Heading>详情</Sheet.Heading>
           </Sheet.Header>
           <Sheet.Body>面板内容</Sheet.Body>
           <Sheet.Footer>
             <Sheet.Close>
-              <Button variant="secondary">完成</Button>
+              <Button>完成</Button>
             </Sheet.Close>
           </Sheet.Footer>
         </Sheet.Dialog>
