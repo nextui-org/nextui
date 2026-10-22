@@ -29,7 +29,45 @@ const open = async () => {
       );
     })
     .toBe(true);
-  await expect.poll(() => slot("overlay")?.hasAttribute("data-entering")).toBe(false);
+  // A missing data-entering flag can precede the end of native scroll motion.
+  // For fully opening sheets, wait for their resting edge and stable geometry.
+  await expect
+    .poll(
+      async () => {
+        const content = slot("content");
+        const dialog = slot("dialog");
+
+        if (!content || !dialog || slot("overlay")?.hasAttribute("data-entering")) return false;
+        if (content.hasAttribute("data-snap-points")) return true;
+        const rect = dialog.getBoundingClientRect();
+        const placement = content.dataset["placement"];
+        const inset = content.hasAttribute("data-detached")
+          ? parseFloat(getComputedStyle(content).getPropertyValue(`margin-${placement}`)) || 0
+          : 0;
+        const edge =
+          placement === "left"
+            ? rect.left - inset
+            : placement === "right"
+              ? rect.right - window.innerWidth + inset
+              : placement === "top"
+                ? rect.top - inset
+                : rect.bottom - window.innerHeight + inset;
+
+        if (Math.abs(edge) >= 2) return false;
+        await new Promise<void>((resolve) =>
+          requestAnimationFrame(() => requestAnimationFrame(() => resolve())),
+        );
+        const settled = dialog.getBoundingClientRect();
+
+        return (
+          dialog.isConnected &&
+          Math.abs(settled.left - rect.left) < 0.5 &&
+          Math.abs(settled.top - rect.top) < 0.5
+        );
+      },
+      {timeout: 5000},
+    )
+    .toBe(true);
 };
 const coordinates = (element: HTMLElement) => {
   const rect = element.getBoundingClientRect();
@@ -178,6 +216,41 @@ describe("Sheet (browser)", () => {
       await page.getByRole("button", {name: "Dismiss sheet"}).click();
       await expect.element(page.getByRole("dialog")).not.toBeInTheDocument();
     },
+  );
+
+  it.each(["top", "left"] as const)(
+    "supports settled %s reopening after handle dismissal under CPU throttling",
+    async (placement) => {
+      const client = cdp() as CDPSession;
+      const onOpenChange = vi.fn();
+
+      await client.send("Emulation.setCPUThrottlingRate", {rate: 6});
+      try {
+        await render(<SheetFixture placement={placement} onOpenChange={onOpenChange} />);
+        for (let cycle = 0; cycle < 3; cycle++) {
+          await open();
+          const rect = slot("dialog").getBoundingClientRect();
+
+          await mouseDrag(
+            placement === "left" ? -rect.width * 0.6 : 0,
+            placement === "top" ? -Math.min(rect.height * 0.6, 160) : 0,
+          );
+          await expect.element(page.getByRole("dialog")).not.toBeInTheDocument();
+          await open();
+          const reopened = slot("dialog").getBoundingClientRect();
+
+          expect(Math.abs(placement === "left" ? reopened.left : reopened.top)).toBeLessThan(2);
+          await page.getByRole("button", {name: "Dismiss sheet"}).click();
+          await expect.element(page.getByRole("dialog")).not.toBeInTheDocument();
+          expect(onOpenChange.mock.calls).toEqual(
+            Array.from({length: (cycle + 1) * 4}, (_, index) => [index % 2 === 0]),
+          );
+        }
+      } finally {
+        await client.send("Emulation.setCPUThrottlingRate", {rate: 1});
+      }
+    },
+    30000,
   );
 
   it("supports pixel snap points, legacy full-height sentinel, and body scrolling after expansion", async () => {
