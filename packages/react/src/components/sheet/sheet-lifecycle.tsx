@@ -12,8 +12,15 @@ import {snapScrollPosition} from "./use-sheet-handle-drag";
 export function SheetLifecycle({
   onExitComplete,
   overlayRef,
+  swipeDirection,
 }: SheetRenderProps & {overlayRef: RefObject<HTMLDivElement | null>; onExitComplete: () => void}) {
-  const {isOpen, onAnimationEnd, placement} = useSheetContext();
+  const {isOpen, onAnimationEnd} = useSheetContext();
+  const bidirectional = swipeDirection === "horizontal" || swipeDirection === "vertical";
+  const axis =
+    swipeDirection === "left" || swipeDirection === "right" || swipeDirection === "horizontal"
+      ? "x"
+      : "y";
+  const after = swipeDirection === "bottom" || swipeDirection === "right" || bidirectional;
   const reported = useRef<boolean | undefined>(undefined);
   const restoring = useRef(false);
   const restingScroll = useRef<{left: number; top: number} | null>(null);
@@ -67,13 +74,23 @@ export function SheetLifecycle({
       // An interrupted first entrance has no saved resting position yet. Read
       // RAC's initial/full snap marker, using the same geometry as handle dragging.
       if (!restingScroll.current) {
-        const axis = placement === "left" || placement === "right" ? "x" : "y";
-        const after = placement === "bottom" || placement === "right";
         const initial = scroller.querySelector<HTMLElement>("[data-sheet-initial]");
-        const marker = initial ?? (after ? scroller.lastElementChild : scroller.firstElementChild);
+        const marker =
+          initial ??
+          (bidirectional
+            ? scroller.children[1]
+            : after
+              ? scroller.lastElementChild
+              : scroller.firstElementChild);
 
         if (!(marker instanceof HTMLElement)) return;
-        const align = initial ? (after ? "start" : "end") : after ? "end" : "start";
+        const align = initial
+          ? after
+            ? "start"
+            : "end"
+          : after && !bidirectional
+            ? "end"
+            : "start";
         const position = snapScrollPosition(scroller, marker, axis, align);
 
         restingScroll.current = {
@@ -95,7 +112,7 @@ export function SheetLifecycle({
       }
     }
     if (restoring.current) finishScroll();
-  }, [isOpen, overlayRef, finishScroll, placement]);
+  }, [isOpen, overlayRef, finishScroll, axis, after, bidirectional]);
 
   useEffect(() => {
     if (isOpen) return;
@@ -103,8 +120,6 @@ export function SheetLifecycle({
     const scroller = overlayRef.current?.querySelector<HTMLElement>("[data-sheet-scroll]");
 
     if (!scroller) return;
-    const axis = placement === "left" || placement === "right" ? "x" : "y";
-    const after = placement === "bottom" || placement === "right";
     let previous: number | undefined;
     let stationaryFrames = 0;
     let resumedExit = false;
@@ -121,11 +136,14 @@ export function SheetLifecycle({
       stationaryFrames = current === previous ? stationaryFrames + 1 : 0;
       previous = current;
       if (stationaryFrames >= 2 && !resumedExit) {
-        const marker = after ? scroller.firstElementChild : scroller.lastElementChild;
+        const towardStart = bidirectional
+          ? current <= (axis === "x" ? window.innerWidth : window.innerHeight)
+          : after;
+        const marker = towardStart ? scroller.firstElementChild : scroller.lastElementChild;
 
         if (marker instanceof HTMLElement) {
           resumedExit = true;
-          const target = snapScrollPosition(scroller, marker, axis, after ? "start" : "end");
+          const target = snapScrollPosition(scroller, marker, axis, towardStart ? "start" : "end");
 
           scroller.scrollTo({
             [axis === "x" ? "left" : "top"]: target,
@@ -142,7 +160,7 @@ export function SheetLifecycle({
     frame = requestAnimationFrame(checkExit);
 
     return () => cancelAnimationFrame(frame);
-  }, [isOpen, finishScroll, overlayRef, placement]);
+  }, [isOpen, finishScroll, overlayRef, axis, after, bidirectional]);
 
   useEffect(() => {
     const scroller = overlayRef.current?.querySelector<HTMLElement>("[data-sheet-scroll]");

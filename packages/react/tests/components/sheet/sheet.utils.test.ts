@@ -35,7 +35,7 @@ describe("Sheet", () => {
       elapsed: 500,
       extent: 800,
       isDismissable: true,
-      placement: "bottom" as const,
+      swipeDirection: "bottom" as const,
       rest: 800,
       size: 300,
       travel: 40,
@@ -47,14 +47,14 @@ describe("Sheet", () => {
     });
     it.each(["bottom", "right", "top", "left"] as const)(
       "supports the physical dismissal direction for %s",
-      (placement) => {
-        const forward = placement === "bottom" || placement === "right";
+      (swipeDirection) => {
+        const forward = swipeDirection === "bottom" || swipeDirection === "right";
         const rest = forward ? 800 : 0;
 
         expect(
           sheetDismissTarget({
             ...defaults,
-            placement,
+            swipeDirection,
             rest,
             current: forward ? 700 : 100,
             travel: forward ? 100 : -100,
@@ -63,7 +63,7 @@ describe("Sheet", () => {
         expect(
           sheetDismissTarget({
             ...defaults,
-            placement,
+            swipeDirection,
             rest,
             current: rest,
             travel: forward ? -100 : 100,
@@ -90,7 +90,7 @@ describe("Sheet", () => {
         sheetDismissTarget({
           ...defaults,
           extent: -1,
-          placement: "top",
+          swipeDirection: "top",
           rest: 0,
           current: 100,
           travel: -100,

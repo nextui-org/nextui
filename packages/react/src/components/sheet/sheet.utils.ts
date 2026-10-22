@@ -1,4 +1,4 @@
-import type {SheetPlacement} from "./types";
+import type {SheetRenderProps} from "react-aria-components/Sheet";
 
 const HANDLE_DRAG_VELOCITY = 0.4;
 const SHEET_CLOSE_THRESHOLD = 0.25;
@@ -44,23 +44,26 @@ export function sheetDismissTarget({
   elapsed,
   extent,
   isDismissable,
-  placement,
   rest,
   size,
+  swipeDirection,
   travel,
   viewport,
 }: {
   current: number;
   elapsed: number;
   isDismissable: boolean;
-  placement: SheetPlacement;
+  swipeDirection: SheetRenderProps["swipeDirection"];
   rest: number;
   extent: number;
   size: number;
   viewport: number;
   travel: number;
 }) {
-  const dismissesTowardStart = placement === "bottom" || placement === "right";
+  const bidirectional = swipeDirection === "horizontal" || swipeDirection === "vertical";
+  const dismissesTowardStart = bidirectional
+    ? travel > 0 || (travel === 0 && current < rest)
+    : swipeDirection === "bottom" || swipeDirection === "right";
   const pointerDragged = dismissesTowardStart ? travel : -travel;
   const scrollDragged = dismissesTowardStart ? rest - current : current - rest;
   const dragged = Math.max(pointerDragged, scrollDragged);

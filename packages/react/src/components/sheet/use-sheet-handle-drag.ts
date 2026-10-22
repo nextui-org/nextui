@@ -1,7 +1,7 @@
 "use client";
 
-import type {SheetPlacement} from "./types";
 import type React from "react";
+import type {SheetRenderProps} from "react-aria-components/Sheet";
 
 import {useEffect, useRef} from "react";
 
@@ -26,7 +26,7 @@ interface HandleDragState {
   velocity: number;
 }
 
-export function useSheetHandleDrag(placement: SheetPlacement) {
+export function useSheetHandleDrag(swipeDirection: SheetRenderProps["swipeDirection"]) {
   const {isDismissable, isOpen, snapPoints} = useSheetContext();
   const drag = useRef<HandleDragState | null>(null);
   const lastScroller = useRef<HTMLElement | null>(null);
@@ -43,10 +43,13 @@ export function useSheetHandleDrag(placement: SheetPlacement) {
       drag.current = null;
       if (lastScroller.current) cancelSheetScroll(lastScroller.current);
     },
-    [isOpen, placement],
+    [isOpen, swipeDirection],
   );
 
-  const axis: SheetAxis = placement === "left" || placement === "right" ? "x" : "y";
+  const axis: SheetAxis =
+    swipeDirection === "left" || swipeDirection === "right" || swipeDirection === "horizontal"
+      ? "x"
+      : "y";
 
   const onPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (event.button !== 0 || drag.current) return;
@@ -118,7 +121,7 @@ export function useSheetHandleDrag(placement: SheetPlacement) {
             current,
             elapsed: event.timeStamp - state.startedAt,
             isDismissable,
-            placement,
+            swipeDirection,
             rest: state.scroll,
             ...measureSheet(state.scroller, state.axis),
             travel: point - state.origin,

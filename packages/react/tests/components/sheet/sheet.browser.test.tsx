@@ -253,6 +253,35 @@ describe("Sheet (browser)", () => {
     30000,
   );
 
+  it.each([
+    {swipeDirection: "right", dx: 120, dy: 0},
+    {swipeDirection: "left", dx: -120, dy: 0},
+    {swipeDirection: "top", dx: 0, dy: -120},
+    {swipeDirection: "horizontal", dx: 120, dy: 0},
+    {swipeDirection: "horizontal", dx: -120, dy: 0},
+    {swipeDirection: "vertical", dx: 0, dy: 120},
+    {swipeDirection: "vertical", dx: 0, dy: -120},
+  ] as const)(
+    "supports overridden $swipeDirection handle dismissal ($dx, $dy)",
+    async ({dx, dy, swipeDirection}) => {
+      const onOpenChange = vi.fn();
+
+      await render(
+        <SheetFixture
+          backdropProps={{swipeDirection}}
+          contentProps={{style: {height: 240, width: 320}}}
+          onOpenChange={onOpenChange}
+        />,
+      );
+      await open();
+      await mouseDrag(dx, dy);
+      await expect.element(page.getByRole("dialog")).not.toBeInTheDocument();
+      expect(onOpenChange.mock.calls).toEqual([[true], [false]]);
+      expect(isDocumentScrollLocked()).toBe(false);
+      await expect.element(page.getByRole("button", {name: "Open sheet"})).toHaveFocus();
+    },
+  );
+
   it("supports pixel snap points, legacy full-height sentinel, and body scrolling after expansion", async () => {
     await render(
       <SheetFixture snapPoints={[220, 1]}>
@@ -583,9 +612,16 @@ describe("Sheet (browser)", () => {
   );
 
   describe.each([false, true])("retained snap points (reduced motion: %s)", (reduce) => {
-    it.each(["bottom", "top", "left", "right"] as const)(
-      "supports closing and restoring the partial %s snap point",
-      async (placement) => {
+    it.each([
+      {placement: "bottom", swipeDirection: undefined},
+      {placement: "top", swipeDirection: undefined},
+      {placement: "left", swipeDirection: undefined},
+      {placement: "right", swipeDirection: undefined},
+      {placement: "bottom", swipeDirection: "left"},
+      {placement: "bottom", swipeDirection: "right"},
+    ] as const)(
+      "supports closing and restoring the partial $placement snap point (swipe: $swipeDirection)",
+      async ({placement, swipeDirection}) => {
         if (reduce) {
           await (cdp() as CDPSession).send("Emulation.setEmulatedMedia", {
             features: [{name: "prefers-reduced-motion", value: "reduce"}],
@@ -594,7 +630,7 @@ describe("Sheet (browser)", () => {
         const onAnimationEnd = vi.fn();
         const fixture = (isOpen: boolean) => (
           <SheetFixture
-            backdropProps={{isExiting: !isOpen}}
+            backdropProps={{isExiting: !isOpen, swipeDirection}}
             isOpen={isOpen}
             placement={placement}
             snapPoints={[100, 1]}
@@ -608,7 +644,8 @@ describe("Sheet (browser)", () => {
         await expect.poll(() => onAnimationEnd.mock.calls).toEqual([[true]]);
         const dialog = slot("dialog");
         const initial = dialog.getBoundingClientRect();
-        const horizontal = placement === "left" || placement === "right";
+        const direction = swipeDirection ?? placement;
+        const horizontal = direction === "left" || direction === "right";
         const visibleSize = horizontal
           ? Math.min(initial.right, window.innerWidth) - Math.max(initial.left, 0)
           : Math.min(initial.bottom, window.innerHeight) - Math.max(initial.top, 0);

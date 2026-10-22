@@ -21,7 +21,7 @@ import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
 import {CloseButton} from "../close-button";
 import {SurfaceContext} from "../surface";
 
-import {SheetContext, useSheetContext} from "./context";
+import {SheetContext, SheetSwipeDirectionContext, useSheetContext} from "./context";
 import {SheetLifecycle} from "./sheet-lifecycle";
 import {useSheetHandleDrag} from "./use-sheet-handle-drag";
 
@@ -246,7 +246,7 @@ const SheetBackdrop = ({
           snapPoints={snapPoints}
         >
           {(renderProps) => (
-            <>
+            <SheetSwipeDirectionContext value={renderProps.swipeDirection}>
               <SheetLifecycle
                 {...renderProps}
                 overlayRef={overlayRef}
@@ -259,7 +259,7 @@ const SheetBackdrop = ({
                 swipeAnimationRange={fadeRange}
               />
               {children}
-            </>
+            </SheetSwipeDirectionContext>
           )}
         </AriaSheetOverlay>
       </SheetVisibility>
@@ -439,7 +439,8 @@ const SheetHandle = ({
 }: SheetHandleProps) => {
   const {placement} = useSheetContext();
   const slots = useMemo(() => sheetVariants({placement}), [placement]);
-  const drag = useSheetHandleDrag(placement);
+  const swipeDirection = React.useContext(SheetSwipeDirectionContext) ?? placement;
+  const drag = useSheetHandleDrag(swipeDirection);
 
   return (
     <div

@@ -1,6 +1,7 @@
 "use client";
 
 import type {SheetPlacement} from "./types";
+import type {SheetRenderProps} from "react-aria-components/Sheet";
 
 import React from "react";
 
@@ -19,6 +20,10 @@ interface SheetContextValue {
 }
 
 export const SheetContext = React.createContext<SheetContextValue | null>(null);
+
+export const SheetSwipeDirectionContext = React.createContext<
+  SheetRenderProps["swipeDirection"] | null
+>(null);
 
 export const useSheetContext = () => {
   const context = React.useContext(SheetContext);
