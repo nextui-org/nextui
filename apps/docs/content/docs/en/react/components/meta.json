@@ -62,6 +62,7 @@
     "(forms)/search-field",
     "(pickers)/select",
     "(layout)/separator",
+    "(overlays)/sheet",
     "(feedback)/skeleton",
     "(controls)/slider",
     "(feedback)/spinner",

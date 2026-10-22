@@ -2,6 +2,62 @@
 import type {DemoItem} from "@/demos";
 
 export const demos: Record<string, DemoItem> = {
+  "sheet-basic": {
+    loader: () => import("./sheet/basic").then((m) => m.Basic),
+    file: "cn/sheet/basic.tsx",
+  },
+  "sheet-placements": {
+    loader: () => import("./sheet/placements").then((m) => m.Placements),
+    file: "cn/sheet/placements.tsx",
+  },
+  "sheet-snap-points": {
+    loader: () => import("./sheet/snap-points").then((m) => m.SnapPoints),
+    file: "cn/sheet/snap-points.tsx",
+  },
+  "sheet-snap-points-sequential": {
+    loader: () => import("./sheet/snap-points-sequential").then((m) => m.SnapPointsSequential),
+    file: "cn/sheet/snap-points-sequential.tsx",
+  },
+  "sheet-snap-points-custom-fade": {
+    loader: () => import("./sheet/snap-points-custom-fade").then((m) => m.SnapPointsCustomFade),
+    file: "cn/sheet/snap-points-custom-fade.tsx",
+  },
+  "sheet-backdrop-variants": {
+    loader: () => import("./sheet/backdrop-variants").then((m) => m.BackdropVariants),
+    file: "cn/sheet/backdrop-variants.tsx",
+  },
+  "sheet-non-dismissable": {
+    loader: () => import("./sheet/non-dismissable").then((m) => m.NonDismissable),
+    file: "cn/sheet/non-dismissable.tsx",
+  },
+  "sheet-scrollable-content": {
+    loader: () => import("./sheet/scrollable-content").then((m) => m.ScrollableContent),
+    file: "cn/sheet/scrollable-content.tsx",
+  },
+  "sheet-with-form": {
+    loader: () => import("./sheet/with-form").then((m) => m.WithForm),
+    file: "cn/sheet/with-form.tsx",
+  },
+  "sheet-detached": {
+    loader: () => import("./sheet/detached").then((m) => m.Detached),
+    file: "cn/sheet/detached.tsx",
+  },
+  "sheet-controlled": {
+    loader: () => import("./sheet/controlled").then((m) => m.Controlled),
+    file: "cn/sheet/controlled.tsx",
+  },
+  "sheet-handle-only": {
+    loader: () => import("./sheet/handle-only").then((m) => m.HandleOnly),
+    file: "cn/sheet/handle-only.tsx",
+  },
+  "sheet-nested": {
+    loader: () => import("./sheet/nested").then((m) => m.Nested),
+    file: "cn/sheet/nested.tsx",
+  },
+  "sheet-professions-picker": {
+    loader: () => import("./sheet/professions-picker").then((m) => m.ProfessionsPicker),
+    file: "cn/sheet/professions-picker.tsx",
+  },
   // Accordion Demo
   "accordion-basic": {
     loader: () => import("./accordion/basic").then((m) => m.Basic),

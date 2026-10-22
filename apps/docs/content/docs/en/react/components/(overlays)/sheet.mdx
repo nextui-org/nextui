@@ -1,0 +1,275 @@
+---
+title: Sheet
+description: Swipeable overlay with native scroll snapping, partial positions, and nested sheets
+icon: new
+links:
+  rac: Sheet
+  source: sheet/sheet.tsx
+  styles: sheet.css
+  storybook: Components/Overlays/Sheet
+---
+
+## Usage
+
+```tsx
+import {Button, Sheet} from "@heroui/react";
+```
+
+<ComponentPreview name="sheet-basic" />
+
+## Anatomy
+
+```tsx
+import {Button, Sheet} from "@heroui/react";
+
+export default () => (
+  <Sheet>
+    <Sheet.Trigger>
+      <Button variant="secondary">Open sheet</Button>
+    </Sheet.Trigger>
+    <Sheet.Backdrop>
+      <Sheet.Content>
+        <Sheet.Dialog>
+          <Sheet.Handle />
+          <Sheet.CloseTrigger />
+          <Sheet.Header>
+            <Sheet.Heading>Details</Sheet.Heading>
+          </Sheet.Header>
+          <Sheet.Body>Sheet content</Sheet.Body>
+          <Sheet.Footer>
+            <Sheet.Close>
+              <Button variant="secondary">Done</Button>
+            </Sheet.Close>
+          </Sheet.Footer>
+        </Sheet.Dialog>
+      </Sheet.Content>
+    </Sheet.Backdrop>
+  </Sheet>
+);
+```
+
+`Sheet.Root` is an alias for `Sheet`. `Sheet.Trigger` wraps a pressable child such as `Button` and is placed directly inside the root. Provide a `Sheet.Heading`, `aria-label`, or `aria-labelledby` for the dialog's accessible name. Use `Sheet.Close`, `Sheet.CloseTrigger`, or a button with `slot="close"` for keyboard-accessible dismissal; the handle is decorative to assistive technology.
+
+## Examples
+
+### Placements
+
+Set `placement` on the root to `bottom` (default), `top`, `left`, or `right`.
+
+<ComponentPreview name="sheet-placements" />
+
+### Snap points
+
+Numbers are **pixels**, not fractions. Strings are CSS lengths; percentages are relative to the sheet. The sheet opens at the first point and can expand to full size without an explicit final point. A trailing `1`, `"1"`, or `"100%"` is ignored. Other numbers retain their pixel meaning.
+
+<ComponentPreview name="sheet-snap-points" />
+
+### Snap points (sequential)
+
+A swipe can pass through multiple snap points. Full expansion is implicit; no additional sequential-snapping prop is needed.
+
+<ComponentPreview name="sheet-snap-points-sequential" />
+
+### Snap points (custom fade)
+
+The backdrop remains clear through the partial snap points and fades in as the sheet expands past the last point. React Aria manages this behavior; `fadeFromIndex` is not supported.
+
+<ComponentPreview name="sheet-snap-points-custom-fade" />
+
+### Backdrop variants
+
+<ComponentPreview name="sheet-backdrop-variants" />
+
+### Non-dismissable
+
+`isDismissable={false}` prevents outside interaction, Escape, and swipe dismissal. Explicit close controls still work.
+
+<ComponentPreview name="sheet-non-dismissable" />
+
+### Scrollable content
+
+At a partial snap point, swiping expands the sheet. Once fully expanded, `Sheet.Body` scrolls its content. `Sheet.Handle` also supports pointer dragging, including a mouse.
+
+<ComponentPreview name="sheet-scrollable-content" />
+
+### With form
+
+Compose form fields inside `Sheet.Body`. Use secondary inputs on the overlay surface.
+
+<ComponentPreview name="sheet-with-form" />
+
+### Detached
+
+`isDetached` adds space around the sheet and rounds all corners.
+
+<ComponentPreview name="sheet-detached" />
+
+### Controlled state
+
+Use `isOpen` with `onOpenChange`, or `defaultOpen` for uncontrolled state. A controlled sheet may omit `Sheet.Trigger`.
+
+<ComponentPreview name="sheet-controlled" />
+
+### Handle only
+
+The handle offers a visible grip and supports pointer dragging. Touch gestures also work on the panel until it is fully expanded; the handle does not restrict swipes to itself.
+
+<ComponentPreview name="sheet-handle-only" />
+
+### Nested sheets
+
+Place `Sheet.NestedRoot` inside another sheet. React Aria manages stacking and focus restoration; only the bottom sheet dims the page.
+
+<ComponentPreview name="sheet-nested" />
+
+### Professions picker
+
+Combine a search field and a virtualized list inside a sheet with a 355px initial snap point. Selecting an occupation updates the value and closes the sheet.
+
+<ComponentPreview name="sheet-professions-picker" />
+
+## Customization
+
+Use `className` on compound parts or override the `sheet__*` BEM classes in `@layer components`. Preserve React Aria's scroll positioning rather than adding a separate translate-based entrance animation.
+
+### Tailwind CSS
+
+Apply Tailwind CSS utilities to individual parts with `className`.
+
+```tsx
+<Sheet>
+  <Sheet.Trigger>
+    <Button variant="secondary">Open sheet</Button>
+  </Sheet.Trigger>
+  <Sheet.Backdrop>
+    <Sheet.Content className="mx-auto max-w-lg">
+      <Sheet.Dialog className="rounded-t-3xl border border-border">
+        <Sheet.Handle />
+        <Sheet.CloseTrigger />
+        <Sheet.Header className="text-center">
+          <Sheet.Heading>Details</Sheet.Heading>
+        </Sheet.Header>
+        <Sheet.Body className="px-6 pb-6">Sheet content</Sheet.Body>
+      </Sheet.Dialog>
+    </Sheet.Content>
+  </Sheet.Backdrop>
+</Sheet>
+```
+
+### Global CSS
+
+Use `@layer components` to customize the Sheet BEM classes.
+
+```css
+@layer components {
+  .sheet__dialog {
+    @apply border border-border;
+  }
+
+  .sheet__header {
+    @apply text-center;
+  }
+
+  .sheet__body {
+    @apply px-6 pb-6;
+  }
+}
+```
+
+## Styling Reference
+
+HeroUI follows the [BEM](https://getbem.com/) methodology to keep component styles reusable and easy to customize.
+
+### CSS Classes
+
+#### Base Classes [!toc]
+
+- `.sheet__overlay` - Modal overlay container
+- `.sheet__backdrop` - Backdrop behind the sheet
+- `.sheet__content` - Sheet sizing and stacking wrapper
+- `.sheet__dialog` - Dialog surface
+- `.sheet__header` - Header section
+- `.sheet__heading` - Dialog title
+- `.sheet__body` - Content area that scrolls after full expansion
+- `.sheet__footer` - Footer actions
+- `.sheet__handle` - Draggable handle area
+- `.sheet__handle-bar` - Default visual grip
+- `.sheet__close-trigger` - Close button
+
+#### Backdrop Variants [!toc]
+
+- `.sheet__backdrop--opaque` - Dimmed backdrop (default)
+- `.sheet__backdrop--blur` - Blurred backdrop
+- `.sheet__backdrop--transparent` - Transparent backdrop
+
+Only the bottom-most sheet in a nested stack dims the page.
+
+#### Placement Variants [!toc]
+
+- `.sheet__content--bottom`, `.sheet__dialog--bottom` - Bottom edge (default)
+- `.sheet__content--top`, `.sheet__dialog--top` - Top edge
+- `.sheet__content--left`, `.sheet__dialog--left` - Left edge
+- `.sheet__content--right`, `.sheet__dialog--right` - Right edge
+
+### Interactive States
+
+- `[data-focus-visible="true"]` - Keyboard focus on the close button; native fallback uses `:focus-visible:not([data-focused])`
+- `:hover`, `[data-hovered="true"]` - Close button hover
+- `:disabled`, `[aria-disabled="true"]` - Disabled close button
+- `[data-dragging]` - Handle drag in progress
+- `[data-expanded]` - Fully expanded sheet; enables body scrolling
+- `[data-has-descendants]` - Parent sheet with an open nested sheet
+- `[data-detached]` - Inset spacing and rounded corners
+- `[data-snap-points]` - Sheet configured with partial snap points
+- `[data-entering]`, `[data-exiting]` - Opening and closing lifecycle states
+- `[data-closed]` - Retained closed overlay; pointer interaction is disabled
+
+### Data Attributes
+
+The rendered parts expose `data-slot`: `sheet-overlay`, `sheet-backdrop`, `sheet-content`, `sheet-dialog`, `sheet-header`, `sheet-heading`, `sheet-body`, `sheet-footer`, `sheet-handle`, `sheet-handle-bar`, and `sheet-close-trigger`. The root, trigger, and close wrappers do not add DOM elements.
+
+`Sheet.Content` also exposes `data-placement`, `data-detached`, and `data-snap-points`. React Aria supplies `data-position`, `data-expanded`, `data-stack-index`, `data-has-descendants`, `data-entering`, and `data-exiting` on applicable parts.
+
+## API Reference
+
+### Sheet / Sheet.Root / Sheet.NestedRoot
+
+| Prop | Type | Default | Description |
+| --- | --- | --- | --- |
+| `children` | `ReactNode` | — | Compound parts. |
+| `isOpen` | `boolean` | — | Controlled visibility. |
+| `defaultOpen` | `boolean` | `false` | Initial uncontrolled visibility. |
+| `onOpenChange` | `(open: boolean) => void` | — | Called when a visibility change is requested. |
+| `onClose` | `() => void` | — | Called when closing is requested. |
+| `onAnimationEnd` | `(open: boolean) => void` | — | Called after entering or exiting finishes. |
+| `placement` | `"bottom" \| "top" \| "left" \| "right"` | `"bottom"` | Physical screen edge. |
+| `isDismissable` | `boolean` | `true` | Allow outside, Escape, and swipe dismissal. |
+| `isDetached` | `boolean` | `false` | Inset the sheet from the screen edges. |
+| `snapPoints` | `(number \| string)[]` | — | Partial resting positions; full expansion is implicit. |
+
+`Sheet.NestedRoot` requires a parent Sheet. The `isNested` root flag is internal; use `NestedRoot` for nesting.
+
+### Compound parts
+
+| Part | Props and behavior |
+| --- | --- |
+| `Trigger` | One pressable React element. |
+| `Close` | One pressable React element; composes its `onPress` handler. |
+| `Backdrop` | React Aria SheetOverlay props except root-owned state/position/snap props and `style`; string `className`, `children`, `variant="opaque" \| "blur" \| "transparent"`, and `isExiting`. |
+| `Content` | React Aria Sheet props; string `className`; children may be a function receiving Sheet render state. Default stacking animation and overscroll padding are supplied by HeroUI. |
+| `Dialog` | React Aria SheetContent props with ReactNode children; forwards refs and accessibility attributes. |
+| `Heading` | React Aria Heading props; defaults to `slot="title"`. |
+| `Header`, `Body`, `Footer`, `Handle` | Div props and refs. Handle renders a default bar when no children are provided. |
+| `CloseTrigger` | CloseButton props with string `className`; consumer `onPress` is preserved. |
+
+`Backdrop.isExiting` retains closed content until you clear it. Closing still releases modal focus containment and scroll locking. Clear the flag when retained content is no longer needed.
+
+Named exports include `SheetRoot`, `SheetTrigger`, and the other parts, their props types, `SheetProps`, `SheetNestedRootProps`, `sheetVariants`, and `SheetVariants`. Compound prop types use indexed access, for example `Sheet["Props"]` and `Sheet["ContentProps"]`.
+
+## Sheet and Drawer
+
+Sheet uses React Aria's native scroll gestures, partial snap positions, and nested stacking. Drawer remains available with its existing API and behavior. Adding Sheet does not migrate or deprecate Drawer.
+
+## Related Components
+
+<RelatedComponents component="sheet" />

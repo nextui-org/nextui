@@ -392,6 +392,13 @@ const componentsMap: Record<string, ComponentInfo> = {
     name: "separator",
     title: "Separator",
   },
+  sheet: {
+    category: "layout",
+    description: "Swipeable overlay with native scroll snapping and nested sheets",
+    href: "/docs/components/sheet",
+    name: "sheet",
+    title: "Sheet",
+  },
   skeleton: {
     category: "display",
     description: "Loading placeholder",
@@ -759,6 +766,7 @@ const componentRelationships: Record<string, string[]> = {
     "dropdown",
     "breadcrumbs",
   ],
+  sheet: ["drawer", "modal", "button", "closebutton"],
   skeleton: ["card", "avatar"],
   slider: ["label", "form", "description"],
   spinner: [],
