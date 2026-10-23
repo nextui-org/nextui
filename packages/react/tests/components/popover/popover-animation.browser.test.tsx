@@ -12,6 +12,38 @@ import {stretchAnimation} from "../../helpers/overlay-motion";
 import "@/styles.css";
 
 describe("Popover (browser)", () => {
+  it.each([
+    [undefined, undefined],
+    [0.65, 0.65],
+    [0.65, 0.4],
+  ])(
+    "supports reopening retained content with opacity %s → %s",
+    async (initialOpacity, reopenedOpacity) => {
+      const fixture = (isOpen: boolean, isExiting = false, opacity = initialOpacity) => (
+        <Popover isOpen={isOpen}>
+          <Button>Open popover</Button>
+          <Popover.Content isExiting={isExiting} style={{opacity}}>
+            <Popover.Dialog aria-label="Retained popover">Content</Popover.Dialog>
+          </Popover.Content>
+        </Popover>
+      );
+      const view = await render(fixture(true));
+      const content = document.querySelector<HTMLElement>(".popover")!;
+
+      await expect.poll(() => content.getAnimations().length).toBe(0);
+      await view.rerender(fixture(false, true));
+      await expect.poll(() => content.getAnimations().length).toBe(0);
+      await view.rerender(fixture(true, false, reopenedOpacity));
+
+      expect(document.querySelector(".popover")).toBe(content);
+      await expect.poll(() => getComputedStyle(content).opacity).toBe(String(reopenedOpacity ?? 1));
+      expect(content.style.opacity).toBe(
+        reopenedOpacity === undefined ? "" : String(reopenedOpacity),
+      );
+      await expect.element(page.getByRole("dialog", {name: "Retained popover"})).toBeVisible();
+    },
+  );
+
   it.each(["prop", "context", "override"] as const)(
     "supports the %s animation preference when closing",
     async (source) => {

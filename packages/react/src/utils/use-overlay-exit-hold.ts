@@ -88,6 +88,7 @@ export const useOverlayExitHold = <T extends HTMLElement>(
   {enabled = true, prepare, ref: forwardedRef}: ExitHoldOptions<T> = {},
 ) => {
   const elementRef = useRef<T | null>(null);
+  const pinnedOpacity = useRef(new Map<HTMLElement, {value: string; priority: string}>());
   const [isExiting, setIsExiting] = useState(false);
   const [prevOpen, setPrevOpen] = useState(isOpen);
 
@@ -111,6 +112,26 @@ export const useOverlayExitHold = <T extends HTMLElement>(
   const endExit = useCallback(() => setIsExiting(false), []);
 
   useLayoutEffect(() => {
+    // The caller may release its retention without changing isOpen.
+    if (!elementRef.current) {
+      pinnedOpacity.current.clear();
+
+      return;
+    }
+    if (!isOpen) return;
+
+    // A caller can retain the DOM with isExiting after our hold ends. Restore
+    // those nodes before reopening, without overwriting a new consumer style.
+    for (const [node, {priority, value}] of pinnedOpacity.current) {
+      if (node.style.opacity === "0") {
+        if (value) node.style.setProperty("opacity", value, priority);
+        else node.style.removeProperty("opacity");
+      }
+    }
+    pinnedOpacity.current.clear();
+  });
+
+  useLayoutEffect(() => {
     const element = elementRef.current;
 
     if (!exiting || !element) return;
@@ -131,6 +152,10 @@ export const useOverlayExitHold = <T extends HTMLElement>(
       settled = true;
 
       for (const node of exitingElements(element)) {
+        pinnedOpacity.current.set(node, {
+          priority: node.style.getPropertyPriority("opacity"),
+          value: node.style.opacity,
+        });
         node.style.opacity = "0";
       }
 
