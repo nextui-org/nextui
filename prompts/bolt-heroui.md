@@ -30,8 +30,8 @@ Merge these fields into the project manifest. TypeScript and React types are inc
     "@types/react-dom": "^19.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3",
-    "vite": "^7.3.5",
-    "@vitejs/plugin-react": "^5.2.0"
+    "vite": "^8.3.4",
+    "@vitejs/plugin-react": "^6.1.2"
   }
 }
 ```
