@@ -358,6 +358,63 @@ describe("Sheet (browser)", () => {
     );
   });
 
+  describe.each(["bottom", "top", "left", "right"] as const)(
+    "detached %s snap sheet",
+    (placement) => {
+      // Both sizes fit the runner without scaling its iframe and rounding intersection ratios.
+      it.each([
+        [414, 640],
+        [1280, 700],
+      ] as const)(
+        "supports full expansion and body scrolling at %s × %s",
+        async (width, height) => {
+          const originalViewport = {width: window.innerWidth, height: window.innerHeight};
+
+          await page.viewport(width, height);
+          try {
+            await render(
+              <SheetFixture isDetached placement={placement} snapPoints={[220, 1]}>
+                {Array.from({length: 50}, (_, i) => (
+                  <p key={i}>Scrollable item {i}</p>
+                ))}
+              </SheetFixture>,
+            );
+            await open();
+            expect(getComputedStyle(slot("body")).overflowY).toBe("hidden");
+            const scroller = slot("content").closest<HTMLElement>("[data-sheet-scroll]")!;
+
+            // Scroll to the full native detent; top/left rest at the start, bottom/right at the end.
+            scroller.scrollTo({
+              left: placement === "right" ? scroller.scrollWidth - scroller.clientWidth : 0,
+              top: placement === "bottom" ? scroller.scrollHeight - scroller.clientHeight : 0,
+              behavior: "instant",
+            });
+            await expect.poll(() => slot("content").hasAttribute("data-expanded")).toBe(true);
+            const rect = slot("dialog").getBoundingClientRect();
+
+            expect(rect.top).toBeGreaterThan(0);
+            expect(rect.left).toBeGreaterThan(0);
+            expect(rect.bottom).toBeLessThan(height);
+            expect(rect.right).toBeLessThan(width);
+            const body = slot("body");
+            const {x, y} = coordinates(body);
+
+            await (cdp() as CDPSession).send("Input.dispatchMouseEvent", {
+              type: "mouseWheel",
+              x,
+              y,
+              deltaX: 0,
+              deltaY: 250,
+            });
+            await expect.poll(() => body.scrollTop).toBeGreaterThan(0);
+          } finally {
+            await page.viewport(originalViewport.width, originalViewport.height);
+          }
+        },
+      );
+    },
+  );
+
   it("supports percentage snap points", async () => {
     await render(<SheetFixture snapPoints={["40%", "100%"]} />);
     await open();

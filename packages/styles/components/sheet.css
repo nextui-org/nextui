@@ -106,6 +106,17 @@
   @apply w-full max-w-none;
 }
 
+/* The full detent must include the detached margins inside the viewport. */
+.sheet__content--bottom[data-detached][data-snap-points],
+.sheet__content--top[data-detached][data-snap-points] {
+  @apply h-[calc(100%-1rem)];
+}
+
+.sheet__content--left[data-detached][data-snap-points],
+.sheet__content--right[data-detached][data-snap-points] {
+  @apply w-[calc(100%-1rem)];
+}
+
 .sheet__dialog {
   @apply relative flex min-h-0 flex-col overflow-hidden bg-overlay text-overlay-foreground shadow-overlay outline-none;
 }
