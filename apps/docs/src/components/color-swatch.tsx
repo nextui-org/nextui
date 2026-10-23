@@ -4,7 +4,6 @@ import type {LAB} from "color-convert";
 
 import colorConvert from "color-convert";
 import {useCopyButton} from "fumadocs-ui/utils/use-copy-button";
-import * as React from "react";
 
 import {Iconify} from "@/components/iconify";
 import {cn} from "@/utils/cn";
@@ -27,16 +26,10 @@ const getLabValue = (value: string): LAB | null => {
   return null;
 };
 
-export function ColorSwatch({className, foreground, name, value, variable}: ColorSwatchProps) {
-  const [hexValue, setHexValue] = React.useState<string>("");
+export function ColorSwatch({className, foreground, name, variable}: ColorSwatchProps) {
   const [checked, onClick] = useCopyButton(async () => {
-    // Copy the hex value to clipboard
-    if (hexValue) {
-      await navigator.clipboard.writeText(hexValue);
-    }
-  });
+    let hexValue = "";
 
-  React.useEffect(() => {
     // Recursively resolve CSS variable references
     const resolveVariable = (varName: string, depth = 0): string => {
       if (depth > 5) return ""; // Max recursion depth
@@ -67,18 +60,23 @@ export function ColorSwatch({className, foreground, name, value, variable}: Colo
           const labValue = getLabValue(computedValue);
 
           if (labValue) {
-            setHexValue(`#${colorConvert.lab.hex(labValue)}`);
+            hexValue = `#${colorConvert.lab.hex(labValue)}`;
           } else {
             throw new Error("Invalid lab value");
           }
         } else {
-          setHexValue(computedValue);
+          hexValue = computedValue;
         }
       } catch (e) {
         console.warn(`Failed to convert color for ${variable}:`, e);
       }
     }
-  }, [variable, value]);
+
+    // Copy the hex value to clipboard
+    if (hexValue) {
+      await navigator.clipboard.writeText(hexValue);
+    }
+  });
 
   return (
     <div className={cn("flex flex-col items-center gap-2", className)}>

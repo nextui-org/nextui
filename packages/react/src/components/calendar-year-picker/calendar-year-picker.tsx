@@ -327,6 +327,10 @@ const CalendarYearPickerGrid = <E extends keyof React.JSX.IntrinsicElements = "d
   );
 
   const [activeYear, setActiveYear] = React.useState(focusedYear);
+
+  if (isYearPickerOpen && years.length > 0 && !years.includes(activeYear)) {
+    setActiveYear(years[0]!);
+  }
   const wasYearPickerOpenRef = React.useRef(false);
 
   // Position the year grid to overlay the day grid
@@ -373,9 +377,8 @@ const CalendarYearPickerGrid = <E extends keyof React.JSX.IntrinsicElements = "d
 
     const nextActiveYear = years.includes(focusedYear) ? focusedYear : firstYear;
 
-    setActiveYear(nextActiveYear);
-
     const rafId = requestAnimationFrame(() => {
+      setActiveYear(nextActiveYear);
       focusYearCell(nextActiveYear);
     });
 
@@ -383,18 +386,6 @@ const CalendarYearPickerGrid = <E extends keyof React.JSX.IntrinsicElements = "d
       cancelAnimationFrame(rafId);
     };
   }, [focusYearCell, focusedYear, isYearPickerOpen, itemsKey, years]);
-
-  React.useEffect(() => {
-    if (!isYearPickerOpen || years.length === 0) return;
-
-    const [firstYear] = years;
-
-    if (firstYear == null) return;
-
-    if (!years.includes(activeYear)) {
-      setActiveYear(firstYear);
-    }
-  }, [activeYear, isYearPickerOpen, itemsKey, years]);
 
   const handleYearSelect = React.useCallback(
     (year: number) => {
