@@ -9,7 +9,7 @@ github:
   <span className="text-sm text-muted">2026 年 10 月 23 日</span>
 </div>
 
-React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。全新 [Sheet](/docs/components/sheet) 组件提供可滑动浮层，支持四种放置方向、吸附点、嵌套 Sheet、受控状态，以及协调拖动与滚动。[Slider](/docs/components/slider) 新增适用于水平、垂直、单值与范围控件的可组合步进指示点和刻度标签，同时降低组件渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例语义。本版本还修复浮层动画行为、Slider RTL 填充、取消的 [Drawer](/docs/components/drawer) 拖动、残留的 [ScrollShadow](/docs/components/scroll-shadow) 边缘阴影、窄屏菜单、自动填充字段与 Toast 布局。
+React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。全新 [Sheet](/docs/components/sheet) 组件提供可滑动浮层，支持四种放置方向、吸附点、嵌套 Sheet、受控状态、限定在视口内的分离式布局，以及协调拖动、滚动与 handle 关闭。[Slider](/docs/components/slider) 新增适用于水平、垂直、单值与范围控件的可组合步进指示点和刻度标签，同时降低组件渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例语义。本版本还让重新打开的浮层保持可见，并修复 Slider RTL 填充、取消的 [Drawer](/docs/components/drawer) 拖动、残留的 [ScrollShadow](/docs/components/scroll-shadow) 边缘阴影、窄屏菜单、自动填充字段与 Toast 布局。
 
 ## 安装
 
@@ -49,11 +49,12 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`rea
 ## 依赖
 
 - **React Aria**：升级至 [React Aria 1.22.1](https://react-aria.adobe.com/releases/v1-22-0) — `react-aria-components@1.22.1`、`react-aria@3.53.1`、`react-stately@3.51.0`、`@react-types/shared@3.37.0` 与 `@internationalized/number@3.6.9` ([#6939](https://github.com/heroui-inc/heroui/pull/6939)、[#6949](https://github.com/heroui-inc/heroui/pull/6949))。
+- **Avatar 原语**：将 `@radix-ui/react-avatar` 升级至 `1.3.1` ([#6979](https://github.com/heroui-inc/heroui/pull/6979))。
 - **安全**：修补传递依赖中的 Dependabot 告警 ([#6938](https://github.com/heroui-inc/heroui/pull/6938))。
 
 ## 新功能
 
-- **Sheet**：新增可滑动的 React Aria 浮层，支持 `bottom`、`top`、`left` 与 `right` 放置方向；像素、CSS 长度和百分比吸附点；连续吸附；多种 backdrop 样式；分离式与不可关闭模式；受控状态；嵌套 Sheet；以及协调面板拖动与内容滚动。复合 API 包含 trigger、backdrop、content、dialog、handle、header、body、footer 与 close 部件 ([#6974](https://github.com/heroui-inc/heroui/pull/6974))。
+- **Sheet**：新增可滑动的 React Aria 浮层，支持 `bottom`、`top`、`left` 与 `right` 放置方向；像素、CSS 长度和百分比吸附点；连续吸附；多种 backdrop 样式；分离式与不可关闭模式；受控状态；嵌套 Sheet；以及协调面板拖动、内容滚动与 handle 关闭。分离式 Sheet 在所有放置方向下都会让各吸附点保持在视口范围内。复合 API 包含 trigger、backdrop、content、dialog、handle、header、body、footer 与 close 部件 ([#6974](https://github.com/heroui-inc/heroui/pull/6974)、[fba503c](https://github.com/heroui-inc/heroui/commit/fba503cf8c7b643cc5c59bd3e459eec1707bd1b7)、[#6979](https://github.com/heroui-inc/heroui/pull/6979))。
 - **Slider 步进与刻度**：在 `Slider.Track` 内组合 `Slider.Steps`，即可为每个配置的步进显示装饰性圆点；在轨道后添加 `Slider.Marks` 与 `Slider.Mark`，即可在任意数值位置显示标签。步进与刻度支持小数值、垂直方向、RTL、禁用状态、单值与范围 Slider、本地化默认标签，以及 `data-filled` 样式钩子 ([#6965](https://github.com/heroui-inc/heroui/pull/6965))。
 
 ## 错误修复
@@ -66,7 +67,7 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`rea
 - **Drawer**：取消滑动后不再让面板停在偏移位置或卡在拖动状态。命中子元素触发的 `lostpointercapture` 会被忽略；当对话框自身失去捕获时面板会弹回；消费者传入的 `style` 会与 `touch-action: none` 合并，而不会把它覆盖掉。打开滑入动画改在 `Drawer.Content` 上运行，因为 React Aria 会在绘制前清除对话框上的 `data-entering` ([#6968](https://github.com/heroui-inc/heroui/pull/6968))。
 - **ScrollShadow**：当 `isEnabled` 变为 `false` 时清除自动可见性属性，避免边缘残留阴影 ([#6964](https://github.com/heroui-inc/heroui/pull/6964))。
 - **Calendar**：星期标题标签保持等宽列 ([#6925](https://github.com/heroui-inc/heroui/pull/6925))。
-- **浮层**：在中端手机上加快打开与关闭。进入与退出动画仅使用 opacity 与 transform（不再使用 `filter` 关键帧）；触控设备上带模糊的 Modal 与 Drawer 遮罩跳过 `backdrop-filter`；WebKit 在关闭动画真正运行前保持 Popover 挂载；粗指针设备在 [Dropdown](/docs/components/dropdown) 定位完成后立即显示菜单，而不再等待键盘检测；滑走关闭的 [Drawer](/docs/components/drawer) 会清除内联 `transition: none`，使退出过渡正常播放 ([#6934](https://github.com/heroui-inc/heroui/pull/6934))。基于 Popover 的组件现在也会保留转发 ref 的清理函数，遵循本地与 slot 上下文中的 `shouldSkipAnimation` 偏好，并在选择性导入 CSS 时保留浮层动画样式 ([6f0678c](https://github.com/heroui-inc/heroui/commit/6f0678c39352eef6a0d48514bef070b2b461f8f2))。
+- **浮层**：在中端手机上加快打开与关闭。进入与退出动画仅使用 opacity 与 transform（不再使用 `filter` 关键帧）；触控设备上带模糊的 Modal 与 Drawer 遮罩跳过 `backdrop-filter`；WebKit 在关闭动画真正运行前保持 Popover 挂载；粗指针设备在 [Dropdown](/docs/components/dropdown) 定位完成后立即显示菜单，而不再等待键盘检测；滑走关闭的 [Drawer](/docs/components/drawer) 会清除内联 `transition: none`，使退出过渡正常播放 ([#6934](https://github.com/heroui-inc/heroui/pull/6934))。基于 Popover 的组件现在也会保留转发 ref 的清理函数，遵循本地与 slot 上下文中的 `shouldSkipAnimation` 偏好，并在选择性导入 CSS 时保留浮层动画样式 ([6f0678c](https://github.com/heroui-inc/heroui/commit/6f0678c39352eef6a0d48514bef070b2b461f8f2))。重新打开保留的 Modal 或 Popover 内容时，现在会恢复原有或新传入的 opacity，不再保持不可见 ([1b64b24](https://github.com/heroui-inc/heroui/commit/1b64b246faca5b108ce18ed131e0ea7374c59793))。
 - **列表浮层**：[Select](/docs/components/select)、[Dropdown](/docs/components/dropdown)、[Autocomplete](/docs/components/autocomplete) 与 [ComboBox](/docs/components/combo-box) 的外层圆角与选项内边距对齐 ([#6916](https://github.com/heroui-inc/heroui/pull/6916))。
 - **选择指示器**：[Select](/docs/components/select)、[ComboBox](/docs/components/combo-box) 与 [Autocomplete](/docs/components/autocomplete) 浮层中的勾选标记不再压住标签 ([#6908](https://github.com/heroui-inc/heroui/pull/6908))。
 - **AvatarGroup**：裁切重叠跟随头像圆角 ([#6884](https://github.com/heroui-inc/heroui/pull/6884))。
