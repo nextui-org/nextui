@@ -44,7 +44,10 @@ const Group = ({
  * the mask. A seam that traces the neighbour's outline clears every row; a
  * circular cut on a rounded-square avatar only clears the middle ones.
  */
-const seamRows = async ({rtl = false}: {rtl?: boolean} = {}) => {
+const seamRows = async ({
+  circular = false,
+  rtl = false,
+}: {circular?: boolean; rtl?: boolean} = {}) => {
   const stage = page.getByTestId("stage").element() as HTMLElement;
   const avatars = stage.querySelectorAll<HTMLElement>(".avatar");
   const first = avatars[0]!;
@@ -87,7 +90,20 @@ const seamRows = async ({rtl = false}: {rtl?: boolean} = {}) => {
     return pixel[0]! > 200 && pixel[1]! < 120 && pixel[2]! > 200;
   };
 
-  const rows = Array.from({length: 17}, (_, i) => 0.06 + i * 0.055);
+  const rows = Array.from({length: 17}, (_, i) => (circular ? 0.25 + i / 32 : 0.06 + i * 0.055));
+
+  if (circular) {
+    // Follow the middle of the crescent where both avatar outlines overlap.
+    // An opaque pixel just outside the seam proves this is a cut, not empty backdrop.
+    const radius = size / 2;
+
+    return rows.filter((t) => {
+      const y = size * t;
+      const x = size - overlap + radius - Math.sqrt((radius + seam / 2) ** 2 - (y - radius) ** 2);
+
+      return isCleared(originX + x, originY + y) && !isCleared(originX + x - seam - 1, originY + y);
+    }).length;
+  }
 
   return rows.filter((t) =>
     Array.from({length: Math.ceil(seam) + 3}, (_, dx) =>
@@ -120,15 +136,18 @@ describe("AvatarGroup (browser)", () => {
       await render(<Group radius="0.5rem" />);
 
       // A circle curves away from the straight probe band near its poles.
-      expect(await seamRows()).toBeGreaterThanOrEqual(15);
+      expect(await seamRows({circular: true})).toBeGreaterThanOrEqual(15);
     });
   });
 
   describe('overlap="ring"', () => {
-    it("draws no cut, leaving the avatars opaque", async () => {
-      await render(<Group overlap="ring" radius={SQUARISH_RADIUS} />);
+    it.each([false, true])(
+      "draws no cut, leaving the avatars opaque (circular: %s)",
+      async (circular) => {
+        await render(<Group overlap="ring" radius={circular ? "0.5rem" : SQUARISH_RADIUS} />);
 
-      expect(await seamRows()).toBe(0);
-    });
+        expect(await seamRows({circular})).toBe(0);
+      },
+    );
   });
 });

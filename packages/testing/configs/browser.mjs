@@ -18,6 +18,8 @@ export const browserConfig = mergeConfig(
         enabled: true,
         headless: true,
         instances: [{browser: "chromium"}],
+        // RAC accessible names can include the current value or visible date range.
+        locators: {exact: false},
         provider: playwright(),
       },
       globals: true,

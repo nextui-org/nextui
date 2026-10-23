@@ -14,7 +14,7 @@
     "@gravity-ui/icons": "2.23.0",
     "@heroui/react": "workspace:*",
     "@heroui/styles": "workspace:*",
-    "@iconify/react": "6.0.2",
+    "@iconify/react": "6.0.3",
     "apcach": "0.6.4",
     "culori": "4.0.2",
     "react": "19.3.1",
@@ -25,21 +25,21 @@
   },
   "devDependencies": {
     "@heroui/standard": "workspace:*",
-    "@storybook/addon-a11y": "10.6.2",
-    "@storybook/addon-docs": "10.6.2",
+    "@storybook/addon-a11y": "10.6.3",
+    "@storybook/addon-docs": "10.6.3",
     "@storybook/icons": "2.2.0",
-    "@storybook/react": "10.6.2",
-    "@storybook/react-vite": "10.6.2",
+    "@storybook/react": "10.6.3",
+    "@storybook/react-vite": "10.6.3",
     "@tailwindcss/postcss": "4.3.3",
     "@tailwindcss/vite": "4.3.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
     "@vitejs/plugin-react": "6.1.2",
     "glob": "13.0.6",
-    "postcss": "8.5.30",
-    "storybook": "10.6.2",
+    "postcss": "8.5.31",
+    "storybook": "10.6.3",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2",
-    "vite": "8.3.4"
+    "vite": "8.3.5"
   }
 }

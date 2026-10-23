@@ -3,8 +3,8 @@
 import type {ButtonProps} from "@heroui/react";
 import type {ComponentProps} from "react";
 
+import {useTranslations} from "@fuma-translate/react";
 import {Button, Kbd, Tooltip} from "@heroui/react";
-import {useI18n} from "fumadocs-ui/contexts/i18n";
 import {useSearchContext} from "fumadocs-ui/contexts/search";
 
 import {Search} from "@/components/fumadocs/ui/icons";
@@ -68,7 +68,7 @@ export function LargeSearchToggle({
   hideIfDisabled?: boolean;
 }) {
   const {enabled, hotKey, setOpenSearch} = useSearchContext();
-  const {text} = useI18n();
+  const t = useTranslations({note: "search trigger"});
 
   if (hideIfDisabled && !enabled) return null;
 
@@ -86,7 +86,7 @@ export function LargeSearchToggle({
       }}
     >
       <Search className="size-4" />
-      {text.search}
+      {t("Search")}
       <div className="ms-auto inline-flex gap-0.5">
         {hotKey.map((k, i) => (
           <kbd key={i} className="bg-fd-background rounded-md border px-1.5">

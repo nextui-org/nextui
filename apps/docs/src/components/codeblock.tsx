@@ -26,46 +26,44 @@ export async function CodeBlock({
 } & CodeBlockProps) {
   let rendered;
   let renderedPreview;
+  let highlightFailed = false;
+  const components = {
+    pre: (props: React.ComponentProps<typeof Base.Pre>) => <Base.Pre {...props} />,
+  };
 
-  try {
-    // Trim the code to avoid issues with leading/trailing whitespace
-    const trimmedCode = code?.trim() || "";
+  // Trim the code to avoid issues with leading/trailing whitespace
+  const trimmedCode = code?.trim() || "";
 
-    // Skip highlighting for empty code blocks
-    if (!trimmedCode) {
-      rendered = (
-        <Base.Pre>
-          <code />
-        </Base.Pre>
-      );
-    } else {
+  // Skip highlighting for empty code blocks
+  if (trimmedCode) {
+    try {
       const lines = trimmedCode.split("\n");
 
       if (lines.length > 10) {
         const previewCode = lines.slice(0, 5).join("\n");
 
         renderedPreview = await highlight(previewCode, {
-          components: {
-            pre: (props) => <Base.Pre {...props} />,
-          },
+          components,
           lang: lang || "text",
         });
       }
 
       rendered = await highlight(trimmedCode, {
-        components: {
-          pre: (props) => <Base.Pre {...props} />,
-        },
+        components,
         lang: lang || "text",
         // other Shiki options
       });
+    } catch (error) {
+      console.error("Syntax highlighting error:", error);
+      highlightFailed = true;
     }
-  } catch (error) {
-    console.error("Syntax highlighting error:", error);
+  }
+
+  if (!trimmedCode || highlightFailed) {
     // Fallback to plain code block without syntax highlighting
     rendered = (
       <Base.Pre>
-        <code>{code}</code>
+        <code>{highlightFailed ? code : undefined}</code>
       </Base.Pre>
     );
   }

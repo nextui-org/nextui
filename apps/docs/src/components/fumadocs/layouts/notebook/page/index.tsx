@@ -2,9 +2,9 @@ import type {BreadcrumbProps, FooterProps} from "./client";
 import type {AnchorProviderProps, TOCItemType} from "fumadocs-core/toc";
 import type {ComponentProps, ReactNode} from "react";
 
+import {T} from "@fuma-translate/react";
 import {TOCProvider, TOCScrollArea} from "fumadocs-ui/components/toc";
 import {buttonVariants} from "fumadocs-ui/components/ui/button";
-import {I18nLabel} from "fumadocs-ui/contexts/i18n";
 
 import {Edit, Text} from "@/components/fumadocs/ui/icons";
 import {cn} from "@/utils/cn";
@@ -146,7 +146,7 @@ export function DocsPage({
               id="toc-title"
             >
               <Text className="size-4" />
-              <I18nLabel label="toc" />
+              <T note="table of contents" text="On this page" />
             </h3>
             <TOCScrollArea>
               <TOCItems />
@@ -176,7 +176,7 @@ export function EditOnGitHub(props: ComponentProps<"a">) {
       {props.children ?? (
         <>
           <Edit className="size-3.5" />
-          <I18nLabel label="editOnGithub" />
+          <T note="edit page" text="Edit on GitHub" />
         </>
       )}
     </a>

@@ -137,7 +137,6 @@ export function useColorVariables(containerRef?: React.RefObject<HTMLElement>) {
 
   // Initial read
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     readVariables();
   }, [readVariables]);
 
