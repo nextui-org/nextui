@@ -32,13 +32,13 @@ export default () => (
 )
 ```
 
-> **TextField** 将标签、输入、说明与错误信息整合为单个无障碍组件。若只需独立输入，请使用 **[Input](/docs/components/input)** 或 **[TextArea](/docs/components/textarea)**。
+> **TextField** 将标签、输入、说明与错误信息整合为单个无障碍组件。若只需独立输入，请使用 **[Input](/docs/react/components/input)** 或 **[TextArea](/docs/react/components/text-area)**。
 
 ## 示例
 
 ### 表面样式
 
-在 [Surface](/docs/components/surface) 内使用时，请在 Input 或 TextArea 组件上使用 `variant="secondary"`，以应用适合表面背景的低强调变体。
+在 [Surface](/docs/react/components/surface) 内使用时，请在 Input 或 TextArea 组件上使用 `variant="secondary"`，以应用适合表面背景的低强调变体。
 
 <ComponentPreview name="textfield-on-surface" />
 
@@ -76,7 +76,7 @@ export default () => (
 
 ### 文本域
 
-多行内容请使用 [TextArea](/docs/components/textarea)，而非 [Input](/docs/components/input)。
+多行内容请使用 [TextArea](/docs/react/components/text-area)，而非 [Input](/docs/react/components/input)。
 
 <ComponentPreview name="textfield-textarea" />
 
@@ -127,7 +127,7 @@ HeroUI 遵循 [BEM](https://getbem.com/) 方法论，确保组件变体与状态
 
 - `.textfield` – 根容器，样式极少（`flex flex-col gap-1`）
 
-> **提示：** 子组件（[Label](/docs/components/label)、[Input](/docs/components/input)、[TextArea](/docs/components/textarea)、[Description](/docs/components/description)、[FieldError](/docs/components/field-error)）各自拥有 CSS 类与样式，定制方式请参见对应文档。
+> **提示：** 子组件（[Label](/docs/react/components/label)、[Input](/docs/react/components/input)、[TextArea](/docs/react/components/text-area)、[Description](/docs/react/components/description)、[FieldError](/docs/react/components/field-error)）各自拥有 CSS 类与样式，定制方式请参见对应文档。
 
 ### 交互状态
 

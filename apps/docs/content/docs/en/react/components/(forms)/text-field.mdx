@@ -33,13 +33,13 @@ export default () => (
 ```
 
 >  **TextField** combines label, input, description, and error into a single accessible component.
-For standalone inputs, use **[Input](/docs/components/input)** or **[TextArea](/docs/components/textarea)**.
+For standalone inputs, use **[Input](/docs/react/components/input)** or **[TextArea](/docs/react/components/text-area)**.
 
 ## Examples
 
 ### In Surface
 
-When used inside a [Surface](/docs/components/surface) component, use `variant="secondary"` on Input or TextArea components to apply the lower emphasis variant suitable for surface backgrounds.
+When used inside a [Surface](/docs/react/components/surface) component, use `variant="secondary"` on Input or TextArea components to apply the lower emphasis variant suitable for surface backgrounds.
 
 <ComponentPreview name="textfield-on-surface" />
 
@@ -77,7 +77,7 @@ Control the value to synchronize counters, previews, or formatting.
 
 ### TextArea
 
-Use [TextArea](/docs/components/textarea) instead of [Input](/docs/components/input) for multiline content.
+Use [TextArea](/docs/react/components/text-area) instead of [Input](/docs/react/components/input) for multiline content.
 
 <ComponentPreview name="textfield-textarea" />
 
@@ -128,7 +128,7 @@ HeroUI follows the [BEM](https://getbem.com/) methodology to ensure component va
 
 - `.textfield` – Root container with minimal styling (`flex flex-col gap-1`)
 
-> **Note:** Child components ([Label](/docs/components/label), [Input](/docs/components/input), [TextArea](/docs/components/textarea), [Description](/docs/components/description), [FieldError](/docs/components/field-error)) have their own CSS classes and styling. See their respective documentation for customization options.
+> **Note:** Child components ([Label](/docs/react/components/label), [Input](/docs/react/components/input), [TextArea](/docs/react/components/text-area), [Description](/docs/react/components/description), [FieldError](/docs/react/components/field-error)) have their own CSS classes and styling. See their respective documentation for customization options.
 
 ### Interactive States
 

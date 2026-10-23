@@ -33,7 +33,7 @@ HeroUI (previously NextUI) is a production-ready React component library that co
 |---|---|
 | [`@heroui/react`](https://www.npmjs.com/package/@heroui/react) | Full component bundle |
 | [`@heroui/styles`](https://www.npmjs.com/package/@heroui/styles) | Styles / theme only |
-| Individual packages | e.g. `@heroui/button`, `@heroui/modal` — tree-shakeable per-component imports |
+| Component subpaths | e.g. `@heroui/react/button`, `@heroui/react/modal` — per-component imports from the published `@heroui/react` package |
 
 ## Getting Started
 
@@ -61,7 +61,8 @@ HeroUI is built for the AI-assisted development workflow.
 |---|---|
 | **MCP Server** (`@heroui/react-mcp`) | Components that understand your theme — install the server in Cursor, Claude Code, Windsurf, or any MCP-compatible editor |
 | **llms.txt** | Available at [heroui.com/llms.txt](https://heroui.com/llms.txt) — structured context for LLMs about every component |
-| **Agent Skills** | Run `npx heroui-cli agents-md` to install skills for Cursor, Claude Code, and more |
+| **AGENTS.md** | Run `npx heroui-cli@latest agents-md --react` to download React v3 documentation into your project |
+| **Agent Skills** | Run `npx skills add heroui-inc/heroui` to install skills for supported coding agents |
 
 Works with **Cursor**, **Claude Code**, **Windsurf**, **GitHub Copilot**, and any tool that supports MCP or `llms.txt`.
 

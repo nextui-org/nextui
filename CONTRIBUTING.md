@@ -49,7 +49,7 @@ For troubleshooting, design questions, or open-ended ideas, use [Discussions](ht
 ## Tooling
 
 - [PNPM](https://pnpm.io/) to manage packages and dependencies
-- [Tsup](https://tsup.egoist.dev/) to bundle packages
+- [Rollup](https://rollupjs.org/) to bundle packages
 - [Storybook](https://storybook.js.org/) for rapid UI component development and
   testing
 - [Testing Library](https://testing-library.com/) for testing components and
@@ -142,10 +142,10 @@ pnpm install --hoist
 
 We use [Turbo Repo](https://turborepo.org/) for the project management.
 
-2. If you will be working on the components source code, you can use the following command to start the webpack dev server:
+2. If you will be working on the components source code, you can use the following command to start Storybook with Vite:
 
 ```bash
-## Start the dev babel server of HeroUI core components
+## Start Storybook for HeroUI components
 pnpm dev
 
 ## optional — Storybook is also started by `pnpm dev`
@@ -227,9 +227,9 @@ npm run build
 
 6. Send your pull request:
 
-- Send your pull request to the `canary` branch
+- Send your pull request to the active `v3.x.x` development branch
 - Your pull request will be reviewed by the maintainers and the maintainers will decide if it is accepted or not
-- Once the pull request is accepted, the maintainers will merge it to the `canary` branch
+- Once the pull request is accepted, the maintainers will merge it to the active `v3.x.x` development branch
 
 ## Visual Changes
 
@@ -237,13 +237,17 @@ When making a visual change, please provide screenshots
 and/or screencasts of the proposed change. This will help us to understand the
 desired change easier.
 
-Until HeroUI has a stable release new components will be created only for the core team.
+Discuss new component proposals with maintainers before starting implementation.
 
 ## Documentation
 
 Please update the docs with any API changes, the code and docs should always be in sync.
 
-The main documentation lives in the `apps/docs/content` folder, the project uses MDX and all `HeroUI` are already imported.
+React documentation lives in `apps/docs/content/docs/{en,cn}/react`. Update both locales when changing APIs, defaults, setup instructions, or examples. Demo components live in `apps/docs/src/demos/{en,cn}` and import HeroUI explicitly; MDX helpers such as `ComponentPreview` are registered in `apps/docs/src/mdx-components.tsx`.
+
+Before editing the docs app, read [`apps/docs/AGENTS.md`](apps/docs/AGENTS.md). Register new component pages in each locale's `components/meta.json` and in `apps/docs/src/components/components-category.tsx`. Use canonical `/docs/react/...` links in current guides.
+
+Keep historical release descriptions intact when updating current guidance; broken preview references in release notes should still be repaired.
 
 ## Breaking Changes
 
