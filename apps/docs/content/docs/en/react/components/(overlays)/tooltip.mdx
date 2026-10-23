@@ -91,6 +91,27 @@ To customize the Tooltip component classes, you can use the `@layer components` 
 
 HeroUI follows the [BEM](https://getbem.com/) methodology to ensure component variants and states are reusable and easy to customize.
 
+### Global Delay Configuration
+
+The default theme sets the opening delay to `1500ms` and the closing delay to `500ms`. Override these CSS variables in your global stylesheet:
+
+```css
+:root {
+  --tooltip-delay: 1500ms;
+  --tooltip-close-delay: 500ms;
+}
+
+.light, [data-theme="light"] {
+  --tooltip-delay: 1200ms;
+}
+
+.dark, [data-theme="dark"] {
+  --tooltip-close-delay: 300ms;
+}
+```
+
+Values support CSS time units such as `ms` and `s`. The `delay` and `closeDelay` props on an individual Tooltip override these global settings.
+
 ### CSS Classes
 
 The Tooltip component uses these CSS classes ([View source styles](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/components/tooltip.css)):
@@ -114,8 +135,8 @@ The component supports animation states:
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `children` | `React.ReactNode` | - | Trigger element and content |
-| `delay` | `number` | `700` | Delay in milliseconds before showing tooltip |
-| `closeDelay` | `number` | `0` | Delay in milliseconds before hiding tooltip |
+| `delay` | `number` | `1500` or CSS variable | Delay in milliseconds before showing tooltip; configured globally with `--tooltip-delay` |
+| `closeDelay` | `number` | `500` or CSS variable | Delay in milliseconds before hiding tooltip; configured globally with `--tooltip-close-delay` |
 | `trigger` | `"hover" \| "focus"` | `"hover"` | How the tooltip is triggered |
 | `isDisabled` | `boolean` | `false` | Whether the tooltip is disabled |
 | `shouldSkipAnimation` | `boolean` | `false` | Whether to skip the enter and exit animations when moving quickly from one tooltip to another |
