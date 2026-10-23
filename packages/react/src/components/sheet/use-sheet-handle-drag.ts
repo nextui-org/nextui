@@ -27,7 +27,7 @@ interface HandleDragState {
 }
 
 export function useSheetHandleDrag(swipeDirection: SheetRenderProps["swipeDirection"]) {
-  const {isDismissable, isOpen, snapPoints} = useSheetContext();
+  const {closeSheet, isDismissable, isOpen, snapPoints} = useSheetContext();
   const drag = useRef<HandleDragState | null>(null);
   const lastScroller = useRef<HTMLElement | null>(null);
 
@@ -133,7 +133,19 @@ export function useSheetHandleDrag(swipeDirection: SheetRenderProps["swipeDirect
       return;
     }
 
-    animateSheetScroll(state.scroller, state.axis, target, current);
+    animateSheetScroll(state.scroller, state.axis, target, current, () => {
+      // A panel touching the viewport edge can remain intersecting at zero area,
+      // so RAC's observer may not report the final dismissal threshold.
+      if (
+        !cancelled &&
+        !snapPoints?.length &&
+        target !== state.scroll &&
+        state.scroller.isConnected &&
+        !state.scroller.closest('[data-slot="sheet-overlay"]')?.hasAttribute("data-closed")
+      ) {
+        closeSheet();
+      }
+    });
   };
 
   const cancel = (event: React.PointerEvent<HTMLDivElement>) => finish(event, true);
@@ -155,7 +167,13 @@ function cancelSheetScroll(scroller: HTMLElement) {
   scroller.removeAttribute("data-handle-dragging");
 }
 
-function animateSheetScroll(scroller: HTMLElement, axis: SheetAxis, to: number, from: number) {
+function animateSheetScroll(
+  scroller: HTMLElement,
+  axis: SheetAxis,
+  to: number,
+  from: number,
+  onComplete?: () => void,
+) {
   cancelSheetScroll(scroller);
   scroller.setAttribute("data-handle-dragging", "");
   let completed = false;
@@ -170,6 +188,7 @@ function animateSheetScroll(scroller: HTMLElement, axis: SheetAxis, to: number, 
       completed = true;
       sheetScrollFrames.delete(scroller);
       scroller.removeAttribute("data-handle-dragging");
+      onComplete?.();
     },
     window.matchMedia("(prefers-reduced-motion: reduce)").matches,
   );
