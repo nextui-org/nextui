@@ -17,8 +17,10 @@ const withMDX = createMDX();
 const appEnv = process.env["NEXT_PUBLIC_APP_ENV"];
 const isIndexable = appEnv !== "preview" && appEnv !== "development";
 const llmsFileNames = ["llms.txt", "llms-full.txt", "llms-components.txt", "llms-patterns.txt"];
+const designFilePaths = ["/react/DESIGN.md", "/native/DESIGN.md"];
 const machineOnlyPaths = [
   "/:path*.mdx",
+  ...designFilePaths,
   "/llms.mdx/:path*",
   "/llms-raw.mdx/:path*",
   ...llmsFileNames.map((fileName) => `/${fileName}`),
@@ -62,6 +64,13 @@ const config: NextConfig = {
             },
           ]
         : []),
+      ...designFilePaths.map((source) => ({
+        headers: [
+          {key: "Content-Type", value: "text/markdown; charset=utf-8"},
+          {key: "Cache-Control", value: "public, s-maxage=3600, stale-while-revalidate=86400"},
+        ],
+        source,
+      })),
       {
         // Apple requires the AASA file to be served with `application/json`
         // exactly — any other content type (the default `application/octet-stream`

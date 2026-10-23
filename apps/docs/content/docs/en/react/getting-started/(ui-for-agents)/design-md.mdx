@@ -1,0 +1,67 @@
+---
+title: DESIGN.md
+description: Give coding agents HeroUI's default visual language and theme guidance
+icon: preview
+---
+
+HeroUI provides a ready-to-use [`DESIGN.md`](/react/DESIGN.md) for coding agents. Add it to your project so generated interfaces follow HeroUI's default theme, semantic tokens, component patterns, and design principles.
+
+## Add It to Your Project
+
+Download the latest file to the root of your project:
+
+```bash
+curl -fsSL https://heroui.com/react/DESIGN.md -o DESIGN.md
+```
+
+Or [view the complete DESIGN.md](/react/DESIGN.md) and copy the parts your project needs.
+
+<Callout>
+  `DESIGN.md` is not a universally auto-discovered instruction file. Link it from your `AGENTS.md`, `CLAUDE.md`, or editor rules so your agent knows to read it. `AGENTS.md` explains how to build with HeroUI, while `DESIGN.md` defines what the result should look and feel like.
+</Callout>
+
+## Connect It to Your Agent
+
+Tell your coding agent to use the root-level `DESIGN.md` in your prompt or project instructions:
+
+```text
+Build this interface with HeroUI v3. Follow DESIGN.md for visual decisions and use semantic HeroUI tokens instead of hardcoded values.
+```
+
+For automatic project-wide guidance, add this line to your `AGENTS.md` or equivalent instructions file:
+
+```md
+Follow [DESIGN.md](./DESIGN.md) for all visual and interaction decisions.
+```
+
+## What's Included
+
+- HeroUI's default light and dark color roles
+- Semantic Tailwind utilities and their CSS variable mappings
+- The 4px spacing rhythm and default radius scale
+- Surface, overlay, field, and elevation guidance
+- Component and interaction conventions
+- Practical do's and don'ts for consistent agent-generated UI
+
+The document includes raw theme values for design handoff and visual QA, but instructs agents to implement with semantic utilities such as `bg-background`, `text-foreground`, `bg-surface`, and `border-separator`. This keeps the same UI correct in both light and dark modes.
+
+## Default Theme Principles
+
+| Principle | Agent guidance |
+| --- | --- |
+| Semantic color | Use purpose-based tokens; do not hardcode mode-specific colors |
+| Clear hierarchy | Prefer content order, spacing, typography, and surface levels over decoration |
+| Intentional emphasis | Use one primary action per context and reserve accent for meaningful emphasis |
+| Accessible interaction | Preserve HeroUI focus, keyboard, validation, and disabled behavior |
+| Consistent geometry | Follow the 4px spacing rhythm and the shared radius scale |
+| Composition | Start with HeroUI components and compose their exported parts |
+
+## Source of Truth
+
+The public file describes the current open-source default theme. Its values come from HeroUI's [default theme variables](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/default/variables.css) and [Tailwind token mappings](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/shared/theme.css).
+
+If you customize the theme, update your local `DESIGN.md` alongside your CSS overrides so agents receive the same decisions that users see. See [Theming](/docs/react/getting-started/theming) and [Colors](/docs/react/getting-started/colors) for the full customization model.
+
+<Callout type="info">
+  Need a custom design system instead of the default theme? The [HeroUI Theme Builder](/themes) lets you customize the theme and export its CSS.
+</Callout>

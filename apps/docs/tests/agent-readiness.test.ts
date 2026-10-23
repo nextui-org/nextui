@@ -30,7 +30,7 @@ import {
 import {searchAgentDocs as searchDocs} from "@/lib/agent-api";
 import {HEROUI_DOCS_AGENT_ID} from "@/lib/heroui-agent";
 import {getOrganizationJsonLd} from "@/lib/json-ld";
-import {generateIndexHeader} from "@/lib/llms-utils";
+import {generateIndexHeader, generatePlatformIndexHeader} from "@/lib/llms-utils";
 
 const createAuthToken = vi.hoisted(() => vi.fn());
 const getPages = vi.hoisted(() => vi.fn(() => []));
@@ -478,7 +478,14 @@ describe("HeroUI agent readiness", () => {
     expect(header).toContain("HeroUI OpenAPI specification");
     expect(header).toContain("/openapi.json");
     expect(header).toContain("/.well-known/mcp");
+    expect(header).toContain("/react/DESIGN.md");
+    expect(header).toContain("/native/DESIGN.md");
     expect(header).toContain("/docs/react/getting-started/cli");
+  });
+
+  it("links each platform index to its default theme DESIGN.md", () => {
+    expect(generatePlatformIndexHeader("react").join("\n")).toContain("/react/DESIGN.md");
+    expect(generatePlatformIndexHeader("native").join("\n")).toContain("/native/DESIGN.md");
   });
 
   it("adds a verified HeroUI support contact without fabricating an address", () => {

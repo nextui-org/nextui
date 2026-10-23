@@ -89,7 +89,9 @@ export function generateIndexHeader(): string[] {
     ["HeroUI MCP discovery handshake", "/.well-known/mcp"],
     ["HeroUI MCP server card", "/.well-known/mcp/server-card.json"],
     ["HeroUI React MCP documentation", "/docs/react/getting-started/mcp-server"],
+    ["HeroUI React default theme DESIGN.md", "/react/DESIGN.md"],
     ["HeroUI Native MCP documentation", "/docs/native/getting-started/mcp-server"],
+    ["HeroUI Native default theme DESIGN.md", "/native/DESIGN.md"],
     ["HeroUI CLI documentation", "/docs/react/getting-started/cli"],
   ] as const;
 
@@ -140,6 +142,7 @@ export function generateIndexHeader(): string[] {
 export function generatePlatformIndexHeader(platform: Platform): string[] {
   const platformName = platform.charAt(0).toUpperCase() + platform.slice(1);
   const isReact = platform === "react";
+  const designMdUrl = isReact ? "/react/DESIGN.md" : "/native/DESIGN.md";
   const techStack = isReact
     ? "[Tailwind CSS v4](https://tailwindcss.com/) and [React Aria Components](https://react-spectrum.adobe.com/react-aria/)"
     : "[Tailwind v4](https://tailwindcss.com/) via [Uniwind](https://uniwind.dev/) and modern mobile development technologies";
@@ -157,6 +160,10 @@ export function generatePlatformIndexHeader(platform: Platform): string[] {
     "- Accessible - Built with accessibility best practices",
     "- Flexible - Customizable components with predictable patterns",
     "- Developer-friendly - Fully typed APIs and excellent autocompletion",
+    "",
+    "## Agent Resources",
+    "",
+    `- [Default theme DESIGN.md](${formatAbsoluteUrl(designMdUrl)}) - Visual language and implementation guidance for coding agents`,
     "",
     "## Documentation Index",
     "",

@@ -1,0 +1,63 @@
+---
+title: DESIGN.md
+description: Give coding agents HeroUI Native's default visual language and mobile guidance
+icon: preview
+---
+
+HeroUI Native provides a ready-to-use [`DESIGN.md`](/native/DESIGN.md) for coding agents. Add it to your project so generated screens follow the default theme, semantic tokens, component patterns, and mobile design principles.
+
+## Add It to Your Project
+
+Download the latest file to the root of your project:
+
+```bash
+curl -fsSL https://heroui.com/native/DESIGN.md -o DESIGN.md
+```
+
+Or [view the complete DESIGN.md](/native/DESIGN.md) and copy the parts your project needs.
+
+<Callout>
+  `DESIGN.md` is not a universally auto-discovered instruction file. Link it from your `AGENTS.md`, `CLAUDE.md`, or editor rules so your agent knows to read it.
+</Callout>
+
+## Connect It to Your Agent
+
+Add this line to your `AGENTS.md` or equivalent project instructions:
+
+```md
+Follow [DESIGN.md](./DESIGN.md) for all visual and interaction decisions.
+```
+
+Then prompt your agent normally:
+
+```text
+Build this screen with HeroUI Native. Follow the project instructions and preserve native accessibility, safe areas, and reduced-motion behavior.
+```
+
+## What's Included
+
+- HeroUI Native's default light and dark color roles
+- Semantic Uniwind utilities and their CSS variable mappings
+- Mobile layout, safe-area, keyboard, typography, and touch guidance
+- The default radius scale and native elevation model
+- Compound component, portal, and animation conventions
+- Practical do's and don'ts for consistent iOS and Android interfaces
+
+The document includes raw theme values for design handoff and visual QA, but instructs agents to implement with semantic utilities such as `bg-background`, `text-foreground`, `bg-surface`, and `border-separator`. Uniwind resolves the correct values for the active mode.
+
+## Default Theme Principles
+
+| Principle | Agent guidance |
+| --- | --- |
+| Semantic color | Use purpose-based tokens; do not hardcode mode-specific colors |
+| Mobile-first layout | Respect safe areas, keyboards, screen sizes, and platform behavior |
+| Touch accessibility | Preserve press behavior, comfortable targets, and VoiceOver/TalkBack semantics |
+| Intentional motion | Use component animation APIs and honor the device Reduce Motion setting |
+| Consistent geometry | Follow the shared radius scale and consistent Uniwind spacing |
+| Composition | Use HeroUI Native's compound parts, text slots, portals, and providers |
+
+## Source of Truth
+
+The public file describes the current open-source default theme. Its values come from HeroUI Native's [default theme variables](https://github.com/heroui-inc/heroui-native/blob/main/src/styles/variables.css) and [Uniwind token mappings](https://github.com/heroui-inc/heroui-native/blob/main/src/styles/theme.css).
+
+If you customize the theme, update your local `DESIGN.md` alongside `global.css` so agents receive the same decisions that users see. See [Theming](/docs/native/getting-started/theming), [Colors](/docs/native/getting-started/colors), and [Provider](/docs/native/getting-started/provider) for the complete customization model.

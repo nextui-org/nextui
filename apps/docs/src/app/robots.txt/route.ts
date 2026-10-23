@@ -13,7 +13,9 @@ const GOOGLEBOT_DISALLOWS = [
   "/*.mdx$",
   "/llms*.txt$",
   "/react/llms*.txt$",
+  "/react/DESIGN.md$",
   "/native/llms*.txt$",
+  "/native/DESIGN.md$",
   "/*/node_modules/*",
   "/*/src/*.d.ts$",
 ];

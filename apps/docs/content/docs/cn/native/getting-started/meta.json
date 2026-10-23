@@ -21,6 +21,7 @@
     "(ui-for-agents)/llms-txt",
     "(ui-for-agents)/mcp-server",
     "(ui-for-agents)/agent-skills",
-    "(ui-for-agents)/agents-md"
+    "(ui-for-agents)/agents-md",
+    "(ui-for-agents)/design-md"
   ]
 }

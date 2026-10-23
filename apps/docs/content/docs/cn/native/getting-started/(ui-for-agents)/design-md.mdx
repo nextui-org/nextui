@@ -1,0 +1,63 @@
+---
+title: DESIGN.md
+description: 为编码代理提供 HeroUI Native 的默认视觉语言与移动端规范
+icon: preview
+---
+
+HeroUI Native 提供了一份开箱即用的 [`DESIGN.md`](/native/DESIGN.md)，专为编码代理准备。将它加入你的项目，代理生成的页面就会遵循默认主题、语义化 token、组件模式与移动端设计原则。
+
+## 加入你的项目
+
+将最新文件下载到项目根目录：
+
+```bash
+curl -fsSL https://heroui.com/native/DESIGN.md -o DESIGN.md
+```
+
+或者[查看完整的 DESIGN.md](/native/DESIGN.md)，按需复制你的项目所需的部分。
+
+<Callout>
+  `DESIGN.md` 并不是一个会被普遍自动发现的指令文件。请在 `AGENTS.md`、`CLAUDE.md` 或编辑器规则中引用它，代理才知道要去读取。
+</Callout>
+
+## 接入你的代理
+
+在 `AGENTS.md` 或等效的项目说明中加入这一行：
+
+```md
+Follow [DESIGN.md](./DESIGN.md) for all visual and interaction decisions.
+```
+
+然后按平常的方式向代理提出需求：
+
+```text
+Build this screen with HeroUI Native. Follow the project instructions and preserve native accessibility, safe areas, and reduced-motion behavior.
+```
+
+## 包含内容
+
+- HeroUI Native 默认的浅色与深色配色角色
+- 语义化 Uniwind 工具类及其 CSS 变量映射
+- 移动端布局、安全区域、键盘、排版与触控指南
+- 默认圆角比例与原生层级深度模型
+- 复合组件、Portal 与动画约定
+- 让 iOS 与 Android 界面保持一致的实用建议（Do's and Don'ts）
+
+该文档包含用于设计交付与视觉验收的原始主题值，但会要求代理使用 `bg-background`、`text-foreground`、`bg-surface`、`border-separator` 等语义化工具类来实现。Uniwind 会为当前模式解析出正确的取值。
+
+## 默认主题原则
+
+| 原则 | 代理指引 |
+| --- | --- |
+| 语义化颜色 | 使用基于用途的 token，不要硬编码特定模式的颜色 |
+| 移动端优先布局 | 尊重安全区域、键盘、屏幕尺寸与平台行为 |
+| 触控无障碍 | 保留按压行为、舒适的点击区域，以及 VoiceOver/TalkBack 语义 |
+| 有意识的动效 | 使用组件的动画 API，并遵循设备的「减弱动态效果」设置 |
+| 一致的几何形状 | 遵循统一的圆角比例与一致的 Uniwind 间距 |
+| 组合式开发 | 使用 HeroUI Native 的复合组成部分、文本插槽、Portal 与 Provider |
+
+## 事实来源
+
+该公开文件描述的是当前开源版本的默认主题，其取值来自 HeroUI Native 的[默认主题变量](https://github.com/heroui-inc/heroui-native/blob/main/src/styles/variables.css)与 [Uniwind token 映射](https://github.com/heroui-inc/heroui-native/blob/main/src/styles/theme.css)。
+
+如果你自定义了主题，请在修改 `global.css` 的同时更新本地的 `DESIGN.md`，让代理拿到与用户所见一致的设计决策。完整的自定义模型请参阅[主题定制](/docs/native/getting-started/theming)、[颜色](/docs/native/getting-started/colors)与 [Provider](/docs/native/getting-started/provider)。
