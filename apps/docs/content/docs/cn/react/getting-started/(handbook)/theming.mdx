@@ -108,9 +108,9 @@ export function ThemeSwitch() {
 }
 ```
 
-> **注意**：完整的调色板和视觉参考请参见 [颜色](/docs/handbook/colors)。
+> **注意**：完整的调色板和视觉参考请参见 [颜色](/docs/react/getting-started/colors)。
 
-> **深色模式**：如需基于 `next-themes` 与 HeroUI `useTheme` 钩子的完整配置指南，请参见 [深色模式](/docs/handbook/dark-mode)。
+> **深色模式**：如需基于 `next-themes` 与 HeroUI `useTheme` 钩子的完整配置指南，请参见 [深色模式](/docs/react/getting-started/dark-mode)。
 
 **创建你自己的主题：**
 
@@ -321,9 +321,9 @@ export function ThemeSwitch() {
 }
 ```
 
-> **注意**：完整的样式参考请参见 [样式](/docs/handbook/styling)。
+> **注意**：完整的样式参考请参见 [样式](/docs/react/getting-started/styling)。
 
-**查找组件类名：** 每个组件文档页面都会列出所有可用的类名（基类、修饰符、元素、状态）。示例：[Button 类名](/docs/components/button#css-classes)
+**查找组件类名：** 每个组件文档页面都会列出所有可用的类名（基类、修饰符、元素、状态）。示例：[Button 类名](/docs/react/components/button#css-classes)
 
 ## 导入策略
 
@@ -420,7 +420,7 @@ HeroUI 在 [`variables.css`](https://github.com/heroui-inc/heroui/blob/v3/packag
 2. **主题变量（Theme Variables）** — 在浅色 / 深色主题之间切换的颜色，以及滚动条令牌（`--scrollbar-thumb`、`--scrollbar-width` 等）
 3. **计算变量（Calculated Variables）** — 悬停状态、柔和（soft）变体以及边框 / 分隔线层级（每个浅色 / 深色主题中的 **Calculated Colors** 区块，使用 `color-mix()` 计算）
 
-如需完整参考，请查阅：[颜色文档](/docs/handbook/colors)、[默认主题变量](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/default/variables.css)、[共享主题工具](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/shared/theme.css)
+如需完整参考，请查阅：[颜色文档](/docs/react/getting-started/colors)、[默认主题变量](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/default/variables.css)、[共享主题工具](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/shared/theme.css)
 
 **Tailwind 主题桥接（`@theme inline`）：**
 
@@ -656,14 +656,14 @@ HeroUI 为组件中的滚动区域（表格、弹出框、抽屉等）应用统�
 <Calendar.YearPickerGrid data-scrollbar="none" />
 ```
 
-**自定义溢出区域** — 在自己的元素上使用 `@heroui/styles` 提供的 `scrollbar`、`scrollbar-thin`、`scrollbar-default` 或 `scrollbar-none` 工具类。基于类的覆盖方式详见 [样式](/docs/handbook/styling)。
+**自定义溢出区域** — 在自己的元素上使用 `@heroui/styles` 提供的 `scrollbar`、`scrollbar-thin`、`scrollbar-default` 或 `scrollbar-none` 工具类。基于类的覆盖方式详见 [样式](/docs/react/getting-started/styling)。
 
 > **注意**：部分组件默认隐藏滚动条（日期选择器弹出框、颜色选择器、次级标签页）。嵌套的滚动插槽（例如日期选择器内部的日历年份选择器）会保留 HeroUI 滚动条，因为 `scrollbar-none` 只作用于其所在的元素本身，不会影响使用 `@apply scrollbar` 的后代元素。
 
 ## 资源
 
-- [颜色文档](/docs/handbook/colors)
-- [样式指南](/docs/handbook/styling)
+- [颜色文档](/docs/react/getting-started/colors)
+- [样式指南](/docs/react/getting-started/styling)
 - [Tailwind CSS v4 主题](https://tailwindcss.com/docs/theme)
 - [BEM 方法论](https://getbem.com/)
 - [OKLCH 颜色工具](https://oklch.com)

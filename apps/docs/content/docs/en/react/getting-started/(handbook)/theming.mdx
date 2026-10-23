@@ -108,9 +108,9 @@ export function ThemeSwitch() {
 }
 ```
 
-> **Note**: See [Colors](/docs/handbook/colors) for the complete color palette and visual reference.
+> **Note**: See [Colors](/docs/react/getting-started/colors) for the complete color palette and visual reference.
 
-> **Dark mode**: For a complete setup guide with `next-themes` and HeroUI's `useTheme` hook, see [Dark Mode](/docs/handbook/dark-mode).
+> **Dark mode**: For a complete setup guide with `next-themes` and HeroUI's `useTheme` hook, see [Dark Mode](/docs/react/getting-started/dark-mode).
 
 **Create your own theme:**
 
@@ -321,9 +321,9 @@ Apply your theme:
 }
 ```
 
-> **Note**: See [Styling](/docs/handbook/styling) for the complete styling reference.
+> **Note**: See [Styling](/docs/react/getting-started/styling) for the complete styling reference.
 
-**Find component classes:** Each component docs page lists all available classes (base classes, modifiers, elements, states). Example: [Button classes](/docs/components/button#css-classes)
+**Find component classes:** Each component docs page lists all available classes (base classes, modifiers, elements, states). Example: [Button classes](/docs/react/components/button#css-classes)
 
 ## Import Strategies
 
@@ -420,7 +420,7 @@ HeroUI defines three types of variables in [`variables.css`](https://github.com/
 2. **Theme Variables** — Colors that change between light/dark themes, plus scrollbar tokens (`--scrollbar-thumb`, `--scrollbar-width`, etc.)
 3. **Calculated Variables** — Hover states, soft variants, and border/separator levels (the **Calculated Colors** block in each light/dark theme, using `color-mix()`)
 
-For a complete reference, see: [Colors Documentation](/docs/handbook/colors), [Default Theme Variables](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/default/variables.css), [Shared Theme Utilities](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/shared/theme.css)
+For a complete reference, see: [Colors Documentation](/docs/react/getting-started/colors), [Default Theme Variables](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/default/variables.css), [Shared Theme Utilities](https://github.com/heroui-inc/heroui/blob/v3/packages/styles/themes/shared/theme.css)
 
 **Tailwind theme bridge (`@theme inline`):**
 
@@ -656,7 +656,7 @@ HeroUI applies a shared scrollbar style to component scroll areas (tables, popov
 <Calendar.YearPickerGrid data-scrollbar="none" />
 ```
 
-**Custom overflow areas** — use the `scrollbar`, `scrollbar-thin`, `scrollbar-default`, or `scrollbar-none` utilities from `@heroui/styles` on your own elements. See [Styling](/docs/handbook/styling) for class-based overrides.
+**Custom overflow areas** — use the `scrollbar`, `scrollbar-thin`, `scrollbar-default`, or `scrollbar-none` utilities from `@heroui/styles` on your own elements. See [Styling](/docs/react/getting-started/styling) for class-based overrides.
 
 > **Note**: Some components hide scrollbars by default (date picker popovers, color picker, secondary tabs). Nested scroll slots (e.g. the calendar year picker inside a date picker) keep HeroUI scrollbars because `scrollbar-none` only affects the element it is applied to, not descendants using `@apply scrollbar`.
 
@@ -682,8 +682,8 @@ You can also enable vibrant palette in the [Theme Builder](/themes) via the "Vib
 
 ## Resources
 
-- [Colors Documentation](/docs/handbook/colors)
-- [Styling Guide](/docs/handbook/styling)
+- [Colors Documentation](/docs/react/getting-started/colors)
+- [Styling Guide](/docs/react/getting-started/styling)
 - [Tailwind CSS v4 Theming](https://tailwindcss.com/docs/theme)
 - [BEM Methodology](https://getbem.com/)
 - [OKLCH Color Tool](https://oklch.com)
