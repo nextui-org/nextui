@@ -3,8 +3,8 @@ import {fileURLToPath} from "node:url";
 import {defineConfig} from "vitest/config";
 
 export default defineConfig({
-  esbuild: {
-    jsx: "automatic",
+  oxc: {
+    jsx: {runtime: "automatic"},
   },
   resolve: {
     alias: [
@@ -33,6 +33,6 @@ export default defineConfig({
       NODE_ENV: "development",
     },
     environment: "node",
-    include: ["tests/**/*.test.ts"],
+    include: ["tests/**/*.test.{ts,tsx}"],
   },
 });
