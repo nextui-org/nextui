@@ -7,8 +7,6 @@ packages:
   - "!apps/*/.turbo"
 
 overrides:
-  shiki: 3.20.0
-  ts-morph: 27.0.2
   # Security patches for transitive dependencies. Drop once the parents
   # (eslint, fumadocs-*, postcss-svgo, next, postcss, css-tree, cssnano,
   # @tailwindcss/typography) ship updated ranges.
