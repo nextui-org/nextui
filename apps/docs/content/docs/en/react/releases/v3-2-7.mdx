@@ -6,10 +6,10 @@ github:
 ---
 
 <div className="flex items-center gap-3 mb-6">
-  <span className="text-sm text-muted">October 23, 2026</span>
+  <span className="text-sm text-muted">October 24, 2026</span>
 </div>
 
-React Aria upgrade: HeroUI bumps `react-aria-components` to `1.22.1` (`react-aria@3.53.1`). The new [Sheet](/docs/components/sheet) component provides a swipeable overlay with four placements, snap points, nested sheets, controlled state, bounded detached layouts, and coordinated dragging, scrolling, and handle-driven dismissal. [Slider](/docs/components/slider) adds composable step indicators and mark labels for horizontal, vertical, single-value, and range controls, while components reduce rendering overhead. Accessibility improvements add decorative [Separator](/docs/components/separator) support, preserve dialog naming in date-picker popovers, remove invalid landmark and group attributes, and improve Storybook example semantics. This release also keeps reopened overlays visible and fixes Slider RTL fills, cancelled [Drawer](/docs/components/drawer) drags, stale [ScrollShadow](/docs/components/scroll-shadow) edges, narrow-screen menus, autofilled fields, and Toast layouts.
+React Aria upgrade: HeroUI bumps `react-aria-components` to `1.22.1` (`react-aria@3.53.1`). The new [Sheet](/docs/components/sheet) component provides a swipeable overlay with four placements, snap points, nested sheets, controlled state, bounded detached layouts, and coordinated dragging, scrolling, and handle-driven dismissal. [Slider](/docs/components/slider) adds composable step indicators and mark labels for horizontal, vertical, single-value, and range controls, while components reduce rendering overhead. Accessibility improvements add decorative [Separator](/docs/components/separator) support, preserve dialog naming in date-picker popovers, remove invalid landmark and group attributes, and improve Storybook example semantics. This release also keeps reopened overlays visible and fixes Slider RTL fills, Switch thumb jitter, cancelled [Drawer](/docs/components/drawer) drags, stale [ScrollShadow](/docs/components/scroll-shadow) edges, narrow-screen menus, autofilled fields, and Toast layouts.
 
 ## Installation
 
@@ -64,6 +64,7 @@ Update to the latest version:
 - **Dropdown**: Align submenu item start padding with the menu padding scale ([#6941](https://github.com/heroui-inc/heroui/pull/6941)). Center the trigger icon in the with-sections example ([#6944](https://github.com/heroui-inc/heroui/pull/6944)). Keep menus wide enough for their rows and icons on narrow screens while capping them to the available viewport width ([#6957](https://github.com/heroui-inc/heroui/pull/6957)).
 - **ComboBox**: Keep scrolling on the controlled listbox rather than the outer popover, so keyboard navigation and virtual focus can reveal every option ([#6959](https://github.com/heroui-inc/heroui/pull/6959)).
 - **Slider**: Anchor horizontal fills from the inline start side so filled tracks align with React Aria thumb positions in RTL locales ([#6964](https://github.com/heroui-inc/heroui/pull/6964)).
+- **Switch**: Prevent thumb jitter when toggling by animating its position without changing the flex layout, while preserving RTL alignment and custom track widths ([#6970](https://github.com/heroui-inc/heroui/pull/6970)).
 - **Drawer**: Recover from a cancelled swipe without leaving the sheet displaced or stuck in a drag state. `lostpointercapture` on a hit child is ignored, the panel snaps back when the dialog loses capture, and consumer `style` props merge with `touch-action: none` instead of replacing it. The open slide runs on `Drawer.Content` because React Aria clears `data-entering` on the dialog before paint ([#6968](https://github.com/heroui-inc/heroui/pull/6968)).
 - **ScrollShadow**: Clear automatic visibility attributes when `isEnabled` changes to `false`, preventing stale edge shadows from remaining visible ([#6964](https://github.com/heroui-inc/heroui/pull/6964)).
 - **Calendar**: Keep weekday header labels in equal columns ([#6925](https://github.com/heroui-inc/heroui/pull/6925)).

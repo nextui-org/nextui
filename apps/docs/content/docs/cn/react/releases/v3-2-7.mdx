@@ -6,10 +6,10 @@ github:
 ---
 
 <div className="flex items-center gap-3 mb-6">
-  <span className="text-sm text-muted">2026 年 10 月 23 日</span>
+  <span className="text-sm text-muted">2026 年 10 月 24 日</span>
 </div>
 
-React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。全新 [Sheet](/docs/components/sheet) 组件提供可滑动浮层，支持四种放置方向、吸附点、嵌套 Sheet、受控状态、限定在视口内的分离式布局，以及协调拖动、滚动与 handle 关闭。[Slider](/docs/components/slider) 新增适用于水平、垂直、单值与范围控件的可组合步进指示点和刻度标签，同时降低组件渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例语义。本版本还让重新打开的浮层保持可见，并修复 Slider RTL 填充、取消的 [Drawer](/docs/components/drawer) 拖动、残留的 [ScrollShadow](/docs/components/scroll-shadow) 边缘阴影、窄屏菜单、自动填充字段与 Toast 布局。
+React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`react-aria@3.53.1`）。全新 [Sheet](/docs/components/sheet) 组件提供可滑动浮层，支持四种放置方向、吸附点、嵌套 Sheet、受控状态、限定在视口内的分离式布局，以及协调拖动、滚动与 handle 关闭。[Slider](/docs/components/slider) 新增适用于水平、垂直、单值与范围控件的可组合步进指示点和刻度标签，同时降低组件渲染开销。无障碍改进新增装饰性 [Separator](/docs/components/separator) 支持，在日期选择器浮层中保留对话框名称，移除无效的地标与分组属性，并改进 Storybook 示例语义。本版本还让重新打开的浮层保持可见，并修复 Slider RTL 填充、Switch 滑块抖动、取消的 [Drawer](/docs/components/drawer) 拖动、残留的 [ScrollShadow](/docs/components/scroll-shadow) 边缘阴影、窄屏菜单、自动填充字段与 Toast 布局。
 
 ## 安装
 
@@ -64,6 +64,7 @@ React Aria 升级：HeroUI 将 `react-aria-components` 升级至 `1.22.1`（`rea
 - **Dropdown**：子菜单项起始内边距与菜单内边距刻度对齐 ([#6941](https://github.com/heroui-inc/heroui/pull/6941))。居中 with-sections 示例中的触发器图标 ([#6944](https://github.com/heroui-inc/heroui/pull/6944))。在窄屏上让菜单保持足以容纳选项与图标的宽度，同时不超过视口可用宽度 ([#6957](https://github.com/heroui-inc/heroui/pull/6957))。
 - **ComboBox**：将滚动保留在受输入框控制的列表框上，而不是外层浮层，使键盘导航与虚拟焦点能够显示所有选项 ([#6959](https://github.com/heroui-inc/heroui/pull/6959))。
 - **Slider**：水平填充区域从行内起始侧定位，使 RTL 语言环境中的填充轨道与 React Aria 的滑块位置一致 ([#6964](https://github.com/heroui-inc/heroui/pull/6964))。
+- **Switch**：通过不改变 flex 布局的位置动画消除切换时的滑块抖动，同时保留 RTL 对齐与自定义轨道宽度支持 ([#6970](https://github.com/heroui-inc/heroui/pull/6970))。
 - **Drawer**：取消滑动后不再让面板停在偏移位置或卡在拖动状态。命中子元素触发的 `lostpointercapture` 会被忽略；当对话框自身失去捕获时面板会弹回；消费者传入的 `style` 会与 `touch-action: none` 合并，而不会把它覆盖掉。打开滑入动画改在 `Drawer.Content` 上运行，因为 React Aria 会在绘制前清除对话框上的 `data-entering` ([#6968](https://github.com/heroui-inc/heroui/pull/6968))。
 - **ScrollShadow**：当 `isEnabled` 变为 `false` 时清除自动可见性属性，避免边缘残留阴影 ([#6964](https://github.com/heroui-inc/heroui/pull/6964))。
 - **Calendar**：星期标题标签保持等宽列 ([#6925](https://github.com/heroui-inc/heroui/pull/6925))。
