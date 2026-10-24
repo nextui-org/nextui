@@ -9,7 +9,7 @@ import {SeparatorContext} from "react-aria-components/Separator";
 import {ToggleButtonGroupContext} from "react-aria-components/ToggleButtonGroup";
 import {Toolbar as ToolbarPrimitive} from "react-aria-components/Toolbar";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 
 /* -------------------------------------------------------------------------------------------------
  * Toolbar Root
@@ -35,7 +35,7 @@ const ToolbarRoot = ({
         value={{orientation: orientation === "horizontal" ? "vertical" : "horizontal"}}
       >
         <ToolbarPrimitive
-          className={composeTwRenderProps(className, styles)}
+          className={useResolvedClassName(className, styles)}
           data-slot="toolbar"
           orientation={orientation}
           {...props}

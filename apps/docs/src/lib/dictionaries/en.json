@@ -2,9 +2,9 @@
   "home": {
     "releaseBadges": [
       {
-        "label": "HeroUI React v3.2.6 — React Aria 1.21.1",
-        "href": "/docs/react/releases/v3-2-6",
-        "date": "2026-09-17"
+        "label": "HeroUI React v3.2.7 — React Aria 1.22.1 upgrade",
+        "href": "/docs/react/releases/v3-2-7",
+        "date": "2026-10-18"
       },
       {
         "label": "HeroUI Native v1.0.11 — Expo SDK 58 & CSS layers",

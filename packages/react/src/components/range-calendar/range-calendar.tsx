@@ -25,7 +25,7 @@ import {cx} from "tailwind-variants";
 
 import {dataAttr} from "../../utils/assertion";
 import {getGregorianYearOffset} from "../../utils/calendar";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {CalendarDayViewGridBody} from "../calendar/calendar-day-view-grid-body";
 import {CalendarDayViewGridHeader} from "../calendar/calendar-day-view-grid-header";
@@ -163,7 +163,7 @@ function RangeCalendarRoot<T extends DateValue = DateValue>({
         minValue={minValue}
         visibleDuration={visibleDuration}
         {...rest}
-        className={composeTwRenderProps(
+        className={useResolvedClassName(
           className,
           cx(
             slots.base(),
@@ -193,13 +193,13 @@ RangeCalendarRoot.displayName = "HeroUI.RangeCalendar";
 | * RangeCalendar Header
 | * -----------------------------------------------------------------------------------------------*/
 interface RangeCalendarHeaderProps<
-  E extends keyof React.JSX.IntrinsicElements = "header",
+  E extends keyof React.JSX.IntrinsicElements = "div",
 > extends DOMRenderProps<E, undefined> {
   children?: ReactNode;
   className?: string;
 }
 
-const RangeCalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "header">({
+const RangeCalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "div">({
   children,
   className,
   ...props
@@ -208,13 +208,13 @@ const RangeCalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "head
   const {slots} = use(RangeCalendarContext);
 
   return (
-    <dom.header
+    <dom.div
       className={composeSlotClassName(slots?.header, className)}
       data-slot="range-calendar-header"
       {...(props as any)}
     >
       {children}
-    </dom.header>
+    </dom.div>
   );
 };
 
@@ -261,7 +261,7 @@ const RangeCalendarNavButton = ({
       data-slot="range-calendar-nav-button"
       slot={slot}
       {...props}
-      className={composeTwRenderProps(className, slots?.navButton())}
+      className={useResolvedClassName(className, slots?.navButton())}
     >
       {children ||
         (slot === "previous" ? (
@@ -425,7 +425,7 @@ const RangeCalendarCell = ({children, className, ...props}: RangeCalendarCellPro
     <CalendarCellPrimitive
       data-slot="range-calendar-cell"
       {...props}
-      className={composeTwRenderProps(className, slots?.cell())}
+      className={useResolvedClassName(className, slots?.cell())}
     >
       {(values) => {
         const {formattedDate, isDisabled, isHovered, isPressed, isSelectionEnd, isSelectionStart} =

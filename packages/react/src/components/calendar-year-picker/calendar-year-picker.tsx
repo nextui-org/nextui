@@ -11,7 +11,7 @@ import {useCalendarHeading, useCalendarYearPicker} from "react-aria/useCalendar"
 import {Button as ButtonPrimitive} from "react-aria-components/Button";
 
 import {getYearRange} from "../../utils/calendar";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronRight} from "../icons";
 
@@ -129,7 +129,7 @@ const CalendarYearPickerTrigger = ({
       <ButtonPrimitive
         aria-expanded={isYearPickerOpen}
         aria-label={`${monthYear}, year selector`}
-        className={composeTwRenderProps(className, slots.trigger())}
+        className={useResolvedClassName(className, slots.trigger())}
         data-open={isYearPickerOpen || undefined}
         data-slot="calendar-year-picker-trigger"
         slot={null}
@@ -327,6 +327,10 @@ const CalendarYearPickerGrid = <E extends keyof React.JSX.IntrinsicElements = "d
   );
 
   const [activeYear, setActiveYear] = React.useState(focusedYear);
+
+  if (isYearPickerOpen && years.length > 0 && !years.includes(activeYear)) {
+    setActiveYear(years[0]!);
+  }
   const wasYearPickerOpenRef = React.useRef(false);
 
   // Position the year grid to overlay the day grid
@@ -373,9 +377,8 @@ const CalendarYearPickerGrid = <E extends keyof React.JSX.IntrinsicElements = "d
 
     const nextActiveYear = years.includes(focusedYear) ? focusedYear : firstYear;
 
-    setActiveYear(nextActiveYear);
-
     const rafId = requestAnimationFrame(() => {
+      setActiveYear(nextActiveYear);
       focusYearCell(nextActiveYear);
     });
 
@@ -383,18 +386,6 @@ const CalendarYearPickerGrid = <E extends keyof React.JSX.IntrinsicElements = "d
       cancelAnimationFrame(rafId);
     };
   }, [focusYearCell, focusedYear, isYearPickerOpen, itemsKey, years]);
-
-  React.useEffect(() => {
-    if (!isYearPickerOpen || years.length === 0) return;
-
-    const [firstYear] = years;
-
-    if (firstYear == null) return;
-
-    if (!years.includes(activeYear)) {
-      setActiveYear(firstYear);
-    }
-  }, [activeYear, isYearPickerOpen, itemsKey, years]);
 
   const handleYearSelect = React.useCallback(
     (year: number) => {
@@ -596,7 +587,7 @@ const CalendarYearPickerCell = ({
     <ButtonPrimitive
       aria-label={formattedYear}
       aria-selected={isSelected}
-      className={composeTwRenderProps(className, slots.yearCell())}
+      className={useResolvedClassName(className, slots.yearCell())}
       data-selected={isSelected || undefined}
       data-slot="calendar-year-picker-year-cell"
       data-year={year}

@@ -7,7 +7,7 @@ import {menuVariants} from "@heroui/styles";
 import React from "react";
 import {Menu as MenuPrimitive} from "react-aria-components/Menu";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 
 /* -------------------------------------------------------------------------------------------------
  * Menu Root
@@ -22,12 +22,14 @@ function MenuRoot<T extends object>({className, ...props}: MenuRootProps<T>) {
 
   return (
     <MenuPrimitive
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
       data-slot="menu"
       {...props}
     />
   );
 }
+
+MenuRoot.displayName = "HeroUI.Menu";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

@@ -39,6 +39,8 @@ const SwitchGroupRoot = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+SwitchGroupRoot.displayName = "HeroUI.SwitchGroup";
+
 /* -------------------------------------------------------------------------------------------------
  * Exports
  * -----------------------------------------------------------------------------------------------*/

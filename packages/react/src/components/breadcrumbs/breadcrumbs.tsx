@@ -11,7 +11,7 @@ import {
   Breadcrumbs as BreadcrumbsPrimitive,
 } from "react-aria-components/Breadcrumbs";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {IconChevronRight} from "../icons";
 import {Link} from "../link";
 
@@ -49,6 +49,8 @@ const BreadcrumbsRoot = ({children, className, separator, ...props}: Breadcrumbs
   );
 };
 
+BreadcrumbsRoot.displayName = "HeroUI.Breadcrumbs";
+
 /* -------------------------------------------------------------------------------------------------
  * Breadcrumbs Item
  * -----------------------------------------------------------------------------------------------*/
@@ -83,7 +85,7 @@ const BreadcrumbsItem = ({
 
   return (
     <BreadcrumbPrimitive
-      className={composeTwRenderProps(className, slots?.item())}
+      className={useResolvedClassName(className, slots?.item())}
       data-slot="breadcrumbs-item"
       {...props}
     >
@@ -104,6 +106,8 @@ const BreadcrumbsItem = ({
     </BreadcrumbPrimitive>
   );
 };
+
+BreadcrumbsItem.displayName = "HeroUI.Breadcrumbs.Item";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

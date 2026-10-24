@@ -1,6 +1,16 @@
 /* Base avatar styles */
 .avatar {
-  @apply relative flex size-10 shrink-0 items-center justify-center overflow-hidden rounded-3xl bg-default;
+  /* Shape tokens. AvatarGroup's clip seam traces `--avatar-radius`, so the
+     radius has to live in a custom property rather than a `rounded-*` utility.
+     The steps are spelled out instead of read from `--radius-3xl` /
+     `--radius-2xl`, which resolve once at `:root` and would ignore a scoped
+     `--radius`. */
+  --avatar-size: 2.5rem; /* size-10 — same as --md */
+  --avatar-radius: calc(var(--radius) * 3); /* rounded-3xl */
+
+  @apply relative flex size-10 shrink-0 items-center justify-center overflow-hidden bg-default;
+
+  border-radius: var(--avatar-radius);
 }
 
 /* Avatar fallback element */
@@ -21,8 +31,9 @@
 /* Size modifiers */
 .avatar--sm {
   --avatar-size: 2rem; /* size-8 */
+  --avatar-radius: calc(var(--radius) * 2); /* rounded-2xl */
 
-  @apply size-8 rounded-2xl;
+  @apply size-8;
 
   .avatar__fallback {
     @apply text-xs;
@@ -30,15 +41,13 @@
 }
 
 .avatar--md {
-  --avatar-size: 2.5rem; /* size-10 — same as base */
-
   /* No layout styles as this is the default size */
 }
 
 .avatar--lg {
   --avatar-size: 3rem; /* size-12 */
 
-  @apply size-12 rounded-3xl;
+  @apply size-12;
 
   .avatar__fallback {
     @apply text-base;

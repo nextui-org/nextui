@@ -14,7 +14,8 @@ import {
   Popover as PopoverPrimitive,
 } from "react-aria-components/Popover";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {SurfaceContext} from "../surface";
 
 /* -------------------------------------------------------------------------------------------------
@@ -54,6 +55,8 @@ const ColorPickerRoot = ({children, className, ...props}: ColorPickerRootProps) 
   );
 };
 
+ColorPickerRoot.displayName = "HeroUI.ColorPicker";
+
 /* -------------------------------------------------------------------------------------------------
  * ColorPicker Trigger
  * -----------------------------------------------------------------------------------------------*/
@@ -64,14 +67,16 @@ const ColorPickerTrigger = ({children, className, ...props}: ColorPickerTriggerP
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="color-picker-trigger"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </ButtonPrimitive>
   );
 };
+
+ColorPickerTrigger.displayName = "HeroUI.ColorPicker.Trigger";
 
 /* -------------------------------------------------------------------------------------------------
  * ColorPicker Popover
@@ -86,10 +91,15 @@ interface ColorPickerPopoverProps extends Omit<
 const ColorPickerPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom left",
+  ref,
   ...props
 }: ColorPickerPopoverProps) => {
   const {slots} = use(ColorPickerContext);
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <SurfaceContext
@@ -99,8 +109,12 @@ const ColorPickerPopover = ({
     >
       <PopoverPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots?.popover())}
+        ref={overlayRef}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="color-picker-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
       >
         {children}
@@ -108,6 +122,8 @@ const ColorPickerPopover = ({
     </SurfaceContext>
   );
 };
+
+ColorPickerPopover.displayName = "HeroUI.ColorPicker.Popover";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

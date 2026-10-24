@@ -12,7 +12,7 @@ import {
   ToggleButtonGroup as ToggleButtonGroupPrimitive,
 } from "react-aria-components/ToggleButtonGroup";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils";
+import {composeSlotClassName, useResolvedClassName} from "../../utils";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -47,10 +47,12 @@ const ToggleButtonGroupRoot = ({
   isDetached = false,
   isDisabled,
   orientation: orientationProp,
+  render,
   size,
   ...rest
 }: ToggleButtonGroupRootProps) => {
-  const racContext = useSlottedContext(RACToggleButtonGroupContext);
+  const racContext = useSlottedContext(RACToggleButtonGroupContext, rest.slot);
+  const resolvedRender = render ?? racContext?.render;
   const orientation = orientationProp ?? racContext?.orientation ?? "horizontal";
 
   const slots = React.useMemo(
@@ -62,17 +64,32 @@ const ToggleButtonGroupRoot = ({
   return (
     <ToggleButtonGroupContext value={contextValue}>
       <ToggleButtonGroupPrimitive
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
         data-slot="toggle-button-group"
         isDisabled={isDisabled}
         orientation={orientation}
         {...rest}
+        render={(domProps, values) => {
+          // Custom renderers may supply their own semantic role.
+          if (resolvedRender) return resolvedRender(domProps, values);
+
+          // RAC changes nested toolbars to groups, which do not support aria-orientation.
+          const groupProps = {
+            ...domProps,
+            "aria-orientation":
+              domProps.role === "group" ? undefined : domProps["aria-orientation"],
+          };
+
+          return <div {...groupProps} />;
+        }}
       >
         {children}
       </ToggleButtonGroupPrimitive>
     </ToggleButtonGroupContext>
   );
 };
+
+ToggleButtonGroupRoot.displayName = "HeroUI.ToggleButtonGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * ToggleButtonGroup Separator
@@ -99,6 +116,8 @@ const ToggleButtonGroupSeparator = <E extends keyof React.JSX.IntrinsicElements 
     />
   );
 };
+
+ToggleButtonGroupSeparator.displayName = "HeroUI.ToggleButtonGroup.Separator";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

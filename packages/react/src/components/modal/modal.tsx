@@ -15,6 +15,7 @@ import {
   Dialog as DialogPrimitive,
   Heading as HeadingPrimitive,
   DialogTrigger as ModalTriggerPrimitive,
+  OverlayTriggerStateContext,
 } from "react-aria-components/Dialog";
 import {
   ModalOverlay as ModalOverlayPrimitive,
@@ -22,8 +23,9 @@ import {
   Pressable as PressablePrimitive,
 } from "react-aria-components/Modal";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 import {CloseButton} from "../close-button";
 import {SurfaceContext} from "../surface";
 
@@ -68,6 +70,8 @@ const ModalRoot = ({children, state, ...props}: ModalRootProps) => {
   );
 };
 
+ModalRoot.displayName = "HeroUI.Modal";
+
 /* -------------------------------------------------------------------------------------------------
  * Modal Trigger
  * -----------------------------------------------------------------------------------------------*/
@@ -99,6 +103,8 @@ const ModalTrigger = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+ModalTrigger.displayName = "HeroUI.Modal.Trigger";
+
 /* -------------------------------------------------------------------------------------------------
  * Modal Backdrop
  * -----------------------------------------------------------------------------------------------*/
@@ -114,12 +120,23 @@ interface ModalBackdropProps extends ComponentPropsWithRef<typeof ModalOverlayPr
 const ModalBackdrop = ({
   children,
   className,
+  defaultOpen,
   isDismissable = true,
+  isExiting: isExitingProp,
+  isOpen,
   onClick,
+  ref,
   variant,
   ...props
 }: ModalBackdropProps) => {
   const {slots: contextSlots} = use(ModalContext);
+  const overlayState = use(OverlayTriggerStateContext);
+  // React Aria only accepts `isExiting` on the overlay. The hold also waits for the
+  // container's exit animation inside it.
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, overlayState),
+    {ref},
+  );
 
   const updatedSlots = useMemo(() => modalVariants({variant}), [variant]);
 
@@ -130,9 +147,13 @@ const ModalBackdrop = ({
 
   return (
     <ModalOverlayPrimitive
-      className={composeTwRenderProps(className, updatedSlots?.backdrop())}
+      ref={overlayRef}
+      className={useResolvedClassName(className, updatedSlots?.backdrop())}
       data-slot="modal-backdrop"
+      defaultOpen={defaultOpen}
       isDismissable={isDismissable}
+      isExiting={isExiting || isExitingProp}
+      isOpen={isOpen}
       onClick={(e) => {
         e.stopPropagation();
         onClick?.(e);
@@ -147,6 +168,8 @@ const ModalBackdrop = ({
     </ModalOverlayPrimitive>
   );
 };
+
+ModalBackdrop.displayName = "HeroUI.Modal.Backdrop";
 
 /* -------------------------------------------------------------------------------------------------
  * Modal Container
@@ -179,7 +202,7 @@ const ModalContainer = ({
 
   return (
     <ModalPrimitive
-      className={composeTwRenderProps(className, updatedSlots?.container())}
+      className={useResolvedClassName(className, updatedSlots?.container())}
       data-placement={placement}
       data-slot="modal-container"
       {...props}
@@ -192,6 +215,8 @@ const ModalContainer = ({
     </ModalPrimitive>
   );
 };
+
+ModalContainer.displayName = "HeroUI.Modal.Container";
 
 /* -------------------------------------------------------------------------------------------------
  * Modal Dialog
@@ -214,6 +239,8 @@ const ModalDialog = ({children, className, ...props}: ModalDialogProps) => {
     </SurfaceContext>
   );
 };
+
+ModalDialog.displayName = "HeroUI.Modal.Dialog";
 
 /* -------------------------------------------------------------------------------------------------
  * Modal Header
@@ -243,6 +270,8 @@ const ModalHeader = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+ModalHeader.displayName = "HeroUI.Modal.Header";
+
 /* -------------------------------------------------------------------------------------------------
  * Modal Body
  * -----------------------------------------------------------------------------------------------*/
@@ -270,6 +299,8 @@ const ModalBody = <E extends keyof React.JSX.IntrinsicElements = "div">({
     </dom.div>
   );
 };
+
+ModalBody.displayName = "HeroUI.Modal.Body";
 
 /* -------------------------------------------------------------------------------------------------
  * Modal Footer
@@ -299,6 +330,8 @@ const ModalFooter = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+ModalFooter.displayName = "HeroUI.Modal.Footer";
+
 /* -------------------------------------------------------------------------------------------------
  * Modal Heading
  * -----------------------------------------------------------------------------------------------*/
@@ -318,6 +351,8 @@ const ModalHeading = ({children, className, ...props}: ModalHeadingProps) => {
     </HeadingPrimitive>
   );
 };
+
+ModalHeading.displayName = "HeroUI.Modal.Heading";
 
 /* -------------------------------------------------------------------------------------------------
  * AlertDialog Icon
@@ -347,6 +382,8 @@ const ModalIcon = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+ModalIcon.displayName = "HeroUI.Modal.Icon";
+
 /* -------------------------------------------------------------------------------------------------
  * Modal Close Trigger
  * -----------------------------------------------------------------------------------------------*/
@@ -360,13 +397,15 @@ const ModalCloseTrigger = ({className, ...rest}: ModalCloseTriggerProps) => {
 
   return (
     <CloseButton
-      className={composeTwRenderProps(className, slots?.closeTrigger())}
+      className={useResolvedClassName(className, slots?.closeTrigger())}
       data-slot="modal-close-trigger"
       slot="close"
       {...rest}
     />
   );
 };
+
+ModalCloseTrigger.displayName = "HeroUI.Modal.CloseTrigger";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

@@ -188,4 +188,21 @@ describe("TextField", () => {
     expect(input).toHaveFocus();
     expect(input).toHaveAttribute("data-focus-visible", "true");
   });
+
+  it("supports children as a render function receiving field state", () => {
+    render(
+      <TextField isRequired>
+        {({isRequired}) => (
+          <>
+            <Label>Your name</Label>
+            <Input />
+            <Description>{isRequired ? "Required" : "Optional"}</Description>
+          </>
+        )}
+      </TextField>,
+    );
+
+    expect(screen.getByRole("textbox", {name: "Your name"})).toBeInTheDocument();
+    expect(screen.getByText("Required")).toBeInTheDocument();
+  });
 });

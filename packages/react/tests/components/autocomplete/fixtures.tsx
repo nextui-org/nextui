@@ -17,6 +17,7 @@ const animals = [
 ];
 
 export type AutocompleteMultipleFixtureProps = {
+  defaultOpen?: boolean;
   onRemove?: (keys: Set<Key>) => void;
 };
 
@@ -33,6 +34,7 @@ export const AutocompleteMultipleFixture = (props: AutocompleteMultipleFixturePr
   return (
     <Autocomplete
       data-testid="autocomplete"
+      defaultOpen={props.defaultOpen}
       placeholder="Select animals"
       selectionMode="multiple"
       value={selectedKeys}

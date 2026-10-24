@@ -16,10 +16,13 @@ import {
   OverlayArrow,
   Popover as PopoverPrimitive,
   Pressable as PressablePrimitive,
+  PopoverContext as RACPopoverContext,
 } from "react-aria-components/Popover";
+import {useSlottedContext} from "react-aria-components/slots";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {SurfaceContext} from "../surface";
 
 /* -------------------------------------------------------------------------------------------------
@@ -54,6 +57,8 @@ const PopoverRoot = ({
   );
 };
 
+PopoverRoot.displayName = "HeroUI.Popover";
+
 /* -------------------------------------------------------------------------------------------------
  * Popover Content
  * -----------------------------------------------------------------------------------------------*/
@@ -62,20 +67,54 @@ interface PopoverContentProps
   children: React.ReactNode;
 }
 
-const PopoverContent = ({children, className, ...props}: PopoverContentProps) => {
+const PopoverContent = ({
+  children,
+  className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
+  ref,
+  render,
+  ...props
+}: PopoverContentProps) => {
   const {slots} = use(PopoverContext);
+  const racContext = useSlottedContext(RACPopoverContext, props.slot);
+  const resolvedRender = render ?? racContext?.render;
   const contextValue = React.useMemo(() => ({slots}), [slots]);
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <PopoverContext value={contextValue}>
       <SurfaceContext value={DEFAULT_SURFACE_CONTEXT}>
-        <PopoverPrimitive {...props} className={composeTwRenderProps(className, slots?.base())}>
+        <PopoverPrimitive
+          {...props}
+          ref={overlayRef}
+          className={useResolvedClassName(className, slots?.base())}
+          defaultOpen={defaultOpen}
+          isExiting={isExiting || isExitingProp}
+          isOpen={isOpen}
+          render={(domProps, values) => {
+            // Custom renderers may supply their own semantic role.
+            if (resolvedRender) return resolvedRender(domProps, values);
+
+            // When a child Dialog owns the semantics, RAC leaves this container generic.
+            const popoverProps = {
+              ...domProps,
+              "aria-label": domProps.role ? domProps["aria-label"] : undefined,
+              "aria-labelledby": domProps.role ? domProps["aria-labelledby"] : undefined,
+            };
+
+            return <div {...popoverProps} />;
+          }}
+        >
           {children}
         </PopoverPrimitive>
       </SurfaceContext>
     </PopoverContext>
   );
 };
+
+PopoverContent.displayName = "HeroUI.Popover.Content";
 
 /* -------------------------------------------------------------------------------------------------
  * Popover Arrow
@@ -117,6 +156,8 @@ const PopoverArrow = ({children, className, ...props}: PopoverArrowProps) => {
   );
 };
 
+PopoverArrow.displayName = "HeroUI.Popover.Arrow";
+
 /* -------------------------------------------------------------------------------------------------
  * Popover Dialog
  * -----------------------------------------------------------------------------------------------*/
@@ -137,6 +178,8 @@ const PopoverDialog = ({children, className, ...props}: PopoverDialogProps) => {
     </DialogPrimitive>
   );
 };
+
+PopoverDialog.displayName = "HeroUI.Popover.Dialog";
 
 /* -------------------------------------------------------------------------------------------------
  * Popover Trigger
@@ -169,6 +212,8 @@ const PopoverTrigger = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+PopoverTrigger.displayName = "HeroUI.Popover.Trigger";
+
 /* -------------------------------------------------------------------------------------------------
  * Popover Heading
  * -----------------------------------------------------------------------------------------------*/
@@ -187,6 +232,8 @@ const PopoverHeading = ({children, className, ...props}: PopoverHeadingProps) =>
     </HeadingPrimitive>
   );
 };
+
+PopoverHeading.displayName = "HeroUI.Popover.Heading";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

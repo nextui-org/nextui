@@ -13,7 +13,7 @@ import {
   SwitchField as SwitchFieldPrimitive,
 } from "react-aria-components/Switch";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 const LABEL_SPAN_CONTEXT = {elementType: "span" as const};
@@ -38,7 +38,7 @@ const SwitchRoot = ({children, className, size, ...props}: SwitchRootProps) => {
     <SwitchFieldPrimitive
       data-slot="switch"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(state) => (
         <SwitchContext value={{slots, state}}>
@@ -64,7 +64,7 @@ const SwitchContent = ({children, className, ...props}: SwitchContentProps) => {
     <SwitchButtonPrimitive
       data-slot="switch-content"
       {...props}
-      className={composeTwRenderProps(className, slots?.content())}
+      className={useResolvedClassName(className, slots?.content())}
     >
       {(state) => (
         <LabelContext value={LABEL_SPAN_CONTEXT}>

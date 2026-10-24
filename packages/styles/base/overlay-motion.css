@@ -1,0 +1,158 @@
+/*
+ * Overlay enter/exit motion.
+ *
+ * tw-animate-css `enter` / `exit` keyframes always animate `filter`, even when
+ * the blur amount is 0. A filter animation on a popover — and especially on a
+ * full-viewport modal backdrop — is a main-thread / GPU filter pass. On
+ * mid-range devices (A14-class: iPhone 12, iPad 10) that pass often lasts
+ * longer than the 100–250ms animation, so the overlay appears late and the
+ * motion is skipped.
+ *
+ * These keyframes animate opacity and transform only. React Aria positions
+ * overlays with top/left, so a transform animation does not fight placement.
+ *
+ * Every keyframe uses literal values. Reading custom properties inside
+ * keyframes (`var(--x)`) can keep WebKit from running the animation on the
+ * compositor, so each scale / direction combination is spelled out instead.
+ *
+ * Enter keyframes are named `heroui-overlay-enter-<scale>[-<offset>]`:
+ *   scale   90 / 95 / 100 / 105 -> scale(0.9) / 0.95 / 1 / 1.05
+ *   offset  y / ny / x / nx -> translate 0.25rem / -0.25rem on the Y / X axis
+ */
+
+@keyframes heroui-overlay-fade-in {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes heroui-overlay-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+/* Both ends are set. An implicit `transform: none` start does not interpolate on WebKit,
+   so the close animation never becomes `running` and the overlay unmounts immediately. */
+@keyframes heroui-overlay-exit {
+  from {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+}
+
+@keyframes heroui-overlay-enter-90 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.9);
+  }
+}
+
+@keyframes heroui-overlay-enter-90-y {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.25rem, 0) scale(0.9);
+  }
+}
+
+@keyframes heroui-overlay-enter-90-ny {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.25rem, 0) scale(0.9);
+  }
+}
+
+@keyframes heroui-overlay-enter-90-x {
+  from {
+    opacity: 0;
+    transform: translate3d(0.25rem, 0, 0) scale(0.9);
+  }
+}
+
+@keyframes heroui-overlay-enter-90-nx {
+  from {
+    opacity: 0;
+    transform: translate3d(-0.25rem, 0, 0) scale(0.9);
+  }
+}
+
+@keyframes heroui-overlay-enter-95 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+}
+
+@keyframes heroui-overlay-enter-95-y {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.25rem, 0) scale(0.95);
+  }
+}
+
+@keyframes heroui-overlay-enter-95-ny {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.25rem, 0) scale(0.95);
+  }
+}
+
+@keyframes heroui-overlay-enter-95-x {
+  from {
+    opacity: 0;
+    transform: translate3d(0.25rem, 0, 0) scale(0.95);
+  }
+}
+
+@keyframes heroui-overlay-enter-95-nx {
+  from {
+    opacity: 0;
+    transform: translate3d(-0.25rem, 0, 0) scale(0.95);
+  }
+}
+
+@keyframes heroui-overlay-enter-105 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+}
+
+@keyframes heroui-overlay-enter-105-y {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.25rem, 0) scale(1.05);
+  }
+}
+
+@keyframes heroui-overlay-enter-105-ny {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.25rem, 0) scale(1.05);
+  }
+}
+
+@keyframes heroui-overlay-enter-100-y {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0.25rem, 0) scale(1);
+  }
+}
+
+@keyframes heroui-overlay-enter-100-ny {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -0.25rem, 0) scale(1);
+  }
+}
+
+@keyframes heroui-overlay-enter-100 {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}

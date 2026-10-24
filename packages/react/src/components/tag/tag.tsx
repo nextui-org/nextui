@@ -9,7 +9,7 @@ import React, {Children, createContext, use, useMemo} from "react";
 import {Tag as TagPrimitive} from "react-aria-components/TagGroup";
 
 import {pickChildren} from "../../utils/children";
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 import {CloseButton} from "../close-button";
 import {TagGroupContext} from "../tag-group";
 
@@ -59,7 +59,7 @@ const TagRoot = ({children, className, ...restProps}: TagRootProps) => {
 
   return (
     <TagPrimitive
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
       data-slot="tag"
       textValue={textValue}
       {...restProps}
@@ -85,6 +85,8 @@ const TagRoot = ({children, className, ...restProps}: TagRootProps) => {
   );
 };
 
+TagRoot.displayName = "HeroUI.Tag";
+
 /* -------------------------------------------------------------------------------------------------
  * Tag Remove Button
  * -----------------------------------------------------------------------------------------------*/
@@ -98,7 +100,7 @@ const TagRemoveButton = ({children, className, ...restProps}: TagRemoveButtonPro
   return (
     <CloseButton
       aria-label="Remove tag"
-      className={composeTwRenderProps(className, slots?.removeButton())}
+      className={useResolvedClassName(className, slots?.removeButton())}
       data-slot="tag-remove-button"
       slot="remove"
       {...restProps}
@@ -107,6 +109,8 @@ const TagRemoveButton = ({children, className, ...restProps}: TagRemoveButtonPro
     </CloseButton>
   );
 };
+
+TagRemoveButton.displayName = "HeroUI.Tag.RemoveButton";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

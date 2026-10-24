@@ -7,7 +7,7 @@ import {disclosureGroupVariants} from "@heroui/styles";
 import React, {createContext} from "react";
 import {DisclosureGroup as DisclosureGroupPrimitive} from "react-aria-components/DisclosureGroup";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * Disclosure Group Context
@@ -34,13 +34,15 @@ const DisclosureGroupRoot = ({children, className, ...props}: DisclosureGroupRoo
       <DisclosureGroupPrimitive
         data-slot="disclosure-group"
         {...props}
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </DisclosureGroupPrimitive>
     </DisclosureGroupContext>
   );
 };
+
+DisclosureGroupRoot.displayName = "HeroUI.DisclosureGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

@@ -14,7 +14,8 @@ import {
   SubmenuTrigger as SubmenuTriggerPrimitive,
 } from "react-aria-components/Menu";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {MenuItemIndicator, MenuItemRoot, MenuItemSubmenuIndicator} from "../menu-item";
 import {MenuSectionRoot} from "../menu-section";
 import {SurfaceContext} from "../surface";
@@ -27,6 +28,14 @@ type DropdownContext = {
 };
 
 const DropdownContext = createContext<DropdownContext>({});
+
+// The open path clips the popover until a keyboard check finishes. Closing
+// before that check returns would play the exit inside an empty clip.
+const revealPopoverForExit = (popover: HTMLElement) => {
+  popover.style.clip = "auto";
+  popover.style.clipPath = "none";
+  popover.style.maskImage = "none";
+};
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Root (MenuTrigger wrapper)
@@ -47,6 +56,8 @@ const DropdownRoot = ({children, ...props}: DropdownRootProps) => {
   );
 };
 
+DropdownRoot.displayName = "HeroUI.Dropdown";
+
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Trigger (Button wrapper)
  * -----------------------------------------------------------------------------------------------*/
@@ -57,14 +68,16 @@ const DropdownTrigger = ({children, className, ...props}: DropdownTriggerProps) 
 
   return (
     <Button
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="dropdown-trigger"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </Button>
   );
 };
+
+DropdownTrigger.displayName = "HeroUI.Dropdown.Trigger";
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Popover (Popover wrapper)
@@ -74,8 +87,32 @@ interface DropdownPopoverProps
   children: React.ReactNode;
 }
 
-const DropdownPopover = ({children, className, placement, ...props}: DropdownPopoverProps) => {
+const DropdownPopover = ({
+  children,
+  className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
+  placement,
+  ref,
+  ...props
+}: DropdownPopoverProps) => {
   const {slots} = use(DropdownContext);
+  // Root menu and each submenu provide their own trigger state. The nearest one
+  // is the popover that is closing, so a submenu holds its own exit.
+  const {isExiting, ref: overlayRef} = usePopoverExitHold(
+    {...props, defaultOpen, isOpen},
+    {prepare: revealPopoverForExit, ref},
+  );
+
+  // React Aria reveals the popover only after `runAfterKeyboard`. On a touch
+  // device that waits up to ~800ms when focus looks like a text field, which
+  // the docs page hits and the Storybook iframe does not. Skip the enter
+  // animation so that late reveal cannot play the menu in from opacity 0.
+  const skipEnterAnimation =
+    typeof window !== "undefined" &&
+    typeof window.matchMedia === "function" &&
+    window.matchMedia("(hover: none) and (pointer: coarse)").matches;
 
   return (
     <SurfaceContext
@@ -85,15 +122,22 @@ const DropdownPopover = ({children, className, placement, ...props}: DropdownPop
     >
       <PopoverPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots?.popover())}
+        ref={overlayRef}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="dropdown-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
+        shouldSkipAnimation={skipEnterAnimation || props.shouldSkipAnimation}
       >
         {children}
       </PopoverPrimitive>
     </SurfaceContext>
   );
 };
+
+DropdownPopover.displayName = "HeroUI.Dropdown.Popover";
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Menu (Menu wrapper)
@@ -108,13 +152,15 @@ function DropdownMenu<T extends object>({className, ...props}: DropdownMenuProps
 
   return (
     <MenuPrimitive
-      className={composeTwRenderProps(className, slots?.menu())}
+      className={useResolvedClassName(className, slots?.menu())}
       data-selection-mode={props.selectionMode}
       data-slot="dropdown-menu"
       {...props}
     />
   );
 }
+
+DropdownMenu.displayName = "HeroUI.Dropdown.Menu";
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Item (MenuItem wrapper)
@@ -124,6 +170,8 @@ interface DropdownItemProps extends ComponentPropsWithRef<typeof MenuItemRoot> {
 const DropdownItem = (props: DropdownItemProps) => {
   return <MenuItemRoot {...props} />;
 };
+
+DropdownItem.displayName = "HeroUI.Dropdown.Item";
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Submenu Indicator (MenuItemSubmenuIndicator wrapper)
@@ -135,6 +183,8 @@ interface DropdownSubmenuIndicatorProps extends ComponentPropsWithRef<
 const DropdownSubmenuIndicator = (props: DropdownSubmenuIndicatorProps) => {
   return <MenuItemSubmenuIndicator {...props} />;
 };
+
+DropdownSubmenuIndicator.displayName = "HeroUI.Dropdown.SubmenuIndicator";
 
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Submenu Trigger
@@ -151,6 +201,8 @@ const DropdownSubmenuTrigger = ({children, ...props}: DropdownSubmenuTriggerProp
   );
 };
 
+DropdownSubmenuTrigger.displayName = "HeroUI.Dropdown.SubmenuTrigger";
+
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Item Indicator (MenuItemIndicator wrapper)
  * -----------------------------------------------------------------------------------------------*/
@@ -160,6 +212,8 @@ const DropdownItemIndicator = (props: DropdownItemIndicatorProps) => {
   return <MenuItemIndicator {...props} />;
 };
 
+DropdownItemIndicator.displayName = "HeroUI.Dropdown.ItemIndicator";
+
 /* -------------------------------------------------------------------------------------------------
  * Dropdown Section (MenuSection wrapper)
  * -----------------------------------------------------------------------------------------------*/
@@ -168,6 +222,8 @@ interface DropdownSectionProps extends ComponentPropsWithRef<typeof MenuSectionR
 const DropdownSection = (props: DropdownSectionProps) => {
   return <MenuSectionRoot {...props} />;
 };
+
+DropdownSection.displayName = "HeroUI.Dropdown.Section";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

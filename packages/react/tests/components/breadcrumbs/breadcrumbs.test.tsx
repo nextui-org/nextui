@@ -90,4 +90,19 @@ describe("Breadcrumbs", () => {
 
     expect(onPress).toHaveBeenCalledTimes(1);
   });
+
+  it("supports item children as a render function that owns the item content", () => {
+    render(
+      <Breadcrumbs>
+        <Breadcrumbs.Item href="#home">
+          {() => <span data-testid="custom-item">Home</span>}
+        </Breadcrumbs.Item>
+        <Breadcrumbs.Item>Current</Breadcrumbs.Item>
+      </Breadcrumbs>,
+    );
+
+    expect(screen.getByTestId("custom-item")).toHaveTextContent("Home");
+    // The render function replaces the whole item, so no Link or separator is added for it.
+    expect(screen.queryByRole("link", {name: "Home"})).toBeNull();
+  });
 });

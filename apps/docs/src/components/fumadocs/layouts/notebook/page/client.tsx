@@ -4,6 +4,7 @@ import type {BreadcrumbOptions} from "fumadocs-core/breadcrumb";
 import type * as PageTree from "fumadocs-core/page-tree";
 import type {ComponentProps} from "react";
 
+import {useTranslations} from "@fuma-translate/react";
 import {ChevronDown, ChevronLeft, ChevronRight} from "@gravity-ui/icons";
 import {getBreadcrumbItemsFromPath} from "fumadocs-core/breadcrumb";
 import {usePathname} from "fumadocs-core/framework";
@@ -15,7 +16,6 @@ import {
   CollapsibleContent,
   CollapsibleTrigger,
 } from "fumadocs-ui/components/ui/collapsible";
-import {useI18n} from "fumadocs-ui/contexts/i18n";
 import {useTreeContext, useTreePath} from "fumadocs-ui/contexts/tree";
 import {useFooterItems} from "fumadocs-ui/utils/use-footer-items";
 import {
@@ -27,6 +27,7 @@ import {
   useMemo,
   useRef,
   useState,
+  useSyncExternalStore,
 } from "react";
 
 import {isActive} from "@/components/fumadocs/utils/urls";
@@ -94,7 +95,7 @@ export function PageTOCPopover({children, className, ...rest}: ComponentProps<"d
 }
 
 export function PageTOCPopoverTrigger({className, ...props}: ComponentProps<"button">) {
-  const {text} = useI18n();
+  const t = useTranslations({note: "table of contents"});
   const {open} = use(TocPopoverContext)!;
   const items = useTOCItems();
   const active = useActiveAnchor();
@@ -127,7 +128,7 @@ export function PageTOCPopoverTrigger({className, ...props}: ComponentProps<"but
             showItem && "pointer-events-none -translate-y-full opacity-0",
           )}
         >
-          {path?.name ?? text.toc}
+          {path?.name ?? t("On this page")}
         </span>
         <span
           className={cn(
@@ -213,21 +214,23 @@ export function PageTOCPopoverContent(props: ComponentProps<"div">) {
   );
 }
 
+const subscribeToClientDate = () => () => {};
+
 export function PageLastUpdate({
   date: value,
   ...props
 }: Omit<ComponentProps<"p">, "children"> & {date: Date}) {
-  const {text} = useI18n();
-  const [date, setDate] = useState("");
-
-  useEffect(() => {
-    // to the timezone of client
-    setDate(value.toLocaleDateString());
-  }, [value]);
+  const t = useTranslations({note: "page footer"});
+  // to the timezone of client
+  const date = useSyncExternalStore(
+    subscribeToClientDate,
+    () => value.toLocaleDateString(),
+    () => "",
+  );
 
   return (
     <p {...props} className={cn("text-fd-muted-foreground text-sm", props.className)}>
-      {text.lastUpdate} {date}
+      {t("Last updated on")} {date}
     </p>
   );
 }
@@ -275,7 +278,7 @@ export function PageFooter({items, ...props}: FooterProps) {
 }
 
 function FooterItem({index, item}: {item: Item; index: 0 | 1}) {
-  const {text} = useI18n();
+  const t = useTranslations({note: "pagination"});
   const Icon = index === 0 ? ChevronLeft : ChevronRight;
 
   return (
@@ -296,7 +299,7 @@ function FooterItem({index, item}: {item: Item; index: 0 | 1}) {
         <p>{item.name}</p>
       </div>
       <p className="text-fd-muted-foreground truncate">
-        {item.description ?? (index === 0 ? text.previousPage : text.nextPage)}
+        {item.description ?? (index === 0 ? t("Previous Page") : t("Next Page"))}
       </p>
     </Link>
   );

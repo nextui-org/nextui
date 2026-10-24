@@ -1,4 +1,6 @@
 import {fireEvent, render, screen, setupUser} from "@heroui/testing/helpers";
+import {Provider} from "react-aria-components";
+import {ButtonContext} from "react-aria-components/Button";
 
 import {CloseButton} from "@/components/close-button";
 
@@ -43,6 +45,48 @@ describe("CloseButton", () => {
     render(<CloseButton aria-label="Dismiss dialog" />);
 
     expect(screen.getByRole("button", {name: "Dismiss dialog"})).toBeInTheDocument();
+  });
+
+  it("keeps an aria-label supplied by the button slot", () => {
+    render(
+      <Provider
+        values={[
+          [
+            ButtonContext,
+            {
+              slots: {
+                close: {"aria-label": "닫기"},
+              },
+            },
+          ],
+        ]}
+      >
+        <CloseButton slot="close" />
+      </Provider>,
+    );
+
+    expect(screen.getByRole("button", {name: "닫기"})).toBeInTheDocument();
+  });
+
+  it("prefers an explicit aria-label over the slot label", () => {
+    render(
+      <Provider
+        values={[
+          [
+            ButtonContext,
+            {
+              slots: {
+                close: {"aria-label": "닫기"},
+              },
+            },
+          ],
+        ]}
+      >
+        <CloseButton aria-label="Dismiss" slot="close" />
+      </Provider>,
+    );
+
+    expect(screen.getByRole("button", {name: "Dismiss"})).toBeInTheDocument();
   });
 
   it("supports data attribute passthrough", () => {

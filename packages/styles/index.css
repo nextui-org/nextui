@@ -4,6 +4,7 @@
 
 /* Base layer - Tailwind CSS v4 */
 @import "tailwindcss";
+/* Not used by HeroUI overlays anymore (see base/overlay-motion.css); kept for consumers that rely on its utilities. */
 @import "tw-animate-css";
 
 /* Base styles */

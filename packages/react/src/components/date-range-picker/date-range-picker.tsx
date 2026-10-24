@@ -14,10 +14,14 @@ import {
   DateRangePicker as DateRangePickerPrimitive,
   Popover as PopoverPrimitive,
 } from "react-aria-components/DateRangePicker";
+import {DialogContext} from "react-aria-components/Dialog";
+import {PopoverContext} from "react-aria-components/Popover";
+import {useSlottedContext} from "react-aria-components/slots";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {IconCalendar} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -87,10 +91,10 @@ const DateRangePickerRoot = <T extends DateValue>({
         data-required={dataAttr(props.isRequired)}
         data-slot="date-range-picker"
         {...props}
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
         onOpenChange={handleOpenChange}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </DateRangePickerPrimitive>
     </DateRangePickerContext>
   );
@@ -125,11 +129,11 @@ const DateRangePickerTrigger = ({
   return (
     <ButtonPrimitive
       ref={mergedRef}
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="date-range-picker-trigger"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </ButtonPrimitive>
   );
 };
@@ -213,10 +217,19 @@ interface DateRangePickerPopoverProps extends Omit<
 const DateRangePickerPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom",
+  ref,
+  render,
   ...props
 }: DateRangePickerPopoverProps) => {
   const {slots} = use(DateRangePickerContext);
+  const dialogProps = useSlottedContext(DialogContext);
+  const popoverContext = useSlottedContext(PopoverContext, props.slot);
+  const resolvedRender = render ?? popoverContext?.render;
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <SurfaceContext
@@ -226,9 +239,28 @@ const DateRangePickerPopover = ({
     >
       <PopoverPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots?.popover())}
+        ref={overlayRef}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="date-range-picker-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
+        render={(domProps, values) => {
+          // Name RAC's automatic dialog without inserting a layout-changing wrapper.
+          const popoverProps =
+            domProps.role === "dialog"
+              ? {
+                  ...domProps,
+                  id: domProps.id ?? dialogProps?.id,
+                  "aria-labelledby":
+                    domProps["aria-labelledby"] ??
+                    (domProps["aria-label"] ? undefined : dialogProps?.["aria-labelledby"]),
+                }
+              : domProps;
+
+          return resolvedRender ? resolvedRender(popoverProps, values) : <div {...popoverProps} />;
+        }}
       >
         {children}
       </PopoverPrimitive>

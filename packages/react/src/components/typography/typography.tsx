@@ -4,6 +4,7 @@ import type {TypographyVariants} from "@heroui/styles";
 import type {ComponentPropsWithRef, ReactNode} from "react";
 
 import {typographyVariants} from "@heroui/styles";
+import {useMemo} from "react";
 import {Text as TextPrimitive} from "react-aria-components/Text";
 
 import {composeSlotClassName} from "../../utils/compose";
@@ -49,11 +50,18 @@ const TypographyRoot = ({
   weight,
   ...props
 }: TypographyRootProps) => {
-  const slots = typographyVariants({align, color, truncate, type, weight});
+  const slots = useMemo(
+    () => typographyVariants({align, color, truncate, type, weight}),
+    [align, color, truncate, type, weight],
+  );
+  const resolvedClassName = useMemo(
+    () => composeSlotClassName(slots.base, className),
+    [className, slots],
+  );
 
   return (
     <TextPrimitive
-      className={composeSlotClassName(slots.base, className)}
+      className={resolvedClassName}
       data-slot="typography"
       data-type={type}
       elementType={defaultElementByType[type]}
@@ -64,6 +72,8 @@ const TypographyRoot = ({
   );
 };
 
+TypographyRoot.displayName = "HeroUI.Typography";
+
 interface HeadingProps extends Omit<TypographyRootProps, "type"> {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
 }
@@ -71,6 +81,8 @@ interface HeadingProps extends Omit<TypographyRootProps, "type"> {
 const Heading = ({level = 1, ...props}: HeadingProps) => {
   return <TypographyRoot type={`h${level}` as TypographyType} {...props} />;
 };
+
+Heading.displayName = "HeroUI.Typography.Heading";
 
 interface ParagraphProps extends Omit<TypographyRootProps, "type"> {
   size?: "base" | "sm" | "xs";
@@ -82,25 +94,35 @@ const Paragraph = ({size = "base", ...props}: ParagraphProps) => {
   return <TypographyRoot type={type} {...props} />;
 };
 
+Paragraph.displayName = "HeroUI.Typography.Paragraph";
+
 interface CodeProps extends Omit<TypographyRootProps, "type"> {}
 
 const Code = (props: CodeProps) => {
   return <TypographyRoot type="code" {...props} />;
 };
 
+Code.displayName = "HeroUI.Typography.Code";
+
 interface ProseProps extends Omit<ComponentPropsWithRef<"div">, "color"> {
   children: ReactNode;
 }
 
 const Prose = ({children, className, ...props}: ProseProps) => {
-  const slots = typographyVariants();
+  const slots = useMemo(() => typographyVariants(), []);
+  const resolvedClassName = useMemo(
+    () => composeSlotClassName(slots.prose, className),
+    [className, slots],
+  );
 
   return (
-    <div className={composeSlotClassName(slots.prose, className)} data-slot="prose" {...props}>
+    <div className={resolvedClassName} data-slot="prose" {...props}>
       {children}
     </div>
   );
 };
+
+Prose.displayName = "HeroUI.Typography.Prose";
 
 export {Code, Heading, Paragraph, Prose, TypographyRoot};
 

@@ -204,6 +204,49 @@ describe("Table", () => {
     expect(selection === "all" ? null : [...selection]).toEqual(["2"]);
   });
 
+  it("preserves the header checkmark across indeterminate selection transitions", async () => {
+    renderTable();
+    const headerCheckbox = screen.getByRole("checkbox", {name: "Select all"});
+    const headerField = headerCheckbox.closest('[data-slot="checkbox"]');
+    const checkmark = headerField?.querySelector(
+      '[data-slot="checkbox-default-indicator--checkmark"]',
+    );
+
+    await user.click(screen.getByRole("checkbox", {name: /^Select Kate/}));
+    runAllTimers();
+
+    expect(headerField).toHaveAttribute("data-indeterminate", "true");
+    expect(
+      headerField?.querySelector('[data-slot="checkbox-default-indicator--indeterminate"]'),
+    ).not.toBeNull();
+
+    await user.click(headerCheckbox);
+    runAllTimers();
+
+    expect(headerField).toHaveAttribute("data-selected", "true");
+    expect(headerField?.querySelector('[data-slot="checkbox-default-indicator--checkmark"]')).toBe(
+      checkmark,
+    );
+    expect(checkmark).toHaveAttribute("stroke-dashoffset", "44");
+    expect(
+      headerField?.querySelector('[data-slot="checkbox-default-indicator--indeterminate"]'),
+    ).toBeNull();
+
+    await user.click(screen.getByRole("checkbox", {name: /^Select Kate/}));
+    await user.click(screen.getByRole("checkbox", {name: /^Select John/}));
+    await user.click(screen.getByRole("checkbox", {name: /^Select Sara/}));
+    runAllTimers();
+
+    expect(headerField).not.toHaveAttribute("data-indeterminate");
+    expect(headerField?.querySelector('[data-slot="checkbox-default-indicator--checkmark"]')).toBe(
+      checkmark,
+    );
+    expect(checkmark).toHaveAttribute("stroke-dashoffset", "66");
+    expect(
+      headerField?.querySelector('[data-slot="checkbox-default-indicator--indeterminate"]'),
+    ).toBeNull();
+  });
+
   it("supports toggling sort via Table tester", async () => {
     const onSortChange = vi.fn();
 

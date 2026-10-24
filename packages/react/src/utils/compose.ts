@@ -1,5 +1,6 @@
 "use client";
 
+import {useMemo} from "react";
 import {composeRenderProps} from "react-aria-components/composeRenderProps";
 import {cx} from "tailwind-variants";
 
@@ -26,4 +27,21 @@ export const composeSlotClassName = (
   return typeof slotFn === "function" ? slotFn({...(variants ?? {}), className}) : className;
 };
 
-export {composeTwRenderProps};
+function useResolvedClassName<T>(
+  className: string | ((v: T) => string) | undefined,
+  styles?: string,
+): string | ((v: T) => string) {
+  return useMemo(() => {
+    if (typeof className === "function") {
+      return composeTwRenderProps(className, styles);
+    }
+
+    if (!styles) {
+      return className ?? "";
+    }
+
+    return className ? (cx(styles, className) ?? styles) : styles;
+  }, [className, styles]);
+}
+
+export {composeTwRenderProps, useResolvedClassName};

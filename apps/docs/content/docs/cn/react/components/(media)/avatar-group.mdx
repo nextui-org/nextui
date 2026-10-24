@@ -88,7 +88,7 @@ AvatarGroup 组件使用以下 CSS 类（[查看源码样式](https://github.com
 #### 基础类 [!toc]
 - `.avatar-group` - 头像组基础容器
 - `.avatar-group--grid` - 网格布局修饰符（无叠放）
-- `.avatar-group--clip` - 新月裁切 / 透明缝（默认叠放）
+- `.avatar-group--clip` - 沿相邻头像轮廓裁切出的透明缝（默认叠放）
 - `.avatar-group--ring` - 通过 `--background` 的实线 box-shadow 描边
 - `.avatar-group__count` - 溢出计数头像
 
@@ -105,7 +105,7 @@ AvatarGroup 组件使用以下 CSS 类（[查看源码样式](https://github.com
 | `variant` | `'default' \| 'soft'` | - | 当子 Avatar 未指定 `variant` 时，应用到子头像（及溢出计数）的变体 |
 | `max` | `number` | - | 最多渲染的头像子项数量；省略则显示全部 |
 | `isGrid` | `boolean` | `false` | 是否使用无叠放的换行网格布局 |
-| `overlap` | `'clip' \| 'ring'` | `'clip'` | 叠放样式：新月裁切（默认）或 box-shadow 描边；`isGrid` 时忽略 |
+| `overlap` | `'clip' \| 'ring'` | `'clip'` | 叠放样式：透明缝裁切（默认）或 box-shadow 描边；`isGrid` 时忽略 |
 | `className` | `string` | - | 附加 CSS 类 |
 | `children` | `React.ReactNode` | - | 要组合的 Avatar 组件（以及可选的 `AvatarGroup.Count`） |
 
@@ -127,7 +127,7 @@ AvatarGroup 组件使用以下 CSS 类（[查看源码样式](https://github.com
 - 设置 `max` 会截断可见头像并根据剩余子项自动计数；省略则显示全部
 - 已知总量（例如来自服务端）时，渲染显式的 `AvatarGroup.Count` — 它不受 `max` 截断，并会抑制自动计数。请用 `Count` 替代已移除的 v2 `total`
 - `isGrid` 会禁用叠放，改为换行网格布局
-- `overlap` 默认为 `"clip"`（新月裁切）；使用 `"ring"` 可改为实线描边；与 `isGrid` 同时使用时无效
+- `overlap` 默认为 `"clip"`（透明缝裁切）；使用 `"ring"` 可改为实线描边；与 `isGrid` 同时使用时无效
 - 默认不加 `role="group"` — 当叠放有语义（指派人、在看的人）时，自行加上 `role="group"`，并配合 `aria-label` 或 `aria-labelledby`
 
 ## 相关组件

@@ -230,7 +230,7 @@ export const WithSections: Story = {
               <ListBox.ItemIndicator />
             </ListBox.Item>
           </ListBox.Section>
-          <Separator />
+          <Separator isDecorative />
           <ListBox.Section>
             <Header>Europe</Header>
             <ListBox.Item id="uk" textValue="United Kingdom">
@@ -254,7 +254,7 @@ export const WithSections: Story = {
               <ListBox.ItemIndicator />
             </ListBox.Item>
           </ListBox.Section>
-          <Separator />
+          <Separator isDecorative />
           <ListBox.Section>
             <Header>Asia</Header>
             <ListBox.Item id="japan" textValue="Japan">
@@ -472,7 +472,7 @@ export const CustomValue: Story = {
             {users.map((user) => (
               <ListBox.Item key={user.id} id={user.id} textValue={user.name}>
                 <Avatar size="sm">
-                  <AvatarImage src={user.avatarUrl} />
+                  <AvatarImage alt="" src={user.avatarUrl} />
                   <AvatarFallback>{user.fallback}</AvatarFallback>
                 </Avatar>
                 <div className="flex flex-col">

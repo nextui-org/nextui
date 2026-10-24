@@ -53,6 +53,8 @@ const KbdRoot = <E extends keyof React.JSX.IntrinsicElements = "kbd">({
   );
 };
 
+KbdRoot.displayName = "HeroUI.Kbd";
+
 /* -------------------------------------------------------------------------------------------------
  * Kbd Abbr
  * -----------------------------------------------------------------------------------------------*/
@@ -83,6 +85,8 @@ const KbdAbbr = <E extends keyof React.JSX.IntrinsicElements = "abbr">({
   );
 };
 
+KbdAbbr.displayName = "HeroUI.Kbd.Abbr";
+
 /* -------------------------------------------------------------------------------------------------
  * Kbd Content
  * -----------------------------------------------------------------------------------------------*/
@@ -106,6 +110,8 @@ const KbdContent = <E extends keyof React.JSX.IntrinsicElements = "span">({
     </dom.span>
   );
 };
+
+KbdContent.displayName = "HeroUI.Kbd.Content";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

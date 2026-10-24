@@ -34,31 +34,60 @@
 
 /* --------------------------------------------------------------------------
    Overlap: clip
+   The seam traces the next avatar's own outline — its `--avatar-radius` grown
+   by the seam width — so a themed `--radius` reshapes avatars and seams
+   together. CSS has no rounded-rect mask image, so that outline is assembled
+   from a tall bar, a wide bar and four corner arcs, then XOR-ed out of a fully
+   opaque layer.
    Cut sits on the inline-end edge (LTR: right / RTL: left). Optical nudge uses
    padding-inline-end so fallback glyphs stay logical in both directions.
    -------------------------------------------------------------------------- */
 .avatar-group--clip:not(.avatar-group--grid) > .avatar:not(:last-child) {
-  --avatar-group-cut-center: calc(
-    100% + (var(--avatar-size, 2.5rem) / 2) - var(--avatar-group-overlap, 0.5rem)
+  --avatar-group-cut-size: calc(var(--avatar-size, 2.5rem) + 2 * var(--avatar-group-seam, 2px));
+  /* Browsers clamp a border-radius at half the box, so clamp here too — a
+     themed radius above that ceiling paints a circle, not an overshooting arc. */
+  --avatar-group-cut-radius: calc(
+    min(
+        var(--avatar-radius, calc(var(--avatar-size, 2.5rem) / 2)),
+        calc(var(--avatar-size, 2.5rem) / 2)
+      ) +
+      var(--avatar-group-seam, 2px)
   );
-  --avatar-group-cut-radius: calc((var(--avatar-size, 2.5rem) / 2) + var(--avatar-group-seam, 2px));
+  --avatar-group-cut-diameter: calc(2 * var(--avatar-group-cut-radius));
+  /* Length of the straight run between two corner arcs. Collapses to 0 on a
+     circular avatar, which leaves the four arcs forming one circle. */
+  --avatar-group-cut-span: calc(var(--avatar-group-cut-size) - var(--avatar-group-cut-diameter));
+  --avatar-group-cut-x: calc(
+    var(--avatar-size, 2.5rem) - var(--avatar-group-overlap, 0.5rem) - var(--avatar-group-seam, 2px)
+  );
+  --avatar-group-cut-y: calc(-1 * var(--avatar-group-seam, 2px));
+  --avatar-group-cut-x2: calc(var(--avatar-group-cut-x) + var(--avatar-group-cut-span));
+  --avatar-group-cut-y2: calc(var(--avatar-group-cut-y) + var(--avatar-group-cut-span));
+  --avatar-group-cut-fill: linear-gradient(#000 0 0);
+  --avatar-group-cut-arc: radial-gradient(circle closest-side, #000 99%, #0000);
 
-  -webkit-mask-image: radial-gradient(
-    circle at var(--avatar-group-cut-center) 50%,
-    transparent var(--avatar-group-cut-radius),
-    #000 var(--avatar-group-cut-radius)
-  );
-  mask-image: radial-gradient(
-    circle at var(--avatar-group-cut-center) 50%,
-    transparent var(--avatar-group-cut-radius),
-    #000 var(--avatar-group-cut-radius)
-  );
+  mask:
+    var(--avatar-group-cut-fill) 0 0 / 100% 100% no-repeat exclude,
+    var(--avatar-group-cut-fill) calc(var(--avatar-group-cut-x) + var(--avatar-group-cut-radius))
+      var(--avatar-group-cut-y) / var(--avatar-group-cut-span) var(--avatar-group-cut-size)
+      no-repeat add,
+    var(--avatar-group-cut-fill) var(--avatar-group-cut-x)
+      calc(var(--avatar-group-cut-y) + var(--avatar-group-cut-radius)) /
+      var(--avatar-group-cut-size) var(--avatar-group-cut-span) no-repeat add,
+    var(--avatar-group-cut-arc) var(--avatar-group-cut-x) var(--avatar-group-cut-y) /
+      var(--avatar-group-cut-diameter) var(--avatar-group-cut-diameter) no-repeat add,
+    var(--avatar-group-cut-arc) var(--avatar-group-cut-x2) var(--avatar-group-cut-y) /
+      var(--avatar-group-cut-diameter) var(--avatar-group-cut-diameter) no-repeat add,
+    var(--avatar-group-cut-arc) var(--avatar-group-cut-x) var(--avatar-group-cut-y2) /
+      var(--avatar-group-cut-diameter) var(--avatar-group-cut-diameter) no-repeat add,
+    var(--avatar-group-cut-arc) var(--avatar-group-cut-x2) var(--avatar-group-cut-y2) /
+      var(--avatar-group-cut-diameter) var(--avatar-group-cut-diameter) no-repeat add;
 }
 
 .avatar-group--clip:not(.avatar-group--grid):dir(rtl) > .avatar:not(:last-child),
 :dir(rtl) .avatar-group--clip:not(.avatar-group--grid) > .avatar:not(:last-child) {
-  --avatar-group-cut-center: calc(
-    0% - (var(--avatar-size, 2.5rem) / 2) + var(--avatar-group-overlap, 0.5rem)
+  --avatar-group-cut-x: calc(
+    var(--avatar-group-overlap, 0.5rem) - var(--avatar-size, 2.5rem) - var(--avatar-group-seam, 2px)
   );
 }
 

@@ -46,6 +46,8 @@ const BadgeAnchor = <E extends keyof React.JSX.IntrinsicElements = "span">({
   );
 };
 
+BadgeAnchor.displayName = "HeroUI.Badge.Anchor";
+
 /* -------------------------------------------------------------------------------------------------
  * Badge Root
  * -----------------------------------------------------------------------------------------------*/
@@ -101,6 +103,8 @@ const BadgeRoot = <E extends keyof React.JSX.IntrinsicElements = "span">({
   );
 };
 
+BadgeRoot.displayName = "HeroUI.Badge";
+
 /* -------------------------------------------------------------------------------------------------
  * Badge Label
  * -----------------------------------------------------------------------------------------------*/
@@ -128,6 +132,8 @@ const BadgeLabel = <E extends keyof React.JSX.IntrinsicElements = "span">({
     </dom.span>
   );
 };
+
+BadgeLabel.displayName = "HeroUI.Badge.Label";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

@@ -68,6 +68,8 @@ const ChipRoot = <E extends keyof React.JSX.IntrinsicElements = "span">({
   );
 };
 
+ChipRoot.displayName = "HeroUI.Chip";
+
 /* -------------------------------------------------------------------------------------------------
  * Chip Label
  * -----------------------------------------------------------------------------------------------*/
@@ -95,6 +97,8 @@ const ChipLabel = <E extends keyof React.JSX.IntrinsicElements = "span">({
     </dom.span>
   );
 };
+
+ChipLabel.displayName = "HeroUI.Chip.Label";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

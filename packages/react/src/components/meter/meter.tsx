@@ -9,7 +9,7 @@ import {meterVariants} from "@heroui/styles";
 import React, {createContext, use} from "react";
 import {Meter as MeterPrimitive} from "react-aria-components/Meter";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -34,7 +34,7 @@ const MeterRoot = ({children, className, color, size, ...props}: MeterRootProps)
     <MeterPrimitive
       data-slot="meter"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(values) => (
         <MeterContext value={{slots, state: values}}>

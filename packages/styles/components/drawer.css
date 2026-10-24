@@ -86,6 +86,15 @@
  */
 .drawer__backdrop--blur {
   @apply bg-backdrop backdrop-blur-md;
+
+  /*
+   * A full-viewport backdrop-filter stalls mid-range mobile GPUs long enough
+   * that the open animation is skipped. Keep the dim scrim.
+   */
+  @media (hover: none) and (pointer: coarse) {
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
 }
 
 /**
@@ -95,6 +104,11 @@
   @apply pointer-events-none;
   @apply fixed inset-0 z-(--z-index-overlay) flex;
   @apply h-(--visual-viewport-height) w-full min-w-0;
+
+  --drawer-enter-duration: 250ms;
+  --drawer-exit-duration: 200ms;
+  --drawer-enter-ease: cubic-bezier(0.32, 0.72, 0, 1);
+  --drawer-exit-ease: cubic-bezier(0.32, 0.72, 0, 1);
 }
 
 /**
@@ -129,6 +143,58 @@
   @apply justify-end;
 }
 
+/*
+ * Enter animation lives on the content. That is the element React Aria watches:
+ * a transition on the dialog is cancelled and data-entering is cleared before paint,
+ * so the open slide never runs. Exit stays a translate on the dialog so a drag
+ * transform can compound with it.
+ */
+.drawer__content--bottom[data-entering="true"] {
+  animation: heroui-drawer-enter-bottom var(--drawer-enter-duration) var(--drawer-enter-ease);
+}
+
+.drawer__content--top[data-entering="true"] {
+  animation: heroui-drawer-enter-top var(--drawer-enter-duration) var(--drawer-enter-ease);
+}
+
+.drawer__content--left[data-entering="true"] {
+  animation: heroui-drawer-enter-left var(--drawer-enter-duration) var(--drawer-enter-ease);
+}
+
+.drawer__content--right[data-entering="true"] {
+  animation: heroui-drawer-enter-right var(--drawer-enter-duration) var(--drawer-enter-ease);
+}
+
+.drawer__content[data-entering="true"] {
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+@keyframes heroui-drawer-enter-bottom {
+  from {
+    translate: 0 100%;
+  }
+}
+
+@keyframes heroui-drawer-enter-top {
+  from {
+    translate: 0 -100%;
+  }
+}
+
+@keyframes heroui-drawer-enter-left {
+  from {
+    translate: -100% 0;
+  }
+}
+
+@keyframes heroui-drawer-enter-right {
+  from {
+    translate: 100% 0;
+  }
+}
+
 /**
  * Element: dialog - the drawer panel itself
  */
@@ -138,11 +204,6 @@
   @apply bg-overlay shadow-overlay outline-none;
   @apply p-6;
   @apply pointer-events-auto;
-
-  --drawer-enter-duration: 250ms;
-  --drawer-exit-duration: 200ms;
-  --drawer-enter-ease: cubic-bezier(0.32, 0.72, 0, 1);
-  --drawer-exit-ease: cubic-bezier(0.32, 0.72, 0, 1);
 
   will-change: translate;
   transition: translate var(--drawer-enter-duration) var(--drawer-enter-ease);
@@ -190,22 +251,18 @@
   translate: 0 0;
 }
 
-.drawer__content--left[data-entering="true"] .drawer__dialog,
 .drawer__content--left[data-exiting="true"] .drawer__dialog {
   translate: -100% 0;
 }
 
-.drawer__content--right[data-entering="true"] .drawer__dialog,
 .drawer__content--right[data-exiting="true"] .drawer__dialog {
   translate: 100% 0;
 }
 
-.drawer__content--top[data-entering="true"] .drawer__dialog,
 .drawer__content--top[data-exiting="true"] .drawer__dialog {
   translate: 0 -100%;
 }
 
-.drawer__content--bottom[data-entering="true"] .drawer__dialog,
 .drawer__content--bottom[data-exiting="true"] .drawer__dialog {
   translate: 0 100%;
 }

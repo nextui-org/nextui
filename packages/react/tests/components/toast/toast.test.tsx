@@ -10,6 +10,7 @@ import {
   setupUser,
 } from "@heroui/testing/helpers";
 
+import {I18nProvider} from "@/components/rac";
 import {
   DEFAULT_EXIT_DURATION,
   DEFAULT_TOAST_TIMEOUT,
@@ -139,6 +140,47 @@ describe("Toast", () => {
     expect(document.querySelector('[data-slot="toast-indicator"]')).not.toBeNull();
     expect(document.querySelector('[data-slot="toast-default-icon"]')).not.toBeNull();
     expect(screen.getByRole("button", {name: "Close"})).toBeInTheDocument();
+  });
+
+  it("announces the close button with the locale from I18nProvider", () => {
+    const queue = new ToastQueue();
+
+    render(
+      <I18nProvider locale="ko-KR">
+        <Toast.Provider queue={queue} />
+      </I18nProvider>,
+    );
+
+    act(() => {
+      queue.add({title: "Saved"});
+    });
+
+    expect(screen.getByRole("button", {name: "닫기"})).toBeInTheDocument();
+  });
+
+  it("supports a custom close label over the localized slot label", () => {
+    const queue = new ToastQueue();
+
+    render(
+      <I18nProvider locale="ko-KR">
+        <Toast.Provider queue={queue}>
+          {({toast: toastItem}) => (
+            <Toast toast={toastItem}>
+              <Toast.Content>
+                <Toast.Title>Saved</Toast.Title>
+              </Toast.Content>
+              <Toast.CloseButton aria-label="Dismiss notification" />
+            </Toast>
+          )}
+        </Toast.Provider>
+      </I18nProvider>,
+    );
+
+    act(() => {
+      queue.add({title: "Saved"});
+    });
+
+    expect(screen.getByRole("button", {name: "Dismiss notification"})).toBeInTheDocument();
   });
 
   it("renders no indicator when indicator is null", () => {

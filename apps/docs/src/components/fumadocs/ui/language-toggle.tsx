@@ -2,6 +2,7 @@
 
 import type {ComponentProps} from "react";
 
+import {useTranslations} from "@fuma-translate/react";
 import {Button, Dropdown, Header, Label} from "@heroui/react";
 import {useI18n} from "fumadocs-ui/contexts/i18n";
 
@@ -11,6 +12,7 @@ export type LanguageSelectProps = ComponentProps<typeof Button>;
 
 export function LanguageToggle(props: LanguageSelectProps): React.ReactElement {
   const context = useI18n();
+  const t = useTranslations({note: "language switcher"});
 
   if (!context.locales) throw new Error("Missing `<I18nProvider />`");
 
@@ -18,7 +20,7 @@ export function LanguageToggle(props: LanguageSelectProps): React.ReactElement {
     <Dropdown>
       <Button
         isIconOnly
-        aria-label={context.text.chooseLanguage}
+        aria-label={t("Choose a language", {note: "aria-label"})}
         size="sm"
         variant="tertiary"
         {...props}
@@ -39,7 +41,7 @@ export function LanguageToggle(props: LanguageSelectProps): React.ReactElement {
           }}
         >
           <Dropdown.Section>
-            <Header>{context.text.chooseLanguage}</Header>
+            <Header>{t("Choose a language")}</Header>
             {context.locales.map((item) => (
               <Dropdown.Item key={item.locale} id={item.locale} textValue={item.name}>
                 <Dropdown.ItemIndicator />

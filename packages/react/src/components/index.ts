@@ -30,6 +30,7 @@ export * from "./date-range-picker";
 export * from "./drawer";
 export * from "./progress-bar";
 export * from "./progress-circle";
+export * from "./sheet";
 export * from "./time-field";
 export * from "./disclosure";
 export * from "./disclosure-group";

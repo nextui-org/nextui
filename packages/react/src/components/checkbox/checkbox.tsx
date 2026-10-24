@@ -16,7 +16,7 @@ import {
 } from "react-aria-components/Checkbox";
 import {LabelContext} from "react-aria-components/Label";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {CheckboxGroupContext} from "../checkbox-group/checkbox-group";
 
@@ -50,7 +50,7 @@ const CheckboxRoot = ({children, className, variant, ...props}: CheckboxRootProp
     <CheckboxFieldPrimitive
       data-slot="checkbox"
       {...props}
-      className={composeTwRenderProps(className, slots.base())}
+      className={useResolvedClassName(className, slots.base())}
     >
       {(state) => (
         <CheckboxContext value={{slots, state}}>
@@ -76,7 +76,7 @@ const CheckboxContent = ({children, className, ...props}: CheckboxContentProps) 
     <CheckboxButtonPrimitive
       data-slot="checkbox-content"
       {...props}
-      className={composeTwRenderProps(className, slots?.content())}
+      className={useResolvedClassName(className, slots?.content())}
     >
       {(state) => (
         <LabelContext value={LABEL_SPAN_CONTEXT}>
@@ -144,35 +144,38 @@ const CheckboxIndicator = <E extends keyof React.JSX.IntrinsicElements = "span">
       children(state ?? ({} as CheckboxFieldRenderProps))
     ) : children ? (
       children
-    ) : isIndeterminate ? (
-      <svg
-        aria-hidden="true"
-        data-slot="checkbox-default-indicator--indeterminate"
-        fill="none"
-        role="presentation"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeWidth={3}
-        viewBox="0 0 24 24"
-      >
-        <line x1="21" x2="3" y1="12" y2="12" />
-      </svg>
     ) : (
-      <svg
-        aria-hidden="true"
-        data-slot="checkbox-default-indicator--checkmark"
-        fill="none"
-        role="presentation"
-        stroke="currentColor"
-        strokeDasharray={22}
-        strokeDashoffset={isSelected ? 44 : 66}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        strokeWidth={2}
-        viewBox="0 0 17 18"
-      >
-        <polyline points="1 9 7 14 15 4" />
-      </svg>
+      <>
+        <svg
+          aria-hidden="true"
+          data-slot="checkbox-default-indicator--checkmark"
+          fill="none"
+          role="presentation"
+          stroke="currentColor"
+          strokeDasharray={22}
+          strokeDashoffset={isSelected ? 44 : 66}
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          viewBox="0 0 17 18"
+        >
+          <polyline points="1 9 7 14 15 4" />
+        </svg>
+        {isIndeterminate ? (
+          <svg
+            aria-hidden="true"
+            data-slot="checkbox-default-indicator--indeterminate"
+            fill="none"
+            role="presentation"
+            stroke="currentColor"
+            strokeLinecap="round"
+            strokeWidth={3}
+            viewBox="0 0 24 24"
+          >
+            <line x1="21" x2="3" y1="12" y2="12" />
+          </svg>
+        ) : null}
+      </>
     );
 
   return (

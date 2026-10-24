@@ -5,6 +5,7 @@ import type {ComponentPropsWithRef} from "react";
 import type {TextProps} from "react-aria-components/Text";
 
 import {descriptionVariants} from "@heroui/styles";
+import {useMemo} from "react";
 import {Text} from "react-aria-components/Text";
 
 import {useHasTextSlot} from "../../utils/use-has-text-slot";
@@ -16,21 +17,21 @@ interface DescriptionRootProps
   extends ComponentPropsWithRef<typeof Text>, TextProps, DescriptionVariants {}
 
 const DescriptionRoot = ({children, className, ...rest}: DescriptionRootProps) => {
-  if (!useHasTextSlot("description")) {
+  const resolvedClassName = useMemo(() => descriptionVariants({className}), [className]);
+  const hasDescription = useHasTextSlot("description");
+
+  if (!hasDescription) {
     return null;
   }
 
   return (
-    <Text
-      className={descriptionVariants({className})}
-      data-slot="description"
-      slot="description"
-      {...rest}
-    >
+    <Text className={resolvedClassName} data-slot="description" slot="description" {...rest}>
       {children}
     </Text>
   );
 };
+
+DescriptionRoot.displayName = "HeroUI.Description";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

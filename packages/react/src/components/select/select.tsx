@@ -18,9 +18,10 @@ import {
 } from "react-aria-components/Select";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {CloseIcon, IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -103,15 +104,17 @@ const SelectRoot = <T extends object = object, M extends "single" | "multiple" =
         <SelectPrimitive
           data-slot="select"
           {...props}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
           isDisabled={isDisabled}
         >
-          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+          {children}
         </SelectPrimitive>
       </SelectContext>
     </FieldSlotsGate>
   );
 };
+
+SelectRoot.displayName = "HeroUI.Select";
 
 /* -------------------------------------------------------------------------------------------------
  * Select Trigger
@@ -145,7 +148,7 @@ const SelectTrigger = ({children, className, onKeyDown, ...props}: SelectTrigger
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="select-trigger"
       {...props}
       onKeyDown={handleKeyDown}
@@ -159,6 +162,8 @@ const SelectTrigger = ({children, className, onKeyDown, ...props}: SelectTrigger
   );
 };
 
+SelectTrigger.displayName = "HeroUI.Select.Trigger";
+
 /* -------------------------------------------------------------------------------------------------
  * Select Value
  * -----------------------------------------------------------------------------------------------*/
@@ -169,7 +174,7 @@ const SelectValue = ({children, className, ...props}: SelectValueProps) => {
 
   return (
     <SelectValuePrimitive
-      className={composeTwRenderProps(className, slots?.value())}
+      className={useResolvedClassName(className, slots?.value())}
       data-slot="select-value"
       {...props}
     >
@@ -177,6 +182,8 @@ const SelectValue = ({children, className, ...props}: SelectValueProps) => {
     </SelectValuePrimitive>
   );
 };
+
+SelectValue.displayName = "HeroUI.Select.Value";
 
 /* -------------------------------------------------------------------------------------------------
  * Select Indicator
@@ -222,6 +229,8 @@ const SelectIndicator = <E extends keyof React.JSX.IntrinsicElements = "svg">({
     />
   );
 };
+
+SelectIndicator.displayName = "HeroUI.Select.Indicator";
 
 /* -------------------------------------------------------------------------------------------------
  * Select Clear Button
@@ -289,6 +298,8 @@ const SelectClearButton = <E extends keyof React.JSX.IntrinsicElements = "span">
   );
 };
 
+SelectClearButton.displayName = "HeroUI.Select.ClearButton";
+
 /* -------------------------------------------------------------------------------------------------
  * Select Popover
  * -----------------------------------------------------------------------------------------------*/
@@ -302,10 +313,15 @@ interface SelectPopoverProps extends Omit<
 const SelectPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom",
+  ref,
   ...props
 }: SelectPopoverProps) => {
   const {slots} = use(SelectContext);
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <SurfaceContext
@@ -315,8 +331,12 @@ const SelectPopover = ({
     >
       <PopoverPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots?.popover())}
+        ref={overlayRef}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="select-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
       >
         {children}
@@ -324,6 +344,8 @@ const SelectPopover = ({
     </SurfaceContext>
   );
 };
+
+SelectPopover.displayName = "HeroUI.Select.Popover";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

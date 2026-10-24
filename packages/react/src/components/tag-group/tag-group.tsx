@@ -10,7 +10,7 @@ import {
   TagList as TagListPrimitive,
 } from "react-aria-components/TagGroup";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
 
 /* -------------------------------------------------------------------------------------------------
@@ -47,6 +47,8 @@ const TagGroupRoot = ({children, className, size, variant, ...restProps}: TagGro
   );
 };
 
+TagGroupRoot.displayName = "HeroUI.TagGroup";
+
 /* -------------------------------------------------------------------------------------------------
  * TagGroup List
  * -----------------------------------------------------------------------------------------------*/
@@ -61,7 +63,7 @@ const TagGroupList = <T extends object>({
 
   return (
     <TagListPrimitive
-      className={composeTwRenderProps(className, slots?.list())}
+      className={useResolvedClassName(className, slots?.list())}
       data-slot="tag-group-list"
       {...restProps}
     >
@@ -69,6 +71,8 @@ const TagGroupList = <T extends object>({
     </TagListPrimitive>
   );
 };
+
+TagGroupList.displayName = "HeroUI.TagGroup.List";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

@@ -1,0 +1,209 @@
+/* Sheet — visual layer on React Aria's scroll-snap Sheet.
+ * Gesture, snap, and exit are owned by the primitive. Do not set transform
+ * or position on the panel; that fights the scrollport. */
+
+@keyframes heroui-sheet-backdrop {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes heroui-sheet-scale-back {
+  to {
+    transform: translateZ(-120px);
+  }
+}
+
+.sheet__overlay {
+  @apply z-50;
+
+  &[data-closed] {
+    @apply pointer-events-none;
+  }
+}
+
+/* Only the bottom-most sheet in a stack dims the page. */
+.sheet__backdrop {
+  @apply bg-transparent;
+}
+
+.sheet__backdrop[data-stack-index="0"].sheet__backdrop--opaque {
+  @apply bg-backdrop;
+}
+
+.sheet__backdrop[data-stack-index="0"].sheet__backdrop--blur {
+  @apply bg-background/[0.01] backdrop-blur-sm;
+}
+
+.sheet__backdrop--transparent {
+  @apply bg-transparent;
+}
+
+.sheet__content {
+  /* Padding from overscroll sits outside the height, so a 100% dialog fills the sheet. */
+  @apply z-1 box-content overflow-clip outline-none;
+}
+
+/* Promote only stacked sheets. Chrome rounds fractional bounds on promoted
+   layers, which can prevent React Aria from detecting full expansion. */
+.sheet__content[data-has-descendants] {
+  @apply [transform:perspective(1000px)] will-change-transform;
+}
+
+.sheet__content--bottom,
+.sheet__content--top {
+  @apply max-h-[calc(100%-2rem)] w-full;
+}
+
+.sheet__content--bottom {
+  @apply rounded-t-2xl;
+}
+
+.sheet__content--top {
+  @apply rounded-b-2xl;
+}
+
+.sheet__content--left,
+.sheet__content--right {
+  @apply h-full max-h-none w-[min(24rem,96vw)];
+}
+
+.sheet__content--left {
+  @apply rounded-r-2xl;
+}
+
+.sheet__content--right {
+  @apply rounded-l-2xl;
+}
+
+.sheet__content[data-detached] {
+  @apply m-2 max-h-[calc(100%-1rem)] rounded-2xl;
+}
+
+.sheet__content--bottom[data-detached],
+.sheet__content--top[data-detached] {
+  @apply w-[calc(100%-1rem)];
+}
+
+.sheet__content--left[data-detached],
+.sheet__content--right[data-detached] {
+  @apply h-[calc(100%-1rem)];
+}
+
+/* A snap sheet needs a definite size so flex children, such as a virtualized
+   picker, can fill it. The first snap point reveals only the top of that size. */
+.sheet__content--bottom[data-snap-points],
+.sheet__content--top[data-snap-points] {
+  @apply h-full max-h-none;
+}
+
+.sheet__content--left[data-snap-points],
+.sheet__content--right[data-snap-points] {
+  @apply w-full max-w-none;
+}
+
+/* The full detent must include the detached margins inside the viewport. */
+.sheet__content--bottom[data-detached][data-snap-points],
+.sheet__content--top[data-detached][data-snap-points] {
+  @apply h-[calc(100%-1rem)];
+}
+
+.sheet__content--left[data-detached][data-snap-points],
+.sheet__content--right[data-detached][data-snap-points] {
+  @apply w-[calc(100%-1rem)];
+}
+
+.sheet__dialog {
+  @apply relative flex min-h-0 flex-col overflow-hidden bg-overlay text-overlay-foreground shadow-overlay outline-none;
+}
+
+.sheet__content[data-detached] .sheet__dialog {
+  @apply rounded-2xl;
+}
+
+.sheet__dialog--bottom {
+  @apply rounded-t-2xl;
+}
+
+.sheet__dialog--top {
+  @apply rounded-b-2xl;
+}
+
+.sheet__dialog--left {
+  @apply rounded-r-2xl;
+}
+
+.sheet__dialog--right {
+  @apply rounded-l-2xl;
+}
+
+.sheet__header {
+  @apply flex shrink-0 flex-col gap-1 px-5 pt-4 pb-2;
+}
+
+.sheet__heading {
+  @apply text-lg font-semibold;
+}
+
+/* Scroll the body only once the sheet is fully expanded, so a swipe at a
+   partial detent expands the sheet instead of scrolling its content. */
+.sheet__body {
+  @apply min-h-0 flex-auto scrollbar overflow-hidden px-5 py-2;
+}
+
+.sheet__content[data-expanded] .sheet__body {
+  @apply overflow-y-auto [-webkit-overflow-scrolling:touch];
+}
+
+.sheet__footer {
+  @apply flex shrink-0 items-center justify-end gap-2 px-5 pt-2 pb-4;
+}
+
+.sheet__handle {
+  @apply relative flex shrink-0 cursor-grab touch-none items-center justify-center py-3 select-none;
+}
+
+.sheet__handle[data-dragging] {
+  @apply cursor-grabbing;
+}
+
+/* Let a mouse drag follow the pointer instead of snapping on every move. */
+[data-sheet-scroll][data-handle-dragging] {
+  @apply snap-none!;
+}
+
+.sheet__handle-bar {
+  @apply block h-[0.3rem] w-8 rounded-full bg-default;
+}
+
+.sheet__close-trigger {
+  @apply absolute top-3 right-3 z-10 cursor-(--cursor-interactive) text-muted outline-none no-highlight;
+
+  &:focus-visible:not([data-focused]),
+  &[data-focus-visible="true"] {
+    @apply status-focused;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    @apply status-disabled;
+  }
+
+  @media (hover: hover) {
+    &:hover,
+    &[data-hovered="true"] {
+      @apply text-foreground;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sheet__backdrop,
+  .sheet__content {
+    @apply [animation-duration:1ms];
+  }
+}

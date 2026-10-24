@@ -89,11 +89,11 @@ The AvatarGroup component uses these CSS classes ([View source styles](https://g
 #### Base Classes [!toc]
 - `.avatar-group` - Base avatar group container
 - `.avatar-group--grid` - Grid layout modifier (no overlap)
-- `.avatar-group--clip` - Crescent mask / transparent seam (default stacked overlap)
+- `.avatar-group--clip` - Transparent seam tracing the next avatar's outline (default stacked overlap)
 - `.avatar-group--ring` - Solid box-shadow outline via `--background`
 - `.avatar-group__count` - Overflow count avatar
 
-Stacked layout uses negative margin between siblings (`--avatar-group-overlap`, default `0.5rem`). Clip mode masks overlapped avatars (not the last child / Count) and optically nudges fallback glyphs; ring mode uses a thin box-shadow outline via `--background`.
+Stacked layout uses negative margin between siblings (`--avatar-group-overlap`, default `0.5rem`). Clip mode masks overlapped avatars (not the last child / Count) and optically nudges fallback glyphs; the seam follows the avatar's own `--avatar-radius`, so a themed `--radius` reshapes avatars and seams together. Ring mode uses a thin box-shadow outline via `--background`.
 
 ## API Reference
 
@@ -106,7 +106,7 @@ Stacked layout uses negative margin between siblings (`--avatar-group-overlap`, 
 | `variant` | `'default' \| 'soft'` | - | Variant applied to child Avatars (and the overflow count) when they omit `variant` |
 | `max` | `number` | - | Maximum number of avatar children to render; omit to show all |
 | `isGrid` | `boolean` | `false` | Whether to use a wrapping grid layout without overlap |
-| `overlap` | `'clip' \| 'ring'` | `'clip'` | Stacked overlap style: crescent clip (default) or box-shadow ring; ignored when `isGrid` |
+| `overlap` | `'clip' \| 'ring'` | `'clip'` | Stacked overlap style: transparent seam (default) or box-shadow ring; ignored when `isGrid` |
 | `className` | `string` | - | Additional CSS classes |
 | `children` | `React.ReactNode` | - | Avatar components (and optional `AvatarGroup.Count`) to group together |
 
@@ -128,7 +128,7 @@ Composes `Avatar` + `Avatar.Fallback` for the overflow indicator. Not truncated 
 - `max` truncates visible avatars when set and auto-counts remaining children; omit to show all
 - For a known total (e.g. from the server), render an explicit `AvatarGroup.Count` — it is not truncated by `max` and suppresses the auto count. Prefer `Count` over the removed v2 `total` prop
 - `isGrid` disables overlap and uses a wrapping grid layout instead
-- `overlap` defaults to `"clip"` (crescent seam); use `"ring"` for the solid outline; no effect with `isGrid`
+- `overlap` defaults to `"clip"` (transparent seam); use `"ring"` for the solid outline; no effect with `isGrid`
 - No default `role="group"` — when the stack is meaningful (assignees, viewers), pass `role="group"` with `aria-label` or `aria-labelledby`
 
 ## Related Components

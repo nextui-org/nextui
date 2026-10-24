@@ -9,7 +9,7 @@ import React from "react";
 import {DateField as DateFieldPrimitive} from "react-aria-components/DateField";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * DateField Root
@@ -30,12 +30,14 @@ function DateFieldRoot<T extends DateValue>({
       data-required={dataAttr(props.isRequired)}
       data-slot="date-field"
       {...props}
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </DateFieldPrimitive>
   );
 }
+
+DateFieldRoot.displayName = "HeroUI.DateField";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

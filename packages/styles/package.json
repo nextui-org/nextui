@@ -9,7 +9,7 @@
     "url": "https://github.com/heroui-inc/heroui.git",
     "directory": "packages/styles"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

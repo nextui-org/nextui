@@ -16,9 +16,10 @@ import {
 } from "react-aria-components/Tooltip";
 
 import {useCSSVariable} from "../../hooks/use-css-variable";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {parseCSSTime} from "../../utils/css";
 import {dom} from "../../utils/dom";
+import {resolveOverlayOpen, useOverlayExitHold} from "../../utils/use-overlay-exit-hold";
 
 /* -------------------------------------------------------------------------------------------------
  * Tooltip Context
@@ -97,6 +98,8 @@ const TooltipRoot = ({
   );
 };
 
+TooltipRoot.displayName = "HeroUI.Tooltip";
+
 /* -------------------------------------------------------------------------------------------------
  * Tooltip Content
  * -----------------------------------------------------------------------------------------------*/
@@ -109,23 +112,40 @@ interface TooltipContentProps
 const TooltipContent = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   offset: offsetProp,
+  ref,
   showArrow = false,
   ...props
 }: TooltipContentProps) => {
   const {slots} = use(TooltipContext);
   const offset = offsetProp ? offsetProp : showArrow ? 7 : 3;
+  const state = use(TooltipTriggerStateContext);
+  // HeroUI clears React Aria's warmup skip unless the caller opts in, so the hold
+  // follows that flag and does not force a close animation the caller turned off.
+  const {isExiting, ref: overlayRef} = useOverlayExitHold(
+    resolveOverlayOpen(isOpen, defaultOpen, state),
+    {enabled: !state?.shouldSkipAnimation, ref},
+  );
 
   return (
     <TooltipPrimitive
       {...props}
-      className={composeTwRenderProps(className, slots?.base())}
+      ref={overlayRef}
+      className={useResolvedClassName(className, slots?.base())}
+      defaultOpen={defaultOpen}
+      isExiting={isExiting || isExitingProp}
+      isOpen={isOpen}
       offset={offset}
     >
       {children}
     </TooltipPrimitive>
   );
 };
+
+TooltipContent.displayName = "HeroUI.Tooltip.Content";
 
 /* -------------------------------------------------------------------------------------------------
  * Tooltip Arrow
@@ -167,6 +187,8 @@ const TooltipArrow = ({children, className, ...props}: TooltipArrowProps) => {
   );
 };
 
+TooltipArrow.displayName = "HeroUI.Tooltip.Arrow";
+
 /* -------------------------------------------------------------------------------------------------
  * Tooltip Trigger
  * -----------------------------------------------------------------------------------------------*/
@@ -206,6 +228,8 @@ const TooltipTrigger = <E extends keyof React.JSX.IntrinsicElements = "div">({
     </dom.div>
   );
 };
+
+TooltipTrigger.displayName = "HeroUI.Tooltip.Trigger";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

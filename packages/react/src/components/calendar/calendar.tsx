@@ -28,7 +28,7 @@ import {useLocale} from "react-aria-components/I18nProvider";
 import {cx} from "tailwind-variants";
 
 import {getGregorianYearOffset} from "../../utils/calendar";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {YearPickerContext} from "../calendar-year-picker/year-picker-context";
 import {IconChevronLeft, IconChevronRight} from "../icons";
@@ -170,7 +170,7 @@ function CalendarRoot<T extends DateValue = DateValue, M extends CalendarSelecti
         minValue={minValue}
         visibleDuration={visibleDuration}
         {...rest}
-        className={composeTwRenderProps(
+        className={useResolvedClassName(
           className,
           cx(slots.base(), isWeekView && "calendar--week-view", isDayView && "calendar--day-view"),
         )}
@@ -196,13 +196,13 @@ CalendarRoot.displayName = "HeroUI.Calendar";
 | * Calendar Header
 | * -----------------------------------------------------------------------------------------------*/
 interface CalendarHeaderProps<
-  E extends keyof React.JSX.IntrinsicElements = "header",
+  E extends keyof React.JSX.IntrinsicElements = "div",
 > extends DOMRenderProps<E, undefined> {
   children?: ReactNode;
   className?: string;
 }
 
-const CalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "header">({
+const CalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "div">({
   children,
   className,
   ...props
@@ -210,13 +210,13 @@ const CalendarHeader = <E extends keyof React.JSX.IntrinsicElements = "header">(
   const {slots} = use(CalendarContext);
 
   return (
-    <dom.header
+    <dom.div
       className={composeSlotClassName(slots?.header, className)}
       data-slot="calendar-header"
       {...(props as any)}
     >
       {children}
-    </dom.header>
+    </dom.div>
   );
 };
 
@@ -256,7 +256,7 @@ const CalendarNavButton = ({children, className, slot, ...props}: CalendarNavBut
       data-slot="calendar-nav-button"
       slot={slot}
       {...props}
-      className={composeTwRenderProps(className, slots?.navButton())}
+      className={useResolvedClassName(className, slots?.navButton())}
     >
       {children ||
         (slot === "previous" ? (
@@ -418,7 +418,7 @@ const CalendarCell = ({children, className, ...props}: CalendarCellProps) => {
     <CalendarCellPrimitive
       data-slot="calendar-cell"
       {...props}
-      className={composeTwRenderProps(className, slots?.cell())}
+      className={useResolvedClassName(className, slots?.cell())}
     >
       {(values) => {
         const {formattedDate} = values;

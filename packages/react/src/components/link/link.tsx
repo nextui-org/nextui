@@ -9,7 +9,7 @@ import React, {createContext, use} from "react";
 import {Link as LinkPrimitive} from "react-aria-components/Link";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {ExternalLinkIcon} from "../icons";
 
@@ -36,13 +36,15 @@ const LinkRoot = ({children, className, ...props}: LinkRootProps) => {
       <LinkPrimitive
         data-slot="link"
         {...props}
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </LinkPrimitive>
     </LinkContext>
   );
 };
+
+LinkRoot.displayName = "HeroUI.Link";
 
 /* ------------------------------------------------------------------------------------------------
  * Link Icon
@@ -72,6 +74,8 @@ const LinkIcon = <E extends keyof React.JSX.IntrinsicElements = "span">({
     </dom.span>
   );
 };
+
+LinkIcon.displayName = "HeroUI.Link.Icon";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

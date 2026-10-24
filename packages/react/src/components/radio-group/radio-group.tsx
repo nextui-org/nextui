@@ -7,7 +7,7 @@ import {radioGroupVariants} from "@heroui/styles";
 import React from "react";
 import {RadioGroup as RadioGroupPrimitive} from "react-aria-components/RadioGroup";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * Radio Group Root
@@ -22,12 +22,14 @@ const RadioGroupRoot = ({children, className, variant, ...props}: RadioGroupRoot
     <RadioGroupPrimitive
       data-slot="radio-group"
       {...props}
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </RadioGroupPrimitive>
   );
 };
+
+RadioGroupRoot.displayName = "HeroUI.RadioGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

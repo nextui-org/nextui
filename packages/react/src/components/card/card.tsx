@@ -65,6 +65,8 @@ const CardRoot = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+CardRoot.displayName = "HeroUI.Card";
+
 /* -------------------------------------------------------------------------------------------------
  * Card Header
  * -----------------------------------------------------------------------------------------------*/
@@ -89,6 +91,8 @@ const CardHeader = <E extends keyof React.JSX.IntrinsicElements = "div">({
     />
   );
 };
+
+CardHeader.displayName = "HeroUI.Card.Header";
 
 /* -------------------------------------------------------------------------------------------------
  * Card Title
@@ -119,6 +123,8 @@ const CardTitle = <E extends keyof React.JSX.IntrinsicElements = "h3">({
   );
 };
 
+CardTitle.displayName = "HeroUI.Card.Title";
+
 /* -------------------------------------------------------------------------------------------------
  * Card Description
  * -----------------------------------------------------------------------------------------------*/
@@ -148,6 +154,8 @@ const CardDescription = <E extends keyof React.JSX.IntrinsicElements = "p">({
   );
 };
 
+CardDescription.displayName = "HeroUI.Card.Description";
+
 /* -------------------------------------------------------------------------------------------------
  * Card Content
  * -----------------------------------------------------------------------------------------------*/
@@ -173,6 +181,8 @@ const CardContent = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+CardContent.displayName = "HeroUI.Card.Content";
+
 /* -------------------------------------------------------------------------------------------------
  * Card Footer
  * -----------------------------------------------------------------------------------------------*/
@@ -197,6 +207,8 @@ const CardFooter = <E extends keyof React.JSX.IntrinsicElements = "div">({
     />
   );
 };
+
+CardFooter.displayName = "HeroUI.Card.Footer";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

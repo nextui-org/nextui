@@ -262,21 +262,30 @@ export const WithPrefix: Story = {
         <TagGroup.List>
           <Tag>
             <Avatar className="size-4">
-              <Avatar.Image src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/blue.jpg" />
+              <Avatar.Image
+                alt=""
+                src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/blue.jpg"
+              />
               <Avatar.Fallback>F</Avatar.Fallback>
             </Avatar>
             Fred
           </Tag>
           <Tag>
             <Avatar className="size-4">
-              <Avatar.Image src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/green.jpg" />
+              <Avatar.Image
+                alt=""
+                src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/green.jpg"
+              />
               <Avatar.Fallback>M</Avatar.Fallback>
             </Avatar>
             Michael
           </Tag>
           <Tag>
             <Avatar className="size-4">
-              <Avatar.Image src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/purple.jpg" />
+              <Avatar.Image
+                alt=""
+                src="https://heroui-assets.nyc3.cdn.digitaloceanspaces.com/avatars/purple.jpg"
+              />
               <Avatar.Fallback>J</Avatar.Fallback>
             </Avatar>
             Jane
@@ -455,7 +464,7 @@ export const WithListData: Story = {
             {(user) => (
               <Tag key={user.id} id={user.id} textValue={user.name}>
                 <Avatar className="size-4" size="sm">
-                  <Avatar.Image src={user.avatar} />
+                  <Avatar.Image alt="" src={user.avatar} />
                   <Avatar.Fallback>{user.fallback}</Avatar.Fallback>
                 </Avatar>
                 {user.name}
@@ -479,7 +488,7 @@ export const WithListData: Story = {
                     className="flex items-center gap-2 rounded-lg bg-surface-tertiary px-2 py-1"
                   >
                     <Avatar className="size-4" size="sm">
-                      <Avatar.Image src={user.avatar} />
+                      <Avatar.Image alt="" src={user.avatar} />
                       <Avatar.Fallback>{user.fallback}</Avatar.Fallback>
                     </Avatar>
                     <span className="text-sm">{user.name}</span>

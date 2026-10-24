@@ -30,14 +30,18 @@
     @apply size-3.5;
   }
 
-  /* Add inline-start padding when indicator is present */
-  &:has(.menu-item__indicator) {
+  /* Inline-start room for a start-side selection indicator.
+     The submenu chevron uses `.menu-item__indicator` too, but it sits on the
+     inline-end, so it must not take this padding. Excluding every submenu row
+     would also drop the room a checkmark needs when the row has both. */
+  &:has(.menu-item__indicator:not(.menu-item__indicator--submenu)) {
     @apply ps-7;
   }
 
-  /* Add inline-end padding when indicator is present and has submenu */
-  &[data-has-submenu="true"]:has(.menu-item__indicator) {
-    @apply ps-2 pe-7;
+  /* Inline-end room for the submenu chevron.
+     Start padding is left to context (base `.menu-item` `px-2`, or a parent override). */
+  &[data-has-submenu="true"]:has(.menu-item__indicator--submenu) {
+    @apply pe-7;
   }
 
   /* Focus visible state (keyboard focus only).
@@ -107,11 +111,6 @@
    */
   @apply transition duration-250 motion-reduce:transition-none;
 
-  /* Position on the inline-end when menu item has submenu */
-  .menu-item[data-has-submenu="true"] & {
-    @apply start-auto end-2;
-  }
-
   /* Checkmark SVG indicator */
   [data-slot="menu-item-indicator--checkmark"] {
     @apply size-2.5;
@@ -141,9 +140,15 @@
   }
 }
 
-/* Submenu indicator (chevron-right) */
+/* Submenu indicator (chevron-right).
+   Only the chevron moves to the inline-end. A selection indicator on the same
+   row keeps the start position from `.menu-item__indicator`. */
 .menu-item__indicator--submenu {
   @apply text-muted;
+
+  .menu-item[data-has-submenu="true"] & {
+    @apply start-auto end-2;
+  }
 
   svg {
     @apply size-3;

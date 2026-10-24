@@ -35,7 +35,8 @@
   @apply end-4 top-4;
 }
 
-.toast-region:focus-visible {
+.toast-region:focus-visible,
+.toast-region[data-focus-visible="true"] {
   @apply outline-2 outline-offset-2 outline-focus;
 }
 
@@ -54,7 +55,9 @@
     scale(var(--toast-scale));
   height: var(--toast-height, auto);
 
-  @apply pointer-events-auto flex flex-row items-start justify-start gap-1.5 bg-surface px-4 py-3 shadow-overlay;
+  /* Grid, not flex-wrap: below sm the action sits in the content column, content-sized. A flex basis wide enough to wrap the button also stretched it to the row. */
+  @apply pointer-events-auto grid grid-cols-[auto_minmax(0,1fr)] items-start justify-start gap-x-1.5 gap-y-2 bg-surface px-4 py-3 shadow-overlay;
+  @apply sm:grid-cols-[auto_minmax(0,1fr)_auto] sm:gap-y-0;
 
   /* Timing tokens */
   --toast-ease: var(--ease-out-fluid);
@@ -175,21 +178,23 @@
 
 /* Hidden (beyond maxVisibleToasts) */
 .toast[data-hidden="true"] {
-  @apply pointer-events-none flex opacity-0;
+  @apply pointer-events-none grid opacity-0;
 }
 
-.toast:focus-visible {
+.toast:focus-visible,
+.toast[data-focus-visible="true"] {
   @apply outline-2 outline-offset-2 outline-focus;
 }
 
 /* Content */
 .toast__content {
-  @apply flex grow flex-col items-start self-center;
+  /* min-w-0 lets the text wrap inside the track instead of widening it. */
+  @apply col-start-2 row-start-1 flex min-w-0 flex-col items-start self-center;
 }
 
 /* Indicator */
 .toast__indicator {
-  @apply flex shrink-0 items-center justify-center p-1 text-overlay-foreground select-none;
+  @apply col-start-1 row-start-1 flex shrink-0 items-center justify-center p-1 text-overlay-foreground select-none;
 
   [data-slot="toast-default-icon"] {
     @apply box-content size-4;
@@ -251,7 +256,9 @@
 
 /* Reveal close button on hover */
 .toast[data-frontmost="true"]:hover .toast__close-button,
-.toast[data-expanded="true"]:hover .toast__close-button {
+.toast[data-expanded="true"]:hover .toast__close-button,
+.toast[data-frontmost="true"][data-hovered="true"] .toast__close-button,
+.toast[data-expanded="true"][data-hovered="true"] .toast__close-button {
   @apply pointer-events-auto opacity-100;
 }
 
@@ -262,7 +269,22 @@
 
 /* Action */
 .toast__action {
-  @apply mt-2 sm:mt-0;
+  /* Same column as the content, so it lines up with the title and stays as wide as its label. */
+  @apply col-start-2 row-start-2 justify-self-start;
+  @apply sm:col-start-3 sm:row-start-1;
+}
+
+/* No indicator: the first track would stay, and so would the column gap. */
+.toast:not(:has(.toast__indicator)) {
+  @apply grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto];
+}
+
+.toast:not(:has(.toast__indicator)) .toast__content {
+  @apply col-start-1;
+}
+
+.toast:not(:has(.toast__indicator)) .toast__action {
+  @apply col-start-1 sm:col-start-2;
 }
 
 /* Variants */
@@ -303,5 +325,57 @@
 @keyframes toast-indicator-scale {
   from {
     scale: 0.92;
+  }
+}
+
+/*
+ * iOS Safari paints a plate behind the floating toolbar when a wide fixed box
+ * sits on that edge. The centered rule is the verified workaround. Start and end
+ * need the same narrow anchor or they keep `calc(100vw - 2rem)`. The repeated
+ * `.toast-region` beats the `sm:` min-width above. `translate` stays off the
+ * stacking `transform`, and flips in RTL so the centered toast stays centered.
+ * Region offsets are untouched, so a safe-area override still moves the stack.
+ * The anchor has no box, so the focus ring moves to the frontmost toast.
+ */
+@supports (-webkit-touch-callout: none) {
+  .toast-region.toast-region--bottom,
+  .toast-region.toast-region--bottom-start,
+  .toast-region.toast-region--bottom-end {
+    @apply w-0 min-w-0;
+  }
+
+  .toast-region--bottom .toast {
+    @apply end-auto w-[min(var(--toast-width),calc(100vw-2rem))] -translate-x-1/2 rtl:translate-x-1/2;
+  }
+
+  .toast-region--bottom-start .toast,
+  .toast-region--bottom-end .toast {
+    @apply w-[min(var(--toast-width),calc(100vw-2rem))];
+  }
+
+  .toast-region--bottom-start .toast {
+    @apply end-auto;
+  }
+
+  .toast-region--bottom-end .toast {
+    @apply start-auto;
+  }
+
+  .toast-region--bottom:focus-visible,
+  .toast-region--bottom[data-focus-visible="true"],
+  .toast-region--bottom-start:focus-visible,
+  .toast-region--bottom-start[data-focus-visible="true"],
+  .toast-region--bottom-end:focus-visible,
+  .toast-region--bottom-end[data-focus-visible="true"] {
+    @apply outline-none;
+  }
+
+  .toast-region--bottom:focus-visible .toast[data-frontmost="true"],
+  .toast-region--bottom[data-focus-visible="true"] .toast[data-frontmost="true"],
+  .toast-region--bottom-start:focus-visible .toast[data-frontmost="true"],
+  .toast-region--bottom-start[data-focus-visible="true"] .toast[data-frontmost="true"],
+  .toast-region--bottom-end:focus-visible .toast[data-frontmost="true"],
+  .toast-region--bottom-end[data-focus-visible="true"] .toast[data-frontmost="true"] {
+    @apply outline-2 outline-offset-2 outline-focus;
   }
 }

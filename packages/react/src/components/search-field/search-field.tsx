@@ -10,7 +10,7 @@ import {Group as GroupPrimitive} from "react-aria-components/Group";
 import {Input as InputPrimitive} from "react-aria-components/Input";
 import {SearchField as SearchFieldPrimitive} from "react-aria-components/SearchField";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {CloseButton} from "../close-button";
 import {IconSearch} from "../icons";
 
@@ -47,13 +47,15 @@ const SearchFieldRoot = ({
       <SearchFieldPrimitive
         data-slot="search-field"
         {...props}
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </SearchFieldPrimitive>
     </SearchFieldContext>
   );
 };
+
+SearchFieldRoot.displayName = "HeroUI.SearchField";
 
 /* -------------------------------------------------------------------------------------------------
  * SearchField Group
@@ -65,14 +67,16 @@ const SearchFieldGroup = ({children, className, ...props}: SearchFieldGroupProps
 
   return (
     <GroupPrimitive
-      className={composeTwRenderProps(className, slots?.group())}
+      className={useResolvedClassName(className, slots?.group())}
       data-slot="search-field-group"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </GroupPrimitive>
   );
 };
+
+SearchFieldGroup.displayName = "HeroUI.SearchField.Group";
 
 /* -------------------------------------------------------------------------------------------------
  * SearchField Input
@@ -84,12 +88,14 @@ const SearchFieldInput = ({className, ...props}: SearchFieldInputProps) => {
 
   return (
     <InputPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="search-field-input"
       {...props}
     />
   );
 };
+
+SearchFieldInput.displayName = "HeroUI.SearchField.Input";
 
 /* -------------------------------------------------------------------------------------------------
  * SearchField Search Icon
@@ -132,6 +138,8 @@ const SearchFieldSearchIcon = <E extends keyof React.JSX.IntrinsicElements = "sv
   );
 };
 
+SearchFieldSearchIcon.displayName = "HeroUI.SearchField.SearchIcon";
+
 /* -------------------------------------------------------------------------------------------------
  * SearchField Clear Button
  * -----------------------------------------------------------------------------------------------*/
@@ -142,13 +150,15 @@ const SearchFieldClearButton = ({className, ...props}: SearchFieldClearButtonPro
 
   return (
     <CloseButton
-      className={composeTwRenderProps(className, slots?.clearButton())}
+      className={useResolvedClassName(className, slots?.clearButton())}
       data-slot="search-field-clear-button"
       slot="clear"
       {...props}
     />
   );
 };
+
+SearchFieldClearButton.displayName = "HeroUI.SearchField.ClearButton";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

@@ -18,7 +18,7 @@ import {
 } from "react-aria-components/DateField";
 import {Group as GroupPrimitive} from "react-aria-components/Group";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -52,15 +52,17 @@ const DateInputGroupRoot = ({
   return (
     <DateInputGroupContext value={contextValue}>
       <GroupPrimitive
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
         data-slot="date-input-group"
         {...props}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </GroupPrimitive>
     </DateInputGroupContext>
   );
 };
+
+DateInputGroupRoot.displayName = "HeroUI.DateInputGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * DateInputGroup Prefix
@@ -91,6 +93,8 @@ const DateInputGroupPrefix = <E extends keyof React.JSX.IntrinsicElements = "div
   );
 };
 
+DateInputGroupPrefix.displayName = "HeroUI.DateInputGroup.Prefix";
+
 /* -------------------------------------------------------------------------------------------------
  * DateInputGroup Input
  * -----------------------------------------------------------------------------------------------*/
@@ -107,12 +111,14 @@ const DateInputGroupInput = ({className, ...props}: DateInputGroupInputProps) =>
   // We use DateInputPrimitive as the default, but it will work with TimeField context
   return (
     <DateInputPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="date-input-group-input"
       {...(props as DateInputPrimitiveProps)}
     />
   );
 };
+
+DateInputGroupInput.displayName = "HeroUI.DateInputGroup.Input";
 
 /* -------------------------------------------------------------------------------------------------
  * DateInputGroup Segment
@@ -140,6 +146,8 @@ const DateInputGroupSegment = ({className, segment, ...props}: DateInputGroupSeg
     />
   );
 };
+
+DateInputGroupSegment.displayName = "HeroUI.DateInputGroup.Segment";
 
 /* -------------------------------------------------------------------------------------------------
  * DateInputGroup InputContainer
@@ -170,6 +178,8 @@ const DateInputGroupInputContainer = <E extends keyof React.JSX.IntrinsicElement
   );
 };
 
+DateInputGroupInputContainer.displayName = "HeroUI.DateInputGroup.InputContainer";
+
 /* -------------------------------------------------------------------------------------------------
  * DateInputGroup Suffix
  * -----------------------------------------------------------------------------------------------*/
@@ -198,6 +208,8 @@ const DateInputGroupSuffix = <E extends keyof React.JSX.IntrinsicElements = "div
     </dom.div>
   );
 };
+
+DateInputGroupSuffix.displayName = "HeroUI.DateInputGroup.Suffix";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

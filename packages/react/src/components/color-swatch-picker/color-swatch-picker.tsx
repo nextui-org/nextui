@@ -13,7 +13,7 @@ import {
   ColorSwatch as ColorSwatchPrimitive,
 } from "react-aria-components/ColorSwatchPicker";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -59,13 +59,15 @@ const ColorSwatchPickerRoot = ({
       <ColorSwatchPickerPrimitive
         data-slot="color-swatch-picker"
         {...props}
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
       >
         {children}
       </ColorSwatchPickerPrimitive>
     </ColorSwatchPickerContext>
   );
 };
+
+ColorSwatchPickerRoot.displayName = "HeroUI.ColorSwatchPicker";
 
 /* -------------------------------------------------------------------------------------------------
 | * ColorSwatchPicker Item
@@ -81,7 +83,7 @@ const ColorSwatchPickerItem = ({children, className, ...props}: ColorSwatchPicke
     <ColorSwatchPickerItemPrimitive
       data-slot="color-swatch-picker-item"
       {...props}
-      className={composeTwRenderProps(className, slots?.item())}
+      className={useResolvedClassName(className, slots?.item())}
       style={(renderProps) =>
         ({
           "--color-swatch-current": renderProps.color.toString("css"),
@@ -97,6 +99,8 @@ const ColorSwatchPickerItem = ({children, className, ...props}: ColorSwatchPicke
   );
 };
 
+ColorSwatchPickerItem.displayName = "HeroUI.ColorSwatchPicker.Item";
+
 /* -------------------------------------------------------------------------------------------------
 | * ColorSwatchPicker Swatch
 | * -----------------------------------------------------------------------------------------------*/
@@ -107,12 +111,14 @@ const ColorSwatchPickerSwatch = ({className, ...props}: ColorSwatchPickerSwatchP
 
   return (
     <ColorSwatchPrimitive
-      className={composeTwRenderProps(className, slots?.swatch())}
+      className={useResolvedClassName(className, slots?.swatch())}
       data-slot="color-swatch-picker-swatch"
       {...props}
     />
   );
 };
+
+ColorSwatchPickerSwatch.displayName = "HeroUI.ColorSwatchPicker.Swatch";
 
 /* -------------------------------------------------------------------------------------------------
 | * ColorSwatchPicker Indicator
@@ -185,6 +191,8 @@ const ColorSwatchPickerIndicator = <E extends keyof React.JSX.IntrinsicElements 
     </dom.span>
   );
 };
+
+ColorSwatchPickerIndicator.displayName = "HeroUI.ColorSwatchPicker.Indicator";
 
 /* -------------------------------------------------------------------------------------------------
 | * Exports

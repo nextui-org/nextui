@@ -57,6 +57,8 @@ const AlertRoot = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+AlertRoot.displayName = "HeroUI.Alert";
+
 /* ------------------------------------------------------------------------------------------------
  * Alert Indicator
  * --------------------------------------------------------------------------------------------- */
@@ -101,6 +103,8 @@ const AlertIndicator = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+AlertIndicator.displayName = "HeroUI.Alert.Indicator";
+
 /* ------------------------------------------------------------------------------------------------
  * Alert Content
  * --------------------------------------------------------------------------------------------- */
@@ -128,6 +132,8 @@ const AlertContent = <E extends keyof React.JSX.IntrinsicElements = "div">({
     </dom.div>
   );
 };
+
+AlertContent.displayName = "HeroUI.Alert.Content";
 
 /* ------------------------------------------------------------------------------------------------
  * Alert Title
@@ -158,6 +164,8 @@ const AlertTitle = <E extends keyof React.JSX.IntrinsicElements = "p">({
   );
 };
 
+AlertTitle.displayName = "HeroUI.Alert.Title";
+
 /* ------------------------------------------------------------------------------------------------
  * Alert Description
  * --------------------------------------------------------------------------------------------- */
@@ -186,6 +194,8 @@ const AlertDescription = <E extends keyof React.JSX.IntrinsicElements = "span">(
     </dom.span>
   );
 };
+
+AlertDescription.displayName = "HeroUI.Alert.Description";
 
 /* ------------------------------------------------------------------------------------------------
  * Exports

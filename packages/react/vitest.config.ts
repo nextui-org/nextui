@@ -23,11 +23,14 @@ export default defineConfig({
       provider: "v8",
       include: ["src/components/**/*.{ts,tsx}"],
       exclude: ["**/index.ts", "**/*.stories.*"],
+      // Ratchet: kept ~1pt under the measured jsdom run so the floors actually
+      // bite. Raise them again whenever coverage moves up; never lower them to
+      // make a red build pass.
       thresholds: {
-        statements: 80,
-        branches: 56,
-        functions: 83,
-        lines: 80,
+        statements: 87,
+        branches: 66,
+        functions: 90,
+        lines: 87,
       },
       reporter: [
         "text",

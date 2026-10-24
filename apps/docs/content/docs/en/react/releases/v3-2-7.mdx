@@ -1,0 +1,113 @@
+---
+title: v3.2.7
+description: React Aria 1.22.1, the new Sheet component, Slider steps and marks, reduced rendering overhead, accessibility improvements, responsive Storybook demos, and fixes across overlays and form controls.
+github:
+  pull: 6892
+---
+
+<div className="flex items-center gap-3 mb-6">
+  <span className="text-sm text-muted">October 24, 2026</span>
+</div>
+
+React Aria upgrade: HeroUI bumps `react-aria-components` to `1.22.1` (`react-aria@3.53.1`). The new [Sheet](/docs/components/sheet) component provides a swipeable overlay with four placements, snap points, nested sheets, controlled state, bounded detached layouts, and coordinated dragging, scrolling, and handle-driven dismissal. [Slider](/docs/components/slider) adds composable step indicators and mark labels for horizontal, vertical, single-value, and range controls, while components reduce rendering overhead. Accessibility improvements add decorative [Separator](/docs/components/separator) support, preserve dialog naming in date-picker popovers, remove invalid landmark and group attributes, and improve Storybook example semantics. This release also keeps reopened overlays visible and fixes Slider RTL fills, Switch thumb jitter, cancelled [Drawer](/docs/components/drawer) drags, stale [ScrollShadow](/docs/components/scroll-shadow) edges, narrow-screen menus, autofilled fields, and Toast layouts.
+
+## Installation
+
+Update to the latest version:
+
+<Tabs items={["npm", "pnpm", "yarn", "bun"]}>
+  <Tab value="npm">
+    ```bash
+    npm i @heroui/styles@latest @heroui/react@latest
+    ```
+  </Tab>
+  <Tab value="pnpm">
+    ```bash
+    pnpm add @heroui/styles@latest @heroui/react@latest
+    ```
+  </Tab>
+  <Tab value="yarn">
+    ```bash
+    yarn add @heroui/styles@latest @heroui/react@latest
+    ```
+  </Tab>
+  <Tab value="bun">
+    ```bash
+    bun add @heroui/styles@latest @heroui/react@latest
+    ```
+  </Tab>
+</Tabs>
+
+<Callout type="warning">
+  **Peer dependencies.** This release requires `react-aria-components@^1.22.1` and `react-aria@^3.53.1`. Align your app’s installed versions when upgrading.
+</Callout>
+
+<Callout type="info">
+  **Using AI assistants?** Simply prompt "Hey Cursor, update HeroUI to the latest version" and your AI assistant will automatically compare versions and apply the necessary changes. Learn more about the [HeroUI MCP Server](/docs/ui-for-agents/mcp-server).
+</Callout>
+
+## Dependencies
+
+- **React Aria**: Upgrade to [React Aria 1.22.1](https://react-aria.adobe.com/releases/v1-22-0) — `react-aria-components@1.22.1`, `react-aria@3.53.1`, `react-stately@3.51.0`, `@react-types/shared@3.37.0`, and `@internationalized/number@3.6.9` ([#6939](https://github.com/heroui-inc/heroui/pull/6939), [#6949](https://github.com/heroui-inc/heroui/pull/6949)).
+- **Avatar primitive**: Upgrade `@radix-ui/react-avatar` to `1.3.1` ([#6979](https://github.com/heroui-inc/heroui/pull/6979)).
+- **Security**: Patch open Dependabot alerts in transitive dependencies ([#6938](https://github.com/heroui-inc/heroui/pull/6938)).
+
+## What's New
+
+- **Sheet**: Add a swipeable React Aria overlay with `bottom`, `top`, `left`, and `right` placements; pixel, CSS-length, and percentage snap points; sequential snapping; backdrop variants; detached and non-dismissable modes; controlled state; nested sheets; and coordinated panel dragging, body scrolling, and handle-driven dismissal. Detached sheets keep every snap point within the viewport across all placements. The compound API includes trigger, backdrop, content, dialog, handle, header, body, footer, and close parts ([#6974](https://github.com/heroui-inc/heroui/pull/6974), [fba503c](https://github.com/heroui-inc/heroui/commit/fba503cf8c7b643cc5c59bd3e459eec1707bd1b7), [#6979](https://github.com/heroui-inc/heroui/pull/6979)).
+- **Slider steps and marks**: Compose `Slider.Steps` inside `Slider.Track` to show decorative dots for each configured increment, then add `Slider.Marks` and `Slider.Mark` after the track for labels at arbitrary values. Steps and marks support fractional values, vertical orientation, RTL, disabled state, single-value and range sliders, localized default labels, and `data-filled` styling hooks ([#6965](https://github.com/heroui-inc/heroui/pull/6965)).
+
+## Bug Fixes
+
+- **CloseButton**: Stop hardcoding `aria-label="Close"` on the React Aria `Button`. Explicit `aria-label` props and slot context labels (toast `close`, search field `clear`, tag `remove`) are no longer overridden ([#6946](https://github.com/heroui-inc/heroui/pull/6946)).
+- **Toast**: Collapse the bottom-region anchor on iOS Safari so stacked toasts sit flush with the safe area ([#6936](https://github.com/heroui-inc/heroui/pull/6936)). Replace `useMediaQuery` action placement with a CSS grid layout ([#6932](https://github.com/heroui-inc/heroui/pull/6932)). Measure stack height with `offsetHeight` instead of `scrollHeight` so the indicator stays aligned with the title when spawning toasts inside an expanded stack ([#6952](https://github.com/heroui-inc/heroui/pull/6952)).
+- **Dropdown**: Align submenu item start padding with the menu padding scale ([#6941](https://github.com/heroui-inc/heroui/pull/6941)). Center the trigger icon in the with-sections example ([#6944](https://github.com/heroui-inc/heroui/pull/6944)). Keep menus wide enough for their rows and icons on narrow screens while capping them to the available viewport width ([#6957](https://github.com/heroui-inc/heroui/pull/6957)).
+- **ComboBox**: Keep scrolling on the controlled listbox rather than the outer popover, so keyboard navigation and virtual focus can reveal every option ([#6959](https://github.com/heroui-inc/heroui/pull/6959)).
+- **Slider**: Anchor horizontal fills from the inline start side so filled tracks align with React Aria thumb positions in RTL locales ([#6964](https://github.com/heroui-inc/heroui/pull/6964)).
+- **Switch**: Prevent thumb jitter when toggling by animating its position without changing the flex layout, while preserving RTL alignment and custom track widths ([#6970](https://github.com/heroui-inc/heroui/pull/6970)).
+- **Drawer**: Recover from a cancelled swipe without leaving the sheet displaced or stuck in a drag state. `lostpointercapture` on a hit child is ignored, the panel snaps back when the dialog loses capture, and consumer `style` props merge with `touch-action: none` instead of replacing it. The open slide runs on `Drawer.Content` because React Aria clears `data-entering` on the dialog before paint ([#6968](https://github.com/heroui-inc/heroui/pull/6968)).
+- **ScrollShadow**: Clear automatic visibility attributes when `isEnabled` changes to `false`, preventing stale edge shadows from remaining visible ([#6964](https://github.com/heroui-inc/heroui/pull/6964)).
+- **Calendar**: Keep weekday header labels in equal columns ([#6925](https://github.com/heroui-inc/heroui/pull/6925)).
+- **Overlays**: Speed up open and close on mid-range phones. Overlay enter and exit animate opacity and transform only (no `filter` keyframes), touch devices skip `backdrop-filter` on blurred modal and drawer scrims, WebKit keeps popovers mounted until the close animation is running, coarse pointers show [Dropdown](/docs/components/dropdown) menus as soon as they are placed instead of waiting on a keyboard check, and a swiped-away [Drawer](/docs/components/drawer) clears inline `transition: none` so the exit transition runs ([#6934](https://github.com/heroui-inc/heroui/pull/6934)). Popover-based components also preserve forwarded ref cleanup, follow local and slotted `shouldSkipAnimation` preferences, and retain overlay motion styles with selective CSS imports ([6f0678c](https://github.com/heroui-inc/heroui/commit/6f0678c39352eef6a0d48514bef070b2b461f8f2)). Reopening retained Modal or Popover content now restores its original or newly supplied opacity instead of leaving it invisible ([1b64b24](https://github.com/heroui-inc/heroui/commit/1b64b246faca5b108ce18ed131e0ea7374c59793)).
+- **List popovers**: Nest the outer radius with the item padding on [Select](/docs/components/select), [Dropdown](/docs/components/dropdown), [Autocomplete](/docs/components/autocomplete), and [ComboBox](/docs/components/combo-box) ([#6916](https://github.com/heroui-inc/heroui/pull/6916)).
+- **Picker indicators**: Keep the checkmark off the label in [Select](/docs/components/select), [ComboBox](/docs/components/combo-box), and [Autocomplete](/docs/components/autocomplete) popovers ([#6908](https://github.com/heroui-inc/heroui/pull/6908)).
+- **AvatarGroup**: Clip overlap follows the avatar radius ([#6884](https://github.com/heroui-inc/heroui/pull/6884)).
+- **Checkbox**: Keep the checkmark SVG mounted so the draw animation no longer flashes when toggling indeterminate selection in [Table](/docs/components/table) ([#6890](https://github.com/heroui-inc/heroui/pull/6890)).
+- **ScrollShadow**: Remove the mask seam at fractional device pixel ratios ([#6914](https://github.com/heroui-inc/heroui/pull/6914)).
+- **Radio**: Pair `:focus-visible`, `:hover`, and `:active` with the existing `data-*` state rules on [Radio](/docs/components/radio) ([#6879](https://github.com/heroui-inc/heroui/pull/6879)).
+- **Toast styles**: Pair `data-*` attributes with `:focus-visible` and `:hover` rules ([#6879](https://github.com/heroui-inc/heroui/pull/6879)).
+
+## Styles
+
+- **Field autofill**: Keep `variant="secondary"` (and other variants) on [Input](/docs/components/input), [TextArea](/docs/components/textarea), [InputGroup](/docs/components/input-group), [SearchField](/docs/components/search-field), [NumberField](/docs/components/number-field), and [ComboBox](/docs/components/combo-box) when the browser autofills values. Autofill rules now read each variant's fill token and use an inset `box-shadow` cover in Chromium instead of hardcoding primary field colors ([#6943](https://github.com/heroui-inc/heroui/pull/6943)).
+- **Disclosure**: Remove a stray `.accordion__heading` rule from `disclosure.css` ([#6904](https://github.com/heroui-inc/heroui/pull/6904)).
+- **Chip**: Empty `.chip--md` — it re-declared the `text-xs` already on the base `.chip` class ([#6879](https://github.com/heroui-inc/heroui/pull/6879)).
+
+## Components
+
+- **Separator**: Add `isDecorative` for purely visual dividers. Decorative separators render with presentational semantics and are hidden from assistive technology while retaining their styles and custom render support ([#6959](https://github.com/heroui-inc/heroui/pull/6959)).
+- **Rendering performance**: Avoid render-prop class-name resolution when a static class name is sufficient, memoize variant output and merged class names, and pass children directly to React Aria primitives. This reduces avoidable work across buttons, forms, selection controls, overlays, date and color inputs, collections, navigation, and display components while preserving function-valued `className` and children APIs ([#6947](https://github.com/heroui-inc/heroui/pull/6947)).
+- **Display names**: Set `displayName` on component parts to `HeroUI.Component.SubPart` and correct seven mismatched names ([#6879](https://github.com/heroui-inc/heroui/pull/6879)).
+- **EmptyState**: Add the missing `"use client"` directive ([#6879](https://github.com/heroui-inc/heroui/pull/6879)).
+
+## Accessibility
+
+- **Popovers and date pickers**: Preserve custom render behavior while removing orphaned accessible-name attributes from generic popover containers. [DatePicker](/docs/components/date-picker) and [DateRangePicker](/docs/components/date-range-picker) now carry their dialog labels onto React Aria's automatic dialog wrapper ([#6959](https://github.com/heroui-inc/heroui/pull/6959)).
+- **Calendars and groups**: Render [Calendar](/docs/components/calendar) and [RangeCalendar](/docs/components/range-calendar) headers as neutral containers so they do not create nested banner landmarks. Nested [ToggleButtonGroup](/docs/components/toggle-button-group) elements no longer expose unsupported `aria-orientation` on a `group` role ([#6959](https://github.com/heroui-inc/heroui/pull/6959)).
+- **Examples**: Improve accessible names and semantics across Storybook stories, mark visual dividers as decorative, and connect tabs to their content panels ([#6959](https://github.com/heroui-inc/heroui/pull/6959)).
+
+## Storybook
+
+- **Responsive demos**: Adapt the component and color demos to smaller viewports with responsive sizing, spacing, wrapping, and layout behavior ([#6958](https://github.com/heroui-inc/heroui/pull/6958)).
+
+## Links
+
+- [Component Docs](/docs/react/components)
+- [GitHub Repository](https://github.com/heroui-inc/heroui)
+- [GitHub PR #6892](https://github.com/heroui-inc/heroui/pull/6892)
+
+## Contributors
+
+Thanks to everyone who contributed to this release!
+
+<PRContributors />

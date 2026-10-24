@@ -25,12 +25,12 @@ Merge these fields into the project manifest. TypeScript and React types are inc
     "@heroui/styles": "latest"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
+    "typescript": "^7.0.2",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@tailwindcss/vite": "^4.3.3",
     "tailwindcss": "^4.3.3",
-    "vite": "^8.3.4",
+    "vite": "^8.3.5",
     "@vitejs/plugin-react": "^6.1.2"
   }
 }

@@ -4,9 +4,10 @@ import type {ColorSwatchVariants} from "@heroui/styles";
 import type {CSSProperties, ComponentPropsWithRef} from "react";
 
 import {colorSwatchVariants} from "@heroui/styles";
+import {useMemo} from "react";
 import {ColorSwatch as ColorSwatchPrimitive} from "react-aria-components/ColorSwatch";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 
 /* -------------------------------------------------------------------------------------------------
  * ColorSwatch Root
@@ -15,10 +16,13 @@ interface ColorSwatchRootProps
   extends ComponentPropsWithRef<typeof ColorSwatchPrimitive>, ColorSwatchVariants {}
 
 const ColorSwatchRoot = ({className, shape, size, style, ...props}: ColorSwatchRootProps) => {
+  const styles = useMemo(() => colorSwatchVariants({shape, size}), [shape, size]);
+  const resolvedClassName = useResolvedClassName(className, styles);
+
   return (
     <ColorSwatchPrimitive
       {...props}
-      className={composeTwRenderProps(className, colorSwatchVariants({shape, size}))}
+      className={resolvedClassName}
       data-slot="color-swatch"
       style={(renderProps) => {
         const userStyle = typeof style === "function" ? style(renderProps) : style;
@@ -31,6 +35,8 @@ const ColorSwatchRoot = ({className, shape, size, style, ...props}: ColorSwatchR
     />
   );
 };
+
+ColorSwatchRoot.displayName = "HeroUI.ColorSwatch";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

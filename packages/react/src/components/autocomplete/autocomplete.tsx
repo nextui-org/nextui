@@ -21,9 +21,10 @@ import {
 } from "react-aria-components/Select";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {CloseIcon, IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -81,15 +82,17 @@ const AutocompleteRoot = <T extends object = object, M extends "single" | "multi
         <SelectPrimitive
           data-slot="autocomplete"
           {...props}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
           isDisabled={isDisabled}
         >
-          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+          {children}
         </SelectPrimitive>
       </AutocompleteContext>
     </FieldSlotsGate>
   );
 };
+
+AutocompleteRoot.displayName = "HeroUI.Autocomplete";
 
 /* -------------------------------------------------------------------------------------------------
  * Autocomplete Trigger
@@ -122,6 +125,7 @@ const AutocompleteTrigger = ({
     () => mergeRefs(contextRefCallback, ref),
     [contextRefCallback, ref],
   );
+  const resolvedClassName = useResolvedClassName(className, slots?.trigger());
 
   const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
     // Don't toggle if clicking the clear button
@@ -139,18 +143,18 @@ const AutocompleteTrigger = ({
   return (
     <GroupPrimitive
       ref={mergedRef}
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={resolvedClassName}
       data-slot="autocomplete-trigger"
       isDisabled={isDisabled}
       onClick={handleClick}
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </GroupPrimitive>
   );
 };
 
-AutocompleteTrigger.displayName = "AutocompleteTrigger";
+AutocompleteTrigger.displayName = "HeroUI.Autocomplete.Trigger";
 
 /* -------------------------------------------------------------------------------------------------
  * Autocomplete Value
@@ -162,7 +166,7 @@ const AutocompleteValue = ({children, className, ...props}: AutocompleteValuePro
 
   return (
     <SelectValuePrimitive
-      className={composeTwRenderProps(className, slots?.value())}
+      className={useResolvedClassName(className, slots?.value())}
       data-slot="autocomplete-value"
       {...props}
     >
@@ -170,6 +174,8 @@ const AutocompleteValue = ({children, className, ...props}: AutocompleteValuePro
     </SelectValuePrimitive>
   );
 };
+
+AutocompleteValue.displayName = "HeroUI.Autocomplete.Value";
 
 /* -------------------------------------------------------------------------------------------------
  * Autocomplete Indicator
@@ -217,6 +223,8 @@ const AutocompleteIndicator = <E extends keyof React.JSX.IntrinsicElements = "sv
   return <ButtonPrimitive>{indicator}</ButtonPrimitive>;
 };
 
+AutocompleteIndicator.displayName = "HeroUI.Autocomplete.Indicator";
+
 /* -------------------------------------------------------------------------------------------------
  * Autocomplete Popover
  * -----------------------------------------------------------------------------------------------*/
@@ -230,11 +238,16 @@ interface AutocompletePopoverProps extends Omit<
 const AutocompletePopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom",
+  ref,
   style,
   ...props
 }: AutocompletePopoverProps) => {
   const {slots, triggerRef} = use(AutocompleteContext);
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
   const [triggerWidth, setTriggerWidth] = useState<string | null>(null);
 
   const onResize = useCallback(() => {
@@ -253,8 +266,12 @@ const AutocompletePopover = ({
     >
       <PopoverPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots?.popover())}
+        ref={overlayRef}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="autocomplete-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
         triggerRef={triggerRef}
         style={
@@ -270,6 +287,8 @@ const AutocompletePopover = ({
   );
 };
 
+AutocompletePopover.displayName = "HeroUI.Autocomplete.Popover";
+
 /* -------------------------------------------------------------------------------------------------
  * Autocomplete Filter
  * -----------------------------------------------------------------------------------------------*/
@@ -282,6 +301,8 @@ const AutocompleteFilter = ({children, ...props}: AutocompleteFilterProps) => {
     </AutocompletePrimitive>
   );
 };
+
+AutocompleteFilter.displayName = "HeroUI.Autocomplete.Filter";
 
 /* -------------------------------------------------------------------------------------------------
  * Autocomplete Clear Button
@@ -342,6 +363,8 @@ const AutocompleteClearButton = <E extends keyof React.JSX.IntrinsicElements = "
     </dom.button>
   );
 };
+
+AutocompleteClearButton.displayName = "HeroUI.Autocomplete.ClearButton";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

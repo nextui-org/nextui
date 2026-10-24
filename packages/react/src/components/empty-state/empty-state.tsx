@@ -1,8 +1,10 @@
+"use client";
+
 import type {DOMRenderProps} from "../../utils/dom";
 import type {ReactNode} from "react";
 
 import {emptyStateVariants} from "@heroui/styles";
-import React from "react";
+import React, {useMemo} from "react";
 
 import {dom} from "../../utils/dom";
 
@@ -21,12 +23,16 @@ const EmptyStateRoot = <E extends keyof React.JSX.IntrinsicElements = "div">({
   className,
   ...rest
 }: EmptyStateRootProps<E> & Omit<React.JSX.IntrinsicElements[E], keyof EmptyStateRootProps<E>>) => {
+  const resolvedClassName = useMemo(() => emptyStateVariants({className}), [className]);
+
   return (
-    <dom.div className={emptyStateVariants({className})} data-slot="empty-state" {...(rest as any)}>
+    <dom.div className={resolvedClassName} data-slot="empty-state" {...(rest as any)}>
       {children || "No results found"}
     </dom.div>
   );
 };
+
+EmptyStateRoot.displayName = "HeroUI.EmptyState";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

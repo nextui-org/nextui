@@ -10,7 +10,7 @@ import React, {createContext, use} from "react";
 import {Group as GroupPrimitive} from "react-aria-components/Group";
 import {Input as InputPrimitive} from "react-aria-components/Input";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -44,15 +44,17 @@ const ColorInputGroupRoot = ({
   return (
     <ColorInputGroupContext value={contextValue}>
       <GroupPrimitive
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
         data-slot="color-input-group"
         {...props}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </GroupPrimitive>
     </ColorInputGroupContext>
   );
 };
+
+ColorInputGroupRoot.displayName = "HeroUI.ColorInputGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * ColorInputGroup Prefix
@@ -83,6 +85,8 @@ const ColorInputGroupPrefix = <E extends keyof React.JSX.IntrinsicElements = "di
   );
 };
 
+ColorInputGroupPrefix.displayName = "HeroUI.ColorInputGroup.Prefix";
+
 /* -------------------------------------------------------------------------------------------------
  * ColorInputGroup Input
  * -----------------------------------------------------------------------------------------------*/
@@ -95,12 +99,14 @@ const ColorInputGroupInput = ({className, ...props}: ColorInputGroupInputProps) 
 
   return (
     <InputPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="color-input-group-input"
       {...props}
     />
   );
 };
+
+ColorInputGroupInput.displayName = "HeroUI.ColorInputGroup.Input";
 
 /* -------------------------------------------------------------------------------------------------
  * ColorInputGroup Suffix
@@ -130,6 +136,8 @@ const ColorInputGroupSuffix = <E extends keyof React.JSX.IntrinsicElements = "di
     </dom.div>
   );
 };
+
+ColorInputGroupSuffix.displayName = "HeroUI.ColorInputGroup.Suffix";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

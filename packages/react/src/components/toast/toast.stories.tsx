@@ -161,7 +161,12 @@ const PlacementsTemplate = () => {
     <div className="flex h-full flex-col items-center justify-center gap-6">
       {/* Render a ToastProvider for each placement */}
       {placements.map((p) => (
-        <Toast.Provider key={p} placement={p} queue={placementQueues[p]} />
+        <Toast.Provider
+          key={p}
+          aria-label={`${p} notifications`}
+          placement={p}
+          queue={placementQueues[p]}
+        />
       ))}
       <div className="flex max-w-xs flex-wrap justify-center gap-2">
         {placements.map((p) => (
@@ -648,7 +653,11 @@ const CustomQueueTemplate = () => {
   return (
     <div className="flex h-full max-w-4xl items-center justify-center gap-4">
       {/* Notification Queue */}
-      <Toast.Provider placement="bottom" queue={notificationQueue} />
+      <Toast.Provider
+        aria-label="General notifications"
+        placement="bottom"
+        queue={notificationQueue}
+      />
       <div className="flex justify-center gap-2">
         <Button
           size="sm"
@@ -666,7 +675,7 @@ const CustomQueueTemplate = () => {
       </div>
 
       {/* Error Queue */}
-      <Toast.Provider placement="top" queue={errorQueue} />
+      <Toast.Provider aria-label="Error notifications" placement="top" queue={errorQueue} />
       <div className="flex justify-center gap-2">
         <Button
           size="sm"
@@ -684,7 +693,11 @@ const CustomQueueTemplate = () => {
       </div>
 
       {/* Success Queue */}
-      <Toast.Provider placement="bottom end" queue={successQueue} />
+      <Toast.Provider
+        aria-label="Success notifications"
+        placement="bottom end"
+        queue={successQueue}
+      />
       <div className="flex justify-center gap-2">
         <Button
           className="text-success"

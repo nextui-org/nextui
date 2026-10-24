@@ -10,7 +10,7 @@ import {Group as GroupPrimitive} from "react-aria-components/Group";
 import {Input as InputPrimitive} from "react-aria-components/Input";
 import {NumberField as NumberFieldPrimitive} from "react-aria-components/NumberField";
 
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 import {IconMinus, IconPlus} from "../icons";
 
 /* -------------------------------------------------------------------------------------------------
@@ -46,13 +46,15 @@ const NumberFieldRoot = ({
       <NumberFieldPrimitive
         data-slot="number-field"
         {...props}
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </NumberFieldPrimitive>
     </NumberFieldContext>
   );
 };
+
+NumberFieldRoot.displayName = "HeroUI.NumberField";
 
 /* -------------------------------------------------------------------------------------------------
  * NumberField Group
@@ -64,14 +66,16 @@ const NumberFieldGroup = ({children, className, ...props}: NumberFieldGroupProps
 
   return (
     <GroupPrimitive
-      className={composeTwRenderProps(className, slots?.group())}
+      className={useResolvedClassName(className, slots?.group())}
       data-slot="number-field-group"
       {...props}
     >
-      {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+      {children}
     </GroupPrimitive>
   );
 };
+
+NumberFieldGroup.displayName = "HeroUI.NumberField.Group";
 
 /* -------------------------------------------------------------------------------------------------
  * NumberField Input
@@ -83,12 +87,14 @@ const NumberFieldInput = ({className, ...props}: NumberFieldInputProps) => {
 
   return (
     <InputPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="number-field-input"
       {...props}
     />
   );
 };
+
+NumberFieldInput.displayName = "HeroUI.NumberField.Input";
 
 /* -------------------------------------------------------------------------------------------------
  * NumberField Increment Button
@@ -104,7 +110,7 @@ const NumberFieldIncrementButton = ({
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.incrementButton())}
+      className={useResolvedClassName(className, slots?.incrementButton())}
       data-slot="number-field-increment-button"
       slot="increment"
       {...props}
@@ -117,6 +123,8 @@ const NumberFieldIncrementButton = ({
     </ButtonPrimitive>
   );
 };
+
+NumberFieldIncrementButton.displayName = "HeroUI.NumberField.IncrementButton";
 
 /* -------------------------------------------------------------------------------------------------
  * NumberField Decrement Button
@@ -132,7 +140,7 @@ const NumberFieldDecrementButton = ({
 
   return (
     <ButtonPrimitive
-      className={composeTwRenderProps(className, slots?.decrementButton())}
+      className={useResolvedClassName(className, slots?.decrementButton())}
       data-slot="number-field-decrement-button"
       slot="decrement"
       {...props}
@@ -145,6 +153,8 @@ const NumberFieldDecrementButton = ({
     </ButtonPrimitive>
   );
 };
+
+NumberFieldDecrementButton.displayName = "HeroUI.NumberField.DecrementButton";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

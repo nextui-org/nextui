@@ -47,7 +47,7 @@ const defaultArgs: BadgeProps = {
 const Template = (props: BadgeProps) => (
   <Badge.Anchor>
     <Avatar>
-      <Avatar.Image src={AVATAR_URL} />
+      <Avatar.Image alt="" src={AVATAR_URL} />
     </Avatar>
     <Badge {...props}>5</Badge>
   </Badge.Anchor>
@@ -58,7 +58,7 @@ const SizesTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar size="lg">
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} size="lg">
           99+
@@ -69,7 +69,7 @@ const SizesTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar size="md">
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} size="md">
           99+
@@ -80,7 +80,7 @@ const SizesTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar size="sm">
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} size="sm">
           99+
@@ -100,7 +100,7 @@ const ColorsTemplate = (props: BadgeProps) => {
         <div key={color} className="flex flex-col items-center gap-2">
           <Badge.Anchor>
             <Avatar>
-              <Avatar.Image src={AVATAR_URL} />
+              <Avatar.Image alt="" src={AVATAR_URL} />
             </Avatar>
             <Badge {...props} color={color} />
           </Badge.Anchor>
@@ -116,7 +116,7 @@ const WithContentTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar>
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} color="danger">
           5
@@ -127,7 +127,7 @@ const WithContentTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar>
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} color="danger">
           New
@@ -138,7 +138,7 @@ const WithContentTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar>
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} color="danger">
           99+
@@ -149,7 +149,7 @@ const WithContentTemplate = (props: BadgeProps) => (
     <div className="flex flex-col items-center gap-2">
       <Badge.Anchor>
         <Avatar>
-          <Avatar.Image src={AVATAR_URL} />
+          <Avatar.Image alt="" src={AVATAR_URL} />
         </Avatar>
         <Badge {...props} color="accent">
           <Icon icon="gravity-ui:bell" />
@@ -169,7 +169,7 @@ const PlacementsTemplate = () => {
         <div key={placement} className="flex flex-col items-center gap-2">
           <Badge.Anchor>
             <Avatar>
-              <Avatar.Image src={AVATAR_URL} />
+              <Avatar.Image alt="" src={AVATAR_URL} />
             </Avatar>
             <Badge color="accent" placement={placement} size="sm" />
           </Badge.Anchor>
@@ -195,7 +195,7 @@ const VariantsTemplate = () => {
                 <div key={color} className="flex flex-col items-center gap-2">
                   <Badge.Anchor>
                     <Avatar>
-                      <Avatar.Image src={AVATAR_URL} />
+                      <Avatar.Image alt="" src={AVATAR_URL} />
                     </Avatar>
                     <Badge color={color} size="sm" variant={variant}>
                       5
@@ -224,7 +224,7 @@ const DotBadgeTemplate = () => {
           {colors.map((color) => (
             <Badge.Anchor key={color}>
               <Avatar size="sm">
-                <Avatar.Image src={AVATAR_URL} />
+                <Avatar.Image alt="" src={AVATAR_URL} />
               </Avatar>
               <Badge color={color} placement="bottom-right" size="sm" />
             </Badge.Anchor>
@@ -238,7 +238,7 @@ const DotBadgeTemplate = () => {
           <div className="flex flex-col items-center gap-2">
             <Badge.Anchor>
               <Avatar size="lg">
-                <Avatar.Image src={AVATAR_URL} />
+                <Avatar.Image alt="" src={AVATAR_URL} />
               </Avatar>
               <Badge color="success" placement="bottom-right" size="lg" />
             </Badge.Anchor>
@@ -247,7 +247,7 @@ const DotBadgeTemplate = () => {
           <div className="flex flex-col items-center gap-2">
             <Badge.Anchor>
               <Avatar size="md">
-                <Avatar.Image src={AVATAR_URL} />
+                <Avatar.Image alt="" src={AVATAR_URL} />
               </Avatar>
               <Badge color="success" placement="bottom-right" size="md" />
             </Badge.Anchor>
@@ -256,7 +256,7 @@ const DotBadgeTemplate = () => {
           <div className="flex flex-col items-center gap-2">
             <Badge.Anchor>
               <Avatar size="sm">
-                <Avatar.Image src={AVATAR_URL} />
+                <Avatar.Image alt="" src={AVATAR_URL} />
               </Avatar>
               <Badge color="success" placement="bottom-right" size="sm" />
             </Badge.Anchor>

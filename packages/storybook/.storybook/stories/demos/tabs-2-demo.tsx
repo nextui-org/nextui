@@ -19,6 +19,12 @@ export function TabsDemo2() {
           </Tabs.Tab>
         </Tabs.List>
       </Tabs.ListContainer>
+      <Tabs.Panel className="pt-2 text-sm text-muted" id="chats">
+        No new chats
+      </Tabs.Panel>
+      <Tabs.Panel className="pt-2 text-sm text-muted" id="emails">
+        No new emails
+      </Tabs.Panel>
     </Tabs>
   );
 }

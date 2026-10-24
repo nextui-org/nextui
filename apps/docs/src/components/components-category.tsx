@@ -71,6 +71,7 @@ const COMPONENT_GROUPS = [
       "(overlays)/popover",
       "(overlays)/toast",
       "(overlays)/tooltip",
+      "(overlays)/sheet",
     ],
   },
   {

@@ -202,4 +202,25 @@ describe("TimeField", () => {
 
     expect(focusTarget).not.toBeNull();
   });
+
+  it("supports children as a render function receiving field state", () => {
+    render(
+      <TimeField isRequired name="time">
+        {({isRequired}) => (
+          <>
+            <Label>Time</Label>
+            <TimeField.Group>
+              <TimeField.Input>
+                {(segment) => <TimeField.Segment segment={segment} />}
+              </TimeField.Input>
+            </TimeField.Group>
+            <Description>{isRequired ? "Required" : "Optional"}</Description>
+          </>
+        )}
+      </TimeField>,
+    );
+
+    expect(screen.getByRole("spinbutton", {name: /hour/i})).toBeInTheDocument();
+    expect(screen.getByText("Required")).toBeInTheDocument();
+  });
 });

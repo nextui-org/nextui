@@ -52,7 +52,11 @@
 .scroll-shadow--fade.scroll-shadow--vertical {
   /* `[data-scroll-shadow-mode="auto"]` lets the scroll-driven variant below reuse this
      plumbing. It only paints once `--scroll-linear-gradient` is set, since an undefined
-     variable makes `mask-image` invalid at computed-value time, which resolves to `none`. */
+     variable makes `mask-image` invalid at computed-value time, which resolves to `none`.
+
+     The gradient layer covers the whole box and the opaque scrollbar-lane layer sits on top
+     of it. Splitting the box between the two layers instead leaves the device pixel on the
+     boundary partly covered by each at fractional pixel ratios, which paints a faint line. */
   &:where(
     [data-top-scroll="true"],
     [data-bottom-scroll="true"],
@@ -65,7 +69,7 @@
       right top;
     mask-repeat: no-repeat;
     mask-size:
-      calc(100% - var(--scroll-shadow-scrollbar-size)) 100%,
+      100% 100%,
       var(--scroll-shadow-scrollbar-size) 100%;
     -webkit-mask-image: linear-gradient(var(--scroll-linear-gradient)), linear-gradient(#000, #000);
     -webkit-mask-position:
@@ -73,7 +77,7 @@
       right top;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size:
-      calc(100% - var(--scroll-shadow-scrollbar-size)) 100%,
+      100% 100%,
       var(--scroll-shadow-scrollbar-size) 100%;
   }
 
@@ -106,7 +110,7 @@
       left bottom;
     mask-repeat: no-repeat;
     mask-size:
-      100% calc(100% - var(--scroll-shadow-scrollbar-size)),
+      100% 100%,
       100% var(--scroll-shadow-scrollbar-size);
     -webkit-mask-image: linear-gradient(var(--scroll-linear-gradient)), linear-gradient(#000, #000);
     -webkit-mask-position:
@@ -114,7 +118,7 @@
       left bottom;
     -webkit-mask-repeat: no-repeat;
     -webkit-mask-size:
-      100% calc(100% - var(--scroll-shadow-scrollbar-size)),
+      100% 100%,
       100% var(--scroll-shadow-scrollbar-size);
   }
 

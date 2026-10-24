@@ -5,6 +5,7 @@ import type {Item, Node} from "fumadocs-core/page-tree";
 import type {SearchItemType, SharedProps} from "fumadocs-ui/components/dialog/search";
 import type {ComponentProps} from "react";
 
+import {useTranslations} from "@fuma-translate/react";
 import {Sparkles} from "@gravity-ui/icons";
 import {useAgent} from "@heroui/agent/next";
 import {Chip, Kbd, Tag, TagGroup} from "@heroui/react";
@@ -133,7 +134,6 @@ export default function CustomSearchDialog(props: SharedProps) {
     if (previousPathnameRef.current !== pathname) {
       const defaultTag = getDefaultTag(pathname);
 
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setSelected(new Set([defaultTag]));
       previousPathnameRef.current = pathname;
     }
@@ -396,7 +396,7 @@ export default function CustomSearchDialog(props: SharedProps) {
 }
 
 function SearchDialogInput(props: ComponentProps<"input">) {
-  const {text} = useI18n();
+  const t = useTranslations({note: "search dialog"});
   const {onSearchChange, search} = useSearch();
 
   return (
@@ -404,7 +404,7 @@ function SearchDialogInput(props: ComponentProps<"input">) {
       {...props}
       autoFocus
       className="placeholder:text-fd-muted-foreground w-0 flex-1 bg-transparent text-lg focus-visible:outline-none"
-      placeholder={props.placeholder || text.search}
+      placeholder={props.placeholder || t("Search")}
       value={search}
       onChange={(e) => onSearchChange(e.target.value)}
     />

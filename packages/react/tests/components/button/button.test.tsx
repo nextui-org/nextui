@@ -46,6 +46,19 @@ describe("Button", () => {
     );
   });
 
+  it("merges a string className onto variant classes", () => {
+    render(
+      <Button className="custom-action" variant="secondary">
+        Save
+      </Button>,
+    );
+    const button = screen.getByRole("button", {name: "Save"});
+
+    expect(button.className).toEqual(expect.stringContaining("button"));
+    expect(button.className).toEqual(expect.stringContaining("button--secondary"));
+    expect(button.className).toEqual(expect.stringContaining("custom-action"));
+  });
+
   it("supports data attribute passthrough", () => {
     render(<Button data-testid="save-btn">Save</Button>);
 

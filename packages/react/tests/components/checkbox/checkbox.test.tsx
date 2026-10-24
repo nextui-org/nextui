@@ -12,17 +12,18 @@ describe("Checkbox", () => {
     user = setupUser();
   });
 
-  const renderCheckbox = (props: ComponentProps<typeof Checkbox> = {}) =>
-    render(
-      <Checkbox {...props}>
-        <Checkbox.Content>
-          <Checkbox.Control>
-            <Checkbox.Indicator />
-          </Checkbox.Control>
-          <Label>Accept terms</Label>
-        </Checkbox.Content>
-      </Checkbox>,
-    );
+  const checkbox = (props: ComponentProps<typeof Checkbox> = {}) => (
+    <Checkbox {...props}>
+      <Checkbox.Content>
+        <Checkbox.Control>
+          <Checkbox.Indicator />
+        </Checkbox.Control>
+        <Label>Accept terms</Label>
+      </Checkbox.Content>
+    </Checkbox>
+  );
+
+  const renderCheckbox = (props: ComponentProps<typeof Checkbox> = {}) => render(checkbox(props));
 
   it("renders with role and accessible name", () => {
     renderCheckbox();
@@ -131,6 +132,35 @@ describe("Checkbox", () => {
 
     expect(checkbox).toHaveProperty("indeterminate", true);
     expect(field).toHaveAttribute("data-indeterminate", "true");
+  });
+
+  it("preserves the checkmark draw animation across indeterminate transitions", () => {
+    const {rerender} = renderCheckbox({isIndeterminate: true});
+    const checkmark = document.querySelector('[data-slot="checkbox-default-indicator--checkmark"]');
+
+    expect(checkmark).toHaveAttribute("stroke-dashoffset", "66");
+    expect(
+      document.querySelector('[data-slot="checkbox-default-indicator--indeterminate"]'),
+    ).not.toBeNull();
+
+    rerender(checkbox());
+    expect(document.querySelector('[data-slot="checkbox-default-indicator--checkmark"]')).toBe(
+      checkmark,
+    );
+    expect(checkmark).toHaveAttribute("stroke-dashoffset", "66");
+    expect(
+      document.querySelector('[data-slot="checkbox-default-indicator--indeterminate"]'),
+    ).toBeNull();
+
+    rerender(checkbox({isIndeterminate: true}));
+    rerender(checkbox({isSelected: true}));
+    expect(document.querySelector('[data-slot="checkbox-default-indicator--checkmark"]')).toBe(
+      checkmark,
+    );
+    expect(checkmark).toHaveAttribute("stroke-dashoffset", "44");
+    expect(
+      document.querySelector('[data-slot="checkbox-default-indicator--indeterminate"]'),
+    ).toBeNull();
   });
 
   it("supports Space key toggle", async () => {

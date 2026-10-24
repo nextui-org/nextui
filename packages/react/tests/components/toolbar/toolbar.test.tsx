@@ -1,4 +1,5 @@
 import {render, screen, setupUser} from "@heroui/testing/helpers";
+import {ToggleButtonGroupContext} from "react-aria-components/ToggleButtonGroup";
 
 import {Button} from "@/components/button";
 import {ToggleButton} from "@/components/toggle-button";
@@ -106,5 +107,65 @@ describe("Toolbar", () => {
     await user.click(screen.getByRole("button", {name: "Bold"}));
 
     expect(onSelectionChange).toHaveBeenCalledWith(new Set(["bold"]));
+  });
+  it("supports nested group keyboard navigation without unsupported orientation attributes", async () => {
+    render(
+      <Toolbar aria-label="Editor">
+        <ToggleButtonGroup aria-label="Text style" selectionMode="multiple">
+          <ToggleButton id="bold">Bold</ToggleButton>
+          <ToggleButton id="italic">Italic</ToggleButton>
+        </ToggleButtonGroup>
+        <Button>Save</Button>
+      </Toolbar>,
+    );
+
+    expect(screen.getByRole("group", {name: "Text style"})).not.toHaveAttribute("aria-orientation");
+    expect(screen.getByRole("toolbar", {name: "Editor"})).toHaveAttribute(
+      "aria-orientation",
+      "horizontal",
+    );
+    await user.tab();
+    expect(screen.getByRole("button", {name: "Bold"})).toHaveFocus();
+    await user.keyboard("{ArrowRight} ");
+    expect(screen.getByRole("button", {name: "Italic"})).toHaveFocus();
+    expect(screen.getByRole("button", {name: "Italic"})).toHaveAttribute("aria-pressed", "true");
+    await user.keyboard("{ArrowRight}");
+    expect(screen.getByRole("button", {name: "Save"})).toHaveFocus();
+  });
+
+  it("preserves orientation for a toggle group's custom semantic renderer", () => {
+    render(
+      <Toolbar aria-label="Editor">
+        <ToggleButtonGroup
+          aria-label="Text style"
+          orientation="vertical"
+          render={(props) => <div {...props} role="toolbar" />}
+        >
+          <ToggleButton id="bold">Bold</ToggleButton>
+          <ToggleButton id="italic">Italic</ToggleButton>
+        </ToggleButtonGroup>
+      </Toolbar>,
+    );
+
+    expect(screen.getByRole("toolbar", {name: "Text style"})).toHaveAttribute(
+      "aria-orientation",
+      "vertical",
+    );
+  });
+
+  it("supports a toggle group renderer supplied through context", () => {
+    render(
+      <ToggleButtonGroupContext
+        value={{render: (props) => <div {...props} data-testid="context-group" />}}
+      >
+        <ToggleButtonGroup aria-label="Text style">
+          <ToggleButton id="bold">Bold</ToggleButton>
+        </ToggleButtonGroup>
+      </ToggleButtonGroupContext>,
+    );
+
+    expect(screen.getByRole("radiogroup", {name: "Text style"})).toBe(
+      screen.getByTestId("context-group"),
+    );
   });
 });

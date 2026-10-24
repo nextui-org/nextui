@@ -96,6 +96,8 @@ const FieldsetRoot = <E extends keyof React.JSX.IntrinsicElements = "fieldset">(
   );
 };
 
+FieldsetRoot.displayName = "HeroUI.Fieldset";
+
 /* -------------------------------------------------------------------------------------------------
  * Fieldset Legend
  * -----------------------------------------------------------------------------------------------*/
@@ -121,6 +123,8 @@ const FieldsetLegend = <E extends keyof React.JSX.IntrinsicElements = "legend">(
   );
 };
 
+FieldsetLegend.displayName = "HeroUI.Fieldset.Legend";
+
 /* -------------------------------------------------------------------------------------------------
  * Field Group
  * -----------------------------------------------------------------------------------------------*/
@@ -145,6 +149,8 @@ const FieldGroup = <E extends keyof React.JSX.IntrinsicElements = "div">({
     />
   );
 };
+
+FieldGroup.displayName = "HeroUI.Fieldset.Group";
 
 /* -------------------------------------------------------------------------------------------------
  * Field Actions
@@ -174,6 +180,8 @@ const FieldsetActions = <E extends keyof React.JSX.IntrinsicElements = "div">({
     </dom.div>
   );
 };
+
+FieldsetActions.displayName = "HeroUI.Fieldset.Actions";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

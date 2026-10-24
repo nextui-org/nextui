@@ -14,6 +14,29 @@ export type DropdownFixtureProps = {
   onAction?: (key: Key) => void;
 };
 
+/** Row wider than 48svw on a 390px screen, so a squeezed popover collapses the icon. */
+export const NarrowViewportDropdownFixture = () => (
+  <Dropdown>
+    <Dropdown.Trigger aria-label="Menu">Actions</Dropdown.Trigger>
+    <Dropdown.Popover>
+      <Dropdown.Menu>
+        <Dropdown.Item id="theme" textValue="System theme">
+          <svg
+            aria-hidden="true"
+            className="size-4 text-muted"
+            data-testid="theme-icon"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <circle cx="8" cy="8" r="6" />
+          </svg>
+          <Label style={{minWidth: "16rem"}}>System theme</Label>
+        </Dropdown.Item>
+      </Dropdown.Menu>
+    </Dropdown.Popover>
+  </Dropdown>
+);
+
 export const DropdownFixture = (props: DropdownFixtureProps = {}) => (
   <Dropdown defaultOpen={props.defaultOpen}>
     <Dropdown.Trigger aria-label="Menu">Actions</Dropdown.Trigger>

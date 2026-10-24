@@ -96,7 +96,7 @@ export const createCollectionSlot = <T extends object>(name: string) => {
         }
 
         if (defaultRender) {
-          // eslint-disable-next-line react-hooks/refs -- forward ref into chrome factory; `.current` is not read here
+          // Forward ref into chrome factory; `.current` is not read here.
           return defaultRender({...(restProps as P), children}, injected, forwardedRef);
         }
 

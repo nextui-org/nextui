@@ -3,10 +3,6 @@
   @apply relative;
 }
 
-.accordion__heading {
-  @apply flex;
-}
-
 .disclosure__trigger {
   cursor: var(--cursor-interactive);
   @apply inline-block no-highlight;

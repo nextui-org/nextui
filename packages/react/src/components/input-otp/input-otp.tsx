@@ -87,6 +87,8 @@ const InputOTPRoot = ({
   );
 };
 
+InputOTPRoot.displayName = "HeroUI.InputOTP";
+
 /* -------------------------------------------------------------------------------------------------
  * Input OTP Group
  * -----------------------------------------------------------------------------------------------*/
@@ -104,6 +106,8 @@ const InputOTPGroup = ({className, ...props}: InputOTPGroupProps) => {
     />
   );
 };
+
+InputOTPGroup.displayName = "HeroUI.InputOTP.Group";
 
 /* -------------------------------------------------------------------------------------------------
  * Input OTP Slot
@@ -140,6 +144,8 @@ const InputOTPSlot = ({className, index, ...props}: InputOTPSlotProps) => {
   );
 };
 
+InputOTPSlot.displayName = "HeroUI.InputOTP.Slot";
+
 /* -------------------------------------------------------------------------------------------------
  * Input OTP Separator
  * -----------------------------------------------------------------------------------------------*/
@@ -158,6 +164,8 @@ const InputOTPSeparator = ({className, ...props}: InputOTPSeparatorProps) => {
     />
   );
 };
+
+InputOTPSeparator.displayName = "HeroUI.InputOTP.Separator";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

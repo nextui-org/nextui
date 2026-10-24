@@ -9,7 +9,7 @@ import {Group as GroupPrimitive} from "react-aria-components/Group";
 import {Input as InputPrimitive} from "react-aria-components/Input";
 import {TextArea as TextAreaPrimitive} from "react-aria-components/TextArea";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {TextFieldContext} from "../textfield";
 
 /* -------------------------------------------------------------------------------------------------
@@ -62,15 +62,17 @@ const InputGroupRoot = ({
       <GroupPrimitive
         {...props}
         ref={groupRef}
-        className={composeTwRenderProps(className, slots?.base())}
+        className={useResolvedClassName(className, slots?.base())}
         data-slot="input-group"
         onClick={handleClick}
       >
-        {(renderProps) => (typeof children === "function" ? children(renderProps) : children)}
+        {children}
       </GroupPrimitive>
     </InputGroupContext>
   );
 };
+
+InputGroupRoot.displayName = "HeroUI.InputGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * InputGroup Input
@@ -82,12 +84,14 @@ const InputGroupInput = ({className, ...props}: InputGroupInputProps) => {
 
   return (
     <InputPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="input-group-input"
       {...props}
     />
   );
 };
+
+InputGroupInput.displayName = "HeroUI.InputGroup.Input";
 
 /* -------------------------------------------------------------------------------------------------
  * InputGroup Prefix
@@ -108,6 +112,8 @@ const InputGroupPrefix = ({children, className, ...props}: InputGroupPrefixProps
   );
 };
 
+InputGroupPrefix.displayName = "HeroUI.InputGroup.Prefix";
+
 /* -------------------------------------------------------------------------------------------------
  * InputGroup TextArea
  * -----------------------------------------------------------------------------------------------*/
@@ -118,12 +124,14 @@ const InputGroupTextArea = ({className, ...props}: InputGroupTextAreaProps) => {
 
   return (
     <TextAreaPrimitive
-      className={composeTwRenderProps(className, slots?.input())}
+      className={useResolvedClassName(className, slots?.input())}
       data-slot="input-group-textarea"
       {...props}
     />
   );
 };
+
+InputGroupTextArea.displayName = "HeroUI.InputGroup.TextArea";
 
 /* -------------------------------------------------------------------------------------------------
  * InputGroup Suffix
@@ -143,6 +151,8 @@ const InputGroupSuffix = ({children, className, ...props}: InputGroupSuffixProps
     </div>
   );
 };
+
+InputGroupSuffix.displayName = "HeroUI.InputGroup.Suffix";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

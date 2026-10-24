@@ -53,7 +53,7 @@
 }
 
 .chip--md {
-  @apply text-xs;
+  /* No styles as this is the default size */
 }
 
 .chip--lg {

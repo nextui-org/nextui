@@ -21,9 +21,10 @@ import {Group as GroupPrimitive} from "react-aria-components/Group";
 
 import {dataAttr} from "../../utils/assertion";
 import {createCollectionSlot} from "../../utils/collection-prop-injection";
-import {composeTwRenderProps} from "../../utils/compose";
+import {useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {FieldSlotsGate} from "../../utils/field-slots-gate";
+import {usePopoverExitHold} from "../../utils/use-popover-exit-hold";
 import {IconChevronDown} from "../icons";
 import {SurfaceContext} from "../surface";
 
@@ -81,14 +82,16 @@ const ComboBoxRoot = <T extends object = object, M extends "single" | "multiple"
           data-slot="combo-box"
           menuTrigger={menuTrigger}
           {...props}
-          className={composeTwRenderProps(className, slots?.base())}
+          className={useResolvedClassName(className, slots?.base())}
         >
-          {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+          {children}
         </ComboBoxPrimitive>
       </ComboBoxContext>
     </FieldSlotsGate>
   );
 };
+
+ComboBoxRoot.displayName = "HeroUI.ComboBox";
 
 /* -------------------------------------------------------------------------------------------------
  * ComboBox InputGroup
@@ -130,6 +133,8 @@ const ComboBoxInputGroup = <E extends keyof React.JSX.IntrinsicElements = "div">
   );
 };
 
+ComboBoxInputGroup.displayName = "HeroUI.ComboBox.InputGroup";
+
 /* -------------------------------------------------------------------------------------------------
  * ComboBox Value
  * -----------------------------------------------------------------------------------------------*/
@@ -146,7 +151,7 @@ const ComboBoxValue = <T extends object = object>({
 
   return (
     <ComboBoxValuePrimitive
-      className={composeTwRenderProps(className, slots?.value())}
+      className={useResolvedClassName(className, slots?.value())}
       data-slot="combo-box-value"
       {...props}
     >
@@ -154,6 +159,8 @@ const ComboBoxValue = <T extends object = object>({
     </ComboBoxValuePrimitive>
   );
 };
+
+ComboBoxValue.displayName = "HeroUI.ComboBox.Value";
 
 /* -------------------------------------------------------------------------------------------------
  * ComboBox Trigger
@@ -168,11 +175,13 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
   const state = use(ComboBoxStateContext);
   const isHidden = useIsHidden();
   const [inputGroupProps, restProps] = inputGroupSlot.useSlot(props);
+  const triggerClassName = useResolvedClassName(className, slots?.trigger());
+  const inputGroupClassName = useResolvedClassName(inputGroupProps?.className, slots?.inputGroup());
 
   if (!inputGroupProps) {
     return (
       <Button
-        className={composeTwRenderProps(className, slots?.trigger())}
+        className={triggerClassName}
         data-open={dataAttr(state?.isOpen)}
         data-slot="combo-box-trigger"
         {...restProps}
@@ -186,17 +195,12 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
     return null;
   }
 
-  const {
-    className: containerClassName,
-    render: containerRender,
-    siblings = EMPTY_SIBLINGS,
-    ...containerRest
-  } = inputGroupProps;
+  const {render: containerRender, siblings = EMPTY_SIBLINGS, ...containerRest} = inputGroupProps;
 
   return (
     <GroupPrimitive
       {...(containerRest as ComponentPropsWithRef<typeof GroupPrimitive>)}
-      className={composeTwRenderProps(containerClassName, slots?.inputGroup())}
+      className={inputGroupClassName}
       data-slot="combo-box-input-group"
       render={(renderProps) => {
         const {
@@ -216,7 +220,7 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
           >
             {siblings}
             <Button
-              className={composeTwRenderProps(className, slots?.trigger())}
+              className={triggerClassName}
               data-open={dataAttr(state?.isOpen)}
               data-slot="combo-box-trigger"
               {...restProps}
@@ -229,6 +233,8 @@ const ComboBoxTrigger = ({children, className, ...props}: ComboBoxTriggerProps) 
     />
   );
 };
+
+ComboBoxTrigger.displayName = "HeroUI.ComboBox.Trigger";
 
 /* -------------------------------------------------------------------------------------------------
  * ComboBox Popover
@@ -243,10 +249,15 @@ interface ComboBoxPopoverProps extends Omit<
 const ComboBoxPopover = ({
   children,
   className,
+  defaultOpen,
+  isExiting: isExitingProp,
+  isOpen,
   placement = "bottom",
+  ref,
   ...props
 }: ComboBoxPopoverProps) => {
   const {slots} = use(ComboBoxContext);
+  const {isExiting, ref: overlayRef} = usePopoverExitHold({...props, defaultOpen, isOpen}, {ref});
 
   return (
     <SurfaceContext
@@ -256,8 +267,12 @@ const ComboBoxPopover = ({
     >
       <PopoverPrimitive
         {...props}
-        className={composeTwRenderProps(className, slots?.popover())}
+        ref={overlayRef}
+        className={useResolvedClassName(className, slots?.popover())}
         data-slot="combo-box-popover"
+        defaultOpen={defaultOpen}
+        isExiting={isExiting || isExitingProp}
+        isOpen={isOpen}
         placement={placement}
       >
         {children}
@@ -265,6 +280,8 @@ const ComboBoxPopover = ({
     </SurfaceContext>
   );
 };
+
+ComboBoxPopover.displayName = "HeroUI.ComboBox.Popover";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

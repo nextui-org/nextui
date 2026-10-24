@@ -64,7 +64,7 @@
   /* Indeterminate line indicator */
   &[data-indeterminate="true"] {
     [data-slot="checkbox-default-indicator--indeterminate"] {
-      @apply size-3;
+      @apply absolute size-3;
     }
   }
 

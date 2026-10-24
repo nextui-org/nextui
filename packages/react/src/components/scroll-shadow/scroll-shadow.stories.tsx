@@ -72,7 +72,7 @@ const LoremCards = () => {
 export const Default: Story = {
   render: (args) => (
     <div className="w-full p-0 sm:max-w-sm">
-      <ScrollShadow className="max-h-[240px] p-4" {...args}>
+      <ScrollShadow className="max-h-[240px] p-4" tabIndex={0} {...args}>
         <LoremContent />
       </ScrollShadow>
     </div>
@@ -85,7 +85,7 @@ export const Variants: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Fade (Opacity Effect)</h4>
         <div className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="max-h-[240px] p-4" {...args}>
+          <ScrollShadow className="max-h-[240px] p-4" tabIndex={0} {...args}>
             <LoremContent />
           </ScrollShadow>
         </div>
@@ -94,7 +94,7 @@ export const Variants: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Blur (Blur Effect)</h4>
         <div className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="max-h-[240px] p-4" {...args}>
+          <ScrollShadow className="max-h-[240px] p-4" tabIndex={0} {...args}>
             <LoremContent />
           </ScrollShadow>
         </div>
@@ -109,7 +109,7 @@ export const Orientation: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Vertical</h4>
         <Card className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="max-h-[240px] p-4" orientation="vertical" {...args}>
+          <ScrollShadow className="max-h-[240px] p-4" orientation="vertical" tabIndex={0} {...args}>
             <LoremContent />
           </ScrollShadow>
         </Card>
@@ -118,7 +118,7 @@ export const Orientation: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Horizontal</h4>
         <Card className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="p-4" orientation="horizontal" {...args}>
+          <ScrollShadow className="p-4" orientation="horizontal" tabIndex={0} {...args}>
             <LoremCards />
           </ScrollShadow>
         </Card>
@@ -130,7 +130,7 @@ export const Orientation: Story = {
 export const HideScrollBar: Story = {
   render: (args) => (
     <div className="w-full p-0 sm:max-w-sm">
-      <ScrollShadow hideScrollBar className="max-h-[240px] p-4" {...args}>
+      <ScrollShadow hideScrollBar className="max-h-[240px] p-4" tabIndex={0} {...args}>
         <LoremContent />
       </ScrollShadow>
     </div>
@@ -143,7 +143,7 @@ export const CustomSize: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Small Shadow (20px)</h4>
         <div className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="max-h-[200px] p-4" size={20} {...args}>
+          <ScrollShadow className="max-h-[200px] p-4" size={20} tabIndex={0} {...args}>
             <LoremContent />
           </ScrollShadow>
         </div>
@@ -151,7 +151,7 @@ export const CustomSize: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Default Shadow (40px)</h4>
         <div className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="max-h-[200px] p-4" {...args}>
+          <ScrollShadow className="max-h-[200px] p-4" tabIndex={0} {...args}>
             <LoremContent />
           </ScrollShadow>
         </div>
@@ -159,7 +159,7 @@ export const CustomSize: Story = {
       <div>
         <h4 className="mb-2 text-sm font-semibold">Large Shadow (80px)</h4>
         <div className="w-full p-0 sm:max-w-sm">
-          <ScrollShadow className="max-h-[200px] p-4" size={80} {...args}>
+          <ScrollShadow className="max-h-[200px] p-4" size={80} tabIndex={0} {...args}>
             <LoremContent />
           </ScrollShadow>
         </div>
@@ -183,6 +183,7 @@ export const VisibilityChange: Story = {
             <ScrollShadow
               className="max-h-[240px] p-4"
               orientation="vertical"
+              tabIndex={0}
               onVisibilityChange={(visibility) => setVerticalState(visibility)}
               {...args}
             >
@@ -199,6 +200,7 @@ export const VisibilityChange: Story = {
             <ScrollShadow
               className="p-4"
               orientation="horizontal"
+              tabIndex={0}
               onVisibilityChange={(visibility) => setHorizontalState(visibility)}
               {...args}
             >
@@ -219,7 +221,7 @@ export const WithCard: Story = {
         <Card.Description>Please review before proceeding</Card.Description>
       </Card.Header>
       <Card.Content className="p-0">
-        <ScrollShadow className="h-[300px] px-4" size={80} {...args}>
+        <ScrollShadow className="h-[300px] px-4" size={80} tabIndex={0} {...args}>
           <LoremContent />
         </ScrollShadow>
       </Card.Content>

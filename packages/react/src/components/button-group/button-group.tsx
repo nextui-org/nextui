@@ -11,7 +11,7 @@ import {Group} from "react-aria-components/Group";
 import {useSlottedContext} from "react-aria-components/slots";
 import {ToggleButtonGroupContext as RACToggleButtonGroupContext} from "react-aria-components/ToggleButtonGroup";
 
-import {composeSlotClassName, composeTwRenderProps} from "../../utils";
+import {composeSlotClassName, useResolvedClassName} from "../../utils";
 import {dom} from "../../utils/dom";
 
 /* -------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ const ButtonGroupRoot = ({
   return (
     <ButtonGroupContext value={context}>
       <Group
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
         data-slot="button-group"
         isDisabled={isDisabled}
         {...rest}
@@ -94,6 +94,8 @@ const ButtonGroupRoot = ({
     </ButtonGroupContext>
   );
 };
+
+ButtonGroupRoot.displayName = "HeroUI.ButtonGroup";
 
 /* -------------------------------------------------------------------------------------------------
  * ButtonGroup Separator
@@ -121,6 +123,8 @@ const ButtonGroupSeparator = <E extends keyof React.JSX.IntrinsicElements = "spa
     />
   );
 };
+
+ButtonGroupSeparator.displayName = "HeroUI.ButtonGroup.Separator";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

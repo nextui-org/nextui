@@ -71,6 +71,7 @@ describe("SearchField", () => {
     ) as HTMLElement | null;
 
     expect(clear).not.toBeNull();
+    expect(clear).toHaveAccessibleName("Clear search");
 
     await user.click(clear!);
     expect(screen.getByRole("searchbox", {name: "Search"})).toHaveValue("");

@@ -164,4 +164,14 @@ describe("ToggleButton", () => {
     await user.hover(button);
     expect(button).not.toHaveAttribute("data-hovered");
   });
+
+  it("supports children as a render function receiving selection state", async () => {
+    render(<ToggleButton>{({isSelected}) => (isSelected ? "Bold on" : "Bold off")}</ToggleButton>);
+
+    const button = screen.getByRole("button", {name: "Bold off"});
+
+    await user.click(button);
+
+    expect(screen.getByRole("button", {name: "Bold on"})).toBeInTheDocument();
+  });
 });

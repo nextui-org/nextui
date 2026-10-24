@@ -144,6 +144,8 @@ const AvatarGroupRoot = <E extends keyof React.JSX.IntrinsicElements = "div">({
   );
 };
 
+AvatarGroupRoot.displayName = "HeroUI.AvatarGroup";
+
 /* -------------------------------------------------------------------------------------------------
  * Exports
  * -----------------------------------------------------------------------------------------------*/

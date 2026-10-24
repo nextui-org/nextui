@@ -7,7 +7,7 @@ import {listboxVariants} from "@heroui/styles";
 import React from "react";
 import {ListBox as ListBoxPrimitive} from "react-aria-components/ListBox";
 
-import {composeTwRenderProps} from "../../utils";
+import {useResolvedClassName} from "../../utils";
 
 /* -------------------------------------------------------------------------------------------------
  * ListBox Root
@@ -22,12 +22,14 @@ function ListBoxRoot<T extends object>({className, variant, ...props}: ListBoxRo
 
   return (
     <ListBoxPrimitive
-      className={composeTwRenderProps(className, styles)}
+      className={useResolvedClassName(className, styles)}
       data-slot="list-box"
       {...props}
     />
   );
 }
+
+ListBoxRoot.displayName = "HeroUI.ListBox";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

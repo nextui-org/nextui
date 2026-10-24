@@ -39,7 +39,7 @@
 
   .range-calendar__grid-header {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     @apply w-full;
 
     & > tr {
@@ -49,7 +49,7 @@
 
   .range-calendar__grid-body {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, minmax(0, 1fr));
     @apply mt-1 w-full;
 
     & > tr {
@@ -134,7 +134,12 @@
 .range-calendar__grid {
   /* Override table display with CSS Grid for easier customization */
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  /*
+   * `minmax(0, 1fr)` instead of `1fr` so columns stay equal and never grow to fit
+   * their content. `1fr` alone is `minmax(auto, 1fr)`, which lets long weekday labels
+   * (e.g. pt-PT "domingo", "segunda") widen their column past the fixed calendar width.
+   */
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   @apply w-full;
 
   &[aria-readonly="true"] {
@@ -175,7 +180,12 @@
 
 .range-calendar__header-cell {
   /* Header cell (th - weekday names) styles */
-  @apply flex items-center justify-center pb-2 text-xs font-medium text-muted;
+  /*
+   * Block (not flex) so `truncate` can apply an ellipsis to the label text when a
+   * locale's weekday name is wider than the column, instead of letting labels overflow
+   * and run into each other.
+   */
+  @apply block min-w-0 truncate pb-2 text-center text-xs font-medium text-muted;
 }
 
 /* -----------------------------------------------------------------------------

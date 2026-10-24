@@ -17,7 +17,7 @@ import {
 import {Heading as DisclosureHeadingPrimitive} from "react-aria-components/Heading";
 
 import {dataAttr} from "../../utils/assertion";
-import {composeSlotClassName, composeTwRenderProps} from "../../utils/compose";
+import {composeSlotClassName, useResolvedClassName} from "../../utils/compose";
 import {dom} from "../../utils/dom";
 import {IconChevronDown} from "../icons";
 
@@ -45,13 +45,15 @@ const DisclosureRoot = ({children, className, ...props}: DisclosureRootProps) =>
       <DisclosurePrimitive
         data-slot="disclosure"
         {...props}
-        className={composeTwRenderProps(className, slots.base())}
+        className={useResolvedClassName(className, slots.base())}
       >
-        {(values) => <>{typeof children === "function" ? children(values) : children}</>}
+        {children}
       </DisclosurePrimitive>
     </DisclosureContext>
   );
 };
+
+DisclosureRoot.displayName = "HeroUI.Disclosure";
 
 /* -------------------------------------------------------------------------------------------------
  * Disclosure Heading
@@ -72,6 +74,8 @@ const DisclosureHeading = ({className, ...props}: DisclosureHeadingProps) => {
   );
 };
 
+DisclosureHeading.displayName = "HeroUI.Disclosure.Heading";
+
 /* -------------------------------------------------------------------------------------------------
  * Disclosure Trigger
  * -----------------------------------------------------------------------------------------------*/
@@ -82,7 +86,7 @@ const DisclosureTrigger = ({className, ...props}: DisclosureTriggerProps) => {
 
   return (
     <Button
-      className={composeTwRenderProps(className, slots?.trigger())}
+      className={useResolvedClassName(className, slots?.trigger())}
       data-slot="disclosure-trigger"
       slot="trigger"
       {...props}
@@ -93,6 +97,8 @@ const DisclosureTrigger = ({className, ...props}: DisclosureTriggerProps) => {
     </Button>
   );
 };
+
+DisclosureTrigger.displayName = "HeroUI.Disclosure.Trigger";
 
 /* -------------------------------------------------------------------------------------------------
  * Disclosure Content
@@ -107,7 +113,7 @@ const DisclosureContent = ({children, className, ...props}: DisclosureContentPro
   return (
     <DisclosurePanel
       ref={contentRef}
-      className={composeTwRenderProps(className, slots?.content())}
+      className={useResolvedClassName(className, slots?.content())}
       data-expanded={dataAttr(isExpanded)}
       data-slot="disclosure-content"
       {...props}
@@ -116,6 +122,8 @@ const DisclosureContent = ({children, className, ...props}: DisclosureContentPro
     </DisclosurePanel>
   );
 };
+
+DisclosureContent.displayName = "HeroUI.Disclosure.Content";
 
 /* -------------------------------------------------------------------------------------------------
  * Disclosure Body
@@ -141,6 +149,8 @@ const DisclosureBody = <E extends keyof React.JSX.IntrinsicElements = "div">({
     </dom.div>
   );
 };
+
+DisclosureBody.displayName = "HeroUI.Disclosure.Body";
 
 /* -------------------------------------------------------------------------------------------------
  * Disclosure Indicator
@@ -186,6 +196,8 @@ const DisclosureIndicator = <E extends keyof React.JSX.IntrinsicElements = "svg"
     />
   );
 };
+
+DisclosureIndicator.displayName = "HeroUI.Disclosure.Indicator";
 
 /* -------------------------------------------------------------------------------------------------
  * Exports

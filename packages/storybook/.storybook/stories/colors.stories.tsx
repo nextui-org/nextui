@@ -52,7 +52,7 @@ interface ColorSectionProps {
 const ColorSection = ({colors, title}: ColorSectionProps) => {
   return (
     <div className="mb-8">
-      <h3 className="mb-4 text-lg font-semibold text-foreground">{title}</h3>
+      <h2 className="mb-4 text-lg font-semibold text-foreground">{title}</h2>
       <div className="grid gap-3">
         {colors.map((color) => (
           <ColorItem key={color.variable} {...color} />
